@@ -5,7 +5,8 @@ date: 2018-05-03 15:00:33
 id: anomaly-detection 
 tags: 
 - 视觉
-- MATLAB
+- matlab
+- 距离
 categories:
 - 学习
 - 视觉

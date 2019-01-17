@@ -7,8 +7,8 @@ categories:
 - 网站
 tags:
 - 博客
-- Github
-- Hexo
+- github
+- hexo
 ---
 
 ## 准备工作

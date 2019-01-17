@@ -8,6 +8,7 @@ tags:
 - 技能 
 - 生活
 - 网站
+- app
 categories: 
 - 生活
 - 网站

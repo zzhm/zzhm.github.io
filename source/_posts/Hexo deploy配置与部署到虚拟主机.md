@@ -7,7 +7,7 @@ tag:
 - hexo
 - 网站
 - 博客
-- OMV
+- omv
 category:
 - 博客
 ---

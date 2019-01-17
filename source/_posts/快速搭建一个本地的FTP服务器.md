@@ -5,6 +5,7 @@ date: 2018-10-16 19:31:08
 id: ftp-server-on-windows
 tags:
 - ftp
+- win10
 - nas
 categories:
 - 生活

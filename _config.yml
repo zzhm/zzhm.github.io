@@ -277,14 +277,15 @@ social:
     url: mailto:1808525162@qq.com
   - icon: fas fa-rss
     url: atom.xml
-  - icon: fab fa-github
-    url: 
   - icon: fas fa-music
     url: https://music.163.com/#/user/home?id=1546778263
 
 # 百度统计key
-baidu_analytics_key: 4aa86941ec5081fad9df5db06100091b 
-
+#baidu_analytics_key: 4aa86941ec5081fad9df5db06100091b 
+sitemap:
+    path: sitemap.xml
+    tag: false
+    category: false
 # valine
 valine:
   enable: true  # 如果你想用Valine评论系统，请设置enable为true

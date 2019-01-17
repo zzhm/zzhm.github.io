@@ -6,7 +6,7 @@ id: Ei-Compendex
 tags:
 - 投稿
 - 科研
-- EI
+- ei
 categories:
 - 科研
 - 论文

@@ -6,6 +6,7 @@ id: diandubao-xiaodaren-goldwave
 tags:
 - 点读笔
 - 育儿
+- diy
 categories:
 - 育儿
 - 点读笔

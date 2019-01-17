@@ -4,6 +4,7 @@ mathjax: false
 date: 2018-11-29 11:13:08
 id: hexo-commands
 tags:
+- hexo
 - 网站
 - 博客
 - 生活

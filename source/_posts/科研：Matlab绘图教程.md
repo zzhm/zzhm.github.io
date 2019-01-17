@@ -4,7 +4,7 @@ mathjax: false
 date: 2018-05-02 13:11:09
 id:  matlab-drawing
 tags: 
-- MATLAB
+- matlab
 - 绘图
 - 科研
 categories: 

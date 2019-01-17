@@ -4,6 +4,7 @@ mathjax: false
 date: 2018-08-27 14:48:56
 id: opencv342-vs2015-matlab2017
 tags:
+- matlab
 - 视觉
 - 学习
 categories:

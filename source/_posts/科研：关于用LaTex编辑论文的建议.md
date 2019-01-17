@@ -4,11 +4,11 @@ mathjax: false
 date: 2018-05-04 10:49:59
 id: latex-advice-for-paper-writing
 tags:
-- 写作
-- LaTex
+- 论文写作
+- latex
 categories:
 - 科研
-- 工具
+- 论文
 ---
 
 ## 关于LaTeX版本的选择

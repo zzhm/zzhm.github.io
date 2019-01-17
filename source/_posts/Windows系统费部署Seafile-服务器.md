@@ -6,6 +6,8 @@ id: Windows-seafile
 tags:
 - seafile
 - nas
+- win10
+- 网站
 categories:
 - 生活
 - nas

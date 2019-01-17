@@ -5,6 +5,7 @@ date: 2018-10-16 20:09:41
 id: windows-kodexplorer
 tags:
 - nas
+- win10
 categories:
 - 生活
 - nas

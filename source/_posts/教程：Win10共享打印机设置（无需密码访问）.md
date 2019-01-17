@@ -4,6 +4,7 @@ mathjax: false
 date: 2018-05-13 18:10:34
 id: win10-printer-share
 tags:
+- win10
 - 教程
 - 生活
 categories:

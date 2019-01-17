@@ -5,7 +5,9 @@ date: 2018-11-29 20:52:47
 id: horner
 tags:
 - horner
+- 算法
 - 学习
+- matlab
 categories:
 - 学习
 - 视觉
