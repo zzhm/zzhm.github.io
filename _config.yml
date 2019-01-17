@@ -279,8 +279,8 @@ social:
     url: atom.xml
   - icon: fab fa-github
     url: 
-  # - icon: fas fa-music
-    # url: https://music.163.com/#/user/home?id=1546778263
+  - icon: fas fa-music
+    url: https://music.163.com/#/user/home?id=1546778263
 
 # 百度统计key
 baidu_analytics_key: 4aa86941ec5081fad9df5db06100091b 
