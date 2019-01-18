@@ -6,6 +6,7 @@ id: get-mp3-drom-dab-and-dp-package
 tags:
 - 点读笔
 - 育儿
+- diy
 categories:
 - 育儿
 - 点读笔

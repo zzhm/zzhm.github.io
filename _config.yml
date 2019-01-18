@@ -260,17 +260,6 @@ widgets:
     icon: fas fa-list
     title: "目录"
 
-# 推荐文章
-recommended_posts:
-  autoDisplay: false # 自动在文章底部显示推荐文章，如果你使用Material-X主题，这里要设置为false。
-  server: https://api.truelaurel.com # 后端推荐服务器地址
-  timeoutInMillis: 10000 # 服务时长，超过此时长，则使用离线推荐模式
-  excludePattern: []
-  titleHtml: <h4>推荐文章</h4> #自定义标题
-  internalLinks: 3 # 内部文章数量
-  externalLinks: 2 # 外部文章数量
-  fixedNumber: false
-
 # 页脚社交信息  ok
 social:
   - icon: fas fa-envelope
@@ -280,6 +269,17 @@ social:
   - icon: fas fa-music
     url: https://music.163.com/#/user/home?id=1546778263
 
+# 推荐文章
+# recommended_posts:
+  # autoDisplay: false # 自动在文章底部显示推荐文章，如果你使用Material-X主题，这里要设置为false。
+  # server: https://api.truelaurel.com # 后端推荐服务器地址
+  # timeoutInMillis: 10000 # 服务时长，超过此时长，则使用离线推荐模式
+  # excludePattern: []
+  # titleHtml: <h4>推荐文章</h4> #自定义标题
+  # internalLinks: 5 # 内部文章数量
+  # externalLinks: 0 # 外部文章数量
+  # fixedNumber: false
+  
 # 百度统计key
 #baidu_analytics_key: 4aa86941ec5081fad9df5db06100091b 
 sitemap:
