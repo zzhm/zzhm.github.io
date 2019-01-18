@@ -16,29 +16,29 @@ categories:
 
 <!---more--->
 
-![](http://img.shihuidaren.cn/control/1.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/1.png)
 
-![](http://img.shihuidaren.cn/control/2.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/2.png)
 
-![](http://img.shihuidaren.cn/control/3.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/3.png)
 
-![](http://img.shihuidaren.cn/control/4.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/4.png)
 
-![](http://img.shihuidaren.cn/control/5.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/5.png)
 
-![](http://img.shihuidaren.cn/control/6.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/6.png)
 
-![](http://img.shihuidaren.cn/control/7.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/7.png)
 
-![](http://img.shihuidaren.cn/control/8.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/8.png)
 
-![](http://img.shihuidaren.cn/control/9.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/9.png)
 
-![](http://img.shihuidaren.cn/control/10.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/10.png)
 
-![](http://img.shihuidaren.cn/control/11.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/11.png)
 
-![](http://img.shihuidaren.cn/control/12.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/12.png)
 
 2018年6月4日 
 Dianye Huang 于华工

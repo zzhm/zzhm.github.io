@@ -16,7 +16,7 @@ categories:
 
 标准鲁棒控制问题的一般模型（双端子模型）即下线性分式变换形式：[一般性描述](https://blog.csdn.net/light_lj/article/details/25838769)
 
-![](http://img.shihuidaren.cn/control/8080.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/8080.png)
 
 G为增广控制对象；K控制器；u是控制输入；y是被测量输出或对象输出（u和y分别是系统传递函数或者状态空间里的输入和输出）；w是外部输入或参考输入，如：扰动、噪声；z是被控制的输出。
 

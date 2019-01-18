@@ -31,11 +31,11 @@ categories:
 
 **a. 双击GoldWave软件,然后打开要切割的音频**。这里是“我好喜欢她”这本书的整本音频
 
-![](http://img.shihuidaren.cn/baby/0234b7ce0e66973ec17be9e4e89d3eef.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/0234b7ce0e66973ec17be9e4e89d3eef.jpg)
 
 **b.导入音频后，页面如下：**
 
-![](http://img.shihuidaren.cn/baby/b73eb17c0f9a5ba7583b45be0542e1c2.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/b73eb17c0f9a5ba7583b45be0542e1c2.jpg)
 
 - 一般整本书的音频导入后，由于音频过大，所以波形排列非常紧密。直接切割会造成音频的不准确，这时候，我们点击放大，将音频的波形排列拉开。
 - 如上图所示，在音频的起始处，有一根长横线。这通常是没有声音的留白，可以直接选中后，点击上方的“剪切”去掉。以免导入点读笔后，因播放过长的留白，让使用者误以为点读笔不灵敏。
@@ -44,15 +44,15 @@ categories:
 
 在要剪切的图形区域中，按住鼠标左键，拖到自己要剪切内容的开头处再滑动到结尾处。选中部分会呈现蓝色。可在蓝色区域中点击鼠标右键选择“从这里播放”，听听是不是自己想要的内容，如果不是，可以用鼠标拖动蓝色左右边缘处进行变更。满意后，点击剪切。
 
-![](http://img.shihuidaren.cn/baby/92596f7e2b45fe92a81a136beab6803e.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/92596f7e2b45fe92a81a136beab6803e.jpg)
 
 剪切后，点击左上方的“编辑”中的“黏贴为新文件”
 
-![](http://img.shihuidaren.cn/baby/cc6859f53885e136bee24a52eb35655d.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/cc6859f53885e136bee24a52eb35655d.png)
 
 此时，剪切后的音频以一个新文件的方式在原音频的上方出现。点击左上方的“文件”——“另存为”，用数字命名后，存在之前新建的文件夹中，然后关闭即可。接着再剪切第二段音频，直至整本书全部切完。（注：每本书的第一个音频请用数字1命名，然后第二个用2，依次类推，书名对应的音频请放到所有内容音频之后，也就是最后一个数字。）
 
-![](http://img.shihuidaren.cn/baby/f347d025365ee67c58844dd102b84e48.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/f347d025365ee67c58844dd102b84e48.jpg)
 
 **第二步：**合成
 
@@ -62,30 +62,30 @@ categories:
 
 3.输入制作的教材名称，选择保存文件的路径之后，点确认键。
 
-![](http://img.shihuidaren.cn/baby/73fa0670806d5fcdb4c2080d51a19b2d.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/73fa0670806d5fcdb4c2080d51a19b2d.jpg)
 
 4.进入制作页面，选择：批量添加，导入刚刚存放剪切音频的**文件夹**。
 
-![](http://img.shihuidaren.cn/baby/a2d96d9b4307f0333199c5b69c5fb760.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/a2d96d9b4307f0333199c5b69c5fb760.jpg)
 
 5.设置封皮音，选择教材的种类之后，点击生成。
 
-![](http://img.shihuidaren.cn/baby/ca9159e9d05a764b61a0d3542013cede.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/ca9159e9d05a764b61a0d3542013cede.jpg)
 
 OK。这样一本普通书就制作完成了。是不是很简单？
 
 备注：生成后的文件如下图
 
-![](http://img.shihuidaren.cn/baby/f1f18537329e57b707f733ebafa12864.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/f1f18537329e57b707f733ebafa12864.jpg)
 
 双击紫色DAB文件，按对话框提示选择标贴号，便可以安装到点读笔里了。
 
 在封面贴上您刚刚在安装时选择的“书名贴”
 
-![](http://img.shihuidaren.cn/baby/66ce6c9ca1b6db9e3571d1b84723ad66.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/66ce6c9ca1b6db9e3571d1b84723ad66.jpg)
 
 ，里面贴上“内容贴”
 
-![](http://img.shihuidaren.cn/baby/e963a828efc61593830e3a47733d5836.jpg)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/e963a828efc61593830e3a47733d5836.jpg)
 
 。一本有声书就做好了。现在，我们开始点读吧\~

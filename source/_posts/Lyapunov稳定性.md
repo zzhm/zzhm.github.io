@@ -90,9 +90,9 @@ Lyapunov第二法是建立在更为普遍意义的基础上的，即如果系统
 
 然而对于一些纯数学系统，毕竟还没有一个定义“能量函数”的简便方法。为了克服这个困难，Lyapunov定义了一个虚构的能量函数，称为Lyapunov函数。当然，这个函数无疑比能量更为一般，且其应用也更广泛。实际上，任一纯量函数只要满足Lyapunov稳定性定理的假设条件，都可作为Lyapunov函数（其构造可能十分困难）。
 
-![](http://img.shihuidaren.cn/control/l8-4.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/l8-4.png)
 
-![](http://img.shihuidaren.cn/control/l8-8.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/l8-8.png)
 
 下面对这一重要定理作如下几点说明。
 
