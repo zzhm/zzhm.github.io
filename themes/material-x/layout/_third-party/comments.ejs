@@ -1,0 +1,51 @@
+<!-- 显示推荐文章和评论 -->
+<%
+  var displayRecommentedPosts = false;
+  var displayComments = false;
+  if (page && theme.services) {
+    if (theme.services.recommended_posts == true && theme.recommended_posts && theme.recommended_posts.autoDisplay == false && page.layout == 'post' && page.recommended_posts != false) {
+      displayRecommentedPosts = true;
+    }
+    if ((config.disqus_shortname || config.livere_uid || config.valine) && theme.services.comments == true && page.comments != false) {
+      displayComments = true;
+    }
+  }
+%>
+
+<% if (displayRecommentedPosts || displayComments) { %>
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      <% if (displayRecommentedPosts) { %>
+        <%- partial('recommended_posts', {page: page, site: site}) %>
+      <% } %>
+
+      <% if (displayComments) { %>
+        <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;<%- __('post.comments') %></h4>
+        <% if (config.disqus_shortname) { %>
+          <section id="comments">
+            <div id="disqus_thread">
+              ⚠️  <%- __('post.comments_placeholder') %> <a href="https://disqus.com">Disqus</a> 。
+            </div>
+          </section>
+        <% } %>
+        <% if (config.livere_uid){ %>
+          <section id="comments">
+            <div id="lv-container" data-id="city" data-uid="<%= config.livere_uid %>">
+              <noscript>⚠️  <%- __('post.comments_placeholder') %></noscript>
+            </div>
+          </section>
+        <% } %>
+        <% if (config.valine){ %>
+          <% if (config.valine.enable && config.valine.app_id && config.valine.app_key){ %>
+            <section id="comments">
+              <div id="valine_container" class="valine_thread">
+                <i class="fas fa-spinner fa-spin fa-fw"></i>
+              </div>
+            </section>
+          <% } %>
+        <% } %>
+      <% } %>
+    </section>
+  </article>
+<% } %>

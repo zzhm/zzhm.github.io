@@ -1,0 +1,51 @@
+<%
+var needDisplay = false;
+if (theme.music && theme.music.display) {
+  let display = theme.music.display;
+  if (page.layout == 'page') {
+    if (display.page != false) {
+      needDisplay = true;
+    }
+  } else if (page.layout == 'post') {
+    if (display.post != false && (!page.music || page.music.enable == false)) {
+      needDisplay = true;
+    }
+  } else if (page.layout == 'links') {
+    if (display.links != false) {
+      needDisplay = true;
+    }
+  } else {
+    if (is_home()) {
+      if (display.home != false) {
+        needDisplay = true;
+      }
+    } else if (is_tag()) {
+      if (display.tag != false) {
+        needDisplay = true;
+      }
+    } else if (is_category()) {
+      if (display.category != false) {
+        needDisplay = true;
+      }
+    } else if (is_archive()) {
+      if (display.archive != false) {
+        needDisplay = true;
+      }
+    } else {
+      needDisplay = true;
+    }
+  }
+}
+%>
+
+<% if (theme.services && theme.services.music == true && needDisplay == true) { %>
+  <section class='<%- item.widget %>'>
+    <%- partial('header', {item: item, defIcon: '', defTitle: ''}) %>
+    <div class='content <%= theme.style %>'>
+      <%- partial('../_third-party/aplayer',
+      {aplayer_theme: item.color, aplayer_mini: false, aplayer_mode: item.mode,
+      aplayer_server: item.server, aplayer_type: item.type, aplayer_id: item.id,
+      aplayer_volume: item.volume, aplayer_autoplay: item.autoplay?item.autoplay:false }) %>
+    </div>
+  </section>
+<% } %>
