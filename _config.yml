@@ -193,10 +193,14 @@ widgets:
     enable: false
     icon: fas fa-bullhorn
     title: 欢迎访问本站
-    body: '您好，欢迎访问本站。本站使用 Material X 作为主题，喜欢这个主题的朋友可以阅读文档进行安装'
+    body: '本站备用网址:https://blog.zymin.cn'
     more:
       icon: fas fa-question-circle
       url:  about/
+  
+  - widget: toc
+    icon: fas fa-list
+    title: "目录"
   
   - widget: list
     enable: false
@@ -256,9 +260,7 @@ widgets:
         icon: fas fa-book
         url: http://gen.lib.rus.ec/          
   
-  - widget: toc
-    icon: fas fa-list
-    title: "目录"
+
 
 # 页脚社交信息  ok
 social:

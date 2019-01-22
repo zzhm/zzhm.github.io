@@ -1,5 +1,5 @@
 ---
-title: Windows系统费部署Seafile 服务器
+title: J3455平台Windows系统费部署Seafile 服务器
 mathjax: false
 date: 2018-10-16 19:50:40
 id: Windows-seafile
@@ -8,6 +8,7 @@ tags:
 - nas
 - win10
 - 网站
+- j3455
 categories:
 - 生活
 - nas

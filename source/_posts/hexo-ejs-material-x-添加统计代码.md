@@ -1,15 +1,16 @@
 ---
-title: hexo+ejs+material x 添加统计代码
+title: hexo+ejs+material x 添加CNZZ统计代码
 date: 2019-01-17 15:34:11
 id: hexo+ejs+material
 tags:
 - hexo
 - 博客
+- j3455
 category:
 - 生活
 ---
 
-hexo博客+ejs+material x 主题，添加统计代码。
+Hexo博客+ejs+material x 主题，添加统计代码。
 
 先要在博客主题配置文件`D:\hexo\themes\material-x\_config.yml`添加一行代码：
 

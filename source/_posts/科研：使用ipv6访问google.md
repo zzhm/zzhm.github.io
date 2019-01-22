@@ -36,7 +36,7 @@ categories:
 
 
 
-[lennylxx/ipv6-hosts](https://link.zhihu.com/?target=https%3A//github.com/lennylxx/ipv6-hosts)，在这个链接上下载hosts，替换自己电脑上的hosts，就能上网了。前提是能用ipv6。而且看youtube视频超级快。 
+[lennylxx/ipv6-hosts](https://link.zhihu.com/?target=https%3A//github.com/lennylxx/ipv6-hosts)，在这个链接上下载hosts，替换自己电脑上的hosts，就能上网了。前提是能用ipv6。而且看youtube视频超级快。 （[另外一个](https://github.com/XX-net/XX-Net)）
 
 什么？？？你那里上不了谷歌和谷歌学术？
 

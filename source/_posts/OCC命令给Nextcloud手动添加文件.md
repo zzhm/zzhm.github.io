@@ -1,5 +1,5 @@
 ---
-title: OCC命令给ownCloud/Nextcloud手动添加文件
+title: J3455平台OCC命令给ownCloud/Nextcloud手动添加文件
 mathjax: false
 date: 2019-01-03 14:17:12
 id: nextcloud-file-scan
@@ -8,6 +8,7 @@ tag:
 - 网站
 - 生活
 - nas
+- j3455
 category:
 - 生活
 - 网站

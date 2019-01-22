@@ -1,5 +1,5 @@
 ---
-title: hexo常用命令笔记
+title: hexo常用命令笔记及使用技巧
 mathjax: false
 date: 2018-11-29 11:13:08
 id: hexo-commands
@@ -171,4 +171,23 @@ deploy:
   type: git
   repository: git@***.github.com:***/***.github.io.git
   branch: master
+```
+
+##  hexo 一键发布文章
+
+解决每次都要在指定的目录下打开 git bash输入多个命令的问题
+
+注意事项：下面的命令中 C:\blog_backup 是我博客的文件夹路径，请替换为你自己博客的路径。任意目录打开 git bash ，输入以下命令
+
+```
+git config --global alias.fuck '!cd C:\blog_backup;hexo clean;hexo g -d'
+git fuck
+```
+
+以后就可以在任意目录下通过 git fuck 来一键更新了。
+
+取消别名方法：
+
+```
+git config --global --unset alias.fuck
 ```

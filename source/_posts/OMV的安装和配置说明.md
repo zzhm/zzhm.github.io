@@ -1,5 +1,5 @@
 ---
-title: OMV的安装和nextcloud配置说明
+title: J3455平台安装OMV及nextcloud的安装和配置说明
 mathjax: false
 date: 2018-12-17 09:55:25
 id: omv
@@ -8,6 +8,7 @@ tags:
 - nas
 - 网站
 - nextcloud
+- j3455
 categories:
 - 生活
 - nas
@@ -38,9 +39,7 @@ apt-get upgrade
 
 6.SSL证书可以自己在阿里云/腾讯云等网站申请。格式不对可以在腾讯云中转换，基本思路是，在腾讯云中上传证书，再下载即可得到crt格式的证书。
 
-```
-这个就不用说太多，在阿里云申请的证书就去阿里云下载，下载Nginx服务器的证书 获得两个文件，一个是.kye后缀的，一个是.pem后缀的。登录腾讯云ssl管理（https://console.cloud.tencent.com/ssl），点击上传证书，将.pem文件中的内容复制到证书中，.key证书中的内容复制到私钥中，最后点击上传上传完成后，可以重新在腾讯云下载Nginx服务器，即为crt文件的证书。
-```
+> 这个就不用说太多，在阿里云申请的证书就去阿里云下载，下载Nginx服务器的证书 获得两个文件，一个是.kye后缀的，一个是.pem后缀的。登录腾讯云ssl管理（https://console.cloud.tencent.com/ssl），点击上传证书，将.pem文件中的内容复制到证书中，.key证书中的内容复制到私钥中，最后点击上传上传完成后，可以重新在腾讯云下载Nginx服务器，即为crt文件的证书。
 
 ### nextcloud 配置
 

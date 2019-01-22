@@ -1,11 +1,12 @@
 ---
-title: Windows系统用kodexplorer可道云搭建私有云
+title: J3455平台Windows系统用kodexplorer可道云搭建私有云
 mathjax: false
 date: 2018-10-16 20:09:41
 id: windows-kodexplorer
 tags:
 - nas
 - win10
+- j3455
 categories:
 - 生活
 - nas
