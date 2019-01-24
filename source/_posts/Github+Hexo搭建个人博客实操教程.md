@@ -214,6 +214,17 @@ permalink:
 ---
 ```
 
+### 清理Git缓存
+
+```
+#清空git缓存
+git rm -r --cached .
+git add .
+git commit -m 'update'
+```
+
+
+
 ### 参考文章
 
 [1] http://blog.haoji.me/build-blog-website-by-hexo-github.html
