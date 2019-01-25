@@ -182,6 +182,10 @@ nav_menu:
 
 # 侧栏插件
 widgets:
+  - widget: toc
+    icon: fas fa-list
+    title: "目录"
+  
   - widget: author
     avatar: images/avatar.gif
     jinrishici: true
@@ -197,10 +201,6 @@ widgets:
     more:
       icon: fas fa-question-circle
       url:  about/
-  
-  - widget: toc
-    icon: fas fa-list
-    title: "目录"
   
   - widget: list
     enable: false
