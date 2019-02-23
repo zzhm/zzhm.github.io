@@ -16,7 +16,7 @@ windows系统，基于Xampp和kodexplorer搭建私有云。
 
 <!---more--->
 
-1. 下载Xampp 安装包。主要官网现在访问不了，那到中文的官网下载 ：
+1.下载Xampp 安装包。主要官网现在访问不了，那到中文的官网下载 ：
 
 2.安装Xampp 程序。
 
@@ -90,3 +90,8 @@ ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
 
 
 网上有这个[windows服务器安装XAMPP并绑定域名详解](https://www.weixing.me/webdesign/windows-cvm-xampp-domain/),未验证是否可行。
+
+## 相关阅读
+
+[NAS相关文章](https://zymin.cn/tags/nas/)
+

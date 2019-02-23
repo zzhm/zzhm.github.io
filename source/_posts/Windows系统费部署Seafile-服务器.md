@@ -82,11 +82,11 @@ Seafile 服务器由两个组件组成，默认情况下用到 8000, 8082 两个
 
 2、输入以下指令 `seaf-fsck.exe -E E:\a  -c D:\seafile-server\ccnet -d D:\seafile-server\seafile-data -F D:\seafile-server\conf`
 
-​     seafile服务器内的文件就会导出到E盘内名字为a的文件夹内，其中`D:\seafile-server`是我电脑内服务器的路径，视你的实际情况修改该路径。
+seafile服务器内的文件就会导出到E盘内名字为a的文件夹内，其中`D:\seafile-server`是我电脑内服务器的路径，视你的实际情况修改该路径。
 
 另外，再附赠一个修复的指令
 
-`seaf-fsck.exe -r  -c D:\seafile-server\ccnet -d D:\seafile-server\seafile-data -F D:\seafile-server\conf`
+> seaf-fsck.exe -r  -c D:\seafile-server\ccnet -d D:\seafile-server\seafile-data -F D:\seafile-server\conf
 
 ### 外网访问
 

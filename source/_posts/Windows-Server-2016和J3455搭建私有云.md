@@ -18,11 +18,11 @@ Windows Server 2016和J3455搭建私有云
 
 - 硬件平台：
 
-  J3455主板，4G金士顿DDR3 1600内存条，小机箱，ATX电源（长城，低载荷风扇可以停转），西数红盘
+J3455主板，4G金士顿DDR3 1600内存条，小机箱，ATX电源（长城，低载荷风扇可以停转），西数红盘
 
 - 软件：
 
-  win server 2016 standard x64、xampp 3.2.2、python 2.7、Seafile 6.07、Kodexplore 4.36、小白文件管理器、小白播放器、daemon sync 
+win server 2016 standard x64、xampp 3.2.2、python 2.7、Seafile 6.07、Kodexplore 4.36、小白文件管理器、小白播放器、daemon sync 
 
 与win10类似。安装前更新一下J3455主板的Bois。从官网下载Win10 驱动。大白菜PE安装。
 
@@ -47,7 +47,7 @@ DDNS[方案一](https://github.com/kaedei/aliyun-ddns-client-csharp)
    - 第三行：域名，例如 *google.com*
    - 第四行：子域名，例如 *www*
 
-  6.在服务器上运行主exe即可.本程序依赖外部web服务来获取本机的公网IP地址，默认使用的公网IP地址查询服务来自ip138.com。您可以在`App.config`文件中修改对应的网址。
+6.在服务器上运行主exe即可.本程序依赖外部web服务来获取本机的公网IP地址，默认使用的公网IP地址查询服务来自ip138.com。您可以在`App.config`文件中修改对应的网址。
 
 使用VS2013 + C#开发，支持.NET 3.5和.NET 4.5。建议通过**任务计划**定时调用（如每小时），程序会判断是否需要修改A记录
 
