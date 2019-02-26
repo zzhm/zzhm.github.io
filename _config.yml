@@ -176,6 +176,12 @@ nav_menu:
   - name: 归档
    # icon: fas fa-archive
     url: archives/
+  - name: 分类
+   # icon: fas fa-archive
+    url: categories/
+  - name: 标签
+   # icon: fas fa-archive
+    url: tags/
   - name: 关于
   #  icon: fas fa-user
     url: about/
@@ -194,7 +200,6 @@ widgets:
     social: true
   
   - widget: plain
-    enable: false
     icon: fas fa-bullhorn
     title: 欢迎访问本站
     body: '本站备用网址:https://blog.zymin.cn'
@@ -295,7 +300,7 @@ valine:
   app_key: Jzc4LfsMLg0jmm9ymfL9MH2j # 必填
   guest_info: nick,mail,link #valine comment header info
   placeholder: 快来评论吧~ # valine comment input placeholder(like: Please leave your footprints )
-  avatar: mp # gravatar style https://valine.js.org/avatar
+  avatar: monsterid # gravatar style https://valine.js.org/avatar
   pageSize: 10 # comment list page size
   verify: false # valine verify code (true/false)
   notify: false # valine mail notify (true/false)
