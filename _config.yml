@@ -199,13 +199,13 @@ widgets:
     body: 
     social: true
   
-  - widget: plain
-    icon: fas fa-bullhorn
-    title: 欢迎访问本站
-    body: '本站备用网址:https://blog.zymin.cn'
-    more:
-      icon: fas fa-question-circle
-      url:  about/
+  # - widget: plain
+    # icon: fas fa-bullhorn
+    # title: 欢迎访问本站
+    # body: '本站备用网址:https://blog.zymin.cn'
+    # more:
+      # icon: fas fa-question-circle
+      # url:  about/
   
   - widget: list
     enable: false
