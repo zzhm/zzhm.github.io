@@ -25,7 +25,6 @@ install:
   # - yarn
   - npm install
 script:
-  - git checkout hexo
   - git submodule update --progress --init -- "themes/material-x"
   - hexo clean
   - hexo generate
