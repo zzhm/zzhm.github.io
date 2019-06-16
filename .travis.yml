@@ -24,6 +24,7 @@ install:
 # 不用yarn的话这里改成 npm install 即可
   # - yarn
   - npm install
+  - npm install hexo-deployer-git --save
 script:
   - hexo clean
   - hexo generate
