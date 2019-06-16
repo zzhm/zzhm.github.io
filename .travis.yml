@@ -1,0 +1,38 @@
+language: node_js
+node_js: stable
+branches:
+  only:
+    - hexo
+# 缓存，可以节省集成的时间，这里我用了yarn，如果不用可以删除
+# cache:
+  # apt: true
+  # yarn: true
+  # directories:
+    # - node_modules
+env:
+  global:
+    - GITHUB_REPO: github.com/zzhm/zzhm.github.io.git
+    
+before_install:
+  - git config --global user.name "zzhm"
+  - git config --global user.email "1031706774@qq.com"
+  # 由于使用了yarn，所以需要下载，如不用yarn这两行可以删除
+  # - curl -o- -L https://yarnpkg.com/install.sh | bash
+  # - export PATH=$HOME/.yarn/bin:$PATH
+  - npm install -g hexo-cli
+install:
+# 不用yarn的话这里改成 npm install 即可
+  # - yarn
+  - npm install
+script:
+  - git checkout hexo
+  - git submodule update --progress --init -- "themes/material-x"
+  - hexo clean
+  - hexo generate
+after_success:
+  - cd ./public
+  - git init
+  - git add --all .
+  - git commit -m "Travis CI Auto Builder"
+  # 这里的 REPO_TOKEN 即之前在 travis 项目的环境变量里添加的
+  - git push --quiet --force https://$GITHUB_REPO_TOKEN@$GITHUB_REPO hexo:master
