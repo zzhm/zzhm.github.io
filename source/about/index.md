@@ -14,7 +14,5 @@ type: "about"
 
 
 
-有事联系：
-
-QQ：1808525162
+有事联系：admin@zymin.cn
 
