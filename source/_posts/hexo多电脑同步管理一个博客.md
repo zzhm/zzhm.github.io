@@ -71,6 +71,14 @@ git pull  #git pull origin hexo:hexo
 
 
 
+**git remote: Coding 提示: Authentication failed!**
+
+解决方案 .打开控制面板>> 用户账户 >> 凭据管理 >> 修改对应的git凭据
+
+![](https://gitee.com/zihm/images/raw/master/hexo/20200727102511.png)
+
+
+
 参考命令
 
 [Git push 命令](https://www.yiibai.com/git/git_push.html)
@@ -86,3 +94,6 @@ $ git remote add [shortname] [url]
 ```
 
 ![img](https://www.yiibai.com/uploads/allimg/140613/0A025G34-0.jpg) 
+
+
+
