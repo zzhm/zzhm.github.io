@@ -52,6 +52,11 @@ highlight:
   wrap: true
   hljs: false
 
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -101,8 +106,8 @@ deploy:
 - type: git
   repo: 
     github: git@github.com:zzhm/zzhm.github.io.git,master
-#    coding: git@e.git.coding.net:zzhm/zzhm.git,master
-    coding: git@git.dev.tencent.com:zzhm/zzhm.git,master
+    coding: git@e.git.coding.net:zzhm/zzhm.git,master
+#    coding: git@git.dev.tencent.com:zzhm/zzhm.git,master
 sitemap:
     path: sitemap.xml
     # tag: false
