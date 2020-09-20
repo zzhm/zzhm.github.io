@@ -8,8 +8,7 @@ tags:
 - mathematica
 - 教程
 categories:
-- 学习
-- 软件
+- 教程
 ---
 
 如何在使用`PlotTheme->“Scientific”`选项的时候设置轴标签

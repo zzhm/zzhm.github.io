@@ -7,7 +7,6 @@ tags:
 - mathematica
 - 教程
 categories:
-- 学习
 - 教程
 ---
 

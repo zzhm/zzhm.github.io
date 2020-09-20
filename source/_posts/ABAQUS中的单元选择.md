@@ -7,7 +7,6 @@ tags:
 - abaqus
 - 有限元
 categories:
-- 学习
 - 教程
 ---
 

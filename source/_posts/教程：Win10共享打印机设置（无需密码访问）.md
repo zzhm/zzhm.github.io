@@ -8,7 +8,6 @@ tags:
 - 教程
 - 生活
 categories:
-- 生活
 - 教程
 ---
 

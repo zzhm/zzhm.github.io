@@ -8,7 +8,6 @@ tags:
 - 公式
 - 数学
 categories:
-- 学习
 - 教程
 ---
 

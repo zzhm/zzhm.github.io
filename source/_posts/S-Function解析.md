@@ -8,8 +8,7 @@ tags:
 - 控制
 - matlab
 categories:
-- 学习
-- simulink
+- 教程
 ---
 
 S函数即系统函数System Function的意思，为什么要使用S函数呢？是因为在研究中，有时需要用到复杂的算法设计等，而这些算法因为其复杂性不适合用普通的Simulink模块来搭建，即matlab所提供的Simulink模块不能满足用户的需求，需要用编程的形式设计出S函数模块，将其嵌入到系统中。如果恰当地使用S函数，理论上，可以在Simulink下对任意复杂的系统进行仿真。
