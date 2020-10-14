@@ -10,8 +10,7 @@ tags:
 - 后处理
 - 仿真
 categories:
-- 学习
-- 软件
+- 教程
 ---
 
 在visualization模式中，在播放动画的状态下，点击animate--->save as  然后存成AVI格式，（同时可以调节播放速度frame rate）就可以保存动画了。保存在默认的temp文件夹里。

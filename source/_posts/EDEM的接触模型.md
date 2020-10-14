@@ -11,7 +11,6 @@ tags:
 - 仿真
 categories:
 - 学习
-- 离散元
 ---
 
 1. Hertz-Mindlin模型。基本的颗粒接触模型，用于常规颗粒的接触作用。

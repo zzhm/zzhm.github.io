@@ -6,9 +6,9 @@ id: zhiwangpdf
 tags:
 - 生活
 - 技能
+- 教程
 categories:
-- 生活
-- 技能
+- 教程
 ---
 
 方法一、使用海外版知网

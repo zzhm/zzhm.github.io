@@ -8,7 +8,6 @@ tags:
 - 学习
 categories:
 - 学习
-- 曲线
 ---
 
  Bezier曲线、B样条和NURBS都是根据控制点来生成曲线的，那么他们有什么区别了？
