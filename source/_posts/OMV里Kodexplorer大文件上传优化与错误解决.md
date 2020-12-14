@@ -13,7 +13,7 @@ categories:
 
 最近停了Nextcloud，打算用作为主力了，因此优化了一波。基本情况：OMV+nginx插件搭建的kodexplorer。
 
-上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。不知道这个是否BUG？
+上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。据人指点“最后合并上传失败很可能是登录超时引起的”。
 
 ![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodshibai.jpeg)
 
@@ -28,50 +28,58 @@ categories:
 **服务器**：受服务器负载、磁盘IO、服务器网络带宽等影响。同时受并发影响；比如20M上行带宽,10个人同时在上传或下载,那么每个人平均就是2M/s
 可道云为了能在更多的服务器环境下良好运行，各方面配置是以兼容性为主，可能并不是最优配置。性能调优可以参考配置如下。
 
-**1. 服务器环境**
-
-推荐linux系统服务器：如centos7、RedHat、Ubuntu
-推荐nginx + php7 组合；nginx比Apache、IIS各方面效率更优
-
-**2.修改php.ini上传限制**
+**修改php.ini上传限制**
 
 ```
-`max_execution_time = 3600`
-`max_input_time = 3600`
-`post_max_size = 150M`
-`upload_max_filesize = 150M`
+max_execution_time = 3600
+max_input_time = 3600
+post_max_size = '150M'
+upload_max_filesize = '150M'
 ```
 
-**3.修改可道云配置**
+注意：这个可以在kod的config文件夹里的`config.php`中修改。
+
+```nginx
+define('GLOBAL_DEBUG',0);//0 or 1
+define('GLOBAL_DEBUG_HOOK',0);//0 or 1
+@date_default_timezone_set(@date_default_timezone_get());
+@set_time_limit(3600);//20min pathInfoMuti,search,upload,download...
+@ini_set("max_execution_time",3600);
+@ini_set("max_input_time",3600);
+@ini_set("post_max_size",'150M');
+@ini_set("upload_max_filesize",'150M');
+@ini_set('memory_limit','500M');//
+@ini_set('session.cache_expire',1800);
+```
+
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodyouhua.png)
+
+**修改可道云配置**
 
 在config/下新建 setting_user.php文件;粘贴如下内容；(已存在则略过)
 
 ```
-`//分片上传: 每个切片5M,需要php.ini 中upload_max_filesize大于此值`
-`$GLOBALS['config']['settings']['updloadChunkSize'] = 1024*1024*5;
-//上传并发数量; 推荐15个并发;`
-`$GLOBALS['config']['settings']['updloadThreads'] = 15;
+<?php
+//分片上传: 每个切片5M,需要php.ini 中upload_max_filesize大于此值
+$GLOBALS['config']['settings']['updloadChunkSize'] = 1024*1024*5;
+//上传并发数量; 推荐15个并发;
+$GLOBALS['config']['settings']['updloadThreads'] = 15;
 ```
 
-**4.nginx + php-fpm上传优化**
+**nginx + php-fpm上传优化**
 
 在nginx.conf中添加如下代码，参考,更多nginx优化
 使用共享内存做临时存贮提高上传速度，共享内存需要大一些，否则上传大文件内存不足
-`client_body_in_file_only clean;`
-`client_body_temp_path /dev/shm 1 2;`
-`fastcgi_param REQUEST_BODY_FILE $request_body_file;`
+
+```
+client_body_in_file_only clean;
+client_body_temp_path /dev/shm 1 2;
+fastcgi_param REQUEST_BODY_FILE $request_body_file;
+```
+
+参考：http://bbs.kodcloud.com/d/60
 
 
-
-这其实是官方论坛给出的优化方法：见http://bbs.kodcloud.com/d/60
-
-作为业余爱好者卡在了第2条，不知道用OMV系统nginx插件在哪里设置。
-
-
-
-据人指点“最后合并上传失败很可能是登录超时引起的”，脑子突然闪光在可道云的`config/config.php`里添加下框了一行。重启服务器，上传了2G的文件，错误消失了。
-
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodyouhua.png)
 
 
 
@@ -127,8 +135,6 @@ access_log off;
 }
 add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
 ```
-
-
 
 另外附：通过设置nginx的client_max_body_size解决nginx+php上传大文件的问题 
 
