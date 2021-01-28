@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="别以为review都是导师大牛们才可以写，其实，学会了这些招数，你也可以拥有一篇作为第一作者的review。想想当年读博时，室友的第一篇文章就是8分多的review，因此，还获得课题组奖励的一大笔bonus呢……好吧，我们还是好好学习下撰写review的技巧!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大牛是如何写Literature Review（文献综述）的">
+<meta property="og:url" content="https://zymin.cn/arcticle/how-to-write-literature-review.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="别以为review都是导师大牛们才可以写，其实，学会了这些招数，你也可以拥有一篇作为第一作者的review。想想当年读博时，室友的第一篇文章就是8分多的review，因此，还获得课题组奖励的一大笔bonus呢……好吧，我们还是好好学习下撰写review的技巧!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-01T11:30:04.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.101Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="写作">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/how-to-write-literature-review.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>大牛是如何写Literature Review（文献综述）的 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/how-to-write-literature-review.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          大牛是如何写Literature Review（文献综述）的
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-01 19:30:04" itemprop="dateCreated datePublished" datetime="2018-08-01T19:30:04+08:00">2018-08-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>别以为review都是导师大牛们才可以写，其实，学会了这些招数，你也可以拥有一篇作为第一作者的review。想想当年读博时，室友的第一篇文章就是8分多的review，因此，还获得课题组奖励的一大笔bonus呢……好吧，我们还是好好学习下撰写review的技巧!</p>
+<a id="more"></a>
+<p><strong>什么是文献综述?</strong></p>
+<p>其实，研究道路上的小伙伴们都晓得review，全称就是文献综述(literature review)，即文献综合评述，是在确定了选题后，在对选题所涉及的研究领域的文献进行广泛阅读和理解的基础上，对该研究领域的研究现状(包括主要学术观点、前人研究成果和研究水平、争论焦点、存在问题及可能的原因等)、新水平、新动态、新技术和新发现、发展前景等内容进行综合分析、归纳整理和评论，并提出自己的见解和研究思路。“综”是综合分析整理，是基础，“述”是对文献的观点和结论进行叙述和评论，是提升。</p>
+<p><strong>我们为什么要读review?为什么要写review呢?</strong></p>
+<p>Review总结了某一研究方向前人已经做的研究状况，在开展研究前，就要先读一些该领域高质量的review(搜索关键词，限定为review;或从文章的reference里追踪到高质量的review)，可以很快了解到目前的研究动态，存在的问题及其原因，今后的研究问题和发展方向，并从列出的代表性参考文献中获得更多的信息，之后便会更好的认识到自己的课题，知道已经做了什么，自己要做什么，还有什么问题需要解决等等一系列问题，为你的研究选题打好基础。写review，是我们每位医生做好研究工作、晋升职称的法宝，也是医学生获得各种奖励的捷径哦。</p>
+<p><strong>文献综述的写法</strong></p>
+<p><strong>最常用的两种方式是：</strong></p>
+<p><strong>1. 年代顺序：</strong>在该研究领域内，从最早的信息开始，按照发表的时间顺序讨论文献，对其历史演变、目前状况、未来趋势作纵向描述。可以很清楚了解到你的专题的来龙去脉。这种写法可适合动态性综述，很有层次的描述专题的发展方向。</p>
+<p><strong>2. 主题式：</strong>作者提出自己要研究的主题，然后对该专题国内外的各研究观点进行组织讨论，对各有关问题归在不同标题下，进行整理分析，然后再把不同标题连接起来。</p>
+<p><strong>按照综述格式撰写</strong></p>
+<p>文献综述通常包括：题目、摘要和关键词、前言、主题、总结、参考文献。下面，我们对每一部分的写法技巧做详细介绍。</p>
+<p><strong>题目：</strong></p>
+<p>要确切、简明，能概括全文的中心内容，如利用：进展、研究、关系等说明语；</p>
+<p>文体相符，避免题目新，内容不新问题，如：xx新进展等；</p>
+<p>正如LinkLab 12月14日《国家自然基金标书撰写经验总结》中提及的技巧，建议大家再去回顾下。</p>
+<p>摘要和关键词：</p>
+<p>摘要是关键，主要概述你的review从哪些方面论述某一问题及最终可能得出的结论；</p>
+<p>摘要后给出关键词，一般3-5个，可根据投稿杂志的要求。</p>
+<p><strong>前言：</strong></p>
+<p>说明写作的目的，定义综述主题、问题和研究领域；</p>
+<p>指出有关综述主题已发表文献的总体趋势，介绍有关概念；</p>
+<p>规定综述范围、包括专题涉及的学科范围和时间范围；</p>
+<p>说明有关问题的现况或争论的焦点，引出review的核心主题。</p>
+<p><strong>主题：</strong></p>
+<p>要有自己明确的论点，才可开始撰写；</p>
+<p>按照前面选定的时间顺序，或主题形式，将收集到的文献进行加工处理，资料归纳，分类编排；</p>
+<p>对各组文献提炼观点，分析比较；</p>
+<p>分清各作者的观点和文献内容，不能改变文献的内容；</p>
+<p>运用好连接性语言，将各观点、事实等资料融为一体；</p>
+<p>结构和层次要围绕观点自然展开，要有严谨的逻辑性。</p>
+<p><strong>总结：</strong></p>
+<p>对全文内容进行扼要总结，提出自己的观点，并指出存在的问题及进一步的发展方向和展望。</p>
+<p><strong>参考文献：</strong></p>
+<p>文献要全，要阅读大量的文献，这是写好review的前提吧；</p>
+<p>文献要有代表性和可靠性，有些观点存在差异的，特别注意说明；</p>
+<p>尽量多引用原始的研究文献（即一次文献），因为二次文献可能会有片面的观点；</p>
+<p>文中引用的研究结果，参考文献不能省略；</p>
+<p>参考文献质量直接决定你的review价值，多引一些权威或知名学者发表的文献，特别是《Science》、《Nature》、《The New England Journal OfMedicine》、《JAMA》、《The Lancet》等权威期刊；</p>
+<p>尽量引用近几年的新文献，避免观点陈旧；</p>
+<p>本研究专题的经典文献最好要引用；</p>
+<p>文献格式我就不多说了，当然要按照投稿杂志要求的格式，用Endnote插入进行排版。</p>
+<p>可见，写好一篇review最关键的就是阅读大量的文献，在阅读时，要注意：</p>
+<p>在写之前，必须大量收集相关的数据库，对搜索到的文献要注意权威性；</p>
+<p>在阅读时，有些人读了很多paper，但感觉读的时候明白，读完又什么都不知道了，这就要求你一定要自己总结概括文章的内容，做好记录和标记，同时，一定要清楚自己要做什么研究，需要找什么证据；</p>
+<p>最后就是，根据阅读的文章，了解研究问题的前因后果和发展过程，整理分析这些文献，提出自己的观点。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\How-to-write-SCI-papers.html" rel="bookmark">如何书写SCI论文的题目</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\how-to-write-disscussion.html" rel="bookmark">如何写好文章的“讨论”部分</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\questions-of-first-paper.html" rel="bookmark">如研究生第一篇学术论文常犯问题总结</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\results-and-discussion.html" rel="bookmark">当SCI结果与讨论要分开写还是一起写？</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abstract-and-conclusion.html" rel="bookmark">摘要和结论该怎么区分？</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"># 科研</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+              <a href="/tags/%E5%86%99%E4%BD%9C/" rel="tag"># 写作</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/understanding-of-management-method-of-patent-priority-review.html" rel="prev" title="《专利优先审查管理办法》解读">
+      <i class="fa fa-chevron-left"></i> 《专利优先审查管理办法》解读
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/misunderstanding-of-patent-application.html" rel="next" title="专利申请的10大误区">
+      专利申请的10大误区 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

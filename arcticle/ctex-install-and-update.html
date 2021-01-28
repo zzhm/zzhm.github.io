@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="CTex套装安装，把WinEdt7.0换成了WinEdt10.3，并完美注册码破解。接下来需要对宏包进行更新，不然你会发现网上下载的很多模板都不能用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTeX安装和配置说明及注意事项">
+<meta property="og:url" content="https://zymin.cn/arcticle/ctex-install-and-update.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="CTex套装安装，把WinEdt7.0换成了WinEdt10.3，并完美注册码破解。接下来需要对宏包进行更新，不然你会发现网上下载的很多模板都不能用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-07-05T07:02:39.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.052Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="latex">
+<meta property="article:tag" content="ctex">
+<meta property="article:tag" content="技能">
+<meta property="article:tag" content="写作">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/ctex-install-and-update.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CTeX安装和配置说明及注意事项 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/ctex-install-and-update.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CTeX安装和配置说明及注意事项
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-05 15:02:39" itemprop="dateCreated datePublished" datetime="2018-07-05T15:02:39+08:00">2018-07-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>CTex套装安装，把WinEdt7.0换成了WinEdt10.3，并完美注册码破解。接下来需要对宏包进行更新，不然你会发现网上下载的很多模板都不能用。</p>
+<a id="more"></a>
+<h2 id="准备材料">准备材料</h2>
+<p>1.CTex套装，当前最新稳定版本<a href="http://www.ctex.org/CTeXDownload" target="_blank" rel="noopener">CTeX_2.9.2.164_Full.exe</a>，下载速度因人而异，可选<a href="https://mirrors.tuna.tsinghua.edu.cn/ctex/legacy/2.9/" target="_blank" rel="noopener">清华镜像</a>和<a href="http://mirrors.ustc.edu.cn/ctex/legacy/2.9/" target="_blank" rel="noopener">中科大镜像</a>、<a href="https://pan.baidu.com/s/1jHQVq2U" target="_blank" rel="noopener">百度网盘</a>。</p>
+<p>2.<a href="http://www.winedt.com/download.html" target="_blank" rel="noopener">WinEdt10.3</a>,这个是目前最新的版本，个人感觉比7.0好用不少，界面非常友好。</p>
+<h2 id="安装软件">安装软件</h2>
+<p>1.选择想要安装的硬盘，然后新建文件夹并命名，比如CTex，最好使用英文文件名，然后将CTeX_2.9.2.164_Full.exe放到该文件夹下，双击即可，然后根据提示一步一步来就行，但要注意选择安装目录，我是直接安装在刚创建的文件夹了，当然也可以放到其他文件夹，这个无所谓的。安装过程会持续较长时间，耐心等待即可。</p>
+<p>2.安装完成后，默认是WinEdt7.0，但作为IDE，必须美观漂亮简洁又清爽，于是我下载了最新版的安装包（32位安装包），然后放到原CTex套装安装目录下的WinEdt文件夹下，双击安装包，根据提示选择该文件夹为安装目录，<strong>覆盖安装</strong>即可(有人说先卸载在安装有问题)。此外，在安装界面需要勾选关联WinEdt与CTeX。</p>
+<h2 id="破解过程">破解过程</h2>
+<p>WinEdt并不是免费的，这是大家都知道的，这里可以选择Texlive或者其他免费的IDE，由于本人打算一条道走到底，就查了不少破解的资料，这里给出两种常见的破解方法：</p>
+<ol type="1">
+<li>注册码破解，源自于某位不认识大神的贡献，亲测有效，非常感谢。</li>
+</ol>
+<ul>
+<li>打开WinEdt，找到如下路径</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">help--&gt;Register WinEdt</span><br><span class="line"></span><br><span class="line">在弹出的窗口中填写：</span><br><span class="line">Name：Cracker TeCHiScy</span><br><span class="line">Code:1130140925535334280</span><br><span class="line"></span><br><span class="line">点击OK，注册完毕</span><br></pre></td></tr></table></figure>
+<p>引用网址：<a href="http://blog.csdn.net/sdujava2011/article/details/57409399" target="_blank" rel="noopener">网址1</a>、<a href="https://www.52pojie.cn/thread-595351-1-1.html" target="_blank" rel="noopener">网址2</a></p>
+<p>2.无限延长试用期的方法，这也是应用最多的方法，通过修改WinEdt里的exit文件，使得每次退出都会清除当前的试用时间，具体方法：</p>
+<ul>
+<li>打开WinEdt，找到如下路径</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">option--&gt;option interface--&gt;Advanced Configuration--&gt;Event Handlers--&gt;Exit</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>双击Exit子项，弹出一个名为Exit.edt的配置文件，在配置文件Exit.edt最后一句“END;”前面一行加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RegDeleteValue(&#39;HKEY_CURRENT_USER&#39;, &#39;Software\WinEdt 10&#39;, &#39;Inst&#39;);</span><br></pre></td></tr></table></figure>
+<p>然后单击保存。</p></li>
+</ul>
+<p>注意：将需要添加语句 <code>RegDeleteValue('HKEY_CURRENT_USER', 'Software\WinEdt 8', 'Inst');</code> 的版本号改为自己的版本号，比如上面是8，如果用的是10.2的话，改为10就行。</p>
+<p>最终破解成功。</p>
+<h2 id="ctex-改变默认-pdf-viewer">CTEX 改变默认 pdf viewer</h2>
+<p>打开WinEdt，找到如下路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Options -&gt; Excution Modes… -&gt; PDF viewer选项卡</span><br></pre></td></tr></table></figure>
+<p>在 PDF Viewer Excutable 下填入你想要 PDF 阅读器的路径。比如，<code>“C:\CTeX\ctex\bin\SumatraPDF.exe”</code>。</p>
+<p>若要更新SumatraPDF版本可在上述目录下找到阅读器，打开后在<code>帮助-&gt;更新版本</code>处，查找更新，覆盖安装即可。</p>
+<h2 id="更新宏包">更新宏包</h2>
+<h3 id="方法一">方法一</h3>
+<p>近日在更新宏包之时，发现其因为版本过旧，不能连接到合适的服务器。而在编译 tex 文档时有时候需要新的宏包，放弃一些旧的宏包等等，不能每一次都通过手动下载安装完成。那么解决办法是另外再单独安装一个 MiKTeX，使 TeX 编译环境仍能正常更新。</p>
+<p>在更新宏包时，需要预先选择一个服务器，国内稳定的就几个可选，国外一般都不稳定，容易断。我一直使用清华的服务器 <code>mirrors.tuna.tsinghua.edu.cn</code>，注意服务器的更新时间，越新越好 。</p>
+<p>到最近的服务器镜像下载最新的 <a href="http://mirrors.zju.edu.cn/CTAN/systems/win32/miktex/setup/" target="_blank" rel="noopener">MiKTeX</a> 版本 。注意不要下载 64 位版本的，因为 CTeX 自身安装的组件都是 32 位的，所以下载一个 32 位的 MiKTeX 兼容性会更好。</p>
+<p>先将原 CTeX 目录下的 MiKTeX 文件夹删除（如果不放心的话，可以先重命名为 MiKTeX-old），然后直接将新下载的miktex 直接安装在这里，代替旧版本的 MiKTeX （注意文件夹名字在安装时就改为MiKTeX 可以避免后续的麻烦，而不是 MikTeX 2.9，因为这会涉及到环境变量）。</p>
+<p>注意到新安装的 MiKTeX 容量比 CTeX 自带的小了很多，并没有那么臃肿。有很多包没有安装好，需要后续手动安装。</p>
+<p>刚安装完，需要打开 Update MikTeX (Admin) 对目录下的宏包进行更新，确保其处于最新的状态，旧的宏包可以淘汰，新的宏包可以安装，第一次可能需要较长时间更新同步，之后再编译其他 tex 文档时，只需要安装几个欠缺的宏包就可以了。几个快捷方式如果查找不到，可以直接打开它们指向的原文件</p>
+<ul>
+<li>Package Manager (Admin) -&gt; D:_mfc_admin.exe</li>
+<li>Settings (Admin) -&gt; D:_admin.exe</li>
+<li>Update (Admin) -&gt; D:-update_admin.exe</li>
+</ul>
+<p>当更新完所有 package 之后，再次打开 Update MiKTeX，会发现已经是最新状态，没有宏包需要安装了。在编译某一些 tex 文档时需要的宏包本地如果没有， MiKTeX 会提示你是否从服务器下载，点击确认即可， 如果希望系统能自动下载，而不需要手动确认，只需要将对话框中最后一行的勾去掉即可。</p>
+<h3 id="离线更新">离线更新</h3>
+<p>1、首先你需要知道一个可用的CTAN镜像，理想的镜像应当是位于大陆的，地理上与你较近的，最好是同一ISP的。</p>
+<p>**目前大陆最驰名的应该是中科大的开源镜像，其网址是http://mirrors.ustc.edu.cn</p>
+<p>其同时收录了N个开源软件的镜像，也包括CTAN。</p>
+<p>下文均以中科大开源镜像为例。</p>
+<p>2、下载所需的Package</p>
+<p><strong>打开</strong>CTAN镜像下的systems/win32/miktex/tm/packages/目录，例如：</p>
+<p><code>http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/tm/packages/</code></p>
+<p>首先需要下载索引文件：<code>miktex-zzdb1-2.9.tar.lzma</code>和<code>miktex-zzdb2-2.9.tar.lzma</code></p>
+<p>以上两个索引文件是必须下载的，而且每次你手动更新或者安装Package的时候都需要下载最新的索引文件。</p>
+<p>然后，下载所需的Package。(后缀是.cab、.tar.lzma、.tar.bz2)，或者下载此目录下的全部文件。(一些浏览器或者下载软件提供批量下载功能，可批量下载当前页面下的所有链接。)</p>
+<blockquote>
+<p>下载方法：</p>
+<p>资源管理器-&gt;输入ftp://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/tm/packages/</p>
+<p>复制文件夹下的所有文件出来即可，复制过程中不要关闭资源管理器的窗口（packages）</p>
+<p>在http://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/support/update/miktex-update_admin.exe 下载，更新文件</p>
+</blockquote>
+<p>然后，点击开始菜单，选择所有程序，选择CTEX(如果你安装的是CTEX)，选择Miktex，右键点击Maintenance (Admin)选择打开，这样会打开一个文件管理器窗口，方便后面点选。</p>
+<p>然后选择Settings (Admin)，打开设置窗口。在最右面的Package选项卡，选择Change，然后选择Package Shell be installed from a local directory.，点击下一步，选择你本地Package源的文件夹(放着很多.tar.lzma的那个文件夹)。</p>
+<p>此时Package源已经设置为使用本地源。此时如果你希望安装新的Package，请选择Package Manager (Admin)，如果你希望更新已有Package，请选择Update (Admin)。‘</p>
+<p>附各大学开源软件镜像站：</p>
+<p>复旦大学：http://fs.fudan.edu.cn/</p>
+<p>东北大学：http://mirror.neu.edu.cn/</p>
+<p>中国科大：http://mirrors.ustc.edu.cn/</p>
+<p>电子科大：http://mirrors.stuhome.net/</p>
+<p>华中科大：http://mirrors.hust.edu.cn/</p>
+<p>北京交大：http://mirror.bjtu.edu.cn/</p>
+<p>CTEX：http://ftp.ctex.org/mirrors/</p>
+<h2 id="模板">模板</h2>
+<p>中文报告模板，另附中科院模板，<a href="https://github.com/mohuangrui/ucasthesis" target="_blank" rel="noopener">论文</a>、<a href="https://github.com/mohuangrui/ucasproposal" target="_blank" rel="noopener">开题报告</a>、<a href="https://github.com/mohuangrui/latexspine" target="_blank" rel="noopener">书脊</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[a4paper, 11pt]&#123;article&#125;</span><br><span class="line"></span><br><span class="line">%%%%%% 导入包 %%%%%%</span><br><span class="line">\usepackage&#123;CJKutf8&#125;</span><br><span class="line">\usepackage&#123;graphicx&#125;</span><br><span class="line">\usepackage[unicode]&#123;hyperref&#125;</span><br><span class="line">\usepackage&#123;xcolor&#125;</span><br><span class="line">\usepackage&#123;cite&#125;</span><br><span class="line">\usepackage&#123;indentfirst&#125;</span><br><span class="line"></span><br><span class="line">%%%%%% 设置字号 %%%%%%</span><br><span class="line">\newcommand&#123;\chuhao&#125;&#123;\fontsize&#123;42pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\xiaochuhao&#125;&#123;\fontsize&#123;36pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\yihao&#125;&#123;\fontsize&#123;28pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\erhao&#125;&#123;\fontsize&#123;21pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\xiaoerhao&#125;&#123;\fontsize&#123;18pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\sanhao&#125;&#123;\fontsize&#123;15.75pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\sihao&#125;&#123;\fontsize&#123;14pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\xiaosihao&#125;&#123;\fontsize&#123;12pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\wuhao&#125;&#123;\fontsize&#123;10.5pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\xiaowuhao&#125;&#123;\fontsize&#123;9pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\liuhao&#125;&#123;\fontsize&#123;7.875pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line">\newcommand&#123;\qihao&#125;&#123;\fontsize&#123;5.25pt&#125;&#123;\baselineskip&#125;\selectfont&#125;</span><br><span class="line"></span><br><span class="line">%%%% 设置 section 属性 %%%%</span><br><span class="line">\makeatletter</span><br><span class="line">\renewcommand\section&#123;\@startsection&#123;section&#125;&#123;1&#125;&#123;\z@&#125;%</span><br><span class="line">&#123;-1.5ex \@plus -.5ex \@minus -.2ex&#125;%</span><br><span class="line">&#123;.5ex \@plus .1ex&#125;%</span><br><span class="line">&#123;\normalfont\sihao\CJKfamily&#123;hei&#125;&#125;&#125;</span><br><span class="line">\makeatother</span><br><span class="line"></span><br><span class="line">%%%% 设置 subsection 属性 %%%%</span><br><span class="line">\makeatletter</span><br><span class="line">\renewcommand\subsection&#123;\@startsection&#123;subsection&#125;&#123;1&#125;&#123;\z@&#125;%</span><br><span class="line">&#123;-1.25ex \@plus -.5ex \@minus -.2ex&#125;%</span><br><span class="line">&#123;.4ex \@plus .1ex&#125;%</span><br><span class="line">&#123;\normalfont\xiaosihao\CJKfamily&#123;hei&#125;&#125;&#125;</span><br><span class="line">\makeatother</span><br><span class="line"></span><br><span class="line">%%%% 设置 subsubsection 属性 %%%%</span><br><span class="line">\makeatletter</span><br><span class="line">\renewcommand\subsubsection&#123;\@startsection&#123;subsubsection&#125;&#123;1&#125;&#123;\z@&#125;%</span><br><span class="line">&#123;-1ex \@plus -.5ex \@minus -.2ex&#125;%</span><br><span class="line">&#123;.3ex \@plus .1ex&#125;%</span><br><span class="line">&#123;\normalfont\xiaosihao\CJKfamily&#123;hei&#125;&#125;&#125;</span><br><span class="line">\makeatother</span><br><span class="line"></span><br><span class="line">%%%% 段落首行缩进两个字 %%%%</span><br><span class="line">\makeatletter</span><br><span class="line">\let\@afterindentfalse\@afterindenttrue</span><br><span class="line">\@afterindenttrue</span><br><span class="line">\makeatother</span><br><span class="line">\setlength&#123;\parindent&#125;&#123;2em&#125;  %中文缩进两个汉字位</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%%%% 下面的命令重定义页面边距，使其符合中文刊物习惯 %%%%</span><br><span class="line">\addtolength&#123;\topmargin&#125;&#123;-54pt&#125;</span><br><span class="line">\setlength&#123;\oddsidemargin&#125;&#123;0.63cm&#125;  % 3.17cm - 1 inch</span><br><span class="line">\setlength&#123;\evensidemargin&#125;&#123;\oddsidemargin&#125;</span><br><span class="line">\setlength&#123;\textwidth&#125;&#123;14.66cm&#125;</span><br><span class="line">\setlength&#123;\textheight&#125;&#123;24.00cm&#125;    % 24.62</span><br><span class="line"></span><br><span class="line">%%%% 下面的命令设置行间距与段落间距 %%%%</span><br><span class="line">\linespread&#123;1.4&#125;</span><br><span class="line">% \setlength&#123;\parskip&#125;&#123;1ex&#125;</span><br><span class="line">\setlength&#123;\parskip&#125;&#123;0.5\baselineskip&#125;</span><br><span class="line"></span><br><span class="line">%%%% 正文开始 %%%%</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\begin&#123;CJK&#125;&#123;UTF8&#125;&#123;gbsn&#125;</span><br><span class="line"></span><br><span class="line">%%%% 定理类环境的定义 %%%%</span><br><span class="line">\newtheorem&#123;example&#125;&#123;例&#125;             % 整体编号</span><br><span class="line">\newtheorem&#123;algorithm&#125;&#123;算法&#125;</span><br><span class="line">\newtheorem&#123;theorem&#125;&#123;定理&#125;[section]  % 按 section 编号</span><br><span class="line">\newtheorem&#123;definition&#125;&#123;定义&#125;</span><br><span class="line">\newtheorem&#123;axiom&#125;&#123;公理&#125;</span><br><span class="line">\newtheorem&#123;property&#125;&#123;性质&#125;</span><br><span class="line">\newtheorem&#123;proposition&#125;&#123;命题&#125;</span><br><span class="line">\newtheorem&#123;lemma&#125;&#123;引理&#125;</span><br><span class="line">\newtheorem&#123;corollary&#125;&#123;推论&#125;</span><br><span class="line">\newtheorem&#123;remark&#125;&#123;注解&#125;</span><br><span class="line">\newtheorem&#123;condition&#125;&#123;条件&#125;</span><br><span class="line">\newtheorem&#123;conclusion&#125;&#123;结论&#125;</span><br><span class="line">\newtheorem&#123;assumption&#125;&#123;假设&#125;</span><br><span class="line"></span><br><span class="line">%%%% 重定义 %%%%</span><br><span class="line">\renewcommand&#123;\contentsname&#125;&#123;目录&#125;  % 将Contents改为目录</span><br><span class="line">\renewcommand&#123;\abstractname&#125;&#123;摘要&#125;  % 将Abstract改为摘要</span><br><span class="line">\renewcommand&#123;\refname&#125;&#123;参考文献&#125;   % 将References改为参考文献</span><br><span class="line">\renewcommand&#123;\indexname&#125;&#123;索引&#125;</span><br><span class="line">\renewcommand&#123;\figurename&#125;&#123;图&#125;</span><br><span class="line">\renewcommand&#123;\tablename&#125;&#123;表&#125;</span><br><span class="line">\renewcommand&#123;\appendixname&#125;&#123;附录&#125;</span><br><span class="line">\renewcommand&#123;\algorithm&#125;&#123;算法&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%%%% 定义标题格式，包括title，author，affiliation，email等 %%%%</span><br><span class="line">\title&#123;大规模分布式系统环境下的性能监测与跟踪调试工具的\\研究成果综述&#125;</span><br><span class="line">\author&#123;傅海平\footnote&#123;电子邮件: haipingf@gmail.com，学号: 201128013229018&#125;\\[2ex]</span><br><span class="line">\xiaosihao 中国科学院计算技术研究所\\[2ex]</span><br><span class="line">&#125;</span><br><span class="line">\date&#123;2012年5月&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%%%% 以下部分是正文 %%%%  </span><br><span class="line">\maketitle</span><br><span class="line"></span><br><span class="line">\tableofcontents</span><br><span class="line">\newpage</span><br><span class="line">在此输入正文，中英文均可。</span><br><span class="line">\end&#123;CJK&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="其它">其它</h2>
+<p>编译出错，先更编译器尝试一下，让后更下一下宏包（针对undefined control sequence）。</p>
+<p>由于CTeX长期不更新。因此，并不推荐使用CTeX，而是推荐使用TeX Live，<a href="http://tug.org/texlive/" target="_blank" rel="noopener">官方网站</a>，<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlihttps://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/" target="_blank" rel="noopener">镜像下载地址</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\latex-reference-with-bib.html" rel="bookmark">LaTeX与bib添加参考文献</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\latex-advice-for-paper-writing.html" rel="bookmark">关于用LaTex编辑论文的建议</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\cold-noodles.html" rel="bookmark">夏日必备：12种凉拌面的做法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\mingcheng-xiugai-piliang.html" rel="bookmark">如何批量改名的方法及教程</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\shihuidaren-quan.html" rel="bookmark">如何网购最省钱，网购省钱助手领券教程</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/latex/" rel="tag"># latex</a>
+              <a href="/tags/ctex/" rel="tag"># ctex</a>
+              <a href="/tags/%E6%8A%80%E8%83%BD/" rel="tag"># 技能</a>
+              <a href="/tags/%E5%86%99%E4%BD%9C/" rel="tag"># 写作</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/modern-control.html" rel="prev" title="自动化的故事">
+      <i class="fa fa-chevron-left"></i> 自动化的故事
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/latex-reference-with-bib.html" rel="next" title="LaTeX与bib添加参考文献">
+      LaTeX与bib添加参考文献 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备材料"><span class="nav-number">1.</span> <span class="nav-text">准备材料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装软件"><span class="nav-number">2.</span> <span class="nav-text">安装软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#破解过程"><span class="nav-number">3.</span> <span class="nav-text">破解过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ctex-改变默认-pdf-viewer"><span class="nav-number">4.</span> <span class="nav-text">CTEX 改变默认 pdf viewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新宏包"><span class="nav-number">5.</span> <span class="nav-text">更新宏包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">5.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离线更新"><span class="nav-number">5.2.</span> <span class="nav-text">离线更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板"><span class="nav-number">6.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">7.</span> <span class="nav-text">其它</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

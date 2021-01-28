@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="据统计，中国的人体器官的供需比仅为1:30，与英美发达国家的1：3左右的供需比相差甚远。在数以万计的等待者中，每年仅有几千名幸运儿可以接受器官移植。3D生物打印和传统3D打印还是有严格的区别的，无论是技术层面还是最终目标。3D生物打印主要是用 Computer-aided Additive Manufacturing (电脑辅助累积制造) 技术，精确控制生物材料，生物细胞，生长因子，在整体3D结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="细胞3D打印技术">
+<meta property="og:url" content="https://zymin.cn/arcticle/cell-print.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="据统计，中国的人体器官的供需比仅为1:30，与英美发达国家的1：3左右的供需比相差甚远。在数以万计的等待者中，每年仅有几千名幸运儿可以接受器官移植。3D生物打印和传统3D打印还是有严格的区别的，无论是技术层面还是最终目标。3D生物打印主要是用 Computer-aided Additive Manufacturing (电脑辅助累积制造) 技术，精确控制生物材料，生物细胞，生长因子，在整体3D结构">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-082f1842b7411fc14f258bc8426da1f1_hd.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560238828889.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-bcddc7adf316f3b544a5ae1160bb3de5_r.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-904d595e5d0dbfc5be9fe7d4db7e4e8b_r.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-65951862a62f9a35ab7c50a0ff51a699_hd.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560236820342.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-55e9d7633f466e6b62a6bbeaaecfb89f_hd.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-1f47a22a99016897b28286fed6cf719e_hd.png">
+<meta property="article:published_time" content="2019-06-11T03:35:30.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.158Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="3d打印">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="科研">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-082f1842b7411fc14f258bc8426da1f1_hd.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/cell-print.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>细胞3D打印技术 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/cell-print.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          细胞3D打印技术
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-11 11:35:30" itemprop="dateCreated datePublished" datetime="2019-06-11T11:35:30+08:00">2019-06-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/" itemprop="url" rel="index"><span itemprop="name">科普</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>据统计，中国的人体器官的供需比仅为1:30，与英美发达国家的1：3左右的供需比相差甚远。在数以万计的等待者中，每年仅有几千名幸运儿可以接受器官移植。3D生物打印和传统3D打印还是有严格的区别的，无论是技术层面还是最终目标。3D生物打印主要是用 Computer-aided Additive Manufacturing (电脑辅助累积制造) 技术，精确控制生物材料，生物细胞，生长因子，在整体3D结构中的位置，组合，互相作用，使之具有生物活性，并能实现与目标组织或生物器官接近，相同，甚至更优越的功能。</p>
+<a id="more"></a>
+<h2 id="生物3d打印技术简介">生物3D打印技术简介</h2>
+<p>生物3D打印技术是将生物单元（细胞/蛋白质/DNA等）和生物材料按仿生形态学， 生物结构或生物体功能， 细胞特定微环境等要求用“三维打印 ”的技术手段制造出具有个性化的体外三维结构模型或三维生物功能结构体。</p>
+<blockquote>
+<p>生物3D打印作为一门新兴交叉前沿技术领域，目前在国内外得到前所未有的战略关注， 如美国增材生物制造探讨，欧盟《制造业的未来：2015～2020战略报告》，工程院十三五规划纲要，国家科技部/工信部3D打印战略规划，国家十三五重点专项均将以细胞和先进生物材料为基础的生物制造和生物3D打印技术视为国家重要战略发展方向。</p>
+</blockquote>
+<h2 id="生物3d打印技术的应用">生物3D打印技术的应用</h2>
+<p>根据所用生物材料性能的不同，清华大学生物3D打印中心将目前生物3D打印技术分为4个层次，</p>
+<p><strong>第1层次</strong>是打印无生物相容性要求的材料。</p>
+<p>可应用于3D打印体外病例模型、手术导板、3D打印体外假肢或矫形辅具等领域，该层次的应用极大的发挥了3D打印在个性化定制方面的优势，帮助相关病人量身定做相关手术模型或治疗工具，可使病人得到更好的治疗。</p>
+<p><strong>第2层次</strong>是打印具有生物相容性，但非降解材料。</p>
+<p>此类打印产品可以作为体内永久植入物，材料可以钛合金等金属等材料，也可以是高分子等惰性材料等，其中3D打印金属植入物厂商爱康医疗已获得多个CFDA上市许可证书，产品已应用于临床。</p>
+<p><strong>第3层次</strong>是打印具有良好生物相容性且可降解的生物材料。</p>
+<p>主要的应用领域为打印组织工程支架。其要求打印的体内植入物不仅能与体内相容，还要具有降解特性，在体内一定时间促进体内缺损组织的生长和愈合。由清华大学生物制造中心独创的3D打印低温沉积制造技术集成了生物3D打印与冷冻干燥微观制孔技术的优势，可实现同时具有宏观可控孔隙（百微米级）与微观微丝孔隙（十微米级）的组织工程支架的3D打印，提高了支架内的细胞种植率，更利于细胞在支架内部的生长和组织功能的实现，并在骨组织工程支架等领域应用良好，并已开始向临床转化。</p>
+<p><strong>第4层次</strong>是打印活性细胞，蛋白及其他生物活性分子等。</p>
+<p>该层次的生物3D打印技术也被称作细胞3D打印技术。细胞3D打印技术可以直接将细胞、蛋白及其它具有生物活性的材料（例如蛋白质，DNA，生长因子等）作为3D打印的基本单元，以3D打印的方式，直接构建体外生物结构体、组织或器官模型。</p>
+<h2 id="细胞3d打印的技术挑战">细胞3D打印的技术挑战</h2>
+<p>细胞3D打印技术是目前生物3D打印技术的最前沿技术，也是实现器官打印的最大潜在技术。打印过程中，细胞必将承受一定的机械力，甚至造成一定损伤，因此，细胞3D打印技术的实现充满了各种技术挑战，细胞3D打印的技术挑战主要包括以下几个方面，</p>
+<h3 id="材料能否打印">材料能否打印？</h3>
+<p>首先要选择能被生物3D打印机打印的生物材料/生物墨水，虽然不同的打印工艺对生物墨水粘度有不同要求，但总体来讲，太低粘度或太高粘度的生物墨水，都很难被打印。因此，细胞3D打印的第一个挑战是要找到可以被打印的生物墨水。</p>
+<h3 id="能否构建3d结构">能否构建3D结构？</h3>
+<p>并不是所有被打印的生物墨水都可以构建3D结构，为了打印出具有高分辨率的3D复杂细胞结构体，细胞打印墨水需满足通过提高打印墨水的粘度来提高生物墨水的凝胶能力，以维持层层堆积结构体的力学性能。</p>
+<h3 id="细胞能否存活">细胞能否存活？</h3>
+<p>增加细胞打印墨水的粘度，会导致打印过程中细胞打印墨水中的细胞所承受的剪切力增加，从而导致打印后细胞存活率的下降。因此，控制好打印过程中细胞打印墨水的粘度(既不能太高也不能太低)，寻找细胞打印墨水的合适粘弹性区间，是实现良好细胞三维打印（良好的成形性能与生物学性能）的重要步骤。</p>
+<h3 id="是否具有功能性">是否具有功能性？</h3>
+<p>刚打印的3D细胞结构体，只是细胞和生物材料的3D组合体，并没有形成组织特征。因此，打印的3D细胞结构体，必须经过适宜的培养条件，才能形成组织功能性。此环节需要保证，生物材料的生物相容性，力学性能和功能性，培养基的充足供应和废物的充分排出等。甚至有些组织需要特定的生物反应器，通过流体，力或电的刺激才能达到其功能性。</p>
+<p>综上所述，细胞3D打印的各个环节充满了不同甚至具有一定相互矛盾的技术挑战，需要多学科的交叉背景知识和多年的经验积累去解决。</p>
+<h2 id="细胞3d打印技术分类">细胞3D打印技术分类</h2>
+<p>其根据其离散细胞墨水的方法主要可以分为五类（见表1）</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-082f1842b7411fc14f258bc8426da1f1_hd.png" /></p>
+<h3 id="喷墨式细胞打印技术">喷墨式细胞打印技术</h3>
+<p>喷墨式细胞打印是基于普通喷墨打印机的打印原理，利用热气泡或压电的体积变化，挤压墨盒内的细胞墨水，离散产生含有细胞的细胞墨水的微滴并喷射出去[1]。喷墨打印机的喷嘴直径仅有几十微米，可以进行高精度的细胞打印，但是也由于其喷嘴直径比较小，喷墨式细胞打印难以离散打印高粘度的细胞墨水，使得此技术直接打印三维生物学实体模型较困难；此外，热气泡的产生和压电的变形会对细胞造成一定损伤，需较好的控制打印工艺参数。代表的研究机构有德州大学的Boland教授课题组。喷墨式打印技术主要有热泡式、压电式和静电式三大类。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560238828889.png" /></p>
+<h3 id="微挤出式细胞三维打印技术">微挤出式细胞三维打印技术</h3>
+<p>微挤出式细胞三维打印技术，利用机械力或气压等驱动力，直接通过微喷头连续挤出生物材料和细胞构建三维生物学结构体[2,3]。由于常用的微挤出式细胞打印机的喷嘴直径多在百微米级，打印精度一般，但其挤出式的工艺可以打印高粘弹性的生物墨水，易于实现三维生物学实体的构建。此外，此技术在牺牲精度的同时，使得打印出的每一个离散单元体积变大，间接地提高了打印效率和细胞存活率。代表的研究机构有清华大学生物制造中心的孙伟教授课题组，美国哈佛大学的Jennifer Lewis教授课题组。</p>
+<p>例如，直接挤压式<a href="https://zhuanlan.zhihu.com/p/33687664" target="_blank" rel="noopener">血管打印</a>，活细胞被包裹在水凝胶或者脱细胞基质等外源性生物材料中进行打印，支架为细胞的早期生长提供临时支持，通过生物学、化学和力学因素来诱导细胞分化成熟，获得组织工程化血管。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-bcddc7adf316f3b544a5ae1160bb3de5_r.jpg" /></p>
+<p>共轴挤压式生物打印血管过程示意图如下，生物墨水和支撑材料通过同轴喷嘴系统，在打印过程中进行混合交联，构建空心管状结构。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-904d595e5d0dbfc5be9fe7d4db7e4e8b_r.jpg" /></p>
+<h3 id="激光直写式细胞打印技术">激光直写式细胞打印技术</h3>
+<p>激光直写式细胞打印技术，是指利用光压力控制细胞排列成具有高精度的空间结构，其精度可达单细胞量级，但提高的精度也导致成形效率下降明显，该工艺也难以打印粘度较高的生物材料，使得其打印三维生物学结构体的能力降低[4]。代表的研究机构有美国明尼苏达大学的David Odde教授课题组。</p>
+<h3 id="立体光刻细胞三维打印技术">立体光刻细胞三维打印技术</h3>
+<p>立体光刻细胞三维打印技术，通过激光或紫外光在空间的扫描运动实现对含有细胞的光刻胶的立体固化成形，制造出预设计的三维生物学结构[5]。虽然这种技术具有高度的柔性，但其成型效率却不如人意。部分开发者不再利用激光细小的光斑扫描立体固化成形，而是利用投影机原理，进行面投射，每层同时固化成形。该工艺根据投影机类型主要可以分为液晶投影仪型和数字微镜（Digital Micromirror Devices, DMD）投影仪型，两者的本质区别是液晶投影仪首先将光源分解成3种单色光，再分别通过三个液晶片控制三种单色光的亮度，最终合成所需的光和图案，而DMD只是利用一个可以反射光源的数字阵列式微镜来实现。该种工艺的光敏水凝胶预先存储在成形室内，会造成材料浪费，以及难以制造多种细胞的异质结构，且光敏水凝胶多具有不同程度的毒性，使得该种工艺的细胞存活率一般。代表的研究机构有美国加州大学圣地亚哥分校的Chen Shaochen课题组。</p>
+<h3 id="声波驱动式细胞打印技术">声波驱动式细胞打印技术</h3>
+<p>声波驱动式细胞打印技术是利用声波的振动产生微滴喷射的方法，其精度最小可达10 μm左右，但该工艺也是微滴喷射的方法，难以喷射高粘度的生物材料，使得打印三维生物学结构体的能力受到限制[6]。代表的研究机构有美国Stanford大学的Demirci教授课题组。</p>
+<h3 id="不同细胞三维打印技术特点分析">不同细胞三维打印技术特点分析</h3>
+<p>综上所述，各种细胞打印方法各有所长，但对于具有三维复杂异质生物学结构体来说，微挤出式细胞三维打印技术更为合适，其构建多细胞三维模型更容易，效率更高，细胞存活率高，打印精度（百微米级）也能满足一般科研使用需求。所以，目前市场上主流的细胞3D打印机多是基于该技术实现，代表公司有德国的Envision TEC，瑞士的RegenHu，国内的上普博源（SunP Biotech），捷诺飞等。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-65951862a62f9a35ab7c50a0ff51a699_hd.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<center>
+图 4 3D打印胚胎干细胞
+</center>
+<h2 id="生物墨水">生物墨水</h2>
+<p>微挤出式细胞三维打印的生物墨水有很多种，根据其溶胶-凝胶固化转变原理可以分为以下几种方式（表2），</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560236820342.png" /></p>
+<h3 id="温敏水凝胶生物墨水">温敏水凝胶生物墨水</h3>
+<p>温敏水凝胶生物墨水可以通过环境温度的改变实现其溶胶-凝胶方式的转变。凝胶-溶胶转变温度在0到37℃之间且生物相容性好的水凝胶材料均有能力作为细胞打印墨水[7]。最具代表性的温敏水凝胶细胞打印墨水为明胶。温敏水凝胶的溶胶到凝胶的转变方式一般为可逆的，且只要材料温度达到转变温度即可转变，无需使用液体交联剂，不受交联剂渗透深度影响，也不易出现液体交联剂导致三维打印离散层层堆积时，层与层之间出现的层间剥离现象，易于构建大尺寸的三维细胞结构体。</p>
+<h3 id="离子交联式生物墨水">离子交联式生物墨水</h3>
+<p>以海藻酸钠[8]为代表的水凝胶材料，可以通过与离子溶液相接触的方式进行交联固化，实现溶胶-凝胶方式的转变。但是此种离子置换的交联方式反应很快，难以利用生物墨水与交联剂预混合的方式打印，一般只能利用含离子的液体进行浸泡或喷射在生物墨水表面进行交联。但细胞三维打印机若使用液体浸泡的方式进行交联，易出现前文提到的层间剥离现象，不利于打印三维生物学结构体。</p>
+<h3 id="酶促交联式生物墨水">酶促交联式生物墨水</h3>
+<p>以纤维蛋白原[9]为代表的水凝胶材料，可以通过与生物酶相接触的方式进行交联，实现溶胶-凝胶方式的转变。此种酶促交联方式一般反应较慢，生物酶可以混入液体制成交联剂，通过液体浸泡的方式进行交联，也可以与水凝胶生物墨水预混合后，待时间孵育交联。但溶胶到凝胶转变反应慢，也增加了成形难度，不易于直接打印三维结构体。</p>
+<h3 id="紫外光固化">紫外光固化</h3>
+<p>部分合水凝胶材料经过合成改性，再加入光引发剂，使得水凝胶生物墨水具有光敏特性，可以通过紫外光进行交联固化（例如GelMA[10]等）。光敏水凝胶一般强度高，紫外光的渗透深度比一般液体交联剂的渗透深度更深，但光引发剂的引入，会降低生物墨水的生物活性。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-55e9d7633f466e6b62a6bbeaaecfb89f_hd.png" /></p>
+<center>
+细胞打印工艺的凝胶化方式
+</center>
+<h2 id="细胞3d打印的未来">细胞3D打印的未来</h2>
+<p>尽管目前细胞3D打印已能打印多种细胞，甚至可以构建一些简单的组织等。但其距离器官打印还有一段距离，未来值得关注一下几方面的研究突破或趋势变化，以促进细胞3D打印技术的向前发展，</p>
+<h3 id="研究新型生物墨水">研究新型生物墨水</h3>
+<p>目前，生物墨水大多有利有弊，还不存在理想型的生物墨水。基于天然生物材料的墨水生物相容性好，但大多难以打印或力学性能不好。基于人工合成高分子材料的墨水打印性能或力学性能较好，但生物活性一般较差，甚至有些材料没有经过FDA认证。未来，研发打印性能和生物学性能兼优的生物墨水将是行业不可避免的趋势。</p>
+<h3 id="产业化促进整个领域快速向前">产业化促进整个领域快速向前</h3>
+<p>随着生物3D打印产业化的不断成熟，越来越多的厂商开始开发商业化的生物3D打印机，生物3D打印机的功能越来越强大，价格越来越低廉。这使得新进入这个交叉领域的研究者，尤其是材料学家，生物学家，医生等非机械电子专业的研究者，可以无需花精力在自己不擅长的打印机开发领域，而专注于生物墨水的研发及组织或器官的构建研究。因此，细胞3D打印机的产业化正在促进这个领域更快的发展。</p>
+<h3 id="提供细胞3d打印的专业化服务将是未来的趋势">提供细胞3D打印的专业化服务将是未来的趋势</h3>
+<p>细胞3D打印的交叉学科特性及技术挑战，决定了其入门具有一定的门槛，因此，通过与有经验的科研机构合作，或寻找有经验的公司进行技术服务，将是此领域新入门者快速获取知识并取得科研成果的便捷途径。据此预测，具有高校研究背景的细胞3D打印的专业化服务公司将会越来越多。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/v2-1f47a22a99016897b28286fed6cf719e_hd.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<center>
+图 6 3D打印肿瘤模型
+</center>
+<h2 id="结语">结语</h2>
+<p>近年，细胞3D打印技术随着生物3D打印机和生物墨水的产业化已走进越来越多的实验室，更多的交叉领域研究者一起投身到这个实现人类器官再造梦想的领域。相信随着细胞3D打印领域的不断蓬勃发展，实现器官打印的那天也不会太遥远。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>[1] Saunders R E, Gough J E, Derby B. Delivery of human fibroblast cells by piezoelectric drop-on-demand inkjet printing. Biomaterials, 2008,29(2):193-203.</p>
+<p>[2] Khalil S, Nam J, Sun W. Multi‐nozzle deposition for construction of 3D biopolymer tissue scaffolds. Rapid Prototyping Journal, 2005,volume 11(1):9-17.</p>
+<p>[3] Kolesky D B, Truby R L, Gladman A S, et al. 3D Bioprinting of Vascularized, Heterogeneous Cell‐Laden Tissue Constructs. Advanced Materials, 2014,26(19):3124-3130.</p>
+<p>[4] Odde D J, Renn M J. Laser‐guided direct writing of living cells. Biotechnology &amp; Bioengineering, 2000,67(3):312-318.</p>
+<p>[5] Itoga K, Kobayashi J, Yamato M, et al. Maskless liquid-crystal-display projection photolithography for improved design flexibility of cellular micropatterns. Biomaterials, 2006,27(15):3005-3009.</p>
+<p>[6] Yu Fang J P F S. Rapid Generation of Multiplexed Cell Cocultures Using Acoustic Droplet Ejection Followed by Aqueous Two-Phase Exclusion Patterning. Tissue Engineering Part C Methods, 2012,18(9):647-657.</p>
+<p>[7] Zhao, Y, Yao, R, Ouyang, L, et al. Three-dimensional printing of Hela cells for cervical tumor model in vitro. Biofabrication, 2014, 6(3): 035001.</p>
+<p>[8] Lee K Y, Mooney D J. Alginate: Properties and biomedical applications. Progress in Polymer Science, 2012,37(1):106-126.</p>
+<p>[9] Mosesson M W. Fibrinogen and fibrin structure and functions. Journal of Thrombosis &amp; Haemostasis, 2005,3(8):1894-1904.</p>
+<p>[10] Billiet T, Gevaert E, De Schryver T, et al. The 3D printing of gelatin methacrylamide cell-laden tissue-engineered constructs with high cell viability. BIOMATERIALS, 2014,35(1):49-62.</p>
+<p>[11] DUAN B. State-of-the-Art Review of 3D Bioprinting for Cardiovascular Tissue Engineering [J]. Annals of biomedical engineering, 2017, 45(1): 195-209.；（</p>
+<p>[12] RICHARDS D, JIA J, YOST M, et al. 3D Bioprinting for Vascularized Tissue Fabrication [J]. Annals of biomedical engineering, 2017, 45(1): 132-47.；</p>
+<p>[13] ZHU W, QU X, ZHU J, et al. Direct 3D bioprinting of prevascularized tissue constructs with complex microarchitecture [J]. Biomaterials, 2017, 124(106-15.</p>
+<p><strong>说明：该文章在《新材料产业》2019年第2期中已刊登</strong></p>
+<p><strong>原作者为赵雨 —— 上普博源（北京）生物科技有限公司运营总监，内容有删改</strong></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-materials.html" rel="bookmark">3D打印材料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-micro-print.html" rel="bookmark">微纳3D打印技术简介</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\mask-aligner-system.html" rel="bookmark">光刻机技术原理与发展趋势</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\camera-arrays.html" rel="bookmark">多相机阵列综述</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/3d%E6%89%93%E5%8D%B0/" rel="tag"># 3d打印</a>
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"># 科研</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/3d-micro-print.html" rel="prev" title="微纳3D打印技术简介">
+      <i class="fa fa-chevron-left"></i> 微纳3D打印技术简介
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/yingdu.html" rel="next" title="材料硬度测试和表示方法">
+      材料硬度测试和表示方法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生物3d打印技术简介"><span class="nav-number">1.</span> <span class="nav-text">生物3D打印技术简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生物3d打印技术的应用"><span class="nav-number">2.</span> <span class="nav-text">生物3D打印技术的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细胞3d打印的技术挑战"><span class="nav-number">3.</span> <span class="nav-text">细胞3D打印的技术挑战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#材料能否打印"><span class="nav-number">3.1.</span> <span class="nav-text">材料能否打印？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能否构建3d结构"><span class="nav-number">3.2.</span> <span class="nav-text">能否构建3D结构？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#细胞能否存活"><span class="nav-number">3.3.</span> <span class="nav-text">细胞能否存活？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#是否具有功能性"><span class="nav-number">3.4.</span> <span class="nav-text">是否具有功能性？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细胞3d打印技术分类"><span class="nav-number">4.</span> <span class="nav-text">细胞3D打印技术分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#喷墨式细胞打印技术"><span class="nav-number">4.1.</span> <span class="nav-text">喷墨式细胞打印技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微挤出式细胞三维打印技术"><span class="nav-number">4.2.</span> <span class="nav-text">微挤出式细胞三维打印技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激光直写式细胞打印技术"><span class="nav-number">4.3.</span> <span class="nav-text">激光直写式细胞打印技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立体光刻细胞三维打印技术"><span class="nav-number">4.4.</span> <span class="nav-text">立体光刻细胞三维打印技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声波驱动式细胞打印技术"><span class="nav-number">4.5.</span> <span class="nav-text">声波驱动式细胞打印技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同细胞三维打印技术特点分析"><span class="nav-number">4.6.</span> <span class="nav-text">不同细胞三维打印技术特点分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生物墨水"><span class="nav-number">5.</span> <span class="nav-text">生物墨水</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#温敏水凝胶生物墨水"><span class="nav-number">5.1.</span> <span class="nav-text">温敏水凝胶生物墨水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离子交联式生物墨水"><span class="nav-number">5.2.</span> <span class="nav-text">离子交联式生物墨水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#酶促交联式生物墨水"><span class="nav-number">5.3.</span> <span class="nav-text">酶促交联式生物墨水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#紫外光固化"><span class="nav-number">5.4.</span> <span class="nav-text">紫外光固化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细胞3d打印的未来"><span class="nav-number">6.</span> <span class="nav-text">细胞3D打印的未来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#研究新型生物墨水"><span class="nav-number">6.1.</span> <span class="nav-text">研究新型生物墨水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产业化促进整个领域快速向前"><span class="nav-number">6.2.</span> <span class="nav-text">产业化促进整个领域快速向前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提供细胞3d打印的专业化服务将是未来的趋势"><span class="nav-number">6.3.</span> <span class="nav-text">提供细胞3D打印的专业化服务将是未来的趋势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">8.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

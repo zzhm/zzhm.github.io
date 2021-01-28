@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="我们在研究贝塞尔曲线的时候，首先遇到的就是伯恩斯坦多项式（Bernstein polynomial），为此，有必要专门开出一篇文章来探讨伯恩斯坦多项式的性质。当伯恩斯坦系数是二维平面中的一系列固定点时，伯恩斯坦多项式就演变成了贝塞尔曲线。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="伯恩斯坦多项式与贝塞尔曲线">
+<meta property="og:url" content="https://zymin.cn/arcticle/Bernstein%20polynomial.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="我们在研究贝塞尔曲线的时候，首先遇到的就是伯恩斯坦多项式（Bernstein polynomial），为此，有必要专门开出一篇文章来探讨伯恩斯坦多项式的性质。当伯恩斯坦系数是二维平面中的一系列固定点时，伯恩斯坦多项式就演变成了贝塞尔曲线。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein0.svg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein1.svg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein2.svg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein3.svg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein4.svg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein5.svg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543555975646.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556013324.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556120806.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556155364.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556181874.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556202275.png">
+<meta property="article:published_time" content="2018-11-30T05:11:59.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.085Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="曲线">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein0.svg">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/Bernstein%20polynomial.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>伯恩斯坦多项式与贝塞尔曲线 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/Bernstein%20polynomial.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          伯恩斯坦多项式与贝塞尔曲线
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-30 13:11:59" itemprop="dateCreated datePublished" datetime="2018-11-30T13:11:59+08:00">2018-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>我们在研究贝塞尔曲线的时候，首先遇到的就是伯恩斯坦多项式（Bernstein polynomial），为此，有必要专门开出一篇文章来探讨伯恩斯坦多项式的性质。当伯恩斯坦系数是二维平面中的一系列固定点时，伯恩斯坦多项式就演变成了贝塞尔曲线。</p>
+<a id="more"></a>
+<p>从定义出发，伯恩斯坦多项式的第n阶项有如下形式：</p>
+<p><span class="math display">\[b_{i,n}(t) = \binom{n}{i}\cdot t^{i} \cdot (1-t)^{(n-i)}, \quad t\in[0, 1]\]</span></p>
+<p>其中 i=0, 1, …, n, 而<span class="math inline">\(\binom{n}{i} = \frac{n!}{i!(n-i)!}\)</span>是二项式系数。</p>
+<p>伯恩斯坦 n 阶多项式可以形成一组 n 阶指数多项式的基底。一般伯恩斯坦多项式可以表示为：</p>
+<p><span class="math display">\[B_n(t) = \sum_{i=0}^{n}\beta_i \cdot b_{i, n}(t)\]</span></p>
+<p>其中，<span class="math inline">\(\beta_i\)</span> 叫做伯恩斯坦系数。读者看到这个形式可能一下子就联想到贝塞尔曲线了。是的，这就是贝塞尔曲线的函数形式。</p>
+<h2 id="性质">性质</h2>
+<p>伯恩斯坦多项式满足如下性质：</p>
+<ul>
+<li><p>对称性：<span class="math inline">\(b_{i,n}(t) = b_{n-i,n}(1-t)\)</span></p></li>
+<li><p>正性：<span class="math inline">\(b_{i,n}(t) \geqslant 0\)</span></p></li>
+<li><p>归一化：<span class="math inline">\(\sum_{i=0}^{n}b_{i, n}(t) = 1\)</span></p></li>
+<li><p>极值：</p></li>
+</ul>
+<p>当 <span class="math inline">\(i\neq 0, n\)</span> 时，<span class="math inline">\(b_{i,n}(t)\)</span> 有且只有一个极大值点，位于 <span class="math inline">\(t=\frac{i}{n}\)</span>，值为</p>
+<p><span class="math inline">\(b_{i,n}(\frac{i}{n}) = i^i\cdot n^{-n} \cdot (n-i)^{n-i} \binom{n}{i}\)</span></p>
+<ul>
+<li>临近项关系</li>
+</ul>
+<p>伯恩斯坦多项式的项总是可以表示为两个比他高一阶项的线性组合</p>
+<p><span class="math inline">\(b_{i,n-1}(t) = \frac{n-i}{n}b_{i,n}(t) + \frac{i+1}{n}b_{i+1,n}(t)\)</span></p>
+<p>而其导数可以表示为两个低一阶项的线性组合</p>
+<p><span class="math inline">\(b_{i,n}^{‘}(t) = n\cdot[b_{i-1,n-1}(t)-b_{i,n-1}(t)]\)</span></p>
+<p>当然这里需要考虑到一个约定，即当 i&lt;0 或 i&gt;n 时，<span class="math inline">\(\binom{n}{i} = 0\)</span></p>
+<p>这是很容易理解的。二阶项系数的含义是在不考虑顺序的情况下，从 n 中挑选出子集大小为 i 的可能性有多少。当 i&lt;0 或 i&gt;n 时，其可能性当然为零。</p>
+<p>由此，我们也知道，当 i&lt;0 或 i&gt;n 时，<span class="math inline">\(b_{i,n}(t) = 0\)</span></p>
+<ul>
+<li>端点：</li>
+</ul>
+<p>当 t=0 或 t=1 时，其结果满足</p>
+<p><span class="math inline">\(\begin{align} b_{i,n}(0) &amp;= \delta_{i, 0} \newline b_{i,n}(1) &amp;= \delta_{i, n} \end{align}\)</span>，</p>
+<p>其中，<span class="math inline">\(\delta_{i,j} = \begin{cases} 0, &amp;i \neq j \newline 1, &amp;i = j \end{cases}\)</span>，是 Kronecker <span class="math inline">\(\delta\)</span> 函数。</p>
+<ul>
+<li>积分：<span class="math inline">\(\int_{0}^{1} b_{i,n}(t) dt = \frac{1}{n+1}\)</span></li>
+</ul>
+<h2 id="多项式前几阶结果">多项式前几阶结果</h2>
+<p>通过求取多项式的前几阶结果，并画出相应的函数图，可以很直观地验证上述伯恩斯坦多项式的几个性质。</p>
+<p>零阶：</p>
+<p><span class="math inline">\(\begin{align} b_{0,0}(t) &amp;= 1 \end{align}\)</span></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein0.svg" /></p>
+<p>一阶：</p>
+<p><span class="math inline">\(\begin{align} b_{0,1}(t) &amp;= 1-t \newline b_{1,1}(t) &amp;= t \end{align}\)</span></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein1.svg" /></p>
+<p>二阶：</p>
+<p><span class="math inline">\(\begin{align} b_{0,2}(t) &amp;= (1-t)^2 \newline b_{1,2}(t) &amp;= 2(1-t)t \newline b_{2,2}(t) &amp;= t^2 \end{align}\)</span></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein2.svg" /></p>
+<p>三阶：</p>
+<p><span class="math inline">\(\begin{align} b_{0,3}(t) &amp;= (1-t)^3 \newline b_{1,3}(t) &amp;= 3(1-t)^2t \newline b_{2,3}(t) &amp;= 3(1-t)t^2 \newline b_{3,3}(t) &amp;= t^3 \end{align}\)</span></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein3.svg" /></p>
+<p>四阶：</p>
+<p><span class="math inline">\(\begin{align} b_{0, 4}(t) &amp;= (1-t)^4 \newline b_{1, 4}(t) &amp;= 4(1-t)^3t \newline b_{2, 4}(t) &amp;= 6(1-t)^2t^2 \newline b_{3, 4}(t) &amp;= 4(1-t)t^3 \newline b_{4, 4}(t) &amp;= t^4 \end{align}\)</span></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein4.svg" /></p>
+<p>五阶：</p>
+<p><span class="math inline">\(\begin{align} b_{0, 5}(t) &amp;= (1-t)^5 \newline b_{1, 5}(t) &amp;= 5(1-t)^4t \newline b_{2, 5}(t) &amp;= 10(1-t)^3t^2 \newline b_{3, 5}(t) &amp;= 10(1-t)^2t^3 \newline b_{4, 5}(t) &amp;= 5(1-t)t^4 \newline b_{5, 5}(t) &amp;= t^5 \end{align}\)</span></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/bernstein5.svg" /></p>
+<h2 id="贝塞尔曲线">贝塞尔曲线</h2>
+<p>伯恩斯坦多项式的一般形式</p>
+<p><span class="math inline">\(B_n(t) = \sum_{i=0}^{n}\beta_i \cdot b_{i, n}(t)\)</span></p>
+<p>其中，<span class="math inline">\(b_{i,n}(t) = \binom{n}{i}\cdot t^{i} \cdot (1-t)^{(n-i)}, \quad t\in[0, 1]\)</span></p>
+<p>是 n 阶伯恩斯坦基底多项式。而 <span class="math inline">\(\beta_i\)</span> 叫做伯恩斯坦系数。当伯恩斯坦系数是二维平面中的一系列固定点时，伯恩斯坦多项式就演变成了贝塞尔曲线。</p>
+<p>我们先来看一个三阶贝塞尔曲线的例子：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543555975646.png" /></p>
+<p>在该例子中，共有四个坐标点（控制点）。读者可以尝试拖动四个控制点，看看贝塞尔曲线的形态变化。</p>
+<p>结合伯恩斯坦多项式的前几阶展开式，我们可以得到相应的贝塞尔曲线形式。</p>
+<h3 id="线性曲线">线性曲线</h3>
+<p>对一阶伯恩斯坦多项式展开，得到如下形式：</p>
+<p><span class="math inline">\(B(t) = P_0 \cdot (1-t) + P_1 \cdot t = P_0 + (P_1 – P_0) \cdot t\)</span></p>
+<p>从公式可以看出，二阶展开式对应的是介于 <span class="math inline">\(P_0\)</span>和 <span class="math inline">\(P_1\)</span> 之间的线性插值点。其动态效果如下：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556013324.png" /></p>
+<h3 id="二次方曲线">二次方曲线</h3>
+<p>对二阶伯恩斯坦多项式展开，得到如下形式：<span class="math inline">\(B(t) = P_0 \cdot (1-t)^2 + P_1\cdot 2(1-t)t + P_2 \cdot t^2\)</span></p>
+<p>B(t) 对 t 求导，得到下式：<span class="math inline">\(B&#39;(t) = 2(1-t)\cdot (P_1 – P_0) + 2t\cdot (P_2 – P_1)\)</span></p>
+<p>把两个端点代入式子中:</p>
+<p><span class="math display">\[\begin{align}  B&#39;(0) &amp;= 2 (P_1 – P_0) \newline  B&#39;(1) &amp;= 2 (P_2 – P_1)  \end{align}\]</span></p>
+<p>这个结果显示，位于 <span class="math inline">\(P_0\)</span> 和 <span class="math inline">\(P_2\)</span> 点的两条切线相交于 <span class="math inline">\(P_1\)</span> 点。而当 t 从 0 逐渐变化到 1 的过程中， B(t) 点处的切线会从 <span class="math inline">\(P_0P_1\)</span> 直线逐渐过渡到 <span class="math inline">\(P_1P_2\)</span> 直线。其动态效果如下：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556120806.png" /></p>
+<p>读者可以尝试拖动三个坐标点(<strong>控制点</strong>)看看曲线和切线的形态变化。</p>
+<h3 id="三次方曲线">三次方曲线</h3>
+<p>和二次方曲线类似，我们先写出展开式:</p>
+<p><span class="math inline">\(B(t) = P_0 \cdot (1-t)^3 + P_1\cdot 3(1-t)^2t + P_2 \cdot 3(1-t)t^2 + P_3 \cdot t^3\)</span></p>
+<p>接着对展开式求导，得到如下结果：</p>
+<p><span class="math inline">\(B&#39;(t) = 3(1-t)^2\cdot (P_1 – P_0) + 6(1-t)t\cdot (P_2 – P_1) + 3t^2\cdot(P_3 – P_2)\)</span></p>
+<p>代入端点值：</p>
+<p><span class="math inline">\(\begin{align} B&#39;(0) &amp;= 3 (P_1 – P_0) \newline B&#39;(1) &amp;= 3 (P_3 – P_2) \end{align}\)</span></p>
+<p>结果显示，位于 <span class="math inline">\(P_0\)</span>和 <span class="math inline">\(P_2\)</span> 点的两条切线分别相交于 <span class="math inline">\(P_1\)</span> 点和 <span class="math inline">\(P_2\)</span> 点。而当 t 从 0 逐渐变化到 1 的过程中，B(t) 点处的切线会从 <span class="math inline">\(P_0P_1\)</span>直线逐渐过渡到 <span class="math inline">\(P_2P_3\)</span> 直线。其动态效果如下：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556155364.png" /></p>
+<p>读者同样可以尝试拖动四个坐标点(<strong>控制点</strong>)来看看曲线和切线的形态变化。</p>
+<p>四次方曲线和更高次的曲线，我们不做详细的讨论，只做动态曲线演示。其结论的推导方式和三次方、二次方曲线类似。感兴趣的读者可以自己推导。</p>
+<h3 id="四次方曲线">四次方曲线</h3>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556181874.png" /></p>
+<h3 id="五次方曲线">五次方曲线</h3>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543556202275.png" /></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve" target="_blank" rel="noopener">Bézier curve</a></li>
+<li><a href="https://www.jasondavies.com/animated-bezier/" target="_blank" rel="noopener">Animated Bézier Curves</a></li>
+<li><a href="http://mathworld.wolfram.com/BernsteinPolynomial.html" target="_blank" rel="noopener">Wolfram</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bernstein_polynomial" target="_blank" rel="noopener">Wikipedia</a></li>
+<li><a href="https://www.synscope.com/780/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF/" target="_blank" rel="noopener">Synscope</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\bezier_nurbs_relation.html" rel="bookmark">Bezier曲线、B样条和NURBS简单对比</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abaqus-simple.html" rel="bookmark">Abaqus2018简单入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-materials.html" rel="bookmark">3D打印材料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abqaus-install-uninstall.html" rel="bookmark">Abqaus2018 安装、卸载及破解教程</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E6%9B%B2%E7%BA%BF/" rel="tag"># 曲线</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/culiang.html" rel="prev" title="如何给宝宝吃粗粮">
+      <i class="fa fa-chevron-left"></i> 如何给宝宝吃粗粮
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/speaking.html" rel="next" title="宝宝学说话">
+      宝宝学说话 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">1.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多项式前几阶结果"><span class="nav-number">2.</span> <span class="nav-text">多项式前几阶结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝塞尔曲线"><span class="nav-number">3.</span> <span class="nav-text">贝塞尔曲线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线性曲线"><span class="nav-number">3.1.</span> <span class="nav-text">线性曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次方曲线"><span class="nav-number">3.2.</span> <span class="nav-text">二次方曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三次方曲线"><span class="nav-number">3.3.</span> <span class="nav-text">三次方曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四次方曲线"><span class="nav-number">3.4.</span> <span class="nav-text">四次方曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五次方曲线"><span class="nav-number">3.5.</span> <span class="nav-text">五次方曲线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="更新中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量子力学简单科普">
+<meta property="og:url" content="https://zymin.cn/arcticle/quantum.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="更新中">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-23T05:09:31.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.187Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="力学">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/quantum.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>量子力学简单科普 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/quantum.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          量子力学简单科普
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-23 13:09:31" itemprop="dateCreated datePublished" datetime="2019-02-23T13:09:31+08:00">2019-02-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/" itemprop="url" rel="index"><span itemprop="name">科普</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>更新中</p>
+<a id="more"></a>
+<h2 id="量子究竟是个什么东东">量子究竟是个什么东东？</h2>
+<p>量子的对应英文是Quantum，英文释义为：a discrete quantity of energy proportional in magnitude to the frequency of the radiation it represents.翻译成中文：一个表征辐射能量的离散量，大小与辐射频率成比例。量子在日文中也写作“量子”，即书写相同发音不同，由于众所周知的原因，<strong>推测</strong>：“量子”这个中文词汇是直接使用的日文，配上了中文发音。日语中，量子解释为能量子，一粒一粒的能量，一份一份的能量，也就是离散的能量。</p>
+<p><strong>从量子的定义，我们可以有这样一些推论：</strong></p>
+<p>（1）因为辐射频率是离散量，所以辐射能量也是离散量。</p>
+<p>（2）还是因为离散量的原因，某个确定的辐射能量，即频率一定，细分到只有一份，也就是量子，再往后就不能再细分了，换句话说，量子是特定辐射的最小能量单元。</p>
+<p>（3）量子这个最小的能量单元，有许多不同的取值，分别对应于不同的频率，不同的辐射。例如：可见光就是一种辐射，红光有自己的量子，就叫红量子吧，红光由大量的红量子组成，这个红量子不能再细分了，再分就不能保持原有的性质了。</p>
+<p>（4）量子不是某个具体的物质组成单元，与分子、原子、质子、中子、电子、基本粒子不同，虽然大家都有个“子”字，也就是说量子不是粒子，是能量子，光有光量子，微波有微波量子。</p>
+<p>（5）我们知道，微观世界的“存在”具有“波粒二相性”，既有波的特性又有粒子的特性，量子也不例外，那份最小的能量像粒又像波！千万不要用宏观的“沙子粒”和“水波”套用在微观粒子头上，也包括量子。要用抽象后的“沙子粒”和“水波”去理解微观世界。</p>
+<p>（6）稍稍扩展一下。量子，是在保持某种特性的前提条件下，研究对象/物质/系统的最小组成单元。不可分是在这种特性不变的前提条件下来讲的，从这个意义上来说，与我们现在常用的“元”字一样。如：元数据、元模型、元分析、meta……</p>
+<p>（7）量子最早的概念是指最小单位的能量，不过后来物理学家们发现，不单单能量可以表现出这种不连续的分离化性质，其他物理量例如角动量、自旋、电荷等都可以表现出量子化特征，于是量子的范围又被扩大到了整个物理体系中，进而构建了量子力学。</p>
+<h3 id="量子态叠加">量子态叠加</h3>
+<p>量子态，在量子力学中，微观粒子的运动状态就是量子态。量子态由一组量子数表征，这组量子数的个数等于粒子的自由度数。例如：某个粒子由两个量子数表征，称为粒子有两个基态，分别记作|0&gt;和|1〉，那么这个粒子的量子态|Ψ〉就可以形象地理解为三维单位球面上的点。这个三维单位球，大家称之为Bloch球。原谅我就写这一个公式吧。</p>
+<p>|Ψ〉 = α|0&gt; + β|1〉，且|α|2 + |β|2 = 1</p>
+<p>量子态叠加是这样一种现象：量子的运动状态是基态叠加后的状态。量子态叠加的结果是叠加态。量子态叠加可以认为是“波的相干叠加性”与“波函数完全描述一个体系的量子态”两个概念的概括。</p>
+<h3 id="测不准原理">测不准原理</h3>
+<h3 id="量子纠缠">量子纠缠</h3>
+<p><strong>首先我们要知道量子物理研究的对象是什么？</strong> 量子物理研究的东西都超级超级小。</p>
+<p>假设我们肉眼能分辨的大小是一个足球场的大小，那么量子物理研究的就是足球场里的一个棒球那么大的东西。</p>
+<p><em>所以量子物理是微观物理，有别于经典物理。（经典物理的代表人物就是牛顿，简而言之经典物理就是研究宏观的东西，人眼能看的一清二楚的。</em></p>
+<p>离散变化是微观世界的一个本质特征。微观世界中的离散变化包括两类，一类是物质组成的离散变化，一类是物理量的离散变化。</p>
+<p>先来看第一类，物质组成的离散变化。例如光是由一个个光子组成的，你不能分出半个光子、1/3个光子，所以光子就是光的量子。阴极射线是由一个个电子组成的，你不能分出半个电子、1/3个电子，所以电子就是阴极射线的量子。</p>
+<p>在这种情况下，你似乎可以拿量子去跟原子、电子比较了，但这并没有多大意义，因为它是随你的问题而变的。原子、电子、质子、中子、中微子这些词本身就对应某些粒子，而量子这个词在不同的语境下对应不同的粒子（如果它对应粒子的话）。并没有某种粒子专门叫做“量子”！</p>
+<p>再来看第二类，物理量的离散变化。例如氢原子中电子的能量只能取-13.6 eV（eV 是“电子伏特”，一种能量单位）或者它的1/4、1/9、1/16 等等，总之就是-13.6 eV除以某个自然数的平方（-13.6/n^2 eV，n可以取1、2、3、4、5等），而不能取其他值，例如-10 eV、-20 eV。我们不好说氢原子中电子能量的量子是什么（因为不是等间距的变化），但会说氢原子中电子的能量是量子化的，位于一个个“能级”上面。每一种原子中电子的能量都是量子化的，这是一种普遍现象。</p>
+<p>发现离散变化是微观世界的一个本质特征后，科学家创立了一门准确描述微观世界的物理学理论，就是“量子力学”。现在你可以明白，这个名称是怎么来的，它其实是为了强调离散变化在微观世界中的普遍性。量子力学出现后，人们把传统的牛顿力学称为“经典力学”。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\force-field-method.html" rel="bookmark">分子力学与分子模拟</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-materials.html" rel="bookmark">3D打印材料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\125questions.html" rel="bookmark">science公布的125个前沿科学问题及其解读</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\mask-aligner-system.html" rel="bookmark">光刻机技术原理与发展趋势</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E5%8A%9B%E5%AD%A6/" rel="tag"># 力学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/babycare-lists.html" rel="prev" title="育儿误区清单">
+      <i class="fa fa-chevron-left"></i> 育儿误区清单
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/force-field-method.html" rel="next" title="分子力学与分子模拟">
+      分子力学与分子模拟 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#量子究竟是个什么东东"><span class="nav-number">1.</span> <span class="nav-text">量子究竟是个什么东东？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#量子态叠加"><span class="nav-number">1.1.</span> <span class="nav-text">量子态叠加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测不准原理"><span class="nav-number">1.2.</span> <span class="nav-text">测不准原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量子纠缠"><span class="nav-number">1.3.</span> <span class="nav-text">量子纠缠</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

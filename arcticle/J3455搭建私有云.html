@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="硬件平台：  J3455主板，4G金士顿DDR3 1600内存条，小机箱，ATX电源（长城BTX_450SE，低载荷风扇可以停转），4T西数红盘、120G固态硬盘  软件：  Seafile、Kodexplorer、Nextcloud、Onlyoffice、Aria2、阿里云DDNS、HeidiSQL、PuTTY">
+<meta property="og:type" content="article">
+<meta property="og:title" content="J3455平台openmediavault(OMV)搭建私有云">
+<meta property="og:url" content="https://zymin.cn/arcticle/J3455%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="硬件平台：  J3455主板，4G金士顿DDR3 1600内存条，小机箱，ATX电源（长城BTX_450SE，低载荷风扇可以停转），4T西数红盘、120G固态硬盘  软件：  Seafile、Kodexplorer、Nextcloud、Onlyoffice、Aria2、阿里云DDNS、HeidiSQL、PuTTY">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa2.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa3.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa4.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa5.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa6.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa8.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa9.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa10.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa12.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa14.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa15.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa18.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa20.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa21.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa22.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa23.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa24.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa25.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa26.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa27.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa28.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa29.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa30.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa31.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa32.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa33.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa34.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa35.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa36.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa37.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa38.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa39.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa40.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa41.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa42.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa43.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa44.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa45.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa46.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa47.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa48.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570168249650.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa51.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa52.png">
+<meta property="og:image" content="https://www.azurew.com/wp-content/uploads/2017/07/072717_1509_OpenMediaVa53.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa54.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa55.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa56.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa57.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa58.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa59.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570168444858.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa61.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa62.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa63.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa64.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa65.png">
+<meta property="og:image" content="https://www.azurew.com/wp-content/uploads/2017/07/072717_1509_OpenMediaVa70.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa74.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570167539410.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa79.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570168635826.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa82.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa83.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa84.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa85.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa86.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa87.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa88.png">
+<meta property="article:published_time" content="2019-10-02T02:25:48.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.057Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="omv">
+<meta property="article:tag" content="j3455">
+<meta property="article:tag" content="私有云">
+<meta property="article:tag" content="nas">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa2.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/J3455%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>J3455平台openmediavault(OMV)搭建私有云 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/J3455%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          J3455平台openmediavault(OMV)搭建私有云
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-02 10:25:48" itemprop="dateCreated datePublished" datetime="2019-10-02T10:25:48+08:00">2019-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/nas/" itemprop="url" rel="index"><span itemprop="name">nas</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>硬件平台：</li>
+</ul>
+<p>J3455主板，4G金士顿DDR3 1600内存条，小机箱，ATX电源（长城BTX_450SE，低载荷风扇可以停转），4T西数红盘、120G固态硬盘</p>
+<ul>
+<li>软件：</li>
+</ul>
+<p><a href="https://www.seafile.com" target="_blank" rel="noopener">Seafile</a>、<a href="https://kodcloud.com/" target="_blank" rel="noopener">Kodexplorer</a>、<a href="https://nextcloud.com/" target="_blank" rel="noopener">Nextcloud</a>、Onlyoffice、<a href="https://hub.docker.com/r/opengg/aria2/" target="_blank" rel="noopener">Aria2</a>、<a href="https://github.com/honwen/aliyun-ddns-cli" target="_blank" rel="noopener">阿里云DDNS</a>、HeidiSQL、PuTTY</p>
+<a id="more"></a>
+<h2 id="u盘安装omv">U盘安装OMV</h2>
+<h3 id="制作启动盘">制作启动盘</h3>
+<p>制作工具<a href="https://www.balena.io/etcher/" target="_blank" rel="noopener">ether</a>、<a href="https://sourceforge.net/projects/openmediavault/files/" target="_blank" rel="noopener">源文件</a></p>
+<h3 id="安装系统">安装系统</h3>
+<h4 id="开机按f11选择从u盘启动">开机按F11，选择从U盘启动</h4>
+<p>进行安装</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa2.png" /></p>
+<p>选择中文安装，放心不像Ubuntu 16.04 安装的时候用中文还会报错，这个中文挺稳定的</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa3.png" /></p>
+<p>是</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa4.png" /></p>
+<p>大陆就选中国吧</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa5.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa6.png" /></p>
+<h4 id="加载完成安装组件进入初始设置界面">加载完成安装组件，进入初始设置界面</h4>
+<p>主机名我就用默认了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa8.png" /></p>
+<p>这里也默认了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa9.png" /></p>
+<p>输入系统底层的密码，不是web界面的密码</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa10.png" /></p>
+<h4 id="选择安装位置这里装到8g的u盘里">选择安装位置，这里装到8G的U盘里</h4>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa12.png" /></p>
+<h4 id="设置镜像源">设置镜像源</h4>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa14.png" /></p>
+<p>我就选163了，随便你</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa15.png" /></p>
+<p>中间有一步是配置代理，我手快了没截图就按回车了，不过我想家里应该没人吃饱了去用代理上网吧</p>
+<h4 id="设置启动位置">设置启动位置</h4>
+<p>放sda中，因为这个就是u盘</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa18.png" /></p>
+<h4 id="安装完成重启">安装完成重启</h4>
+<h4 id="登陆信息">登陆信息</h4>
+<p>安装完成后，我们可以在机器界面上看到已经有ip地址192.168.2.120 下面一行显示登陆网页用户名admin 密码openmediavault。后面就全部用网页来管理了。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa20.png" /></p>
+<h2 id="配置omv系统">配置OMV系统</h2>
+<p>我们登陆OMV，输入密码就可以进入主界面</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa21.png" /></p>
+<p>这里就是主界面，很干净方便</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa22.png" /></p>
+<h2 id="更新系统">更新系统</h2>
+<p>我们打开更新管理，先更新下系统，打下补丁，以后有更新都在这里可以看到</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa23.png" /></p>
+<p>等更新完成后就可以点击关闭，更新过程中无法关闭</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa24.png" /></p>
+<h2 id="安装插件">安装插件</h2>
+<p>插件使用第三方的源，也是他们官方认证的</p>
+<p>http://omv-extras.org/joomla/index.php/guides</p>
+<h4 id="下载插件包">下载插件包</h4>
+<p>我们登陆网站在下面有deb包，我们下载后上传到插件页面安装下就能看到其他的插件</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa25.png" /></p>
+<h4 id="上传插件到系统">上传插件到系统</h4>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa26.png" /></p>
+<h4 id="安装">安装</h4>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa27.png" /></p>
+<p>安装完成后，会自动刷新页面，就会发现插件多了很多</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa28.png" /></p>
+<h2 id="设置系统时间">设置系统时间</h2>
+<p>我们在时间和日期中设置下时区，然后保存下，让时间自动从网络同步</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa29.png" /></p>
+<h2 id="常规设置">常规设置</h2>
+<p>在这个设置中，我们可以修改OMV的web端口，网页超时时间，默认5分钟太短了，我设置了长一点</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa30.png" /></p>
+<h2 id="硬盘管理">硬盘管理</h2>
+<h3 id="s.m.a.r.t.">S.M.A.R.T.</h3>
+<p>开始SMART，这样硬盘出问题能自动检测</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa31.png" /></p>
+<p>这里可以看到硬盘的型号序列号，如果那块硬盘有问题，找起来也方便</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa32.png" /></p>
+<h3 id="raid管理">RAID管理</h3>
+<p>我们进入RAID管理，然后选下4块盘，设置下RADI 5，名字叫MD0</p>
+<p>linux下面都是用md这个来命名的，所以我也这么叫了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa33.png" /></p>
+<p>创建完成后会进行初始化，下面有初始化的百分比，等初始化完成后在创建文件结构。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa34.png" /></p>
+<h3 id="文件系统">文件系统</h3>
+<p>我们进入文件系统，选择创建，选下我们刚才创建的RAID，然后输下名字继续叫MD0，然后文件系统叫EXT4</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa35.png" /></p>
+<p>选是后会提示你，要被格式化了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa36.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa37.png" /></p>
+<p>这时文件系统还是不能用的，我们要选择下挂载</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa38.png" /></p>
+<p>挂载完成</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa39.png" /></p>
+<h2 id="设置samba共享">设置SAMBA共享</h2>
+<p>我家里的NAS我准备建立一个SAMBA的用户，我自己用，然后共享文件3个一个叫<strong>NAS</strong>，包括NextCloud都装在里面，这样我可以方便的直接上去管理，然后一个叫<strong>Download</strong>的文件夹，脱机下载插件下载的文件就放里面，然后一个叫<strong>Software</strong>，我自己的软件都在里面，其他包括我老婆都不用SAMBA，都用NextCloud上面，我尽量让自己的NextCloud上保存的都是轻量级的文件，大容量的就放在SAMBA上。</p>
+<p>你自己想如何设置还是每个人不同的，不用照我的来。</p>
+<h3 id="建立用户">建立用户</h3>
+<p>我们先建立一个用户，用于SAMBA共享</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa40.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa41.png" /></p>
+<h3 id="建立共享文件夹">建立共享文件夹</h3>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa42.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa43.png" /></p>
+<p>对每个文件夹添加下用户权限</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa44.png" /></p>
+<h3 id="设置samba">设置SAMBA</h3>
+<p>我们开启下SAMBA，不知道的选项就不用改了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa45.png" /></p>
+<p>添加共享文件夹</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa46.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa47.png" /></p>
+<p>设置好后我发现访问共享不行，然后重启了下服务器ok了，都能看到了，可能是因为我是虚拟机的关系，我朋友直接设置好就可以使用了。我们可以进去然后新建下文件，看看权限是否正确</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa48.png" /></p>
+<h1 id="安装nextcloud">安装NextCloud</h1>
+<p>由于NextCloud没加入OMV 4的官方插件列表中，我们只能手动来了，哎好疼苦</p>
+<h2 id="建立ssl证书">建立SSL证书</h2>
+<p>OMV自带了证书功能，所以我们直接使用自带的创建一个证书即可，我直接创建了25年的，这样就不会过期了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570168249650.png" /></p>
+<h2 id="安装nginx插件">安装Nginx插件</h2>
+<p>我们在插件中搜索nginx，然后安装下</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa51.png" /></p>
+<p>安装完成我们就能在服务中看到Nginx</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa52.png" /></p>
+<h3 id="添加池">添加池</h3>
+<p>我们加个池，然后用户名和组选择下，我就用我一开始创建的那个samba的wang这个用户了</p>
+<p><img src="https://www.azurew.com/wp-content/uploads/2017/07/072717_1509_OpenMediaVa53.png" /></p>
+<p>在扩展选项中添加下面的内容</p>
+<p><code>env[PATH] = /usr/local/bin:/usr/bin:/bin</code></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa54.png" /></p>
+<h3 id="添加服务器">添加服务器</h3>
+<p>这里目录就选我前面创建的那个nas目录，端口可以看到我已经变成灰色了，因为我后面一部选择了only ssl，只用ssl了不用普通的端口了，如果你不选只用ssl的话记得把这个端口改掉，80端口和omv的端口冲突了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa55.png" /></p>
+<p>开启SSL，然后端口可以自己修改下，我们上海电信好像都封掉正常的80和443端口的，证书就是前面创建的证书</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa56.png" /></p>
+<p>开始php，然后池就选择NextCloud，添加个index.php</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa57.png" /></p>
+<p>扩展选项把下面的东西都黏贴进去</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa58.png" /></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">## 更多选项里粘贴一下内容</span><br><span class="line"></span><br><span class="line">client_max_body_size 10G; # set max upload size</span><br><span class="line">fastcgi_buffers 64 4K;</span><br><span class="line"></span><br><span class="line">rewrite ^&#x2F;caldav(.*)$ &#x2F;remote.php&#x2F;caldav$1 redirect;</span><br><span class="line">rewrite ^&#x2F;carddav(.*)$ &#x2F;remote.php&#x2F;carddav$1 redirect;</span><br><span class="line">rewrite ^&#x2F;webdav(.*)$ &#x2F;remote.php&#x2F;webdav$1 redirect;</span><br><span class="line"></span><br><span class="line">index index.php;</span><br><span class="line">error_page 403 &#x2F;core&#x2F;templates&#x2F;403.php;</span><br><span class="line">error_page 404 &#x2F;core&#x2F;templates&#x2F;404.php;</span><br><span class="line"></span><br><span class="line">location &#x3D; &#x2F;robots.txt &#123;</span><br><span class="line">allow all;</span><br><span class="line">log_not_found off;</span><br><span class="line">access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ ^&#x2F;(data|config|\.ht|db_structure\.xml|README) &#123;</span><br><span class="line">deny all;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">location &#x2F; &#123;</span><br><span class="line"></span><br><span class="line"># The following 2 rules are only needed with webfinger</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;host-meta &#x2F;public.php?service&#x3D;host-meta last;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;host-meta.json &#x2F;public.php?service&#x3D;host-meta-json last; </span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;carddav &#x2F;remote.php&#x2F;carddav&#x2F; redirect;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;caldav &#x2F;remote.php&#x2F;caldav&#x2F; redirect; </span><br><span class="line">rewrite ^(&#x2F;core&#x2F;doc&#x2F;[^\&#x2F;]+&#x2F;)$ $1&#x2F;index.html;</span><br><span class="line">try_files $uri $uri&#x2F; index.php;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ ^(.+?\.php)(&#x2F;.*)?$ &#123;</span><br><span class="line">try_files $1 &#x3D; 404;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$1;</span><br><span class="line">fastcgi_param PATH_INFO $2;</span><br><span class="line">fastcgi_param HTTPS on;</span><br><span class="line">fastcgi_pass $socket;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"># Optional: set long EXPIRES header on static assets</span><br><span class="line">location ~* ^.+\.(jpg|jpeg|gif|bmp|ico|png|css|js|swf)$ &#123;</span><br><span class="line">expires 30d;</span><br><span class="line"></span><br><span class="line"># Optional: Don’t log access to assets</span><br><span class="line">access_log off;</span><br><span class="line">&#125;</span><br><span class="line">add_header Strict-Transport-Security &quot;max-age&#x3D;63072000; includeSubdomains; preload&quot;;</span><br><span class="line">#add_header Strict-Transport-Security “max-age&#x3D;15768000; includeSubDomains; preload;”;</span><br></pre></td></tr></table></figure>
+<h2 id="安装mysql插件">安装MySQL插件</h2>
+<p>NextCloud需要用到MySQL数据库，所以我们安装下MySQL的插件</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa59.png" /></p>
+<p>安装完成后，启用下，然后下面的SQL management也启用下，那个是网页管理数据库的功能，好了之后我们就可以点击重设边上的SHOW来网页管理数据库</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570168444858.png" /><br />
+### 重设MySQL密码</p>
+<p>默认的MySQL用户名是root，密码为空，我们设置一个安全一点，点击reset password重设密码</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa61.png" /></p>
+<p>然后我们点击show，然后输入用户名密码登陆数据库</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa62.png" /></p>
+<h3 id="创建nextcloud数据库">创建nextcloud数据库</h3>
+<p>我们新建一个数据库专门用于nextcloud</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa63.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa64.png" /></p>
+<p>创建完成</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa65.png" /></p>
+<h2 id="安装php插件">安装PHP插件</h2>
+<p>我们安装NextCloud时还需要几个php的插件，我们安装下</p>
+<p>我们使用ssh工具，登陆下服务器，然后执行下面的命令</p>
+<p>安装php5-gd模块：<code>apt-get install php5-gd</code></p>
+<p>安装php5-curl模块：<code>apt-get install php5-curl</code></p>
+<p>安装php-pclzip模块：<code>apt-get install php-pclzip</code></p>
+<h2 id="下载并安装nextcloud">下载并安装NextCloud</h2>
+<p>https://download.nextcloud.com/server/releases/nextcloud-12.0.0.zip</p>
+<p>我们直接下载nextcloud，然后解压，之后敲到我们前面SAMBA创建的那个nas的目录下</p>
+<p><img src="https://www.azurew.com/wp-content/uploads/2017/07/072717_1509_OpenMediaVa70.png" /></p>
+<p>输入https://nas的ip加上前面我设置的86端口，来进行安装</p>
+<p>我是这个，你可以根据自己的来https://192.168.2.120:86/index.php</p>
+<p>输入你的信息包括数据库，和默认的管理员密码</p>
+<p>安装完成</p>
+<p>然后我们通过samba，可以看到下面的data路径里admin账户，files文件里面都是我们上传到nas上的文件，</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa74.png" /></p>
+<p>不过需要说明的是，我们直接把文件放到这个目录下是不行的，在nextcloud界面看不到，只能通过nextcloud的网页上传上来才能看到，不过看到的文件就是原文件</p>
+<h3 id="安装apc插件">安装apc插件</h3>
+<p><code>root@server:~# apt-get install php-apc</code></p>
+<p>在NextCloud的<code>config.php</code>配置文件中加入</p>
+<p><code>‘memcache.local’ =&gt; ‘\OC\Memcache\APCu’,</code></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570167539410.png" /></p>
+<p>重启 php-fpm: <code>root@server:~# /etc/init.d/php5-fpm restart</code></p>
+<h3 id="修复opcache错误">修复opcache错误</h3>
+<h2 id="设置外网访问">设置外网访问</h2>
+<p>我们需要在我们的路由器上设置下外网访问，这样才能让外部访问我们，就开放下86端口即可，这部我就不截图了，很简单的，而且每个路由器不同，懂的自然知道怎么加端口，不懂的我路由器和你不同我加了你也不知道怎么弄。</p>
+<p>另外我们要修改下网站的代码，否则打开会有问题</p>
+<p>我们打开nextcloud的config目录中的config.php文件</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa79.png" /></p>
+<p>我们要在哪个array中加入我们的域名，另外下面的https后面原来也是内网的ip地址，改成域名，这样外网访问过来就不会有问题了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1570168635826.png" /></p>
+<p>当然请在自己的路由器上设置好ddns，这样外网都用域名访问就ok了</p>
+<h1 id="安装客户端">安装客户端</h1>
+<p>下面的页面中有app的下载地址，ios是收费的6块钱好像，其他不收费，我这里就测试下windows pc的客户端，手机我就不测试了</p>
+<p><a href="https://nextcloud.com/install/" target="_blank" rel="noopener">https://nextcloud.com/install/#install-clients</a></p>
+<p>安装完成后我们输入域名</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa82.png" /></p>
+<p>跳出来证书不安全，因为是我们自己创建的，不管继续点ok，记得勾下总是信任该证书</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa83.png" /></p>
+<p>输入用户名密码</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa84.png" /></p>
+<p>这里可以选要同步的内容，我因为会把视频也放上面，太大了，所以就手动选择同步内容</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa85.png" /></p>
+<p>选择同步个小的文件夹测试</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa86.png" /></p>
+<p>下面有个本地存放这个文件夹的位置，可以自行修改到需要的位置，然后点连接</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa87.png" /></p>
+<p>完成了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/072717_1509_OpenMediaVa88.png" /></p>
+<p>手机客户端官方的是收费的6块，下面这个是免费的第三方的</p>
+<h1 id="其他">其他</h1>
+<h2 id="注意事项见此文">注意事项见<a href="https://zymin.cn/arcticle/omv.html">此文</a></h2>
+<p>参考文章</p>
+<p><a href="https://openmediavault.readthedocs.io/en/latest/installation/index.html" target="_blank" rel="noopener">官方文档</a></p>
+<p><a href="https://forum.openmediavault.org/index.php/Thread/23005-Installation-and-Setup-Videos-Beginning-Intermediate-and-Advanced/?postID=175857#post175857" target="_blank" rel="noopener">TechnoDadLife</a></p>
+<p><a href="https://www.azurew.com/6350.html" target="_blank" rel="noopener">王哥哥</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\omv.html" rel="bookmark">J3455平台安装OMV及nextcloud的安装和配置说明-nginx插件版</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\omv-kodexplorer.html" rel="bookmark">OMV里Kodexplorer大文件上传优化与错误解决</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\nextcloud-file-scan.html" rel="bookmark">J3455平台OCC命令给ownCloud/Nextcloud手动添加文件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Windows-seafile.html" rel="bookmark">J3455平台Windows系统费部署Seafile 服务器</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\windows-kodexplorer.html" rel="bookmark">J3455平台Windows系统用kodexplorer可道云搭建私有云</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/omv/" rel="tag"># omv</a>
+              <a href="/tags/j3455/" rel="tag"># j3455</a>
+              <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" rel="tag"># 私有云</a>
+              <a href="/tags/nas/" rel="tag"># nas</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%BF%AB%E9%80%9F%E7%A7%91%E6%99%AE.html" rel="prev" title="电脑配置快速科普">
+      <i class="fa fa-chevron-left"></i> 电脑配置快速科普
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/abaqus-element.html" rel="next" title="ABAQUS中的单元选择">
+      ABAQUS中的单元选择 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u盘安装omv"><span class="nav-number">1.</span> <span class="nav-text">U盘安装OMV</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#制作启动盘"><span class="nav-number">1.1.</span> <span class="nav-text">制作启动盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装系统"><span class="nav-number">1.2.</span> <span class="nav-text">安装系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开机按f11选择从u盘启动"><span class="nav-number">1.2.1.</span> <span class="nav-text">开机按F11，选择从U盘启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载完成安装组件进入初始设置界面"><span class="nav-number">1.2.2.</span> <span class="nav-text">加载完成安装组件，进入初始设置界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择安装位置这里装到8g的u盘里"><span class="nav-number">1.2.3.</span> <span class="nav-text">选择安装位置，这里装到8G的U盘里</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置镜像源"><span class="nav-number">1.2.4.</span> <span class="nav-text">设置镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置启动位置"><span class="nav-number">1.2.5.</span> <span class="nav-text">设置启动位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装完成重启"><span class="nav-number">1.2.6.</span> <span class="nav-text">安装完成重启</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#登陆信息"><span class="nav-number">1.2.7.</span> <span class="nav-text">登陆信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置omv系统"><span class="nav-number">2.</span> <span class="nav-text">配置OMV系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新系统"><span class="nav-number">3.</span> <span class="nav-text">更新系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装插件"><span class="nav-number">4.</span> <span class="nav-text">安装插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载插件包"><span class="nav-number">4.0.1.</span> <span class="nav-text">下载插件包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传插件到系统"><span class="nav-number">4.0.2.</span> <span class="nav-text">上传插件到系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">4.0.3.</span> <span class="nav-text">安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置系统时间"><span class="nav-number">5.</span> <span class="nav-text">设置系统时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常规设置"><span class="nav-number">6.</span> <span class="nav-text">常规设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬盘管理"><span class="nav-number">7.</span> <span class="nav-text">硬盘管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#s.m.a.r.t."><span class="nav-number">7.1.</span> <span class="nav-text">S.M.A.R.T.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#raid管理"><span class="nav-number">7.2.</span> <span class="nav-text">RAID管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统"><span class="nav-number">7.3.</span> <span class="nav-text">文件系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置samba共享"><span class="nav-number">8.</span> <span class="nav-text">设置SAMBA共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立用户"><span class="nav-number">8.1.</span> <span class="nav-text">建立用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立共享文件夹"><span class="nav-number">8.2.</span> <span class="nav-text">建立共享文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置samba"><span class="nav-number">8.3.</span> <span class="nav-text">设置SAMBA</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装nextcloud"><span class="nav-number"></span> <span class="nav-text">安装NextCloud</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#建立ssl证书"><span class="nav-number">1.</span> <span class="nav-text">建立SSL证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nginx插件"><span class="nav-number">2.</span> <span class="nav-text">安装Nginx插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加池"><span class="nav-number">2.1.</span> <span class="nav-text">添加池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加服务器"><span class="nav-number">2.2.</span> <span class="nav-text">添加服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装mysql插件"><span class="nav-number">3.</span> <span class="nav-text">安装MySQL插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建nextcloud数据库"><span class="nav-number">3.1.</span> <span class="nav-text">创建nextcloud数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装php插件"><span class="nav-number">4.</span> <span class="nav-text">安装PHP插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并安装nextcloud"><span class="nav-number">5.</span> <span class="nav-text">下载并安装NextCloud</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装apc插件"><span class="nav-number">5.1.</span> <span class="nav-text">安装apc插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复opcache错误"><span class="nav-number">5.2.</span> <span class="nav-text">修复opcache错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置外网访问"><span class="nav-number">6.</span> <span class="nav-text">设置外网访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装客户端"><span class="nav-number"></span> <span class="nav-text">安装客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number"></span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项见此文"><span class="nav-number">1.</span> <span class="nav-text">注意事项见此文</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

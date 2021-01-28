@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="点读笔原理和流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="铺码自制点读包简单过程">
+<meta property="og:url" content="https://zymin.cn/arcticle/diandubao-puma.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="点读笔原理和流程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20201014154705.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/bi.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/66250681ea8dcf32f544af54f0312d5e.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/76e7d44e29e8fcc19ba5e84e4bfccf56.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/656d9911504b8b92f9ab6adab21b6c4e.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/5c6adc93e2a1967df46782436f5ac7c4.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/5e8d0d1990e361c1690d0422411ade3b.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/885ada9e15fa2ea02869ebeba41735a1.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/a89e376dfed21938d5b89b188ebd2d33.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/bd6d6cce96fea06086f01e055ec66250.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/55300a75585cff5e3c5e4fbdfb51a4a7.jpg">
+<meta property="article:published_time" content="2018-08-07T03:10:43.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.187Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="育儿">
+<meta property="article:tag" content="diy">
+<meta property="article:tag" content="点读笔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zihm/images/raw/master/hexo/20201014154705.jpg">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/diandubao-puma.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>铺码自制点读包简单过程 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/diandubao-puma.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          铺码自制点读包简单过程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-07 11:10:43" itemprop="dateCreated datePublished" datetime="2018-08-07T11:10:43+08:00">2018-08-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%82%B2%E5%84%BF/%E7%82%B9%E8%AF%BB%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">点读笔</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20201014154705.jpg" alt="" /><figcaption>点读笔原理和流程</figcaption>
+</figure>
+<a id="more"></a>
+<p>先科普点读原理。</p>
+<p>有声图书上所有的内容，都采用了识别码和反射红外光的特殊涂料印刷识别码其实就是微型的二维码类的东西，将图书的字放大十几倍就可以发现，里面含有丰富的数字信息。每一只点读笔的笔头，里面都有一个光电识别器（OID），它可以感应到图片上的数字信息，用笔头触碰图书，光电识别器就会开始扫描笔头接触部分的书本上二维码信息，经过扫描后和电子原件的传递，读取其中的二维码信息，传递到点读笔内交由CPU进行处理，处理的过程，是CPU的识别过程，如果CUP识别成功，则会从点读笔的存储器中将事先存储好的对应声音文件挑出，然后通过喇叭放出声音。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/bi.png" /></p>
+<p>以给海尼曼015铺码打印为例说明自制智能书的过程。</p>
+<h2 id="pdf文件预处理">PDF文件预处理</h2>
+<p>该pdf文件中有的是单页，有的是双页，先将pdf文件分拆成大小一样的页面。效果可由acrobat pro 的插件quite imposing plus 3 实现。</p>
+<blockquote>
+<p>下载集成quite imposing plus 3插件的acrobat pro 绿色版本</p>
+<p>链接：https://pan.baidu.com/s/1_mpdpFi_VINo6Rbm8VIMkA 提取码：fajt</p>
+</blockquote>
+<p>处理后，缩略图示所有页面都 一样大小了。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/66250681ea8dcf32f544af54f0312d5e.jpg" /></p>
+<p>这里要注意的是，分拆后要注意页面的排列顺序，一般分拆前第一页也就是封面和最后一页是一起的，分拆后要把最后一页放到后面去。</p>
+<p>将pdf文件转换成适合拟打印的纸张大小，最好是按比例缩放，减少变形。本例拟采用A4纸双排打面，即A5规格，21.0X14.8。该功能也是由QI3+实现。其界面如下：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/76e7d44e29e8fcc19ba5e84e4bfccf56.jpg" /></p>
+<h2 id="分割音频">分割音频</h2>
+<p>用软件twilight可实行自动断句分割音频，分割时复读次数设置为1，分割后的音频会自动保存到一个与音频文件同名的文件夹，进入该文件夹，选“按类型排列”排列顺序，删除所有lrc文件。核对一次自动分割的音频，保证一句话一个文件，分割不对的可以用twilight或total recorder editor pro之类的软件再次切割。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/656d9911504b8b92f9ab6adab21b6c4e.jpg" /></p>
+<blockquote>
+<p>GoldWave 也可以用。<a href="https://zymin.cn/arcticle/diandubao-xiaodaren-goldwave.html">连接</a></p>
+</blockquote>
+<p>音频文件批量改名。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/5c6adc93e2a1967df46782436f5ac7c4.jpg" /></p>
+<blockquote>
+<p>TotalCMD 也很好用。</p>
+</blockquote>
+<h2 id="pdf文件铺码">PDF文件铺码</h2>
+<p>（oidproducer能直接生成点读包，但其格式与小达人点读笔不兼容，因此只能用其铺码，此时无需直接关联音频文件，最后还必须用小达人的客户端制做点读包）</p>
+<ul>
+<li>打开oidproducer，将前面准备好的pdf文件拖入软件的左边侧栏，软件会自动把pdf分拆成单独的页面。</li>
+<li>铺码：先点工具栏的第一个图标，设置初始码等，比如说初始码为25101（与分割保存的音频文件名对应）。书名码参考范围：56001-56400智能码：65231-65330，内容码范围：25001-27000（书名码最好与笔中已安装点读包不冲突）。</li>
+</ul>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/5e8d0d1990e361c1690d0422411ade3b.jpg" /></p>
+<ul>
+<li>输出pdf文件：检查铺的码无重码、与音频能一一对应后，就可输出pdf文件了。输出时选输出打印文件（菜单第二项），弹出的对话框设置如图（取消复选框）：</li>
+</ul>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/885ada9e15fa2ea02869ebeba41735a1.jpg" /></p>
+<p>点右上角的advance，进入输出的高级选项，设置如下：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/a89e376dfed21938d5b89b188ebd2d33.jpg" /></p>
+<p>Custom dot size后面的数值根据个人打印机打印测试页后点读笔的识别情况设定，一般2X2。按OK返回上一个对话框，点output file就可以输出铺好码的pdf文件了。这时得到的是每个页面为一个文件的一堆pdf文件。如果要打印成小册子的话，即在一个A4打印两个页面，在中间装订后对折成A5大小的册子的话还需把pdf文件合成为一个文件。</p>
+<h2 id="绘本打印">绘本打印</h2>
+<p>用adobe acrobat pro将铺码以后输出的单独页面pdf文件合并成一个pdf文件。再利用其Quite Imposing Plus 3 插件功能打印小册子。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/bd6d6cce96fea06086f01e055ec66250.jpg" /></p>
+<h2 id="制做点读包">制做点读包</h2>
+<p>左侧点最下方的附加功能，选第一个高级自制内容工具，点启动工具，弹出如下的自制点读包窗口。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/55300a75585cff5e3c5e4fbdfb51a4a7.jpg" /></p>
+<p>在以上窗口中设置好目录，名称，导入原先切割好的音频文件，就可以生成点读包了。</p>
+<h2 id="安装点读包">安装点读包</h2>
+<p>点读笔关机后连接电脑，安装点读包，如原铺的智能码或书名码与点读笔中已安装的教材不冲突，则安装后可直接点读；否则需粘贴一个书名贴或智能贴。</p>
+<p>注意：用激光黑白打印机600DPI打印，不要缩放。 若不知自己的激光打印机是否支持打印点读书，可打印600DPI测试页进行点读测试。（点读笔点《趣乐任我贴》封二的黑色“智能播放贴”，再点测试页，报码值即为可用。）</p>
+<h2 id="一个视频教程">一个视频教程</h2>
+<p>链接：https://pan.baidu.com/s/1hKaCRHYvx56IOlZ-p8OYOQ 提取码：eq7k 复制这段内容后打开百度网盘手机App，操作更方便哦</p>
+<h2 id="点读笔相关文章"><a href="https://zymin.cn/tags/%E7%82%B9%E8%AF%BB%E7%AC%94/">点读笔相关文章</a></h2>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\waiyanshe-diandubao-xiaodaren.html" rel="bookmark">外研社点读书的小达人点读包制作方法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\get-mp3-drom-dab-and-dp-package.html" rel="bookmark">如何提取爸妈网DP格式点读包中的音频</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\zhuanzhuanka.html" rel="bookmark">小达人魔法转转卡使用教程</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\diandubao-xiaodaren-goldwave.html" rel="bookmark">用GoldWave软件速成无铺码书籍点读包</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\diy-neirongtie.html" rel="bookmark">自制简单内容帖教程</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%82%B2%E5%84%BF/" rel="tag"># 育儿</a>
+              <a href="/tags/diy/" rel="tag"># diy</a>
+              <a href="/tags/%E7%82%B9%E8%AF%BB%E7%AC%94/" rel="tag"># 点读笔</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/about-diandubi.html" rel="prev" title="常见点读笔对比说明">
+      <i class="fa fa-chevron-left"></i> 常见点读笔对比说明
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/mingcheng-xiugai-piliang.html" rel="next" title="如何批量改名的方法及教程">
+      如何批量改名的方法及教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pdf文件预处理"><span class="nav-number">1.</span> <span class="nav-text">PDF文件预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割音频"><span class="nav-number">2.</span> <span class="nav-text">分割音频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pdf文件铺码"><span class="nav-number">3.</span> <span class="nav-text">PDF文件铺码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘本打印"><span class="nav-number">4.</span> <span class="nav-text">绘本打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#制做点读包"><span class="nav-number">5.</span> <span class="nav-text">制做点读包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装点读包"><span class="nav-number">6.</span> <span class="nav-text">安装点读包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个视频教程"><span class="nav-number">7.</span> <span class="nav-text">一个视频教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点读笔相关文章"><span class="nav-number">8.</span> <span class="nav-text">点读笔相关文章</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

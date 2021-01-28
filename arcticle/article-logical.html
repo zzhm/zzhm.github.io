@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="不知道你有没有同感，在训练学术写作的过程中构建一篇极为有条理的文章并不是易事。学术文章的结构看似简单：归纳起来无非“引言——文献——理论——数据——方法——结果”而已；然而一篇文章的段落与段落之间，每一句话与下一句之间，到底应该如何安排才算是有条理、有逻辑？为什么我们会觉得有的文章没有条理？为了把一个要点说清楚，到底要怎样论证、如何组织论证的递进和结构才算是好文章呢？哪些话需要写，哪些不需要写？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文：如何构建有条理的论文">
+<meta property="og:url" content="https://zymin.cn/arcticle/article-logical.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="不知道你有没有同感，在训练学术写作的过程中构建一篇极为有条理的文章并不是易事。学术文章的结构看似简单：归纳起来无非“引言——文献——理论——数据——方法——结果”而已；然而一篇文章的段落与段落之间，每一句话与下一句之间，到底应该如何安排才算是有条理、有逻辑？为什么我们会觉得有的文章没有条理？为了把一个要点说清楚，到底要怎样论证、如何组织论证的递进和结构才算是好文章呢？哪些话需要写，哪些不需要写？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/article-logical/c7256ea59575a2ea57ddf7493bef32e3.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/article-logical/5ee5506fb63d55204c6a3e0d95a23c6f.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/article-logical/6c40f973506029f1648adb6605b3d6c5.jpg">
+<meta property="article:published_time" content="2018-05-04T11:36:20.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.176Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="写作">
+<meta property="article:tag" content="逻辑">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/article-logical/c7256ea59575a2ea57ddf7493bef32e3.jpg">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/article-logical.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文：如何构建有条理的论文 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/article-logical.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文：如何构建有条理的论文
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-04 19:36:20" itemprop="dateCreated datePublished" datetime="2018-05-04T19:36:20+08:00">2018-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>不知道你有没有同感，在训练学术写作的过程中构建一篇极为有条理的文章并不是易事。学术文章的结构看似简单：归纳起来无非“引言——文献——理论——数据——方法——结果”而已；然而一篇文章的段落与段落之间，每一句话与下一句之间，到底应该如何安排才算是有条理、有逻辑？为什么我们会觉得有的文章没有条理？为了把一个要点说清楚，到底要怎样论证、如何组织论证的递进和结构才算是好文章呢？哪些话需要写，哪些不需要写？</p>
+<a id="more"></a>
+<p>今天我们就来聊一聊组织文章结构的问题。</p>
+<h2 id="什么是有条理的文章">1. 什么是有条理的文章？</h2>
+<p>有条理的学术论文有这么几个特点：</p>
+<ul>
+<li><strong>连贯性（Coherent）:</strong> 完整的、连贯的、前后一致地讲了一个故事。</li>
+<li><strong>递进性：</strong>文章像盖一座城堡一样，一个观点搭着一个观点地盖起来，一个环节紧扣一个环节的递进，像是作者一点点展开一副地图，带着我们徇着它的方向一步步到达目的地；</li>
+<li><strong>逻辑性：</strong>作者写文章的思路是清楚的、符合常规逻辑的，各个部分、各个段落之间的顺序是合理的、有利于读者理解的；</li>
+<li><strong>简洁性（Concise）:</strong> 文章不啰嗦，句句有用；要义无缺失，句句不能少。</li>
+<li><strong>易读性：</strong>让读者读起来很舒服，不费力，不困惑.</li>
+</ul>
+<p>总的来说，读一篇条理清晰的文章就像跟一个头脑特别清晰的人对话，他知道他要去哪，脑中图景不乱，步伐清晰，目标明确，一步一个脚印的带着你顺着他的思路走，直达目的地。</p>
+<h2 id="什么是没有条理的文章">2. 什么是没有条理的文章？</h2>
+<p>读没有条理的文章你仿佛看到一张思路不清楚的面孔——作者东拉西扯，好像哪句话都是对的，但是你跟的很累，听了半天也不知道他到底要说什么。比如以下几种常见类型：</p>
+<ul>
+<li><strong>罗列文献型：</strong>文献综述部分常见的问题是，作者罗列了一大堆不同的文献，一个接一个，罗列完了你却并不知道这些文献之间到底有什么关系，作者为什么罗列它们，作者到底接下来想干嘛；</li>
+<li><strong>思路跳跃型：</strong>作者说了一个观点，还没有解释好，又跑去说了另外一个事；另外一个事还没说完，又跳回来说第一个观点；</li>
+<li><strong>前后矛盾型：</strong>作者在文中先前提到的观点和后面的观点向左，或者不能互相支持, 或者仿佛忘掉了前面说了什么；</li>
+<li><strong>佛系无求型：</strong>你也不知道作者到底要说什么，要往哪个方向走，作者洋洋洒洒地以一种写散文的风格在写研究论文；</li>
+<li><strong>彻底思路混乱型：</strong>作者是任性的小公举，想到什么就写什么，读者如同面对一团乱麻，只有使用读心术才能跟随作者魔鬼的步伐。</li>
+</ul>
+<h2 id="推荐一本介绍写作逻辑的书">3. 推荐一本介绍写作逻辑的书</h2>
+<p>写作逻辑和论述结构这件事虽然无比重要，但是你会发现很少有哪个导师或哪门课会专门花时间系统给学生讲解或训练。自己写得出好文章，不代表能讲授得清好的文章结构是怎样搭建的。这大概跟学术文章结构并没有绝对的“最佳结构”有关，也跟学术文章主题不同、研究方法多样有关。所以如果你觉得自己从来没有接受过关于论文论述结构的专门训练而主要是通过不断地读和写去领悟，那么你并不是少数人。</p>
+<p>然而好文章的结构总有共性的。我最近试图想把这个问题说清楚，想来想去脑中浮现出“雨伞”和“树干结构”这两个比喻：好的文章结构应该是能把文章里最主要的大观点按照逻辑顺序连接起来，同时又能把这些大观点分别一个个打开成小观点，把小观点也用一条横向的线联系起来，就好像雨伞合起来的时候就是连起来的文章主干，张开的时候每个主干观点都有其他横向小论点来支撑。然而想到这儿我脑中忽然闪过了《金字塔原理》这几个字，于是赶紧把书找出来重新看一遍，哎呀呀，原来我想说的都在金字塔原理里被概括的非常充分了。</p>
+<p>《金字塔原理》是芭芭拉明拖（Barbara Minto）的主要作品，书中的主要观点和方法被很多咨询公司所采纳，很多人听说过金字塔原理可能是因为麦肯锡对该方法的使用，在麦肯锡工作过的冯唐也在一篇文章里专门谈过这个方法。而其实这本书对写作思路和写作逻辑非常有帮助，如果你刚好在论述结构这方面有疑惑，建议你把它找出来详细读一读。</p>
+<h2 id="主论点分论点分分论点的金字塔结构">4. 主论点——分论点——分分论点的金字塔结构</h2>
+<p>我们大部分人在动笔写论文的时候都不是思路百分之一百清晰的时候，但是有一个原则要明确，就是在写的时候我们要去寻找自己最主要的主论点，而每个主论点都应该由分论点去支撑，如果必要，分论点又应该有分分论点来支撑，借用金字塔原理，那么这些论点之间的关系就是下图所示：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/article-logical/c7256ea59575a2ea57ddf7493bef32e3.jpg" /></p>
+<p>图片来源：芭芭拉明拖，《金字塔原理思考写作与制作图标的逻辑》</p>
+<p>举例：假如我需要在一篇论文中说明“北京一年四季的季节特点”，那么我们很容易就想到这篇文章的结构应该大致是这样的：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/article-logical/5ee5506fb63d55204c6a3e0d95a23c6f.jpg" /></p>
+<p><strong>理论上来讲，任何一篇条理清楚地论文都是由这样大大小小的观点组建而成的，</strong>仔细去分析好的论文，你会发现它们:</p>
+<ul>
+<li>每一个”section”(部分)都是围绕一个主观点进行论述的；</li>
+<li>section里的每个段落都以几个分观点来支撑主观点；</li>
+<li>每个段落中的每个句子又都以分分观点的来支撑分观点。</li>
+</ul>
+<p>这样就呈现出了三级观点的结构。而一篇文章里为了把观点说清楚，经常会出现更多层的论点，仔细画出来的话可能是四层、五层甚至更多层的机构。</p>
+<p>如果用图表示的话， 对应以上观点结构的写作结构就是这样：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/article-logical/6c40f973506029f1648adb6605b3d6c5.jpg" /></p>
+<p>所以这对于我们写论文的启示至少有以下几个：</p>
+<ul>
+<li><strong>好论文的每个主论点是什么非常清楚突出</strong>；</li>
+<li><strong>主论点和主论点之间不是没有关系的，而应该是按一定的逻辑关系联系起来的</strong>（比如，“春夏秋冬“之间是按照时间顺序的逻辑关系展开）；</li>
+<li><strong>主论点的展开是由几个不同的分论点支撑的；</strong></li>
+<li><strong>分论点之间也是按照一定的逻辑关系联系起来的</strong></li>
+<li>….（以此类推分论点和分分论点，以及分分分论点之间的关系）</li>
+</ul>
+<p><strong>此外还要注意：</strong></p>
+<p>好文章在连结不同论点的时候总是给读者一些语言上的提示，有一些承上启下的句子；</p>
+<p>每个论点应该有属于它自己的层次，不可以随意向上一层或向下一层移动，否则就会出现逻辑不清的感觉。</p>
+<p>所以这就是为什么我想到“雨伞”这个比喻：again，你最重要的主观点是连接全文的一条纽带，哪里都不能断，前后紧密贯通，这最终才形成了全文一条清晰的脉络，就像雨伞合起来时伞的主干是一条完整的系统；但为了把主观点解释清楚，我们又需要把每个主观点打开来讨论，找到几个分论点来支撑每一个主观点，就像伞张开的时候横向的支架对纵向主干的支撑。</p>
+<p>仔细去观察好的文献，你会发现作者在安排各个主观点出场顺序上一定花了些心思，主观点是层层递进地呈现给读者的，这样才能一步一步带着读者完成对每个主观点的理解和接受；同时，好的文章在讨论一个主要观点时，这个部分的每一段或每一句话都会跟这个主要观点有关，目的非常明确，而不是跳来跳去（比如，在讨论“春天的特点”时候忽然讲一句秋天的特点又跳回来），也不会讨论跟该主论点无关的话（比如，讲春天的特点时忽然讲到颐和园的风景，于是讲起了颐和园的历史）。这就是我们常在评语里看到的“条理清晰，逻辑严谨”。</p>
+<h2 id="具体操作的一些方法">5. 具体操作的一些方法</h2>
+<p>了解了金字塔原理的基本观点之后可以做这么几个事情：</p>
+<p><strong>用金字塔原理的思路分析好文章的结构好在哪。</strong>在读文献的时候我们可以使用金字塔的结构，去把一篇好文章的每个部分的主论点、每个段落的分论点、甚至每个句子的分分落点都归纳出来，仔细去体会各个层次的观点是如何搭建的、有怎样的逻辑关系、为什么给人有条理的感觉。</p>
+<p><strong>动笔之前先写提纲：</strong>用提纲的方式总结自己论文最主要的观点、支持每个观点的分观点、支持分观点的分分观点。Word里面bullets的格式就非常适合做这个。写提纲的好处是你可以清楚地看到你的逻辑是否顺畅，各部分安排是否合理，是否需要在详写一个段落前先进行调整。</p>
+<p><strong>练习“同理心”原则：</strong>其实总的来说对文章结构的设计只有一个原则：同理心原则，也就是站在读者的角度去想这个问题这么说、以这样的顺序说对方能不能听懂。好的文章就是读者读着明白、读着顺畅的文章。所以你可以把自己文章的逻辑讲给身边的朋友听，反复修改，以找到最能够被读者理解的逻辑。这个逻辑通常就是所谓“有条理”的逻辑。</p>
+<p><strong>转自：刀熊 刀熊说说</strong></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\results-discussion-textual-logic.html" rel="bookmark">SCI论文写作之Results&Discussion</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\how-to-write-literature-review.html" rel="bookmark">大牛是如何写Literature Review（文献综述）的</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\How-to-write-SCI-papers.html" rel="bookmark">如何书写SCI论文的题目</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\how-to-write-disscussion.html" rel="bookmark">如何写好文章的“讨论”部分</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\questions-of-first-paper.html" rel="bookmark">如研究生第一篇学术论文常犯问题总结</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"># 科研</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+              <a href="/tags/%E5%86%99%E4%BD%9C/" rel="tag"># 写作</a>
+              <a href="/tags/%E9%80%BB%E8%BE%91/" rel="tag"># 逻辑</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/identify-the-subject.html" rel="prev" title="南开大学博导：学位论文选题的“四字要诀”">
+      <i class="fa fa-chevron-left"></i> 南开大学博导：学位论文选题的“四字要诀”
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/how-reduce-word-count.html" rel="next" title="论文：如何减少论文字数">
+      论文：如何减少论文字数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是有条理的文章"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是有条理的文章？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是没有条理的文章"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是没有条理的文章？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐一本介绍写作逻辑的书"><span class="nav-number">3.</span> <span class="nav-text">3. 推荐一本介绍写作逻辑的书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主论点分论点分分论点的金字塔结构"><span class="nav-number">4.</span> <span class="nav-text">4. 主论点——分论点——分分论点的金字塔结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体操作的一些方法"><span class="nav-number">5.</span> <span class="nav-text">5. 具体操作的一些方法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

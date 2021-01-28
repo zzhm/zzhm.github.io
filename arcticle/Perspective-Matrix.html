@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="所谓的透视矩阵，指的是一个“降维”的转换过程。设想下一个在3维空间里的3D模型，它必然拥有一些顶点信息，设其中任意顶点的坐标为(x,y,z,1)（后面的1是齐次坐标的意思），当我们需要把这个模型投影到某个平面上时，它就从3维变成了2维，而顶点坐标(x,y,z,1)则变成(x,y,d,?)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="透视矩阵Perspective Matrix">
+<meta property="og:url" content="https://zymin.cn/arcticle/Perspective-Matrix.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="所谓的透视矩阵，指的是一个“降维”的转换过程。设想下一个在3维空间里的3D模型，它必然拥有一些顶点信息，设其中任意顶点的坐标为(x,y,z,1)（后面的1是齐次坐标的意思），当我们需要把这个模型投影到某个平面上时，它就从3维变成了2维，而顶点坐标(x,y,z,1)则变成(x,y,d,?)。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2016.3/1.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2016.3/2.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2016.3/3.png">
+<meta property="article:published_time" content="2018-06-05T01:39:26.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.187Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="矩阵">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.qiujiawei.com/images/2016.3/1.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/Perspective-Matrix.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>透视矩阵Perspective Matrix | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/Perspective-Matrix.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          透视矩阵Perspective Matrix
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-05 09:39:26" itemprop="dateCreated datePublished" datetime="2018-06-05T09:39:26+08:00">2018-06-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>所谓的透视矩阵，指的是一个“降维”的转换过程。</strong>设想下一个在3维空间里的3D模型，它必然拥有一些顶点信息，设其中任意顶点的坐标为(x,y,z,1)（后面的1是齐次坐标的意思），当我们需要把这个模型投影到某个平面上时，它就从3维变成了2维，而顶点坐标(x,y,z,1)则变成(x,y,d,?)。</p>
+<a id="more"></a>
+<p>可以注意到，经过透视变换后的顶点，依然是四维的形式，只是含义变了，其中的(x,y)分量指的是这个顶点在投影平面上的坐标(显然是因为投影平面相当于一个2维坐标系)。d指的是这个投影点的深度(depth)，d一般是规范化的，范围是[-1,1]。d的作用在下一个渲染阶段(Depth Test)大有用处。而后面的?，无法一言蔽之，下文会讲到这个问题。</p>
+<h2 id="视锥体-frustum">视锥体 Frustum</h2>
+<p>视锥体，指的是一个有限的椎体空间，处于这个视锥体里的对象，才是“可见”的对象，可见的对象会被渲染到“视平面”上（三维到二维的投影）。视锥体有4个参数：</p>
+<ul>
+<li>aspect ratio，简称ar，ar = 视平面width/视平面height</li>
+<li>（vertical）field of view，简称fov，指yz平面的视角大小，即下文的。</li>
+<li>near Z Plane，简称near面，是一个平行于xy平面的面，世界坐标系下是一个浮点值，可以用来裁剪太靠近摄像机的物体</li>
+<li>far Z Plane，简称far面，含义类似near面，可以用来裁剪太远离摄像机的物体</li>
+</ul>
+<p>视平面可以认为是视锥体的near面；far面相对来说并没有那么重要，因为我们知道人眼的“视锥体”是没有far面的（比如裸眼可以看到月亮星星，far面其实是无限远的），在图形学中，far面主要是用来裁剪太过遥远的物体、提高渲染效率的。</p>
+<p>下面这个是我找到的一个视锥体的演示程序，非常直观地展示了视锥体的作用：<a href="http://webglfundamentals.org/webgl/lessons/webgl-3d-perspective.html" target="_blank" rel="noopener">演示程序来源</a></p>
+<p>从摄像机位置（一个点）观察视平面的话，是长这样子的：</p>
+<p><img src="https://www.qiujiawei.com/images/2016.3/1.png" /></p>
+<p>y轴范围是[-1,1]，x轴范围是[-ar,ar]，因为ar = 视平面width/视平面height，其实也就是ar=屏幕width/屏幕height，因为大部分屏幕都是宽屏，所以ar的值一般是大于1的。当屏幕宽高一致时，视平面才是上面这幅图的样子。</p>
+<p>现在，换成侧视角来观察这个视锥体(yz平面)：</p>
+<figure>
+<img src="https://www.qiujiawei.com/images/2016.3/2.png" alt="" /><figcaption>2.png</figcaption>
+</figure>
+<p>红线是投影面(视平面)，绿色线是摄像机到投影面的向量d，<span class="math inline">\(\alpha\)</span>角即是fov。注意，OpenGL在“世界坐标系”中，用的是右手坐标系，所以上图中，z轴的左边才是1、右边是-1。因此，向量d的长度是-d（要取反，不然会计算错误）。综上，可以得出：</p>
+<p><span class="math inline">\(tan(\frac {\alpha } { 2 } ) = \frac {1} {|\vec d|}\)</span></p>
+<p><span class="math inline">\(|\vec d| = -d = \frac {1} { tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>接下来是求某顶点<span class="math inline">\((x,y,z,w)\)</span>在投影面上的投影坐标<span class="math inline">\((x_{p},y_{p},z_{p},w_{p})\)</span>。 看下面的侧视图，我们可以先求解<span class="math inline">\(y_{p}\)</span>：</p>
+<figure>
+<img src="https://www.qiujiawei.com/images/2016.3/3.png" alt="" /><figcaption>3.png</figcaption>
+</figure>
+<p>根据相似三角形定理，可以得到：</p>
+<p><span class="math inline">\(\frac {y_{p} } { |\vec d| } = \frac { y } { -z }\)</span></p>
+<p><span class="math inline">\(y_{p} = \frac { y * |\vec d| } { -z } = \frac { y } { -z * tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>注意，这里的z需要取反，因为上面的等式里，<span class="math inline">\(y_{p}\)</span>和y同符号，<span class="math inline">\(|\vec d|\)</span>是正号，而z显然本身是负值，所以z要取反。</p>
+<p>同样的，x分量也可以用相同的公式求得：</p>
+<p><span class="math inline">\(\frac {x_{p} } { |\vec d| } = \frac { x } { -z }\)</span></p>
+<p><span class="math display">\[x_{p} = \frac { x * |\vec d| } { -z } = \frac { x } { -z * tan(\frac {\alpha } { 2 } ) }\]</span></p>
+<p>此时要考虑到一个问题：$ y_{p}<span class="math inline">\(的范围是[-1,1]，而\)</span>x_{p}<span class="math inline">\(是\)</span>[-ar, ar]<span class="math inline">\(。为了让\)</span>x_{p}<span class="math inline">\(和\)</span>y_{p}<span class="math inline">\(一致，需要让\)</span>x_{p}$除以ar，从而得到：</p>
+<p><span class="math inline">\(x_{p} = \frac { x } { -z * ar * tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p><span class="math inline">\(y_{p} = \frac { y } { -z * tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>到了这里，我们可以开始构造下透视矩阵了：</p>
+<p><span class="math display">\[Perspective Matrix = M =  \left[ \begin{matrix} a&amp;b&amp;c&amp;d\\ e&amp;f&amp;g&amp;h\\ i&amp;j&amp;k&amp;l\\ m&amp;n&amp;o&amp;p\\ \end{matrix} \right]\]</span></p>
+<p>被转换的顶点的坐标(矩阵)是：<span class="math inline">\(V = \left[ \begin{matrix} x\\ y\\ z\\ w\\ \end{matrix} \right]\)</span></p>
+<p>转换后的投影点是:<span class="math inline">\(V_{p} = \left[ \begin{matrix} x_{p} \\ y_{p} \\ z_{p} \\ w_{p} \\ \end{matrix} \right]\)</span></p>
+<p>转换过程:</p>
+<p><span class="math inline">\(MV = V_{p}\)</span></p>
+<p><span class="math inline">\(\left[ \begin{matrix} a&amp;b&amp;c&amp;d\\ e&amp;f&amp;g&amp;h\\ i&amp;j&amp;k&amp;l\\ m&amp;n&amp;o&amp;p\\ \end{matrix} \right] \left[ \begin{matrix} x\\ y\\ z\\ w\\ \end{matrix} \right] = \left[ \begin{matrix} x_{p} \\ y_{p} \\ z_{p} \\ w_{p} \\ \end{matrix} \right]\)</span></p>
+<p>从以上等式可以得到:</p>
+<p><span class="math inline">\(ax + by + cz + dw = x_{p} = \frac { x } { -z * ar * tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>这是M矩阵第一行和V的点积等式。求解这个等式的话，会发现可以让b=0、d=0，从而等式简化成:</p>
+<p><span class="math inline">\(ax + cz = \frac { x } { -z * ar * tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>这样做后就有了个问题：找不到可以代入a、c的常量值。其中左边比较多余的cz项，如果可以干掉的话，意味着c必须等于0。这么做后，等式进而变成:</p>
+<p><span class="math inline">\(ax = \frac { x } { -z * ar * tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>观察等式，可以发现等式右边有个多余的z。OpenGL中对这个问题的处理是，在变换过程中强(偷)制(偷)插入一个步骤：把矩阵相乘的结果值再统一除以-z。对，没错，确实是-z而不是z，负号的作用是把坐标从右手坐标系转换到左手坐标系，原因是NDC(Normalized Device Coord)坐标系是左手坐标系，即NDC的z轴的正方向是朝向屏幕里面的。这个除以-z的技巧被称为<strong>Perspective Divide</strong>。</p>
+<p>这么做之后，事情就简单了，上面的等式可以推出：</p>
+<p><span class="math inline">\(a = \frac { 1 } { ar * tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>对于M矩阵的f，用同样的做法可以得到:</p>
+<p><span class="math inline">\(f = \frac { 1 } { tan(\frac {\alpha } { 2 } ) }\)</span></p>
+<p>从而得到了M的前两行的值：</p>
+<p><span class="math inline">\(M = \left[ \begin{matrix} \frac { 1 } { ar * tan(\frac {\alpha } { 2 } ) }&amp;0&amp;0&amp;0\\ 0&amp;\frac { 1 } { tan(\frac {\alpha } { 2 } ) }&amp;0&amp;0\\ i&amp;j&amp;k&amp;l\\ m&amp;n&amp;o&amp;p\\ \end{matrix} \right]\)</span></p>
+<p>到了这里，其实透视变换问题已经解决大半了，因为<span class="math inline">\(x_{p}\)</span>和<span class="math inline">\(y_{p}\)</span>都可以算了，并且可以规范化到[-1,1]范围。剩下的问题是<span class="math inline">\(z_{p}\)</span>，即顶点的深度信息。</p>
+<p>前面提到的<strong>Perspective Divide</strong>会导致一个问题：z分量在转换过程中会因为<strong>Perspective Divide</strong>而导致变成-1。针对这个问题，OpenGL的解决方案是，把V的z值取反并复制覆盖到w上，从而把原始z值保存起来（也就是M矩阵的第四行所负责的事情），同时<strong>Perspective Divide</strong>仅对x、y、z有效（跳过w）。</p>
+<p>因此，M的后两行也可以得到了：</p>
+<p><span class="math inline">\(M = \left[ \begin{matrix} \frac { 1 } { ar * tan(\frac {\alpha } { 2 } ) }&amp;0&amp;0&amp;0\\ 0&amp;\frac { 1 } { tan(\frac {\alpha } { 2 } ) }&amp;0&amp;0\\ 0&amp;0&amp;0&amp;0\\ 0&amp;0&amp;-1&amp;0\\ \end{matrix} \right]\)</span></p>
+<p>然而，事情还没有结束。现在用这个新的M去做透视变换后，得不到规范化的z分量。规范化的，可以使得后续的渲染步骤不需要知道near Z和far Z。为了完成这个事情，需要对M做改进，着手点就是row 3，全为0的第三行。</p>
+<p>再阐述一下问题：我们需要求出row3=(i,j,k,l)，使得row3和V做点积运算能得到规范化的<span class="math inline">\(z_{p}\)</span>。用公式表示：</p>
+<p><span class="math inline">\(z_{p} = Az + B , z_{p}\in [-1,1]\)</span></p>
+<p>再考虑上<strong>Perspective Divide</strong>，上式变成：</p>
+<p><span class="math inline">\(z_{p} = A + \frac {B}{-z} , z_{p}\in [-1,1]\)</span></p>
+<p>思路非常明确了：把公式中的A、B求出来，代入row3，就能解决问题。</p>
+<p>因为当z等于near Z时，z_{p}必然等于1；当z等于far Z时，z_{p}必然等于-1 (Note：这里用的是右手坐标系）。因此得到：</p>
+<p><span class="math inline">\(A + \frac {B}{-NearZ} = 1\)</span></p>
+<p><span class="math inline">\(A = 1 - \frac {B}{-NearZ} = 1 + \frac {B}{NearZ}\)</span></p>
+<p>接着：</p>
+<p><span class="math inline">\(A + \frac {B}{-FarZ} = -1\)</span></p>
+<p><span class="math inline">\(1 + \frac {B}{NearZ} - \frac {B}{FarZ} = -1\)</span></p>
+<p><span class="math inline">\(\frac {B*FarZ - B*NearZ}{NearZ*FarZ} = -2\)</span></p>
+<p><span class="math inline">\(B = \frac {-2*NearZ*FarZ}{FarZ - NearZ} = \frac {2*NearZ*FarZ}{NearZ - FarZ}\)</span></p>
+<p>B解决了，求A：</p>
+<p><span class="math inline">\(A = 1 + \frac {B}{NearZ} = 1 + \frac {2*FarZ*NearZ}{NearZ*(NearZ - FarZ)}\)</span></p>
+<p><span class="math inline">\(A = 1 + \frac {2*FarZ}{NearZ - FarZ}\)</span></p>
+<p><span class="math inline">\(A =\frac {NearZ - FarZ + 2*FarZ}{NearZ - FarZ}\)</span></p>
+<p><span class="math inline">\(A = \frac {NearZ + FarZ}{NearZ - FarZ}\)</span></p>
+<p>有了A、B后，就可以求row3了:</p>
+<p><span class="math inline">\(ix +jy +kz +lw = Az + B\)</span></p>
+<p>显然，可让i = j = 0，那么上式变成:</p>
+<p><span class="math inline">\(kz + lw = Az + B\)</span></p>
+<p>因为V的w分量必然是1，所以可以得知：k = A，l = B。</p>
+<p>代入M，得到最终完善的M：</p>
+<p><span class="math inline">\(M = \left[ \begin{matrix} \frac { 1 } { ar * tan(\frac {\alpha } { 2 } ) }&amp;0&amp;0&amp;0\\ 0&amp;\frac { 1 } { tan(\frac {\alpha } { 2 } ) }&amp;0&amp;0\\ 0&amp;0&amp;\frac {NearZ + FarZ}{NearZ - FarZ}&amp;\frac {2*FarZ*NearZ}{NearZ - FarZ}\\ 0&amp;0&amp;-1&amp;0\\ \end{matrix} \right]\)</span></p>
+<p>再对比下superbible7中构造透视矩阵的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static inline mat4 perspective(float fovy, float aspect, float n, float f)</span><br><span class="line">&#123;</span><br><span class="line">    float q &#x3D; 1.0f &#x2F; tan(radians(0.5f * fovy));</span><br><span class="line">    float A &#x3D; q &#x2F; aspect;</span><br><span class="line">    float B &#x3D; (n + f) &#x2F; (n - f);</span><br><span class="line">    float C &#x3D; (2.0f * n * f) &#x2F; (n - f);</span><br><span class="line"></span><br><span class="line">    mat4 result;</span><br><span class="line"></span><br><span class="line">    result[0] &#x3D; vec4(A, 0.0f, 0.0f, 0.0f);</span><br><span class="line">    result[1] &#x3D; vec4(0.0f, q, 0.0f, 0.0f);</span><br><span class="line">    result[2] &#x3D; vec4(0.0f, 0.0f, B, -1.0f);</span><br><span class="line">    result[3] &#x3D; vec4(0.0f, 0.0f, C, 0.0f);</span><br><span class="line"></span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>仔细观察，发现有1处不同：这个函数构造的矩阵是列主导的矩阵。其中元素的取值和本文的推导完全一致！</p>
+<p>本文部分内容翻译自：<a href="http://www.ogldev.org/www/tutorial12/tutorial12.html" target="_blank" rel="noopener">Tutorial 12: Perspective Projection</a></p>
+<p>本文介绍的是OpenGL中的透视矩阵。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\understand-matrix-mengyan.html" rel="bookmark">理解矩阵-孟岩Blog</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Linear-algebra-translation-scaling-rotation-matrix.html" rel="bookmark">线性代数之平移、缩放、旋转矩阵</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Mathematica.html" rel="bookmark">Mathematica核心内容提示</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\understanding-matrix.html" rel="bookmark">关于矩阵的理解与解释</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\understanding-quaternions.html" rel="bookmark">四元数理解</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+              <a href="/tags/%E7%9F%A9%E9%98%B5/" rel="tag"># 矩阵</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/understanding-quaternions.html" rel="prev" title="四元数理解">
+      <i class="fa fa-chevron-left"></i> 四元数理解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/about-cui-yong-yuan.html" rel="next" title="白岩松敬一丹柴静眼中的崔永元">
+      白岩松敬一丹柴静眼中的崔永元 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#视锥体-frustum"><span class="nav-number">1.</span> <span class="nav-text">视锥体 Frustum</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

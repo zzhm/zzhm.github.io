@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="利用离散元方法做仿真实验的过程中，所用的模型并非都是单一的颗粒体，很多时候要用到颗粒群模型。小体积的模型可以用聚合法将多个颗粒填充在颗粒模板里面，从而组成所需要的非规则模型。然而，大体积的模型通过聚合法逐个布置颗粒位置显然是工作量相当大的一种做法。本文简介两种快速生成颗粒群的方法，以供交流学习。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EDEM快速填充颗粒的方法">
+<meta property="og:url" content="https://zymin.cn/arcticle/edem-particles.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="利用离散元方法做仿真实验的过程中，所用的模型并非都是单一的颗粒体，很多时候要用到颗粒群模型。小体积的模型可以用聚合法将多个颗粒填充在颗粒模板里面，从而组成所需要的非规则模型。然而，大体积的模型通过聚合法逐个布置颗粒位置显然是工作量相当大的一种做法。本文简介两种快速生成颗粒群的方法，以供交流学习。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xy2Kkof5f&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xy5A2Nlab&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xy7uRhL21&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyjJRnXe9&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551880388956.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xyn1Bjq30&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551923055983.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyoDHsb47&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551923011110.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xyx5vFadc&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyCwkYGe2&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyIhiPn71&amp;690.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551935714644.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551935764440.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551941538343.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551936470265.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551936866395.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551939125636.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551939226475.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551939382214.png">
+<meta property="article:published_time" content="2019-03-06T08:07:46.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.055Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="仿真">
+<meta property="article:tag" content="edem">
+<meta property="article:tag" content="离散元">
+<meta property="article:tag" content="api">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xy2Kkof5f&amp;690.jpg">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/edem-particles.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>EDEM快速填充颗粒的方法 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/edem-particles.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EDEM快速填充颗粒的方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-03-06 16:07:46" itemprop="dateCreated datePublished" datetime="2019-03-06T16:07:46+08:00">2019-03-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>利用离散元方法做仿真实验的过程中，所用的模型并非都是单一的颗粒体，很多时候要用到颗粒群模型。小体积的模型可以用聚合法将多个颗粒填充在颗粒模板里面，从而组成所需要的非规则模型。然而，大体积的模型通过聚合法逐个布置颗粒位置显然是工作量相当大的一种做法。本文简介两种快速生成颗粒群的方法，以供交流学习。</p>
+<a id="more"></a>
+<p>一种利用fluent中udf库文件进行快速填充的方法，这种方法针对结构化网格适用性很强，可以很方便控制颗粒粒径，而对于非结构化网格就相对很尴尬，粒径不好控制。</p>
+<h2 id="一快速填充模型">一、快速填充模型</h2>
+<h3 id="基本思路">基本思路</h3>
+<ul>
+<li><p>建立模型，划分网格。利用网格前处理软件对模型区域划分网格，另存为“.msh”文件。（网格划分软件Gambit、ICEM CFD、Ansys等）</p></li>
+<li><p>Fluent加载udf库文件，获取网格坐标信息。将生成的<code>.msh</code>导入fluent，加载udf库文件，编译源文件<code>CalcRadius.c</code>，最后执行<code>CalcRadiusVolume</code>，会在文件夹里面生成<code>point.txt</code>网格坐标文件。</p></li>
+<li><p>对网格坐标信息进行编辑，准备颗粒工厂dll文件。将<code>point.txt</code>里面的数据粘贴进<code>Block_Factory_Data.txt</code>文件，覆盖原来数据。</p></li>
+<li><p>进入edem设置模型参数，并在Factory面板加载通过<code>VC++</code>编译好的<code>BlockFactory_x64.dll</code>文件。</p></li>
+<li><p>Edem中进行快速填充。进行仿真填充。</p></li>
+</ul>
+<p>（如需利用填充好的颗粒模型做类似三轴应力压缩、切割、破碎实验，在后处理面板导出填充好的模型即可使用，此时请务必将时间置0）</p>
+<h3 id="操作步骤">操作步骤</h3>
+<p>下面以一个立方体为例进行操作说明：</p>
+<p>本文利用Ansys workbench进行建模，划分网格。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xy2Kkof5f&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<h4 id="建模与网格划分">建模与网格划分</h4>
+<p>在Component Systems找到Mesh模块，拖动到右侧区域，然后双击Geometry模块。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xy5A2Nlab&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<p>建立一个<code>40x40x20mm</code>的立方体。之后保存，打开meshing模块。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xy7uRhL21&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<p>Meshing模块中左侧单击mesh，在下方明细表中选择Fluent求解器，CFD特性，并设置最大、最小网格尺寸都为4mm，之后对模型进行自动网格划分，生成结构网格；</p>
+<h4 id="导出msh文件">导出msh文件</h4>
+<p>在Geomtry里点击实体，设置模型材料为fluid，导出msh文件。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyjJRnXe9&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<h4 id="编译接口文件">编译接口文件</h4>
+<p>打开<code>GUI_compilation.exe</code>，设置相应版本</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551880388956.png" alt="" /><figcaption>1551880388956</figcaption>
+</figure>
+<h4 id="加载耦合接口文件">加载耦合接口文件</h4>
+<p>打开fluent，依次选择<code>file-&gt;Read-&gt;Journal..</code>，载入<code>“load_edem_coupling.jou”</code>(耦合2.0接口，耦合1.0接口依次选择<code>Define-&gt;User Defined-&gt;Fuctions-&gt;Complied</code>载入udf库文件路径)</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xyn1Bjq30&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<h4 id="编译udf文件">编译udf文件</h4>
+<p>依次选择<code>file-&gt;Read-&gt;Mesh</code>，读入msh文件，并对<code>.c</code>的udf文件进行编译。<code>User Defined-&gt;Functions-&gt;Compiled-&gt;add</code>,载入<code>CalcRadius.c</code>文件，点Build,在信息提示窗口无错误提示下最后Load。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551923055983.png" alt="" /><figcaption>1551923055983</figcaption>
+</figure>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyoDHsb47&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<h4 id="计算坐标信息">计算坐标信息</h4>
+<p>在<code>User Defined</code>面板点<code>Execute on Demand</code>,在弹出的窗口里选择<code>CalcRadiusVolume</code>,执行后会在<code>CalcRadius.c</code>文件夹中生成一个<code>point.txt</code>文件，里面便是网格的坐标信息。如下图。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551923011110.png" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72Xyx5vFadc&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<h4 id="修改point.txt">修改<code>point.txt</code></h4>
+<p>对<code>point.txt</code>文件里最后一列数字全部替换为1.（最后一列是颗粒粒径比例）</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyCwkYGe2&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<h4 id="拷贝数据">拷贝数据</h4>
+<p>将<code>point.txt</code>中的坐标信息拷贝在<code>Block_Factory_Data.txt中</code>，其中第一行是颗粒填充开始时间，第二行是总体的颗粒数量，也就是网格坐标信息数量。</p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/002l9cF3zy72XyIhiPn71&amp;690.jpg" alt="" /><figcaption>关于EDEM中快速填充一定区域的操作步骤简介</figcaption>
+</figure>
+<h4 id="edem仿真">EDEM仿真</h4>
+<p>新建一个EDEM文件，在几何体面板导入<code>.msh</code>文件，在全局面板设置颗粒材料跟几何体材料参数，在颗粒面板设置粒径大小（半径2 mm）,在颗粒工厂面板读入<code>Block_Factory_Data.dll文件</code>。最后设置风格单元大小及时间步长进行计算，填充完成效果如上图。</p>
+<blockquote>
+<p>需要特别注意的问题：</p>
+<p>1.txt文件里颗粒名称（第一列的字符）要与颗粒面板中设置的颗粒名称相同。</p>
+<p>2.需要在EDEM里面设置自定义颗粒插件的文件夹。虽然把dll文件放入项目所在的文件夹也能导入插件，但是在运行的时候会出错，直接退出。</p>
+<p>3.注意划分的网格的默认单位是米，因此在导入<code>.msh</code>模型的时候单位应当选择米，这一点与导入CAD模型有所差异（此处巨坑！！）。主要网格尺寸、edem导入尺寸、颗粒尺寸的单位。</p>
+<p>4.直接打开Fluent和从Ansys里的Fluent模块打开并不一样，应当直接打开。（此处也巨坑）</p>
+<p>5.如果没生成颗粒，或者生成颗粒瞬间炸开了，将仿真的Time Step 改小点！（此处也巨坑）</p>
+</blockquote>
+<blockquote>
+<p>在一定的仿真条件下，粒子的速度可能会变得过大，导致周围粒子的行为不规律:例如，仿真时间步长过大。有两种方法可以帮助解决这个问题。粒子速度可以限制在指定的极限，也可以从模拟中去除超过该极限的粒子。粒子速度和角速度可以分别处理。</p>
+</blockquote>
+<h3 id="制作颗粒模板">制作颗粒模板</h3>
+<h4 id="导出xml模板文件">导出xml模板文件</h4>
+<blockquote>
+<p>xml文件是记录仿真配置和状态的文档，之所以要仿真时间归0，因为如果不是0，会包含很多仿真的运算结果，而我们只是单纯的想填充颗粒。</p>
+</blockquote>
+<p>仿真时间归0，切换到<code>分析</code>选型卡，<code>File-&gt;Export</code>，选择输出<code>Simulation Deck</code>文件，输出文件的后缀名需为<code>.xml</code>。<code>Export Options</code> 里面只勾选<code>Particle Data</code>，点击OK完成数据导出。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551935714644.png" /></p>
+<figure>
+<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551935764440.png" alt="" /><figcaption>Export Options</figcaption>
+</figure>
+<h4 id="导出结果数据文件">导出结果数据文件</h4>
+<blockquote>
+<p>如果在Tools-&gt;Options里面改过单位的话，记得改回国际单位制，引入貌似导入后默认是国际单位制的。</p>
+</blockquote>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551941538343.png" /></p>
+<p>仿真时间归0，切换到<code>分析</code>选型卡，<code>File-&gt;Export</code>，选择输出<code>Result Data</code>文件，设置Filename（图中为<code>0512.csv</code>），General选项卡中 Time Steps 选择从1到1（这里1是仿真完成的时间）。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551936470265.png" /></p>
+<p>在Queries选项卡里设置需要导出的内容。点击图中+号增加导出项目；在下方选择导出变量，导出变量有分量的在下方的Component里面选取；右侧Type里面选择particle；选择完成后点击左下角Export导出数据。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551936866395.png" /></p>
+<h4 id="修改.xml文件">修改<code>.xml</code>文件</h4>
+<p>在EXCEL里面将数据按照下述格式进行组合，最终效果见图</p>
+<blockquote>
+<p><sphere y="0" name="sphere 0" x="0" id="0" z="0" contact_radius="0.002" physical_radius="0.002"/></p>
+</blockquote>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551939125636.png" /></p>
+<p>将数据复制粘贴到上述的<code>.xml</code>格式文件中，</p>
+<p>修改前</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551939226475.png" /></p>
+<p>修改后</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0imp/1551939382214.png" /></p>
+<h4 id="使用方法">使用方法</h4>
+<p>在设置颗粒的时候使用快捷键<code>Ctrl+i</code>,选择上述的<code>.xml</code>文件即可。</p>
+<h2 id="二颗粒替换">二、颗粒替换</h2>
+<ul>
+<li><p>建立颗粒模板，用颗粒填充，（利用模型体积除单个颗粒体积得到所要生成的颗粒数量）导出位置信息并规整格式。</p></li>
+<li><p>Api读取颗粒模板数据。</p></li>
+<li><p>替换原始颗粒为新颗粒群，此时用到<code>ParticleReplacement_v2_x64.dll</code>（已编译完成）文件。</p></li>
+<li><p>Bonding 模型触发产生粘结。</p></li>
+</ul>
+<p>以上两种方法思路有所同，又有所不同。第一种方法利用Api实现快速填充，适合一些关于大块物料破碎类仿真。 第二种方法利用Api实现单个颗粒快速替换为颗粒群，适合小块物料破碎类仿真。</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://v.youku.com/v_show/id_XNzM5OTkzNTI0.html?spm=a2h0k.11417342.soresults.dtitle" target="_blank" rel="noopener">海基龚明教程</a></p>
+<p>海基杨格</p>
+<p><a href="http://blog.sina.com.cn/s/blog_7fd679e90102x7bm.html" target="_blank" rel="noopener">关于EDEM中快速填充一定区域的操作步骤简介</a></p>
+<p><a href="http://blog.sina.com.cn/s/blog_7fd679e90102wtkh.html" target="_blank" rel="noopener">浅析EDEM中两种快速生成颗粒群的方法</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\edem-contact-models.html" rel="bookmark">EDEM的接触模型</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abaqus-simple.html" rel="bookmark">Abaqus2018简单入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-materials.html" rel="bookmark">3D打印材料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\bezier_nurbs_relation.html" rel="bookmark">Bezier曲线、B样条和NURBS简单对比</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E4%BB%BF%E7%9C%9F/" rel="tag"># 仿真</a>
+              <a href="/tags/edem/" rel="tag"># edem</a>
+              <a href="/tags/%E7%A6%BB%E6%95%A3%E5%85%83/" rel="tag"># 离散元</a>
+              <a href="/tags/api/" rel="tag"># api</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/edem-contact-models.html" rel="prev" title="EDEM的接触模型">
+      <i class="fa fa-chevron-left"></i> EDEM的接触模型
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/UU125-fangdao.html" rel="next" title="优友UU125原车防盗器安装操作流程">
+      优友UU125原车防盗器安装操作流程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一快速填充模型"><span class="nav-number">1.</span> <span class="nav-text">一、快速填充模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思路"><span class="nav-number">1.1.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">1.2.</span> <span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#建模与网格划分"><span class="nav-number">1.2.1.</span> <span class="nav-text">建模与网格划分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导出msh文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">导出msh文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译接口文件"><span class="nav-number">1.2.3.</span> <span class="nav-text">编译接口文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载耦合接口文件"><span class="nav-number">1.2.4.</span> <span class="nav-text">加载耦合接口文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译udf文件"><span class="nav-number">1.2.5.</span> <span class="nav-text">编译udf文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算坐标信息"><span class="nav-number">1.2.6.</span> <span class="nav-text">计算坐标信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改point.txt"><span class="nav-number">1.2.7.</span> <span class="nav-text">修改point.txt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝数据"><span class="nav-number">1.2.8.</span> <span class="nav-text">拷贝数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#edem仿真"><span class="nav-number">1.2.9.</span> <span class="nav-text">EDEM仿真</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制作颗粒模板"><span class="nav-number">1.3.</span> <span class="nav-text">制作颗粒模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导出xml模板文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">导出xml模板文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导出结果数据文件"><span class="nav-number">1.3.2.</span> <span class="nav-text">导出结果数据文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改.xml文件"><span class="nav-number">1.3.3.</span> <span class="nav-text">修改.xml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-number">1.3.4.</span> <span class="nav-text">使用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二颗粒替换"><span class="nav-number">2.</span> <span class="nav-text">二、颗粒替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

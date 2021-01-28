@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="百科：超分辨率(Super-Resolution)通过硬件或软件的方法提高原有图像的分辨率，通过一系列低分辨率的图像来得到一幅高分辨率的图像过程就是超分辨率重建。 wiki：超分辨率成像（SR-imaging）是提高成像系统分辨率的一类技术。光学SR技术可以超越系统的衍射极限，而几何SR则可以提高数字成像传感器的分辨率。超分辨率成像技术广泛应用于图像处理和超分辨显微术中。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像超分辨率成像：算法">
+<meta property="og:url" content="https://zymin.cn/arcticle/super-resolution.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="百科：超分辨率(Super-Resolution)通过硬件或软件的方法提高原有图像的分辨率，通过一系列低分辨率的图像来得到一幅高分辨率的图像过程就是超分辨率重建。 wiki：超分辨率成像（SR-imaging）是提高成像系统分辨率的一类技术。光学SR技术可以超越系统的衍射极限，而几何SR则可以提高数字成像传感器的分辨率。超分辨率成像技术广泛应用于图像处理和超分辨显微术中。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin.cn/arcticle/assets/1556243767184.png">
+<meta property="article:published_time" content="2019-04-26T01:46:07.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.097Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="视觉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin.cn/arcticle/assets/1556243767184.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/super-resolution.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>图像超分辨率成像：算法 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/super-resolution.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          图像超分辨率成像：算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-26 09:46:07" itemprop="dateCreated datePublished" datetime="2019-04-26T09:46:07+08:00">2019-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">视觉</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>百科：超分辨率(Super-Resolution)通过硬件或软件的方法提高原有图像的分辨率，通过一系列低分辨率的图像来得到一幅高分辨率的图像过程就是超分辨率重建。 wiki：超分辨率成像（SR-imaging）是提高成像系统分辨率的一类技术。光学SR技术可以超越系统的衍射极限，而几何SR则可以提高数字成像传感器的分辨率。超分辨率成像技术广泛应用于图像处理和超分辨显微术中。</p>
+<a id="more"></a>
+<p>形象理解： 给定图像的像素越高，表示图像质量越接近于原始图像。如果把低像素的图片放大到一定程度，图片会变得非常模糊，类似于马赛克的情况。效果如下图所示：</p>
+<p><img src="assets/1556243767184.png" /></p>
+<p>如果想让上述图像变得清新，这是需要的技术就是超分辨率重构了。</p>
+<h2 id="超分辨率重构现有方法">超分辨率重构现有方法：</h2>
+<p>在知乎上有看到一个帖子：图像超分辨率重构技术还有什么可研究吗？以本人的理解，任何一项技术都有研究和提高的余地，技术进步不就是这样一点点来的吗？总结一下现有的SR技术方法，并附找到的项目链接：</p>
+<h3 id="稀疏编码方法sparse-coding">（1）稀疏编码方法（Sparse Coding）</h3>
+<p>稀疏编码的概念来自于神经生物学。生物学家提出，哺乳类动物在长期的进化中，生成了能够快速，准确，低代价地表示自然图像的视觉神经方面的能力。我们直观地可以想象，我们的眼睛每看到的一副画面都是上亿像素的，而每一副图像我们都只用很少的代价重建与存储。我们把它叫做稀疏编码，即Sparse Coding.</p>
+<p>稀疏编码的目的：在大量的数据集中，选取很小部分作为元素来重建新的数据。稀疏编码难点：其最优化目标函数的求解。</p>
+<p>Image super-resolution as sparse representation of raw image patches (CVPR2008) 基于原始图像块稀疏表示的图像超分辨率 Image super-resolution via sparse representation (TIP2010) Coupled dictionary training for image super-resolution (TIP2011)</p>
+<h3 id="self-exemplars">（2）Self-Exemplars</h3>
+<p>Single Image Super-Resolution from Transformed Self-Exemplars (CVPR2015) ### （3）贝叶斯方法 Naive Bayes Super-Resolution Forest (ICCV2015)</p>
+<h3 id="基于金字塔算法">（4）基于金字塔算法</h3>
+<p>http://vllab.ucmerced.edu/wlai24/LapSRN/</p>
+<h3 id="深度学习方法近几年文章很多啊">（5）深度学习方法（近几年文章很多啊）</h3>
+<p>Image Super-Resolution Using Deep Convolutional Networks (ECCV2014) Deep Networks for Image Super-Resolution with Sparse Prior (ICCV2015) Robust Single Image Super-Resolution via Deep Networks with Sparse Prior (TIP2016) Accurate Image Super-Resolution Using Very Deep Convolutional Networks (CVPR2016) Deeply-Recursive Convolutional Network for Image Super-Resolution (CVPR2016) Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network (CVPR2016) Deep Laplacian Pyramid Networks for Fast and Accurate Super-Resolution (CVPR 2017), Enhanced Deep Residual Networks for Single Image Super-Resolution (Winner of NTIRE2017 Super-Resolution Challenge) 关于深度学习在超分辨率重建中的应用：https://zhuanlan.zhihu.com/p/25532538?utm_medium=social&amp;utm_source=weibo</p>
+<p>给出了几种实现方法及介绍，github里面相应的项目实现。另外还发现一篇有点尺度的文章《用GAN去除(爱情)动作片中的马赛克和衣服》，感兴趣的请参见这里。</p>
+<h3 id="perceptual-loss-and-gan损失函数上改进">（6）Perceptual Loss and GAN（损失函数上改进）</h3>
+<p>Perceptual Losses for Real-Time Style Transfer and Super-Resolution (ECCV2016) Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network (CVPR2017)</p>
+<h3 id="google基于哈希机制的实现">（7）Google基于哈希机制的实现</h3>
+<p>《RAISR: Rapid and Accurate Image Super Resolution》 分析：http://blog.csdn.net/jiangjieqazwsx/article/details/69055753</p>
+<h3 id="视频sr">（8）视频SR</h3>
+<p>https://users.soe.ucsc.edu/~milanfar/software/superresolution.html Real-Time Video Super-Resolution with Spatio-Temporal Networks and Motion Compensation (CVPR2017) 小结：SR使用稀疏编码方法取得的方法已经堪称state-of-the-art级别，深度学习出现后又将效果进一步提升。</p>
+<p>11.15增补：</p>
+<p>今天看到一篇论文：《Super-Resolution From a Single Image 》（http://www.wisdom.weizmann.ac.il/~vision/SingleImageSR.html），http://cs.brown.edu/courses/csci1950-g/results/final/pachecoj/ ，</p>
+<p>另外附几个相关网页：</p>
+<p>https://people.mpi-inf.mpg.de/~kkim/supres/supres.htm</p>
+<p>《Example-Based-Super-Resolution-Freeman》</p>
+<p>18.1.3增补：</p>
+<p>神经网络实现：</p>
+<p>（1）《Accelerating the Super-Resolution Convolutional Neural Network》，使用matlab的实现。</p>
+<p>（2）《Pixel Recursive Super Resolution》，项目实现链接。</p>
+<p>参考： https://en.wikipedia.org/wiki/Super-resolution_imaging</p>
+<p>https://www.zhihu.com/question/38637977</p>
+<p>https://github.com/huangzehao/Super-Resolution.Benckmark</p>
+<p>https://zhuanlan.zhihu.com/p/25532538</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\cv-daniu.html" rel="bookmark">CV行业一些牛人blog和牛实验室</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\opencv342-vs2015-matlab2017.html" rel="bookmark">Matlab 2017a与Visual Studio 2015混编环境配置</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\camera-arrays.html" rel="bookmark">多相机阵列综述</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Several-problems-in-camera-Calibration.html" rel="bookmark">学习：相机标定中的几个问题</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\camera-calibration.html" rel="bookmark">学习：相机标定详解</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E8%A7%86%E8%A7%89/" rel="tag"># 视觉</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/uu125-jiazhao.html" rel="prev" title="优友UU125济南考摩托车驾照攻略">
+      <i class="fa fa-chevron-left"></i> 优友UU125济南考摩托车驾照攻略
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/toukui.html" rel="next" title="摩托车头盔安全认证DOT、ECE、Snell">
+      摩托车头盔安全认证DOT、ECE、Snell <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#超分辨率重构现有方法"><span class="nav-number">1.</span> <span class="nav-text">超分辨率重构现有方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#稀疏编码方法sparse-coding"><span class="nav-number">1.1.</span> <span class="nav-text">（1）稀疏编码方法（Sparse Coding）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#self-exemplars"><span class="nav-number">1.2.</span> <span class="nav-text">（2）Self-Exemplars</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于金字塔算法"><span class="nav-number">1.3.</span> <span class="nav-text">（4）基于金字塔算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习方法近几年文章很多啊"><span class="nav-number">1.4.</span> <span class="nav-text">（5）深度学习方法（近几年文章很多啊）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#perceptual-loss-and-gan损失函数上改进"><span class="nav-number">1.5.</span> <span class="nav-text">（6）Perceptual Loss and GAN（损失函数上改进）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#google基于哈希机制的实现"><span class="nav-number">1.6.</span> <span class="nav-text">（7）Google基于哈希机制的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视频sr"><span class="nav-number">1.7.</span> <span class="nav-text">（8）视频SR</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

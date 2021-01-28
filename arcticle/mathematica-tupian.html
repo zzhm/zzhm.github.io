@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="制作一个简单的三维图表：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mathematica制作高质量图像">
+<meta property="og:url" content="https://zymin.cn/arcticle/mathematica-tupian.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="制作一个简单的三维图表：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105506.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110154.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105543.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105551.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110032.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110025.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105453.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105603.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105609.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110320.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110232.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110329.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110242.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110335.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110402.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110421.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110434.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110538.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110553.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722110609.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105629.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105633.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105636.png">
+<meta property="og:image" content="d:/Desktop/Mathematica制作出版级质量的图形.assets/image-20200722101945397.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105639.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105643.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105646.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105649.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105652.png">
+<meta property="og:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105659.png">
+<meta property="article:published_time" content="2020-07-22T07:00:31.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.074Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="mathematica">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zihm/images/raw/master/hexo/20200722105506.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/mathematica-tupian.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>mathematica制作高质量图像 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/mathematica-tupian.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mathematica制作高质量图像
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-22 15:00:31" itemprop="dateCreated datePublished" datetime="2020-07-22T15:00:31+08:00">2020-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>制作一个简单的三维图表：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105506.png" /></p>
+<a id="more"></a>
+<h3 id="调整图像大小和样式">调整图像大小和样式</h3>
+<p>添加选项来改变样式和图像大小，使其符号出版要求：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110154.png" /></p>
+<p>Out[2]=</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105543.png" /></p>
+<h3 id="导出图形">导出图形</h3>
+<p>把图形按 PDF 格式导出到文件中：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105551.png" /></p>
+<ul>
+<li>缺省情况下，<a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a> 会在当前目录下（由 <a href="https://reference.wolfram.com/language/ref/SetDirectory.html" target="_blank" rel="noopener">SetDirectory</a> 设定）创建一个文件.</li>
+<li><a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a> 可以产生各种图形格式的文件，包括 GIF、JPEG 和 PNG. 请到<a href="https://reference.wolfram.com/language/guide/GraphicsImportingAndExporting.html" target="_blank" rel="noopener">图形导入和导出</a>查看更多信息.</li>
+<li>对于出版级品质，不受分辨率影响的图形，<a href="https://reference.wolfram.com/language/ref/format/PDF.html" target="_blank" rel="noopener">"PDF"</a> 是最可靠的格式. <a href="https://reference.wolfram.com/language/ref/format/SVG.html" target="_blank" rel="noopener">"SVG"</a> 也可用于二维图形，但三维图形可以在导出之前按屏幕分辨率进行光栅化，从而导致较低质量的图形.</li>
+<li>光栅格式，如 <a href="https://reference.wolfram.com/language/ref/format/PNG.html" target="_blank" rel="noopener">"PNG"</a> 和 <a href="https://reference.wolfram.com/language/ref/format/JPEG.html" target="_blank" rel="noopener">"JPG"</a> 可用于出版级图形，但必须是非常高的分辨率（通常为每英寸 600 个像素或更多），这可能会导致非常大的图像文件.</li>
+</ul>
+<h3 id="在文档中包含导出图形">在文档中包含导出图形</h3>
+<p>将图形文件拖放或插入到文档中.</p>
+<p>在 TeX 源文件中，用 <code>\includegraphics</code> 嵌入图形:</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110032.png" /></p>
+<h3 id="技术要点">技术要点</h3>
+<p>绘图主题为图表提供了预先配置好的样式：</p>
+<p>In[4]:=</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110025.png" /></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Labeled</span>[<span class="keyword">BubbleChart3D</span>[<span class="keyword">RandomReal</span>[<span class="number">1</span>, &#123;<span class="number">5</span>, <span class="number">5</span>, <span class="number">4</span>&#125;],     <span class="keyword">PlotTheme</span> -&gt; #], #] &amp; /@ &#123;<span class="string">"Classic"</span>, <span class="string">"Minimal"</span>, <span class="string">"Detailed"</span>,   <span class="string">"Monochrome"</span>, <span class="string">"Scientific"</span>, <span class="string">"Marketing"</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>Out[4]=</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105453.png" /></p>
+<p>用 面板 ▶ 图表元素方案 插入高级样式的选项：</p>
+<p>In[5]:=</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105603.png" /></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BubbleChart3D</span>[<span class="keyword">RandomReal</span>[<span class="number">1</span>, &#123;<span class="number">5</span>, <span class="number">5</span>, <span class="number">4</span>&#125;], <span class="keyword">PlotTheme</span> -&gt; <span class="string">"SolidGrid"</span>,  <span class="keyword">ChartElementFunction</span> -&gt;   <span class="keyword">ChartElementDataFunction</span>[<span class="string">"Cube"</span>, <span class="string">"Shape"</span> -&gt; <span class="string">"Square"</span>,    <span class="string">"Shading"</span> -&gt; <span class="string">"Fading"</span>, <span class="string">"TaperRatio"</span> -&gt; <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
+<p>Out[5]=</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105609.png" /></p>
+<ul>
+<li>请到<a href="https://reference.wolfram.com/language/workflow/CustomizeCharts.html" target="_blank" rel="noopener">自定义图表</a>查看更多信息.</li>
+</ul>
+<h2 id="自定义图表--使用绘图主题...">自定义图表--使用绘图主题...</h2>
+<p>绘图主题为图表和曲线图提供预先配置好的样式. 指定一个绘图主题以自定义图形的外观. 自动补全功能可以帮助你选择合适的主题：</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110320.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>在基本主题上添加“特色主题”改变绘图主题：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110232.png" /></p>
+<p>Out[2]=</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110329.png" /></p>
+<ul>
+<li>到 <a href="https://reference.wolfram.com/language/ref/PlotTheme.html" target="_blank" rel="noopener">PlotTheme</a> 文档查看主题清单.</li>
+</ul>
+<h2 id="自定义图标---以互动方式...">自定义图标-- 以互动方式...</h2>
+<h3 id="制作一个图表">制作一个图表</h3>
+<p>制作一个简单的三维条形图：</p>
+<p>In[3]:=</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110242.png" /></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BarChart3D</span>[&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p>Out[3]=</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110335.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="准备插入选项">准备插入选项</h3>
+<p>在输入表达式的右方括号前面点击 (])，输入逗号，准备插入图表选项：</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110402.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="打开图表元素方案面板">打开“图表元素方案”面板</h3>
+<p>选择 面板 ▶ 图表元素方案：</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110421.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="选择图表类型">选择图表类型</h3>
+<p>选择想要定义的图表的类型：</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110434.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="选择图表样式">选择图表样式</h3>
+<p>选择喜欢的图表样式：</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110538.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="调整图表外观">调整图表外观</h3>
+<p>调整样式的参数：</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110553.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="插入图表外观选项并计算">插入图表外观选项并计算</h3>
+<p>点击“插入选项”重新计算输入：</p>
+<figure>
+<img src="https://gitee.com/zihm/images/raw/master/hexo/20200722110609.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h1 id="plottheme">PlotTheme</h1>
+<p><a href="https://reference.wolfram.com/language/ref/PlotTheme.html" target="_blank" rel="noopener">PlotTheme</a>是绘图及相关函数的一个选项，用来指定图形元素和样式的外观主题.</p>
+<p><a href="https://reference.wolfram.com/language/ref/PlotTheme.html" target="_blank" rel="noopener">PlotTheme</a>-&gt;<em>theme</em> 将多个绘图选项设成默认值.</p>
+<p>明确指定的绘图选项将重写由 <em>theme</em> 设定的值.</p>
+<p><a href="https://reference.wolfram.com/language/ref/PlotTheme.html" target="_blank" rel="noopener">PlotTheme</a>-&gt;{<em>theme</em>1,<em>theme</em>2,…} 会自动合并 <em>theme</em>1，<em>theme</em>2，等等.</p>
+<p><a href="https://reference.wolfram.com/language/ref/PlotTheme.html" target="_blank" rel="noopener">PlotTheme</a> 的可能设置为：</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><a href="https://reference.wolfram.com/language/ref/$PlotTheme.html" target="_blank" rel="noopener">$PlotTheme</a></th>
+<th>系统主题设置</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><a href="https://reference.wolfram.com/language/ref/Automatic.html" target="_blank" rel="noopener">Automatic</a></td>
+<td>根据背景和样式表自动调整</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>"<em>name</em>"</td>
+<td>明确指定绘图的主题样式</td>
+</tr>
+</tbody>
+</table>
+<p>基本主题的设置会影响到整体外观，一般单独使用. 想要达到特殊效果或特殊情况下，可将其和特殊主题联合使用.</p>
+<p>常见基本主题包括：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105629.png" /></p>
+<p>特殊主题的设置会影响绘图的某个具体细节，一般和基本主题或其他特殊主题联合使用.</p>
+<p>坐标轴特殊主题的设置会影响坐标轴、边框以及网格. 坐标轴特殊主题设置选择如下：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105633.png" /></p>
+<p>颜色特殊主题的设置会影响线和面. 颜色特殊主题设置选择如下：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105636.png" /></p>
+<p>字体特殊主题的设置会影响坐标轴的标记、绘图标记和图例. 字体特殊主题设置选择如下：</p>
+<p><img src="D:\Desktop\Mathematica制作出版级质量的图形.assets\image-20200722101945397.png" /></p>
+<p>尺寸特殊主题的设置会影响绘图的大小和形状. 尺寸特殊主题设置选择如下：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105639.png" /></p>
+<p>数据点标记符号特殊主题的设置会影响 <a href="https://reference.wolfram.com/language/ref/PlotMarkers.html" target="_blank" rel="noopener">PlotMarkers</a>. 数据点标记符号特殊主题设置选择如下：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105643.png" /></p>
+<p>曲线特征主题影响绘图曲线. 主题包括：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105646.png" /></p>
+<p>表面网格特殊主题的设置会影响三维图形表面的网格. 主题设置选择如下：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105649.png" /></p>
+<p>图表元素方案特殊主题的设置会影响数据的图形样式. 主题设置选择如下：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105652.png" /></p>
+<p>体特征主题影响 3D 曲面，这对于 3D 打印很有用. 主题包括：</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200722105659.png" /></p>
+<h1 id="imageresolution">ImageResolution</h1>
+<p><a href="https://reference.wolfram.com/language/ref/ImageResolution.html" target="_blank" rel="noopener">ImageResolution</a>是 <a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a>、<a href="https://reference.wolfram.com/language/ref/Rasterize.html" target="_blank" rel="noopener">Rasterize</a> 和相关函数的一个选项，用于指定绘制位图图像所使用的分辨率.</p>
+<ul>
+<li><code>ImageResolution-&gt;r</code>指定位图应当在 <em>r</em> dpi 的分辨率下绘制.</li>
+<li><code>ImageResolution</code> 仅和像 "PNG"这样的位图图形格式有关，和 "SVG"这样的独立于分辨率的格式无关.</li>
+<li>默认设置 <code>ImageResolution-&gt;Automatic</code>通常对位图格式使用 72 dpi 的分辨率.</li>
+</ul>
+<p>导出图形和声音</p>
+<p>Wolfram语言允许您以多种格式导出图形和声音。如果将笔记本前端用于Wolfram语言，则通常可以使用计算机系统上可用的标准机制，直接将图形和声音复制并粘贴到其他程序中。</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a>["<em>name</em>.<em>ext</em>",<em>graphics</em>]</th>
+<th>以从文件名推导出的格式将图形导出到文件</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a>["<em>file</em>",<em>graphics</em>,"<em>format</em>"]</td>
+<td>以指定格式导出图形</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a>["!<em>command</em>",<em>graphics</em>,"<em>format</em>"]</td>
+<td>将图形导出到外部命令</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a>["<em>file</em>",{<em>g</em>1,<em>g</em>2,…},…]</td>
+<td>导出动画的图形序列</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/ExportString.html" target="_blank" rel="noopener">ExportString</a>[<em>graphics</em>,"<em>format</em>"]</td>
+<td>生成导出图形的字符串表示形式</td>
+</tr>
+</tbody>
+</table>
+<p>导出Wolfram语言的图形和声音。</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://reference.wolfram.com/language/ref/format/EPS.html" target="_blank" rel="noopener">“ EPS”</a></th>
+<th>封装的PostScript （ .eps ）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/PDF.html" target="_blank" rel="noopener">“ PDF”</a></td>
+<td>Adobe Acrobat便携式文档格式（ .pdf ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/SVG.html" target="_blank" rel="noopener">“ SVG”</a></td>
+<td>可缩放矢量图形（ .svg ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/PICT.html" target="_blank" rel="noopener">“ PICT”</a></td>
+<td>Macintosh PICT</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/WMF.html" target="_blank" rel="noopener">“ WMF”</a></td>
+<td>Windows图元文件格式（ .wmf ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/TIFF.html" target="_blank" rel="noopener">“ TIFF”</a></td>
+<td>TIFF （ .tif , .tiff ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/GIF.html" target="_blank" rel="noopener">“ GIF”</a></td>
+<td>GIF和动画GIF （ .gif ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/JPEG.html" target="_blank" rel="noopener">“ JPEG”</a></td>
+<td>JPEG （ .jpg , .jpeg ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/PNG.html" target="_blank" rel="noopener">“ PNG”</a></td>
+<td>PNG格式（ .png ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/BMP.html" target="_blank" rel="noopener">“ BMP”</a></td>
+<td>Microsoft位图格式（ .bmp ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/PCX.html" target="_blank" rel="noopener">“ PCX”</a></td>
+<td>PCX格式（ .pcx ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/XBM.html" target="_blank" rel="noopener">“ XBM”</a></td>
+<td>X视窗系统位图（ .xbm ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/PBM.html" target="_blank" rel="noopener">“ PBM”</a></td>
+<td>可移植位图格式（ .pbm ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/PPM.html" target="_blank" rel="noopener">“ PPM”</a></td>
+<td>便携式像素图格式（ .ppm ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/PGM.html" target="_blank" rel="noopener">“ PGM”</a></td>
+<td>便携式灰度图格式（ .pgm ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/PNM.html" target="_blank" rel="noopener">“ PNM”</a></td>
+<td>可移植的Anymap格式（ .pnm ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/DICOM.html" target="_blank" rel="noopener">“ DICOM”</a></td>
+<td>DICOM医学成像格式（ .dcm , .dic ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/AVI.html" target="_blank" rel="noopener">“ AVI”</a></td>
+<td>音频视频交错格式（ .avi ）</td>
+</tr>
+</tbody>
+</table>
+<p>Wolfram语言支持的典型图形格式。第一组（前5个）中的格式与分辨率无关。</p>
+<p>在Wolfram语言之外导出图形时，通常必须指定图形呈现的绝对大小。您可以使用<a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a>的<a href="https://reference.wolfram.com/language/ref/ImageSize.html" target="_blank" rel="noopener">ImageSize</a>选项来执行此操作。</p>
+<p><code>ImageSize- &gt; x</code>使图形的宽度成为 <em>x</em>打印机的点；<code>ImageSize- &gt; 72xi</code>因此使宽度 <em>xi</em>英寸。默认设置是产生四英寸宽的图像。 <code>ImageSize-&gt;{x,y}</code>缩放图形，以使其在一个适合<code>x*y</code>区域。</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://reference.wolfram.com/language/ref/ImageSize.html" target="_blank" rel="noopener">ImageSize</a></th>
+<th><a href="https://reference.wolfram.com/language/ref/Automatic.html" target="_blank" rel="noopener">Automatic</a></th>
+<th>absolute image size in printer's points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"ImageTopOrientation"</td>
+<td><a href="https://reference.wolfram.com/language/ref/Top.html" target="_blank" rel="noopener">Top</a></td>
+<td>how the image is oriented in the file</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/ImageResolution.html" target="_blank" rel="noopener">ImageResolution</a></td>
+<td><a href="https://reference.wolfram.com/language/ref/Automatic.html" target="_blank" rel="noopener">Automatic</a></td>
+<td>resolution in dpi for the image</td>
+</tr>
+</tbody>
+</table>
+<p>Options for <a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">Export</a>.</p>
+<p><a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">出口</a>选项。</p>
+<p>在Wolfram语言中，以完全独立于最终将在其上呈现图形的计算机屏幕或其他输出设备的分辨率的方式来处理图形。</p>
+<p>许多程序和设备接受高分辨率的图形-独立的格式，如内嵌的PostScript（EPS）。但是有些要求将图形转换为具有特定分辨率的栅格或位图。该<a href="https://reference.wolfram.com/language/ref/ImageResolution.html" target="_blank" rel="noopener">ImageResolution</a>的选项<a href="https://reference.wolfram.com/language/ref/Export.html" target="_blank" rel="noopener">导出</a>允许你确定应该用什么分辨率为每英寸点数（dpi）。设置的分辨率越低，获得的图像质量越低，但是存储图像所需的内存也越少。对于屏幕显示，典型分辨率为72 dpi或更高；适用于300 dpi及以上的打印机。</p>
+<p>Wolfram语言支持的典型3D几何格式:</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://reference.wolfram.com/language/ref/format/DXF.html" target="_blank" rel="noopener">“ DXF”</a></th>
+<th>AutoCAD图形交换格式（ .dxf ）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/STL.html" target="_blank" rel="noopener">“ STL”</a></td>
+<td>STL立体光刻格式（ .stl ）</td>
+</tr>
+</tbody>
+</table>
+<p>Wolfram语言支持的典型声音格式：</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://reference.wolfram.com/language/ref/format/WAV.html" target="_blank" rel="noopener">“ WAV”</a></th>
+<th>Microsoft Wave格式（ .wav ）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/AU.html" target="_blank" rel="noopener">“ AU”</a></td>
+<td>μ 法则编码（ .au ）</td>
+</tr>
+<tr class="even">
+<td><a href="https://reference.wolfram.com/language/ref/format/SND.html" target="_blank" rel="noopener">“ SND”</a></td>
+<td>声音文件格式（ .snd ）</td>
+</tr>
+<tr class="odd">
+<td><a href="https://reference.wolfram.com/language/ref/format/AIFF.html" target="_blank" rel="noopener">“ AIFF”</a></td>
+<td>AIFF格式（ .aif , .a ）</td>
+</tr>
+</tbody>
+</table>
+<p>例子</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Export</span>[<span class="string">"testplot600.pdf"</span>, plot, <span class="keyword">ImageResolution</span> -&gt; <span class="number">600</span>]</span><br></pre></td></tr></table></figure>
+<p>参考：https://reference.wolfram.com/language/</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\mathematica-qa.html" rel="bookmark">mathematica常见问题解决方法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abaqus-simple.html" rel="bookmark">Abaqus2018简单入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abqaus-install-uninstall.html" rel="bookmark">Abqaus2018 安装、卸载及破解教程</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abaqus.html" rel="bookmark">Abaqus动画生成</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\kindle-jiqiao.html" rel="bookmark">Kindle咪咕版使用技巧总结</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+              <a href="/tags/mathematica/" rel="tag"># mathematica</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/citavi-index.html" rel="prev" title="citavi 6 教程索引">
+      <i class="fa fa-chevron-left"></i> citavi 6 教程索引
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/visualstudio2015.html" rel="next" title="Visual Studio 2015正式版离线iso及在线下载">
+      Visual Studio 2015正式版离线iso及在线下载 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#调整图像大小和样式"><span class="nav-number">1.</span> <span class="nav-text">调整图像大小和样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出图形"><span class="nav-number">2.</span> <span class="nav-text">导出图形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文档中包含导出图形"><span class="nav-number">3.</span> <span class="nav-text">在文档中包含导出图形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术要点"><span class="nav-number">4.</span> <span class="nav-text">技术要点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义图表--使用绘图主题..."><span class="nav-number"></span> <span class="nav-text">自定义图表--使用绘图主题...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义图标---以互动方式..."><span class="nav-number"></span> <span class="nav-text">自定义图标-- 以互动方式...</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#制作一个图表"><span class="nav-number">1.</span> <span class="nav-text">制作一个图表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备插入选项"><span class="nav-number">2.</span> <span class="nav-text">准备插入选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开图表元素方案面板"><span class="nav-number">3.</span> <span class="nav-text">打开“图表元素方案”面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择图表类型"><span class="nav-number">4.</span> <span class="nav-text">选择图表类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择图表样式"><span class="nav-number">5.</span> <span class="nav-text">选择图表样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调整图表外观"><span class="nav-number">6.</span> <span class="nav-text">调整图表外观</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入图表外观选项并计算"><span class="nav-number">7.</span> <span class="nav-text">插入图表外观选项并计算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#plottheme"><span class="nav-number"></span> <span class="nav-text">PlotTheme</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#imageresolution"><span class="nav-number"></span> <span class="nav-text">ImageResolution</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

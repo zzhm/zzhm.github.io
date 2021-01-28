@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在机器人领域，运动可以说是一个永不过时的话题，因为我们制造机器人最主要的目的就是替代人类从事体力劳动，这当然离不开运动了。而谈到运动也离不开一个基本概念 —— 速度。要弄明白运动学和动力学，速度可是绕不过去的重要概念，这可能也是挡在初学者面前的第一只拦路虎。在不同的机器人教科书中甚至采用了不同的表示方法，不同的速度概念之间也少有人去解释它们的关系和转换方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器人中的速度概念">
+<meta property="og:url" content="https://zymin.cn/arcticle/concept-of-robot-speed.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="在机器人领域，运动可以说是一个永不过时的话题，因为我们制造机器人最主要的目的就是替代人类从事体力劳动，这当然离不开运动了。而谈到运动也离不开一个基本概念 —— 速度。要弄明白运动学和动力学，速度可是绕不过去的重要概念，这可能也是挡在初学者面前的第一只拦路虎。在不同的机器人教科书中甚至采用了不同的表示方法，不同的速度概念之间也少有人去解释它们的关系和转换方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20170407194348733">
+<meta property="og:image" content="https://img-blog.csdn.net/20170408202905054">
+<meta property="og:image" content="https://img-blog.csdn.net/20170409095748308?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcm9iaW52aXN0YQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/0/gravity/SouthEast">
+<meta property="article:published_time" content="2018-05-30T11:26:56.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.136Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="机器人">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20170407194348733">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/concept-of-robot-speed.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>机器人中的速度概念 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/concept-of-robot-speed.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器人中的速度概念
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-30 19:26:56" itemprop="dateCreated datePublished" datetime="2018-05-30T19:26:56+08:00">2018-05-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在机器人领域，运动可以说是一个永不过时的话题，因为我们制造机器人最主要的目的就是替代人类从事体力劳动，这当然离不开运动了。而谈到运动也离不开一个基本概念 —— 速度。要弄明白运动学和动力学，速度可是绕不过去的重要概念，这可能也是挡在初学者面前的第一只拦路虎。在不同的机器人教科书中甚至采用了不同的表示方法，不同的速度概念之间也少有人去解释它们的关系和转换方法。</p>
+<a id="more"></a>
+<h2 id="点的速度">点的速度</h2>
+<p>如果我们将机器人简化成由一些质点组成（有些情况确实可以这么做），那么事情就简单了。因为如果一个点 p 的位置向量  <span class="math inline">\(\textbf{p}\)</span> 可以用三维坐标$ (x,y,z)$表示的话，那么它的速度就是位置的坐标分量对时间 t 的导数，见式 (1)。这个定义简单粗暴，我想不出更简洁的方式了，那我们就采用这个定义吧。</p>
+<p><span class="math display">\[\frac{d\textbf{p}}{dt}=\left(\frac{dx}{dt},\frac{dy}{dt},\frac{dz}{dt}\right)\tag{1} \]</span></p>
+<p>　　*为了简洁，以后我们有时也会将<span class="math inline">\(\frac{d\textbf{p}}{dt}\)</span>记为 <span class="math inline">\(\dot{\textbf{p}}\)</span>或者 <span class="math inline">\(v_{p}\)</span>。</p>
+<h2 id="刚体的姿态大麻烦">刚体的姿态——大麻烦  　　</h2>
+<p>可是点毕竟有些过于简单了，更接近实际的假设是将机器人视为由一些刚体组成。在推导速度之前，我们先要给出刚体的位置等状态的描述方法。对于刚体，只描述它的位置是不够的，我们还要描述它的姿态（或者叫朝向）。描述刚体的位置并不难，只要我们选择刚体上的一点，然后用这个点的坐标就能表示刚体的位置了。这个点该如何选择取决于你要解决的问题，怎么方便怎么来，比如你想建立动力学模型，那么最好选择质心这个点。  　　</p>
+<p>如果平移运动是个听话的乖宝宝，那旋转运动就是让人捉摸不透的老油条。其原因就在于平移变换是一个欧式空间，而旋转变换则是一个非欧空间（更确切的说是一个李群，等到后面我会进一步介绍这具体是什么意思，我们暂时不管这个）。我们一下子从初中生难度进入了研究生难度，这个跳跃让很多初学者都不习惯。 </p>
+<p>姿态应该怎么描述呢?如果在刚体 b上固定一个直角坐标系（记为 <span class="math inline">\({b}\)</span>），那么不管这个刚体怎么转动，它的姿态总是可以用与其固联的坐标系 <span class="math inline">\({b}\)</span>唯一描述的，如下图所示。（当然，位置和速度这些运动量都是相对的概念，要描述它们我们还需要一个参考坐标系，就是图中不动的那个，记为<span class="math inline">\({s}\)</span>， <span class="math inline">\({s}\)</span> 的原点记为 o。<span class="math inline">\({b}\)</span> 的原点记为 p ，p 在 <span class="math inline">\({s}\)</span> 中的位置用向量 <span class="math inline">\(\textbf{p}\)</span> 表示）</p>
+<p><img src="https://img-blog.csdn.net/20170407194348733" /></p>
+<p>直角坐标系 <span class="math inline">\({b}\)</span> 可以用 <span class="math inline">\(3\times3\)</span> 的矩阵描述，这个矩阵被称为姿态矩阵，记为 $ $。姿态矩阵 $ $有一个性质：</p>
+<p><span class="math display">\[\textbf{R}^{\rm{T}}\textbf{R}=\textbf{I}\tag{2} \]</span></p>
+<p>这样，一个刚体的位置和姿态可以用 <span class="math inline">\(\textbf{p}\)</span> 和<span class="math inline">\(\textbf{R}\)</span> 完全描述。机器人学中最常用的方式是将位置和姿态捆绑起来，用一个矩阵一块表示，这个矩阵就是齐次变换矩阵，记为 <span class="math inline">\(\textbf{g}\)</span> ：</p>
+<p><span class="math display">\[\textbf{g}=\left[  \begin{matrix}  \textbf{R} &amp; \textbf{p}\\ 0_{3\times1} &amp; 1   \end{matrix}   \right]\tag{3}\]</span></p>
+<p>那么类比点的情况，刚体的速度是不是可以定义为矩阵 <span class="math inline">\(\textbf{g}\)</span> 的分量对时间的导数呢，如式 (4)所示？</p>
+<p><span class="math display">\[\frac{d\textbf{g}}{dt}=\left[  \begin{matrix} \frac{d\textbf{R}}{dt} &amp; \frac{d\textbf{p}}{dt}\\    0_{3\times1} &amp; 0    \end{matrix}   \right]\tag{4}\]</span></p>
+<p>当然是可以的，不过还有更简洁的方法。别急，下面我一步步介绍怎么做。</p>
+<h2 id="空间速度几何解释">空间速度——几何解释</h2>
+<p>在刚体 b 上有一个和它固定的点 p ，刚体运动时 p 点和它一起运动，如图下图所示。假如我们通过某种测量仪器知道了 p 点的速度$ v_{p}$ 和和刚体转动的角速度 <span class="math inline">\(\omega\)</span>，那么我们该怎么描述刚体 b 的速度呢 ？（这里的 <span class="math inline">\(v_{p}\)</span> 和 <span class="math inline">\(\omega\)</span> 都是相对于参考坐标系$ {s}$ 的） 当然，用 <span class="math inline">\((v_{p}\)</span>,<span class="math inline">\(\omega\)</span>) 就可以。但问题是 p 点只是我们随意选择的一个点，它并不比其它的点有更高的地位。我们暂时不讨论动力学，所以质心处的点也没有更高的地位。哪个点的地位不一样呢？既然刚体上的点地位都一样，我们把眼光瞄准了 o 点——参考坐标系的原点。可是等等， o 点不在刚体上啊？这里存在一个理解上的难点，我们可以这样想象，刚体 b 长胖了，胖到将 o 点也包括进去了。这时，刚体 b 上就有与 o 点瞬间重合的点。 利用理论力学中的基点法，我们就可以求出胖了的刚体与 o 重合的点的速度，即：</p>
+<p><span class="math display">\[v_{o}=v_{p}+\omega\times\overrightarrow{po}\tag{5}\]</span></p>
+<p><img src="https://img-blog.csdn.net/20170408202905054" /></p>
+<p>我们可以用 <span class="math inline">\((v_{o},\omega)\)</span>来描述刚体的速度。你可能会问，这么奇怪的表示方法有什么意义，下面我从另一种方式给出回答。</p>
+<h2 id="空间速度代数解释">空间速度——代数解释</h2>
+<p>我们知道刚体的位置和姿态（合称位姿）可以用<span class="math inline">\(\textbf{g}\)</span> 描述，对于刚体上的任意一点r ，它相对于<span class="math inline">\({s}\)</span> 的位置用向量</p>
+<p><span class="math inline">\(\textbf{r}\)</span> 表示，那么在刚体运动后的位置是：</p>
+<p><span class="math display">\[\left[  \begin{matrix}  \textbf{r}\\1   \end{matrix}   \right]=\textbf{g}\left[  \begin{matrix}  \textbf{r}\\1   \end{matrix}   \right]\tag{6}\]</span></p>
+<p>对式 (6) 求导可得</p>
+<p><span class="math display">\[\left[  \begin{matrix}  \textbf{r}\\1   \end{matrix}   \right]=\dot{\textbf{g}}\left[  \begin{matrix}  \textbf{r}\\1   \end{matrix}   \right]=\dot{\textbf{g}}\textbf{g}^{-1}\left[  \begin{matrix}  \textbf{r}\\1   \end{matrix}   \right]\tag{7}\]</span></p>
+<p>我们注意到出现了一个</p>
+<p><span class="math display">\[\dot{\textbf{g}}\textbf{g}^{-1}=\left[  \begin{matrix}  \dot{\textbf{R}} &amp; \dot{\textbf{p}}\\ 0_{3\times1} &amp; 0   \end{matrix}   \right]\left[  \begin{matrix}  \textbf{R}^{-1} &amp; -\textbf{R}^{-1}\textbf{p}\\ 0_{3\times1} &amp; 1   \end{matrix}   \right]=\left[  \begin{matrix}  \dot{\textbf{R}}\textbf{R}^{-1} &amp; \dot{\textbf{p}}-\dot{\textbf{R}}\textbf{R}^{-1}\textbf{p}\\ 0_{3\times1} &amp; 0   \end{matrix}   \right]   \tag{8}\]</span></p>
+<p>所以是空间速度（Spatial Velocity），这是第一个登场的速度。</p>
+<p><span class="math display">\[\textbf{g}^{-1}\dot{\textbf{g}}=\left[  \begin{matrix}  \textbf{R}^{-1} &amp; -\textbf{R}^{-1}\textbf{p}\\ 0_{3\times1} &amp; 1   \end{matrix}   \right]\left[  \begin{matrix}  \dot{\textbf{R}} &amp; \dot{\textbf{p}}\\ 0_{3\times1} &amp; 0   \end{matrix}   \right]=\left[  \begin{matrix}  \textbf{R}^{-1}\dot{\textbf{R}} &amp; \textbf{R}^{-1}\dot{\textbf{p}}\\ 0_{3\times1} &amp; 0   \end{matrix}   \right]   \tag{9}\]</span></p>
+<p>三个速度概念的变换方法如下图：</p>
+<p><img src="https://img-blog.csdn.net/20170409095748308?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcm9iaW52aXN0YQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/0/gravity/SouthEast" /></p>
+<p>原文链接：https://blog.csdn.net/robinvista/article/details/69415962</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Summary-of-basic-knowledge-of-embedded-system.html" rel="bookmark">教程：嵌入式系统基础知识总结</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\What is the linear speed of industrial robots.html" rel="bookmark">工业机器人线速度和精度？</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\robot-dynamics.html" rel="bookmark">机器人动力学概述</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\abaqus-simple.html" rel="bookmark">Abaqus2018简单入门</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag"># 机器人</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/100-children-movies.html" rel="prev" title="百部经典儿童电影推荐">
+      <i class="fa fa-chevron-left"></i> 百部经典儿童电影推荐
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/What%20is%20the%20linear%20speed%20of%20industrial%20robots.html" rel="next" title="工业机器人线速度和精度？">
+      工业机器人线速度和精度？ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点的速度"><span class="nav-number">1.</span> <span class="nav-text">点的速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刚体的姿态大麻烦"><span class="nav-number">2.</span> <span class="nav-text">刚体的姿态——大麻烦  　　</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空间速度几何解释"><span class="nav-number">3.</span> <span class="nav-text">空间速度——几何解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空间速度代数解释"><span class="nav-number">4.</span> <span class="nav-text">空间速度——代数解释</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

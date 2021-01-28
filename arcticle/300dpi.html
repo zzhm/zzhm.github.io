@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="DPI是指每英寸的像素，也就是扫描精度。DPI越低，扫描的清晰度越低，由于受网络传输速度的影响，web上使用的图片都是72dpi，但是冲洗照片不能使用这个参数，必须是300dpi或者更高350dpi。例如要冲洗46英寸的照片，扫描精度必须是300dpi，那么文件尺寸应该是(4300)(6300)&#x3D;1200像素*1800像素。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何得到投稿时要求的300dpi高清图">
+<meta property="og:url" content="https://zymin.cn/arcticle/300dpi.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="DPI是指每英寸的像素，也就是扫描精度。DPI越低，扫描的清晰度越低，由于受网络传输速度的影响，web上使用的图片都是72dpi，但是冲洗照片不能使用这个参数，必须是300dpi或者更高350dpi。例如要冲洗46英寸的照片，扫描精度必须是300dpi，那么文件尺寸应该是(4300)(6300)&#x3D;1200像素*1800像素。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569806000311.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569806100117.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/2018081509240096.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569810586266.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/zihao.jpg">
+<meta property="article:published_time" content="2019-09-30T01:06:38.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.103Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="投稿">
+<meta property="article:tag" content="图片">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569806000311.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/300dpi.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何得到投稿时要求的300dpi高清图 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/300dpi.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何得到投稿时要求的300dpi高清图
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-30 09:06:38" itemprop="dateCreated datePublished" datetime="2019-09-30T09:06:38+08:00">2019-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>DPI是指每英寸的像素，也就是扫描精度。DPI越低，扫描的清晰度越低，由于受网络传输速度的影响，web上使用的图片都是72dpi，但是冲洗照片不能使用这个参数，必须是300dpi或者更高350dpi。例如要冲洗4<em>6英寸的照片，扫描精度必须是300dpi，那么文件尺寸应该是(4</em>300)<em>(6</em>300)=1200像素*1800像素。</p>
+<a id="more"></a>
+<h2 id="方法一">方法一</h2>
+<p>第1步：将Excel/PPT另存为PDF 第2步：在photoshop里打开存好的PDF，注意在打开的时候要首先选择分辨率为1200（&gt;300dpi即可），</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569806000311.png" /></p>
+<p>第3步：根据需要裁减图片</p>
+<p>第4步：<code>文件-&gt;存储为</code>将文件另存为tif格式图片，注意保存的时候选择LZW压缩，否则图片很大，压缩后可能只有几十到几百k，但是依然清晰无比。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569806100117.png" /></p>
+<h2 id="方法二">方法二</h2>
+<ol type="1">
+<li><p>另存为你的ppt为PDF格式</p></li>
+<li><p>使用Adobe Acrobat Pro 专业版打开PDF文件，根据需要进行裁减和修改</p></li>
+<li><p>依次点击【文件】【另存为】【图像】选择图片格式，弹出对话框，点击右侧【设置】按钮，弹出对话框</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/2018081509240096.png" /></p></li>
+<li><p>点击分辨率右侧倒三角形，选择你需要的分辨率数值，点击确认</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569810586266.png" /></p></li>
+<li><p>点击【保存】按钮，保存你的图片，恭喜你已经获得高精度的图片了</p></li>
+</ol>
+<h2 id="一些概念">一些概念</h2>
+<h3 id="ppi与dpi">PPI与DPI</h3>
+<p>ppi(pixels per inch)：图像的采样率（在图像中，每<a href="https://baike.baidu.com/item/英寸" target="_blank" rel="noopener">英寸</a>所包含的像素数目）</p>
+<p>dpi(dots per inch)：打印分辨率（每英寸所能打印的点数，即<a href="https://baike.baidu.com/item/打印精度" target="_blank" rel="noopener">打印精度</a>）</p>
+<p>打印尺寸、图像的像素数与打印分辨率之间的关系可以利用下列的计算公式加以表示：</p>
+<p>图像的横向（竖向）像素数=打印横向（竖向）分辨率×打印的横向（竖向）尺寸，</p>
+<p>图像的横向（竖向）像素数/打印横向（竖向）分辨率=打印的横向（竖向）尺寸。</p>
+<p>针对特定的图像而言，图像的像素数是固定的，所以，打印分辨率和打印尺寸便呈现反比的关系。</p>
+<p>例如：希望打印照片的尺寸是4<em>3inch，而打印分辨率横向和竖向都是300dpi，则需要照相机采集的像素数至少为（300</em>4）<em>（300</em>3）=1080000像素，约一百万像素。采集的像素数过低会降低图像的打印质量，过高也不能提升打印质量。</p>
+<h2 id="字体大小">字体大小</h2>
+<p><strong>号数制：</strong>汉字大小定为七个号数等级——按1号、2号、3号、4号、5号、6号、7号由大至小排列。在字号等级之间又增加一些字号，并取名为“小几号字”，如“小4号”、“小5号”等等。</p>
+<p>号数制的特点是用起来简单、方便，使用时指定字号即可，无需关心字体的实际尺寸；缺点是字体的大小受号的限制，有时不够用，大字无法用号数来表达，号数不能直接表达字体的实际尺寸，字号之间没有统一的倍数关系，折算起来不方便。尽管如此，号数制仍是目前表示字体规格最基本的方法。（需要注意的是，传统标准铅字的字号大小与一般字处理软件实际输出的文字尺寸会有一些误差，这是由于字的变倍计算处理造成的。）</p>
+<p><strong>点数制：</strong>是目前国际上最通行的印刷字体的计量方法。这里的“点”不是计算机字形的“点阵”的意思，“点”是国际上计量字体大小的基本单位，从英文“Point”译音而来，一般用小写“p”来表示，俗称“磅”。 1磅≈0.35毫米 1英寸＝72磅</p>
+<p>px是像素单位，em是相对单位，pt是绝对单位。</p>
+<p>px就是表示pixel，像素，是屏幕上显示数据的最基本的点；而pt就是point，英文音译为“磅因”，中文读作“点”，是排版印刷中常用的文字大小单位。这样很明白，px是一个点，它不是自然界的长度单位，谁能说出一个“点”有多长多大么？可以画的很小，也可以很大。如果点很小，那画面就清晰，我们称它为“分辨率高”，反之，就是“分辨率低”。所以，“像素”的大小是会“变”的，也称为“相对长度”。</p>
+<p>pt全称为point，但中文不叫“磅”，正确的说法是一个专用的印刷单位“点”，1点=0.376毫米=1.07英美点=0.0148英尺=0.1776英寸。</p>
+<p>因为点制排版印刷系统传入国内后，国内行业素质参差不齐，不懂的人听音译“磅因”，误认为与质量单位“磅”有关系，故网络传播上造成解读错误。point（pt）点，须与磅（重量单位）区分开。</p>
+<p>它们各自的好处是：px可以在计算机屏幕上，能达到预期的效果，在打印机和其它的高分辨率设备上，它又能取得所希望的效果。em的优点很多，比如在一个页面上，你给定了一个父元素的字体大小，这样就可以通过调整一个元素来成比例的改变所有元素大小。它可以自由缩放，比如用来制作可伸缩的样式表。pt是一种固定长度的度量单位，是能够使用测量设备测得的长度。绝对单位作用有限，因为它们不能够缩放，通常只用在已经知道是用在哪种输出媒体的情况下才使用。但大多数情况下最好使用相对单位。一般都是用px和em这两种种配搭比较好。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/zihao.jpg" /></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\reviewer-time.html" rel="bookmark">为什么评审意见久等不来</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\recommend-reviewers.html" rel="bookmark">期刊让推荐审稿人，应该从哪里找，怎么选？</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\How-to-deal-with-comments-and-rejection-of-manuscripts.html" rel="bookmark">论文：如何对待审稿意见和退稿</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\kernel-journals-experence.html" rel="bookmark">论文：核心期刊投稿经验</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\before-paper-publish.html" rel="bookmark">论文：投稿前先以审稿人的视角评估稿件质量</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+              <a href="/tags/%E6%8A%95%E7%A8%BF/" rel="tag"># 投稿</a>
+              <a href="/tags/%E5%9B%BE%E7%89%87/" rel="tag"># 图片</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/mathtype.html" rel="prev" title="Mathtype安装与使用技巧合集">
+      <i class="fa fa-chevron-left"></i> Mathtype安装与使用技巧合集
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%BF%AB%E9%80%9F%E7%A7%91%E6%99%AE.html" rel="next" title="电脑配置快速科普">
+      电脑配置快速科普 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些概念"><span class="nav-number">3.</span> <span class="nav-text">一些概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ppi与dpi"><span class="nav-number">3.1.</span> <span class="nav-text">PPI与DPI</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体大小"><span class="nav-number">4.</span> <span class="nav-text">字体大小</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

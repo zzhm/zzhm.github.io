@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="当审稿人拿起文章的时候，总体印象起了很大的作用。审稿人的心理定势就是判断“过”还是“不过”，没有第三种选择。如果他的印象是“不过”，就反复找理由挑毛病。所以要想通过，首先要写得好，让审稿人挑不出毛病。而如何写得好？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科研论文写作经验">
+<meta property="og:url" content="https://zymin.cn/arcticle/Research-paper-writing-experience.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="当审稿人拿起文章的时候，总体印象起了很大的作用。审稿人的心理定势就是判断“过”还是“不过”，没有第三种选择。如果他的印象是“不过”，就反复找理由挑毛病。所以要想通过，首先要写得好，让审稿人挑不出毛病。而如何写得好？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-29T06:53:12.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.153Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="写作">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/Research-paper-writing-experience.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>科研论文写作经验 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/Research-paper-writing-experience.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科研论文写作经验
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-29 14:53:12" itemprop="dateCreated datePublished" datetime="2018-05-29T14:53:12+08:00">2018-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>当审稿人拿起文章的时候，总体印象起了很大的作用。审稿人的心理定势就是判断“过”还是“不过”，没有第三种选择。如果他的印象是“不过”，就反复找理由挑毛病。所以要想通过，首先要写得好，让审稿人挑不出毛病。而如何写得好？</p>
+<a id="more"></a>
+<p>很多细节导师是不会传授的。悟性非常重要！以前的硕士生导师的科技英语写作水平非常好，有时候她修改别人的文章后，会把修改文章的思路和文章的写法传授给我。后来读博士的时候，导师的写作水平就更棒了，他虽然没有条条框框地指导，但是从反复修改文章的红笔文字中，我也悟到了很多。现在我来分享一些我体会出来的别人很少传授的写作细节。</p>
+<h2 id="写作的时候一般不要描述发现科学事实的曲折故事">（1）写作的时候一般不要描述发现科学事实的曲折故事</h2>
+<p>可以写我们受别人某个工作的启发发现了我们的东西，然是不要说：“我们首先叫某个学生去做，没有做出来。后来我们亲自改进了方法，终于做出来了。”不要说：“为了确定这个物质，我们查阅了大量书籍，从来没有报道过。于是我们到图书馆找了其它文献，发现了归属。”不要暗示“没有功劳也有苦劳”，而要直奔主题。</p>
+<p>这个要点也许显而易见，但是其实不然。在读文章的时候经常可以看到这样的不妥当的说法。我以前读博士第一次做报告的时候，最后一张薄膜是一堆杂志的封面。我对听众说，为了做这个年度考核报告，为了做我的科研，我看了这些杂志三百篇文献。会后，导师对我说：“不要让别人看到你的汗水，要用科学结果来吸引别人。即使你绕了很大弯子得到最后的结果，你也要轻松地讲，让别人感到你很聪明。”</p>
+<p>根据How to Write a Successful Science Thesis (Wiley-VCH)一书p. 98, "Experimental work is by definition a journey into the unknown, fraught with detours and dead ends, but all such obstacles are basically irrelevant from a scientific standpoint. Look upon your dissertation--as you would any other research report--not as a memoir documenting and explaining your every activity, but instead as a proclamation of a set of new insights. How you achieved your results may perhaps play some role in your mentor's appraisal of your efforts, but otherwise it will be of interest only to the extent that certain intimate details may be critical from a methodological standpoint."</p>
+<p>##（2）少用陈词滥调</p>
+<p>很多很多所谓写作秘诀的网上资料都提供一些句法，但是其实很多都是陈词滥调，不提供任何信息，可以高度精简。以下是我给一篇文章审稿的片断意见："[7] Another reason on why this paper is long and somewhat distracting is that you frequently use words such as "It was found that" (p. 2), "It is worth noting that…" (p. 7), "It was observed that …" (p. 8), "It was observed that…" (p. 9), "It was noted that…" (p. 12), "We observed that…" (of course, it's you who make the observation!), "It was noticed that" (p. 13), "It was interesting to see that…", "It was observed that…", "It was concluded that" (p. 15), "It was found that (p. 17)".”</p>
+<p>有时候用了陈词滥调反而帮了倒忙。以下是我给另外一篇文章的审稿意见片断："[10] Throughout the text, for two or three times (e.g., line 11 of p. 12), the authors always wrote "it is not surprising that...". The intention of the authors was to justify their data, to say that their data are "normal". However, if the authors always say "it is not surprising", why should the reader care unsurprising results? Isn't it better to use "it is justified that..." or "it is reasonable that..."?”</p>
+<p>为了证明我说的这些是有道理的，我举How to Write a Successful Science Thesis (Wiley-VCH)一书p. 39,"Avoid sentences that are unnecessarily complex and entangled, or run on interminably. Problems of the latter sort often have their origin in 'that' constructions:</p>
+<p>Example 4-8: It is well established that... (of course!)</p>
+<p>One can assume that... (presumably!)</p>
+<p>From this result it follows that... (= thus, hence, therefore)</p>
+<p>We must not take it for granted that ... (= unlikely)</p>
+<p>Note that the examples above are followed in parentheses by a word or words with the potential to head the offending sentence off in a more promising direction. Sometimes a single well-chosen word is able to replace an entire phrase, simultaneously eliminating the need for at least one punctuation mark. Equally important, a remodeling in this sense often permits the true message of the sentence to migrate from an awkward subordinate clause to the main clause, where it belongs."</p>
+<h2 id="写文章不能用讨审稿人打的时髦语不能任意吹嘘夸大影响">（3）写文章不能用讨审稿人打的时髦语，不能任意吹嘘夸大影响</h2>
+<p>比如有的人说自己的实验设计是"beautiful"，实验结果是"amazing", "remarkable"，自己的催化剂是“超级稳定”，自己的薄膜是“超级薄”，在引言部分说自己的课题是“公众都注意的北极星”，这样必然招打。很简单，什么是“超级稳定”的定义？最稳定就是转化率一直100%不变，那么“超级稳定”究竟超级到什么程度？什么叫“超级薄”？最薄就一个原子的大小，“超级薄”能比一个原子还小吗？</p>
+<p>有的人写文章引言夸大能源危机，搞得读者人人自危，帽子虽然打，最后还是缩小到自己一个没有意义的课题。那么，审稿人就要问：就凭你这点结果，你的催化剂能解决能源危机吗？你的催化剂能工业化吗？</p>
+<p>Communicating Science: A Practical Guide一书p. 50, "Hype tends to creep in naturally under the pen. A good characterization of hype is overindulgence in adjectives. Just like overindulging in sweets leads to obesity, accumulating adjectives bloats a text, makes it bottom-heavy and turns it into failure." p. 26, "I am not telling you to shy from waving your flag. Advertising is definitely involved in the writing of an introduction, but the softest of touches is needed. One-upmanship can be very distructive."</p>
+<p>The Elements of Styles（插图版）一书p. 106, "Do not overstate. When you overstate, readers will be instantly on guard, and everything that has preceded your overstatement as well as everything that follows it will be suspect in their minds because they have lost confidence in your judgment or your poise. Overstatement is one of the common faults. A single overstatement, wherever or however it occurs, diminishes the whole, and a single carefree superlative has the power to destroy, for readers, the objective of your enthusiasm."</p>
+<h2 id="鼓励恰当地用主动语气">（4）鼓励恰当地用主动语气</h2>
+<p>以前很多老师都说写科研论文要用被动语气。其实，大家去读Chemical Communications杂志，每一篇文章都读，发现大多数的三页文章里面至少有几个主动句，有的有十几个主动句。什么情况用被动句，什么情况用主动句？答案是大多数情况用被动句，特别是描述实验方法。但是有的情况下用主动句有画龙点睛的效果。仔细读Chemical Communications杂志，发现的常见主动句是"Herein, we report...", "We propose that..", "To further check/demonstrate this hypothesis, we designed further experiment by...", "We believe that...", "To see whether ... is due to..., we did further experiments...".可见主动句有几种，第一种是在引言中说我们发现了什么；第二中是说我们认为什么，是提建议的；第三种是说为了证明什么，我们做了进一步的实验。有了这些主动句，文章就更加神采飞扬了。</p>
+<p>为了说明我的话是合理的，我举How to Write a Successful Science Thesis (Wiley-VCH)一书p. 37,"We urge you in general, as often as you can, to incorporate lively verbs into your writing. Trt to take as much advantages as you can of sentence structures rooted in the active voice, which is the most welcoming environment for 'words of action'. Few world dispute the assertion, however, that passive constructions rarely contribute in a positive way to descriptive prose."</p>
+<p>p. 84, "It has become increasingly common in published scientific works to encounter examples of first-person verb forms, which unquestionably add life to their surroundings. Note that this development carries an important inplication, however: the authors responsible are suggesting in a subtle way that the parties involved in conducting a scholarly investigation may themselves play a more than passive role:</p>
+<p>Examples 10-7 ... This being the case, we elected to...</p>
+<p>... We therefore separated (introduced, heated)..</p>
+<p>... In the hope of conferring antimalarial activity on pharmaceutical precursors, we prepared..."</p>
+<h2 id="注意段落的长度和结构注意起承转合行云流水收发自如">（5）注意段落的长度和结构，注意起承转合、行云流水、收发自如！</h2>
+<p>读间行打印的原始稿件，如果一段话占据一页，就太长了。一般6-15行是正常范围。How to Write a Successful Science Thesis (Wiley-VCH)一书p. 39,"In general, paragraphs should probably not exceed about a third of a page, equivalent to perhaps four to eight sentences. Paragraphs make an important contribution to the intellectual structure of a document, quite apart from the fact that they break up an otherwise 'endless stream of text', which is unsightly and inflicts too much organizational burden on the reader."</p>
+<p>"Structuring a document as a series of coherent paragraphs forces the author to sort out and present his or her thoughts in a logical fashion. That is to say, a proper paragraph is dedicated to exploring a single subject or thought, which in principle could easily be articulated in a brief descriptive title."</p>
+<p>"The first sentence in every paragraph warrants special attention. One of its principle functions is to let the reader know what the ensuing discussion is about, for which reason it is often referred to as the "topic sentence". The corresponding topic is then pursued in sentences that immediately follow, with the final sentence in the paragraph so crafted that if supplies a bridge to the next paragraph."</p>
+<h2 id="文章要写得花妙还得注意结尾部分">（6）文章要写得花妙，还得注意结尾部分。</h2>
+<p>就是说，文章写到最后，不能嘎然而止，而要说清楚本文的意义、对这个领域的贡献、本文的局限性和下一步可以怎么做。这样，读起来有意犹未尽的感觉。How to Write a Successful Science Thesis (Wiley-VCH)一书p. 102，"Near the end of your discussion you may want to be bold and suggest interesting avenues for future exploration: promising approaches to resolving remaining uncertainties, ideas for broadening the scope of a methodology you have developed, or ways of possibly refining your results. If so, be sure the suggestions you make are concrete."</p>
+<p>写了那么多“秘诀”，觉得科研写作的确是奥妙无穷的。说到这里，举一个例子：最近读到一篇奇文。这篇文章讲的是超高真空表面化学，只有一张图，一个示意图，居然能中德国应用化学会志。</p>
+<p>Hydrocarbon Chain Growth on V(100) Single-Crystal Surfaces via Vinyl Intermediates (p 6583-6585)</p>
+<p>Min Shen, Francisco Zaera</p>
+<p>Published Online: Jul 23 2008 2:14AM</p>
+<p>http://dx.doi.org/10.1002/anie.200802338</p>
+<p>读罢这篇文章，不禁拍案叫绝。且不说具体的学术内容和新发现吧。这篇文章的写作手法非常巧妙，使出了“杀手锏”。一般人写这类文章，都在报数据，这个峰在这个位置，那个峰在那个位置。而这篇文章，通篇血脉通畅，一气呵成，如行云流水。它逻辑性非常强。在科学哲学当中，有种科学发现方法叫做：提出假说==〉做实验证明==〉得到证据==〉产生新的疑问==〉针对疑问做新的对照实验、诊断实验来消除疑问==〉优化假说。这篇文章里面能够看到这种思辨的过程。里面的新实验都是围绕着疑问进行，然后说是证明了一个假说还是排除了一个假说。而描述这些新的实验的时候，几句话就说明了问题。</p>
+<p>这篇文章又粗浅易懂。开头就把这个工作和工业上经久不衰的F-T合成联系起来。在当中，很少叙述图的峰位置、峰形，而是定性地说发现了什么产物，由此推测什么机理。很有启发！</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\how-to-write-literature-review.html" rel="bookmark">大牛是如何写Literature Review（文献综述）的</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\How-to-write-SCI-papers.html" rel="bookmark">如何书写SCI论文的题目</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\how-to-write-disscussion.html" rel="bookmark">如何写好文章的“讨论”部分</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\questions-of-first-paper.html" rel="bookmark">如研究生第一篇学术论文常犯问题总结</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\results-and-discussion.html" rel="bookmark">当SCI结果与讨论要分开写还是一起写？</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"># 科研</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+              <a href="/tags/%E5%86%99%E4%BD%9C/" rel="tag"># 写作</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/When-can-my-baby-feed-himself.html" rel="prev" title="宝宝什么时候能自己吃饭">
+      <i class="fa fa-chevron-left"></i> 宝宝什么时候能自己吃饭
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/How-to-write-SCI-papers.html" rel="next" title="如何书写SCI论文的题目">
+      如何书写SCI论文的题目 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写作的时候一般不要描述发现科学事实的曲折故事"><span class="nav-number">1.</span> <span class="nav-text">（1）写作的时候一般不要描述发现科学事实的曲折故事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写文章不能用讨审稿人打的时髦语不能任意吹嘘夸大影响"><span class="nav-number">2.</span> <span class="nav-text">（3）写文章不能用讨审稿人打的时髦语，不能任意吹嘘夸大影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼓励恰当地用主动语气"><span class="nav-number">3.</span> <span class="nav-text">（4）鼓励恰当地用主动语气</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意段落的长度和结构注意起承转合行云流水收发自如"><span class="nav-number">4.</span> <span class="nav-text">（5）注意段落的长度和结构，注意起承转合、行云流水、收发自如！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章要写得花妙还得注意结尾部分"><span class="nav-number">5.</span> <span class="nav-text">（6）文章要写得花妙，还得注意结尾部分。</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

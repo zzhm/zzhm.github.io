@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Mathematica中大写小写是有区别的，如Name、name、NAME等是不同的变量名或函数名。 系统所提供的功能大部分以系统函数的形式给出，内部函数一般写全称，而且一定是以大写英文字母开头，如Sin[x],Conjugate[z]等。 乘法即可以用*，又可以用空格表示，如2 3＝2*3＝6 ,x y,2 Sin[x]等；乘幂可以用^表示，如x^0.5,Tan[x]^y。 自定义的变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mathematica核心内容提示">
+<meta property="og:url" content="https://zymin.cn/arcticle/Mathematica.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="Mathematica中大写小写是有区别的，如Name、name、NAME等是不同的变量名或函数名。 系统所提供的功能大部分以系统函数的形式给出，内部函数一般写全称，而且一定是以大写英文字母开头，如Sin[x],Conjugate[z]等。 乘法即可以用*，又可以用空格表示，如2 3＝2*3＝6 ,x y,2 Sin[x]等；乘幂可以用^表示，如x^0.5,Tan[x]^y。 自定义的变">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-29T06:37:39.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.059Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="mathematica">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/Mathematica.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Mathematica核心内容提示 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/Mathematica.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mathematica核心内容提示
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-29 14:37:39" itemprop="dateCreated datePublished" datetime="2018-12-29T14:37:39+08:00">2018-12-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>Mathematica中大写小写是有区别的，如Name、name、NAME等是不同的变量名或函数名。</li>
+<li>系统所提供的功能大部分以系统函数的形式给出，内部函数一般写全称，而且一定是以大写英文字母开头，如<code>Sin[x],Conjugate[z]</code>等。</li>
+<li>乘法即可以用<code>*</code>，又可以用空格表示，如<code>2 3＝2*3＝6 ,x y,2 Sin[x]</code>等；乘幂可以用<code>^</code>表示，如<code>x^0.5,Tan[x]^y</code>。</li>
+<li>自定义的变量可以取几乎任意的名称，长度不限，但不可以数字开头。注意不要与系统变量冲突。不要小看这些简单的符号，它们包含的信息远远大于我们所熟知的它们的近似值，它们的精度也是无限的。</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Pi 3.1415....的无限精度数值 </span><br><span class="line">E 2.17828...的无限精度数值 </span><br><span class="line">Catalan 0.915966..卡塔兰常数 </span><br><span class="line">EulerGamma 0.5772....高斯常数 </span><br><span class="line">GoldenRatio 1.61803...黄金分割数 </span><br><span class="line">Degree Pi&#x2F;180角度弧度换算 </span><br><span class="line">I 复数单位 </span><br><span class="line">Infinity 无穷大 </span><br><span class="line">-Infinity 负无穷大 </span><br><span class="line">ComplexInfinity 复无穷大 </span><br><span class="line">Indeterminate 不定式</span><br></pre></td></tr></table></figure>
+<h2 id="基本概念">基本概念</h2>
+<h3 id="符号与变量">符号与变量</h3>
+<ul>
+<li><p>自定义的变量可以取几乎任意的名称，长度不限，但不可以数字开头。</p></li>
+<li><p>当你赋予变量任何一个值，除非你明显地改变该值或使用Clear[变量名]或“变量名=.”取消该值为止，它将始终保持原值不变。(多个打开的文档中符号是可以相互调用的？)</p></li>
+<li><p>全局赋值用等号<code>=</code>，局部赋值用箭头<code>-&gt;</code>。利用<code>%n</code>可以引用第<code>Out[n]</code>行结果，利用<code>%。。。%（k个）</code>可以引用倒数第k个计算结果。</p></li>
+<li><p>自定义函数格式<code>g[x_,y_]:=(x-y)^2/y</code>。自定义函数表达式左边的自变量要写在[ ]号内，且后面跟随“_”（下划线），右边则不需要。</p></li>
+<li><p>一定要注意四种括号的用法：</p>
+<ul>
+<li>()圆括号表示项的结合顺序，如<code>(x+(y^x+1/(2x)))</code>;</li>
+<li>[]方括号表示函数，如<code>Log[x],BesselJ[x,1]</code>；</li>
+<li>{}大括号表示一个“表”(一组数字、任意表达式、函数等的集合)，如<code>{2x,Sin[12 Pi],{1+A,y*x}}</code>；</li>
+<li>[[]]双方括号表示“表”或“表达式”的下标，如<code>a[[2,3]]、{1,2,3}[[1]]=1</code>。</li>
+</ul></li>
+<li><p>可以使用<code>? 符号名</code>或<code>??符号名</code>来获得关于该符号(函数名或其他)的粗略或详细介绍。符号名中还可以使用通配符，例如<code>?M*</code>，则系统将给出所有以M开头的关键词和函数名，再如<code>??For</code>将会得到关于For语句的格式和用法的详细情况。</p></li>
+<li><p>另外，在程序中书写注释可以用一对<code>(*　 *)</code>括起来，注释可以嵌套。</p></li>
+</ul>
+<h3 id="计算精度">计算精度</h3>
+<ul>
+<li>在Mathematica中你不必考虑数的精确度，因为除非你指定输出精度，Mathematica总会以绝对精确的形式输出结果。例如：你输入 <code>In[1]:=378/123</code>，系统会输出<code>Out[1]:=126/41</code>，如果想得到近似解，则应输入 <code>In[2]:=N[378/123,5]</code>,即求其5位有效数字的数值解，系统会输出<code>Out[2]:=3.073</code></li>
+<li>另外Mathematica还可以根据你前面使用的数字的精度自动地设定精度。 Mathematica与众不同之处还在于它可以处理任意大、任意小及任意位精度的数值，如<code>100^7000,2^(-2000)</code>等数值可以很快地求出，但在其他语言或系统中这是不可想象的，你不妨试一试<code>N[Pi,1000]</code>。<br />
+</li>
+<li>若想获得计算结果的近似值，可按如下格式输入：<code>表达式//N</code>或者<code>N[表达式]</code>。要求符合任意精度要求的结果，其格式如下：<code>N[表达式,n]</code> （结果保留n位精度）</li>
+</ul>
+<h3 id="格式与语句">格式与语句</h3>
+<ul>
+<li>Mathematica的语句书写十分方便，一个语句可以分为多行写，同一行可以写多个语句（但要以分号间隔）。当语句以分号结束时，语句计算后不做输出（输出语句除外），否则将输出计算的结果。</li>
+<li>在Mathematica的编辑界面中输入语句和函数，确认光标处于编辑状态(不断闪烁)，然后按Insert键来对这一段语句进行求值。如果语句有错，系统将用红色字体给出出错信息，你可以对已输入的语句进行修改，再运行。如果运行时间太长，你可以通过<code>Alt+.</code>(Alt+句号)来中止求值。 　</li>
+<li>对函数名不确定的，可先输入前面几个字母(开头一定要大写)，然后按<code>Ctrl+K</code>，系统会自动补全该函数名。</li>
+<li>按下小键盘区的<code>Enter</code> 会进行计算，按下字母区的<code>Enter</code>出现换行。</li>
+</ul>
+<h3 id="表及其用法">“表”及其用法</h3>
+<p>“表”是Mathematica中一个相当有用的数据类型，它即可以作为数组，又可以作为矩阵；除此以外，你可以把任意一组表达式用一个或一组{}括起来，进行运算、存储。可以说表是任意对象的一个集合。它可以动态地分配内存，可以方便地进行插入、删除、排序、翻转等等几乎所有可以想象到的操作。</p>
+<p>如果你建立了一个表，你可以通过下表操作符<a href="双方括号">[]</a>来访问它的每一个元素，索引标号从1开始。如我们定义table={2,Pi ,{aaa,A}}为一个表，那么table[[1]]就为2，table[[2]]就是Pi，而table[[3,1]]表示嵌套在table中的子表{aaa,A}的第一个元素即aaa，table[[3,2]]表示{aaa,A}第二个元素即A。总之，表每一层次上并列的部分用逗号分割，表可以无穷嵌套。</p>
+<h3 id="程序流程控制">程序流程控制</h3>
+<p>循环语句有For[赋初值，循环条件，增量语句，语句块]表示如果满足循环条件，则执行语句块和增量语句，直到不满足条件为止，While[test,block]表明如果满足条件test则反复执行语句块block,否则跳出循环，Do[block,{i,imin,imax,istep}]与前者功能是相同的。还有Goto[lab], Label[lab]提供了程序中无条件跳转，Continue[]和Break[]提供了继续循环或跳出循环的控制，Catch[语句块1]和Throw[语句块2]提供了运算中对异常情况的处理。</p>
+<h2 id="常用函数">常用函数</h2>
+<h3 id="表函数">表函数</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Append[表,表达式]或Prepend[表,表达式]把表达式添加到表的最前面或最后面，如Append[&#123;1,2,3&#125;,a]表示&#123;1,2,3,a&#125;。</span><br><span class="line">Union[表1，表2，......],Jion[表1,表2,......]来把几个表合并为一个表，二者不同在于Union在合并时删除了各表中重复的元素，而后者仅是简单的合并；</span><br><span class="line">Flatten[表]把表中所有子表&quot;抹平&quot;合并成一个表，如Flatten[&#123;1,2,&#123;Sin[x],dog&#125;,&#123;&#123;y&#125;&#125;&#125;]表示&#123;1,2,Sin[x],dog,y&#125;。</span><br><span class="line">Patition[表，整数n]把表按每n个元素分段作为子表，集合成的表。Partition[&#123;1,2,Sin[x],y&#125;,2]把表每两个分段，结果为&#123;&#123;1,2&#125;,&#123;Sin[x],y&#125;&#125;；</span><br><span class="line">Delete[表，位置]、Insert[表，位置]来向表中按位置插入或删除元素，如要删除上面提到的table中的aaa,你可以用Delete[table,&#123;3,1&#125;]来实现；</span><br><span class="line">Sort[表]给出了表中各元素的大小顺序；</span><br><span class="line">Reverse[表]、RotateLeft[表，整数n]、RotateRight[表，整数n]可以分别将一个表进行翻转、左转n个元素、右转n个元素等操作；</span><br><span class="line">Length[表]给出了表第一个层次上的元素个数；</span><br><span class="line">Position[表，表达式]给出了表中出现该表达式的位置，Count[表，表达式]则给出表达式出现的次数。</span><br></pre></td></tr></table></figure>
+<h3 id="图形函数">图形函数</h3>
+<p>图形函数中最有代表性的函数为<strong>Plot[表达式，{变量，下限，上限}，可选项]</strong>，(其中表达式还可以是一个"表达式表"，这样可以在一个图里画多个函数)；变量为自变量；上限和下限确定了作图的范围；可选项可要可不要，不写系统会按默认值作图，它表示对作图的具体要求。</p>
+<p>例如<code>Plot[Sin[x],{x,0,2*Pi},AspectRatio-1]</code>表示在0&lt;x&lt;2Pi的范围内作函数Sin[x]的图象，AspectRatio为可选项，表示图的x向y向比例，AspectRatio-1表示纵横比例为1:1，如果不写这一项，系统默认比例为1:GodenRatio,即黄金分割的比例(注意，<strong>可选项的写法为可选项名-可选项值</strong>)，Plot还有很多可选项，如PlotRange表示作图的值域，PlotPoint表画图中取样点的个数，越大则图越精细，PlotStyle来确定所画图形的线宽、线型、颜色等特性，AxesLabel表式在坐标轴上作标记等等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Plot[函数f，&#123;x，xmin，xmax&#125;，选项] :在区间&#123;x，xmin，xmax&#125;上，按选项的要求画出函数f的图形 </span><br><span class="line">Plot[&#123;函数1，函数2&#125;，&#123;x，xmin，xmax&#125;，选项] :在区间&#123;x，xmin，xmax&#125;上，按选项的要求画出几个函数的图形 </span><br><span class="line">Plot3D[二维函数表达式，&#123;变量1，下限，上限&#125;, &#123;变量2，下限，上限&#125;，可选项&#125;]Plot3D[二维函数表达式，&#123;变量1，下限，上限&#125;, &#123;变量2，下限，上限&#125;，可选项&#125;] </span><br><span class="line">二维参数方程作图：ParametricPlot[&#123;x(t),y(t)&#125;,&#123;t,下限,上限&#125;，可选项]</span><br><span class="line">三维参数方程作图：ParametricPlot3D[&#123;x(u,v),y(u,v),z(u,v)&#125;,&#123;u,下限,上限&#125;,&#123;v,下限,上限&#125;，可选项]</span><br><span class="line">二维等高线图：ContourPlot[二元表达式，&#123;变量1，下限，上限&#125;, &#123;变量2，下限，上限&#125;，可选项&#125;]</span><br><span class="line">二维密度图：DensityPlot[二元表达式，&#123;变量1，下限，上限&#125;, &#123;变量2，下限，上限&#125;，可选项&#125;]</span><br></pre></td></tr></table></figure>
+<p>除使用上述函数作图以外，Mathematica还可以象其他语言一样使用图形元语言作图，如画点函数Point[x,y],画线函数Line[x1,y1,x2,y2],画圆的Circle[x,y,r]，画矩形和多边形的Rectangle和Polygon,字符输出的Text[字符串,输出坐标]，还有颜色函数RGBColor[red,green,blue]、Hue[],GrayLevel[gray]来描述颜色的亮度、灰度、饱和度，用PointSize[相对尺度]、Thickness[相对尺度]来表示点和线的宽度。总之Mathematica可以精确地调节图形的每一个特征。</p>
+<h3 id="数学函数">数学函数</h3>
+<p>Mathematica系统内核提供了丰富的数学计算的函数，包括极限、积分、微分、最值、极值、统计、规划等数学的各个领域，复杂的数学问题简化为对函数的调用，极大地提高了解决问题的效率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">D[f, x] 求f[x]的微分 </span><br><span class="line">D[f, &#123;x, n&#125;] 求f[x]的n阶微分 </span><br><span class="line">D[f,x1,x2..] 求f[x]对x1,x2...偏微分 </span><br><span class="line">Dt[f, x] 求f[x]的全微分df&#x2F;dx </span><br><span class="line">Dt[f] 求f[x]的全微分df </span><br><span class="line">Dt[f, &#123;x, n&#125;] n阶全微分df^n&#x2F;dx^n </span><br><span class="line">Dt[f,x1,x2..] 对x1,x2..的偏微分 </span><br><span class="line"></span><br><span class="line">Integrate[f, x] f[x]对x在的不定积分 </span><br><span class="line">Integrate[f, &#123;x, xmin, xmax&#125;] f[x]对x在区间(xmin,xmax)的定积分 </span><br><span class="line">Integrate[f, &#123;x, xmin, xmax&#125;, &#123;y, ymin, ymax&#125;] f[x,y]的二重积分 </span><br><span class="line"></span><br><span class="line">Limit[expr, x-&gt;x0] x趋近于x0时expr的极限 </span><br><span class="line">Residue[expr, &#123;x,x0&#125;] expr在x0处的留数 </span><br><span class="line">Series[f, &#123;x, x0, n&#125;] 给出f[x]在x0处的幂级数展开 </span><br><span class="line">Series[f, &#123;x, x0,nx&#125;, &#123;y, y0, ny&#125;]先对y幂级数展开，再对x </span><br><span class="line">Normal[expr] 化简并给出最常见的表达式 </span><br><span class="line">SeriesCoefficient[series, n] 给出级数中第n次项的系数 </span><br><span class="line">SeriesCoefficient[series, &#123;n1,n2...&#125;] </span><br><span class="line">&#39;或Derivative[n1,n2...][f] 一阶导数 </span><br><span class="line">InverseSeries[s, x] 给出逆函数的级数 </span><br><span class="line">ComposeSeries[serie1,serie2...] 给出两个基数的组合 </span><br><span class="line">SeriesData[x,x0,&#123;a0,a1,..&#125;,nmin,nmax,den]表示一个在x0处x的幂级数，其中aii为系数 </span><br><span class="line"></span><br><span class="line">O[x]^n n阶小量x^n </span><br><span class="line">O[x, x0]^n n阶小量(x-x0)^n </span><br><span class="line">Dt[f, x] 求f[x]的全微分df&#x2F;dx </span><br><span class="line">Dt[f] 求f[x]的全微分df </span><br><span class="line">Dt[f, &#123;x, n&#125;] n阶全微分df^n&#x2F;dx^n </span><br><span class="line">Dt[f,x1,x2..] 对x1,x2..的偏微分</span><br></pre></td></tr></table></figure>
+<p>不定积分Integreate函数主要计算只含有“简单函数”的被积函数. “简单函数”包括有理函数、指数函数、对数函数和三角函数与反三角函数。</p>
+<p>计算定积分的命令和计算不定积分是同一个Integrate函数，在计算定积分时，除了要给出变量外还要给出积分的上下限。当定积分算不出准确结果时，用N[%]命令总能得到其数值解.Nintegrate也是计算定积分的函数,其使用方法和形式和Integrate函数相同.用Integrate函数计算定积分得到的是准确解,Nintegrate函数计算定积分得到的是近似数值解.计算多重积分时,第一个自变量相应于最外层积分放在最后计算.</p>
+<h3 id="解方程">解方程</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Solve[eqns, vars] 从方程组eqns中解出vars </span><br><span class="line">Solve[eqns, vars, elims] 从方程组eqns中削去变量elims,解出vars </span><br><span class="line">DSolve[eqn, y, x] 解微分方程，其中y是x的函数 </span><br><span class="line">DSolve[&#123;eqn1,eqn2,...&#125;,&#123;y1,y2...&#125;,x]解微分方程组，其中yi是x的函数 </span><br><span class="line">DSolve[eqn, y, &#123;x1,x2...&#125;] 解偏微分方程 </span><br><span class="line">Eliminate[eqns, vars] 把方程组eqns中变量vars约去 </span><br><span class="line">SolveAlways[eqns, vars] 给出等式成立的所有参数满足的条件 </span><br><span class="line">Reduce[eqns, vars] 化简并给出所有可能解的条件 </span><br><span class="line">LogicalExpand[expr] 用&amp;&amp;和||将逻辑表达式展开 </span><br><span class="line">InverseFunction[f] 求函数f的逆函数 </span><br><span class="line">Root[f, k] 求多项式函数的第k个根 </span><br><span class="line">Roots[lhs&#x3D;&#x3D;rhs, var] 得到多项式方程的所有根</span><br></pre></td></tr></table></figure>
+<h3 id="代数运算">代数运算</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Expand[expr] 展开表达式 </span><br><span class="line">Factor[expr] 展开表达式 </span><br><span class="line">Simplify[expr] 化简表达式 </span><br><span class="line">FullSimplify[expr] 将特殊函数等也进行化简 </span><br><span class="line">PowerExpand[expr] 展开所有的幂次形式 </span><br><span class="line">ComplexExpand[expr,&#123;x1,x2...&#125;] 按复数实部虚部展开 </span><br><span class="line">FunctionExpand[expr] 化简expr中的特殊函数 </span><br><span class="line">Collect[expr, x] 合并同次项 </span><br><span class="line">Collect[expr, &#123;x1,x2,...&#125;] 合并x1,x2,...的同次项 </span><br><span class="line">Together[expr] 通分 </span><br><span class="line">Apart[expr] 部分分式展开 </span><br><span class="line">Apart[expr, var] 对var的部分分式展开 </span><br><span class="line">Cancel[expr] 约分 </span><br><span class="line">ExpandAll[expr] 展开表达式 </span><br><span class="line">ExpandAll[expr, patt] 展开表达式 </span><br><span class="line">FactorTerms[poly] 提出共有的数字因子 </span><br><span class="line">FactorTerms[poly, x] 提出与x无关的数字因子 </span><br><span class="line">FactorTerms[poly, &#123;x1,x2...&#125;] 提出与xi无关的数字因子 </span><br><span class="line">Coefficient[expr, form] 多项式expr中form的系数 </span><br><span class="line">Coefficient[expr, form, n] 多项式expr中form^n的系数 </span><br><span class="line">Exponent[expr, form] 表达式expr中form的最高指数 </span><br><span class="line">Numerator[expr] 表达式expr的分子 </span><br><span class="line">Denominator[expr] 表达式expr的分母 </span><br><span class="line">ExpandNumerator[expr] 展开expr的分子部分 </span><br><span class="line">ExpandDenominator[expr] 展开expr的分母部分 </span><br><span class="line">ExpandDenominator[expr] 展开expr的分母部分 </span><br><span class="line"></span><br><span class="line">TrigExpand[expr] 展开表达式中的三角函数 </span><br><span class="line">TrigFactor[expr] 给出表达式中的三角函数因子 </span><br><span class="line">TrigFactorList[expr] 给出表达式中的三角函数因子的表 </span><br><span class="line">TrigReduce[expr] 对表达式中的三角函数化简 </span><br><span class="line">TrigToExp[expr] 三角到指数的转化 </span><br><span class="line">ExpToTrig[expr] 指数到三角的转化 </span><br><span class="line">RootReduce[expr] </span><br><span class="line">ToRadicals[expr]</span><br></pre></td></tr></table></figure>
+<h4 id="矩阵的运算符号和函数">矩阵的运算符号和函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">A+c A为矩阵,c为标量,c与A中的每一个元素相加 </span><br><span class="line">A+B A,B为同阶矩阵或向量,A与B的对应元素相加 </span><br><span class="line">cA A为矩阵,c为标量,c与A中的每个元素相乘 </span><br><span class="line">U.V 向量U与V的内积 </span><br><span class="line">A.B 矩阵A与矩阵B相乘,要求A的列数等于B的行数 </span><br><span class="line">Det[M] 计算矩阵M的行列式的值 </span><br><span class="line">Transepose[M] M的转置矩阵( 或 ) </span><br><span class="line">Inverse[M] 计算矩阵M的逆矩阵( ) </span><br><span class="line">Eigenvalus[A] 计算矩阵A的全部(准确解)特征值 </span><br><span class="line">Eigenvalus[N[A]] 计算矩阵A的全部(数值解)特征值 </span><br><span class="line">Eigenvectors[A] 计算矩阵A的全部(准确解)特征向量 </span><br><span class="line">Eigenvectors[N[A]] 计算矩阵A的全部(数值解)特征向量 </span><br><span class="line">Eigensystem[A] 计算矩阵A的所有(准确解)特征值和特征向量 </span><br><span class="line">Eigensystem[N[A]] 计算矩阵A的所有(数值解)特征值和和特征向量</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\understanding-quaternions.html" rel="bookmark">四元数理解</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\fourier-analysis.html" rel="bookmark">傅里叶分析理解</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\understand-matrix-mengyan.html" rel="bookmark">理解矩阵-孟岩Blog</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Linear-algebra-translation-scaling-rotation-matrix.html" rel="bookmark">线性代数之平移、缩放、旋转矩阵</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Perspective-Matrix.html" rel="bookmark">透视矩阵Perspective Matrix</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/mathematica/" rel="tag"># mathematica</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/che-chen-gwei.html" rel="prev" title="车成卫：写好项目申请书 避免非学术失败">
+      <i class="fa fa-chevron-left"></i> 车成卫：写好项目申请书 避免非学术失败
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/recommend-reviewers.html" rel="next" title="期刊让推荐审稿人，应该从哪里找，怎么选？">
+      期刊让推荐审稿人，应该从哪里找，怎么选？ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#符号与变量"><span class="nav-number">1.1.</span> <span class="nav-text">符号与变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算精度"><span class="nav-number">1.2.</span> <span class="nav-text">计算精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式与语句"><span class="nav-number">1.3.</span> <span class="nav-text">格式与语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表及其用法"><span class="nav-number">1.4.</span> <span class="nav-text">“表”及其用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序流程控制"><span class="nav-number">1.5.</span> <span class="nav-text">程序流程控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用函数"><span class="nav-number">2.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表函数"><span class="nav-number">2.1.</span> <span class="nav-text">表函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形函数"><span class="nav-number">2.2.</span> <span class="nav-text">图形函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学函数"><span class="nav-number">2.3.</span> <span class="nav-text">数学函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解方程"><span class="nav-number">2.4.</span> <span class="nav-text">解方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代数运算"><span class="nav-number">2.5.</span> <span class="nav-text">代数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵的运算符号和函数"><span class="nav-number">2.5.1.</span> <span class="nav-text">矩阵的运算符号和函数</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

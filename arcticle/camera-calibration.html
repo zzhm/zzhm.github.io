@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="相机标定可以说是计算机视觉&#x2F;机器视觉的基础，但是初学者不易上手，本文将给读者整理一遍相机标定的逻辑。分为以下内容：  相机标定的目的和意义 相机成像过程的简化与建模 针孔相机模型的数学描述 标定针孔相机模型的参数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习：相机标定详解">
+<meta property="og:url" content="https://zymin.cn/arcticle/camera-calibration.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="相机标定可以说是计算机视觉&#x2F;机器视觉的基础，但是初学者不易上手，本文将给读者整理一遍相机标定的逻辑。分为以下内容：  相机标定的目的和意义 相机成像过程的简化与建模 针孔相机模型的数学描述 标定针孔相机模型的参数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/602d2f23a35ed999596d6599da931da4.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/b6f18ea1a03793e18264b1768e2e5be5.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/56cd2f1b7b95a07a633f55cab3c2d1bf.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/58ed536a59dca47d59d036812ae86fde.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/9FED2FCD9E9641C0BAE0ABF1CA10F82D.jpeg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/e6c5d419f1e61ccadaeca88ba237b3e5.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/37777bb66baac952490541ecb119763b.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/b1aaaeed18534d21f003afda1e1344eb.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/1649914a27d59e849fcce485d6095d2c.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/02b2a8b01b3889f078316153b54a9623.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/984ccd83a5be2f7dcca26fa9ea7cf15f.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/aa0645c1550e184e3703f046b18b0c04.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/57985c42b5cae27e8de4bb3c6ec8a8ed.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/8b482f9993339c33d6fa22f9a3212fdd.jpg">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(x%252C+y%252C+f)%5Clongleftrightarrow">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/5871d7fdf8dd01127659bea8068f0b44.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/ee501ad0fbd419595a7ff70ef9444c8e.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/475e58b84142cce3cfd008f28245342a.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/9257ac58891b472544d4ce7ad26cfb79.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/1143587abc93130336f8c073c8994ddc.jpg">
+<meta property="article:published_time" content="2018-05-12T03:16:43.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.110Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="视觉">
+<meta property="article:tag" content="相机标定">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/602d2f23a35ed999596d6599da931da4.jpg">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/camera-calibration.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>学习：相机标定详解 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/camera-calibration.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          学习：相机标定详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-12 11:16:43" itemprop="dateCreated datePublished" datetime="2018-05-12T11:16:43+08:00">2018-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">视觉</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>相机标定可以说是计算机视觉/机器视觉的基础，但是初学者不易上手，本文将给读者整理一遍相机标定的逻辑。分为以下内容：</p>
+<ul>
+<li>相机标定的目的和意义</li>
+<li>相机成像过程的简化与建模</li>
+<li>针孔相机模型的数学描述</li>
+<li>标定针孔相机模型的参数</li>
+</ul>
+<a id="more"></a>
+<h2 id="相机标定的目的和意义">相机标定的目的和意义</h2>
+<p>我们所处的世界是三维的，而照片是二维的，这样我们可以把相机认为是一个函数，输入量是一个场景，输出量是一幅灰度图。这个从三维到二维的过程的函数是不可逆的。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/602d2f23a35ed999596d6599da931da4.jpg" /></p>
+<p>相机标定的目标是我们找一个合适的数学模型，求出这个模型的参数，这样我们能够近似这个三维到二维的过程，使这个三维到二维的过程的函数找到反函数。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/b6f18ea1a03793e18264b1768e2e5be5.jpg" /></p>
+<p>这个逼近的过程就是「相机标定」，我们用简单的数学模型来表达复杂的成像过程，并且求出成像的反过程。标定之后的相机，可以进行三维场景的重建，即深度的感知，这是计算机视觉的一大分支。</p>
+<h2 id="相机成像过程的简化与建模">相机成像过程的简化与建模</h2>
+<p>提到相机的成像，从根本上来说，就是在讨论相机的镜头。固定结构的相机镜头决定了一对固定的物像共轭关系，所谓「共轭」，意思是镜头前某个位置的物，它的像一定在镜头后的某个位置，这个关系是固定的。举个最简单的例子，无穷远处的物必然会在镜头的焦点处成像。这里说的固定结构，指的是镜头的焦距固定，光圈固定。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/56cd2f1b7b95a07a633f55cab3c2d1bf.jpg" /></p>
+<p>上图是Canon EF 85mm/F1.2L II USM，我们可以找一个与这个镜头具有相同的物像共轭关系的凸透镜来等效这个镜头，我们把这个凸透镜称作等效透镜，用朝外的双箭头表示，如下图。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/58ed536a59dca47d59d036812ae86fde.jpg" /></p>
+<p>这里说的等效，只是针对物像共轭关系的等效，也就是光路的等效，镜头中之所以用了形态各异的透镜主要是为了消除各种各样的像差，提高清晰度。换句话说，等效透镜的目的绝不是为了在实际应用中取代镜头（毕竟一个镜头都好贵），只是为了帮助我们理解。这样我们就可以画出相机拍摄到清晰的蜡烛燃烧场景的草图，如下图。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/9FED2FCD9E9641C0BAE0ABF1CA10F82D.jpeg" /></p>
+<p>其中，Q 是火苗尖的物点， q是火苗尖的像点 ，P 是蜡烛根的物点，p是蜡烛根的像点， O是等效透镜的中心（也称为光心），红色虚线表达了物点Q到 像点q成像光路中的两条，绿色虚线表达了物点 P到像点 p成像光路中的两条，红色是CCD面。</p>
+<p>注意，刚刚说到我们画的是「相机拍摄到清晰的蜡烛燃烧场景的草图」，这表明像点q 和像点 p刚好落在CCD面上，那么假如像点没有落在CCD面上，也就是CCD拍摄的图像不清晰，我们如何确定像点的位置？</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/e6c5d419f1e61ccadaeca88ba237b3e5.jpg" /></p>
+<p>根据几何光学的作图法，由过等效透镜的焦点 F 的光线和过光心O 的光线，我们可以作出像点 p与 q的位置，现在我们对「相机拍摄到清晰的蜡烛燃烧场景的草图」同样用作图法，只考虑Q 与 q点的物像关系。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/37777bb66baac952490541ecb119763b.jpg" /></p>
+<p>这样我们就能够得到成像光路中的4条：①是过透镜上边沿的光路，④是过透镜下边沿的光路，②是过等效透镜焦点的光路，③是过光心的光路。它们都表达了物点Q 与像点 q的物像共轭关系，显然③过光心的光路是最容易建立物像共轭关系数学模型，因此我们用③来代表成像光路，对相机成像过程进行简化。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/b1aaaeed18534d21f003afda1e1344eb.jpg" /></p>
+<p>到这里我们发现，简化后的相机模型和针孔相机的成像原理很相似，因此我们把简化后的相机模型称为针孔相机模型。上图中的 f 是针孔相机模型的焦距，但请注意，此针孔相机「焦距」非彼等效透镜「焦距」，只是借用了「焦距」汇聚光线的概念，表达的是CCD面到光心的距离。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/1649914a27d59e849fcce485d6095d2c.jpg" /></p>
+<p>但是我们说的是简化后的相机模型和针孔相机的成像原理仅仅是相似，绝不能等同，由于针孔相机的原理是光沿直线传播，所以真实的针孔相机是没有「焦距」的概念的，也不存在像差，其物像关系不具有一一对应性，如下图。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/02b2a8b01b3889f078316153b54a9623.jpg" /></p>
+<p>所以准确的讲把相机的成像过程简化成针孔相机模型，只是借用了针孔相机中简单的数学关系来表达一些本来难以表达的数学关系，使得数学上大大降低了复杂性，但是这个简化的代价同样很大，它本身不考虑像差（虽然针孔相机模型补充了消畸变模型）、不考虑景深（针孔相机模型物像关系不具有一一对应性，认为凡是物总能成清晰像），并且假定等效透镜是薄透镜。所以说针孔相机模型仅仅是一种真实相机的成像过程的近似，甚至于我们可以说这是一种非常粗糙的近似，这使得这个模型对越符合针孔相机模型的真实相机近似程度越高，如网络摄像头、手机镜头、监控探头等等。</p>
+<h2 id="针孔相机模型的描述">针孔相机模型的描述</h2>
+<p>我们对相机成像过程进行简化和建模得到了针孔相机模型，如下图示。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/984ccd83a5be2f7dcca26fa9ea7cf15f.jpg" /></p>
+<p>首先建立相机坐标系，我们以光心 O 为坐标系的原点， X 与 Y 方向是CCD像素排列的水平和竖直两个方向， Z 方向垂直与CCD面，建立右手坐标系，这是一个三维坐标系。其次，我们还需要建立CCD标号坐标系：以CCD左上角像素标号为原点，CCD像素排列的水平和竖直两个方向为U 与 V 方向，这是一个二维坐标系。为了方便描述，我们之后将把针孔相机模型对称翻转过来，如下图所示，从数学的角度，它们是等价的。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/aa0645c1550e184e3703f046b18b0c04.jpg" /></p>
+<ul>
+<li>由光心 O 沿着光轴出发，像平面在 Z=f 上， f 是相机的物理焦距（单位： mm）。</li>
+<li>点 Q 在空间中，在相机坐标系下的位置是$Q(X,Y,Z) $。</li>
+<li>点 P 在像平面上，有两个等价的位置描述：1. 在相机坐标系下的位置是 P(x,y,f) ；2. 在CCD标号坐标系下的位置是 <span class="math inline">\(P(u_{ccd},v_{ccd})\)</span>。</li>
+<li>在无镜头畸变的条件下，光心 O 、点 P 与点 Q 在一条直线上。</li>
+<li>k 与 l 是CCD单个像素在水平和竖直两个方向上的尺寸（单位： mm /像素），因此定义焦距为 <span class="math display">\[f_x=\frac{f}{k},f_y=\frac{f}{l}\]</span> （单位：像素）。</li>
+<li>CCD标号坐标系原点到光轴的偏移量为 <span class="math inline">\(c_x,c_y\)</span> （单位：像素）。</li>
+</ul>
+<p>根据相似三角形关系，可以得出： <span class="math display">\[\left\{\begin{aligned}u_{ccd}=f_x(\frac{X}{Z})+c_x \\ v_{ccd}=f_y(\frac{Y}{Z})+c_y\end{aligned}\right.\]</span></p>
+<p><strong>(1) 二维CCD标号坐标$ (u_{ccd},v_{ccd})$<span class="math inline">\(\leftrightarrow\)</span>二维CCD像素坐标 <span class="math inline">\((x,y[,f])\)</span></strong></p>
+<p>建立CCD像面上的点标号坐标与物理坐标之间关联，由于像平面在 Z=f上，可省略。</p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{ccd}\\v_{ccd}\\1\end{array}\right)=\left(\begin{array}{c}\frac{1}{k}&amp;0&amp;c_x\\0&amp;\frac{1}{l}&amp;c_y\\0&amp;0&amp;1\end{array}\right)\left(\begin{array}{c}x\\y\\1\end{array}\right)\]</span></p>
+<p><strong>(2) 像点的二维像素坐标 <span class="math inline">\((x,y)\leftrightarrow\)</span> 物点的三维空间中的坐标 <span class="math inline">\((X,Y,Z)\)</span></strong></p>
+<p>建立CCD像面上像点物理坐标与对应的三维空间中物点坐标之间关联。</p>
+<p><span class="math display">\[\left(\begin{array}{c}x*Z\\y*Z\\Z\end{array}\right)=\left(\begin{array}{c}f_x*k&amp;0&amp;0\\0&amp;f_y*l&amp;0\\0&amp;0&amp;1\end{array}\right)\left(\begin{array}{c}X\\Y\\Z\end{array}\right)\]</span></p>
+<p><strong>(3) 像点的二维CCD标号坐标 <span class="math inline">\((u_{ccd}, v_{ccd})\longleftrightarrow\)</span> 物点的三维空间中的坐标 <span class="math inline">\((X, Y, Z)\)</span></strong></p>
+<p>连接(1)和(2)的两个关联，也是实际进行标定得到参数 <span class="math inline">\(f_x, f_y, c_x, c_y\)</span></p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{ccd}*Z\\v_{ccd}*Z\\Z\end{array}\right)=\left(\begin{array}{c}f_x&amp;0&amp;c_x\\0&amp;f_y&amp;c_y\\0&amp;0&amp;1\end{array}\right)\left(\begin{array}{c}X\\Y\\Z\end{array}\right)\]</span></p>
+<p>由以上三个关联可以得到：像点标号 <span class="math inline">\((u_{ccd},v_{ccd})\longleftrightarrow\)</span>像点坐标 <span class="math inline">\((x, y, f)\longleftrightarrow\)</span> 物点坐标$ (X, Y, Z)$。</p>
+<p>在OpenCV及Matlab标定工具箱直接使用了(3)关联，不需要知道CCD单个像素的尺寸，因此在标定过程是得不到物理焦距 f 的，只能得到像素焦距 <span class="math inline">\(f_x,f_y\)</span>。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/57985c42b5cae27e8de4bb3c6ec8a8ed.jpg" /></p>
+<p>很容易发现，(3)关联是不约束 Z 的，也就是说，<strong>针孔相机模型本身是欠定的</strong>，通过被点亮的CCD像素 P 我们只能知道物点 <span class="math inline">\(Q^{(?)}\)</span> 在射线 <span class="math inline">\(\overline{OP}\)</span> 上，但无法确定具体的点，所以我们讲，针孔相机模型是一个射线方程模型，<span class="math inline">\(\overline{OP}\)</span> 点的射线方程：</p>
+<p><span class="math display">\[\left(\begin{array}{c}x\\y\\z\end{array}\right)=\lambda\left(\begin{array}{c}x_P\\y_P\\f\end{array}\right)\]</span></p>
+<p>以上的关系是在无镜头畸变的条件下建立的，但是实际上存在镜头畸变，可以理解成像点和物点之间的光线是弯曲的，要得到射线模型，要进行消除畸变。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/8b482f9993339c33d6fa22f9a3212fdd.jpg" /></p>
+<p><strong>(4) 补充消畸变模型</strong></p>
+<p>以像面中心像素坐标 <span class="math inline">\((0,0,f)\)</span> 为中心，像面上的点到中心的距离为 <span class="math inline">\(r=\sqrt{x^2+y^2}\)</span></p>
+<ul>
+<li>合成畸变 <span class="math display">\[\left\{\begin{aligned}x_{crt}=x_{rcrt}+x_{tcrt}\\y_{crt}=y_{rcrt}+y_{tcrt}\end{aligned}\right.\]</span></li>
+</ul>
+<p>其中：</p>
+<ul>
+<li>径向畸变 <span class="math display">\[\left\{\begin{aligned}x_{rcrt}=x(1+k_1r^2+k_2r^4+k_3r^6)\\y_{rcrt}=y(1+k_1r^2+k_2r^4+k_3r^6)\end{aligned}\right.\]</span></li>
+<li>切向畸变 <span class="math display">\[\left\{\begin{aligned}x_{tcrt}=x+[2p_1y+p_2(r^2+2x^2)]\\y_{tcrt}=y+[p_1(r^2+2y^2)+2p_2x]\end{aligned}\right.\]</span></li>
+</ul>
+<p>把消畸变模型补充进针孔相机模型，因此「像点标号 <span class="math inline">\((u_{ccd},v_{ccd})\longleftrightarrow\)</span> 像点坐标 <img src="https://www.zhihu.com/equation?tex=%28x%2C+y%2C+f%29%5Clongleftrightarrow" alt="(x, y, f)" /> 物点坐标 <span class="math inline">\((X, Y, Z)\)</span> 被修正为：</p>
+<p>像点标号 <span class="math inline">\((u_{ccd-crt},v_{ccd-crt})\longleftrightarrow\)</span>像点坐标 <span class="math inline">\((x_{crt}, y_{crt}, f)\longleftrightarrow\)</span>物点坐标 <span class="math inline">\((X,Y,Z)\)</span></p>
+<p>消畸变后的射线方程 <span class="math inline">\(\overline{OP_{crt}}\)</span>是：</p>
+<p><span class="math display">\[\left(\begin{array}{c}x\\y\\z\end{array}\right)=\lambda\left(\begin{array}{c}x_{P_{crt}}\\y_{P_{crt}}\\f\end{array}\right)\]</span></p>
+<h2 id="标定针孔相机模型的参数">标定针孔相机模型的参数</h2>
+<p>针孔相机模型中，只要确定这9个参数就可以唯一的确定针孔相机模型<span class="math inline">\(f_x,f_y,c_x,c_y,k_1,k_2,k_3,p_1,p_2​\)</span> ，这个过程就称为「相机标定」，其中前4个我们称为<strong>内参数</strong>，后5个称为<strong>畸变参数</strong>，畸变参数是为了补充内参的。所以一旦相机结构固定，包括镜头结构固定，对焦距离固定，我们就可以用这9个的参数去近似这个相机。这里说的「镜头结构固定」，按我个人的理解，除了焦距固定之外，也应当包含光圈固定，因为改变光圈的大小，除了景深之外，是有可能改变针孔相机模型中的光心位置，但是影响并不是很大。这意味着标定好的相机如果改变光圈大小，会使得标定误差变大但应该不会大到难以接受的地步。</p>
+<p>对于针孔相机本身需要拟合的方程如下：</p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{ccd_{crt}}*Z\\v_{ccd_{crt}}*Z\\Z\end{array}\right)=J(k_1,k_2,k_3,p_1,p_2)\left(\begin{array}{c}f_x&amp;0&amp;c_x\\0&amp;f_y&amp;c_y\\0&amp;0&amp;1\end{array}\right)\left(\begin{array}{c}X\\Y\\Z\end{array}\right)\]</span></p>
+<p>其中 <span class="math inline">\(J(k_1,k_2,k_3,p_1,p_2)\)</span>代表了畸变图像和消畸变图像之间的变换。</p>
+<p>因此，我们现在的任务就是找出一大堆具有对应关系的像点 <span class="math inline">\(\{(u_{ccd_{crt}},v_{ccd_{crt}})^T\}\)</span> 和物点 <span class="math inline">\(\{(X,Y,Z)^T\}\)</span>的点对作为样本，来训练出模型的9个参数<span class="math inline">\(f_x,f_y,c_x,c_y,k_1,k_2,k_3,p_1,p_2\)</span> 。那么这里就引发了两个问题：(1) 这么多像点和物点到底谁和谁是一对儿？(2) 即便我知道物点在哪里，可是我怎么样用相机坐标系来表达物点的位置 <span class="math inline">\((X,Y,Z)\)</span>?</p>
+<p>为了解决上述的两个问题，标定板应运而生。标定板的第一大作用，确定物点和像点的对应性。这里用到的原理主要是<strong>「透视不变性」</strong>，打个比方，你近看一个人和远看一个人，虽然他的鼻子大小变了，你看鼻子的视角也变了，但是拓扑结构肯定是不变的，你也不可能把鼻子看成是嘴巴。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/5871d7fdf8dd01127659bea8068f0b44.jpg" /></p>
+<p>所以在标定板中，印刷了拓扑结构，广泛应用的是棋盘格和圆点格，这两种之所以成为主流，不仅是因为它们的拓扑结构明确且均匀，更重要的是检测其拓扑结构的算法简单且有效。棋盘格检测的是角点，只要对拍摄到的棋盘格图像横纵两个方向计算梯度就可获得；而圆点格的检测只需要对拍摄到的圆点格图样计算质心即可。假如你开发了一套非常完美的检测人脸全部特征的算法，你完全可以用你的照片当作标定板。</p>
+<p>按照我的经验，圆点格的效果应该是好于棋盘格，因为圆点质心的<strong>「透视不变性」</strong>要比棋盘格的角点稳定的多。下图是同样尺寸、同样比例棋盘格和圆点在最大重投影误差处的误差对比，红色十字是提取的角点/质心，绿色圆圈是针孔相机模型计算出来认为的角点/质心位置。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/ee501ad0fbd419595a7ff70ef9444c8e.jpg" /></p>
+<p>下图是棋盘格与圆点格的重投影误差图，显然圆点格的重投影误差的误差空间要小。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/475e58b84142cce3cfd008f28245342a.jpg" /></p>
+<p>但是圆点格的检测似乎是Halcon的专利（存疑），因此OpenCV和Matlab标定工具箱用的是棋盘格，要用圆点格得要自己写算法。下文中提到的标定板说的都是棋盘格。</p>
+<p>标定板的第二大作用是把标定板中的角点变换到相机坐标系下的坐标 <span class="math inline">\((X,Y,Z)\)</span>。对于标定的初学者来说，很容易忽略的一点是标定板是具有标定板坐标系的。换句话说，标定板中的每个角点，在标定板坐标系下的位置是确定并且是已知的。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/9257ac58891b472544d4ce7ad26cfb79.jpg" /></p>
+<p>而标定板坐标系变换到相机坐标系的变换矩阵，我们称它的元素为外参数，所以在我眼中，相机标定的外参根本就是标定内参的副产品，它会随着标定板的摆放不同而不同，由标定板坐标系变换到相机坐标系的变换矩阵可以由下式表达：</p>
+<p><span class="math display">\[\left(\begin{array}{c}X_C\\Y_C\\Z_C\end{array}\right)=R_{b2C}\left(\begin{array}{c}X_b\\Y_b\\Z_b\end{array}\right)+T_{b2C}\]</span></p>
+<p>其中， <span class="math inline">\(R_{b2C}\)</span> 称为旋转矩阵，<span class="math inline">\(T_{b2C}\)</span>称为平移矩阵，下表<span class="math inline">\(b2C\)</span>代表board to camera。注意这个坐标系的变换是一个线形变换，反应到物理上讲，这意味者标定板必须尽可能的平，如果标定板不平，这个变换就不是线形的了。我们把这个变换带到原本要拟合的方程中去：</p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{ccd_{crt}}\\v_{ccd_{crt}}\end{array}\right)=J(k_1,k_2,k_3,p_1,p_2)\left(\begin{array}{c}f_x&amp;0&amp;c_x\\0&amp;f_y&amp;c_y\\0&amp;0&amp;1\end{array}\right)\left(R_{b2C}\left(\begin{array}{c}X_b\\Y_b\\Z_b\end{array}\right)+T_{b2C}\right)\]</span></p>
+<p>如此一来，我们就把能够把CCD上拍摄的到角点的像素标号 <span class="math inline">\((u_{ccd_{crt}},v_{ccd_{crt}})\)</span>和每一个角点已知的在标定板坐标系下的坐标 $(X_b,Y_b,Z_b) $对应起来，通过各种各样的姿态作为样本，训练出全部参数 <span class="math inline">\(f_x,f_y,c_x,c_y,k_1,k_2,k_3,p_1,p_2,R_{b2C},T_{b2C}\)</span> 。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/camera-calibration/1143587abc93130336f8c073c8994ddc.jpg" /></p>
+<p>至于参数训练的方法，最小二乘，极大似然估计等等，很容易找到相关的资料，在此不再赘述。在知乎站内，我推荐看这篇文章，讲如何求解标定参数。<a href="https://zhuanlan.zhihu.com/p/24651968" target="_blank" rel="noopener">【机器视觉】张氏法相机标定 - 知乎专栏</a></p>
+<p>如果用OpenCV或Matlab标定工具箱进行标定，需要给出棋盘格的物理尺寸，这其实就是在建立标定板坐标系，从测量的角度讲，标定板的精度是相机标定精度的基准，是误差传递链上的第一个环节。所以为了使针孔相机模型更逼近真实相机，对标定板的质量有以下要求（按重要性顺序）：</p>
+<ol type="1">
+<li>标定板的平面度高，棋盘格是直角；</li>
+<li>标定板每个格子尺寸的高一致性；</li>
+<li>真实尺寸与标称尺寸的差异小。</li>
+</ol>
+<p><a href="https://zhuanlan.zhihu.com/p/30813733" target="_blank" rel="noopener">原文转载出处</a></p>
+<p>相关阅读：</p>
+<p><a href="http://www.vision.caltech.edu/bouguetj/calib_doc/" target="_blank" rel="noopener">Camera Calibration Toolbox for Matlab</a></p>
+<p><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf" target="_blank" rel="noopener">A Flexible New Technique for Camera Calibration</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/24651968" target="_blank" rel="noopener">【机器视觉】张氏法相机标定</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/35476995" target="_blank" rel="noopener">一次拍摄搞定多相机自动化标定</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/23090766" target="_blank" rel="noopener">相机的那些事儿 (三)参数标定</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/23090593" target="_blank" rel="noopener">相机的那些事儿 (二)成像模型</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/23089791" target="_blank" rel="noopener">相机的那些事儿 (一)概念</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/29971801" target="_blank" rel="noopener">结构光发展简史</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Several-problems-in-camera-Calibration.html" rel="bookmark">学习：相机标定中的几个问题</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\cv-daniu.html" rel="bookmark">CV行业一些牛人blog和牛实验室</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\opencv342-vs2015-matlab2017.html" rel="bookmark">Matlab 2017a与Visual Studio 2015混编环境配置</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\super-resolution.html" rel="bookmark">图像超分辨率成像：算法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\camera-arrays.html" rel="bookmark">多相机阵列综述</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E8%A7%86%E8%A7%89/" rel="tag"># 视觉</a>
+              <a href="/tags/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A/" rel="tag"># 相机标定</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/ipv6-google.html" rel="prev" title="科研：使用ipv6访问google">
+      <i class="fa fa-chevron-left"></i> 科研：使用ipv6访问google
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/machine-learning.html" rel="next" title="学习：机器学习详解">
+      学习：机器学习详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相机标定的目的和意义"><span class="nav-number">1.</span> <span class="nav-text">相机标定的目的和意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相机成像过程的简化与建模"><span class="nav-number">2.</span> <span class="nav-text">相机成像过程的简化与建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#针孔相机模型的描述"><span class="nav-number">3.</span> <span class="nav-text">针孔相机模型的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标定针孔相机模型的参数"><span class="nav-number">4.</span> <span class="nav-text">标定针孔相机模型的参数</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

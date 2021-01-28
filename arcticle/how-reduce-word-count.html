@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="英文字数过多时，可以怎么删减字数? 除了透过整合句子之外，是否还有其他方法?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文：如何减少论文字数">
+<meta property="og:url" content="https://zymin.cn/arcticle/how-reduce-word-count.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="英文字数过多时，可以怎么删减字数? 除了透过整合句子之外，是否还有其他方法?">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-04T11:44:37.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.173Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="缩减">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/how-reduce-word-count.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文：如何减少论文字数 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/how-reduce-word-count.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文：如何减少论文字数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-04 19:44:37" itemprop="dateCreated datePublished" datetime="2018-05-04T19:44:37+08:00">2018-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>英文字数过多时，可以怎么删减字数? 除了透过整合句子之外，是否还有其他方法?</p>
+<a id="more"></a>
+<h2 id="tip-1-动词优先避免名词化"><strong>Tip # 1: 动词优先（避免名词化）</strong></h2>
+<p>先看看以下范文:</p>
+<ol type="1">
+<li>We should take into consideration several factors.</li>
+<li>He must make a decision about what to do.</li>
+<li>They gave us information about the new research program.</li>
+</ol>
+<p>上方句子在文法上是完全正确，但因为不直接使用动词而选择该动词的名词型而导致字数变多且不够直接与简洁。</p>
+<ol type="1">
+<li>We should take into consideration several factors. [7个字]</li>
+<li>He must make a decision about what to do. [9个字]</li>
+<li>They gave us information about the new research program. [9个字]</li>
+</ol>
+<p>红色部分就是名词化，我们可以将这部分直接用一个动词替换，<strong>建议写作时多注意句型</strong> 。</p>
+<ol type="1">
+<li>We should consider several factors. [5个字]</li>
+<li>He must decide about what to do. [7个字]</li>
+<li>They informed us about the new research program. [8个字]</li>
+</ol>
+<p><strong>动词名词化还有另一个缺点就是容易写出被动语态结构：</strong></p>
+<p>× The analysis of how X-factor impacts B gene expression was conducted. [11个字]</p>
+<p>√ We analyzed X-factor’s impact on B gene expression. [8个字]</p>
+<p>利用把名词化转成一个动词，轻轻松松把句子转成主动语态并成功缩减字数。</p>
+<blockquote>
+<p>如果你查找常见的动词名词化，可以发现一个模式。动词使用像是“make”和“take”，动名词（verb + ing），或名词由-tion，-sion，-ment，-ence，和-ance结尾的，很高机率都有一个相对应 动词， <strong>所以当你在修改英文时，利用寻找功能找出这些结尾和动词后修正就行。</strong></p>
+</blockquote>
+<h2 id="什么时候该修改动词名词化"><strong>什么时候该修改动词名词化？</strong></h2>
+<p>有时候动词名词化的确是必须或无法避免的，但目前我们是过度使用了。下面我们列出常见的应修正名词化的情况：</p>
+<ol type="1">
+<li>无意义动词 + 动词名词形:删除无意义的，将动词名词形转换为主要动词。
+<ul>
+<li>Joe will conduct research on the impact of the recent drought on local wildlife. → Joe will research the recent drought’s impact on local wildlife.</li>
+<li>The board will make a decision next week about whether to accept you next week. → The board will decide next week whether to accept you.</li>
+</ul></li>
+<li>当动词名词形是被动语态结构的主词时：找出真正的主词，并将动词名词形转换为该主题的动词。
+<ul>
+<li>The approval of the plan was given by the committee yesterday. → The committee approved the plan yesterday.</li>
+</ul></li>
+<li>动词名词形两两相接:转化第一个动词名词形为动词，保留第二个或将其转化成疑问子句。
+<ul>
+<li>Their interpretation of the implementation of the institute’s program was insightful. → They insightfully interpreted how the institute implemented its program.</li>
+<li>First was their introduction of their analysis of dreams by the trauma patients. → First, they introduced how they analyzed the trauma patients’ dreams.</li>
+</ul></li>
+<li>当主词中的动词名词形与谓词的动词名词形时:将两个动词名词形转成动词，考量两者的关系并加上合理的连接词(because, when, if, although, even though, despite, etc.)。
+<ul>
+<li>Her understanding of the situation was evidenced by the quitting of her job. → She understood the situation … she quit her job → When she quit her job, she showed she understood the situation.</li>
+</ul></li>
+</ol>
+<p>现在一起来练习今天所学习到的修改技巧。</p>
+<p><strong>初阶</strong></p>
+<ol type="1">
+<li>We made an agreement not to buy the house.</li>
+<li>They reached the conclusion that we should run a new cohort study.</li>
+<li>Our review of the test results will begin tomorrow.</li>
+</ol>
+<p><strong>进阶</strong></p>
+<ol type="1">
+<li>The discovery of a new planet by the Frankfurt Observatory excited the scientific community.</li>
+<li>The failure of the staff to organize the festival properly was a disappointment to us.</li>
+<li>The undertaking of building the new company was complicated by their lack of experience.</li>
+</ol>
+<p><strong>Answer key:</strong></p>
+<ol type="1">
+<li>We agreed to not buy the house.</li>
+<li>They concluded that we should run a new cohort study.</li>
+<li>Starting tomorrow, we will review the test results.</li>
+<li>The Frankfurt Observatory discovered a new planet, which excited the scientific community.</li>
+<li>When the staff failed to organize the festival properly, they disappointed us.</li>
+<li>They lacked experience, which complicated how they built the new company.</li>
+</ol>
+<h2 id="tip-2-删除-of-改写介系词片语"><strong>Tip # 2: 删除 “Of” (改写介系词片语)</strong></h2>
+<p>参考以下范文:</p>
+<ol type="1">
+<li>The blood pressure of the mice was elevated.</li>
+<li>The elephant teetered along the edge of the cliff.</li>
+<li>The focus of this project was to study the effects of increased global temperatures on local fish hatcheries.</li>
+</ol>
+<p>可以发现找不出一个文法错误的地方，但是你有发现他们超级wordy吧!现在就要来示范怎样利用消除介词把它们缩短。</p>
+<ol type="1">
+<li>The blood pressure of the mice was elevated. [8 words]</li>
+<li>The elephant teetered along the edge of the cliff. [9 words]</li>
+<li>The focus of this project was to study the effects of increased global temperatures on local fish hatcheries. [19 words]</li>
+</ol>
+<p>我们将可以删除的介词用红色标出</p>
+<ol type="1">
+<li>The mice’s blood pressure was elevated. [6 words]</li>
+<li>The elephant teetered along the cliff’s edge. [7 words]</li>
+<li>This project examined how increased global temperatures affect local fish hatcheries. [11 words]</li>
+</ol>
+<p>以上的范文只要用两个字去替换删掉的介系词片语就可以成功缩短字数了。假设文章中充满上方这一类的句型，那删的字数可多了。</p>
+<p>可以删掉介词的情况有很多，上方范文只是一小部分，而这一篇文章提到的也是其中之一。记忆力好的人应该还可以想起来使用动词名词形容易让人写出被动语态。</p>
+<p>下方介绍<strong>那些状况的介系词片语你可以修改，同时介绍该怎么修改。</strong></p>
+<ol type="1">
+<li><p>改成</p>
+<dl>
+<dt>所有格</dt>
+<dd><p>许多高度相关的情况下，例如两个名词之间的所有权，就可以删掉中间的介词。例如，句子中有「Noun1 of Noun 2」或「Location1 in Location2」，直接将第二个名词往前移并加上「’」 变成Noun1’s Noun2。</p>
+</dd>
+</dl>
+<ul>
+<li>The approval of the Food and Drug Administration was received yesterday. → The Food and Drug Administration’s approval was received yesterday.</li>
+<li>The studies were conducted at Max Laboratories in Chicago. → The studies were conducted at Chicago’s Max Laboratories.</li>
+</ul></li>
+<li><p>改成</p>
+<p>主动语态</p>
+<p>:当被动语态的句子后面跟着「by」的时候 (Noun1 was/were + past participle + by + Noun2)，把by后面的名词改成句子主词写成主动语态。</p>
+<ul>
+<li>The approval of the plan was given by the committee. → The committee approved the plan yesterday.</li>
+</ul></li>
+<li><p>替换</p>
+<dl>
+<dt>副词形式</dt>
+<dd><p>某些介系词片语可以改的更为坚定，例如:由「with」开头的片语。</p>
+</dd>
+</dl>
+<ul>
+<li>The seller agreed with reluctance. → The seller reluctantly agreed.</li>
+<li>He spoke with hesitation when he accepted the deal. → He spoke hesitantly as he accepted the deal.</li>
+<li>By chance, I finished work on time. → Fortuitously, I finished work on time.</li>
+</ul></li>
+<li><p>改成</p>
+<dl>
+<dt>更精准的动词</dt>
+<dd><p>有些介系词片语可以用更有力、精准的动词替换掉。可多加注意动词使用「get」和「make」。</p>
+</dd>
+</dl>
+<ul>
+<li>He got to the finish line. → He reached the finish line.</li>
+<li>Increased benefits can make up for long working hours. → Increased benefits can offset long working hours.</li>
+</ul></li>
+<li><p><strong>避免动词名词形</strong> (请参考缩减字数:<a href="http://wp.me/p6znt9-30w" target="_blank" rel="noopener">避免动词名词形</a>)</p></li>
+<li><p>检视该片语的重要性:</p>
+<p>有些介系词片语在句中并没有任何作用或价值，建议直接删掉。</p>
+<ul>
+<li>In our current situation, we should decline the offer. → We should decline the offer.</li>
+</ul></li>
+<li><p>尝试wh-子句:</p>
+<p>动词跟「说」(例:ask, say, admit, argue, reply, agree, mention, explain, suggest, etc.) 或「心理状态」像是thinking、studying和deciding (例: know, understand, suppose, remember, forget, wonder, study, examine, decide, etc.)有关的，建议大胆尝试wh-子句来写出有力简洁的句子。</p>
+<ul>
+<li>The purpose of this study was to examine the effects of solar radiation on bioluminescence. → This study examined how solar radiation affects bioluminescence.</li>
+<li>Our mission was to conduct an investigation into the relationship between sunlight and plant growth. → We investigated how sunlight affects plant growth.</li>
+</ul></li>
+</ol>
+<p>小试身手</p>
+<ol type="1">
+<li>The house of my mother sat on a big hill.</li>
+<li>The licensing of the software will be completed next week.</li>
+<li>The variables changed with little difference.</li>
+<li>The aim of our research was to assess the correlation between variable A and DNA replication rates.</li>
+<li>This paper was written to explore the way in which extra recess time and the test performance of students are related.</li>
+<li>To get back to you, we are looking back on what was done to figure out what we can do moving forward. [This one's hard. How short can you make this one?]</li>
+</ol>
+<p><strong>解答:</strong></p>
+<ol type="1">
+<li>My mother’s house sat on a big hill.</li>
+<li>The software licensing will be completed next week.</li>
+<li>The variables hardly changed.</li>
+<li>Our research aimed to assess how variable A affects DNA replication rates.</li>
+<li>This paper explores how extra recess time affects students’ test performance.</li>
+<li>We are examining the past to determine how we should proceed.</li>
+</ol>
+<p>原文链接：</p>
+<p>[1]https://wordvice.com/improve-writing-edit-nominalizations</p>
+<p>[2]https://wordvice.com/improve-writing-eliminate-prepositions</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\citavi-index.html" rel="bookmark">citavi 6 教程索引</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\latex-reference-with-bib.html" rel="bookmark">LaTeX与bib添加参考文献</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\sci&ei.html" rel="bookmark">SCI&EI&核心期刊收录影响因子分区查询</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\citavi-latex.html" rel="bookmark">citavi6插入latex参考文献</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\reviewer-time.html" rel="bookmark">为什么评审意见久等不来</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+              <a href="/tags/%E7%BC%A9%E5%87%8F/" rel="tag"># 缩减</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/article-logical.html" rel="prev" title="论文：如何构建有条理的论文">
+      <i class="fa fa-chevron-left"></i> 论文：如何构建有条理的论文
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/Strengthen-Your-Writing-Style.html" rel="next" title="论文：如何加强写作风格（英文）">
+      论文：如何加强写作风格（英文） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-1-动词优先避免名词化"><span class="nav-number">1.</span> <span class="nav-text">Tip # 1: 动词优先（避免名词化）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候该修改动词名词化"><span class="nav-number">2.</span> <span class="nav-text">什么时候该修改动词名词化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-2-删除-of-改写介系词片语"><span class="nav-number">3.</span> <span class="nav-text">Tip # 2: 删除 “Of” (改写介系词片语)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文总结了矩阵的理解和解释。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于矩阵的理解与解释">
+<meta property="og:url" content="https://zymin.cn/arcticle/understanding-matrix.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="本文总结了矩阵的理解和解释。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding/1.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding/3.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding/4.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding/2.png">
+<meta property="article:published_time" content="2018-06-28T12:40:48.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.090Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="矩阵">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding/1.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/understanding-matrix.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>关于矩阵的理解与解释 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/understanding-matrix.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于矩阵的理解与解释
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-28 20:40:48" itemprop="dateCreated datePublished" datetime="2018-06-28T20:40:48+08:00">2018-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文总结了矩阵的理解和解释。</p>
+<a id="more"></a>
+<h2 id="正定矩阵">正定矩阵</h2>
+<p><strong>我来说一个正定矩阵在物理上的应用</strong>。<a href="https://www.douban.com/group/topic/4943161/" target="_blank" rel="noopener">原链接</a></p>
+<p>物理上有个定理叫做最小作用量原理，这是力学的基础。这个定理说，粒子总是沿着作用量极小的那条路径运动的。  作用量说白了就是粒子的动能和势能的差。大家都知道动能正比于速度的平方。但是你考虑粒子未必只有一个独立的速度分量，特别是那些由许多粒子构成的系统，可能会有成千上万个速度。所以一般来说，动能是速度的二次型。也就是说，可以写成中间一个矩阵，速度矢量夹在两边。中间那个矩阵地位与质量相当，有时就称为质量矩阵。 好了，现在我们有一个很重要的要求，就是质量矩阵必须是正定的。  为什么呢？因为正定矩阵的二次型也是正定的，也就是说最少最少也要是0.  作用量要极小化，如果质量矩阵不是正定的，那么动能就可以是负的。这样我们如果使某些速度无限地增大，动能就越来越负，作用量就没有底了，怎么极小化呢。所以<strong>质量矩阵的正定性是能够实现作用量极小的要求，一切物理上合理的系统都应该具有正定的质量矩阵</strong>。</p>
+<p><strong>还有一个例子，就是量子力学</strong>。<a href="https://www.douban.com/group/topic/4943161/" target="_blank" rel="noopener">原链接</a></p>
+<p>量子力学的数学基础之一是Hilbert空间。Hilbert空间是一个内积空间。向量和自己的内积也是二次型，一般都是正定的。更装逼一点地说，就是Hilbert空间的度规是正定的。但是在相对论性量子力学里，我们发现Hilbert空间再也不能完备所有的波函数了，我们必须引入非定度规的线性向量空间。在非定的度规下，波函数和自己的内积可以是负的，整个量子力学的测量理论都要为此而改写。  一个向量的模方还可以是负的？不要感到诧异，这有着非常重要的物理意义，这代表了反物质的出现。描写正常物质的波函数的模方是正的，而描写反物质的波函数的模方是负的。从物理上说，反物质的出现是一种狭义相对论的量子效应，而其数学基础与度规的正定性有着密切的关系。</p>
+<h2 id="特征值与特征向量">特征值与特征向量</h2>
+<blockquote>
+<p>设A是n阶方阵，如果数λ和n维非零列向量x使关系式<em>A</em>x=λx成立，那么这样的数λ称为矩阵A特征值，非零向量x称为A的对应于特征值λ的特征向量。式<em>A</em>x=λx也可写成( A-λE)X=0。这是n个未知数n个方程的齐次线性方程组，它有非零解的充分必要条件是系数行列式| A-λE|=0。</p>
+</blockquote>
+<p>特征值就是运动的速度，特征向量就是运动的方向。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding\1.png" /></p>
+<h2 id="行列式的本质是什么">行列式的本质是什么</h2>
+<p>行列式是线性变换的伸缩因子。线性变换的几何直观有三个要点：</p>
+<ul>
+<li>变换前是直线的，变换后依然是直线</li>
+<li>直线比例保持不变</li>
+<li>变换前是原点的，变换后依然是原点</li>
+</ul>
+<p>线性变换可以看做是对基的变换。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding\3.png" /></p>
+<p>行列式是线性变换的伸缩因子。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding\4.png" /></p>
+<h2 id="特征值与奇异值">特征值与奇异值</h2>
+<p>特征值分解和奇异值分解（SVD）在主成分分析（PCA）和机器学习领域都有广泛的应用。PCA的实现由两种方法，一种是特征值分解，另一种是奇异值分解，特征值分解和奇异值分解的目的是一样的，都是提取出一个矩阵最重要的特性。特征值和奇异值都有其特定的物理意义，如奇异值分解可以将一个复杂的矩阵分解成几个小且简单的矩阵相乘，这些小矩阵就包含的矩阵的重要特性（奇异值、左右奇异值向量等）。</p>
+<p>有人在博文中用“描述一个人”的例子来解释过奇异值分解：“描述一个人说这个人长得浓眉大眼，方脸，络腮胡，而且带个黑框的眼镜，这样寥寥的几个特征，就让别人脑海里面就有一个较为清楚的认识，实际上，人脸上的特征有着无数种的，之所以能这么描述，是因为人天生就有着非常好的抽取重要特征的能力。”其中的“人脸上的特征有着无数种”就构成了待分解的矩阵，“寥寥得几个特征”代表了分解后的几个小矩阵，“人天生的抽取能力”就是一个奇异值分解（SVD）的过程。说了这么多关于奇异值分解的物理意义，接下来将依次介绍特征值和奇异值的相关知识。</p>
+<p>对特征向量x进行A变换的实质是将特征向量进行缩放，缩放因子为特征值λ。因此，特征向量的代数上含义是：将矩阵乘法转换为数乘操作；特征向量的几何含义是：特征向量通过方阵A变换只进行伸缩，而保持特征向量的方向不变。特征值表示的是这个特征到底有多重要，类似于权重，而特征向量在几何上就是一个点，从原点到该点的方向表示向量的方向。</p>
+<p>一个变换方阵的所有特征向量组成了这个变换矩阵的一组基。所谓基，可以理解为坐标系的轴。我们平常用到的大多是直角坐标系，在线性代数中可以把这个坐标系扭曲、拉伸、旋转，称为基变换。我们可以按需求去设定基，但是基的轴之间必须是线性无关的，也就是保证坐标系的不同轴不要指向同一个方向或可以被别的轴组合而成，否则的话原来的空间就“撑”不起来了。</p>
+<p>从线性空间的角度看，在一个定义了内积的线性空间里，对一个N阶对称方阵进行特征分解，就是产生了该空间的N个标准正交基，然后把矩阵投影到这N个基上。N个特征向量就是N个标准正交基，而特征值的模则代表矩阵在每个基上的投影长度。特征值越大，说明矩阵在对应的特征向量上的方差越大，功率越大，信息量越多。</p>
+<p>总结一下，<strong>特征值分解可以得到特征值与特征向量，特征值表示的是这个特征到底有多重要，而特征向量表示这个特征是什么</strong>，可以将每一个特征向量理解为一个线性的子空间，我们可以利用这些线性的子空间干很多的事情。不过，特征值分解也有很多的局限，比如说变换的矩阵必须是方阵。</p>
+<p>在机器学习特征提取中，意思就是最大特征值对应的特征向量方向上包含最多的信息量，如果某几个特征值很小，说明这几个方向信息量很小，可以用来降维，也就是删除小特征值对应方向的数据，只保留大特征值方向对应的数据，这样做以后数据量减小，但有用信息量变化不大，PCA降维就是基于这种思路。</p>
+<p>特征值及特征值分解都是针对方阵而言，现实世界中，我们看到的大部分矩阵不是方阵，比如每道数据有M个点，一共采集了N道数据，这样就形成了一个N*M的矩阵，那么怎样才能像方阵一样提取出它的特征，以及特征的重要性。奇异值分解就是来干这个事情的。奇异值相当于方阵中的特征值，奇异值分解相当于方阵中的特征值分解。</p>
+<p>奇异值分解是一种适用于任意矩阵的分解方法。 这就表明任意的矩阵 A 是可以分解成三个矩阵相乘的形式。<strong>V</strong>表示了原始域的标准正交基，<strong>U</strong>表示经过A 变换后的co-domain的标准正交基，Σ表示了<strong>V</strong> 中的向量与<strong>U</strong>中相对应向量之间的关系。我们仔细观察上图发现，线性变换A可以分解为<strong>旋转</strong>、<strong>缩放</strong>、<strong>旋转</strong>这三种基本线性变换。</p>
+<p>奇异值分解实际上把矩阵的变换分为了三部分：<strong>旋转、拉伸、投影</strong>。拿刚才的：<span class="math inline">\(A=\left[\begin{matrix}1 &amp;-2 \\1 &amp;2\end{matrix}\right]\)</span>举例子（方阵没有投影，不过不影响这里思考）：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/matrix-understanding\2.png" /></p>
+<h2 id="矩阵乘法理解">矩阵乘法理解</h2>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\understand-matrix-mengyan.html" rel="bookmark">理解矩阵-孟岩Blog</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\matrix-property.html" rel="bookmark">矩阵基本性质</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Linear-algebra-translation-scaling-rotation-matrix.html" rel="bookmark">线性代数之平移、缩放、旋转矩阵</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Perspective-Matrix.html" rel="bookmark">透视矩阵Perspective Matrix</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E7%9F%A9%E9%98%B5/" rel="tag"># 矩阵</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/Lyapunov-stability-advanced.html" rel="prev" title="高级Lyapunov稳定性">
+      <i class="fa fa-chevron-left"></i> 高级Lyapunov稳定性
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/matrix-property.html" rel="next" title="矩阵基本性质">
+      矩阵基本性质 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正定矩阵"><span class="nav-number">1.</span> <span class="nav-text">正定矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征值与特征向量"><span class="nav-number">2.</span> <span class="nav-text">特征值与特征向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行列式的本质是什么"><span class="nav-number">3.</span> <span class="nav-text">行列式的本质是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征值与奇异值"><span class="nav-number">4.</span> <span class="nav-text">特征值与奇异值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵乘法理解"><span class="nav-number">5.</span> <span class="nav-text">矩阵乘法理解</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="除了那些核心技术，我们还缺什么？ 来自微信公众号“东不哩格愣”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="除了那些核心技术，我们还缺什么？">
+<meta property="og:url" content="https://zymin.cn/arcticle/hexinjishu.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="除了那些核心技术，我们还缺什么？ 来自微信公众号“东不哩格愣”">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5975f333a.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5985beb00.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e59a1898b0.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e59a69c9fe.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e59b04ffff.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a5032ef3.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a561def3.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a5a42f99.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a5ebf06d.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a6382101.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a688e0bc.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a6d6efb9.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a722ab79.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a763fd52.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a7c74287.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a81e8b7a.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a8c6d96f.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a91a381a.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a95887a4.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5aa035762.jpg">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a9acc480.jpg">
+<meta property="article:published_time" content="2019-06-03T02:17:36.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.188Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="前沿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5975f333a.jpg">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/hexinjishu.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>除了那些核心技术，我们还缺什么？ | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/hexinjishu.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          除了那些核心技术，我们还缺什么？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-03 10:17:36" itemprop="dateCreated datePublished" datetime="2019-06-03T10:17:36+08:00">2019-06-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/" itemprop="url" rel="index"><span itemprop="name">科普</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>除了那些核心技术，我们还缺什么？</p>
+<p>来自微信公众号“东不哩格愣”</p>
+<a id="more"></a>
+<h2 id="光刻机">1 光刻机</h2>
+<p>《这些“细节”让中国难望顶级光刻机项背》（科技日报4月19日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5975f333a.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5975f333a.jpg" alt="img" /></a></p>
+<p>制造芯片的光刻机，其精度决定了芯片性能的上限。在“十二五”科技成就展览上，中国生产的最好的光刻机，加工精度是90纳米。这相当于2004年上市的奔腾四CPU的水准。而国外已经做到了十几纳米。</p>
+<p>光刻机里有两个同步运动的工件台，一个载底片，一个载胶片。两者需始终同步，误差在2纳米以下。两个工作台由静到动，加速度跟导弹发射差不多。在工作时，相当于两架大飞机从起飞到降落，始终齐头并进一架飞机上伸出一把刀，在另一架飞机的米粒上刻字，不能刻坏了。</p>
+<h2 id="芯片">2 芯片</h2>
+<p>《中兴的“芯”病，中国的心病》（科技日报4月20日）</p>
+<p>低速的光芯片和电芯片已实现国产，但高速的仍全部依赖进口。国外最先进芯片量产精度为10纳米，我国只有28纳米，差距两代。据报道，在计算机系统、通用电子系统、通信设备、内存设备和显示及视频系统中的多个领域中，我国国产芯片占有率为0。</p>
+<h2 id="操作系统">3 操作系统</h2>
+<p>《丧失先机，没有自研操作系统的大国之痛》（科技日报4月23日）</p>
+<p>普通人看到中国IT业繁荣，认为技术差距不大，实则不然。3家美国公司垄断手机和个人电脑的操作系统。数据显示，2017年安卓系统市场占有率达85.9%，苹果IOS为14%。其他系统仅有0.1%。这0.1%，基本也是美国的微软的Windows和黑莓。没有谷歌铺路，智能手机不会如此普及，而中国手机厂商免费利用安卓的代价，就是随时可能被“断粮”。</p>
+<h2 id="航空发动机短舱">4 航空发动机短舱</h2>
+<p>《居者无其屋，国产航空发动机的短舱之困》（科技日报4月24日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5985beb00.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5985beb00.jpg" alt="img" /></a></p>
+<p>飞机上安放发动机的舱室，俗称“房子”，是航空推进系统最重要的核心部件之一，其成本约占全部发动机的1/4左右。短舱需要将发动机包覆，减少飞行阻力；其进气道还要具有防、除冰的能力；飞行中，要保护发动机不受干扰正常工作；在地面，需要做到方便发动机的维护和维修，一旦短舱有损，飞行中可能会引起发动机严重事故。短舱越大技术难度越高。我国在这一重要领域尚属空白。查阅所有公开资料，我国尚无自主研制短舱的专门机构，相关院校似乎也没有设置相关的学科。</p>
+<h2 id="触觉传感器">5 触觉传感器</h2>
+<p>《传感器疏察，被愚钝的机器人“国产触觉”》（科技日报4月25日）</p>
+<p>触觉传感器是工业机器人核心部件。精确、稳定的严苛要求，拦住了我国大部分企业向触觉传感器迈进的步伐，目前国内传感器企业大多从事气体、温度等类型传感器的生产。在一个有着100多家企业的行业中，几乎没有传感器制造商进行触觉传感器的生产。日本阵列式传感器能在10厘米×10厘米大小的基质中分布100个敏感元件，售价10万元，而国内产品多为一点式，一般100元一个。</p>
+<h2 id="真空蒸镀机">6 真空蒸镀机</h2>
+<p>《真空蒸镀机匮缺：高端显示屏上的阴影》（科技日报4月26日）</p>
+<p>OLED面板制程的“心脏”。日本Canon Tokki独占高端市场，掌握着该产业的咽喉。业界对它的年产量预测通常在几台到十几台之间。有钱也买不到，说的就是它。 Canon Tokki能把有机发光材料蒸镀到基板上的误差控制在5微米内（1微米相当于头发直径的1％），没有其他公司的蒸镀机能达到这个精准度。目前我国还没有生产蒸镀机的企业，在这个领域我们没什么发言权。</p>
+<h2 id="手机射频器件">7 手机射频器件</h2>
+<p>《射频器件：仰给于人的手机尴尬》（科技日报5月7日）</p>
+<p>频段更多，带宽更大，这就向射频芯片提出了挑战。射频芯片将数字信号转化成电磁波，4G手机要支持十几个频段，信息带宽几十兆。 2018年，射频芯片市场150亿美元；高端市场基本被Skyworks、Qorvo和 博通3家垄断，高通也占一席之地。射频器件的另一个关键元件——滤波器，国内外差距更大。手机使用的高端滤波器，几十亿美元的市场，完全归属Qorvo等国外射频器件巨头。中国是世界最大的手机生产国，但造不了高端的手机射频器件。这需要材料、工艺和设计经验的踏实积累。</p>
+<h2 id="iclip技术">8 iCLIP技术</h2>
+<p>《“靶点”难寻，国产创新药很迷惘》（科技日报5月8日）</p>
+<p>iCLIP是一种新兴的实验技术，是研发创新药的最关键的技术之一。它的发明，让人们抛弃精密的观测仪器，也能确定RNA（核糖核酸）和蛋白质在哪个位置“交汇”，甚至可以读出位点“密码”。iCLIP技术难，犹如万千人海中找一个人，要从几十亿个碱基对找到一个或几个确定的结合点，精确度可想而知。国外研究团队已在此领域展开“技术竞赛”，研究论文以几个月为周期轮番上演。国内实验室却极少有成熟经验。</p>
+<h2 id="重型燃气轮机">9 重型燃气轮机</h2>
+<p>《“命门火衰”，重型燃气轮机的叶片之殇》（科技日报5月9日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e59a1898b0.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e59a1898b0.jpg" alt="img" /></a></p>
+<p>燃气轮机广泛应用于舰船、火车和大型电站。我国具备轻型燃机自主化能力；但重燃仍基本依赖引进。国际上大的重燃厂家，主要是美国GE、日本三菱、德国西门子、意大利安萨尔多4家。与中国合作都附带苛刻条件：设计技术不转让，核心的热端部件制造技术也不转让，仅以许可证方式许可本土制造非核心部件。没有自主化能力，意味着我国能源安全的重要一环，仍然受制于人，存在被“卡脖子”的风险。</p>
+<p>##10 激光雷达</p>
+<p>《激光雷达昏聩，让自动驾驶很纠结》（科技日报5月10日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e59a69c9fe.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e59a69c9fe.jpg" alt="img" /></a></p>
+<p>激光雷达是个传感器，自带光源，主动发出激光，感知周围环境，像蝙蝠通过超声波定位一样。它是自动驾驶汽车的必备组件，决定着自动驾驶行业的进化水平。但在该领域，国货几乎没有话语权。目前能上路的自动驾驶汽车中，凡涉及激光雷达者，使用的几乎都是美国Velodyne的产品，其激光雷达产品是行业标配，占八成以上市场份额。</p>
+<h2 id="适航标准">11 适航标准</h2>
+<p>《适航标准：国产航发又一道难迈的坎儿》（科技日报5月11日）</p>
+<p>一款航空发动机要想获取一张放飞证，必须经过一套非常严格的“适航”标准体系验证，涵盖设计、制造、验证和管理。但目前在国际上，以FAA和欧洲航空安全局（EASA）的适航审定影响力最大，认可度最高。尽管在规章要求层面，中国与FAA基本一致，但由于国产航空发动机型号匮乏，缺乏实际工程实践经验，使我国适航规章缺少相应的技术支撑。实际型号的适航验证工作，成为被卡在别国空域之外的关隘。</p>
+<h2 id="高端电容电阻">12 高端电容电阻</h2>
+<p>《没有这些诀窍，我们够不着高端电容电阻》（科技日报5月14日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e59b04ffff.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e59b04ffff.jpg" alt="img" /></a></p>
+<p>电容和电阻是电子工业的黄金配角。中国是最大的基础电子元件市场，一年消耗的电阻和电容，数以万亿计。但最好的消费级电容和电阻，来自日本。电容市场一年200多亿美元，电阻也有百亿美元量级。所谓高端的电容电阻，最重要的是同一个批次应该尽量一致。日本这方面做得最好，国内企业差距大。国内企业的产品多属于中低端，在工艺、材料、质量管控上，相对薄弱。</p>
+<h2 id="核心工业软件">13 核心工业软件</h2>
+<p>《核心工业软件：智能制造的中国“无人区”》（科技日报5月17日）</p>
+<p>中国的核心工业软件领域，基本还是“无人区”。工业软件缺位，为智能制造带来了麻烦。工业系统复杂到一定程度，就需要以计算机辅助的工业软件来替代人脑计算。譬如，芯片设计生产“必备神器”EDA工业软件，国产EDA与美国主流EDA工具相较，设计原理上并无差异，但软件性能却存在不小差距，主要表现在对先进技术和工艺支持不足，和国外先进EDA工具之间存在“代差”。国外EDA三大巨头公司Cadence、Synopsys及Mentor，占据了全球该行业每年总收入的70%。发展自主工业操作系统+自主工业软件体系，刻不容缓。</p>
+<h2 id="ito靶材">14 ITO靶材</h2>
+<p>《烧不出大号靶材，平板显示制造仰人鼻息》（科技日报5月18日）</p>
+<p>ITO靶材不仅用于制作液晶显示器、平板显示器、等离子显示器、触摸屏、电子纸、有机发光二极管，还用于太阳能电池和抗静电镀膜、EMI屏蔽的透明传导镀膜等，在全球拥有广泛的市场。ITO膜的厚度因功能需求而有不同，一般在30纳米至200纳米。在尺寸的问题上，国内ITO靶材企业一直鲜有突破，而后端的平板显示制造企业也要仰人鼻息。烧结大尺寸ITO靶材，需要有大型的烧结炉。国外可以做宽1200毫米、长近3000毫米的单块靶材，国内只能制造不超过800毫米宽的。产出效率方面，日式装备月产量可达30吨至50吨，我们年产量只有30吨——而进口一台设备价格要花一千万元，这对国内小企业来说无异于天价。</p>
+<p>每年我国ITO靶材消耗量超过1千吨，一半左右靠进口，用于生产高端产品。</p>
+<h2 id="核心算法">15 核心算法</h2>
+<p>《算法不精，国产工业机器人有点“笨”》（科技日报5月22日）</p>
+<p>中国已经连续5年成为世界第一大机器人应用市场，但高端机器人仍然依赖于进口。由于没有掌握核心算法，国产工业机器人稳定性、故障率、易用性等关键指标远不如工业机器人“四大家族”发那科（日本）、ABB（瑞士）、安川（日本）、库卡（德国）的产品。核心算法差距过大，导致国产机器人稳定性不佳，故障率居高不下。算法的差距不只体现在核心控制器上，更拖慢了伺服系统响应的速度。</p>
+<p>机器人每完成一个动作，需要核心控制器、伺服驱动器和伺服电机协同作战。对于单台伺服系统，国产机器人动态与静态精度都很高，但高端机器人一般同时有6台以上伺服系统，用传统的控制方法难以取得好的控制效果。</p>
+<h2 id="航空钢材">16 航空钢材</h2>
+<p>《航空钢材不过硬，国产大飞机起落失据》（科技日报5月23日）</p>
+<p>无论起飞还是降落，起落架都是支撑飞机的唯一部件，尤其是在飞机降落阶段，其承载的载荷不仅仅来自机身重量，还有飞机垂直方向的巨大冲力。因此，起落架的材料强度必须十分优异，只能依靠特种钢材才行。目前使用范围最广的是美国的300M钢，该材料采用真空热处理技术，避免了渗氢，零件表面光亮，无氧化脱碳、增碳和晶界氧化等缺陷，提高了表面质量。而国内用于制作起落架的国产超强度钢材有时会出现点状缺陷、硫化物夹杂、粗晶、内部裂纹、热处理渗氢等问题，这些问题都与冶炼过程中纯净度不够有关系。所以我国在高纯度熔炼技术方面与美国还有较大差距，存在很大提升空间。</p>
+<h2 id="铣刀">17 铣刀</h2>
+<p>《为高铁钢轨“整容”，国产铣刀难堪重任》（科技日报5月24日）</p>
+<p>随着我国近年来高铁的迅猛建设，钢轨养护问题也愈加让业内专家忧心。若养护不到位，不仅折损生命周期，还存在高风险隐患。我国自主创新研发的双动力电驱铣磨维护机器人装备——被称为钢轨‘急救车’的铣磨车可为钢轨“保驾护航”。但铣磨车最核心部件铣刀仍需从国外进口。铣刀的材料是一种超硬合金材料。对其中金属成分我们已然了解，但就是不知人家是怎么配比、合成的，如同琢磨某种中药的祖传秘方、各种药材比例是多少，都不甚明了。</p>
+<h2 id="高端轴承钢">18 高端轴承钢</h2>
+<p>《高端轴承钢，难以补齐的中国制造业短板》（科技日报5月25日）</p>
+<p>作为机械设备中不可或缺的核心零部件，轴承支撑机械旋转体，降低其摩擦系数，并保证其回转精度。无论飞机、汽车、高铁，还是高精密机床、仪器仪表，都需要轴承。这就对其精度、性能、寿命和可靠性提出了高要求。而我国的制轴工艺已经接近世界顶尖水平，但材质——也就是高端轴承用钢几乎全部依赖进口。</p>
+<p>高端轴承用钢的研发、制造与销售基本上被世界轴承巨头美国铁姆肯、瑞典SKF所垄断。前几年，他们分别在山东烟台、济南建立基地，采购中国的低端材质，运用他们的核心技术做成高端轴承，以十倍的价格卖给中国市场。炼钢过程中加入稀土，就能使原本优质的钢变得更加“坚强”。但怎么加，这是世界轴承巨头们的核心秘密。</p>
+<h2 id="高压柱塞泵">19 高压柱塞泵</h2>
+<p>《高压柱塞泵，鲠在中国装备制造业咽喉的一根刺》（科技日报5月28日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a5032ef3.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a5032ef3.jpg" alt="img" /></a></p>
+<p>液压系统是装备制造业的关键部件之一，一切工程领域，凡是有机械设备的场合，都离不开液压系统。高压柱塞泵是高端液压装备的核心元件，被称作液压系统的“心脏”。中国液压工业的规模在2017年已经成为世界第二，但产业大而不强，尤其是额定压力35MPa以上高压柱塞泵，90%以上依赖进口。 国内生产的液压柱塞泵与外国品牌相比，在技术先进性、工作可靠性、使用寿命、变量机构控制功能和动静态性能指标上都有较大差距，基本相当于国外上世纪90年代初水平。</p>
+<h2 id="航空设计软件">20 航空设计软件</h2>
+<p>《航空软件困窘，国产飞机设计戴上“紧箍咒”》（科技日报5月30日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a561def3.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a561def3.jpg" alt="img" /></a></p>
+<p>自上世纪80年代后，世界航空业就迈入数字化设计的新阶段，现在已经达到离开软件就无法设计的高度依赖程度。设计一架飞机至少需要十几种专业软件，全是欧美国家产品。国内设计单位不仅要投入巨资购买软件，而且头戴钢圈，一旦被念“紧箍咒”，整个航空产业将陷入瘫痪。 据媒体报道，设计歼-10飞机时，主起落架主承力结构的整个金属部件是委托国外制造。但造完之后，起落架的收放出现问题，有5毫米的误差，只好重新订货制造。仅仅是这一点点的误差，影响了歼-10首飞推迟了八九个月。没有全数字化的软件支撑，任何一点细微的误差，都可能成为制造业的梦魇。</p>
+<h2 id="光刻胶">21光刻胶</h2>
+<p>《中国半导体产业因光刻胶失色》（科技日报5月31日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a5a42f99.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a5a42f99.jpg" alt="img" /></a></p>
+<p>我国虽然已成为世界半导体生产大国，但面板产业整体产业链仍较为落后。目前，LCD用光刻胶几乎全部依赖进口，核心技术至今被TOK、JSR、住友化学、信越化学等日本企业所垄断。就拿在国际上具有一定竞争实力的京东方来说，目前已建立17个面板显示生产基地，其中有16个已经投产。但京东方用于高端面板的光刻胶，仍然由国外企业提供。光刻胶主要成分有高分子树脂、色浆、单体、感光引发剂、溶剂以及添加剂，开发所涉及的技术难题众多，需从低聚物结构设计和筛选、合成工艺的确定和优化、活性单体的筛选和控制、色浆细度控制和稳定、产品配方设计和优化、产品生产工艺优化和稳定、最终使用条件匹配和宽容度调整等方面进行调整。因此，要自主研发生产，技术难度非常之高。</p>
+<h2 id="高压共轨系统">22高压共轨系统</h2>
+<p>《高压共轨不中用，国产柴油机很受伤》（科技日报6月4日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a5ebf06d.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a5ebf06d.jpg" alt="img" /></a></p>
+<p>电控柴油高压共轨系统相当于柴油发动机的“心脏”和“大脑”，其品质的好坏，严重影响发动机的使用。柴油机产业是推动一个国家经济增长、社会运行的重要装备基础。中国是全球柴油发动机的主要市场和生产国家，而在国内的电控柴油机高压共轨系统市场，德国、美国和日本等企业占据了绝大份额。和国外先进公司的产品相比，国产高压共轨系统在性能、功能、质量及一致性上还存在一定的差距，成本上的优势也不明显。</p>
+<h2 id="透射式电镜">23 透射式电镜</h2>
+<p>《我们的蛋白质3D高清照片仰赖舶来的透射式电镜》（科技日报6月6日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a6382101.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a6382101.jpg" alt="img" /></a></p>
+<p>冷冻电镜可以拍摄微观结构高清3d“彩照”，是生命科学研究的利器，透射式电镜的生产能力是冷冻电镜制造能力的基础之一。目前世界上生产透射电镜的厂商只有3家，分别是日本电子、日立、FEI，国内没有一家企业生产透射式电镜。匹配冷冻电镜使用的工具都需要原装，零件坏了找不到人修理，只能等待零件邮寄到货后进行更换。对于中国的冷冻电镜使用者们来说，这样的体验可能还要持续不短的时间。</p>
+<h2 id="掘进机主轴承">24 掘进机主轴承</h2>
+<p>《自家的掘进机却不得不用别人的主轴承》（科技日报6月7日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a688e0bc.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a688e0bc.jpg" alt="img" /></a></p>
+<p>主轴承，有全断面隧道掘进机的“心脏”之称，承担着掘进机运转过程的主要载荷，是刀盘驱动系统的关键部件，工作所处状况十分恶劣。与直径仅有几百毫米的传统滚动轴承相比，掘进机主轴承直径一般为几米，是结构最复杂的一种轴承，制造需要上百道工序。就掘进机整机制造能力而言，国产掘进机已接近世界最先进水平，但最关键的主轴承全部依赖进口。德国的罗特艾德、IMO、FAG和瑞典的SKF占据市场。</p>
+<h2 id="微球">25 微球</h2>
+<p>《微球：民族工业不能承受之轻》（科技日报6月12日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a6d6efb9.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a6d6efb9.jpg" alt="img" /></a></p>
+<p>微球，直径是头发粗细的三十分之一。手机屏幕里，每平方毫米要用一百个微球，撑起了两块玻璃面板，相当于骨架，在两块玻璃面板的缝隙里，再灌进液晶。少了它，你正盯着的液晶屏幕将无法生产。 没有微球，芯片生产、食品安全检测、疾病诊断、生物制药、环境监测……许多行业都会陷入窘境。仅微电子领域，中国每年就要进口价值几百亿元人民币的微球。2017年中国大陆的液晶面板出货量达到全球的33%，产业规模约千亿美元，位居全球第一。但这面板中的关键材料——间隔物微球，以及导电金球，全世界只有日本一两家公司可以提供。这些材料也像芯片一样，给人卡住了脖子。</p>
+<h2 id="水下连接器">26 水下连接器</h2>
+<p>《水下连接缺国产利器，海底观测网傍人篱壁》（科技日报6月13日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a722ab79.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a722ab79.jpg" alt="img" /></a></p>
+<p>除了船舶、遥感卫星，海底观测网已成为第三种海洋观测平台——通过它，人类可以深入到水下观测和认识海洋。如果将各类缆系观测平台比作胳膊、腿，水下连接器就好比关节，对海底观测网系统的建设、运行和维护有着不可替代的作用。目前我国水下连接器市场基本被外国垄断。一旦该连接器成为禁运品，整个海底观测网的建设和运行将被迫中断。</p>
+<h2 id="燃料电池关键材料">27 燃料电池关键材料</h2>
+<p>《少了三种关键材料，燃料电池商业化难成文章》（科技日报6月14日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a763fd52.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a763fd52.jpg" alt="img" /></a></p>
+<p>国外的燃料电池车已实现量产，但我国车用燃料电池还处在技术验证阶段。我国车用燃料电池的现状是——几乎无部件生产商，无车用电堆生产公司，只有极少量商业运行燃料电池车。多项关键材料，决定着燃料电池的寿命和性能。这些材料我国并非完全没有，有些实验室成果甚至已达到国际水平。但是，没有批量生产线，燃料电池产业链依然梗阻。关键材料长期依赖国外，一旦遭遇禁售，我国的燃料电池产业便没有了基础支撑。</p>
+<h2 id="高端焊接电源">28 高端焊接电源</h2>
+<p>《国产焊接电源“哑火”，机器人水下作业有心无力》（科技日报6月20日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a7c74287.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a7c74287.jpg" alt="img" /></a></p>
+<p>我国是海洋大国，拥有300多万平方公里海域，正在大力发展高端海洋资源开发和海洋维权装备。海里的设备一旦出现开裂等故障，需要用有工业制造“缝纫机”之称的焊接装备修补。深海焊接的实现靠水下机器人。虽然我国是全球最大焊接电源制造基地，年产能已超1000万台套，但高端焊接电源基本上仍被国外垄断。我国水下机器人焊接技术一直难以提升，原因是高端焊接电源技术受制于人。国外焊接电源全数字化控制技术已相对成熟， 国内的仍以模拟控制技术为主。</p>
+<h2 id="锂电池隔膜">29 锂电池隔膜</h2>
+<p>《一层隔膜两重天：国产锂电池尚需拨云见日》（科技日报6月21日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a81e8b7a.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a81e8b7a.jpg" alt="img" /></a></p>
+<p>作为新能源车的“心脏”，国产锂离子电池（以下简称锂电池）目前“跳”得还不够稳。电池四大核心材料中，正负极材料、电解液都已实现了国产化，唯独隔膜仍是短板。高端隔膜技术具有相当高的门槛，不仅要投入巨额的资金，还需要有强大的研发和生产团队、纯熟的工艺技术和高水平的生产线。高端隔膜目前依然大量依赖进口。</p>
+<h2 id="医学影像设备元器件">30 医学影像设备元器件</h2>
+<p>《拙钝的探测器模糊了医学影像》（科技日报6月25日）</p>
+<p>目前国产医学影像设备的大部分元器件依赖进口，至少要花10年、20年才能达到别人的现有水平。在传统医学成像（CT、磁共振等）上，中国最早的专利比美国平均晚20年。在专利数量上，美国是我国的10倍。这意味着整个产业已经完全掌握在国外企业的手里了，所有的知识产权，所有的原创成果，所有的科研积累都在国外，中国只占很少的一部分。</p>
+<h2 id="超精密抛光工艺">31 超精密抛光工艺</h2>
+<p>《通往超精密抛光工艺之巅，路阻且长》（科技日报6月26日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a8c6d96f.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a8c6d96f.jpg" alt="img" /></a></p>
+<p>超精密抛光工艺在现代制造业中有多重要，其应用的领域能够直接说明问题：集成电路制造、医疗器械、汽车配件、数码配件、精密模具、航空航天。“它是技术灵魂”。美日牢牢把握了全球市场的主动权，其材料构成和制作工艺一直是个谜。换言之，购买和使用他们的产品，并不代表可以仿制甚至复制他们的产品。</p>
+<h2 id="环氧树脂">32环氧树脂</h2>
+<p>《环氧树脂韧性不足，国产碳纤维缺股劲儿》（科技日报6月27日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a91a381a.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a91a381a.jpg" alt="img" /></a></p>
+<p>碳纤维质量能比金属铝轻，但强度却高于钢铁，还具有耐高温、耐腐蚀、耐疲劳、抗蠕变等特性，其中一个关键的复合辅材就是环氧树脂。但目前国内生产的高端碳纤维，所使用的环氧树脂全部都是进口的。目前，我国已能生产T800等较高端的碳纤维，但日本东丽掌握这一技术的时间是上世纪90年代。相比于碳纤维，我国高端环氧树脂产业落后于国际的情况更为严重。</p>
+<h2 id="高强度不锈钢">33 高强度不锈钢</h2>
+<p>《去不掉的火箭发动机“锈疾”》（科技日报6月28日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a95887a4.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a95887a4.jpg" alt="img" /></a></p>
+<p>用于火箭发动机的钢材需具备多种特性，其中高强度是必须满足的重要指标。然而，不锈钢的强度和防锈性能，却是鱼和熊掌般难以兼得的矛盾体。火箭发动机材料如果如果严重生锈，将带来很大影响。完全依靠材料自身实现高强度和防锈性能兼备，这是世界性难题。现在，我国航天材料大多用的是国外上世纪六七十年代用的材料，发达国家在生产过程中会严格控制杂质含量，如果纯度不达标，便重新回炉，但国内厂家往往缺乏这种严谨的态度。</p>
+<h2 id="数据库管理系统">34 数据库管理系统</h2>
+<p>《数据库管理系统：中国还在寻找“正确打开方式”》（科技日报7月2日）</p>
+<p>[<img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5aa035762.jpg" /></p>
+<p>目前全世界最流行的两种数据库管理系统是Oracle和MySQL，都是甲骨文公司旗下的产品。竞争者还有IBM公司以及微软公司的产品等。甲骨文、IBM、微软和Teradata几家美国公司，占了大部分市场份额。数据库管理系统国货也有市场份额，但只是个零头，其稳定性、性能都无法让市场信服，银行、电信、电力等要求极端稳妥的企业，不会考虑国货。</p>
+<h2 id="扫描电镜">35 扫描电镜</h2>
+<p>《扫描电镜“弱视”，工业制造难以明察秋毫》（科技日报7月3日）</p>
+<p><a href="http://images.blogchina.com/artpic_upload_v5/5c5e5a9acc480.jpg" target="_blank" rel="noopener"><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5c5e5a9acc480.jpg" alt="img" /></a></p>
+<p>扫描电子显微镜，一种高端的电子光学仪器，它被广泛地应用于材料、生物、医学、冶金、化学和半导体等各个研究领域和工业部门，被称为“微观相机”目前我国科研与工业部门所用的扫描电镜严重依赖进口，每年我国花费超过1亿美元采购的几百台扫描电镜中，主要产自美、日、德和捷克等国。国产扫描电镜只占约5%—10%。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-materials.html" rel="bookmark">3D打印材料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\125questions.html" rel="bookmark">science公布的125个前沿科学问题及其解读</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\mask-aligner-system.html" rel="bookmark">光刻机技术原理与发展趋势</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\force-field-method.html" rel="bookmark">分子力学与分子模拟</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E5%89%8D%E6%B2%BF/" rel="tag"># 前沿</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/3d-print-tech.html" rel="prev" title="常见3D打印技术">
+      <i class="fa fa-chevron-left"></i> 常见3D打印技术
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/125questions.html" rel="next" title="science公布的125个前沿科学问题及其解读">
+      science公布的125个前沿科学问题及其解读 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#光刻机"><span class="nav-number">1.</span> <span class="nav-text">1 光刻机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#芯片"><span class="nav-number">2.</span> <span class="nav-text">2 芯片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统"><span class="nav-number">3.</span> <span class="nav-text">3 操作系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#航空发动机短舱"><span class="nav-number">4.</span> <span class="nav-text">4 航空发动机短舱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触觉传感器"><span class="nav-number">5.</span> <span class="nav-text">5 触觉传感器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#真空蒸镀机"><span class="nav-number">6.</span> <span class="nav-text">6 真空蒸镀机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手机射频器件"><span class="nav-number">7.</span> <span class="nav-text">7 手机射频器件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iclip技术"><span class="nav-number">8.</span> <span class="nav-text">8 iCLIP技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重型燃气轮机"><span class="nav-number">9.</span> <span class="nav-text">9 重型燃气轮机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适航标准"><span class="nav-number">10.</span> <span class="nav-text">11 适航标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高端电容电阻"><span class="nav-number">11.</span> <span class="nav-text">12 高端电容电阻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心工业软件"><span class="nav-number">12.</span> <span class="nav-text">13 核心工业软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ito靶材"><span class="nav-number">13.</span> <span class="nav-text">14 ITO靶材</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心算法"><span class="nav-number">14.</span> <span class="nav-text">15 核心算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#航空钢材"><span class="nav-number">15.</span> <span class="nav-text">16 航空钢材</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#铣刀"><span class="nav-number">16.</span> <span class="nav-text">17 铣刀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高端轴承钢"><span class="nav-number">17.</span> <span class="nav-text">18 高端轴承钢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高压柱塞泵"><span class="nav-number">18.</span> <span class="nav-text">19 高压柱塞泵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#航空设计软件"><span class="nav-number">19.</span> <span class="nav-text">20 航空设计软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光刻胶"><span class="nav-number">20.</span> <span class="nav-text">21光刻胶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高压共轨系统"><span class="nav-number">21.</span> <span class="nav-text">22高压共轨系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#透射式电镜"><span class="nav-number">22.</span> <span class="nav-text">23 透射式电镜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#掘进机主轴承"><span class="nav-number">23.</span> <span class="nav-text">24 掘进机主轴承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微球"><span class="nav-number">24.</span> <span class="nav-text">25 微球</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水下连接器"><span class="nav-number">25.</span> <span class="nav-text">26 水下连接器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#燃料电池关键材料"><span class="nav-number">26.</span> <span class="nav-text">27 燃料电池关键材料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高端焊接电源"><span class="nav-number">27.</span> <span class="nav-text">28 高端焊接电源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锂电池隔膜"><span class="nav-number">28.</span> <span class="nav-text">29 锂电池隔膜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#医学影像设备元器件"><span class="nav-number">29.</span> <span class="nav-text">30 医学影像设备元器件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超精密抛光工艺"><span class="nav-number">30.</span> <span class="nav-text">31 超精密抛光工艺</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环氧树脂"><span class="nav-number">31.</span> <span class="nav-text">32环氧树脂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高强度不锈钢"><span class="nav-number">32.</span> <span class="nav-text">33 高强度不锈钢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库管理系统"><span class="nav-number">33.</span> <span class="nav-text">34 数据库管理系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫描电镜"><span class="nav-number">34.</span> <span class="nav-text">35 扫描电镜</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

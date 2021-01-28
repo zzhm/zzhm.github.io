@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近实验室在搞基于微透镜阵列的光场相机，很时髦的玩意，可以先拍照然后对焦，可以说重新定义了摄影，但很可惜，国外已经研究的比较成熟了，基本理论，也就是光场技术，在1996年由斯坦福的Marc Levoy等人提出，采集光场的手段主要有两种，一种是通过微透镜阵列，这样不但能记录光线的强度信息，还能记录光线的角度信息，另外一种是通过相机阵列技术。前者已经由RenNG成功商业化成Lytro光场相机，后者嘛，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多相机阵列综述">
+<meta property="og:url" content="https://zymin.cn/arcticle/camera-arrays.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="最近实验室在搞基于微透镜阵列的光场相机，很时髦的玩意，可以先拍照然后对焦，可以说重新定义了摄影，但很可惜，国外已经研究的比较成熟了，基本理论，也就是光场技术，在1996年由斯坦福的Marc Levoy等人提出，采集光场的手段主要有两种，一种是通过微透镜阵列，这样不但能记录光线的强度信息，还能记录光线的角度信息，另外一种是通过相机阵列技术。前者已经由RenNG成功商业化成Lytro光场相机，后者嘛，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912363971.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912347260.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912390488.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912458976.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912481384.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912514482.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912529760.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912546459.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912562584.png">
+<meta property="article:published_time" content="2019-05-15T08:55:32.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.101Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="视觉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912363971.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/camera-arrays.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>多相机阵列综述 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/camera-arrays.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          多相机阵列综述
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-15 16:55:32" itemprop="dateCreated datePublished" datetime="2019-05-15T16:55:32+08:00">2019-05-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">视觉</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近实验室在搞基于微透镜阵列的<a href="http://baike.baidu.com/view/5979448.htm?fr=aladdin" target="_blank" rel="noopener">光场相机</a>，很时髦的玩意，可以先拍照然后对焦，可以说重新定义了摄影，但很可惜，国外已经研究的比较成熟了，基本理论，也就是光场技术，在1996年由斯坦福的<a href="http://graphics.stanford.edu/~levoy/" target="_blank" rel="noopener">Marc Levoy</a>等人提出，采集光场的手段主要有两种，一种是通过微透镜阵列，这样不但能记录光线的强度信息，还能记录光线的角度信息，另外一种是通过相机阵列技术。前者已经由RenNG成功商业化成<a href="https://www.lytro.com/" target="_blank" rel="noopener">Lytro光场相机</a>，后者嘛，还停留在实验室阶段→_→，不过由相机阵列引发出的合成口径成像技术，很是牛逼，号称能看清楚被遮挡物体的表面，于是呢，我就调研了一下多相机阵列的国内外研究的情况。下面的这些内容基本上是我写给老板的调研报告，为了便于大家理解，我放了很多图，但毕竟是综述类的报告，有点文绉绉的说教语气，木有办法，凑合着看呗~</p>
+<a id="more"></a>
+<p><strong>我看相机阵列</strong></p>
+<p>多相机阵列（Camera Arrays）利用不同空间位置的多个相机来采集不同视角的照片。斯坦福大学的Bennett Wilburn等人[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">1]</a>用廉价的相机搭建一个高性能的相机阵列（图1）。这个系统使用常规的MPEG视频压缩标准以及IEEE1394通信标准，使得100台CMOS相机协同工作，而所有相机所产生的数据仅需要4台普通的PC处理即可。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912363971.png" /></p>
+<p>多相机阵列各子相机之间的距离不同，整个相机阵列就有不同的用途。当所有的子相机之间的距离比较小时，也就是相机紧挨着放在一起，这时整个相机阵列可以看作一个单中心投影相机（Single-Center-of-Projection Camera）。这时整个相机阵列可以用来产生超分辨率、高信噪比、高动态范围的照片。从图3中可以看到，通过对不同子相机采用不同的曝光时间，我们得到了比所有相机都采用相同曝光时间（图2）更加广的动态范围[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">1]</a>。另外，当监控相机在夜晚工作时，由于光线不足，相机往往需要使用大光圈，然后大光圈带来的一个弊端是使图片的景深急剧减小，而相机阵列可以克服大光圈带来景深小的问题[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">2]</a>（图4-图6）。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912347260.png" /></p>
+<p>当所有的子相机之间的距离都很大时，这时整个相机阵列可以看成是一个多中心投影相机（Multiple-Center-of-Projection Camera），整个相机阵列所产生的数据就叫做光场，通过这些数据，我们可以得到物体的多视角信息，为其3D重建提供重要信息。除此之外，可以利用图片中的多视角信息，构建全景照片[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">3</a>,<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">4]</a>，如图7所示。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912390488.png" /></p>
+<p>当所有的子相机之间的距离处于中等尺度时，这时整个相机阵列可以看作是一个拥有合成孔径（Synthetic Aperture）的相机：每个子相机作为一个子部分进行采样，多个相机的组合可以等效为一个具有更大光圈数的大孔径相机。这个相机能透过树枝或者人群看到其后面被遮挡物体的表面[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">5]</a>。在火车站等人流密集的地方，这项技术可以用来跟踪定位可疑的犯罪分子[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">6]</a>。图8是用普通的相机拍的照片，在这些树枝后面有一个雕像，在雕像后面后一些人，用普通相机无法透过树枝看到其后面的物体，而合成孔径的相机可以做到（图9）。在人群密集的场所，被跟踪的物体容易被遮挡，用合成孔径相机进行数字重对焦，能使前景的人群被严重的虚化，从而可以轻松透过人群监控其一举一动（图10-图11）。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912458976.png" /></p>
+<p>当被监控的物体所在的平面与相机阵列所在的平面不平行时，用合成孔径相机去监控物体，可能会导致计算量过大以及被监控物体不同部分不能同时清晰呈现的问题，幸运的是，Vaibhav Vaish等人[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">6]</a>发现，当不同对焦平面交于一条直线的时候（图14），可以完美的解决这个问题（图12-图15）。Vaibhav Vaish等人[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">7]</a>针对多视角的特点设计了多种重构图像的算法，分别基于对焦（Focus）特征、中值（Median）特征、立体（stereo）特征、熵（Entropy）特征、立体像素着色（Voxel Coloring）特征（图16-图22），周志良博士根据广场强度在遮拦物所对应的空间位置和投影方向上具有强相似性和小方差的特性[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">8]</a>，进一步提高了重构算法的性能（图23）。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912481384.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912514482.png" /></p>
+<p>当然，当被遮挡物体被严重遮挡的时候，由于每个子相机采集的信息太少，所以最终得不到理想的被遮挡物体的表面，为了解决这个问题，结合现有的成熟的城市监控系统，Tao Yang等人[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">9]</a>提出了一种新型的实时混合合成口径成像监控技术，它由两组相机阵列组成，一组从上而下监控，主要负责合成口径追踪，另外一组由一组横向排列的相机组成，主要负责合成口径成像（图24）。用这种方法，即使在物体被严重遮挡的情况下，仍然能依靠前一组的相机进行目标追踪。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912529760.png" /></p>
+<p>此外，整个相机阵列可以划分成多个子阵列，通过对不同子阵列设置不同的曝光时间，可以实现时间和空间上的孔径合成，从而用来解决低光环境下小光圈拍高速运动物体导致的模糊问题[<a href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference" target="_blank" rel="noopener">1]</a>。如图25所示，用小光圈长时间曝光的方法得到的图片虽然景深大，但是风扇的叶片由于长时间曝光而模糊了，如果通过缩短快门时间，叶片清晰的代价是整张图片曝光不足（图26），虽然可以通过调整对比度的方式来增强图片（图27），但是同时也产生噪点，另一方面，通过大光圈的方法拍摄（图28），又会使景深太小，导致背景物体不清晰，所以，如何确定光圈大小、曝光时间以及快门时间等参数是件很困难的事，幸运的是，采用相机阵列的混合型合成口径成像（Hybrid Synthetic Aperture Imaging），通过等效口径尺寸和曝光时间的控制，能够获得大景深且高速运动部分清晰的高信噪比图像（图29）。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912546459.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912562584.png" /></p>
+<p>综上所述，相机阵列通过利用不同视角的信息，以及更加广阔的视场范围，使其在合成孔径成像技术的焦点选择以及景深调节上有着先天的优势，同时，其高可拓展性以及低成本的优势，非常适合景物的识别以及追踪，已成为隐藏目标的检测与追踪的重要手段。</p>
+<p><strong>写在最后</strong></p>
+<p>总体来说，多相机阵列技术，在国外，斯坦福大学<a href="http://graphics.stanford.edu/projects/array/" target="_blank" rel="noopener">做的工作</a>比较多，很前沿的东西都是那边出来的。国内的话，西北工业大学，对，自己的母校，<a href="http://www.saiip-vision.org/tyang/index.html" target="_blank" rel="noopener">做的还是不错</a>。作为博士生课题的话，还是很适合的，新方向，容易出文章。可惜我对它不是太感兴趣，所以跟老板商量了一下，换了一个方向，主要是偏向工程的，我感觉这样才能发挥出我的优势，嘿嘿，希望能给有志在此方向发展的朋友点启发哈，发论文了，求挂名，O(∩_∩)O哈哈~</p>
+<p><strong>参考文献</strong></p>
+<p>[1] Wilburn, B., et al. <em>High performance imaging using large camera arrays</em>. in <em>ACM Transactions on Graphics (TOG)</em>. 2005. ACM.</p>
+<p>[2] Haeberli, P., <em>A multifocus method for controlling depth of field.</em> 1994.</p>
+<p>[3] Román, A. and H.P. Lensch. <em>Automatic multiperspective images</em>. in <em>Proceedings of the 17th Eurographics conference on Rendering Techniques</em>. 2006. Eurographics Association.</p>
+<p>[4] Roman, A., G. Garg, and M. Levoy. <em>Interactive design of multi-perspective images for visualizing urban landscapes</em>. in <em>Proceedings of the conference on Visualization'04</em>. 2004. IEEE Computer Society.</p>
+<p>[5] Vaish, V., et al. <em>Using plane+ parallax for calibrating dense camera arrays</em>. in <em>Computer Vision and Pattern Recognition, 2004. CVPR 2004. Proceedings of the 2004 IEEE Computer Society Conference on</em>. 2004. IEEE.</p>
+<p>[6] Vaish, V., et al. <em>Synthetic aperture focusing using a shear-warp factorization of the viewing transform</em>. in <em>Computer Vision and Pattern Recognition-Workshops, 2005. CVPR Workshops. IEEE Computer Society Conference on</em>. 2005. IEEE.</p>
+<p>[7] Vaish, V., et al. <em>Reconstructing occluded surfaces using synthetic apertures: Stereo, focus and robust measures</em>. in <em>Computer Vision and Pattern Recognition, 2006 IEEE Computer Society Conference on</em>. 2006. IEEE.</p>
+<p>[8] 周志良, <em>光场成像技术研究</em>. 2012, 中国科学技术大学.</p>
+<p>[9] Yang, T., et al. <em>Continuously tracking and see-through occlusion based on a new hybrid synthetic aperture imaging model</em>. in <em>Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference on</em>. 2011. IEEE.</p>
+<p>原文转自：https://www.cnblogs.com/coderyuhui/p/3745778.html</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\super-resolution-optical-microscopy.html" rel="bookmark">超分辨率光学成像</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-materials.html" rel="bookmark">3D打印材料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\mask-aligner-system.html" rel="bookmark">光刻机技术原理与发展趋势</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-tech.html" rel="bookmark">常见3D打印技术</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E7%A7%91%E7%A0%94/" rel="tag"># 科研</a>
+              <a href="/tags/%E8%A7%86%E8%A7%89/" rel="tag"># 视觉</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/super-resolution-optical-microscopy.html" rel="prev" title="超分辨率光学成像">
+      <i class="fa fa-chevron-left"></i> 超分辨率光学成像
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/3d-print-simulation.html" rel="next" title="3D打印仿真软件">
+      3D打印仿真软件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

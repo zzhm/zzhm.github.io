@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="智能材料还没有统一的定义。不过，现有的智能材料的多种定义仍然是大同小异。大体来说，智能材料就是指具有感知环境(包括内环境和外环境)刺激，对之进行分析、处理、判断，并采取一定的措施进行适度响应的智能特征的材料。智能材料又可以称为敏感材料，其英文翻译也有若干种，常用的有Intelligent material，Intelligent material and structure，Smart mater">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智能材料">
+<meta property="og:url" content="https://zymin.cn/arcticle/smart-material.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="智能材料还没有统一的定义。不过，现有的智能材料的多种定义仍然是大同小异。大体来说，智能材料就是指具有感知环境(包括内环境和外环境)刺激，对之进行分析、处理、判断，并采取一定的措施进行适度响应的智能特征的材料。智能材料又可以称为敏感材料，其英文翻译也有若干种，常用的有Intelligent material，Intelligent material and structure，Smart mater">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560822910671.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560824176107.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560826839695.png">
+<meta property="og:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560827125078.png">
+<meta property="article:published_time" content="2019-06-17T08:17:20.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.135Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="材料">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560822910671.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/smart-material.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>智能材料 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/smart-material.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          智能材料
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-17 16:17:20" itemprop="dateCreated datePublished" datetime="2019-06-17T16:17:20+08:00">2019-06-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/" itemprop="url" rel="index"><span itemprop="name">科普</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>智能材料还没有统一的定义。不过，现有的智能材料的多种定义仍然是大同小异。大体来说，智能材料就是指具有感知环境(包括内环境和外环境)刺激，对之进行分析、处理、判断，并采取一定的措施进行适度响应的智能特征的材料。智能材料又可以称为敏感材料，其英文翻译也有若干种，常用的有Intelligent material，Intelligent material and structure，Smart material，Smart material and structure，Adaptive material and structure等。</p>
+<p>智能材料的构想来源于仿生学，它的目标就是想研制出一种材料，使它成为具有类似于生物的各种功能的“活”的材料。因此智能材料必须具备感知、驱动和控制这三个基本要素。但是现有的材料一般比较单一，难以满足智能材料的要求，所以智能材料一般由两种或两种以上的材料复合构成一个智能材料系统。这就使得智能材料的设计、制造、加工和性能结构特征均涉及到了材料学的最前沿领域，使智能材料代表了材料科学的最活跃方面和最先进的发展方向。</p>
+<a id="more"></a>
+<h2 id="智能材料的内涵">1. 智能材料的内涵</h2>
+<p>因为设计智能材料的两个指导思想是材料的<strong>多功能复合和材料的仿生设计</strong>，所以智能材料系统具有或部分具有如下的智能功能和生命特征：</p>
+<p>(1)传感功能（Sensor），能够检测并且可以识别外界(或者内部)的刺激强度，如电，光，热，应力，应变，化学，核辐射等。</p>
+<p>(2)反馈功能（Feedback），可通过传感网络，对系统输入与输出信息进行对比，并将其结果提供给控制系统。</p>
+<p>(3)信息识别与积累功能，能够识别传感网络得到的各类信息并将其积累起来。</p>
+<p>(4)响应功能，能够根据外界环境和内部条件变化，适时动态地作出相应的反应，并采取必要行动。</p>
+<p>(5)自诊断能力（Self-diagnosis），能通过分析比较系统目前的状况与过去的情况，对诸如系统故障与判断失误等问题进行自诊断并予以校正。</p>
+<p>(6)自修复能力（Self-recovery），能通过自繁殖、自生长、原位复合等再生机制，来修补某些局部损伤或破坏。</p>
+<p>(7)自调节能力（Self-adjusting），对不断变化的外部环境和条件，能及时地自动调整自身结构和功能，并相应地改变自己的状态和行为，从而使材料系统始终以一种优化方式对外界变化作出恰如其分的响应。</p>
+<h2 id="智能材料的构成">2.智能材料的构成</h2>
+<p>一般来说智能材料由基体材料、敏感材料、驱动材料和信息处理器四部分构成。</p>
+<h3 id="基体材料">2.1 基体材料</h3>
+<p>基体材料担负着承载的作用，一般宜选用轻质材料。一般基体材料首选高分子材料，因为其重量轻、耐腐蚀，尤其具有粘弹性的非线性特征。其次也可选用金属材料，以轻质有色合金为主。</p>
+<h3 id="敏感材料">2.2 敏感材料</h3>
+<p>敏感材料担负着传感的任务，其主要作用是感知环境变化（包括压力、应力、温度、电磁场、pH值等）。常用敏感材料如形状记忆材料、压电材料、光纤材料、磁致伸缩材料、电致变色材料、电流变体、磁流变体和液晶材料等。</p>
+<h3 id="驱动材料">2.3 驱动材料</h3>
+<p>因为在一定条件下，驱动材料可产生较大的应变和应力，所以它担负着响应和控制的任务。常用有效驱动材料如形状记忆材料、压电材料、电流变体和磁致伸缩材料等。可以看出，这些材料既是驱动材料又是敏感材料，显然起到了身兼二职的作用，这也是智能材料设计时可采用的一种思路。</p>
+<h3 id="其它功能材料">2.4 其它功能材料</h3>
+<p>包括导电材料、磁性材料、光纤和半导体材料等。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560822910671.png" /></p>
+<h2 id="智能材料的分类">3. 智能材料的分类</h2>
+<p>智能材料是继天然材料、人造材料、精细材料之后的第四代功能材料。因为现在可用于智能材料的材料种类不断扩大，所以智能材料的分类也只能是粗浅的，分类方法也有多种，若按智能材料的功能来分，可以分为光导纤维、形状记忆合金、压电、电流变体和电（磁）致伸缩材料等。若按智能材料的来源来分，可以分为金属系智能材料、无机非金属系智能材料和高分子系智能材料。</p>
+<p>目前研究开发的金属系智能材料主要有形状记忆合金和形状记忆复合材料两大类；无机非金属系智能材料在电流变体、压电陶瓷、光致变色和电致变色材料等方面发展较快；高分子系智能材料的范围很广泛，作为智能材料的刺激响应性高分子凝胶的研究和开发非常活跃，其次还有智能高分子膜材、智能高分子粘合剂、智能型药物释放体系和智能高分子基复合材料等。</p>
+<h2 id="智能材料的应用领域">4. 智能材料的应用领域</h2>
+<h3 id="在军事领域中的应用">4.1 在军事领域中的应用</h3>
+<p>因为智能材料结构不仅象一般功能材料一样可以承受载荷，而且它还具有了其他功能材料所不具备的功能，即能感知所处的内外部环境变化，并能通过改变其物理性能或形状等做出响应，借此实现自诊断、自适应、自修复等功能。所以，智能材料在军事应用中具有很大潜力，它的研究、开发和利用，对未来武器装备的发展将产生重大影响。 目前，在各种军事领域中，智能材料的应用主要涉及到以下几个方面： #### （1）智能蒙皮 例如，作为智能传感元件的光纤用于飞机机翼的智能蒙皮中；在武器平台的蒙皮中植入传感元件、驱动元件和微处理控制系统制成的智能蒙皮，可用于预警、隐身和通信。目前美国在智能蒙皮方面的研究包括：美国弹道导弹防御局为导弹预警卫星研制含有多种传感器的智能蒙皮；美国海军则重点研究舰艇用智能蒙皮，以提高舰艇的隐身性能。 #### （2）结构监测和寿命预测 智能结构可用于实时测量结构内部的应变、温度、裂纹，探测疲劳和受损伤情况，从而能够对结构进行监测和寿命预测。例如，采用光纤传感器阵列和聚偏氟乙烯传感器的智能结构可对机翼、机架以及可重复使用航天运载器进行全寿命期实时监测、损伤评估和寿命预测；空间站等大型在轨系统采用光纤智能结构，可实时探测由于交会对接碰撞、陨石撞击或其他原因引起的损伤，对损伤进行评估，实施自诊断。正在研究的自诊断智能结构技术有：光纤传感器自诊断技术；可以测量裂纹的“声音”传感器自诊断技术；可监测复合材料层裂的传感器自诊断技术等。 #### （3）减振降噪 智能结构用于航空、航天系统可以消除系统的有害振动，减轻对电子系统的干扰，提高系统的可靠性。如美国防高级研究计划局资助波音公司研制的直升机智能结构旋翼叶片，可以改善旋翼的空气动力学性能，减小振动和噪音。智能结构用于舰艇，可以抑制噪声传播，提高潜艇和军舰的声隐身性能。智能结构用于地面车辆，可以提高军用车辆的性能和乘坐的舒适度。国外正在研究的具有减振降噪功能的智能结构，主要由压电陶瓷、形状记忆合金和电致伸缩等新材料制成。 #### （4）环境自适应结构 智能结构制成的自适应机翼，能够实时感知外界环境的变化，并可以驱动机翼弯曲、扭转，从而改变翼型和攻角，以获得最佳气动特性，降低机翼阻力系数，延长机翼的疲劳寿命。如当飞机在飞行过程中遇到涡流或猛烈的逆风时，机翼中的智能材料就能够迅速变形，并带动机翼改变形状，从而消除涡流或逆风的影响，使飞机仍能平衡地飞行。 美国的一项研究表明，在机翼结构中使用磁致伸缩致动器，可使机翼阻力降低85%。美国波音公司和麻省理工学院联合研究在桨叶中嵌入智能纤维，电致流变体时可使桨叶扭转变形达几度。美国陆军在开发直升机旋翼主动控制技术，将用于RAH-66武装直升机。美国防部和航空航天局也在研究自适应结构，包括翼片弯曲、弯曲造型/控制面造型等。 相信在不久的将来，我们用智能材料制成的飞机机翼，就可以像鱼尾巴一样行动自如、自行弯曲、自动改变形状，从而改进升力和阻力，使飞机飞得更高、更快。</p>
+<h3 id="智能材料与住宅智能化">4.2 智能材料与住宅智能化</h3>
+<p>未来的住宅可能是这样的：墙壁可以随心所欲的变换颜色；椅子可以随人体不同的需要改变温度和形状；一切的电器都是触摸式的，永远不会再有触电的危险；可视电话带有传感功能；等等。随着智能材料的发展，尤其是毫微塑料设想的提出，有可能设计出智能化住宅。虽然目前还处于设想阶段，但是已经开始着手进行研究，并且必然将在不久的将来成为现实，几种未来的智能产品如下： #### （1）多功能砖 多功能砖用来构建整个房屋的结构单元，这种结构单元具有变通性和智能性。这种多功能砖主要由以下三个分层构成：第一层是功能层，能感受来自周围的声能、热能、光能，并能控制这些能量的输出，如果是内墙壁砖，还能控制和改变墙的功能；第二层是通讯层，能为居住者提供内外通信联系的通道；第三层是输送通道，可以用来输送水和其它材料。 住户还可以挑选合适的带“面膜”的砖材。另外，面膜的设置及其构形并不是一成不变的，而是很容易剥离并换上新的面膜。面膜在砖材的最上层，它也具有多功能性。如壁膜可以使墙壁产生不同的色彩和图案；传感膜可以接收声波、热能和可见光并予以减弱或增强；地膜可产生耐久的色彩和图案；界面膜可连接内外通信线路。</p>
+<h4 id="食物器皿">（2）食物器皿</h4>
+<p>在未来的厨房里不会看到传统的碗碟。在毫微塑料的桌面上，旋转的碗不仅能测知食物的存在，而且可以根据用户的需要自动形成各种形状的碟子，供准备、烹调和上菜时使用。并且，这种盛食物的碗还具有保温和在不使用冰箱的情况下保鲜的功能。 #### （3）座椅 用毫微塑料制作的坐椅不仅功能将大大增加，而且也将增加舒适程度。使用毫微塑料能改变椅座面的柔韧性和弹性，也可以形成各种型式的椅座面。如果出于美学的考虑，或是便于人们入座或从座椅中站起，毫微塑料也可以形成所需的任何图案或结构，还能改变座椅本身的结构。由于不同年龄段的人对温度舒适性的要求有很大区别，这种座椅还可以随心所欲地升温和降温。它甚至还对人们喜爱的舒适温度具有记忆功能。 #### （4）卫生间 在卫生间里，常见设施是洗脸盆、抽水马桶和淋浴器。采用了智能结构的卫生间是这样的：在洗漱时，人们只要接触洗脸盆支架表面的任何区域，就能调节控制水温、水速和水流的状态（集中喷射的水流或宽阔的水帘状等）供人们选择。洗脸盆上方的镜子能照出人的正常反转象，还能照出真实的非反转象。抽水马桶的形状和大小可随使用者的不同而自动变化；坐垫自动加热至舒适的温度，整个结构十分轻便。 在电脑住宅的厕所里，安装了一台检查身体的电脑系统，每当有人上厕所时，与马桶相连的体检装置即自动分析大小便的情况，如发现异常，电脑会立即发出警报，以便及时到医院去看病。淋浴设备只要和多功能砖相连接，上下水、水温和水流都能得到自动控制和调节。综上所述，未来的智能化住宅必将显著提高人们的生活质量 。</p>
+<h3 id="与现代医学相联系的智能材料">4.3 与现代医学相联系的智能材料</h3>
+<h4 id="人造肌肉">（1）人造肌肉</h4>
+<p>因为生物弹性材料能模拟活体生物，而且其力量和反应速度均接近于人体的肌肉。所以这种材料可以应用于人体组织的修复，而且它们还具有与生物体的相容性，随着伤口的愈合，这种聚合物就会在体内逐渐降解，最后将会消失。 #### （2）人造皮肤 人造皮肤智能材料，可以感知温度、热流的变化以及各种应力的大小，并且有良好的空间分辨力。这种智能材料还可以分辨表面状况，例如，粗糙度、摩擦力等。 #### （3）在药物自动投入系统上的应用 科学家正在研制一种能根据血液中的葡萄糖浓度而扩张收缩的聚合物，这种聚合物可制成人造胰细胞，将它注入糖尿病患者的血液中，小球就可模拟胰细胞工作，使病人的血糖浓度始终保持在平常的水平上。 #### （4）智能材料的两种抗癌应用　　 如图所示是一种有效的抗癌药物胶囊，即药物“导弹”。图中的疏水性药物载体形成了“导弹”的疏水内核，而亲水性部分则在内核周围形成了一个水化物外壳。所形成的这种高分子聚合物胶囊是一种智能型药物载体，它能自动避免被机体内单核吞噬细胞捕获而有效的到达癌细胞所在地。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560824176107.png" /></p>
+<p>90年代后期，研制出用对电磁场敏感的铁氧体包覆Ti-Ni形状记忆合金丝制成了癌症温热疗法用针。首先，通过导管将这种针植入病人癌变部位，由于形状记忆作用，这种针会发生弯曲变形现象；其次，在通过涡流效应产生高频电磁场作用下，形状记忆合金针将能够产生一定的热量而使癌变区得到萎缩。</p>
+<h3 id="主动结构声控">4.4 主动结构声控</h3>
+<p>智能材料系统中最成熟的应用领域大概就是主动结构声控。采用智能结构进行主动结构声控是降低军用系统噪声的有效途径。 一般说来，可以采用两种方法来实现主动结构声控。一种是简单地使结构完全停止振动，显然它可以使声辐射降低到零，这是一种强制性的方法，往往也是办不到的。 另一种就是采用智能控制方法，它是指有选择地控制辐射振动模。该方法的效率取决于对材料系统相互作用的基本物理现象的认识和智能材料系统的自适应能力。</p>
+<p>因为，并不是所有的振动模都辐射“具有危险性”的声波，减少系统的质量和功耗也同样是必须考虑的因素。因而最好的办法是“感觉”辐射“具有危险性”的辐射波振动模，并使用分布在整个结构中的作动器（压电材料或电致流变体）对产生的该振动模进行控制。美国军方提出采用主动声控涂层进行声信号抑制，提高潜艇主动隐身性能。这项技术将使噪声降低60分贝，并使潜艇探测目标的时间缩短100倍。这种主动声控涂层将采用压电涂层材料和采用电致流变体技术的主动消声贴片。</p>
+<h3 id="主动震动声控">4.5 主动震动声控</h3>
+<p>震动会极大地降低工程系统的性能，如降低对地观测卫星的传感器精度，减弱跟踪和预警卫星跟踪目标的能力，使制导武器性能下降，导致系统金属结构的疲劳破坏，此外还会干扰空间站的微重力环境等。 采用压电材料、形状记忆合金或电致流变体的智能结构均可实现振动的主动控制，提高军用系统的性能。如采用智能结构进行主动震动控制，可降低直升机旋翼的振动振幅以及产生可控的扭曲形变，提高直升机的有效载荷，使速度增加，戒备能力提高。 空间系统的主动震动控制智能结构，主要采用压电陶瓷或电致伸缩材料作为作动器。考虑的主要因素是低功耗、耐久性、疲劳特性、稳定性和温度／环境效应等问题，同时还考虑控制器的小型化。 传感器可用光纤和压电材料。当系统结构受到外力作用振动并产生形变时，压电应变传感器可产生与压力成正比的表面电荷，控制系统对传感器测量的信号进行处理后，再给压电作动器反馈一个适当的电压，使其产生反向变形力，从而产生对系统结构的阻尼作用，使系统结构的振动随之迅速减弱。 自适应结构的主动振动控制，另一项主要应用是可能消除航天器控制系统与柔性结构的相互干扰作用。未来大型柔性航天结构因其振动频率低于控制系统的频率，会导致有害的控制／结构干扰作用。必须从结构优化、阻尼减振方面考虑。 在地震多发区应用智能结构的建筑物通过振动控制，将大大提高建筑物的抗震性。</p>
+<h2 id="主要智能材料">5. 主要智能材料</h2>
+<p>常见智能材料有：形状记忆合金；电流变体和磁流变体；磁致伸缩材料；压电陶瓷；电致伸缩陶瓷； 智能材料系统；光致变色玻璃；电致变色材料。</p>
+<h3 id="形状记忆合金">5.1 形状记忆合金</h3>
+<p>一般金属材料受到外力作用后，首先发生弹性变形，达到屈服点，就产生塑性变形，应力消除后留下永久变形。但有些材料，在发生了塑性变形后，经过合适的热过程，能够回复到变形前的形状，这种现象叫做形状记忆效应（SME）。具有形状记忆效应的材料，一般是两种以上金属元素组成的合金，称为形状记忆合金（SMA）。 #### 形状记忆合金可以分为三种： 单程记忆效应：形状记忆合金在较低的温度下变形，加热后可恢复变形前的形状，这种只在加热过程中存在的形状记忆现象称为单程记忆效应。 双程记忆效应“某些合金加热时恢复高温相形状，冷却时又能恢复低温相形状，称为双程记忆效应。 全程记忆效应：加热时恢复高温相形状，冷却时变为形状相同而取向相反的低温相形状，称为全程记忆效应。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560826839695.png" /></p>
+<p>目前，已开发成功的形状记忆合金有TiNi基形状记忆合金、铜基形状记忆合金、铁基形状记忆合金等。</p>
+<h4 id="形状记忆合金的具体应用">形状记忆合金的具体应用</h4>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560827125078.png" /></p>
+<p>工业应用： （1）利用单程形状记忆效应的单向形状恢复。如管接头、天线、套环等。 （2）外因性双向记忆恢复。即利用单程形状记忆效应并借助外力随温度升降做反复动作，如热敏元件、机器人、接线柱等。 （3）内因性双向记忆恢复。即利用双程记忆效应随温度升降做反复动作，如热机、热敏元件等。但这类应用记忆衰减快、可靠性差，不常用。 （4）超弹性的应用。如弹簧、接线柱、眼镜架等。 医学应用： TiNi合金的生物相容性很好，利用其形状记忆效应和超弹性的医学实例相当多。如血栓过滤器、脊柱矫形棒、牙齿矫形丝、脑动脉瘤夹、接骨板、髓内针、人工关节、心脏修补元件、人造肾脏用微型泵等。 应用展望： 形状记忆材料兼有传感和驱动的双重功能，可以实现控制系统的微型化和智能化，如全息机器人、毫米级超微型机械手等。21世纪将成为材料电子学的时代。形状记忆合金的机器人的动作，除了温度外，不受任何环境条件的影响，可望在反应堆、加速器、太空实验室等高技术领域大手。</p>
+<h3 id="电流变体和磁流变体">5.2 电流变体和磁流变体</h3>
+<p>电致、磁致变体智能材料大多是由合成材料或陶瓷材料制成的，具有在电场或磁场的作用下发生变性的能力，其变化的大小与电场和磁场的强度有关。 科学家研制成功一种电致变性材料，这种材料在接通电流时，可以从液体变为接近固体。如果向空心复合梁中充入电流变性液体材料，在外电场的作用下，这种液体材料就会变硬，从而使梁变成僵硬状。将电致变性现象与传感器结合起来，就可以实现使复合梁随着负载的变化而改变其性质。这将是装配结构智能化的一个突破性的新起点。电致变性材料还可以用作在地震时能自动加固建筑物的基础。此外，磁致变性材料在机电工业中也有广泛的用途。</p>
+<h3 id="磁致伸缩材料">5.3 磁致伸缩材料</h3>
+<p>目前磁致伸缩智能材料的主流是稀土磁致伸缩材料，稀土超磁致伸缩材料是近期才发展起来的一种新型功能材料。磁致伸缩材料在电磁场的作用下可以产生微变形或声能，也可以将微变形或声能转化为电磁能。磁致伸缩智能材料具有磁致伸缩值大、机械响应速度快和功率密度高特点，在国防、航空航天和高技术领域应用极为广泛。 磁致伸缩智能材料的主要用途 （1）由于稀土超大磁致伸缩材料比传统材料在性能上有了惊人的提高，所以在电器、家电、通讯器材、电脑等生产领域，稀土磁致伸缩材料逐渐取代了传统的磁致伸缩材料和电致伸缩材料，使产品升级和更新换代更加容易。 （2）由于稀土超大磁致伸缩材料的独特的性能，可被用于开发新一代的元器件，如精密控制系统（如油料控制、导弹发射控制装置等），声光发射系统（如信号处理、声纳扫描、超声、水声等），以及换能器、驱动器等的开发。<br />
+对于磁致伸缩智能材料的应用，目前，美国位居各国之首，其成功标志在于开发出了一系列用于军事目的的尖端产品，如舰艇水下声纳探测系统以及导弹发射控制装置等。我国对磁致伸缩智能材料新产品的开发也呈现出良好的发展势头。如开发出的大功率岩体声波探测器，应用于三峡工程和地球物理勘探；开发出的井下物理法采油装置；</p>
+<h3 id="压电陶瓷">5.4 压电陶瓷</h3>
+<p>压电效应：在某些晶体材料上施加机械力时，晶体表面会产生电荷，这种现象称正压电效应。在一定范围内，电荷密度与作用力成正比。在晶体上施加电场时，晶体会产生几何变形，称逆压电效应。晶体的对称性决定了材料能否产生压电性。而且，压电效应只存在于没有对称中心的晶体中。 压电效应的本质：机械作用(应力与应变)引起了晶体的极化，从而导致介质两端表面出现相反的束缚电荷。</p>
+<h3 id="电致伸缩陶瓷">5.5 电致伸缩陶瓷</h3>
+<p>压电材料加上电场之后，不仅存在逆压电效应产生的应变，而且还存在一般电介质在电场作用下产生的应变，并且该应变与电场强度的平方成正比，后一效应称为电致伸缩效应。电致伸缩陶瓷是利用电致伸缩效应产生微小应变，并能由电场非常精确地加以控制的陶瓷。由于高阶耦合效应非常微弱，通常电致伸缩效应是指二阶效应。大多数材料的电致伸缩效应都非常小，而在电致伸缩陶瓷中，此效应为应变的主体。</p>
+<h3 id="智能材料系统">5.6 智能材料系统</h3>
+<p>兼具传感与驱动性能的压电陶瓷，在构筑智能系统的功能材料中，是重要的材料之一。压电材料具有机电、声、光、热、弹等多种功能及其耦合效应，可用作压力、温度、光等多种传感器。压电驱动器又具有位移控制精度高(0.01m)、响应快(10s)、推动力大(40MPa)、驱动功率低和工作频率宽等优点。 一些实用化及正进行研究的压电类智能材料系统如下： (1)智能雨刷 ：利用BaTiO3陶瓷的压电效应制成的，它可以自动感觉雨量并自动调节挡风玻璃上的雨刷至最佳速度。 (2)高级轿车中的减震装置：这是利用正压电效应、逆压电效应和电致伸缩效应的叠合研制成的智能减震器，这套智能系统具有识别路面(粗糙度)并进行自我调节的功能，可以使粗糙路面产生的振动减至最低，从而提高乘坐舒适性。 (3)有源消声：用于振动频率低于500Hz的消声，是由压电陶瓷拾音器、谐振器、模拟声线圈和数字信号处理集成电路组成。 (4)智能安全系统及智能传输系统 (5)利用组合功能效应来设计和制备新型智能材料和器件：这类智能材料系统，是由两种或两种以上功能陶瓷进行组合后形成的一种新型复合陶瓷功能块，这种复合功能块会呈现一些新效应，称为组合功能效应。 (6)用压电陶瓷制备仿生物：模仿自然界生物具有的特性构思仿生物，研究像尾鳍和鸟翼那样柔软，能折叠又很结实的智能材料用作智能机翼，并有效利用自然界的波浪和风能。 (7)压电陶瓷马达：它是利用压电陶瓷的逆压电效应，直接把电能转换成机械能输出，而不需要通常使用的电磁线圈。这种新型压电陶瓷马达，具有结构简单、起动快、转矩大、体积小、功耗低等特点，主要用作自动控制、机器人等的致动器。它是由若干层锆钛酸铅(PZT)压电陶瓷块构成的，压电块既作为传感器又作为执行器。 (8)光致变色玻璃：是一种能在光的激发下发生变色反应的玻璃。 (9)电致变色材料：电致变色的原理是在外加电场作用下，材料由于电子、离子的双注入导致结构或价态发生可逆变化，进而调节材料的透过与反射特性，表现为材料颜色的变化。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>[1] <a href="https://3dprint.ofweek.com/2016-12/ART-132107-8420-30080970.html" target="_blank" rel="noopener">详谈记忆合金在国内如何发展？</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-materials.html" rel="bookmark">3D打印材料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\yingdu.html" rel="bookmark">材料硬度测试和表示方法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\nondestructive-testing-of-new-materials.html" rel="bookmark">科研：新材料无损检测技术</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\3d-print-simulation.html" rel="bookmark">3D打印仿真软件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\125questions.html" rel="bookmark">science公布的125个前沿科学问题及其解读</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E6%9D%90%E6%96%99/" rel="tag"># 材料</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/yingdu.html" rel="prev" title="材料硬度测试和表示方法">
+      <i class="fa fa-chevron-left"></i> 材料硬度测试和表示方法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/blood-report.html" rel="next" title="教你如何看懂血常规报告">
+      教你如何看懂血常规报告 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#智能材料的内涵"><span class="nav-number">1.</span> <span class="nav-text">1. 智能材料的内涵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能材料的构成"><span class="nav-number">2.</span> <span class="nav-text">2.智能材料的构成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基体材料"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 基体材料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#敏感材料"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 敏感材料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#驱动材料"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 驱动材料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它功能材料"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 其它功能材料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能材料的分类"><span class="nav-number">3.</span> <span class="nav-text">3. 智能材料的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能材料的应用领域"><span class="nav-number">4.</span> <span class="nav-text">4. 智能材料的应用领域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在军事领域中的应用"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 在军事领域中的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#智能材料与住宅智能化"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 智能材料与住宅智能化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#食物器皿"><span class="nav-number">4.2.1.</span> <span class="nav-text">（2）食物器皿</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与现代医学相联系的智能材料"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 与现代医学相联系的智能材料</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#人造肌肉"><span class="nav-number">4.3.1.</span> <span class="nav-text">（1）人造肌肉</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主动结构声控"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 主动结构声控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主动震动声控"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 主动震动声控</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要智能材料"><span class="nav-number">5.</span> <span class="nav-text">5. 主要智能材料</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#形状记忆合金"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 形状记忆合金</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#形状记忆合金的具体应用"><span class="nav-number">5.1.1.</span> <span class="nav-text">形状记忆合金的具体应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电流变体和磁流变体"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 电流变体和磁流变体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁致伸缩材料"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 磁致伸缩材料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压电陶瓷"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 压电陶瓷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电致伸缩陶瓷"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 电致伸缩陶瓷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#智能材料系统"><span class="nav-number">5.6.</span> <span class="nav-text">5.6 智能材料系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

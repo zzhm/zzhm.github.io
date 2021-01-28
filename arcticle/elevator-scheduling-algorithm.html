@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="不管你是在北上广还是在港澳台，甚至三四线城市，凡是有规模的地区，高楼比比皆是。不管是写字楼，还是大型商城，让你最头痛的就是乘电梯，尤其是在赶时间的时候。本文对“骂电梯”不给予任何指导性建议。但说起电梯调度算法，我觉得还是可以给大家科普一下，好为大家在等电梯之余，打发时间而做出一点贡献。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科普：电梯调度算法">
+<meta property="og:url" content="https://zymin.cn/arcticle/elevator-scheduling-algorithm.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="不管你是在北上广还是在港澳台，甚至三四线城市，凡是有规模的地区，高楼比比皆是。不管是写字楼，还是大型商城，让你最头痛的就是乘电梯，尤其是在赶时间的时候。本文对“骂电梯”不给予任何指导性建议。但说起电梯调度算法，我觉得还是可以给大家科普一下，好为大家在等电梯之余，打发时间而做出一点贡献。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-04T05:30:58.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.151Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="科普">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="常识">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/elevator-scheduling-algorithm.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>科普：电梯调度算法 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/elevator-scheduling-algorithm.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科普：电梯调度算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-04 13:30:58" itemprop="dateCreated datePublished" datetime="2018-05-04T13:30:58+08:00">2018-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>不管你是在北上广还是在港澳台，甚至三四线城市，凡是有规模的地区，高楼比比皆是。不管是写字楼，还是大型商城，让你最头痛的就是乘电梯，尤其是在赶时间的时候。本文对“骂电梯”不给予任何指导性建议。但说起电梯调度算法，我觉得还是可以给大家科普一下，好为大家在等电梯之余，打发时间而做出一点贡献。</p>
+<a id="more"></a>
+<h2 id="传统电梯调度算法">传统电梯调度算法</h2>
+<h2 id="先来先服务算法fcfs">1.1 先来先服务算法（FCFS）</h2>
+<p>先来先服务（FCFS-First Come First Serve）算法，是一种随即服务算法，它不仅仅没有对寻找楼层进行优化，也没有实时性的特征，它是一种最简单的电梯调度算法。 它根据乘客请求乘坐电梯的先后次序进行调度。此算法的优点是公平、简单，且每个乘客的请求都能依次地得到处理，不会出现某一乘客的请求长期得不到满足的情况。这种方法在载荷较轻松的环境下，性能尚可接受，但是在载荷较大的情况下，这种算法的性能就会严重下降，甚至恶化。 人们之所以研究这种在载荷较大的情况下几乎不可用的算法，有两个原因： - 任何调度算法在请求队列长度为1时，请求速率极低或相邻请求的间隔为无穷大时使用先来先服务算法既对调度效率不会产生影响，而且实现这种算法极其简单。 - 先来先服务算法可以作为衡量其他算法的标准。</p>
+<h3 id="最短寻找楼层时间优先算法sstf">1.2 最短寻找楼层时间优先算法（SSTF）</h3>
+<p>最短寻找楼层时间优先（SSTF-Shortest Seek Time First）算法，它注重电梯寻找楼层的优化。最短寻找楼层时间优先算法选择下一个服务对象的原则是最短寻找楼层的时间。这样请求队列中距当前能够最先到达的楼层的请求信号就是下一个服务对象。 在重载荷的情况下，最短寻找楼层时间优先算法的平均响应时间较短，但响应时间的方差较大，原因是队列中的某些请求可能长时间得不到响应，出现所谓的“饿死”现象。</p>
+<h3 id="扫描算法scan">1.3 扫描算法（SCAN）</h3>
+<p>扫描算法（SCAN）是一种按照楼层顺序依次服务请求，它让电梯在最底层和最顶层之间连续往返运行，在运行过程中响应处在于电梯运行方向相同的各楼层上的请求。 它进行寻找楼层的优化，效率比较高，但它是一个非实时算法。扫描算法较好地解决了电梯移动的问题，在这个算法中，每个电梯响应乘客请求使乘客获得服务的次序是由其发出请求的乘客的位置与当前电梯位置之间的距离来决定的。 所有的与电梯运行方向相同的乘客的请求在一次电向上运行或向下运行的过程中完成，免去了电梯频繁的来回移动。扫描算法的平均响应时间比最短寻找楼层时间优先算法长，但是响应时间方差比最短寻找楼层时间优先算法小，从统计学角度来讲，扫描算法要比最短寻找楼层时间优先算法稳定。</p>
+<h3 id="look-算法">1.4 LOOK 算法</h3>
+<p>LOOK算法是扫描算法（SCAN）的一种改进。对LOOK算法而言，电梯同样在最底层和最顶层之间运行。但当 LOOK算法发现电梯所移动的方向上不再有请求时立即改变运行方向，而扫描算法则需要移动到最底层或者最顶层时才改变运行方向。</p>
+<h3 id="satf-算法">1.5 SATF 算法</h3>
+<p>SATF（Shortest Access Time First）算法与 SSTF 算法的思想类似，唯一的区别就是SATF 算法将 SSTF 算法中的寻找楼层时间改成了访问时间。这是因为电梯技术发展到今天，寻找楼层的时间已经有了很大地改进，但是电梯的运行当中等待乘客上梯时间却不是人为可以控制。SATF 算法考虑到了电梯运行过程中乘客上梯时间的影响。</p>
+<h2 id="实时电梯调度算法">实时电梯调度算法</h2>
+<h3 id="最早截止期优先调度算法">2.1 最早截止期优先调度算法</h3>
+<p>最早截止期优先（EDF-Earliest Deadline First）调度算法是最简单的实时电梯调度算法，它的缺点就是造成电梯任意地寻找楼层，导致极低的电梯吞吐率。它与 FCFS 调度算法类似，EDF 算法是电梯实时调度算法中最简单的调度算法。它响应请求队列中时限最早的请求，是其它实时电梯调度算法性能衡量的基准和特例。</p>
+<h3 id="scan-edf-算法">2.2 SCAN-EDF 算法</h3>
+<p>SCAN-EDF 算法是 SCAN 算法和 EDF 算法相结合的产物。SCAN-EDF 算法先按照 EDF 算法选择请求列队中哪一个是下一个服务对象，而对于具有相同时限的请求，则按照 SCAN算法服务每一个请求。它的效率取决于有相同 deadline  的数目，因而效率是有限的。</p>
+<h3 id="pi-算法">2.3 PI 算法</h3>
+<p>PI（Priority Inversion）算法将请求队列中的请求分成两个优先级，它首先保证高优先级队列中的请求得到及时响应，再搞优先级队列为空的情况下在相应地优先级队列中的请求。</p>
+<h3 id="fd-scan-算法">2.4 FD-SCAN 算法</h3>
+<p>FD-SCAN（Feasible Deadline SCAN）算法首先从请求队列中找出时限最早、从当前位置开始移动又可以买足其时限要求的请求，作为下一次SCAN 的方向。并在电梯所在楼层向该请求信号运行的过程中响应处在与电梯运行方向相同且电梯可以经过的请求信号。这种算法忽略了用 SCAN算法相应其它请求的开销，因此并不能确保服务对象时限最终得到满足。</p>
+<h2 id="电梯调度高水平研究">电梯调度高水平研究</h2>
+<p>以上两结介绍了几种简单的电梯调度算法。但是并不是说目前电梯调度只发展到这个层次。目前电梯的控制技术已经进入了电梯群控的时代。随着微机在电梯系统中的应用和人工智能技术的发展，智能群控技术得以迅速发展起来。由此，电梯的群控方面陆续发展出了一批新方法，包括：<strong>基于专家系统的电梯群控方法、基于模糊逻辑的电梯群控方法、基于遗产算法的电梯群控方法、基于胜景网络的电梯群控方法和基于模糊神经网络的电梯群控方法。</strong></p>
+<h2 id="电梯问题的需求分析">电梯问题的需求分析</h2>
+<h3 id="电梯的初始状态">4.1 电梯的初始状态</h3>
+<p>本人设置的电梯的初始状态，是对住宅楼的电梯的设置。 (1)建筑共有21层，其中含有地下一层（地下一层为停车场）。 (2)建筑内部设有两部电梯，编号分别为A梯、B梯。 (3)电梯内部有23个按钮，其中包括开门按钮、关门按钮和楼层按钮，编号为-1，1，2，3，4……20。 (4)电梯外部含有两个按钮，即向上运行按钮和向下运行按钮。建筑顶层与地下一层例外，建筑顶层只设置有向下运行按钮，地下一层只设置有向上运行按钮。 (5)电梯开关门完成时间设定为1秒。电梯到达每层后上下人的时间设定为8秒。电梯从静止开始运行到下一层的时间设置为2秒，而运行中通过一层的时间为1秒。 (6)在凌晨2：00——4：30之间，如若没有请求信号，A梯自动停在14层，B梯自动停在6层。 (7)当电梯下到-1层后，如果没有请求信号，电梯自动回到1层。</p>
+<h3 id="电梯基本功能">4.2 电梯基本功能</h3>
+<p>每一架电梯都有一个编号，以方便监控与维修。每一架电梯都有一实时监控器，负责监控电梯上下，向电梯升降盒发送启动、制动、加速、减速、开关电梯门的信号。若电梯发生故障，还应向相应的电梯负责人发送求救信号。</p>
+<h3 id="电梯按钮功能">4.3 电梯按钮功能</h3>
+<p><strong>电梯内部的楼层按钮</strong>：电梯内部对应每一个楼层的按钮成为楼层按钮，即本章第一结提到的编号为-1，1，2，3，4……20的按钮。当乘客进入电梯后按下楼层按钮，此按钮显示灰色，代表不可以用。这样就表示乘客将要去往此层，电梯将开往相应层。当电梯到达该层后，按钮恢复可以使用状态。 <strong>电梯内部开门按钮</strong>：当电梯达到乘客想要去往的某楼层后，乘客需要准备离开电梯，当电梯停稳后，乘客可以按下开门按钮，电梯门将打开，让用户离开。如若电梯到了乘客曾经按下的楼层，但是无乘客按开门按钮，电梯将自动在停稳后1秒后自动开门。 <strong>电梯内部关门按钮</strong>：当所有想要乘坐电梯的乘客都进入电梯以后，准备让电梯开始运行的时候，乘客需要按下关门按钮，让电梯门关闭，使电梯进入运行状态。设置电梯的自动关门时间为8秒。 <strong>电梯外部向上按钮</strong>：此按钮表示上楼请求，当按下此按钮时，如果电梯到达按下此按钮的楼层，且电梯运行方向是向上的，那么电梯响将停下，并在电梯停稳之后自动开门，此请求被响应后，取消此请求信号。 <strong>电梯外部向下按钮</strong>：此按钮表示下楼请求，当按下此按钮时，如果电梯到达按下此按钮的楼层，且电梯运行方向是向下的，那么电梯响将停下，并在电梯停稳之后自动开门，此请求被响应后，取消此请求信号。</p>
+<h2 id="结束语">结束语</h2>
+<p>你肯能意识到哪个算法都不是一个最佳方案，只是它确实解决了一定情况的问题。但是对一个优秀的程序员而言，研究各种算法是无比快乐的。也许你下一次面试，就有关于调度算法的问题。</p>
+<p>原文来自：GitChat公众号</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\The-housing-agents-trick.html" rel="bookmark">中介推高房价的“九大套路”</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Marketing-personalized-cancer-treatments-requires-careful-language.html" rel="bookmark">媒体宣传、公众想象与真实的精准肿瘤治疗</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\traffic-camera-deceived-by-photo.html" rel="bookmark">生活：被欺骗的道闸摄像头</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\is-Million-insurance-ture.html" rel="bookmark">百万医疗保险真的靠谱吗</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\chicken-bouillon.html" rel="bookmark">生活：鸡精是从鸡身上来的吗</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag"># 生活</a>
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E5%B8%B8%E8%AF%86/" rel="tag"># 常识</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/is-i-real.html" rel="prev" title="虚数i真的存在吗？">
+      <i class="fa fa-chevron-left"></i> 虚数i真的存在吗？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/office-tuitor.html" rel="next" title="Office办公软件教程收藏">
+      Office办公软件教程收藏 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统电梯调度算法"><span class="nav-number">1.</span> <span class="nav-text">传统电梯调度算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先来先服务算法fcfs"><span class="nav-number">2.</span> <span class="nav-text">1.1 先来先服务算法（FCFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最短寻找楼层时间优先算法sstf"><span class="nav-number">2.1.</span> <span class="nav-text">1.2 最短寻找楼层时间优先算法（SSTF）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扫描算法scan"><span class="nav-number">2.2.</span> <span class="nav-text">1.3 扫描算法（SCAN）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#look-算法"><span class="nav-number">2.3.</span> <span class="nav-text">1.4 LOOK 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#satf-算法"><span class="nav-number">2.4.</span> <span class="nav-text">1.5 SATF 算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时电梯调度算法"><span class="nav-number">3.</span> <span class="nav-text">实时电梯调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最早截止期优先调度算法"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 最早截止期优先调度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scan-edf-算法"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 SCAN-EDF 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pi-算法"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 PI 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fd-scan-算法"><span class="nav-number">3.4.</span> <span class="nav-text">2.4 FD-SCAN 算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电梯调度高水平研究"><span class="nav-number">4.</span> <span class="nav-text">电梯调度高水平研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电梯问题的需求分析"><span class="nav-number">5.</span> <span class="nav-text">电梯问题的需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电梯的初始状态"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 电梯的初始状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电梯基本功能"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 电梯基本功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电梯按钮功能"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 电梯按钮功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束语"><span class="nav-number">6.</span> <span class="nav-text">结束语</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

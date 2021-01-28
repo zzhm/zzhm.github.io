@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在这篇文章中我会尝试用简单的方式去解释四元数的概念，即用可视化的方式解释四元数以及几种对四元数的操作。我将把矩阵、欧拉角和四元数放在一起比较，并解释什么时候该用四元数、什么时候该用欧拉角或矩阵。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四元数理解">
+<meta property="og:url" content="https://zymin.cn/arcticle/understanding-quaternions.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="在这篇文章中我会尝试用简单的方式去解释四元数的概念，即用可视化的方式解释四元数以及几种对四元数的操作。我将把矩阵、欧拉角和四元数放在一起比较，并解释什么时候该用四元数、什么时候该用欧拉角或矩阵。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/3.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/4.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/5.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/6.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/7.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/8.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/9.png">
+<meta property="og:image" content="https://www.qiujiawei.com/images/2015.9/10.png">
+<meta property="article:published_time" content="2018-06-05T01:21:09.000Z">
+<meta property="article:modified_time" content="2021-01-20T08:09:02.094Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.qiujiawei.com/images/2015.9/3.png">
+
+<link rel="canonical" href="https://zymin.cn/arcticle/understanding-quaternions.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>四元数理解 | ZYMIN</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-175241210-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZYMIN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/understanding-quaternions.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ZYMIN">
+      <meta itemprop="description" content="分享是一种习惯">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZYMIN">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          四元数理解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-05 09:21:09" itemprop="dateCreated datePublished" datetime="2018-06-05T09:21:09+08:00">2018-06-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在这篇文章中我会尝试用简单的方式去解释四元数的概念，即用可视化的方式解释四元数以及几种对四元数的操作。我将把矩阵、欧拉角和四元数放在一起比较，并解释什么时候该用四元数、什么时候该用欧拉角或矩阵。</p>
+<a id="more"></a>
+<h2 id="介绍">介绍</h2>
+<p>在计算机图形学中，我们使用转换矩阵来表示空间中的一个位置以及朝向。一个转换矩阵还可以表示对一个目标的缩放(scale)或错切(shear)等。 我们可以把转换矩阵想象成一个空间，当你用这个矩阵乘以向量、点（甚至矩阵）后， 你就把向量、点、矩阵转换进这个空间了。</p>
+<p>在这篇文章中，我不会讨论转换矩阵的细节。你可以查看我前面的文章，文章中描述了转换矩阵的细节。在这篇文章中，我想要讨论一个可替代的方案，即用四元数来描述空间里的物体的朝向。</p>
+<p>四元数的概念是由爱尔兰数学家Sir William Rowan Hamilton发明的（1843年，都柏林）。Hamilton当时正和他的妻子前往爱尔兰皇家研究院，当他从Brougham桥通过皇家运河时，他领悟到了一个激动人心的东西，并立刻把它刻在桥的一个石头上：</p>
+<p><span class="math display">\[\mathbf i^{2} = \mathbf j^{2} = \mathbf k^{2} =  \mathbf i \mathbf j \mathbf k = -1\]</span></p>
+<h2 id="复数">复数</h2>
+<p>在我们能够完全理解四元数之前，我们必须先知道四元数是怎么来的。四元数的根源其实是<strong>复数</strong>。除了知名的数集（自然数、整数、实数、分数）之外，复数系统引入了一个新的数集——虚数。虚数的发明是为了解决一些特定的无解的方程，例如：</p>
+<p><span class="math display">\[x^{2} + 1 = 0\]</span></p>
+<p><span class="math display">\[x^{2} = -1\]</span></p>
+<p>一般而言，数学家是不能忍受一个等式是无解的。于是，一个新的术语被发明了，它就是虚数，一个可以解决上面这个等式的数。虚数有这样的形式：<span class="math inline">\(\mathbf i^{2} = -1\)</span></p>
+<p>不要为这个术语较真，因为逻辑上这个数是不存在的。只要知道i是一个平方等于-1的东西即可。虚数的集合可以用<span class="math inline">\(\mathbb{I}\)</span>来表示。复数的集合<span class="math inline">\(\mathbb{C}\)</span>是一个实数和一个虚数的和，形式如下：</p>
+<p><span class="math inline">\(z = a + b\mathbf i \ a,b\in R,\ \mathbf i^{2} = -1\)</span></p>
+<p>可以认为所有实数都是b=0的复数、所有虚数都是a=0的复数。</p>
+<h3 id="复数的加减">复数的加减</h3>
+<p>加法：<span class="math inline">\((a_{1} + b_{1}\mathbf i) + (a_{2} + b_{2}\mathbf i) = (a_{1} + a_{2}) + (b_{1} + b_{2})\mathbf i\)</span></p>
+<p>减法：<span class="math inline">\((a_{1} + b_{1}\mathbf i) - (a_{2} + b_{2}\mathbf i) = (a_{1} - a_{2}) + (b_{1} - b_{2})\mathbf i\)</span></p>
+<h3 id="复数的系数缩放">复数的系数缩放</h3>
+<p><span class="math display">\[\lambda (a_{1} + b_{1}\mathbf i) = \lambda  a_{1} + \lambda b_{1}\mathbf i\]</span></p>
+<h3 id="复数的积">复数的积</h3>
+<p><span class="math inline">\(z_{1} = (a_{1} + b_{1}\mathbf i)\)</span></p>
+<p><span class="math inline">\(z_{2} = (a_{2} + b_{2}\mathbf i)\)</span></p>
+<p><span class="math inline">\(z_{1}z_{2} = (a_{1} + b_{1}\mathbf i)(a_{2} + b_{2}\mathbf i) = a_{1}a_{2} + a_{1}b_{2}\mathbf i + b_{1}a_{2}\mathbf i + b_{1}b_{2}\mathbf i^{2}\)</span></p>
+<p><span class="math inline">\(z_{1}z_{2} = (a_{1}a_{2} - b_{1}b_{2}) + (a_{1}b_{2} + b_{1}a_{2})\mathbf i\)</span></p>
+<h3 id="复数的平方">复数的平方</h3>
+<p><span class="math inline">\(z = (a + b\mathbf i)\)</span></p>
+<p><span class="math inline">\(z^{2} = (a + b\mathbf i)(a + b\mathbf i)\)</span></p>
+<p><span class="math inline">\(z^{2} = (a^{2} - b^{2}) + 2ab\mathbf i\)</span></p>
+<h3 id="共轭复数">共轭复数</h3>
+<p>复数的共轭就是指把复数的虚数部分变成负的。共轭复数的符号是z或z^{*}。</p>
+<p><span class="math inline">\(z = (a + b\mathbf i)\)</span></p>
+<p><span class="math inline">\(z^{*} = (a - b\mathbf i)\)</span></p>
+<p>复数和它的共轭复数的乘积是：</p>
+<p><span class="math inline">\(zz^{*} = (a + b\mathbf i)(a - b\mathbf i) = a^{2}-ab\mathbf i + ab\mathbf i + b^{2} = a^{2}+b^{2}\)</span></p>
+<h3 id="复数的绝对值">复数的绝对值</h3>
+<p>我们使用共轭复数来计算复数的绝对值：</p>
+<p><span class="math inline">\(z = (a + b\mathbf i)\)</span></p>
+<p><span class="math inline">\(|z| = \sqrt {zz^{*}} = \sqrt {(a + b\mathbf i)(a - b\mathbf i)} = \sqrt {a^{2} + b^{2} }\)</span></p>
+<h3 id="两复数的商">两复数的商</h3>
+<p><span class="math inline">\(z_{1} = (a_{1} + b_{1}\mathbf i)\)</span></p>
+<p><span class="math inline">\(z_{2} = (a_{2} + b_{2}\mathbf i)\)</span></p>
+<p><span class="math display">\[\frac {z_{1}}{z_{2}} = \frac {a_{1} + b_{1}\mathbf i}{a_{2} + b_{2}\mathbf i} = \frac {(a_{1} + b_{1}\mathbf i)(a_{2} - b_{2}\mathbf i)}{(a_{2} + b_{2}\mathbf i)(a_{2} - b_{2}\mathbf i)}= \frac {a_{1}a_{2}-a_{1}b_{2}\mathbf i+b_{1}a_{2}\mathbf i-b_{1}b_{2}\mathbf i^{2} }{a_{2}^{2} + b_{2}^{2}}= \frac {a_{1}a_{2} + b_{1}b_{2} }{a_{2}^{2} + b_{2}^{2}}   + \frac {b_{1}a_{2} - a_{1}b_{2} }{a_{2}^{2} + b_{2}^{2}}\mathbf i\]</span></p>
+<h2 id="i的幂">i的幂</h2>
+<p>如果<span class="math inline">\(\mathbf i\)</span>的平方等于-1，那么<span class="math inline">\(\mathbf i\)</span>的n次幂也应该存在：</p>
+<p><span class="math inline">\(\mathbf i^{0} = 1\)</span></p>
+<p><span class="math inline">\(\mathbf i^{1} = \mathbf i\)</span></p>
+<p><span class="math inline">\(\mathbf i^{2} = -1\)</span></p>
+<p><span class="math inline">\(\mathbf i^{3} = \mathbf i\mathbf i^{2} = -i\)</span></p>
+<p><span class="math inline">\(\mathbf i^{4} = \mathbf i^{2}\mathbf i^{2} = 1\)</span></p>
+<p><span class="math inline">\(\mathbf i^{5} = \mathbf i \mathbf i^{4} = i\)</span></p>
+<p><span class="math inline">\(\mathbf i^{6} = \mathbf i\mathbf i^{5} = \mathbf i^{2} = -1\)</span></p>
+<p>如果按照这个顺序写下去，会出现这样一个模式：$ (1,i,-1,-i,1,...)$</p>
+<p>一个类似的模式也出现在递增的负数幂：</p>
+<p><span class="math inline">\(\mathbf i^{0} = 1\)</span></p>
+<p><span class="math inline">\(\mathbf i^{-1} = -i\)</span></p>
+<p><span class="math inline">\(\mathbf i^{-2} = -1\)</span></p>
+<p><span class="math inline">\(\mathbf i^{-3} = i\)</span></p>
+<p><span class="math inline">\(\mathbf i^{-4} = 1\)</span></p>
+<p><span class="math inline">\(\mathbf i^{-5} = -i\)</span></p>
+<p><span class="math inline">\(\mathbf i^{-6} = -1\)</span></p>
+<p>你可能已经在数学里头见过类似的模式，但是是以<span class="math inline">\(（x,y,-x,-y,x,...)\)</span>的形式，这是在2D笛卡尔平面对一个点逆时针旋转90度时生成的；<span class="math inline">\(（x,-y,-x,y,x,...)\)</span>则是在2D笛卡尔平面对一个点顺时针旋转90度时生成的。</p>
+<p><img src="https://www.qiujiawei.com/images/2015.9/3.png" /></p>
+<h2 id="复数平面">复数平面</h2>
+<p>我们也能够把复数映射到一个2D网格平面——复数平面，只需要把实数映射到横轴、虚数映射到纵轴。</p>
+<p><img src="https://www.qiujiawei.com/images/2015.9/4.png" /></p>
+<p>如前面的序列所示，我们可以认为，对一个复数乘以i，这个复数就在复数平面上旋转了90度。</p>
+<p>让我们看看这是不是真的。我们随机地在复数平面上取一个点：</p>
+<p><span class="math inline">\(p = 2 + \mathbf i\)</span></p>
+<p>p乘以i后得到q：</p>
+<p><span class="math inline">\(q = p\mathbf i = (2+\mathbf i)\mathbf i = 2\mathbf i + \mathbf i^{2} = -1 + 2\mathbf i\)</span></p>
+<p>q乘以i后得到r：</p>
+<p><span class="math inline">\(r = q\mathbf i = (-1 + 2\mathbf i)\mathbf i = -\mathbf i + 2\mathbf i^{2} = -2 -\mathbf i\)</span></p>
+<p>r乘以i后得到s：</p>
+<p><span class="math inline">\(s = r\mathbf i = (-2 - \mathbf i)\mathbf i = -2\mathbf i-\mathbf i^{2} = 1 - 2\mathbf i\)</span></p>
+<p>s乘以i后得到t：</p>
+<p><span class="math inline">\(t = s\mathbf i = (1-2\mathbf i)\mathbf i = \mathbf i - 2\mathbf i^{2} = 2 + \mathbf i\)</span></p>
+<p>t刚好是开始的p。如果我们把这些复数放到复数平面上，就得到下面的图：</p>
+<p><img src="https://www.qiujiawei.com/images/2015.9/5.png" /></p>
+<p>我们也可以按顺时针方向旋转，只需要把上面的乘数i改成-i。</p>
+<h3 id="旋转数rotors">旋转数（Rotors)</h3>
+<p>我们也可以在复数平面上进行任意角度的旋转，只需要定义下面这个复数：</p>
+<p><span class="math inline">\(q = cos\theta + \mathbf i sin\theta\)</span></p>
+<p>任意的复数乘以q：</p>
+<p><span class="math inline">\(p = a + b\mathbf i\)</span></p>
+<p><span class="math inline">\(q = cos\theta + \mathbf i sin\theta\)</span></p>
+<p><span class="math inline">\(pq = (a + b\mathbf i)(cos\theta + \mathbf i sin\theta )\)</span></p>
+<p><span class="math inline">\(a&#39; + b&#39;\mathbf i = acos\theta -bsin\theta + (asin\theta +bcos\theta )\mathbf i\)</span></p>
+<p>也可以写成矩阵的形式：</p>
+<p><span class="math display">\[\left[ \begin{matrix} a&#39;&amp;-b&#39;\\ b&#39;&amp;a&#39;\\ \end{matrix} \right] =  \left[ \begin{matrix} cos\theta &amp;-sin\theta \\ sin\theta &amp;cos\theta \\ \end{matrix} \right] \left[ \begin{matrix} a&amp;-b\\ b&amp;a\\ \end{matrix} \right]\]</span></p>
+<p>这也是一个在复数平面绕原点逆时针旋转任意点的方法。（译注：这句话应该是在说旋转矩阵）</p>
+<h2 id="四元数">四元数</h2>
+<p>了解了复数系统和复数平面后，我们可以额外增加2个虚数到我们的复数系统，从而把这些概念拓展到3维空间。</p>
+<p>四元数的一般形式：</p>
+<p><span class="math inline">\(q = s + x\mathbf i + y\mathbf j + z\mathbf k \ \ \ s,x,y,z \in \mathbb{R}\)</span></p>
+<p>上面的公式是根据Hamilton的著名的表达式得到的：</p>
+<p><span class="math inline">\(\mathbf i^{2} = \mathbf j^{2} = \mathbf k^{2} = \mathbf i\mathbf j\mathbf k = -1\)</span></p>
+<p>以及：</p>
+<p><span class="math display">\[\mathbf i \mathbf j = \mathbf k \\ \mathbf j \mathbf k = \mathbf i  \\ \mathbf k \mathbf i = \mathbf j\]</span></p>
+<p><span class="math display">\[\mathbf j \mathbf i = -\mathbf k \\ \mathbf k \mathbf j = -\mathbf i \\ \mathbf i \mathbf k = -\mathbf j\]</span></p>
+<p>你可能已经注意到了，i、j、k之间的关系非常像笛卡尔坐标系下单位向量的叉积规则：</p>
+<p><span class="math display">\[\mathbf x\times \mathbf y = \mathbf z \\ \mathbf y\times \mathbf z = \mathbf x \\ \mathbf z\times \mathbf x = \mathbf y\]</span></p>
+<p><span class="math display">\[\mathbf y\times \mathbf x = -\mathbf z \\ \mathbf z\times \mathbf y = -\mathbf x \\ \mathbf x\times \mathbf z = -\mathbf y\]</span></p>
+<p>Hamilton自己也发现i、j、k虚数可以被用来表达3个笛卡尔坐标系单位向量i、j、k，并且仍然保持有虚数的性质，也即<span class="math inline">\(\mathbf i^{2} = \mathbf j^{2} = \mathbf k^{2} = -1\)</span>。</p>
+<p><img src="https://www.qiujiawei.com/images/2015.9/6.png" />（<span class="math inline">\(\mathbf i \mathbf j, \mathbf j \mathbf k, \mathbf k \mathbf i\)</span>这几个性质的可视化）</p>
+<p>上图展示了如何用i、j、k作为笛卡尔坐标系的单位向量。</p>
+<h3 id="作为有序数的四元数">作为有序数的四元数</h3>
+<p>我们可以用有序对的形式，来表示四元数：</p>
+<p><span class="math inline">\([s,\mathbf {v}] \ \ \ s\in \mathbb{R},v\in \mathbb{R^{3}}\)</span></p>
+<p>其中的v，也可以用它各自独立的3个分量表示：</p>
+<p><span class="math inline">\(q = [s,x\mathbf i + y\mathbf j + z\mathbf k] \ \ \ s,x,y,z\in \mathbb{R}\)</span></p>
+<p>使用这种表示法，我们可以更容易地展示四元数和复数之间的相似性。</p>
+<h3 id="四元数的加减">四元数的加减</h3>
+<p>和复数类似，四元数也可以被加减：</p>
+<p><span class="math inline">\(q_{a} = [s_{a},\mathbf {a}]\)</span></p>
+<p><span class="math inline">\(q_{b} = [s_{b},\mathbf {b}]\)</span></p>
+<p><span class="math inline">\(q_{a} + q_{b} = [s_{a} + s_{b},\mathbf {a} + \mathbf {b}]\)</span></p>
+<p><span class="math inline">\(q_{a} - q_{b} = [s_{a} - s_{b},\mathbf {a} - \mathbf {b}]\)</span></p>
+<h3 id="四元数的积">四元数的积</h3>
+<p>我们也可以表示四元数的乘积：</p>
+<p><span class="math display">\[\begin{align} q_{a}q_{b} &amp;= [s_{a},\mathbf {a}][s_{b},\mathbf {b}]\\&amp;= (s_{a} + x_{a}\mathbf i + y_{a}\mathbf j +z_{a}\mathbf k)(s_{b} + x_{b}\mathbf i + y_{b}\mathbf j +z_{b}\mathbf k)\\&amp;= (s_{a}s_{b} - x_{a}x_{b} - y_{a}y_{b} - z_{a}z_{b})+(s_{a}x_{b} + s_{b}x_{a} \\&amp;+ y_{a}z_{b} - y_{b}z_{a})\mathbf i +(s_{a}y_{b}+s_{b}y_{a}+z_{a}x_{b}-z_{b}x_{a})\mathbf j  \\&amp;+ (s_{a}z_{b}+s_{b}z_{a}+x_{a}y_{b}-x_{b}y_{a})\mathbf k\end{align}\]</span></p>
+<p>可以看到，四元数的乘积依然还是一个四元数。如果我们把虚数<span class="math inline">\(\mathbf i​\)</span>、<span class="math inline">\(\mathbf j​\)</span>、<span class="math inline">\(\mathbf k​\)</span>替换成有序对：</p>
+<p><span class="math inline">\(\mathbf i = [0, \mathbf i]\ \ \  \mathbf j = [0, \mathbf j]\ \ \  \mathbf k = [0, \mathbf k]\)</span></p>
+<p>以及还有[1,0] = 1，将它们代入前面的表达式，就得到了：</p>
+<p><span class="math display">\[\begin{align}q_{a}q_{b} &amp;= (s_{a}s_{b} - x_{a}x_{b} - y_{a}y_{b} - z_{a}z_{b})[1,\mathbf 0]\\&amp;+ (s_{a}x_{b} + s_{b}x_{a} + y_{a}z_{b} - y_{b}z_{a})[0,\mathbf i]\\&amp;+ (s_{a}y_{b}+s_{b}y_{a}+z_{a}x_{b}-z_{b}x_{a})[0,\mathbf j]\\&amp;+ (s_{a}z_{b}+s_{b}z_{a}+x_{a}y_{b}-x_{b}y_{a})[0,\mathbf k]\end{align}\]</span></p>
+<p>再把这个表达式扩展成多个有序对的和：</p>
+<p><span class="math display">\[\begin{align}q_{a}q_{b} &amp;= [(s_{a}s_{b} - x_{a}x_{b} - y_{a}y_{b} - z_{a}z_{b}),\mathbf 0]\\&amp;+ [0,(s_{a}x_{b} + s_{b}x_{a} + y_{a}z_{b} - y_{b}z_{a})\mathbf i]\\&amp;+ [0,(s_{a}y_{b}+s_{b}y_{a}+z_{a}x_{b}-z_{b}x_{a})\mathbf j]\\&amp;+ [0,(s_{a}z_{b}+s_{b}z_{a}+x_{a}y_{b}-x_{b}y_{a})\mathbf k]\end{align}\]</span></p>
+<p>如果把后3个四元数相加，并提取公共部分，就可以把等式改写成：</p>
+<p><span class="math display">\[\begin{align} q_{a}q_{b} &amp;= [(s_{a}s_{b} - x_{a}x_{b} - y_{a}y_{b} - z_{a}z_{b}),\mathbf 0]\\&amp;+ [0,s_{a}(x_{b}\mathbf i + y_{b}\mathbf j + z_{b}\mathbf k) + s_{b}(x_{a}\mathbf i + y_{a}\mathbf j + z_{a}\mathbf k)\\&amp;+(y_{a}z_{b}-y_{b}z_{a})\mathbf i + (z_{a}x_{b}-z_{b}x_{a})\mathbf j + (x_{a}y_{b}-x_{b}y_{a})\mathbf k]\end{align} \]</span></p>
+<p>这个等式是2个有序对的和。第1个有序对是一个<strong>实</strong>四元数，第2个是一个<strong>纯</strong>四元数。这两个四元数也可以合并成一个：</p>
+<p><span class="math display">\[\begin{align}q_{a}q_{b} &amp;= [(s_{a}s_{b} - x_{a}x_{b} - y_{a}y_{b} - z_{a}z_{b}),s_{a}(x_{b}\mathbf i + y_{b}\mathbf j+z_{b}\mathbf k) \\&amp;+ s_{b}(x_{a}\mathbf i+y_{a}\mathbf j+z_{a}\mathbf k)+(y_{a}z_{b}-y_{b}z_{a})\mathbf i+(z_{a}x_{b}-z_{b}x_{a})\mathbf j+(x_{a}y_{b}-x_{b}y_{a})\mathbf k]\end{align}\]</span></p>
+<p>如果把下面的表达式代入上面的等式：</p>
+<p><span class="math inline">\(\mathbf a = x_{a}\mathbf i + y_{a}\mathbf j + z_{a}\mathbf k\)</span></p>
+<p><span class="math inline">\(\mathbf b = x_{b}\mathbf i + y_{b}\mathbf j + z_{b}\mathbf k\)</span></p>
+<p><span class="math inline">\(\mathbf a\cdot \mathbf b = x_{a}x_{b} + y_{a}y_{b} + z_{a}z_{b}\)</span></p>
+<p><span class="math inline">\(\mathbf a\times \mathbf b = (y_{a}z_{b}-y_{b}z_{a})\mathbf i + (z_{a}x_{b} - z_{b}x_{a})\mathbf j + (x_{a}y_{b} - x_{b}y_{a})\mathbf k\)</span></p>
+<p>（译注：注意，第三条和第四条并不是四元数的点积和叉积，而是向量的点积和叉积）</p>
+<p>我们就得到了：</p>
+<p><span class="math inline">\(q_{a}q_{b} = [s_{a}s_{b} - \mathbf a\cdot \mathbf b, s_{a}\mathbf b + s_{b}\mathbf a + \mathbf a\times \mathbf b]\)</span></p>
+<p>这就是四元数乘积的一般式。</p>
+<h3 id="实四元数">实四元数</h3>
+<p>一个实四元数是一个虚部向量为零向量的四元数：</p>
+<p><span class="math inline">\(q = [s,\mathbf {0}]\)</span></p>
+<p>两个实四元数的乘积是另一个实四元数：</p>
+<p><span class="math inline">\(q_{a} = [s_{a},\mathbf {0}]\)</span></p>
+<p><span class="math inline">\(q_{b} = [s_{b},\mathbf {0}]\)</span></p>
+<p><span class="math inline">\(q_{a}q_{b} = [s_{a},\mathbf {0}][s_{b},\mathbf {0}] = [s_{a}s_{b},\mathbf {0}]\)</span></p>
+<p>这和2个虚部为0的复数的乘积几乎一样：</p>
+<p><span class="math inline">\(z_{1} = a_{1} + 0\mathbf i\)</span></p>
+<p><span class="math inline">\(z_{2} = a_{2} + 0\mathbf i\)</span></p>
+<p><span class="math inline">\(z_{1}z_{2} = (a_{1} + 0\mathbf i)(a_{2} + 0\mathbf i) = a_{1}a_{2}\)</span></p>
+<h3 id="四元数的系数缩放">四元数的系数缩放</h3>
+<p>我们也可以用一个系数（实数）去乘四元数：</p>
+<p><span class="math inline">\(q = [s,\mathbf {v}]\)</span></p>
+<p><span class="math inline">\(\lambda q = \lambda [s,\mathbf {v}] = [\lambda s,\lambda \mathbf {v}]\)</span></p>
+<p>我们可以用实四元数与普通四元数的乘积，来确认这个等式是否正确：</p>
+<p><span class="math inline">\(q = [s,\mathbf {v}]\)</span></p>
+<p><span class="math inline">\(\lambda = [\lambda ,0]\)</span></p>
+<p><span class="math inline">\(\lambda q = [\lambda ,\mathbf {0}][s,\mathbf {v}] = [\lambda s,\lambda v]\)</span></p>
+<h3 id="纯四元数">纯四元数</h3>
+<p>和实四元数相似，Hamilton也定义了纯四元数。纯四元数是s=0的四元数：</p>
+<p><span class="math inline">\(q = [0,\mathbf { v }]\)</span></p>
+<p>也可以写成下面的形式：</p>
+<p><span class="math inline">\(q = x\mathbf { i } + y\mathbf { k } + z\mathbf { k }\)</span></p>
+<p>然后是2个纯四元数的乘积：</p>
+<p><span class="math inline">\(q_{a} = [0,\mathbf { a }]\)</span></p>
+<p><span class="math inline">\(q_{b} = [0,\mathbf { b }]\)</span></p>
+<p><span class="math inline">\(q_{a}q_{b} = [0,\mathbf { a }][0, \mathbf { b }] = [-\mathbf { a }\cdot \mathbf { b }, \mathbf { a }\times \mathbf { b }]\)</span></p>
+<h3 id="四元数的加法形式">四元数的加法形式</h3>
+<p>我们可以把四元数写成实四元数和纯四元数的和：</p>
+<p><span class="math inline">\(q = [s, \mathbf { v }]= [s, \mathbf { 0 }] + [0, \mathbf { v }]\)</span></p>
+<h3 id="单位四元数">单位四元数</h3>
+<p>给定任意的向量v，我们可以把这个向量写成一个系数和一个单位方向向量的乘积：</p>
+<p><span class="math inline">\(\mathbf { v } = v\mathbf { \hat { \mathbf v } } \ \  v = |\mathbf {v}|,|\mathbf { \hat { \mathbf v } }|=1\)</span></p>
+<p>将这个定义和纯四元数的定义结合，就得到了：</p>
+<p><span class="math inline">\(q = [0,\mathbf { v }]= [0, v \mathbf { \hat { \mathbf v } }]= v[0, \mathbf { \hat { \mathbf v } }]\)</span></p>
+<p>然后，我们可以定义单位四元数了，它是一个s=0、为单位向量的四元数：</p>
+<p><span class="math inline">\(\hat {q} = [0, \mathbf { \hat { \mathbf v } }]\)</span></p>
+<h3 id="四元数的二元形式">四元数的二元形式</h3>
+<p>我们现在可以把单位四元数的定义和四元数的加法形式结合到一起，就创造了一种新的四元数的表示法，这种表示法和复数的表示法形似：</p>
+<p><span class="math inline">\(q = [s,\mathbf { v }]= [s,\mathbf { 0 }] + [0, \mathbf { v }]= [s,\mathbf { 0 }] + v [0,\mathbf { \hat { \mathbf v }}]= s + v \mathbf {\hat {q} }\)</span></p>
+<p>这就给了我们一种和复数非常相似的四元数表示法：</p>
+<p><span class="math inline">\(z = a + b \mathbf {i}\)</span></p>
+<p><span class="math inline">\(q = s + v \mathbf {\hat {q}}\)</span></p>
+<h3 id="共轭四元数">共轭四元数</h3>
+<p>共轭四元数的计算，就是将四元数的虚向量取反：</p>
+<p><span class="math inline">\(q = [s,\mathbf {v}]\)</span></p>
+<p><span class="math inline">\(q^{*} = [s,-\mathbf {v}]\)</span></p>
+<p>四元数和它的共轭四元数的乘积：</p>
+<p><span class="math inline">\(\begin{align}qq^{*} &amp;= [s,\mathbf {v}][s,-\mathbf {v}]\\&amp;= [s^{2} - \mathbf {v}\cdot (-\mathbf {v}),-s\mathbf {v}+s\mathbf {v}+\mathbf {v}\times (-\mathbf {v})]\\&amp;= [s^{2} + \mathbf {v}\cdot \mathbf {v}, \mathbf {0}]\\&amp;= [s^{2} + \mathbf {v}^{2}, \mathbf {0}]\end{align}\)</span></p>
+<h3 id="四元数范数">四元数范数</h3>
+<p>回忆下复数范数的定义：</p>
+<p><span class="math inline">\(|z| = \sqrt {a^{2}+b^{2}}\)</span></p>
+<p><span class="math inline">\(zz^{*} = |z|^{2}\)</span></p>
+<p>类似的，四元数的范数可以这样定义：</p>
+<p><span class="math inline">\(\mathbf q = [s,\mathbf {v}]\)</span></p>
+<p><span class="math inline">\(|\mathbf q| = \sqrt {s^{2} + v^{2}}\)</span></p>
+<p>这也让我们可以这样表达四元数范数：</p>
+<p><span class="math inline">\(\mathbf q\mathbf q^{*} = |\mathbf q|^{2}\)</span></p>
+<h3 id="四元数规范化">四元数规范化</h3>
+<p>利用四元数范数的定义，就可以对四元数进行规范化。要让一个四元数规范化，只需要让这个四元数去除以它的范数：</p>
+<p><span class="math inline">\(\mathbf q&#39; = \frac {\mathbf q}{\sqrt {s^{2}+v^{2}}}\)</span></p>
+<p>举一个例子，让我们规范化下面这个四元数：</p>
+<p><span class="math inline">\(\mathbf q = [1, 4\mathbf i + 4\mathbf j - 4\mathbf k]\)</span></p>
+<p>第一步，先计算q的范数：</p>
+<p><span class="math inline">\(|\mathbf q| = \sqrt {1^{2}+4^{2}+4^{2}+(-4)^{2}}= \sqrt {49} = 7\)</span></p>
+<p>然后，q除以|q|:</p>
+<p><span class="math inline">\(\begin{align}\mathbf q&#39; &amp;= \frac {\mathbf q}{|\mathbf q|}\\&amp;= \frac {(1+4\mathbf i+4\mathbf j-4\mathbf k)}{7}\\&amp;= \frac {1}{7}+\frac {4}{7}\mathbf i+\frac {4}{7}\mathbf j-\frac {4}{7}\mathbf k\end{align}\)</span></p>
+<h3 id="四元数的逆">四元数的逆</h3>
+<p>四元数的逆用<span class="math inline">\(\mathbf q^{-1}\)</span>表示。要计算四元数的逆，需要用四元数的共轭四元数去除以四元数的范数的平方：</p>
+<p><span class="math inline">\(\mathbf q^{-1} = \frac {\mathbf q^{*}}{|\mathbf q|^{2} }\)</span></p>
+<p>为了证明这个式子，我们先根据<strong>逆</strong>的定义，有：</p>
+<p><span class="math inline">\(\mathbf q\mathbf q^{-1} = [1,\mathbf 0] = 1\)</span></p>
+<p>两边都左乘共轭四元数$q^{*} $:</p>
+<p><span class="math inline">\(\mathbf q^{ * }\mathbf q\mathbf q^{ -1 } = \mathbf q^{ * }\)</span></p>
+<p>将上文中的<span class="math inline">\(\mathbf q\mathbf q^{*} = |\mathbf q|^{2}\)</span>代入这个式子，得到：</p>
+<p><span class="math inline">\(|\mathbf q|^{2}\mathbf q^{-1} = \mathbf q^{*}\)</span></p>
+<p><span class="math inline">\(\mathbf q^{-1} = \frac {\mathbf q^{*}}{|\mathbf q|^{2}}\)</span></p>
+<p>对于单位四元数，它的范数是1，所以可以写成：</p>
+<p><span class="math inline">\(\mathbf q^{-1} = \mathbf q^{*}\)</span></p>
+<h3 id="四元数的点积">四元数的点积</h3>
+<p>和向量的点积相似，我们也可以计算2个四元数的点积，只需要将各个对应的系数相乘，然后相加:</p>
+<p><span class="math inline">\(\mathbf q_{1} = [s_{1},x_{1}\mathbf i+y_{1}\mathbf j+z_{1}\mathbf k]\)</span></p>
+<p><span class="math inline">\(\mathbf q_{2} = [s_{2},x_{2}\mathbf i+y_{2}\mathbf j+z_{2}\mathbf k]\)</span></p>
+<p><span class="math inline">\(\mathbf q_{1}\cdot \mathbf q_{2} = s_{1}s_{2}+x_{1}x_{2}+y_{1}y_{2}+z_{1}z_{2}\)</span></p>
+<p>我们也可以利用四元数点积，来计算四元数之间的角度差：</p>
+<p><span class="math inline">\(cos\theta = \frac {s_{1}s_{2}+x_{1}x_{2}+y_{1}y_{2}+z_{1}z_{2}}{|\mathbf q_{1}||\mathbf q_{2}|}\)</span></p>
+<p>对于单位四元数，我们可以简化上面的等式：</p>
+<p><span class="math inline">\(cos\theta = s_{1}s_{2}+x_{1}x_{2}+y_{1}y_{2}+z_{1}z_{2}\)</span></p>
+<h2 id="旋转">旋转</h2>
+<p>前面我们定义了一个特殊的复数：旋转数。它是用来旋转2D复数平面的点的：</p>
+<p><span class="math inline">\(\mathbf q = cos\theta + \mathbf i sin\theta\)</span></p>
+<p>根据四元数和复数的相似性，应该有可能设计一个可以旋转3D空间的点的四元数：</p>
+<p><span class="math inline">\(\mathbf q = [cos\theta, sin\theta \mathbf {v}]\)</span></p>
+<p>让我们测试一下这个理论是否可靠，方法就是计算四元数q和向量p的积。第一步，我们把p写成纯四元数的形式：</p>
+<p><span class="math inline">\(\mathbf p = [0,\mathbf {p}]\)</span></p>
+<p>以及单位四元数q：</p>
+<p><span class="math inline">\(\mathbf q = [s,\lambda \mathbf {\hat { \mathbf v }}]\)</span></p>
+<p>从而：</p>
+<p><span class="math display">\[\begin{align}\mathbf p&#39; &amp;= \mathbf q\mathbf p \\ &amp;= [s,\lambda \mathbf {\hat { \mathbf v }}] [0,\mathbf {p}]\\&amp;=  [-\lambda \mathbf {\hat { \mathbf v }}\cdot \mathbf {p}, s\mathbf {p} + \lambda \mathbf {\hat { \mathbf v }}\times \mathbf {p} ]\end{align}\]</span></p>
+<p>我们可以看到结果是一个同时有系数、有虚向量的四元数。</p>
+<p>让我们先考虑特殊的情形：<span class="math inline">\(\mathbf {p}\)</span>与<span class="math inline">\(\mathbf {\hat { \mathbf v }}\)</span>正交。这种情况下，点乘部分等于0：<span class="math inline">\(-\lambda \mathbf {\hat { \mathbf v }}\cdot \mathbf {p} = 0\)</span>。所以上面的四元数就变成了纯四元数：</p>
+<p><span class="math inline">\(p&#39; = [0, s\mathbf {p} + \lambda \mathbf {\hat { \mathbf v }}\times \mathbf {p}]\)</span></p>
+<p>这时候，要使<span class="math inline">\(\mathbf {p}\)</span>绕<span class="math inline">\(\mathbf {\hat { \mathbf v }}\)</span>旋转，我们只需要代入<span class="math inline">\(s=cos\theta\)</span>和<span class="math inline">\(\lambda =sin\theta\)</span>：</p>
+<p><span class="math inline">\(p&#39; = [0, cos\theta \mathbf {p} + sin\theta \mathbf {\hat { \mathbf v }}\times \mathbf {p}]\)</span></p>
+<p>现在，让我们找一个例子来测试上面的公式。譬如绕z轴(就是k轴)旋转45度，那么我们的四元数q就变成：</p>
+<p><span class="math inline">\(q = [cos\theta ,sin\theta \mathbf {k}]= [\frac {\sqrt {2}}{2},\frac {\sqrt {2}}{2}\mathbf {k}]\)</span></p>
+<p>然后，选一个特殊的p，并且p要和k轴正交，譬如把p放到i轴上，也就是：</p>
+<p><span class="math inline">\(p = [0, 2\mathbf {i}]\)</span></p>
+<p>好了，现在计算下qp：</p>
+<p><span class="math inline">\(\mathbf p&#39; = \mathbf q\mathbf p= [\frac {\sqrt {2}}{2},\frac {\sqrt {2}}{2}\mathbf {k}][0,2\mathbf {i}]= [0,2\frac {\sqrt {2}}{2}\mathbf {i} + 2\frac {\sqrt {2}}{2}\mathbf {k}\times \mathbf {i}]= [0, \sqrt {2}\mathbf {i} + \sqrt {2}\mathbf {j}]\)</span></p>
+<p>结果是一个绕了k轴转了45度的纯四元数。 我们可以确认这个四元数的向量部分的长度是：</p>
+<p><span class="math inline">\(\mathbf p&#39; = \sqrt { \sqrt {2}^{2} + \sqrt {2}^{2} } = 2\)</span></p>
+<p>这正是我们所期望的！</p>
+<p>我们可以用图像展示旋转过程：</p>
+<figure>
+<img src="https://www.qiujiawei.com/images/2015.9/7.png" alt="" /><figcaption>7.png</figcaption>
+</figure>
+<p>现在，让我们考虑更一般化的四元数，即和p不正交的四元数。现在让我们把p的向量部分偏移45度：</p>
+<p><span class="math inline">\(\hat { \mathbf v } = \frac {\sqrt {2}}{2}\mathbf {i} + \frac {\sqrt {2}}{2}\mathbf {k}\mathbf {p} = 2\mathbf {i}\)</span></p>
+<p><span class="math inline">\(q = [cos\theta , sin\theta \mathbf {\hat { \mathbf v }} ]\)</span></p>
+<p><span class="math inline">\(p = [0, \mathbf {p}]\)</span></p>
+<p>然后算qp：</p>
+<p><span class="math inline">\(\mathbf p&#39; = \mathbf q\mathbf p= [cos\theta ,sin\theta \mathbf { \hat { \mathbf v } }][0, \mathbf {p} ][-sin\theta \hat { \mathbf v }\cdot \mathbf {p}, cos\theta \mathbf {p}+sin\theta \mathbf { \hat { \mathbf v } }\times \mathbf {p}]\)</span></p>
+<p>代入我们设定的<span class="math inline">\(\mathbf { \hat { \mathbf v } }, \mathbf {p}\)</span>，以及<span class="math inline">\(\theta = 45^{\circ }\)</span>，得到：</p>
+<p><span class="math display">\[p&#39; = [-\frac {\sqrt {2}}{2}(\frac {\sqrt {2}}{2}\mathbf {i}  + \frac {\sqrt {2}}{2}\mathbf {k} )\cdot (2\mathbf {i} ), \frac {\sqrt {2}}{2}2\mathbf {i} +\frac {\sqrt {2}}{2}(\frac {\sqrt {2}}{2}\mathbf {i}  + \frac {\sqrt {2}}{2}\mathbf {k} )\times 2\mathbf {i} ]= [-1, \sqrt {2}\mathbf {i}  + \mathbf {j} ]\sqrt {3}\]</span></p>
+<p>我们可以用图像展示旋转过程：</p>
+<figure>
+<img src="https://www.qiujiawei.com/images/2015.9/8.png" alt="" /><figcaption>8.png</figcaption>
+</figure>
+<blockquote>
+<p>严格来说，这样子在3维空间中表示p'是不正确的。因为它其实是一个4维的向量！为了简单起见，我只将这个四元数的向量部分显示出来。</p>
+</blockquote>
+<p>然而，还有一线生机。Hamilton发现（但没有正式宣布），如果对qp右乘q的逆，出来的结果是一个纯四元数，并且四元数向量部分的范数可以保持不变。让我们试试应用在我们的例子里。</p>
+<p>首先计算:</p>
+<p><span class="math inline">\(\mathbf q = [cos\theta , sin\theta (\frac {\sqrt {2}}{2}\mathbf {i} + \frac {\sqrt {2}}{2}\mathbf {k})]\)</span></p>
+<p><span class="math inline">\(\mathbf q^{-1} = [cos\theta , -sin\theta (\frac {\sqrt {2}}{2}\mathbf {i} + \frac {\sqrt {2}}{2}\mathbf {k})]\)</span></p>
+<p>(译注：这里<span class="math inline">\(\mathbf q^{-1}=\mathbf q^{*}\)</span>是因为q是单位四元数)</p>
+<p>再代入<span class="math inline">\(\theta = 45^{\circ }\)</span>，得到：</p>
+<p><span class="math display">\[\mathbf q^{-1} =  [\frac {\sqrt {2}}{2},  -\frac {\sqrt {2}}{2}(\frac {\sqrt {2}}{2}\mathbf {i} + \frac {\sqrt {2}}{2}\mathbf {k})]\frac {1}{2}[\sqrt {2}, -\mathbf {i}-\mathbf {k}]\]</span></p>
+<p>现在，把前面算出来的qp再次拿出来：</p>
+<p><span class="math inline">\(\mathbf q\mathbf p = [-1, \sqrt {2}\mathbf {i} + \mathbf {j}]\)</span></p>
+<p><span class="math display">\[\begin{align}qpq^{-1}  &amp;= [-1, \sqrt {2}\mathbf {i} + \mathbf {j}]\frac {1}{2}[\sqrt {2}, -\mathbf {i}-\mathbf {k}] \\ &amp;= \frac {1}{2}[-\sqrt {2}-(\sqrt {2}\mathbf {i}+\mathbf {j})\cdot (-\mathbf {i}-\mathbf {k}), \mathbf {i}+\mathbf {k}+\sqrt {2}(\sqrt {2}\mathbf {i}+\mathbf {j})-\mathbf {i}+\sqrt {2}\mathbf {j}+\mathbf {k}]\\ &amp;= \frac {1}{2}[-\sqrt {2}+\sqrt {2},\mathbf {i}+\mathbf {k}+2\mathbf {i}+\sqrt {2}\mathbf {j}-\mathbf {i}+\sqrt {2}\mathbf {j}+\mathbf {k}]\\ &amp;= [0,\mathbf {i}+\sqrt {2}\mathbf {j}+\mathbf {k}]\end{align}\]</span></p>
+<p>这下是纯四元数了，并且它的范数是：</p>
+<p><span class="math inline">\(\mathbf q\mathbf p\mathbf q^{-1}| = \sqrt {1^{2} + \sqrt {2}^{2} + 1^{2} } = \sqrt {4} = 2\)</span></p>
+<p>这和原始的p的范数一致。</p>
+<p>下面的图像展示了旋转结果：</p>
+<figure>
+<img src="https://www.qiujiawei.com/images/2015.9/9.png" alt="" /><figcaption>9.png</figcaption>
+</figure>
+<p>所以我们可以看到，这个结果是一个纯四元数，并且原四元数的向量的范数也保持住了。但是还有一个问题：向量被旋转了90度而不是45度。这刚好是我们需要的度数的两倍！为了正确地让一个向量绕某个轴向量旋转某个角度，我们必须以目标角度的一半来计算。因此，我们构造了下面的四元数：</p>
+<p><span class="math inline">\(q = [cos\frac {1}{2}\theta ,sin\frac {1}{2}\theta \mathbf { \hat { \mathbf v } }]\)</span></p>
+<p>这就是<strong>旋转四元数</strong>的一般形式！</p>
+<h2 id="四元数插值">四元数插值</h2>
+<p>在计算机图形学中使用四元数，其中一个重要原因是四元数非常适合用来表示空间中的旋转。四元数解决了其他3维空间旋转算法会遇到的恼人的问题，比如使用欧拉角来表示旋转操作时会遇到的万向节锁问题(<a href="https://en.wikipedia.org/wiki/Gimbal_lock" target="_blank" rel="noopener">Gimbal lock</a>)。</p>
+<p>使用四元数，我们可以定义好几种方案来表示3维空间的转动插值。第一种是SLERP，它被用来把一个点(物体)从一个朝向平滑地插值到另一个朝向。第二个是SLERP的扩展版本，被称为SQAD，它被用来处理用一系列朝向定义得到的一条路径的插值。</p>
+<h2 id="slerp">SLERP</h2>
+<p>SLERP代表<strong>S</strong>pherical <strong>L</strong>inear Int<strong>erp</strong>olation。SLERP可以在2个朝向之间平滑地插值。第一个朝向设为q_{1}，第二个朝向设为q_{2} (请记住，这2个指示朝向的四元数是单位四元数，不然阅读下文会混乱）。被插值前的点设为<span class="math inline">\(\mathbf {p}\)</span>，插值后的点设为<span class="math inline">\(\mathbf {p}&#39;\)</span>。而插值参数t，当t=0时会把<span class="math inline">\(\mathbf {p}\)</span>转到<span class="math inline">\(q_{1}\)</span>，当t=1时会转到<span class="math inline">\(q_{2}\)</span>。</p>
+<p>标准的线性插值公式是(译注：这个公式是笛卡尔坐标系下的，不是指四元数)：</p>
+<p><span class="math inline">\(\mathbf {p}&#39; = \mathbf {p}_{1} + t(\mathbf {p}_{2} - \mathbf {p}_{1} )\)</span></p>
+<p>应用这个等式的一般步骤是：</p>
+<ul>
+<li>计算<span class="math inline">\(\mathbf {p}_{1} 、\mathbf {p}_{2}\)</span>之间的差。</li>
+<li>根据参数t，计算两个点的差的小数值(因为0&lt;=t&lt;=1)</li>
+<li>把第二步的值加上原始点的值，算出结果</li>
+</ul>
+<p>我们可以把这个基础公式，套用到2个用四元数表示的朝向的插值上。</p>
+<h3 id="四元数的差">四元数的差</h3>
+<p>根据上面的公式的第一步，我们必须先计算q_{1}、 q_{2}的差。对于四元数来说，这等价于计算2个四元数的角度差(<strong>angular difference</strong>)：</p>
+<p><span class="math inline">\(diff = \mathbf q_{1}^{-1}\mathbf q_{2}\)</span></p>
+<p>（译注：由<span class="math inline">\(\mathbf q_{1}\mathbf p_{diff} = \mathbf q_{2}\)</span>推出 ）</p>
+<h3 id="四元数的幂运算">四元数的幂运算</h3>
+<p>接下来的目标是干掉上面四元数的差的分数部分，方法是计算四元数的t次幂(就是上面的那个插值参数t，区间是[0,1])。</p>
+<p>四元数的幂运算的一般化公式是：</p>
+<p>q^{t} = exp(t q)</p>
+<p>其中，(纯)四元数的exp函数的公式是：</p>
+<p><span class="math inline">\(\begin{align}e^{\mathbf q}&amp;= exp(\mathbf q) \\ &amp;= exp([0,\theta \mathbf { \hat { \mathbf v } }])\\ &amp;= [cos\theta ,sin\theta \mathbf { \hat { \mathbf v } } ]\end{align}\)</span></p>
+<p>(纯)四元数的对数公式是：</p>
+<p><span class="math inline">\(\begin{align}\log \mathbf q &amp;= \log (cos\theta + sin \theta \mathbf { \hat {\mathbf v} })\\ &amp;= \log (exp(\theta \mathbf { \hat { \mathbf v } } )) \\ &amp;= \theta \mathbf { \hat { \mathbf v } }\\ &amp;= [0, \theta \mathbf { \hat { \mathbf v } }]\end{align}\)</span></p>
+<p>(译注：上述的2次公式推导，其实省略了很多证明过程。具体可以参考： <a href="http://www.qiujiawei.com/quaternion2/" target="_blank" rel="noopener">四元数公式的补充</a> )</p>
+<p>对于t = 0，我们有： <span class="math display">\[\begin{align}q^{0}&amp; = exp(0\log \mathbf q) \\ &amp;= exp([cos(0), sin(0)\mathbf { \hat { \mathbf v } }]) \\&amp;= exp([1,\mathbf {0}]) \\&amp;= [1,\mathbf {0}]\end{align}\]</span></p>
+<p>而对于t = 1，有：</p>
+<p><span class="math inline">\(\mathbf q^{1} = exp(1\log \mathbf q) = \mathbf q\)</span></p>
+<h3 id="个四元数的分数差">2个四元数的分数差</h3>
+<p>对于角旋转的插值计算，我们利用q1和q2的角度分数差来调整原始朝向q1：</p>
+<p><span class="math inline">\(\mathbf q&#39; = \mathbf q_{1}(\mathbf q_{1}^{-1}\mathbf q_{2})^{t}\)</span></p>
+<p>这也就是使用四元数的球面线性插值的一般形式。然而，这不是slerp函数的常用形式。</p>
+<p>我们可以应用类似的用于计算向量的球面插值公式，到四元数里。计算向量的球面插值的一般形式定义如下：</p>
+<p><span class="math inline">\(\begin{align}\mathbf v_{t} = \frac {sin((1-t)\theta )}{sin\theta }\mathbf v_{1} + \frac {sin(t\theta )}{sin\theta }\mathbf v_{2}\end{align}\)</span></p>
+<p>用图像表示如下：</p>
+<figure>
+<img src="https://www.qiujiawei.com/images/2015.9/10.png" alt="" /><figcaption>10.png</figcaption>
+</figure>
+<p>这个公式可以原封不动地应用到四元数：</p>
+<p><span class="math inline">\(\mathbf q_{t} = \frac {sin((1-t)\theta )}{sin\theta }\mathbf q_{1} + \frac {sin(t\theta )}{sin\theta }\mathbf q_{2}\)</span></p>
+<p>但这个公式需要提供角度<span class="math inline">\(\theta\)</span>，我们可以计算<span class="math inline">\(\mathbf q_{1}\)</span>和<span class="math inline">\(\mathbf q_{2}\)</span>的点积从而得出角度<span class="math inline">\(\theta\)</span>：</p>
+<p><span class="math display">\[cos\theta = \frac {\mathbf q_{1}\cdot \mathbf q_{2}}{ | \mathbf q_{1} || \mathbf q_{2}| }\\cos\theta = \frac {s_{1}s_{2}+x_{1}x_{2}+y_{1}y_{2}+z_{1}z_{2}}{|\mathbf q_{1}||\mathbf q_{2}|}\\\theta = cos^{-1}(\frac {s_{1}s_{2}+x_{1}x_{2}+y_{1}y_{2}+z_{1}z_{2}}{|\mathbf q_{1}||\mathbf q_{2}|})\]</span></p>
+<h3 id="注意事项">注意事项</h3>
+<p>这个方案有2个问题，必须在实现过程中加以考虑。</p>
+<p>第一，如果四元数点积的结果是负值，那么后面的插值就会在4D球面上绕远路，这并不是我们想要的。为了解决这个问题，我们测试点积的结果，当结果是负值时，我们将2个四元数的其中一个取反，取反它的系数和向量部分，并不会改变它代表的朝向。而经过这一步操作，可以保证这个旋转走的是最短路径。</p>
+<p>当q_{1}和q_{2}的角度差非常小，小到导致sin= 0 时，会出现第二个问题。如果这个情况出现了，当我们除以sin。在这个情况下，我们可以回退去使用<span class="math inline">\(\mathbf q_{1}\)</span>和<span class="math inline">\(\mathbf q_{2}\)</span>的线性插值。</p>
+<h2 id="squad">SQUAD</h2>
+<p>正如一个SLERP可以被用来计算四元数之间的插值，一个SQUAD (<strong>S</strong>pherical and <strong>Quad</strong>rangle)可以被用来对旋转路径进行平滑插值。</p>
+<p>如果我们有四元数序列：</p>
+<p><span class="math inline">\(\mathbf q_{1},\mathbf q_{2},\mathbf q_{3},\cdots,\mathbf q_{n-2},\mathbf q_{n-1},\mathbf q_{n}\)</span></p>
+<p>然后我们再定义一个"辅助"四元数(s_{i})，它是一个中间控制点：</p>
+<p><span class="math inline">\(s_{i} = exp( - \frac {\log(\mathbf q_{i+1}\mathbf q_{i}^{-1})+\log(\mathbf q_{i-1}\mathbf q_{i}^{-1})}{4})\mathbf q_{i}\)</span></p>
+<p>所以，沿着子曲线的朝向可以定义为：</p>
+<p><span class="math inline">\(\mathbf q_{i-1},\mathbf q_{i},\mathbf q_{i+1},\mathbf q_{i+2}\)</span></p>
+<p>在t时刻的朝向就是：</p>
+<p><span class="math inline">\(squad(\mathbf q_{i}, \mathbf q_{i+1}, s_{i}, s_{i+1}, t ) = slerp(slerp(\mathbf q_{i}, \mathbf q_{i+1},t),slerp(s_{i},s_{i+1},t),2t(1-t))\)</span></p>
+<h2 id="总结">总结</h2>
+<p>除了特别难理解之外，相比矩阵或欧拉角，四元数在表示旋转这个事情上，拥有一些明显的优点。</p>
+<ul>
+<li>SLERP和SQUAD，提供了一种使得在朝向之间可以平滑过渡的方法。</li>
+<li>使用四元数来串联"旋转"，要比使用矩阵快得多。</li>
+<li>对于单位四元数，逆向旋转可以通过对向量部分取反来实现。而计算一个矩阵的逆矩阵是被认为比较慢的，如果这个矩阵未被标准正交化的话(标准正交矩阵的逆矩阵是它的转置矩阵)。</li>
+<li>从四元数转换到矩阵，要比从欧拉角转换到矩阵快一点。</li>
+<li>四元数只需要4个数字(如果旋转四元数已经单位化了那么只需要3个，实数部分可以在运行时计算)来表示一个旋转，而矩阵需要至少9个数字。</li>
+</ul>
+<p>尽管使用四元数有这么多优点，还是有缺点存在的。</p>
+<ul>
+<li>因为浮点数的舍入运算错误，四元数可能会变无效。不过，这个错误可以通过重新单位化四元数来避免。</li>
+<li>使用四元数最具威慑性的地方，还是四元数的理解难度大。我希望这个问题可以通过阅读本文来解决。</li>
+</ul>
+<p>存在一些已经实现了四元数、并且是正确的的数学程序库。在我的个人经验里，我发现GLM(OpenGL Math Library)是一个优秀的数学库，它的四元数的实现极其不错。如果你对在你的程序中使用四元数感兴趣，那么我会推荐你使用这个数学库。</p>
+<h2 id="下载demo">下载Demo</h2>
+<p>我实现了一个小demo来演示一个四元数如何被用来旋转一个3维物体。这个demo是用Unity3.5.2实现的，你可以免费下载它和阅读它的脚本。zip文件也包含了一个Windows版的Unity程序。当然你可以自己构建一个Mac的版本。</p>
+<p><a href="https://docs.google.com/open?id=0B0ND0J8HHfaXdzM0dmdGUzBLV1U" target="_blank" rel="noopener">Understanding Quaternions.zip</a></p>
+<p><a href="https://www.qiujiawei.com/understanding-quaternions/" target="_blank" rel="noopener">原文链接</a></p>
+<p><a href="https://www.3dgep.com/understanding-quaternions/" target="_blank" rel="noopener">英文全文链接</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Mathematica.html" rel="bookmark">Mathematica核心内容提示</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\fourier-analysis.html" rel="bookmark">傅里叶分析理解</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\understand-matrix-mengyan.html" rel="bookmark">理解矩阵-孟岩Blog</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Linear-algebra-translation-scaling-rotation-matrix.html" rel="bookmark">线性代数之平移、缩放、旋转矩阵</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\arcticle\Perspective-Matrix.html" rel="bookmark">透视矩阵Perspective Matrix</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/arcticle/Linear-algebra-translation-scaling-rotation-matrix.html" rel="prev" title="线性代数之平移、缩放、旋转矩阵">
+      <i class="fa fa-chevron-left"></i> 线性代数之平移、缩放、旋转矩阵
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/arcticle/Perspective-Matrix.html" rel="next" title="透视矩阵Perspective Matrix">
+      透视矩阵Perspective Matrix <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复数"><span class="nav-number">2.</span> <span class="nav-text">复数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#复数的加减"><span class="nav-number">2.1.</span> <span class="nav-text">复数的加减</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复数的系数缩放"><span class="nav-number">2.2.</span> <span class="nav-text">复数的系数缩放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复数的积"><span class="nav-number">2.3.</span> <span class="nav-text">复数的积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复数的平方"><span class="nav-number">2.4.</span> <span class="nav-text">复数的平方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共轭复数"><span class="nav-number">2.5.</span> <span class="nav-text">共轭复数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复数的绝对值"><span class="nav-number">2.6.</span> <span class="nav-text">复数的绝对值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两复数的商"><span class="nav-number">2.7.</span> <span class="nav-text">两复数的商</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#i的幂"><span class="nav-number">3.</span> <span class="nav-text">i的幂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复数平面"><span class="nav-number">4.</span> <span class="nav-text">复数平面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#旋转数rotors"><span class="nav-number">4.1.</span> <span class="nav-text">旋转数（Rotors)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四元数"><span class="nav-number">5.</span> <span class="nav-text">四元数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为有序数的四元数"><span class="nav-number">5.1.</span> <span class="nav-text">作为有序数的四元数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的加减"><span class="nav-number">5.2.</span> <span class="nav-text">四元数的加减</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的积"><span class="nav-number">5.3.</span> <span class="nav-text">四元数的积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实四元数"><span class="nav-number">5.4.</span> <span class="nav-text">实四元数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的系数缩放"><span class="nav-number">5.5.</span> <span class="nav-text">四元数的系数缩放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯四元数"><span class="nav-number">5.6.</span> <span class="nav-text">纯四元数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的加法形式"><span class="nav-number">5.7.</span> <span class="nav-text">四元数的加法形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单位四元数"><span class="nav-number">5.8.</span> <span class="nav-text">单位四元数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的二元形式"><span class="nav-number">5.9.</span> <span class="nav-text">四元数的二元形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共轭四元数"><span class="nav-number">5.10.</span> <span class="nav-text">共轭四元数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数范数"><span class="nav-number">5.11.</span> <span class="nav-text">四元数范数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数规范化"><span class="nav-number">5.12.</span> <span class="nav-text">四元数规范化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的逆"><span class="nav-number">5.13.</span> <span class="nav-text">四元数的逆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的点积"><span class="nav-number">5.14.</span> <span class="nav-text">四元数的点积</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旋转"><span class="nav-number">6.</span> <span class="nav-text">旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四元数插值"><span class="nav-number">7.</span> <span class="nav-text">四元数插值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slerp"><span class="nav-number">8.</span> <span class="nav-text">SLERP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的差"><span class="nav-number">8.1.</span> <span class="nav-text">四元数的差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四元数的幂运算"><span class="nav-number">8.2.</span> <span class="nav-text">四元数的幂运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个四元数的分数差"><span class="nav-number">8.3.</span> <span class="nav-text">2个四元数的分数差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">8.4.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#squad"><span class="nav-number">9.</span> <span class="nav-text">SQUAD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载demo"><span class="nav-number">11.</span> <span class="nav-text">下载Demo</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ZYMIN</p>
+  <div class="site-description" itemprop="description">分享是一种习惯</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
