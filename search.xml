@@ -1141,176 +1141,6 @@ Digimat-AM中的翘曲分析
       </tags>
   </entry>
   <entry>
-    <title>EDEM的接触模型</title>
-    <url>/arcticle/edem-contact-models.html</url>
-    <content><![CDATA[<ol type="1">
-<li><p>Hertz-Mindlin模型。基本的颗粒接触模型，用于常规颗粒的接触作用。</p></li>
-<li><p>Hertz-Mindlin with RVD RollingFriction模型。在基本的Hertz-Mindlin模型基础上调整了滚动摩擦力的计算方式，适于强旋转体系对物料滚动特性有严格要求的问题。</p>
-<!---more---></li>
-<li><p>Hertz-Mindlin with JKR模型，又称JKR Cohesion模型。适用于药粉等粉体颗粒和农作物、矿石、泥土等含湿物料，颗粒间因静电力、含湿水分等原因发生明显粘结和团聚。</p></li>
-<li><p>Hertz-Mindlin with bonding模型。用于模拟破碎、断裂等问题，采用小颗粒粘结成大块物料，外力作用下颗粒间粘结力会发生破坏，从而产生破碎及断裂效果。</p></li>
-<li><p>Hertz-Mindlin with Heat Conduction模型。带有热传导的基本接触模型，用于要求温度分析的场合，颗粒接触后会因温度差而产生热传导。</p></li>
-<li><p>Hysteretic Spring模型。用于颗粒受到较大压力后产生塑性形变的场合，如：注塑充模、压路、捣固等。</p></li>
-<li><p>Linear Cohesion模型。传统的颗粒粘结模型，用于一般性粘结颗粒的快速计算，亦可用于含湿物料。但与JKR Cohesion模型的区别是：JKR Cohesion模型计算的粘性力同时存在于颗粒接触的法向和切向上，而Linear Cohesion模型的粘性力只存在于法向。</p></li>
-<li><p>Linear Spring模型。基本颗粒接触模型，用于常规颗粒的快速计算及定性分析。</p></li>
-<li><p>Moving Plane模型。用于模拟传送带等具有表面滑移速度的结构体。 以上接触模型可以满足大多数工程应用需要，然而实际问题千变万化，不可能涵盖所有情况。因此，EDEM提供了API (Application Programming Interface) 二次开发接口，使用户可以根据特殊问题定制模型，最大程度满足仿真模拟的要求。</p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>仿真</tag>
-        <tag>edem</tag>
-        <tag>接触模型</tag>
-        <tag>离散元</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github+Hexo搭建个人博客实操教程</title>
-    <url>/arcticle/github-hexo-blog-construction.html</url>
-    <content><![CDATA[<h2 id="准备工作">准备工作</h2>
-<h3 id="安装软件">安装软件</h3>
-<p>需要安装的软件有<a href="https://nodejs.org/en/"><strong>Node.js</strong></a>、<a href="https://git-scm.com/downloads"><strong>Git</strong></a>、<a href="http://www.softpedia.com/get/Programming/Other-Programming-Files/Pandoc.shtml"><strong>Pandoc</strong></a>、<a href="https://www.typora.io/#windows"><strong>Typora</strong></a>、<a href="http://www.writage.com/"><strong>Word2Md</strong></a></p>
-<h3 id="搭建环境">搭建环境</h3>
-<p>在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“<code>Git Bash Here</code>”，打开命令窗口，输入命令。</p>
-<ul>
-<li><p>安装hexo，<code>npm install hexo-cli -g</code>，输入<code>hexo -v</code>，检查hexo是否安装成功</p></li>
-<li><p>初始化，<code>hexo init</code></p></li>
-<li><p>安装依赖组件，<code>npm install</code></p></li>
-<li><p>安装编译器，<code>npm install hexo-deployer-git --save</code></p></li>
-<li><p>本地查看</p></li>
-</ul>
-<p>输入<code>hexo g</code>编译文件，输入<code>hexo s</code>，开启服务器，访问该网址，本地体验Hexo（http://localhost:4000/），假如页面一直无法跳转，那么可能端口被占用了。此时我们ctrl+c停止服务器，接着输入“<code>hexo server -p 端口号</code>”来改变端口号，比如5000 （<code>hexo s -p 5000</code>）</p>
-<!--- more --->
-<h2 id="连接github">连接Github</h2>
-<h3 id="配置github">配置Github</h3>
-<p>注册Github账户，并新建项目（repository），项目必须要遵守格式：<strong>账户名.github.io</strong>，不然接下来会有很多麻烦。并且需要勾选<strong>Initialize this repository with a README</strong>。</p>
-<p>在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub Pages，你会看到那边有个网址，访问它，你将会惊奇的发现该项目已经被部署到网络上，能够通过外网来访问它。</p>
-<h3 id="配置ssh">配置SSH</h3>
-<ul>
-<li><p>设置Git的user name和email（如果是第一次的话）,这里“xujun”可以替换成自己的用户名，邮箱可以替换成自己的邮箱</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;xujun&quot;</span><br><span class="line">git config --global user.email &quot;gdutxiaoxu@163.com&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>输入<code>ssh-keygen -t rsa -C “929762930@qq.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）。</p></li>
-<li><p>输入<code>eval "$(ssh-agent -s)"</code>，添加密钥到ssh-agent</p></li>
-<li><p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p></li>
-<li><p>登录Github，点击头像下的settings，添加ssh（新建一个new ssh key，将id_rsa.pub文件里的内容复制上去）</p></li>
-<li><p>输入<code>ssh -T git@github.com</code>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p></li>
-</ul>
-<h3 id="配置deployment">配置Deployment</h3>
-<ul>
-<li><p>在hexo文件夹中，找到_config.yml文件，修改repo值（在末尾）</p>
-<p>repo值是你在github项目里的ssh（右下角）</p></li>
-</ul>
-<h3 id="测试文章">测试文章</h3>
-<ul>
-<li>新建一篇博客，执行命令：<code>hexo new post “博客名”</code>。这时候在文件夹_posts目录下将会看到已经创建的文件。</li>
-<li>使用编辑器编好文章。</li>
-<li>使用命令：<code>hexo d -g</code>，生成以及部署。</li>
-<li>部署成功后访问你的地址：<code>http://用户名.github.io</code>。</li>
-</ul>
-<h2 id="主题安装">主题安装</h2>
-<h3 id="安装主题">安装主题</h3>
-<p>安装NexT，在其文件夹中鼠标右键，点击Git Base Here。输入命令：</p>
-<p><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
-<p><a href="https://hexo.io/themes/">更多主题</a></p>
-<h3 id="启用主题">启用主题</h3>
-<p>启用主题，在站点目录中（blog），打开配置文件_config.yml，修改theme：next</p>
-<h3 id="主题设置">主题设置</h3>
-<ul>
-<li><p>更换主题样式，在next主题目录下的_config.yml文件中将scheme设定为Pisces</p></li>
-<li><p>语言设定，在<strong>站点根目录下</strong>修改配置文件_cofig.yml中的language为zh-Hans（简体中文）</p></li>
-<li><p>修改菜单项，在<strong>主题目录下</strong>修改配置文件_cofig.yml中的menu，增添一个something（注：千万不要在这设置中文，后面的值那是查找文件的地方！若你的站点运行在子目录中，请将链接前缀的 <code>/</code> 去掉）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022141652959-1002921163.png" /></p>
-<p>这些配置都要与你主题目录下的languages文件中对应的yml文档里配置相关联。比如你在站点根目录中的配置文件设置language为zh-Hans，那么就要进入到主题目录下的languages文件中修改zh-Hans.yml，这样才能显示出菜单项新增的中文内容（以something为例子）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022113026318-265709135.png" /></p></li>
-<li><p>设置菜单项图标，对应的字段是menu_icons。格式为item name：icon name，其中item name与所配置的菜单名字对应，icon name是Font Awesome图标的名字。而 enable 可用于控制是否显示图标，你可以设置成 false 来去掉图标。（本机出问题，无法显示icon，还未解决，求指导）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022172514318-965544980.png" /></p></li>
-<li><p>设置侧栏位置，修改主题目录下sidebar的position值</p></li>
-<li><p>设置头像，在站点根目录下载配置文件中新增avatar，值设置为头像的链接地址。地址可以是网络地址，也可以是本地地址（放置在source/images/ 目录下）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022131752974-1304180995.png" /></p></li>
-<li><p>设置文章代码主题，在主题目录下修改配置文件highlight_theme，默认值为nomal。可以设置为night</p></li>
-<li><p>添加标签页面，前面通过修改next主题下的<code>_config.yml</code>文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。此时我们要新建一个页面<code>hexo new page tags</code></p>
-<p>在新建的index.md文件中添加type: "tags"</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022134821896-1919728091.png" /></p>
-<p>当要为某一篇文章添加标签，只需在b<code>log/source/_post</code>目录下的具体文章的tags中添加标签即可，如：</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022135128006-180948588.png" /></p></li>
-<li><p>添加关于我页面，步骤和以上差不多<code>hexo new page about</code></p>
-<p>在新建的index.md文件中添加如下内容</p></li>
-</ul>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022153607990-455892762.png" /></p>
-<h2 id="公式渲染">公式渲染</h2>
-<p>Hexo 默认选用是 Markdown 渲染引擎是 <a href="https://github.com/chjj/marked">marked</a> (<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>)。除了默认的 marked，目前在 Hexo 上已有的其它比较好且还在维护的 Markdown 渲染引擎也就有 <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it">hexo-renderer-markdown-it</a> 和 <a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a>，其中前者 markdown-it 支持 <a href="http://commonmark.org/"><code>CommonMark</code></a> 标准，后者则支持 <a href="http://pandoc.org/"><code>Pandoc</code></a>。</p>
-<p>写公式的话可以试下 MathJax 吧，MathJax 渲染器在 Hexo 上的实现也有的。具体自行谷歌：<a href="https://www.google.com/?q=Hexo+MathJax">Hexo MathJax</a>。</p>
-<p>如何使用别的 Markdown 渲染引擎。先安装Pandoc，然后把 hexo 里 <code>package.json</code> 的 Markdown 渲染器依赖换掉，比如 <code>hexo-renderer-marked</code> 换成 <code>hexo-renderer-pandoc</code>。然后重新编译一下文件就可以了。</p>
-<h2 id="域名绑定">域名绑定</h2>
-<p>当然，你不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。</p>
-<p>首先你要注册一个域名，域名注册以前总是推荐去<code>godaddy</code>，现在觉得其实国内的阿里云也挺不错的，价格也不贵，毕竟是大公司，放心！</p>
-<p>绑定域名分2种情况：带www和不带www的。</p>
-<p>域名配置最常见有2种方式，CNAME和A记录，CNAME填写域名，A记录填写IP，由于不带www方式只能采用A记录，所以必须先ping一下<code>你的用户名.github.io</code>的IP，然后到你的域名DNS设置页，将A记录指向你ping出来的IP，将CNAME指向<code>你的用户名.github.io</code>，这样可以保证无论是否添加www都可以访问，如下：</p>
-<p><img src="http://img.shihuidaren.cn/blog/20160823_191336_238_8683.png" /></p>
-<p>然后到你的github项目根目录新建一个名为CNAME的文件（无后缀），里面填写你的域名，加不加www看你自己喜好，因为经测试：</p>
-<ul>
-<li>如果你填写的是没有www的，比如 mygit.me，那么无论是访问 <a href="http://www.mygit.me/">http://www.mygit.me</a> 还是 <a href="http://mygit.me/">http://mygit.me</a> ，都会自动跳转到 <a href="http://mygit.me/">http://mygit.me</a></li>
-<li>如果你填写的是带www的，比如 www.mygit.me ，那么无论是访问 <a href="http://www.mygit.me/">http://www.mygit.me</a> 还是 <a href="http://mygit.me/">http://mygit.me</a> ，都会自动跳转到 <a href="http://www.mygit.me/">http://www.mygit.me</a></li>
-<li>如果你填写的是其它子域名，比如 abc.mygit.me，那么访问 <a href="http://abc.mygit.me/">http://abc.mygit.me</a> 没问题，但是访问 <a href="http://mygit.me/">http://mygit.me</a> ，不会自动跳转到 <a href="http://abc.mygit.me/">http://abc.mygit.me</a></li>
-</ul>
-<p>另外说一句，在你绑定了新域名之后，原来的<code>你的用户名.github.io</code>并没有失效，而是会自动跳转到你的新域名。</p>
-<h2 id="永久链接">永久链接</h2>
-<p>一般来说，URL只能使用英文和数字和一些标点符号表示。这是因为网络标准RFC 1738 做了硬性规定。虽然在Hexo中引用<code>:title</code>可以显示中文的网址，但是复制粘贴到记事本会发现得到的是一大串百分号之类的“乱码”（其实这并不是乱码，而是中文被转码成十六进制编码的结果），看起来不怎么好看。</p>
-<p><strong>在permalink中使用文章id替代“:title”</strong></p>
-<p>在官方文档<a href="https://hexo.io/zh-cn/docs/permalinks.html">永久链接（Permalinks） | Hexo</a>一章中有这样一段描述：</p>
-<p><img src="http://img.shihuidaren.cn/blog/5069493.jpg" /></p>
-<p><code>permalink</code>的变量就这几个，其中<strong>文章id</strong>这个变量非常有用。</p>
-<p>我们可以在博客根目录的配置文件（<code>_config.yml</code>）中这样修改：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title # 这是原配置</span><br><span class="line">permalink: :year&#x2F;:id.html # 替换为此新配置12</span><br></pre></td></tr></table></figure>
-<p>并且在<code>.\scaffolds\post.md</code>中修改为：<strong>（注意新增了一个<code>id:</code>）</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">id: </span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">updated: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">permalink: </span><br><span class="line">---123456789</span><br></pre></td></tr></table></figure>
-<p>在我们的具体文章中，你可以使用<strong>任意字符串</strong>作为此文章的id，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 如何让你的Hexo博客网址使用全英文路径</span><br><span class="line">id: 123456789-abcd</span><br><span class="line">date: 2017-12-30 20:57:46</span><br><span class="line">updated: 2017-12-30</span><br><span class="line">categories: 后台01 文档管理</span><br><span class="line">tags:</span><br><span class="line">permalink:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h3 id="清理git缓存">清理Git缓存</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#清空git缓存</span><br><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;update&#39;</span><br></pre></td></tr></table></figure>
-<h3 id="参考文章">参考文章</h3>
-<p>[1] http://blog.haoji.me/build-blog-website-by-hexo-github.html</p>
-<p>[2] http://www.cnblogs.com/fengxiongZz/p/7707568.html</p>
-<p>[3] https://www.cnblogs.com/fengxiongZz/p/7707219.html</p>
-<p>[4] http://theme-next.iissnan.com/third-party-services.html</p>
-<p>[5] https://hexo.io/zh-cn/docs/index.html</p>
-<p>[6] https://www.cnblogs.com/MuYunyun/p/5927491.html</p>
-<p>[7] https://blog.csdn.net/likianta/article/details/79343427</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>网站</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>github</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Elsevier官方最新EI期刊目录查询</title>
-    <url>/arcticle/Ei-Compendex.html</url>
-    <content><![CDATA[<p>Ei Compendex是世界上最广泛、最完整的工程文献数据库。它提供了一个真正的整体和全球视角的同行评议和索引的出版物，从77个国家的190个工程学科的超过2000万的记录。每一项记录都是经过精心挑选和索引的，使用工程索引同义词典，以确保工程专业学生和专业人员可以依赖的工程专业文献的发现和检索。通过使用Ei Compendex，工程师可以确信信息是相关的、完整的、准确的和高质量的。</p>
-<!---more--->
-<p>下载地址：<a href="https://www.elsevier.com/__data/assets/excel_doc/0007/56392/CPXSourceList_09222019.xlsx">Compendex source list</a> (XLSX, 2019, 2766kb)</p>
-<p>另附：</p>
-<p><a href="https://www.elsevier.com/solutions/engineering-village">Ei-village原始查询地址</a></p>
-<p><a href="https://www.elsevier.com">Elsevier官网</a></p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>论文</category>
-      </categories>
-      <tags>
-        <tag>科研</tag>
-        <tag>投稿</tag>
-        <tag>ei</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>EDEM快速填充颗粒的方法</title>
     <url>/arcticle/edem-particles.html</url>
     <content><![CDATA[<p>利用离散元方法做仿真实验的过程中，所用的模型并非都是单一的颗粒体，很多时候要用到颗粒群模型。小体积的模型可以用聚合法将多个颗粒填充在颗粒模板里面，从而组成所需要的非规则模型。然而，大体积的模型通过聚合法逐个布置颗粒位置显然是工作量相当大的一种做法。本文简介两种快速生成颗粒群的方法，以供交流学习。</p>
@@ -1454,6 +1284,176 @@ Digimat-AM中的翘曲分析
       </tags>
   </entry>
   <entry>
+    <title>Elsevier官方最新EI期刊目录查询</title>
+    <url>/arcticle/Ei-Compendex.html</url>
+    <content><![CDATA[<p>Ei Compendex是世界上最广泛、最完整的工程文献数据库。它提供了一个真正的整体和全球视角的同行评议和索引的出版物，从77个国家的190个工程学科的超过2000万的记录。每一项记录都是经过精心挑选和索引的，使用工程索引同义词典，以确保工程专业学生和专业人员可以依赖的工程专业文献的发现和检索。通过使用Ei Compendex，工程师可以确信信息是相关的、完整的、准确的和高质量的。</p>
+<!---more--->
+<p>下载地址：<a href="https://www.elsevier.com/__data/assets/excel_doc/0007/56392/CPXSourceList_09222019.xlsx">Compendex source list</a> (XLSX, 2019, 2766kb)</p>
+<p>另附：</p>
+<p><a href="https://www.elsevier.com/solutions/engineering-village">Ei-village原始查询地址</a></p>
+<p><a href="https://www.elsevier.com">Elsevier官网</a></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+      </categories>
+      <tags>
+        <tag>科研</tag>
+        <tag>投稿</tag>
+        <tag>ei</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EDEM的接触模型</title>
+    <url>/arcticle/edem-contact-models.html</url>
+    <content><![CDATA[<ol type="1">
+<li><p>Hertz-Mindlin模型。基本的颗粒接触模型，用于常规颗粒的接触作用。</p></li>
+<li><p>Hertz-Mindlin with RVD RollingFriction模型。在基本的Hertz-Mindlin模型基础上调整了滚动摩擦力的计算方式，适于强旋转体系对物料滚动特性有严格要求的问题。</p>
+<!---more---></li>
+<li><p>Hertz-Mindlin with JKR模型，又称JKR Cohesion模型。适用于药粉等粉体颗粒和农作物、矿石、泥土等含湿物料，颗粒间因静电力、含湿水分等原因发生明显粘结和团聚。</p></li>
+<li><p>Hertz-Mindlin with bonding模型。用于模拟破碎、断裂等问题，采用小颗粒粘结成大块物料，外力作用下颗粒间粘结力会发生破坏，从而产生破碎及断裂效果。</p></li>
+<li><p>Hertz-Mindlin with Heat Conduction模型。带有热传导的基本接触模型，用于要求温度分析的场合，颗粒接触后会因温度差而产生热传导。</p></li>
+<li><p>Hysteretic Spring模型。用于颗粒受到较大压力后产生塑性形变的场合，如：注塑充模、压路、捣固等。</p></li>
+<li><p>Linear Cohesion模型。传统的颗粒粘结模型，用于一般性粘结颗粒的快速计算，亦可用于含湿物料。但与JKR Cohesion模型的区别是：JKR Cohesion模型计算的粘性力同时存在于颗粒接触的法向和切向上，而Linear Cohesion模型的粘性力只存在于法向。</p></li>
+<li><p>Linear Spring模型。基本颗粒接触模型，用于常规颗粒的快速计算及定性分析。</p></li>
+<li><p>Moving Plane模型。用于模拟传送带等具有表面滑移速度的结构体。 以上接触模型可以满足大多数工程应用需要，然而实际问题千变万化，不可能涵盖所有情况。因此，EDEM提供了API (Application Programming Interface) 二次开发接口，使用户可以根据特殊问题定制模型，最大程度满足仿真模拟的要求。</p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>仿真</tag>
+        <tag>edem</tag>
+        <tag>离散元</tag>
+        <tag>接触模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github+Hexo搭建个人博客实操教程</title>
+    <url>/arcticle/github-hexo-blog-construction.html</url>
+    <content><![CDATA[<h2 id="准备工作">准备工作</h2>
+<h3 id="安装软件">安装软件</h3>
+<p>需要安装的软件有<a href="https://nodejs.org/en/"><strong>Node.js</strong></a>、<a href="https://git-scm.com/downloads"><strong>Git</strong></a>、<a href="http://www.softpedia.com/get/Programming/Other-Programming-Files/Pandoc.shtml"><strong>Pandoc</strong></a>、<a href="https://www.typora.io/#windows"><strong>Typora</strong></a>、<a href="http://www.writage.com/"><strong>Word2Md</strong></a></p>
+<h3 id="搭建环境">搭建环境</h3>
+<p>在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“<code>Git Bash Here</code>”，打开命令窗口，输入命令。</p>
+<ul>
+<li><p>安装hexo，<code>npm install hexo-cli -g</code>，输入<code>hexo -v</code>，检查hexo是否安装成功</p></li>
+<li><p>初始化，<code>hexo init</code></p></li>
+<li><p>安装依赖组件，<code>npm install</code></p></li>
+<li><p>安装编译器，<code>npm install hexo-deployer-git --save</code></p></li>
+<li><p>本地查看</p></li>
+</ul>
+<p>输入<code>hexo g</code>编译文件，输入<code>hexo s</code>，开启服务器，访问该网址，本地体验Hexo（http://localhost:4000/），假如页面一直无法跳转，那么可能端口被占用了。此时我们ctrl+c停止服务器，接着输入“<code>hexo server -p 端口号</code>”来改变端口号，比如5000 （<code>hexo s -p 5000</code>）</p>
+<!--- more --->
+<h2 id="连接github">连接Github</h2>
+<h3 id="配置github">配置Github</h3>
+<p>注册Github账户，并新建项目（repository），项目必须要遵守格式：<strong>账户名.github.io</strong>，不然接下来会有很多麻烦。并且需要勾选<strong>Initialize this repository with a README</strong>。</p>
+<p>在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub Pages，你会看到那边有个网址，访问它，你将会惊奇的发现该项目已经被部署到网络上，能够通过外网来访问它。</p>
+<h3 id="配置ssh">配置SSH</h3>
+<ul>
+<li><p>设置Git的user name和email（如果是第一次的话）,这里“xujun”可以替换成自己的用户名，邮箱可以替换成自己的邮箱</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;xujun&quot;</span><br><span class="line">git config --global user.email &quot;gdutxiaoxu@163.com&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>输入<code>ssh-keygen -t rsa -C “929762930@qq.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）。</p></li>
+<li><p>输入<code>eval "$(ssh-agent -s)"</code>，添加密钥到ssh-agent</p></li>
+<li><p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p></li>
+<li><p>登录Github，点击头像下的settings，添加ssh（新建一个new ssh key，将id_rsa.pub文件里的内容复制上去）</p></li>
+<li><p>输入<code>ssh -T git@github.com</code>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p></li>
+</ul>
+<h3 id="配置deployment">配置Deployment</h3>
+<ul>
+<li><p>在hexo文件夹中，找到_config.yml文件，修改repo值（在末尾）</p>
+<p>repo值是你在github项目里的ssh（右下角）</p></li>
+</ul>
+<h3 id="测试文章">测试文章</h3>
+<ul>
+<li>新建一篇博客，执行命令：<code>hexo new post “博客名”</code>。这时候在文件夹_posts目录下将会看到已经创建的文件。</li>
+<li>使用编辑器编好文章。</li>
+<li>使用命令：<code>hexo d -g</code>，生成以及部署。</li>
+<li>部署成功后访问你的地址：<code>http://用户名.github.io</code>。</li>
+</ul>
+<h2 id="主题安装">主题安装</h2>
+<h3 id="安装主题">安装主题</h3>
+<p>安装NexT，在其文件夹中鼠标右键，点击Git Base Here。输入命令：</p>
+<p><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
+<p><a href="https://hexo.io/themes/">更多主题</a></p>
+<h3 id="启用主题">启用主题</h3>
+<p>启用主题，在站点目录中（blog），打开配置文件_config.yml，修改theme：next</p>
+<h3 id="主题设置">主题设置</h3>
+<ul>
+<li><p>更换主题样式，在next主题目录下的_config.yml文件中将scheme设定为Pisces</p></li>
+<li><p>语言设定，在<strong>站点根目录下</strong>修改配置文件_cofig.yml中的language为zh-Hans（简体中文）</p></li>
+<li><p>修改菜单项，在<strong>主题目录下</strong>修改配置文件_cofig.yml中的menu，增添一个something（注：千万不要在这设置中文，后面的值那是查找文件的地方！若你的站点运行在子目录中，请将链接前缀的 <code>/</code> 去掉）</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022141652959-1002921163.png" /></p>
+<p>这些配置都要与你主题目录下的languages文件中对应的yml文档里配置相关联。比如你在站点根目录中的配置文件设置language为zh-Hans，那么就要进入到主题目录下的languages文件中修改zh-Hans.yml，这样才能显示出菜单项新增的中文内容（以something为例子）</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022113026318-265709135.png" /></p></li>
+<li><p>设置菜单项图标，对应的字段是menu_icons。格式为item name：icon name，其中item name与所配置的菜单名字对应，icon name是Font Awesome图标的名字。而 enable 可用于控制是否显示图标，你可以设置成 false 来去掉图标。（本机出问题，无法显示icon，还未解决，求指导）</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022172514318-965544980.png" /></p></li>
+<li><p>设置侧栏位置，修改主题目录下sidebar的position值</p></li>
+<li><p>设置头像，在站点根目录下载配置文件中新增avatar，值设置为头像的链接地址。地址可以是网络地址，也可以是本地地址（放置在source/images/ 目录下）</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022131752974-1304180995.png" /></p></li>
+<li><p>设置文章代码主题，在主题目录下修改配置文件highlight_theme，默认值为nomal。可以设置为night</p></li>
+<li><p>添加标签页面，前面通过修改next主题下的<code>_config.yml</code>文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。此时我们要新建一个页面<code>hexo new page tags</code></p>
+<p>在新建的index.md文件中添加type: "tags"</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022134821896-1919728091.png" /></p>
+<p>当要为某一篇文章添加标签，只需在b<code>log/source/_post</code>目录下的具体文章的tags中添加标签即可，如：</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022135128006-180948588.png" /></p></li>
+<li><p>添加关于我页面，步骤和以上差不多<code>hexo new page about</code></p>
+<p>在新建的index.md文件中添加如下内容</p></li>
+</ul>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022153607990-455892762.png" /></p>
+<h2 id="公式渲染">公式渲染</h2>
+<p>Hexo 默认选用是 Markdown 渲染引擎是 <a href="https://github.com/chjj/marked">marked</a> (<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>)。除了默认的 marked，目前在 Hexo 上已有的其它比较好且还在维护的 Markdown 渲染引擎也就有 <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it">hexo-renderer-markdown-it</a> 和 <a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a>，其中前者 markdown-it 支持 <a href="http://commonmark.org/"><code>CommonMark</code></a> 标准，后者则支持 <a href="http://pandoc.org/"><code>Pandoc</code></a>。</p>
+<p>写公式的话可以试下 MathJax 吧，MathJax 渲染器在 Hexo 上的实现也有的。具体自行谷歌：<a href="https://www.google.com/?q=Hexo+MathJax">Hexo MathJax</a>。</p>
+<p>如何使用别的 Markdown 渲染引擎。先安装Pandoc，然后把 hexo 里 <code>package.json</code> 的 Markdown 渲染器依赖换掉，比如 <code>hexo-renderer-marked</code> 换成 <code>hexo-renderer-pandoc</code>。然后重新编译一下文件就可以了。</p>
+<h2 id="域名绑定">域名绑定</h2>
+<p>当然，你不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。</p>
+<p>首先你要注册一个域名，域名注册以前总是推荐去<code>godaddy</code>，现在觉得其实国内的阿里云也挺不错的，价格也不贵，毕竟是大公司，放心！</p>
+<p>绑定域名分2种情况：带www和不带www的。</p>
+<p>域名配置最常见有2种方式，CNAME和A记录，CNAME填写域名，A记录填写IP，由于不带www方式只能采用A记录，所以必须先ping一下<code>你的用户名.github.io</code>的IP，然后到你的域名DNS设置页，将A记录指向你ping出来的IP，将CNAME指向<code>你的用户名.github.io</code>，这样可以保证无论是否添加www都可以访问，如下：</p>
+<p><img src="http://img.shihuidaren.cn/blog/20160823_191336_238_8683.png" /></p>
+<p>然后到你的github项目根目录新建一个名为CNAME的文件（无后缀），里面填写你的域名，加不加www看你自己喜好，因为经测试：</p>
+<ul>
+<li>如果你填写的是没有www的，比如 mygit.me，那么无论是访问 <a href="http://www.mygit.me/">http://www.mygit.me</a> 还是 <a href="http://mygit.me/">http://mygit.me</a> ，都会自动跳转到 <a href="http://mygit.me/">http://mygit.me</a></li>
+<li>如果你填写的是带www的，比如 www.mygit.me ，那么无论是访问 <a href="http://www.mygit.me/">http://www.mygit.me</a> 还是 <a href="http://mygit.me/">http://mygit.me</a> ，都会自动跳转到 <a href="http://www.mygit.me/">http://www.mygit.me</a></li>
+<li>如果你填写的是其它子域名，比如 abc.mygit.me，那么访问 <a href="http://abc.mygit.me/">http://abc.mygit.me</a> 没问题，但是访问 <a href="http://mygit.me/">http://mygit.me</a> ，不会自动跳转到 <a href="http://abc.mygit.me/">http://abc.mygit.me</a></li>
+</ul>
+<p>另外说一句，在你绑定了新域名之后，原来的<code>你的用户名.github.io</code>并没有失效，而是会自动跳转到你的新域名。</p>
+<h2 id="永久链接">永久链接</h2>
+<p>一般来说，URL只能使用英文和数字和一些标点符号表示。这是因为网络标准RFC 1738 做了硬性规定。虽然在Hexo中引用<code>:title</code>可以显示中文的网址，但是复制粘贴到记事本会发现得到的是一大串百分号之类的“乱码”（其实这并不是乱码，而是中文被转码成十六进制编码的结果），看起来不怎么好看。</p>
+<p><strong>在permalink中使用文章id替代“:title”</strong></p>
+<p>在官方文档<a href="https://hexo.io/zh-cn/docs/permalinks.html">永久链接（Permalinks） | Hexo</a>一章中有这样一段描述：</p>
+<p><img src="http://img.shihuidaren.cn/blog/5069493.jpg" /></p>
+<p><code>permalink</code>的变量就这几个，其中<strong>文章id</strong>这个变量非常有用。</p>
+<p>我们可以在博客根目录的配置文件（<code>_config.yml</code>）中这样修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title # 这是原配置</span><br><span class="line">permalink: :year&#x2F;:id.html # 替换为此新配置12</span><br></pre></td></tr></table></figure>
+<p>并且在<code>.\scaffolds\post.md</code>中修改为：<strong>（注意新增了一个<code>id:</code>）</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">id: </span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">updated: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">permalink: </span><br><span class="line">---123456789</span><br></pre></td></tr></table></figure>
+<p>在我们的具体文章中，你可以使用<strong>任意字符串</strong>作为此文章的id，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 如何让你的Hexo博客网址使用全英文路径</span><br><span class="line">id: 123456789-abcd</span><br><span class="line">date: 2017-12-30 20:57:46</span><br><span class="line">updated: 2017-12-30</span><br><span class="line">categories: 后台01 文档管理</span><br><span class="line">tags:</span><br><span class="line">permalink:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h3 id="清理git缓存">清理Git缓存</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#清空git缓存</span><br><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;update&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="参考文章">参考文章</h3>
+<p>[1] http://blog.haoji.me/build-blog-website-by-hexo-github.html</p>
+<p>[2] http://www.cnblogs.com/fengxiongZz/p/7707568.html</p>
+<p>[3] https://www.cnblogs.com/fengxiongZz/p/7707219.html</p>
+<p>[4] http://theme-next.iissnan.com/third-party-services.html</p>
+<p>[5] https://hexo.io/zh-cn/docs/index.html</p>
+<p>[6] https://www.cnblogs.com/MuYunyun/p/5927491.html</p>
+<p>[7] https://blog.csdn.net/likianta/article/details/79343427</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>网站</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>github</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo与阿里云虚拟主机搭建博客</title>
     <url>/arcticle/hexo-vps.html</url>
     <content><![CDATA[<p>发布到虚拟主机有很多方法，我们当然挑简单的来</p>
@@ -1485,37 +1485,6 @@ Digimat-AM中的翘曲分析
         <tag>hexo</tag>
         <tag>网站</tag>
         <tag>omv</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kodexplorer开源插件分享汇总</title>
-    <url>/arcticle/KodExplorer-plu.html</url>
-    <content><![CDATA[<p>Kodexplorer开源插件分享汇总</p>
-<!---more--->
-<h2 id="photopea">photopea</h2>
-<p>有个非常好用在线PS工具，www.photopea.com，就想把它做成KodExplorer的插件。</p>
-<p>下载：https://github.com/zhtengw/kodexplorer-plugins/tree/master/Photopea <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1577546009-0-2019-12-28225041.png" /></p>
-<h2 id="draw.io">draw.io</h2>
-<p>draw.io是个非常好用的在线图表工具，开源流程图利器。现已做成kod插件，支持4.40和新的KodBox。 <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1578815292-0-2020-01-11232448.png" /></p>
-<p>下载地址：</p>
-<p>KodExplorer 4.40版</p>
-<p>https://github.com/zhtengw/kodexplorer-plugins/tree/master/drawio</p>
-<p>KodBox版</p>
-<p>https://github.com/zhtengw/kodexplorer-plugins/tree/v5.0/drawio</p>
-<h2 id="onlyoffice">OnlyOffice</h2>
-<p>下载地址： https://github.com/zhtengw/kodexplorer-plugins/releases/tag/OnlyOffice-plugin-v2.1</p>
-<h2 id="ueditor">Ueditor</h2>
-<p><strong>一个比MD更好用的Ueditor公式编辑器</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/11111111111.gif" /> 下载下面的附件并保存到Kodexplorer根目录下app目录下即可 调用的话直接创建一个快捷方式即可,</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330130257246.png" /></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>nas</category>
-      </categories>
-      <tags>
-        <tag>nas</tag>
-        <tag>kodexplorer</tag>
       </tags>
   </entry>
   <entry>
@@ -1561,6 +1530,66 @@ Digimat-AM中的翘曲分析
         <tag>技能</tag>
         <tag>文献</tag>
         <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kodexplorer开源插件分享汇总</title>
+    <url>/arcticle/KodExplorer-plu.html</url>
+    <content><![CDATA[<p>Kodexplorer开源插件分享汇总</p>
+<!---more--->
+<h2 id="photopea">photopea</h2>
+<p>有个非常好用在线PS工具，www.photopea.com，就想把它做成KodExplorer的插件。</p>
+<p>下载：https://github.com/zhtengw/kodexplorer-plugins/tree/master/Photopea <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1577546009-0-2019-12-28225041.png" /></p>
+<h2 id="draw.io">draw.io</h2>
+<p>draw.io是个非常好用的在线图表工具，开源流程图利器。现已做成kod插件，支持4.40和新的KodBox。 <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1578815292-0-2020-01-11232448.png" /></p>
+<p>下载地址：</p>
+<p>KodExplorer 4.40版</p>
+<p>https://github.com/zhtengw/kodexplorer-plugins/tree/master/drawio</p>
+<p>KodBox版</p>
+<p>https://github.com/zhtengw/kodexplorer-plugins/tree/v5.0/drawio</p>
+<h2 id="onlyoffice">OnlyOffice</h2>
+<p>下载地址： https://github.com/zhtengw/kodexplorer-plugins/releases/tag/OnlyOffice-plugin-v2.1</p>
+<h2 id="ueditor">Ueditor</h2>
+<p><strong>一个比MD更好用的Ueditor公式编辑器</strong></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/11111111111.gif" /> 下载下面的附件并保存到Kodexplorer根目录下app目录下即可 调用的话直接创建一个快捷方式即可,</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330130257246.png" /></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>nas</category>
+      </categories>
+      <tags>
+        <tag>nas</tag>
+        <tag>kodexplorer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lyapunov稳定性复习笔记</title>
+    <url>/arcticle/Lyapunov-stability-note.html</url>
+    <content><![CDATA[<p>本文所提及的稳定性分析是指系统运动状态的稳定性分析。“一个不稳定的系统，小则无法正常工作大则为人类带来灾难甚至毁灭性的恶果，例如社会动荡、金融危机、电网崩溃、飞机失事等”。稳定性分析不仅仅只是设计好控制器后对已有系统增加控制装置后判断系统运动状态是否稳定，还能够通过对系统稳定性的分析过程，反过来去设计一款能够稳定系统的控制器，因此稳定性分析也在控制器设计中担当者设计指导和验收的双重角色。注意，本文是复习笔记，对于没有一定现代控制理论基础的同学来说，不一定是合适的阅读资料。</p>
+<!---more--->
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/1.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/2.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/3.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/4.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/5.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/6.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/7.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/8.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/9.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/10.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/11.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/12.png" /></p>
+<p>2018年6月4日 Dianye Huang 于华工</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>控制</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>稳定性</tag>
+        <tag>控制</tag>
       </tags>
   </entry>
   <entry>
@@ -1623,6 +1652,24 @@ Digimat-AM中的翘曲分析
         <tag>学习</tag>
         <tag>稳定性</tag>
         <tag>控制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mathematica激活方法</title>
+    <url>/arcticle/Mathematica-crack.html</url>
+    <content><![CDATA[<p>激活方法：</p>
+<p>安装mathematica打开；选择其他方式激活，手动激活，找到math ID</p>
+<p>激活需要先开一个cmd命令行窗口，然后从里面运行附近里mma开头的文件</p>
+<p>输入 math ID</p>
+<p>复制激活密匙和密码，填入激活。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>mathematica</tag>
+        <tag>公式</tag>
+        <tag>软件破解</tag>
       </tags>
   </entry>
   <entry>
@@ -1702,35 +1749,6 @@ Digimat-AM中的翘曲分析
       </tags>
   </entry>
   <entry>
-    <title>Lyapunov稳定性复习笔记</title>
-    <url>/arcticle/Lyapunov-stability-note.html</url>
-    <content><![CDATA[<p>本文所提及的稳定性分析是指系统运动状态的稳定性分析。“一个不稳定的系统，小则无法正常工作大则为人类带来灾难甚至毁灭性的恶果，例如社会动荡、金融危机、电网崩溃、飞机失事等”。稳定性分析不仅仅只是设计好控制器后对已有系统增加控制装置后判断系统运动状态是否稳定，还能够通过对系统稳定性的分析过程，反过来去设计一款能够稳定系统的控制器，因此稳定性分析也在控制器设计中担当者设计指导和验收的双重角色。注意，本文是复习笔记，对于没有一定现代控制理论基础的同学来说，不一定是合适的阅读资料。</p>
-<!---more--->
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/1.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/2.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/3.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/4.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/5.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/6.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/7.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/8.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/9.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/10.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/11.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/12.png" /></p>
-<p>2018年6月4日 Dianye Huang 于华工</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>控制</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>稳定性</tag>
-        <tag>控制</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mathtype安装与使用技巧合集</title>
     <url>/arcticle/mathtype.html</url>
     <content><![CDATA[<p>《数学公式编辑器(MathType)》是一款专业的数学公式编辑工具，理科生专用的工具。mathtype公式编辑器能够帮助用户在各种文档中插入复杂的数学公式和符号。数学公式编辑器工具可以轻松输入各种复杂的公式和符号，与Office文档完美结合，显示效果超好，比Office自带的公式编辑器要强大很多</p>
@@ -1773,27 +1791,9 @@ Digimat-AM中的翘曲分析
         <category>教程</category>
       </categories>
       <tags>
+        <tag>公式</tag>
         <tag>数学</tag>
         <tag>mathtype</tag>
-        <tag>公式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mathematica激活方法</title>
-    <url>/arcticle/Mathematica-crack.html</url>
-    <content><![CDATA[<p>激活方法：</p>
-<p>安装mathematica打开；选择其他方式激活，手动激活，找到math ID</p>
-<p>激活需要先开一个cmd命令行窗口，然后从里面运行附近里mma开头的文件</p>
-<p>输入 math ID</p>
-<p>复制激活密匙和密码，填入激活。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>mathematica</tag>
-        <tag>公式</tag>
-        <tag>软件破解</tag>
       </tags>
   </entry>
   <entry>
@@ -2079,50 +2079,6 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>OMV里Kodexplorer大文件上传优化与错误解决</title>
-    <url>/arcticle/omv-kodexplorer.html</url>
-    <content><![CDATA[<p>最近停了Nextcloud，打算用作为主力了，因此优化了一波。基本情况：OMV+nginx插件搭建的kodexplorer。</p>
-<p>上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。据人指点“最后合并上传失败很可能是登录超时引起的”。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodshibai.jpeg" /></p>
-<!---more--->
-<p>首先明确可道云没有对上传下载做任何限制，速度快慢和网络环境有关。可道云是基于http上传，所以和其他http上传速度基本一致；可以对比其他web系统或网站说附件上传速度。同其他例如webdav、FTP、QQ传输等软件底层协议不一样；传输速度也会不一样。</p>
-<p>传输速度受三方面影响：</p>
-<p><strong>本机客户端</strong>：网卡、连接方式(有线、无线)、本机磁盘IO负载情况； <strong>网络环境</strong>：网络带宽、wifi还是网线等造成的影响；网络环境复杂、或使用人多时路由器或交换机处理速度也都会是瓶颈之一。 <strong>服务器</strong>：受服务器负载、磁盘IO、服务器网络带宽等影响。同时受并发影响；比如20M上行带宽,10个人同时在上传或下载,那么每个人平均就是2M/s 可道云为了能在更多的服务器环境下良好运行，各方面配置是以兼容性为主，可能并不是最优配置。性能调优可以参考配置如下。</p>
-<p><strong>修改php.ini上传限制</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">max_execution_time &#x3D; 3600</span><br><span class="line">max_input_time &#x3D; 3600</span><br><span class="line">post_max_size &#x3D; &#39;150M&#39;</span><br><span class="line">upload_max_filesize &#x3D; &#39;150M&#39;</span><br></pre></td></tr></table></figure>
-<p>注意：这个可以在kod的config文件夹里的<code>config.php</code>中修改。</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">define(&#x27;GLOBAL_DEBUG&#x27;,0);//0 or 1</span><br><span class="line">define(&#x27;GLOBAL_DEBUG_HOOK&#x27;,0);//0 or 1</span><br><span class="line">@date_default_timezone_set(@date_default_timezone_get());</span><br><span class="line">@set_time_limit(3600);//20min pathInfoMuti,search,upload,download...</span><br><span class="line">@ini_set(&quot;max_execution_time&quot;,3600);</span><br><span class="line">@ini_set(&quot;max_input_time&quot;,3600);</span><br><span class="line">@ini_set(&quot;post_max_size&quot;,&#x27;150M&#x27;);</span><br><span class="line">@ini_set(&quot;upload_max_filesize&quot;,&#x27;150M&#x27;);</span><br><span class="line">@ini_set(&#x27;memory_limit&#x27;,&#x27;500M&#x27;);//</span><br><span class="line">@ini_set(&#x27;session.cache_expire&#x27;,1800);</span><br></pre></td></tr></table></figure>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodyouhua.png" /></p>
-<p><strong>修改可道云配置</strong></p>
-<p>在config/下新建 setting_user.php文件;粘贴如下内容；(已存在则略过)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;分片上传: 每个切片5M,需要php.ini 中upload_max_filesize大于此值</span><br><span class="line">$GLOBALS[&#39;config&#39;][&#39;settings&#39;][&#39;updloadChunkSize&#39;] &#x3D; 1024*1024*5;</span><br><span class="line">&#x2F;&#x2F;上传并发数量; 推荐15个并发;</span><br><span class="line">$GLOBALS[&#39;config&#39;][&#39;settings&#39;][&#39;updloadThreads&#39;] &#x3D; 15;</span><br></pre></td></tr></table></figure>
-<p><strong>nginx + php-fpm上传优化</strong></p>
-<p>在nginx.conf中添加如下代码，参考,更多nginx优化 使用共享内存做临时存贮提高上传速度，共享内存需要大一些，否则上传大文件内存不足</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">client_body_in_file_only clean;</span><br><span class="line">client_body_temp_path &#x2F;dev&#x2F;shm 1 2;</span><br><span class="line">fastcgi_param REQUEST_BODY_FILE $request_body_file;</span><br></pre></td></tr></table></figure>
-<p>参考：http://bbs.kodcloud.com/d/60</p>
-<p>需要注意的是，根据这个网址:http://blog.lovecatcat.com/index.php/archives/17/，我在OMV里设置池和服务器的时候添加了代码。起没起作用我也不确定，因为没有重启服务器。如果上面的操作不行可以加上再试试。</p>
-<p>添加池的页面添加了如下代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env[PATH] &#x3D; &#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;bin</span><br></pre></td></tr></table></figure>
-<p>添加服务器的页面的拓展选项里添加了如下代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">client_max_body_size 10G; # set max upload size</span><br><span class="line">fastcgi_buffers 64 4K;</span><br><span class="line">rewrite ^&#x2F;caldav(.*)$ &#x2F;remote.php&#x2F;caldav$1 redirect;</span><br><span class="line">rewrite ^&#x2F;carddav(.*)$ &#x2F;remote.php&#x2F;carddav$1 redirect;</span><br><span class="line">rewrite ^&#x2F;webdav(.*)$ &#x2F;remote.php&#x2F;webdav$1 redirect;</span><br><span class="line">index index.php;</span><br><span class="line">error_page 403 &#x2F;core&#x2F;templates&#x2F;403.php;</span><br><span class="line">error_page 404 &#x2F;core&#x2F;templates&#x2F;404.php;</span><br><span class="line">location &#x3D; &#x2F;robots.txt &#123;</span><br><span class="line">allow all;</span><br><span class="line">log_not_found off;</span><br><span class="line">access_log off;</span><br><span class="line">&#125;</span><br><span class="line">location ~ ^&#x2F;(data|config|.ht|db_structure.xml|README) &#123;</span><br><span class="line">deny all;</span><br><span class="line">&#125;</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line"># The following 2 rules are only needed with webfinger</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;host-meta &#x2F;public.php?service&#x3D;host-meta last;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;host-meta.json &#x2F;public.php?service&#x3D;host-meta-json last;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;carddav &#x2F;remote.php&#x2F;carddav&#x2F; redirect;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;caldav &#x2F;remote.php&#x2F;caldav&#x2F; redirect;</span><br><span class="line">rewrite ^(&#x2F;core&#x2F;doc&#x2F;[^&#x2F;]+&#x2F;)$ $1&#x2F;index.html;</span><br><span class="line">try_files $uri $uri&#x2F; index.php;</span><br><span class="line">&#125;</span><br><span class="line">location ~ ^(.+?.php)(&#x2F;.*)?$ &#123;</span><br><span class="line">try_files $1 &#x3D; 404;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$1;</span><br><span class="line">fastcgi_param PATH_INFO $2;</span><br><span class="line">fastcgi_param HTTPS on;</span><br><span class="line">fastcgi_pass $socket;</span><br><span class="line">&#125;</span><br><span class="line"># Optional: set long EXPIRES header on static assets</span><br><span class="line">location ~* ^.+.(jpg|jpeg|gif|bmp|ico|png|css|js|swf)$ &#123;</span><br><span class="line">expires 30d;</span><br><span class="line"># Optional: Don&#39;t log access to assets</span><br><span class="line">access_log off;</span><br><span class="line">&#125;</span><br><span class="line">add_header Strict-Transport-Security &quot;max-age&#x3D;15768000; includeSubDomains; preload;&quot;;</span><br></pre></td></tr></table></figure>
-<p>另外附：通过设置nginx的client_max_body_size解决nginx+php上传大文件的问题</p>
-<p>用nginx来做webserver的时，上传大文件时需要特别注意client_max_body_size这个参数,否则会中断在nginx的请求中,在php中是无法记录到访问的. 一般上传大文件流程： 首先修改php.ini文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file_uploads on 是否允许通过HTTP上传文件的开关。默认为ON即是开 </span><br><span class="line">upload_tmp_dir – 文件上传至服务器上存储临时文件的地方，如果没指定就会用系统默认的临时文件夹 </span><br><span class="line">upload_max_filesize 8m 望文生意，即允许上传文件大小的最大值。默认为2M </span><br><span class="line">post_max_size 8m 指通过表单POST给PHP的所能接收的最大值，包括表单里的所有值。默认为8M </span><br></pre></td></tr></table></figure>
-<p>一般来说，设置好上述四个参数后，在网络正常的情况下，上传&lt;=8M的文件是不成问题的 但如果要上传&gt;8M的大文件的话，只设置上述四项还不一定能行的通。除非你的网络真有100M/S的上传高速，否则你还得继续设置下面的参数。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">max_execution_time 600 每个PHP页面运行的最大时间值(秒)，默认30秒 </span><br><span class="line">max_input_time 600 每个PHP页面接收数据所需的最大时间，默认60秒 </span><br><span class="line">memory_limit 8m 每个PHP页面所吃掉的最大内存，默认8M </span><br></pre></td></tr></table></figure>
-<p>但是还是不行，因为的webserver用的是nginx， google了一下，发现在nginx的conf中添加了一个参数： 在nginx.conf中增加一句，重启即可 。默认是1M，需要增大的话。30m表示最大上传30M，需要多大设置多大。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">client_max_body_size 30m; </span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>nas</category>
-      </categories>
-      <tags>
-        <tag>omv</tag>
-        <tag>nas</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>J3455平台安装OMV及nextcloud的安装和配置说明-nginx插件版</title>
     <url>/arcticle/omv.html</url>
     <content><![CDATA[<p>安装参考该教程：<a href="http://www.azurew.com/6350.html">使用Open Media Vault和NextCloud构建家庭私有云</a></p>
@@ -2168,6 +2124,50 @@ nginx/1.12.2
         <tag>nas</tag>
         <tag>nextcloud</tag>
         <tag>j3455</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OMV里Kodexplorer大文件上传优化与错误解决</title>
+    <url>/arcticle/omv-kodexplorer.html</url>
+    <content><![CDATA[<p>最近停了Nextcloud，打算用作为主力了，因此优化了一波。基本情况：OMV+nginx插件搭建的kodexplorer。</p>
+<p>上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。据人指点“最后合并上传失败很可能是登录超时引起的”。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodshibai.jpeg" /></p>
+<!---more--->
+<p>首先明确可道云没有对上传下载做任何限制，速度快慢和网络环境有关。可道云是基于http上传，所以和其他http上传速度基本一致；可以对比其他web系统或网站说附件上传速度。同其他例如webdav、FTP、QQ传输等软件底层协议不一样；传输速度也会不一样。</p>
+<p>传输速度受三方面影响：</p>
+<p><strong>本机客户端</strong>：网卡、连接方式(有线、无线)、本机磁盘IO负载情况； <strong>网络环境</strong>：网络带宽、wifi还是网线等造成的影响；网络环境复杂、或使用人多时路由器或交换机处理速度也都会是瓶颈之一。 <strong>服务器</strong>：受服务器负载、磁盘IO、服务器网络带宽等影响。同时受并发影响；比如20M上行带宽,10个人同时在上传或下载,那么每个人平均就是2M/s 可道云为了能在更多的服务器环境下良好运行，各方面配置是以兼容性为主，可能并不是最优配置。性能调优可以参考配置如下。</p>
+<p><strong>修改php.ini上传限制</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">max_execution_time &#x3D; 3600</span><br><span class="line">max_input_time &#x3D; 3600</span><br><span class="line">post_max_size &#x3D; &#39;150M&#39;</span><br><span class="line">upload_max_filesize &#x3D; &#39;150M&#39;</span><br></pre></td></tr></table></figure>
+<p>注意：这个可以在kod的config文件夹里的<code>config.php</code>中修改。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">define(&#x27;GLOBAL_DEBUG&#x27;,0);//0 or 1</span><br><span class="line">define(&#x27;GLOBAL_DEBUG_HOOK&#x27;,0);//0 or 1</span><br><span class="line">@date_default_timezone_set(@date_default_timezone_get());</span><br><span class="line">@set_time_limit(3600);//20min pathInfoMuti,search,upload,download...</span><br><span class="line">@ini_set(&quot;max_execution_time&quot;,3600);</span><br><span class="line">@ini_set(&quot;max_input_time&quot;,3600);</span><br><span class="line">@ini_set(&quot;post_max_size&quot;,&#x27;150M&#x27;);</span><br><span class="line">@ini_set(&quot;upload_max_filesize&quot;,&#x27;150M&#x27;);</span><br><span class="line">@ini_set(&#x27;memory_limit&#x27;,&#x27;500M&#x27;);//</span><br><span class="line">@ini_set(&#x27;session.cache_expire&#x27;,1800);</span><br></pre></td></tr></table></figure>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodyouhua.png" /></p>
+<p><strong>修改可道云配置</strong></p>
+<p>在config/下新建 setting_user.php文件;粘贴如下内容；(已存在则略过)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;分片上传: 每个切片5M,需要php.ini 中upload_max_filesize大于此值</span><br><span class="line">$GLOBALS[&#39;config&#39;][&#39;settings&#39;][&#39;updloadChunkSize&#39;] &#x3D; 1024*1024*5;</span><br><span class="line">&#x2F;&#x2F;上传并发数量; 推荐15个并发;</span><br><span class="line">$GLOBALS[&#39;config&#39;][&#39;settings&#39;][&#39;updloadThreads&#39;] &#x3D; 15;</span><br></pre></td></tr></table></figure>
+<p><strong>nginx + php-fpm上传优化</strong></p>
+<p>在nginx.conf中添加如下代码，参考,更多nginx优化 使用共享内存做临时存贮提高上传速度，共享内存需要大一些，否则上传大文件内存不足</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">client_body_in_file_only clean;</span><br><span class="line">client_body_temp_path &#x2F;dev&#x2F;shm 1 2;</span><br><span class="line">fastcgi_param REQUEST_BODY_FILE $request_body_file;</span><br></pre></td></tr></table></figure>
+<p>参考：http://bbs.kodcloud.com/d/60</p>
+<p>需要注意的是，根据这个网址:http://blog.lovecatcat.com/index.php/archives/17/，我在OMV里设置池和服务器的时候添加了代码。起没起作用我也不确定，因为没有重启服务器。如果上面的操作不行可以加上再试试。</p>
+<p>添加池的页面添加了如下代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env[PATH] &#x3D; &#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;bin</span><br></pre></td></tr></table></figure>
+<p>添加服务器的页面的拓展选项里添加了如下代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">client_max_body_size 10G; # set max upload size</span><br><span class="line">fastcgi_buffers 64 4K;</span><br><span class="line">rewrite ^&#x2F;caldav(.*)$ &#x2F;remote.php&#x2F;caldav$1 redirect;</span><br><span class="line">rewrite ^&#x2F;carddav(.*)$ &#x2F;remote.php&#x2F;carddav$1 redirect;</span><br><span class="line">rewrite ^&#x2F;webdav(.*)$ &#x2F;remote.php&#x2F;webdav$1 redirect;</span><br><span class="line">index index.php;</span><br><span class="line">error_page 403 &#x2F;core&#x2F;templates&#x2F;403.php;</span><br><span class="line">error_page 404 &#x2F;core&#x2F;templates&#x2F;404.php;</span><br><span class="line">location &#x3D; &#x2F;robots.txt &#123;</span><br><span class="line">allow all;</span><br><span class="line">log_not_found off;</span><br><span class="line">access_log off;</span><br><span class="line">&#125;</span><br><span class="line">location ~ ^&#x2F;(data|config|.ht|db_structure.xml|README) &#123;</span><br><span class="line">deny all;</span><br><span class="line">&#125;</span><br><span class="line">location &#x2F; &#123;</span><br><span class="line"># The following 2 rules are only needed with webfinger</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;host-meta &#x2F;public.php?service&#x3D;host-meta last;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;host-meta.json &#x2F;public.php?service&#x3D;host-meta-json last;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;carddav &#x2F;remote.php&#x2F;carddav&#x2F; redirect;</span><br><span class="line">rewrite ^&#x2F;.well-known&#x2F;caldav &#x2F;remote.php&#x2F;caldav&#x2F; redirect;</span><br><span class="line">rewrite ^(&#x2F;core&#x2F;doc&#x2F;[^&#x2F;]+&#x2F;)$ $1&#x2F;index.html;</span><br><span class="line">try_files $uri $uri&#x2F; index.php;</span><br><span class="line">&#125;</span><br><span class="line">location ~ ^(.+?.php)(&#x2F;.*)?$ &#123;</span><br><span class="line">try_files $1 &#x3D; 404;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$1;</span><br><span class="line">fastcgi_param PATH_INFO $2;</span><br><span class="line">fastcgi_param HTTPS on;</span><br><span class="line">fastcgi_pass $socket;</span><br><span class="line">&#125;</span><br><span class="line"># Optional: set long EXPIRES header on static assets</span><br><span class="line">location ~* ^.+.(jpg|jpeg|gif|bmp|ico|png|css|js|swf)$ &#123;</span><br><span class="line">expires 30d;</span><br><span class="line"># Optional: Don&#39;t log access to assets</span><br><span class="line">access_log off;</span><br><span class="line">&#125;</span><br><span class="line">add_header Strict-Transport-Security &quot;max-age&#x3D;15768000; includeSubDomains; preload;&quot;;</span><br></pre></td></tr></table></figure>
+<p>另外附：通过设置nginx的client_max_body_size解决nginx+php上传大文件的问题</p>
+<p>用nginx来做webserver的时，上传大文件时需要特别注意client_max_body_size这个参数,否则会中断在nginx的请求中,在php中是无法记录到访问的. 一般上传大文件流程： 首先修改php.ini文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file_uploads on 是否允许通过HTTP上传文件的开关。默认为ON即是开 </span><br><span class="line">upload_tmp_dir – 文件上传至服务器上存储临时文件的地方，如果没指定就会用系统默认的临时文件夹 </span><br><span class="line">upload_max_filesize 8m 望文生意，即允许上传文件大小的最大值。默认为2M </span><br><span class="line">post_max_size 8m 指通过表单POST给PHP的所能接收的最大值，包括表单里的所有值。默认为8M </span><br></pre></td></tr></table></figure>
+<p>一般来说，设置好上述四个参数后，在网络正常的情况下，上传&lt;=8M的文件是不成问题的 但如果要上传&gt;8M的大文件的话，只设置上述四项还不一定能行的通。除非你的网络真有100M/S的上传高速，否则你还得继续设置下面的参数。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">max_execution_time 600 每个PHP页面运行的最大时间值(秒)，默认30秒 </span><br><span class="line">max_input_time 600 每个PHP页面接收数据所需的最大时间，默认60秒 </span><br><span class="line">memory_limit 8m 每个PHP页面所吃掉的最大内存，默认8M </span><br></pre></td></tr></table></figure>
+<p>但是还是不行，因为的webserver用的是nginx， google了一下，发现在nginx的conf中添加了一个参数： 在nginx.conf中增加一句，重启即可 。默认是1M，需要增大的话。30m表示最大上传30M，需要多大设置多大。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">client_max_body_size 30m; </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>nas</category>
+      </categories>
+      <tags>
+        <tag>omv</tag>
+        <tag>nas</tag>
       </tags>
   </entry>
   <entry>
@@ -2519,6 +2519,59 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>Windows Server 2016和J3455搭建私有云</title>
+    <url>/arcticle/windows-J3455.html</url>
+    <content><![CDATA[<p>Windows Server 2016和J3455搭建私有云</p>
+<!---more--->
+<ul>
+<li>硬件平台：</li>
+</ul>
+<p>J3455主板，4G金士顿DDR3 1600内存条，小机箱，ATX电源（长城BTX_450SE，低载荷风扇可以停转），西数红盘</p>
+<ul>
+<li>软件：</li>
+</ul>
+<p>win server 2016 standard x64、xampp 3.2.2、python 2.7、Seafile 6.07、Kodexplore 4.36、小白文件管理器、小白播放器、daemon sync</p>
+<p>与win10类似。安装前更新一下J3455主板的Bois。从官网下载Win10 驱动。大白菜PE安装。</p>
+<p>未遇到<a href="https://www.chiphell.com/thread-1845619-1-1.html">教程</a>中说的网卡问题。整体按照上述教程进行。没搞软路由，注意点有：</p>
+<ul>
+<li>计算机名和用户名不要一样</li>
+<li>IE增强的安全配置，一定要改</li>
+<li>没搞软路由</li>
+<li>媒体播放通过小白播放器和小白文件管理解决，很好用</li>
+<li>远程桌面，映射3389端口并设置防火墙放行就行</li>
+<li>Seafile和Kodexplore做云盘，还在考察中</li>
+</ul>
+<p>DDNS<a href="https://github.com/kaedei/aliyun-ddns-client-csharp">方案一</a></p>
+<ol type="1">
+<li>在阿里云申请一个域名，将此域名添加一个子域（如<code>www</code>），并设置为A类型记录，IP地址随便填写一个（程序会自动修改）</li>
+<li>到阿里云域名控制台<a href="https://ak-console.aliyun.com/#/accesskey">申请AccessId Key和Secrect</a></li>
+<li>Clone本项目代码到本机，使用VS2013或更高版本编译</li>
+<li>将程序exe和其他dll文件复制到服务器上。在exe文件同目录下创建一个文本文件并命名为<code>config.txt</code></li>
+<li><code>config.txt</code>文件的内容有四行，请修改成对应的值：
+<ul>
+<li>第一行：Access Id Key，例如 <em>DR2DPjKmg4ww0e79</em></li>
+<li>第二行：Access Id Secret，例如 <em>ysHnd1dhWvoOmbdWKx04evlVEdXEW7</em></li>
+<li>第三行：域名，例如 <em>google.com</em></li>
+<li>第四行：子域名，例如 <em>www</em></li>
+</ul></li>
+</ol>
+<p>6.在服务器上运行主exe即可.本程序依赖外部web服务来获取本机的公网IP地址，默认使用的公网IP地址查询服务来自ip138.com。您可以在<code>App.config</code>文件中修改对应的网址。</p>
+<p>使用VS2013 + C#开发，支持.NET 3.5和.NET 4.5。建议通过<strong>任务计划</strong>定时调用（如每小时），程序会判断是否需要修改A记录</p>
+<p><strong>我这里是修改完<code>config.txt</code>文件，直接运行软件就行。</strong></p>
+<p><a href="https://www.52z.com/soft/600310.html">方案二</a></p>
+<p><a href="https://www.cnblogs.com/weapon/p/6772253.html?utm_source=itdadao&amp;utm_medium=referral">方案三</a></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>nas</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
+        <tag>nas</tag>
+        <tag>win10</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows离线文件同步和备份-Freefilesync</title>
     <url>/arcticle/freefilesync.html</url>
     <content><![CDATA[<p><img src="https://freefilesync.org/images/manual/main-window.png" /></p>
@@ -2614,59 +2667,6 @@ nginx/1.12.2
       <tags>
         <tag>nas</tag>
         <tag>j3455</tag>
-        <tag>win10</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows Server 2016和J3455搭建私有云</title>
-    <url>/arcticle/windows-J3455.html</url>
-    <content><![CDATA[<p>Windows Server 2016和J3455搭建私有云</p>
-<!---more--->
-<ul>
-<li>硬件平台：</li>
-</ul>
-<p>J3455主板，4G金士顿DDR3 1600内存条，小机箱，ATX电源（长城BTX_450SE，低载荷风扇可以停转），西数红盘</p>
-<ul>
-<li>软件：</li>
-</ul>
-<p>win server 2016 standard x64、xampp 3.2.2、python 2.7、Seafile 6.07、Kodexplore 4.36、小白文件管理器、小白播放器、daemon sync</p>
-<p>与win10类似。安装前更新一下J3455主板的Bois。从官网下载Win10 驱动。大白菜PE安装。</p>
-<p>未遇到<a href="https://www.chiphell.com/thread-1845619-1-1.html">教程</a>中说的网卡问题。整体按照上述教程进行。没搞软路由，注意点有：</p>
-<ul>
-<li>计算机名和用户名不要一样</li>
-<li>IE增强的安全配置，一定要改</li>
-<li>没搞软路由</li>
-<li>媒体播放通过小白播放器和小白文件管理解决，很好用</li>
-<li>远程桌面，映射3389端口并设置防火墙放行就行</li>
-<li>Seafile和Kodexplore做云盘，还在考察中</li>
-</ul>
-<p>DDNS<a href="https://github.com/kaedei/aliyun-ddns-client-csharp">方案一</a></p>
-<ol type="1">
-<li>在阿里云申请一个域名，将此域名添加一个子域（如<code>www</code>），并设置为A类型记录，IP地址随便填写一个（程序会自动修改）</li>
-<li>到阿里云域名控制台<a href="https://ak-console.aliyun.com/#/accesskey">申请AccessId Key和Secrect</a></li>
-<li>Clone本项目代码到本机，使用VS2013或更高版本编译</li>
-<li>将程序exe和其他dll文件复制到服务器上。在exe文件同目录下创建一个文本文件并命名为<code>config.txt</code></li>
-<li><code>config.txt</code>文件的内容有四行，请修改成对应的值：
-<ul>
-<li>第一行：Access Id Key，例如 <em>DR2DPjKmg4ww0e79</em></li>
-<li>第二行：Access Id Secret，例如 <em>ysHnd1dhWvoOmbdWKx04evlVEdXEW7</em></li>
-<li>第三行：域名，例如 <em>google.com</em></li>
-<li>第四行：子域名，例如 <em>www</em></li>
-</ul></li>
-</ol>
-<p>6.在服务器上运行主exe即可.本程序依赖外部web服务来获取本机的公网IP地址，默认使用的公网IP地址查询服务来自ip138.com。您可以在<code>App.config</code>文件中修改对应的网址。</p>
-<p>使用VS2013 + C#开发，支持.NET 3.5和.NET 4.5。建议通过<strong>任务计划</strong>定时调用（如每小时），程序会判断是否需要修改A记录</p>
-<p><strong>我这里是修改完<code>config.txt</code>文件，直接运行软件就行。</strong></p>
-<p><a href="https://www.52z.com/soft/600310.html">方案二</a></p>
-<p><a href="https://www.cnblogs.com/weapon/p/6772253.html?utm_source=itdadao&amp;utm_medium=referral">方案三</a></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>nas</category>
-      </categories>
-      <tags>
-        <tag>网站</tag>
-        <tag>nas</tag>
         <tag>win10</tag>
       </tags>
   </entry>
@@ -2959,35 +2959,6 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>hexo提交内容到百度和熊掌号</title>
-    <url>/arcticle/hexo-baidu-submits.html</url>
-    <content><![CDATA[<p>某些主机，比如Github，禁止百度爬虫访问博客，导致博客无法被百度收录。多亏百度提供了主动提交的接口，这才有了个补救的方法。</p>
-<p>除此之外， 使用主动推送还会达到如下功效：</p>
-<ul>
-<li>及时发现：可以缩短百度爬虫发现您站点新链接的时间，使新发布的页面可以在第一时间被百度收录</li>
-<li>保护原创：对于网站的最新原创内容，使用主动推送功能可以快速通知到百度，使内容可以在转发之前被百度发现</li>
-</ul>
-<!---more--->
-<h2 id="hexo-baidu-url-submit">hexo-baidu-url-submit</h2>
-<p>首先，在Hexo根目录下，安装本插件： <code>npm install hexo-baidu-url-submit --save</code></p>
-<h2 id="baidu_url_submit-配置">baidu_url_submit 配置</h2>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 1000 ## 提交最新的一个链接</span><br><span class="line">  host: alili.tech ## 在百度站长平台中注册的域名</span><br><span class="line">  token: xxxxx ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!</span><br><span class="line">  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里</span><br><span class="line">  xz_appid: &#39;xxxxxx&#39; ## 你的熊掌号 appid</span><br><span class="line">  xz_token: &#39;xxxxxx&#39; ## 你的熊掌号 token</span><br><span class="line">  xz_count: 10 ## 从所有的提交的数据当中选取最新的10条,该数量跟你的熊掌号而定</span><br></pre></td></tr></table></figure>
-<h2 id="deploy-配置">deploy 配置</h2>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: baidu_url_submitter # 百度</span><br><span class="line">- type: baidu_xz_url_submitter # 百度熊掌号</span><br></pre></td></tr></table></figure>
-<h3 id="参考">参考</h3>
-<p><a href="https://github.com/huiwang/hexo-baidu-url-submit/blob/master/README.md#baidu_url_submit-配置">Hexo Baidu URL Submit</a></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>网站</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo常用命令笔记及使用技巧</title>
     <url>/arcticle/hexo-commands.html</url>
     <content><![CDATA[<h2 id="hexo">hexo</h2>
@@ -3118,6 +3089,35 @@ nginx/1.12.2
       </categories>
       <tags>
         <tag>生活</tag>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo提交内容到百度和熊掌号</title>
+    <url>/arcticle/hexo-baidu-submits.html</url>
+    <content><![CDATA[<p>某些主机，比如Github，禁止百度爬虫访问博客，导致博客无法被百度收录。多亏百度提供了主动提交的接口，这才有了个补救的方法。</p>
+<p>除此之外， 使用主动推送还会达到如下功效：</p>
+<ul>
+<li>及时发现：可以缩短百度爬虫发现您站点新链接的时间，使新发布的页面可以在第一时间被百度收录</li>
+<li>保护原创：对于网站的最新原创内容，使用主动推送功能可以快速通知到百度，使内容可以在转发之前被百度发现</li>
+</ul>
+<!---more--->
+<h2 id="hexo-baidu-url-submit">hexo-baidu-url-submit</h2>
+<p>首先，在Hexo根目录下，安装本插件： <code>npm install hexo-baidu-url-submit --save</code></p>
+<h2 id="baidu_url_submit-配置">baidu_url_submit 配置</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 1000 ## 提交最新的一个链接</span><br><span class="line">  host: alili.tech ## 在百度站长平台中注册的域名</span><br><span class="line">  token: xxxxx ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!</span><br><span class="line">  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里</span><br><span class="line">  xz_appid: &#39;xxxxxx&#39; ## 你的熊掌号 appid</span><br><span class="line">  xz_token: &#39;xxxxxx&#39; ## 你的熊掌号 token</span><br><span class="line">  xz_count: 10 ## 从所有的提交的数据当中选取最新的10条,该数量跟你的熊掌号而定</span><br></pre></td></tr></table></figure>
+<h2 id="deploy-配置">deploy 配置</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: baidu_url_submitter # 百度</span><br><span class="line">- type: baidu_xz_url_submitter # 百度熊掌号</span><br></pre></td></tr></table></figure>
+<h3 id="参考">参考</h3>
+<p><a href="https://github.com/huiwang/hexo-baidu-url-submit/blob/master/README.md#baidu_url_submit-配置">Hexo Baidu URL Submit</a></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>网站</category>
+      </categories>
+      <tags>
         <tag>博客</tag>
         <tag>hexo</tag>
         <tag>网站</tag>
@@ -3857,6 +3857,27 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>windows系统如何查看端口被占用、杀进程</title>
+    <url>/arcticle/windows-duankou.html</url>
+    <content><![CDATA[<p>在使用windows电脑的时候，有时候会出现，其中某一个项目是端口被其他服务占用，导致启动失败，然而又知道哪一个进程占用了这个端口</p>
+<ul>
+<li><p>按键盘上的<code>windows+R</code>，然后在输入框中输入<code>cmd</code>，既可启动命令窗口</p></li>
+<li><p>进入windows命令窗口之后，输入<code>netstat -ano</code>然后回车，就可以看到系统当前所有的端口使用情况。</p></li>
+<li><p>在命令窗口中输入命令中输入<code>netstat -ano |findstr "端口号"</code>，然后回车就可以看到这个端口被哪个应用占用。</p></li>
+<li><p>查看到对应的进程id之后，就可以通过id查找对应的进程名称，使用命令<code>tasklist |findstr "进程id号"</code></p></li>
+<li><p>通过命令杀掉进程，或者是直接根据进程的名称杀掉所有的进程，在命令框中输入如下命令<code>taskkill /f /t /im "进程id或者进程名称"</code></p></li>
+<li><p>杀掉对应的进程id或者是进程名称之后，然后再通过查找命令，查找对应的端口，现在就可以看到这个端口没有被其他应用所占用</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>science公布的125个前沿科学问题及其解读</title>
     <url>/arcticle/125questions.html</url>
     <content><![CDATA[<p>Science公布了125个最具挑战性的科学问题，在今后1／4个世纪的时间里，人们将致力于研究解决这些问题。这125个问题如下（前25个被认为是最重要的问题）：</p>
@@ -3998,27 +4019,6 @@ nginx/1.12.2
       <tags>
         <tag>科普</tag>
         <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows系统如何查看端口被占用、杀进程</title>
-    <url>/arcticle/windows-duankou.html</url>
-    <content><![CDATA[<p>在使用windows电脑的时候，有时候会出现，其中某一个项目是端口被其他服务占用，导致启动失败，然而又知道哪一个进程占用了这个端口</p>
-<ul>
-<li><p>按键盘上的<code>windows+R</code>，然后在输入框中输入<code>cmd</code>，既可启动命令窗口</p></li>
-<li><p>进入windows命令窗口之后，输入<code>netstat -ano</code>然后回车，就可以看到系统当前所有的端口使用情况。</p></li>
-<li><p>在命令窗口中输入命令中输入<code>netstat -ano |findstr "端口号"</code>，然后回车就可以看到这个端口被哪个应用占用。</p></li>
-<li><p>查看到对应的进程id之后，就可以通过id查找对应的进程名称，使用命令<code>tasklist |findstr "进程id号"</code></p></li>
-<li><p>通过命令杀掉进程，或者是直接根据进程的名称杀掉所有的进程，在命令框中输入如下命令<code>taskkill /f /t /im "进程id或者进程名称"</code></p></li>
-<li><p>杀掉对应的进程id或者是进程名称之后，然后再通过查找命令，查找对应的端口，现在就可以看到这个端口没有被其他应用所占用</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -4671,6 +4671,39 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>关于孩子的娇惯</title>
+    <url>/arcticle/about-coddle.html</url>
+    <content><![CDATA[<p>“惯子如杀子，溺爱出逆子”，这句话带来的恐慌，曾经贯穿一代人的成长。无数家长将它放大，极端化，然后作为自己的育儿座右铭，用它剥夺孩子被爱的权利，毁掉孩子一生的安全感。</p>
+<!---more--->
+<p>陈姐每次上街，看到别人家的孩子和父母亲昵，就会远远地站着，看上很久，然后长长地叹气。陈姐的女儿十二岁，品学兼优，琴棋书画无一不通，可就是性格特别孤僻，而且讨厌与人肢体接触。有次一起过马路，陈姐想牵女儿的手，女儿竟像触了电一般，一下子就甩开了。从那次起，陈姐开始观察，她发现，同龄的女孩子都喜欢结伴，勾肩搭背牵手挽臂，而她的女儿，却总是踽踽独行。</p>
+<p>陈姐夫妇询问女儿，可孩子拒绝与他们沟通。不得已，带她看了心理医生。医生和女儿聊了几次，初步得出结论：幼时孩子长期生活在思想紧张、精神焦虑的心理状况中，长此以往，就诱发了肢体接触恐惧症。</p>
+<p>而罪魁祸首，竟是父母的严格。陈姐对女儿，从没惯过。一岁多自己吃饭，摔倒了自己爬起来，上幼儿园起自己洗小衣服，和小朋友起冲突自己解决。每当女儿撒娇或者求助，陈姐都会将她推回战场：“不惯你这臭毛病！”女儿八岁时，有一次回家哭着和她说：“妈妈，你帮我去打小武！”陈姐不仅没问原因，还一脸嫌弃：“哭什么！没出息的样子！早跟你说那家人不好，你招惹他们干嘛！”后来，孩子再没为任何事情求助过她。孩子越长大越顺从，可看上去一点都不快乐，亲子关系也越来越紧张。</p>
+<p>太过严格，就变成了冷漠。想起过去对孩子的严格，陈姐后悔不已，然而现在想要孩子敞开心扉，已经没那么容易了。陈姐说：“在我们带孩子的那个年代，大家都说惯孩子就是杀孩子。为了让她独立，我只好狠狠心把她推出去。谁能想到，是这样的结果。</p>
+<p><strong>” 惯子如杀子，可这里所说的惯，是极端化的娇惯，是毫无原则的宠溺，是纵容孩子去挑战别人和社会的底线，而不是，连最基本的爱和支持都不给。</strong></p>
+<p>被严格要求的孩子，短线上很容易赢过同龄人。可将时间线拉长，就会发现，那些曾经以 “为你好”为由的过度克制，都会变成孩子成人后无法疗愈的心伤。就像陈姐的女儿，她从骨子里认为，自己是不值得被爱的，出于自我保护，便把真实的自己严严实实地包裹起来，在避免灰尘的同时也隔绝了阳光。这样长大的孩子，对于爱的把握能力往往会矫枉过正。因为她们没被正确地爱过，自然也不知道如何正确地爱自己，更别提爱他人了。</p>
+<p>有位旁人眼中优秀无比的女生曾在微博写到：我羡慕所有在坦然的爱里长大的小孩，像我这种从小到大自己跌倒自己爬起来自己哭完自己擦眼泪的人，别人给得多一点就会惶恐不安，为了想要多一点点爱，又要去飞蛾扑火。我很感谢父母让我成长为独立自由的人格，但同时也会觉得可惜，我知道自己错过了人与人之间很重要的东西：表达和接受爱的能力。而爱，恰恰是人世间最重要的东西。得不到时就飞蛾扑火，得到时又诚惶诚恐。在爱里患得患失的成年人，他们的字典里缺这两个词：安全和平衡。</p>
+<p>中国的父母，素来内敛，不会在言语和肢体上对孩子表达爱意。唯一的出口，就是行为上的体现。可还是有许多父母，因为害怕惯大的孩子没出息，“理性”地关闭了这一出口。这是一代父母的认知局限，也是一代孩子的隐痛。</p>
+<p>我的好朋友一一，母亲早亡，又自小家贫，所以从认识起，她就一直带着两个标签：“单亲家庭”和“贫困生”。可她身上，完全没有我们想象的那种自卑、自怜、自怨、自艾，相反，她很开朗，也很热情。对于家中单亲、贫穷的状况，毫不忌讳，说起来云淡风轻；有时朋友们物质上的帮助，她也会坦然接受，真诚道谢。</p>
+<p>有一次，她讲了一件儿时的小事，我听了触动很大。那次有个亲戚来家，拿了一小包糖。亲戚走后，父亲把一小包糖都塞给她，然后带她下地干活。那一整天，她都坐在树下吃糖，后来舌头发疼吃不下了，就把剩下的糖，都剥了糖纸泡入水中。</p>
+<p>父亲收工时，她正在拿糖水倒地上吸引蚂蚁，于是嗔怪了一句：“臭丫头，宁愿喂蚂蚁也不知道给我吃一块啊！”说这件事时，一一的语气是自责的，她说：“那时我真是不懂事，都不知道主动分享一块给爸爸吃。”可她的表情，却格外的温暖柔和，似乎回到了过去的情境之中，变成那个被父亲宠溺着的幸福小孩。</p>
+<p>听完那个故事，我忽然找到了一一出身贫苦却能豁达平和的原因。因为“惯”，因为父亲从小无条件的爱，让她的内心丰富而充盈。哪怕贫穷，哪怕单亲，来自父亲那份深沉又直接的爱，就能给她足够的安全感。爱出者爱返，福往者福来。一个被爱包裹着惯大的人，有着充足的爱的库存，所以内心充实，没那么在意外界的评价和影响，心态平和坦荡。在爱中长大的人，才会修得一颗平常心。</p>
+<p>《爸爸去哪儿》播了这么多期，最让我印象深刻的，却是第一期时，村长对石头的一次小采访。村长问： “你觉得爸爸爱你吗？”听到问题后，石头眼神飘忽，脸上写着不自信和不确定。他犹豫了很久说：“有时候会爱我吧。”“不爱我的时候，就不理我呗。”石头的表情和话语刺痛了我心中那个没长大的自己，也唤醒了已成为妈妈的我。</p>
+<p>世间没有一对父母是不爱孩子的，可是如果父母一点都不肯惯着孩子，传达到孩子那里，就会变成不一样的答案。因为孩子的逻辑很简单：你不惯着我，就是不爱我。而“父母不爱我”这样的想法，会写入孩子的潜意识，令他终其一生都逃不出“身后空无一人”的孤独感。孩子，原本就是用来“惯”的。被惯大的孩子，内心才会有充足的安全感，也会有勇气，去选择自己想要的人生。他们知道，父母是他们永远的退路和归属。</p>
+<p><strong>所谓“惯”，不是无条件满足孩子的一切要求，而是用爱去富养孩子。容许孩子在父母前面偶尔撒娇、偶尔自私、偶尔无理取闹，放任孩子像孩子一样长大。父母之爱，应该理性，可不应该过于理性。所有的严格，都应该建立在充分的爱的前提之下。而充分的爱，表现出来一定是娇惯。请多多地“惯”着孩子吧！趁他还小，还需要，还依赖。别等孩子大了，远了，徒留后悔。</strong></p>
+<p>相关阅读：</p>
+<p><a href="http://zymin.cn/arcticle/How-to-set-rules-for-children.html">犯罪心理学教授：如何给孩子立规矩</a></p>
+<p>来源 | 有书（ID：youshucc）</p>
+]]></content>
+      <categories>
+        <category>育儿</category>
+        <category>教育</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>教育</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于宝宝睡眠的几个问题</title>
     <url>/arcticle/baby-sleeping.html</url>
     <content><![CDATA[<p>宝宝一出生，家长们最关心的两个头等大事就是：吃和睡。关于睡，妈妈们总能抛出各种各样的问题：</p>
@@ -4750,39 +4783,6 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>关于孩子的娇惯</title>
-    <url>/arcticle/about-coddle.html</url>
-    <content><![CDATA[<p>“惯子如杀子，溺爱出逆子”，这句话带来的恐慌，曾经贯穿一代人的成长。无数家长将它放大，极端化，然后作为自己的育儿座右铭，用它剥夺孩子被爱的权利，毁掉孩子一生的安全感。</p>
-<!---more--->
-<p>陈姐每次上街，看到别人家的孩子和父母亲昵，就会远远地站着，看上很久，然后长长地叹气。陈姐的女儿十二岁，品学兼优，琴棋书画无一不通，可就是性格特别孤僻，而且讨厌与人肢体接触。有次一起过马路，陈姐想牵女儿的手，女儿竟像触了电一般，一下子就甩开了。从那次起，陈姐开始观察，她发现，同龄的女孩子都喜欢结伴，勾肩搭背牵手挽臂，而她的女儿，却总是踽踽独行。</p>
-<p>陈姐夫妇询问女儿，可孩子拒绝与他们沟通。不得已，带她看了心理医生。医生和女儿聊了几次，初步得出结论：幼时孩子长期生活在思想紧张、精神焦虑的心理状况中，长此以往，就诱发了肢体接触恐惧症。</p>
-<p>而罪魁祸首，竟是父母的严格。陈姐对女儿，从没惯过。一岁多自己吃饭，摔倒了自己爬起来，上幼儿园起自己洗小衣服，和小朋友起冲突自己解决。每当女儿撒娇或者求助，陈姐都会将她推回战场：“不惯你这臭毛病！”女儿八岁时，有一次回家哭着和她说：“妈妈，你帮我去打小武！”陈姐不仅没问原因，还一脸嫌弃：“哭什么！没出息的样子！早跟你说那家人不好，你招惹他们干嘛！”后来，孩子再没为任何事情求助过她。孩子越长大越顺从，可看上去一点都不快乐，亲子关系也越来越紧张。</p>
-<p>太过严格，就变成了冷漠。想起过去对孩子的严格，陈姐后悔不已，然而现在想要孩子敞开心扉，已经没那么容易了。陈姐说：“在我们带孩子的那个年代，大家都说惯孩子就是杀孩子。为了让她独立，我只好狠狠心把她推出去。谁能想到，是这样的结果。</p>
-<p><strong>” 惯子如杀子，可这里所说的惯，是极端化的娇惯，是毫无原则的宠溺，是纵容孩子去挑战别人和社会的底线，而不是，连最基本的爱和支持都不给。</strong></p>
-<p>被严格要求的孩子，短线上很容易赢过同龄人。可将时间线拉长，就会发现，那些曾经以 “为你好”为由的过度克制，都会变成孩子成人后无法疗愈的心伤。就像陈姐的女儿，她从骨子里认为，自己是不值得被爱的，出于自我保护，便把真实的自己严严实实地包裹起来，在避免灰尘的同时也隔绝了阳光。这样长大的孩子，对于爱的把握能力往往会矫枉过正。因为她们没被正确地爱过，自然也不知道如何正确地爱自己，更别提爱他人了。</p>
-<p>有位旁人眼中优秀无比的女生曾在微博写到：我羡慕所有在坦然的爱里长大的小孩，像我这种从小到大自己跌倒自己爬起来自己哭完自己擦眼泪的人，别人给得多一点就会惶恐不安，为了想要多一点点爱，又要去飞蛾扑火。我很感谢父母让我成长为独立自由的人格，但同时也会觉得可惜，我知道自己错过了人与人之间很重要的东西：表达和接受爱的能力。而爱，恰恰是人世间最重要的东西。得不到时就飞蛾扑火，得到时又诚惶诚恐。在爱里患得患失的成年人，他们的字典里缺这两个词：安全和平衡。</p>
-<p>中国的父母，素来内敛，不会在言语和肢体上对孩子表达爱意。唯一的出口，就是行为上的体现。可还是有许多父母，因为害怕惯大的孩子没出息，“理性”地关闭了这一出口。这是一代父母的认知局限，也是一代孩子的隐痛。</p>
-<p>我的好朋友一一，母亲早亡，又自小家贫，所以从认识起，她就一直带着两个标签：“单亲家庭”和“贫困生”。可她身上，完全没有我们想象的那种自卑、自怜、自怨、自艾，相反，她很开朗，也很热情。对于家中单亲、贫穷的状况，毫不忌讳，说起来云淡风轻；有时朋友们物质上的帮助，她也会坦然接受，真诚道谢。</p>
-<p>有一次，她讲了一件儿时的小事，我听了触动很大。那次有个亲戚来家，拿了一小包糖。亲戚走后，父亲把一小包糖都塞给她，然后带她下地干活。那一整天，她都坐在树下吃糖，后来舌头发疼吃不下了，就把剩下的糖，都剥了糖纸泡入水中。</p>
-<p>父亲收工时，她正在拿糖水倒地上吸引蚂蚁，于是嗔怪了一句：“臭丫头，宁愿喂蚂蚁也不知道给我吃一块啊！”说这件事时，一一的语气是自责的，她说：“那时我真是不懂事，都不知道主动分享一块给爸爸吃。”可她的表情，却格外的温暖柔和，似乎回到了过去的情境之中，变成那个被父亲宠溺着的幸福小孩。</p>
-<p>听完那个故事，我忽然找到了一一出身贫苦却能豁达平和的原因。因为“惯”，因为父亲从小无条件的爱，让她的内心丰富而充盈。哪怕贫穷，哪怕单亲，来自父亲那份深沉又直接的爱，就能给她足够的安全感。爱出者爱返，福往者福来。一个被爱包裹着惯大的人，有着充足的爱的库存，所以内心充实，没那么在意外界的评价和影响，心态平和坦荡。在爱中长大的人，才会修得一颗平常心。</p>
-<p>《爸爸去哪儿》播了这么多期，最让我印象深刻的，却是第一期时，村长对石头的一次小采访。村长问： “你觉得爸爸爱你吗？”听到问题后，石头眼神飘忽，脸上写着不自信和不确定。他犹豫了很久说：“有时候会爱我吧。”“不爱我的时候，就不理我呗。”石头的表情和话语刺痛了我心中那个没长大的自己，也唤醒了已成为妈妈的我。</p>
-<p>世间没有一对父母是不爱孩子的，可是如果父母一点都不肯惯着孩子，传达到孩子那里，就会变成不一样的答案。因为孩子的逻辑很简单：你不惯着我，就是不爱我。而“父母不爱我”这样的想法，会写入孩子的潜意识，令他终其一生都逃不出“身后空无一人”的孤独感。孩子，原本就是用来“惯”的。被惯大的孩子，内心才会有充足的安全感，也会有勇气，去选择自己想要的人生。他们知道，父母是他们永远的退路和归属。</p>
-<p><strong>所谓“惯”，不是无条件满足孩子的一切要求，而是用爱去富养孩子。容许孩子在父母前面偶尔撒娇、偶尔自私、偶尔无理取闹，放任孩子像孩子一样长大。父母之爱，应该理性，可不应该过于理性。所有的严格，都应该建立在充分的爱的前提之下。而充分的爱，表现出来一定是娇惯。请多多地“惯”着孩子吧！趁他还小，还需要，还依赖。别等孩子大了，远了，徒留后悔。</strong></p>
-<p>相关阅读：</p>
-<p><a href="http://zymin.cn/arcticle/How-to-set-rules-for-children.html">犯罪心理学教授：如何给孩子立规矩</a></p>
-<p>来源 | 有书（ID：youshucc）</p>
-]]></content>
-      <categories>
-        <category>育儿</category>
-        <category>教育</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>教育</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于教育的几个问题</title>
     <url>/arcticle/some-questions-about-education.html</url>
     <content><![CDATA[<p>我是一个小人物，今天斗胆谈一个天大的问题——中国教育。中国教育是一个天大的问题，不是说我们有多大的本领把它办得多么好，而是我们居然可以把它办得这样糟，这是一个很沉痛的话题。</p>
@@ -4857,6 +4857,24 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>关于本构模型</title>
+    <url>/arcticle/bengou.html</url>
+    <content><![CDATA[<p>又称材料的力学[本构方程]，或材料的应力-应变模型。描述材料的力学特性 （应力-应变-强度-时间关系）的数学表达式。材料的应力-应变关系是很复杂的，具有非线性，粘弹塑性，剪胀性，各向异性等，同时应力水平、应力历史以及材料的组成 、 状态 、结构等均对其有影响。已建立的本构模型很多，主要可分为下述几类：土的弹性模型；土的超弹性模型；土的次弹性模型；土的粘弹性模型；土的弹塑性模型；土的粘弹塑性模型；土的内蕴时间塑性模型等。</p>
+<!---more--->
+<p>本构模型：一个材料的应力应变曲线关系（本构模型也就是<a href="https://link.zhihu.com/?target=https%3A//www.baidu.com/s%3Fwd%3D%E5%BA%94%E5%8A%9B%E5%BA%94%E5%8F%98%26tn%3D44039180_cpr%26fenlei%3Dmv6quAkxTZn0IZRqIHckPjm4nH00T1dBnWP-nhfsuj--myndnW6L0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6K1TL0qnfK1TL0z5HD0IgF_5y9YIZ0lQzqlpA-bmyt8mh7GuZR8mvqVQL7dugPYpyq8Q1c4njf1PWcdPf">应力应变</a>的关系模） 下图是钢材的单向本构模型，通过单向本构模型，表示三项本构模型的关系。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561383893073.png" /></p>
+<p>本构关系是反映物质宏观性质的数学模型。最熟知的反映纯力学性质的本构关系有<a href="https://link.zhihu.com/?target=http%3A//baike.baidu.com/item/%E8%83%A1%E5%85%8B%E5%AE%9A%E5%BE%8B">胡克定律</a>、牛顿内摩擦定律(牛顿粘性定律)、圣维南理想塑性定律等；反映热力学性质的有克拉珀龙<a href="https://link.zhihu.com/?target=http%3A//baike.baidu.com/item/%E7%90%86%E6%83%B3%E6%B0%94%E4%BD%93%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B">理想气体状态方程</a>、傅里叶热传导方程等。把本构关系写成具体的<a href="https://link.zhihu.com/?target=http%3A//baike.baidu.com/item/%E6%95%B0%E5%AD%A6">数学</a>表达形式就是本构方程。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>科普</tag>
+        <tag>科研</tag>
+        <tag>材料</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于矩阵的理解与解释</title>
     <url>/arcticle/understanding-matrix.html</url>
     <content><![CDATA[<p>本文总结了矩阵的理解和解释。</p>
@@ -4907,21 +4925,62 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>关于本构模型</title>
-    <url>/arcticle/bengou.html</url>
-    <content><![CDATA[<p>又称材料的力学[本构方程]，或材料的应力-应变模型。描述材料的力学特性 （应力-应变-强度-时间关系）的数学表达式。材料的应力-应变关系是很复杂的，具有非线性，粘弹塑性，剪胀性，各向异性等，同时应力水平、应力历史以及材料的组成 、 状态 、结构等均对其有影响。已建立的本构模型很多，主要可分为下述几类：土的弹性模型；土的超弹性模型；土的次弹性模型；土的粘弹性模型；土的弹塑性模型；土的粘弹塑性模型；土的内蕴时间塑性模型等。</p>
+    <title>分子力学与分子模拟</title>
+    <url>/arcticle/force-field-method.html</url>
+    <content><![CDATA[<p>分子力学，又叫力场方法（force field method），目前广泛地用于计算分子的构象和能量。分子力学从本质上说上是能量最小值方法，即在原子间相互作用势的作用下, 通过改变粒子分布的几何位型,以能量最小为判据,从而获得体系的最佳结构。</p>
 <!---more--->
-<p>本构模型：一个材料的应力应变曲线关系（本构模型也就是<a href="https://link.zhihu.com/?target=https%3A//www.baidu.com/s%3Fwd%3D%E5%BA%94%E5%8A%9B%E5%BA%94%E5%8F%98%26tn%3D44039180_cpr%26fenlei%3Dmv6quAkxTZn0IZRqIHckPjm4nH00T1dBnWP-nhfsuj--myndnW6L0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6K1TL0qnfK1TL0z5HD0IgF_5y9YIZ0lQzqlpA-bmyt8mh7GuZR8mvqVQL7dugPYpyq8Q1c4njf1PWcdPf">应力应变</a>的关系模） 下图是钢材的单向本构模型，通过单向本构模型，表示三项本构模型的关系。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561383893073.png" /></p>
-<p>本构关系是反映物质宏观性质的数学模型。最熟知的反映纯力学性质的本构关系有<a href="https://link.zhihu.com/?target=http%3A//baike.baidu.com/item/%E8%83%A1%E5%85%8B%E5%AE%9A%E5%BE%8B">胡克定律</a>、牛顿内摩擦定律(牛顿粘性定律)、圣维南理想塑性定律等；反映热力学性质的有克拉珀龙<a href="https://link.zhihu.com/?target=http%3A//baike.baidu.com/item/%E7%90%86%E6%83%B3%E6%B0%94%E4%BD%93%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B">理想气体状态方程</a>、傅里叶热传导方程等。把本构关系写成具体的<a href="https://link.zhihu.com/?target=http%3A//baike.baidu.com/item/%E6%95%B0%E5%AD%A6">数学</a>表达形式就是本构方程。</p>
+<h2 id="分子力学">分子力学</h2>
+<h3 id="分子力学的基本思想">分子力学的基本思想</h3>
+<p>在分子内部，化学键都有“自然”的键长值和键角值。分子要调整它的几何形状（构象），以使其键长值和键角值尽可能接近自然值，同时也使非键作用（van der Waals力）处于最小的状态，给出原子核位置的最佳排布。</p>
+<h3 id="分子力学的基本假设">分子力学的基本假设</h3>
+<p><strong>原子核的运动与电子的运动可以看成是独立的</strong></p>
+<blockquote>
+<p>分子是一组靠各种作用力维系在一起的原子集合。这些原子在空间上若过于靠近，便相互排斥；但又不能远离，否则连接它们的化学键以及由这些键构成的键角等会发生变化，即出现键的拉伸或压缩、键角的扭变等，会引起分子内部应力的增加。每个真实的分子结构，都是在上述几种作用达到平衡状态的表现。</p>
+</blockquote>
+<h3 id="分子力学与量子化学计算的区别">分子力学与量子化学计算的区别</h3>
+<blockquote>
+<p><strong>分子力学是一种经验方法，其力场是在大量的实验数据的基础上产生的。</strong>分子力学宜用于对大分子进行构象分析、研究与空间效应密切相关的有机反应机理、反应活性、有机物的稳定性及生物活性分子的构象与活性的关系；但是，当研究对象与所用的分子力学力场参数化基于的分子集合相差甚远时不宜使用，当然也不能用于人们感兴趣但没有足够多的实验数据的新类型的分子。</p>
+<p><strong>对于化合物的电子结构、光谱性质、反应能力等涉及电子运动的研究，则应使用量子化学计算的方法。</strong>然而，在许多情况下，将量子化学计算和分子力学计算结合使用能取得较好的效果。分子力学计算结果可提供量子化学计算所需的分子构象坐标，而量子化学计算结果又给出了分子力学所不能给出的分子的电子性质。</p>
+<p>分子力学是经典模型，以原子为“粒子”，按经典力学运动，而量子化学则主要处理对象为电子，其运动服从量子力学规律；</p>
+<p>量子化学中，电子或原子核间的相互作用服从库仑定律，而分子力学中每对原子之间有一特定的作用势函数，原子不同或者原子虽然相同但所处环境不同，则势函数不同，即使对同一对原子，也无法给出准确的普适势函数。</p>
+</blockquote>
+<h2 id="分子模拟">分子模拟</h2>
+<p>分子模拟(Molecular Simulation)为二十世纪初发展起来的一种计算机模拟方法，它泛指用于模拟分子或分子体系性质的方法，主要用于探索研究具有三维结构的分子结构和分子的性能。分子模拟是根据物理和化学的基本原理构建一个模型（通常是数学模型,是对某种分子体系或反应过程的理想化描述) ，建立一种以计算数据(由计算机来执行)来代替实验测量的研究方法,并获取相关的物理和化学信息。</p>
+<p>分子模拟在材料科学方面的应用包括模拟材料的结构、计算材料的性质、预测材料的行为、验证实验结果（重现实验过程）、从微观角度认识材料，总之是为了更深层次理解材料的结构，认识材料的各种行为。分子模拟的主要优势在于可以降低实验成本、具有较高的安全性、实现通常条件下较难或无法进行的实验（例如：超低温，低于-100℃；超高压，高于100Mpa）、研究极快速的反应和变化等。</p>
+<p>不同的分子模拟方法可以得到不同的信息。量子力学模拟方法可以计算得到分子的大多数性质，如结构、构象、偶极矩、电离能、电子亲和力、电子密度、过渡态和反应途径等；分子力学可以计算分子体系的稳定构象、热力学特性、振动光谱等；能量最小化可以探索相空间（phase space)和势能面（potential curve)，可以找出局部(local)与全局(global)的最小点及转化过程的马鞍点(saddle point)；Monte Carlo可以计算复杂分子体系的结构变化，特别是相变化；分子动力学可以得到复杂分子的热力学性质、结构、力学性质，特别是可以观察体系的动态演变，得到许多与时间有关的热动力学性质；布朗动力学可以研究蛋白质在水溶液中的折叠过程；构象分析可以研究复杂分子稳态和亚稳态结构之间的演变等等。</p>
+<h3 id="分子模拟方法">分子模拟方法</h3>
+<p>分子模拟的主要模拟方法有量子力学模拟和经典力学模拟，量子力学模拟主要根据从头算方法、半经验方法、DFT（Density Functional Theory,密度泛函数理论）方法，而经典力学模拟的方法主要依据分子力学、分子动力学、蒙地卡罗模拟、布朗动力学。</p>
+<p><img src="assets/1550909410356-1550924122495.png" /></p>
+<h4 id="量子力学方法">量子力学方法</h4>
+<p>量子力学是利用波函数来研究微观粒子的运动规律的一个物理学分支学科，它以分子中电子的非定域化（delocalization）为基础，一切电子的行为以其波函数（wave function）表示。根据海森伯（Heisenberg）的测不准原理(uncertainly principle)，量子力学可计算区间内电子出现的概率，其概率正比于波函数绝对值的平方，而欲得到电子的波函数，则需解薛定谔方程式（Schrödinger equation）。</p>
+<p>一般处理几个到几十个原子常见软件有GAUSSIAN, NWCHEM…</p>
+<p>密度泛函(DFT)可以算到上百个原子，常见软件:VASP。</p>
+<blockquote>
+<p>波函数是量子力学中描写微观系统状态的函数。在经典力学中，用质点的位置和动量（或速度）来描写宏观质点的状态，这是质点状态的经典描述方式，它突出了质点的粒子性。由于微观粒子具有波粒二象性，粒子的位置和动量不能同时有确定值（见测不准关系），因而质点状态的经典描述方式不适用于对微观粒子状态的描述，物质波于宏观尺度下表现为对几率波函数的期望值，不确定性失效可忽略不计。</p>
+</blockquote>
+<h4 id="分子力学方法">分子力学方法</h4>
+<p>原则上, 第一原理方法在理论上已经能解决所有问题。但计算量太大，计算机资源有限，原子数目较多时，如高分子、蛋白质、原子簇以及研究表面问题、功能材料或材料的力学性能等，实际上难以完成计算。因为量子力学面对体系中的电子，即便是忽略一些电子的半经验方法仍然要处理大量的粒子，因而对大的体系难以实现。为此，发展了<strong>分子力学(Molecular Mechanics, MM)与分子动力学(Molecular Dynamics, MD)方法</strong>它们的应用，又称<strong>分子模拟(molecular simulation, molecular modeling) 或 分子设计(molecular design)。</strong></p>
+<p>MM与MD是经典力学方法，针对的最小结构单元不再是电子而是原子。因原子的质量比电子大很多，量子效应不明显，可近似用经典力学方法处理。</p>
+<p>基本思想：事先构造出简单体系(如链段、官能团等各种不同结构的小片段)的势能函数, 简称 势函数 或 力场(force field)。将势函数建成数据库，在形成较大分子的势函数时，从数据库中检索到结构相同的片段，组合成大体系的势函数。利用分子势能随原子位置的变化有极小值的性质，确定大分子的结构即为分子力学(MM)。</p>
+<p>利用势函数，建立并求解与温度和时间有关的牛顿运动方程，得到一定条件下体系的结构随时间的演化关系即为分子动力学(MD)。理论方法的核心是构造势函数（势函数即势能与原子位置的关系，往往是不知道的，需要通过其他方法，如量子化学方法及实验数据获得）。</p>
+<blockquote>
+<p>MM是确定分子结构的方法。利用分子势能随结构的变化而变化的性质，确定分子势能极小时的平衡结构(stationary point)。物理模型中，视原子为质点，视化学键为弹簧，而弹力常数完全由数据库中的分子力场来确定。因此是直接用势函数研究问题，不考虑原子的动能。不考虑动能所对应的结构，相当于体系处于 T=0 K 时的结果。</p>
+<p>分子力场是分子的静态势函数。而实际过程通常是在一定温度和一定压力下发生的。为了更切实际地了解体系运动和演化的过程，必须考虑体系中原子的运动，并与温度T和时间t建立联系。根据统计热力学，对于n个原子的体系，体系的温度T与各原子的运动速率vi的关系。又因体系中各原子的速率为<em>vi</em>时，动量<span class="math inline">\(p_i=m_i v_i\)</span>，对应总动能<em>K</em>(<em>p</em>)。势能由力场确定为<em>E</em>(<em>x</em>)，因此体系的Hamilton量<em>H</em>。计算各原子的势能梯度, 得到原子在力场中所受的力。用牛顿方程求解其运动行为。</p>
+<p>分子力学忽略了电子的运动，只计算与原子核位置相关的体系能量。分子力学认为分子体系的势能函数是分子体系中原子位置的函数，将分子体系作为在势能面上运动的力学体系来处理，求解的是经典力学方程，而不是量子力学的薛定谔方程。</p>
+<p>分子力学从本质上说是能量最小值方法，即在原子间相互作用势的作用下, 通过改变粒子分布的几何位型, 以能量最小为判据, 从而获得体系的最佳结构。</p>
+<p>分子力学可以求得分子的平衡结构和热力学性质，但不能得到分子体系与电子结构相关的其他性质。</p>
+</blockquote>
+<p>蒙地卡罗计算方法（Monte Carlo method）为最早针对庞大系统所采用的非量子计算方法,即MC计算法。蒙地卡罗计算法借由系统中质点（原子或分子）的随机运动，结合统计力学的概率分配原理来得到体系的统计及热力学资料，即根据待求问题的变化规律，构造合适的概率模型，然后进行大量统计实验，使模型的某些统计参量正好是待求问题的解。Monte Carlo模型的建立可以分为三个具体的操作步骤，首先将所研究的物理问题演变为类似的概率或统计模型；其次通过数值随机抽样实验对概率模型进行求解，其中包括大量的算术运算和逻辑操作；最后使用统计方法对得到的结果进行分析处理。这种计算方法可以研究复杂体系及金属的结构及其相变化性质。蒙地卡罗计算的弱点在于只能计算统计平均值，无法得到系统的动态信息。此计算所依据的随机运动并不适于物理学的运动原理，且与其他的非量子计算方法相比并非特别的经济快速，因此自从分子动力学计算逐渐盛行后，使用蒙地卡罗计算方法的人已逐渐减少。</p>
+<p>还有一种与分子动力学模拟类似的计算方法为布朗动力模拟（Brownian dynamics simulation ,BD）。布朗动力模拟适用于大分子的溶液系统，计算中，将大分子的运动分为根据力场作用的运动与来自溶剂分子的随机力作用。通过布朗运动方程式可得到大分子运动的轨迹及一些统计与热力学的性质。布朗动力模拟通常适用于计算生化分子（如DNA、RNA、蛋白质、多肽）的水溶液。此算法的优点在于能计算大分子在较长时间范围内（纳秒级）的运动，其缺点为将溶剂分子的运动视为布朗运动粒子的假设未必是正确的。</p>
 ]]></content>
       <categories>
         <category>学习</category>
+        <category>科普</category>
       </categories>
       <tags>
         <tag>科普</tag>
-        <tag>科研</tag>
-        <tag>材料</tag>
+        <tag>学习</tag>
+        <tag>力学</tag>
       </tags>
   </entry>
   <entry>
@@ -4995,65 +5054,6 @@ nginx/1.12.2
         <tag>育儿</tag>
         <tag>健康</tag>
         <tag>性教育</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分子力学与分子模拟</title>
-    <url>/arcticle/force-field-method.html</url>
-    <content><![CDATA[<p>分子力学，又叫力场方法（force field method），目前广泛地用于计算分子的构象和能量。分子力学从本质上说上是能量最小值方法，即在原子间相互作用势的作用下, 通过改变粒子分布的几何位型,以能量最小为判据,从而获得体系的最佳结构。</p>
-<!---more--->
-<h2 id="分子力学">分子力学</h2>
-<h3 id="分子力学的基本思想">分子力学的基本思想</h3>
-<p>在分子内部，化学键都有“自然”的键长值和键角值。分子要调整它的几何形状（构象），以使其键长值和键角值尽可能接近自然值，同时也使非键作用（van der Waals力）处于最小的状态，给出原子核位置的最佳排布。</p>
-<h3 id="分子力学的基本假设">分子力学的基本假设</h3>
-<p><strong>原子核的运动与电子的运动可以看成是独立的</strong></p>
-<blockquote>
-<p>分子是一组靠各种作用力维系在一起的原子集合。这些原子在空间上若过于靠近，便相互排斥；但又不能远离，否则连接它们的化学键以及由这些键构成的键角等会发生变化，即出现键的拉伸或压缩、键角的扭变等，会引起分子内部应力的增加。每个真实的分子结构，都是在上述几种作用达到平衡状态的表现。</p>
-</blockquote>
-<h3 id="分子力学与量子化学计算的区别">分子力学与量子化学计算的区别</h3>
-<blockquote>
-<p><strong>分子力学是一种经验方法，其力场是在大量的实验数据的基础上产生的。</strong>分子力学宜用于对大分子进行构象分析、研究与空间效应密切相关的有机反应机理、反应活性、有机物的稳定性及生物活性分子的构象与活性的关系；但是，当研究对象与所用的分子力学力场参数化基于的分子集合相差甚远时不宜使用，当然也不能用于人们感兴趣但没有足够多的实验数据的新类型的分子。</p>
-<p><strong>对于化合物的电子结构、光谱性质、反应能力等涉及电子运动的研究，则应使用量子化学计算的方法。</strong>然而，在许多情况下，将量子化学计算和分子力学计算结合使用能取得较好的效果。分子力学计算结果可提供量子化学计算所需的分子构象坐标，而量子化学计算结果又给出了分子力学所不能给出的分子的电子性质。</p>
-<p>分子力学是经典模型，以原子为“粒子”，按经典力学运动，而量子化学则主要处理对象为电子，其运动服从量子力学规律；</p>
-<p>量子化学中，电子或原子核间的相互作用服从库仑定律，而分子力学中每对原子之间有一特定的作用势函数，原子不同或者原子虽然相同但所处环境不同，则势函数不同，即使对同一对原子，也无法给出准确的普适势函数。</p>
-</blockquote>
-<h2 id="分子模拟">分子模拟</h2>
-<p>分子模拟(Molecular Simulation)为二十世纪初发展起来的一种计算机模拟方法，它泛指用于模拟分子或分子体系性质的方法，主要用于探索研究具有三维结构的分子结构和分子的性能。分子模拟是根据物理和化学的基本原理构建一个模型（通常是数学模型,是对某种分子体系或反应过程的理想化描述) ，建立一种以计算数据(由计算机来执行)来代替实验测量的研究方法,并获取相关的物理和化学信息。</p>
-<p>分子模拟在材料科学方面的应用包括模拟材料的结构、计算材料的性质、预测材料的行为、验证实验结果（重现实验过程）、从微观角度认识材料，总之是为了更深层次理解材料的结构，认识材料的各种行为。分子模拟的主要优势在于可以降低实验成本、具有较高的安全性、实现通常条件下较难或无法进行的实验（例如：超低温，低于-100℃；超高压，高于100Mpa）、研究极快速的反应和变化等。</p>
-<p>不同的分子模拟方法可以得到不同的信息。量子力学模拟方法可以计算得到分子的大多数性质，如结构、构象、偶极矩、电离能、电子亲和力、电子密度、过渡态和反应途径等；分子力学可以计算分子体系的稳定构象、热力学特性、振动光谱等；能量最小化可以探索相空间（phase space)和势能面（potential curve)，可以找出局部(local)与全局(global)的最小点及转化过程的马鞍点(saddle point)；Monte Carlo可以计算复杂分子体系的结构变化，特别是相变化；分子动力学可以得到复杂分子的热力学性质、结构、力学性质，特别是可以观察体系的动态演变，得到许多与时间有关的热动力学性质；布朗动力学可以研究蛋白质在水溶液中的折叠过程；构象分析可以研究复杂分子稳态和亚稳态结构之间的演变等等。</p>
-<h3 id="分子模拟方法">分子模拟方法</h3>
-<p>分子模拟的主要模拟方法有量子力学模拟和经典力学模拟，量子力学模拟主要根据从头算方法、半经验方法、DFT（Density Functional Theory,密度泛函数理论）方法，而经典力学模拟的方法主要依据分子力学、分子动力学、蒙地卡罗模拟、布朗动力学。</p>
-<p><img src="assets/1550909410356-1550924122495.png" /></p>
-<h4 id="量子力学方法">量子力学方法</h4>
-<p>量子力学是利用波函数来研究微观粒子的运动规律的一个物理学分支学科，它以分子中电子的非定域化（delocalization）为基础，一切电子的行为以其波函数（wave function）表示。根据海森伯（Heisenberg）的测不准原理(uncertainly principle)，量子力学可计算区间内电子出现的概率，其概率正比于波函数绝对值的平方，而欲得到电子的波函数，则需解薛定谔方程式（Schrödinger equation）。</p>
-<p>一般处理几个到几十个原子常见软件有GAUSSIAN, NWCHEM…</p>
-<p>密度泛函(DFT)可以算到上百个原子，常见软件:VASP。</p>
-<blockquote>
-<p>波函数是量子力学中描写微观系统状态的函数。在经典力学中，用质点的位置和动量（或速度）来描写宏观质点的状态，这是质点状态的经典描述方式，它突出了质点的粒子性。由于微观粒子具有波粒二象性，粒子的位置和动量不能同时有确定值（见测不准关系），因而质点状态的经典描述方式不适用于对微观粒子状态的描述，物质波于宏观尺度下表现为对几率波函数的期望值，不确定性失效可忽略不计。</p>
-</blockquote>
-<h4 id="分子力学方法">分子力学方法</h4>
-<p>原则上, 第一原理方法在理论上已经能解决所有问题。但计算量太大，计算机资源有限，原子数目较多时，如高分子、蛋白质、原子簇以及研究表面问题、功能材料或材料的力学性能等，实际上难以完成计算。因为量子力学面对体系中的电子，即便是忽略一些电子的半经验方法仍然要处理大量的粒子，因而对大的体系难以实现。为此，发展了<strong>分子力学(Molecular Mechanics, MM)与分子动力学(Molecular Dynamics, MD)方法</strong>它们的应用，又称<strong>分子模拟(molecular simulation, molecular modeling) 或 分子设计(molecular design)。</strong></p>
-<p>MM与MD是经典力学方法，针对的最小结构单元不再是电子而是原子。因原子的质量比电子大很多，量子效应不明显，可近似用经典力学方法处理。</p>
-<p>基本思想：事先构造出简单体系(如链段、官能团等各种不同结构的小片段)的势能函数, 简称 势函数 或 力场(force field)。将势函数建成数据库，在形成较大分子的势函数时，从数据库中检索到结构相同的片段，组合成大体系的势函数。利用分子势能随原子位置的变化有极小值的性质，确定大分子的结构即为分子力学(MM)。</p>
-<p>利用势函数，建立并求解与温度和时间有关的牛顿运动方程，得到一定条件下体系的结构随时间的演化关系即为分子动力学(MD)。理论方法的核心是构造势函数（势函数即势能与原子位置的关系，往往是不知道的，需要通过其他方法，如量子化学方法及实验数据获得）。</p>
-<blockquote>
-<p>MM是确定分子结构的方法。利用分子势能随结构的变化而变化的性质，确定分子势能极小时的平衡结构(stationary point)。物理模型中，视原子为质点，视化学键为弹簧，而弹力常数完全由数据库中的分子力场来确定。因此是直接用势函数研究问题，不考虑原子的动能。不考虑动能所对应的结构，相当于体系处于 T=0 K 时的结果。</p>
-<p>分子力场是分子的静态势函数。而实际过程通常是在一定温度和一定压力下发生的。为了更切实际地了解体系运动和演化的过程，必须考虑体系中原子的运动，并与温度T和时间t建立联系。根据统计热力学，对于n个原子的体系，体系的温度T与各原子的运动速率vi的关系。又因体系中各原子的速率为<em>vi</em>时，动量<span class="math inline">\(p_i=m_i v_i\)</span>，对应总动能<em>K</em>(<em>p</em>)。势能由力场确定为<em>E</em>(<em>x</em>)，因此体系的Hamilton量<em>H</em>。计算各原子的势能梯度, 得到原子在力场中所受的力。用牛顿方程求解其运动行为。</p>
-<p>分子力学忽略了电子的运动，只计算与原子核位置相关的体系能量。分子力学认为分子体系的势能函数是分子体系中原子位置的函数，将分子体系作为在势能面上运动的力学体系来处理，求解的是经典力学方程，而不是量子力学的薛定谔方程。</p>
-<p>分子力学从本质上说是能量最小值方法，即在原子间相互作用势的作用下, 通过改变粒子分布的几何位型, 以能量最小为判据, 从而获得体系的最佳结构。</p>
-<p>分子力学可以求得分子的平衡结构和热力学性质，但不能得到分子体系与电子结构相关的其他性质。</p>
-</blockquote>
-<p>蒙地卡罗计算方法（Monte Carlo method）为最早针对庞大系统所采用的非量子计算方法,即MC计算法。蒙地卡罗计算法借由系统中质点（原子或分子）的随机运动，结合统计力学的概率分配原理来得到体系的统计及热力学资料，即根据待求问题的变化规律，构造合适的概率模型，然后进行大量统计实验，使模型的某些统计参量正好是待求问题的解。Monte Carlo模型的建立可以分为三个具体的操作步骤，首先将所研究的物理问题演变为类似的概率或统计模型；其次通过数值随机抽样实验对概率模型进行求解，其中包括大量的算术运算和逻辑操作；最后使用统计方法对得到的结果进行分析处理。这种计算方法可以研究复杂体系及金属的结构及其相变化性质。蒙地卡罗计算的弱点在于只能计算统计平均值，无法得到系统的动态信息。此计算所依据的随机运动并不适于物理学的运动原理，且与其他的非量子计算方法相比并非特别的经济快速，因此自从分子动力学计算逐渐盛行后，使用蒙地卡罗计算方法的人已逐渐减少。</p>
-<p>还有一种与分子动力学模拟类似的计算方法为布朗动力模拟（Brownian dynamics simulation ,BD）。布朗动力模拟适用于大分子的溶液系统，计算中，将大分子的运动分为根据力场作用的运动与来自溶剂分子的随机力作用。通过布朗运动方程式可得到大分子运动的轨迹及一些统计与热力学的性质。布朗动力模拟通常适用于计算生化分子（如DNA、RNA、蛋白质、多肽）的水溶液。此算法的优点在于能计算大分子在较长时间范围内（纳秒级）的运动，其缺点为将溶剂分子的运动视为布朗运动粒子的假设未必是正确的。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-        <tag>学习</tag>
-        <tag>力学</tag>
       </tags>
   </entry>
   <entry>
@@ -5516,33 +5516,6 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>在Ansys Workbench中添加和启用ACT插件的方法</title>
-    <url>/arcticle/ansys-act.html</url>
-    <content><![CDATA[<p>在Ansys Workbench中可以通过ACT插件来拓展Ansys的功能。在Workbench主界面中点击菜单Extensions - Install Extension...，在打开的文件选择对话框中找到ACT插件，点击打开进行ACT插件的安装。</p>
-<!---more--->
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823657142.png" /></p>
-<p>编译好的ACT插件的扩展名为.wbex，安装完成后会弹出如下对话框：“The extension *** was successfully installed.“，说明插件已成功安装。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823670069.png" /></p>
-<p>安装完成后再次点击菜单Extensions - Manage Extensions...，打开Extensions Manager对话框，在对话框中勾选要加载的ACT插件，启用相应的Ansys Workbench ACT插件。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823682143.png" /></p>
-<p>当ACT插件被启用后，在对应的环境中会显示相应的工具条，一般在对应位置右击时也可调出相应的快捷菜单（根据插件的开发不同，可能会有差异）。如下图所示为安装Ansys Workbench ACT 16.0集成工具包中的HotKeys和FollowerLoads两个插件后工具栏中显示的对应命令按钮。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823695047.png" /></p>
-<p>Ansys插件官方下载地址：https://catalog.ansys.com/?t=Mechanical</p>
-<p>参考文章</p>
-<p>几款插件：http://www.leanwind.com/archives/4732.html</p>
-<p>本文来源：http://www.leanwind.com/archives/3801.html</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>仿真</tag>
-        <tag>有限元</tag>
-        <tag>workbench</tag>
-        <tag>ansys</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图像超分辨率成像：算法</title>
     <url>/arcticle/super-resolution.html</url>
     <content><![CDATA[<p>百科：超分辨率(Super-Resolution)通过硬件或软件的方法提高原有图像的分辨率，通过一系列低分辨率的图像来得到一幅高分辨率的图像过程就是超分辨率重建。 wiki：超分辨率成像（SR-imaging）是提高成像系统分辨率的一类技术。光学SR技术可以超越系统的衍射极限，而几何SR则可以提高数字成像传感器的分辨率。超分辨率成像技术广泛应用于图像处理和超分辨显微术中。</p>
@@ -5590,6 +5563,33 @@ nginx/1.12.2
       <tags>
         <tag>学习</tag>
         <tag>视觉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Ansys Workbench中添加和启用ACT插件的方法</title>
+    <url>/arcticle/ansys-act.html</url>
+    <content><![CDATA[<p>在Ansys Workbench中可以通过ACT插件来拓展Ansys的功能。在Workbench主界面中点击菜单Extensions - Install Extension...，在打开的文件选择对话框中找到ACT插件，点击打开进行ACT插件的安装。</p>
+<!---more--->
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823657142.png" /></p>
+<p>编译好的ACT插件的扩展名为.wbex，安装完成后会弹出如下对话框：“The extension *** was successfully installed.“，说明插件已成功安装。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823670069.png" /></p>
+<p>安装完成后再次点击菜单Extensions - Manage Extensions...，打开Extensions Manager对话框，在对话框中勾选要加载的ACT插件，启用相应的Ansys Workbench ACT插件。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823682143.png" /></p>
+<p>当ACT插件被启用后，在对应的环境中会显示相应的工具条，一般在对应位置右击时也可调出相应的快捷菜单（根据插件的开发不同，可能会有差异）。如下图所示为安装Ansys Workbench ACT 16.0集成工具包中的HotKeys和FollowerLoads两个插件后工具栏中显示的对应命令按钮。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1562823695047.png" /></p>
+<p>Ansys插件官方下载地址：https://catalog.ansys.com/?t=Mechanical</p>
+<p>参考文章</p>
+<p>几款插件：http://www.leanwind.com/archives/4732.html</p>
+<p>本文来源：http://www.leanwind.com/archives/3801.html</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>仿真</tag>
+        <tag>有限元</tag>
+        <tag>workbench</tag>
+        <tag>ansys</tag>
       </tags>
   </entry>
   <entry>
@@ -5877,47 +5877,6 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>如何写基金申请书的科研立项依据</title>
-    <url>/arcticle/lixiang.html</url>
-    <content><![CDATA[<p>好的立项依据需要包含：与拟申请项目研究内容有关的预实验结果、提供对拟研究内容的研究思路、有文献基础。即通过合理的事实和依据说明立项成立的原由。那么，具体的我们应该怎么做呢？</p>
-<!---more--->
-<p>立项依据应包括项目的研究意义、国内外研究现状及分析。作为基础研究须结合科学研究发展趋势来论述科学意义;作为应用研究须结合国民经济和社会发展中迫切需要解决的关键科学和技术问题来论述其应用前景。</p>
-<h2 id="应注意以下几方面主要问题">应注意以下几方面主要问题</h2>
-<h3 id="既要介绍国外动态更要介绍国内研究情况">(1)既要介绍国外动态，更要介绍国内研究情况</h3>
-<p>不知从何时开始，中国人写论文时喜欢引用外国人的工作，而不注意引用国内同行的工作，基金申请书也有类似的问题。这样，评议人会认为申请人对国内研究情况不了书解，就可能会以“不了解国内情况”为由，不同意资助该项目。</p>
-<h3 id="国内情况应包括申请者自己的研究工作">(2)国内情况应包括申请者自己的研究工作</h3>
-<p>不少申请人往往只介绍他人的工作，而不介绍自己的工作。可能有的申请人认为在研究基础中会介绍，立项据据中就不介绍了。这样就显得立项依据不太全面、充分。申请者必须在这里简单介绍自己已有的工作基础，以使评议人能比较全面地了解申请人。</p>
-<h3 id="必须阐明申请人要从事本项研究的理由">(3)必须阐明申请人要从事本项研究的理由</h3>
-<p>有些申请只谈及本项目的意义和国内外动态，但没看介绍申请者本人为什么要从事本项研究，似乎申请是给别人写的，而不是给自己写的。应该清晰地介绍究竟您在前期工作中发现了什么，别人的工作中存在什么问题，或者您对哪个科学问题有什么特殊想法等等。否则，评审人难以判断申请人自己的具体想法，这样的申请绝对属于没有到位。</p>
-<h3 id="坚持有所为有所不为的基本国策">(4)坚持“有所为，有所不为”的基本国策</h3>
-<p>填补空白不是立项依据 不少申请人把填补空白作为立项的理由，这不符合国家实施科学基金制和成立基金会的目的。科学基金是要使我国的基础研究在世界上占有一席之地，而不是跟踪或填补空白。尽管国家不断增加对基金会的投入，但研究经费依然不足，目前在基础研究领域，只可能支持那些有研究基础、有特色或有创新性的申请项目。</p>
-<p>有人指出，基础研究只能争第一名，第二名、第三名等于白干，所以，更不应该去填补什么空白。这就和下围棋一样，不管是输是赢，必须做活两个眼，才能在棋盘上占领一块地盘，否则，人家下一个子，你也跟着下一个子，最后全部棋子被人吃光。如果国家经济需要，可以填补某些空白，但做基础研究就不一样了，填补空白必要性不大，也许可以培养一些年轻人，但根据目前国家的经济实力还不能够这么做。</p>
-<h3 id="主要参考文献">(5)主要参考文献</h3>
-<p>包括国内、外的关键性研究工作都要有所显示，注意时间性，不必像研究生的开题报告，列出一大堆文献，但太少了也不合适，容易让评审人误认为你了解情况不够</p>
-<h3 id="立项依据的三个重要基础">(6)立项依据的三个重要基础</h3>
-<p>写好“立项依据”必须有三个重要基础：一是要有与拟申请项目研究内容有关的预实验结果;二是申请者提供对拟研究内容的研究思路;三是有文献基础。</p>
-<p>预实验结果往往预示着尚有重要的研究价值，需要进一步开展研究，也是打动评审专家的重要因素。预实验结果在后面的“研究基础”中要展示出具体的实验数据、图表，在立项依据中要论述预实验的来龙去脉，你是如何思考的，并在预实验的基础上提出“科学假说”。</p>
-<p>总之，立项目的要明确，申请理由要充分，立项依据既不要太科普，又要把关键问题交待清楚，能引起评审人的兴趣，愿意继续读完你的申请。能够让人不愿放弃地阅读你的申请书，那样的申请才有竞争力。</p>
-<h2 id="我们应该避免这些情况">我们应该避免这些情况</h2>
-<h3 id="一大话空话喊口号">一、大话空话喊口号</h3>
-<p>长期以来，部分做科研的人开始使用新闻性的方法写立项依据。如：引经据典、使用热点词汇、大量使用形容词副词等修辞、做简单化解释等。同时大谈美好前景。这一特点甚至在很多论文中都能看到。其极端形式是：假大空。</p>
-<p>不要从“大处落墨”，不要用学科的意义来“装点”你问题的意义，也不要陈述一般性的常识，也不要写决心书，满纸“豪言壮语”，如“为科学创新做贡献”，“为科学决策提供理论基础”，等等，这些都是大话和空话!</p>
-<h3 id="二文献罗列无主次">二、文献罗列无主次</h3>
-<p>在立项依据里，最主要的内容是对研究现状的评述。千万不要把它写成研究者的姓名和标题的罗列，如XXX做了什么课题，YYY做了什么实验，ZZZ提出了什么方法……如此罗列，给人的感觉是，你只把相关文献的检索结果摘抄下来了，谁知道读了没有，读得怎样。那样的句子，不读文献也能写出来。</p>
-<p>要将文献中的内容融会贯通有机地变成自己的依据，只须写与你的题目相关的东西，如提出什么方法或模型，能解决什么疑难。如果哪句话能随便放进别人甚至每个人的申请书里，那句话就该删除了。</p>
-<h3 id="三逻辑混乱无主线">三、逻辑混乱无主线</h3>
-<p>文献的评述，应该放在问题的逻辑框架下，而不能是随意的读书笔记。每篇文献、每句话都要切合你的问题，以问题所涉及的内容、方法、结果和遗憾等等，来组织不同的文献，让前人的研究成果自然融入你对问题的阐述中。千万不要跟着文献索引走或者跟任何一篇文献的思路走——走自己的路，让文献退避到括号里面去吧!</p>
-<p>总之，写文献评述时，要换一种角色，即使自己是后辈或小卒，也要挺起身子来站在巨人的肩上，假装为一个大师去指点江山，让那些文章看起来只不过是为了你现在的研究而做的准备，而现在，你这位主角要出场了!</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>科研</tag>
-        <tag>基金申请</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何书写SCI论文的题目</title>
     <url>/arcticle/How-to-write-SCI-papers.html</url>
     <content><![CDATA[<p>本文讲述一篇 SCI 论文的标题如何书写。SCI 论文的标题应该以最恰当、最简明的词语来反映论文中最重要的特定内容，因此，必须用心斟酌选定。</p>
@@ -5999,6 +5958,47 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>如何写基金申请书的科研立项依据</title>
+    <url>/arcticle/lixiang.html</url>
+    <content><![CDATA[<p>好的立项依据需要包含：与拟申请项目研究内容有关的预实验结果、提供对拟研究内容的研究思路、有文献基础。即通过合理的事实和依据说明立项成立的原由。那么，具体的我们应该怎么做呢？</p>
+<!---more--->
+<p>立项依据应包括项目的研究意义、国内外研究现状及分析。作为基础研究须结合科学研究发展趋势来论述科学意义;作为应用研究须结合国民经济和社会发展中迫切需要解决的关键科学和技术问题来论述其应用前景。</p>
+<h2 id="应注意以下几方面主要问题">应注意以下几方面主要问题</h2>
+<h3 id="既要介绍国外动态更要介绍国内研究情况">(1)既要介绍国外动态，更要介绍国内研究情况</h3>
+<p>不知从何时开始，中国人写论文时喜欢引用外国人的工作，而不注意引用国内同行的工作，基金申请书也有类似的问题。这样，评议人会认为申请人对国内研究情况不了书解，就可能会以“不了解国内情况”为由，不同意资助该项目。</p>
+<h3 id="国内情况应包括申请者自己的研究工作">(2)国内情况应包括申请者自己的研究工作</h3>
+<p>不少申请人往往只介绍他人的工作，而不介绍自己的工作。可能有的申请人认为在研究基础中会介绍，立项据据中就不介绍了。这样就显得立项依据不太全面、充分。申请者必须在这里简单介绍自己已有的工作基础，以使评议人能比较全面地了解申请人。</p>
+<h3 id="必须阐明申请人要从事本项研究的理由">(3)必须阐明申请人要从事本项研究的理由</h3>
+<p>有些申请只谈及本项目的意义和国内外动态，但没看介绍申请者本人为什么要从事本项研究，似乎申请是给别人写的，而不是给自己写的。应该清晰地介绍究竟您在前期工作中发现了什么，别人的工作中存在什么问题，或者您对哪个科学问题有什么特殊想法等等。否则，评审人难以判断申请人自己的具体想法，这样的申请绝对属于没有到位。</p>
+<h3 id="坚持有所为有所不为的基本国策">(4)坚持“有所为，有所不为”的基本国策</h3>
+<p>填补空白不是立项依据 不少申请人把填补空白作为立项的理由，这不符合国家实施科学基金制和成立基金会的目的。科学基金是要使我国的基础研究在世界上占有一席之地，而不是跟踪或填补空白。尽管国家不断增加对基金会的投入，但研究经费依然不足，目前在基础研究领域，只可能支持那些有研究基础、有特色或有创新性的申请项目。</p>
+<p>有人指出，基础研究只能争第一名，第二名、第三名等于白干，所以，更不应该去填补什么空白。这就和下围棋一样，不管是输是赢，必须做活两个眼，才能在棋盘上占领一块地盘，否则，人家下一个子，你也跟着下一个子，最后全部棋子被人吃光。如果国家经济需要，可以填补某些空白，但做基础研究就不一样了，填补空白必要性不大，也许可以培养一些年轻人，但根据目前国家的经济实力还不能够这么做。</p>
+<h3 id="主要参考文献">(5)主要参考文献</h3>
+<p>包括国内、外的关键性研究工作都要有所显示，注意时间性，不必像研究生的开题报告，列出一大堆文献，但太少了也不合适，容易让评审人误认为你了解情况不够</p>
+<h3 id="立项依据的三个重要基础">(6)立项依据的三个重要基础</h3>
+<p>写好“立项依据”必须有三个重要基础：一是要有与拟申请项目研究内容有关的预实验结果;二是申请者提供对拟研究内容的研究思路;三是有文献基础。</p>
+<p>预实验结果往往预示着尚有重要的研究价值，需要进一步开展研究，也是打动评审专家的重要因素。预实验结果在后面的“研究基础”中要展示出具体的实验数据、图表，在立项依据中要论述预实验的来龙去脉，你是如何思考的，并在预实验的基础上提出“科学假说”。</p>
+<p>总之，立项目的要明确，申请理由要充分，立项依据既不要太科普，又要把关键问题交待清楚，能引起评审人的兴趣，愿意继续读完你的申请。能够让人不愿放弃地阅读你的申请书，那样的申请才有竞争力。</p>
+<h2 id="我们应该避免这些情况">我们应该避免这些情况</h2>
+<h3 id="一大话空话喊口号">一、大话空话喊口号</h3>
+<p>长期以来，部分做科研的人开始使用新闻性的方法写立项依据。如：引经据典、使用热点词汇、大量使用形容词副词等修辞、做简单化解释等。同时大谈美好前景。这一特点甚至在很多论文中都能看到。其极端形式是：假大空。</p>
+<p>不要从“大处落墨”，不要用学科的意义来“装点”你问题的意义，也不要陈述一般性的常识，也不要写决心书，满纸“豪言壮语”，如“为科学创新做贡献”，“为科学决策提供理论基础”，等等，这些都是大话和空话!</p>
+<h3 id="二文献罗列无主次">二、文献罗列无主次</h3>
+<p>在立项依据里，最主要的内容是对研究现状的评述。千万不要把它写成研究者的姓名和标题的罗列，如XXX做了什么课题，YYY做了什么实验，ZZZ提出了什么方法……如此罗列，给人的感觉是，你只把相关文献的检索结果摘抄下来了，谁知道读了没有，读得怎样。那样的句子，不读文献也能写出来。</p>
+<p>要将文献中的内容融会贯通有机地变成自己的依据，只须写与你的题目相关的东西，如提出什么方法或模型，能解决什么疑难。如果哪句话能随便放进别人甚至每个人的申请书里，那句话就该删除了。</p>
+<h3 id="三逻辑混乱无主线">三、逻辑混乱无主线</h3>
+<p>文献的评述，应该放在问题的逻辑框架下，而不能是随意的读书笔记。每篇文献、每句话都要切合你的问题，以问题所涉及的内容、方法、结果和遗憾等等，来组织不同的文献，让前人的研究成果自然融入你对问题的阐述中。千万不要跟着文献索引走或者跟任何一篇文献的思路走——走自己的路，让文献退避到括号里面去吧!</p>
+<p>总之，写文献评述时，要换一种角色，即使自己是后辈或小卒，也要挺起身子来站在巨人的肩上，假装为一个大师去指点江山，让那些文章看起来只不过是为了你现在的研究而做的准备，而现在，你这位主角要出场了!</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>科研</tag>
+        <tag>基金申请</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何写好文章的“讨论”部分</title>
     <url>/arcticle/how-to-write-disscussion.html</url>
     <content><![CDATA[<p>文章的“讨论”部分直接向期刊编辑和审稿人说明研究的创新性和重要性，这些人是文章的第一批读者，也是最关键的读者。“讨论”部分的作用是把主要研究发现与已经被广泛接受的知识和理论联系起来，并且通过与学术领域内存在的局限性对比来强调你的工作的创新性和重要性。</p>
@@ -6041,49 +6041,6 @@ nginx/1.12.2
         <tag>写作</tag>
         <tag>论文</tag>
         <tag>讨论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何批量改名的方法及教程</title>
-    <url>/arcticle/mingcheng-xiugai-piliang.html</url>
-    <content><![CDATA[<p>各位家长们，在制作点读包的时候可能为了 不停的重命名MP3的文件名而苦恼，没事，我来了:链接：<a href="http://pan.baidu.com/s/1hqqykL2" class="uri">http://pan.baidu.com/s/1hqqykL2</a> 密码：9zlk</p>
-<!---more--->
-<p>这个软件就是用来批量重名民的工具(如下图)，下载完后是个压缩包。解压缩完是这个样子(如下图)，选择红色箭头处，这个就是该软件的应用程序</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/b5eefa70969c0e562ebd834d257ecad0.png" /></p>
-<p>打开之后，选择红色箭头处(如下图)</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/269c80868de0c60fe18224fa0c664fac.jpg" /></p>
-<p>打开后 在 该位置增加一行英文 SortUpper=2  ，然后保存(如下图)</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/f7855955fcd35782c00fa4da3a2e470c.jpg" /></p>
-<p>配制好后，用鼠标点一下红色箭头处区域，点完后 等个 1秒左右 该位置可以输入音频所在的完整目录(如下图们~)**</p>
-<p>1,复制</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/2c5cc74bccb66e06868a825254939340.jpg" /></p>
-<p>2,点击</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/e8f8bb1e977ef75a9e297d1f17bacabe.jpg" /></p>
-<p>3,粘贴</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/180650zfla0q9qwqlzlo90.jpg" /></p>
-<p>4,选择红色箭头处 就能看到音频已经被导入进去了</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181012x7jxpupuwlcup77j.jpg" /></p>
-<p>音频导入进去 后对这所在音频的位置点一下,<strong>然后 按住 （看好是按住不要松开）  键盘上的Ctrl(一般在键盘左下角)</strong></p>
-<p><strong>然后再按键盘上的 字母A,这时所有音频文件会被选中(如下图)，选中后可以松开您按住Ctrl的手.....</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181441robg3rcb5wbjmonr.jpg" /></p>
-<p>这时再按住Ctrl <strong>然后 再按键盘上的字母 M，</strong>这时会弹出一个界面(如下图)</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181743yvo3vsc1sk388838.jpg" /></p>
-<p>然后 将红色箭头处的地方删掉，选择 红色方框处(如下图)</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181932wx73h7lw3afddruv.jpg" /></p>
-<p>这是 红色箭头处填写将要 其实的数字，这个数字设多少第一个文件的名字就会被改成多少</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/182215fgbzlbadawd47cx7.jpg" /></p>
-<p>最后全部设置完后，最终要的一部就是-------帅气的按下键盘上的回车键(Enter),然后上图的界面会消失............改名成功，赶紧去已经改好名的地方看看吧</p>
-]]></content>
-      <categories>
-        <category>育儿</category>
-        <category>点读笔</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>育儿</tag>
-        <tag>教程</tag>
-        <tag>技能</tag>
-        <tag>点读笔</tag>
       </tags>
   </entry>
   <entry>
@@ -6135,6 +6092,49 @@ nginx/1.12.2
         <tag>论文</tag>
         <tag>投稿</tag>
         <tag>图片</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何批量改名的方法及教程</title>
+    <url>/arcticle/mingcheng-xiugai-piliang.html</url>
+    <content><![CDATA[<p>各位家长们，在制作点读包的时候可能为了 不停的重命名MP3的文件名而苦恼，没事，我来了:链接：<a href="http://pan.baidu.com/s/1hqqykL2" class="uri">http://pan.baidu.com/s/1hqqykL2</a> 密码：9zlk</p>
+<!---more--->
+<p>这个软件就是用来批量重名民的工具(如下图)，下载完后是个压缩包。解压缩完是这个样子(如下图)，选择红色箭头处，这个就是该软件的应用程序</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/b5eefa70969c0e562ebd834d257ecad0.png" /></p>
+<p>打开之后，选择红色箭头处(如下图)</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/269c80868de0c60fe18224fa0c664fac.jpg" /></p>
+<p>打开后 在 该位置增加一行英文 SortUpper=2  ，然后保存(如下图)</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/f7855955fcd35782c00fa4da3a2e470c.jpg" /></p>
+<p>配制好后，用鼠标点一下红色箭头处区域，点完后 等个 1秒左右 该位置可以输入音频所在的完整目录(如下图们~)**</p>
+<p>1,复制</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/2c5cc74bccb66e06868a825254939340.jpg" /></p>
+<p>2,点击</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/e8f8bb1e977ef75a9e297d1f17bacabe.jpg" /></p>
+<p>3,粘贴</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/180650zfla0q9qwqlzlo90.jpg" /></p>
+<p>4,选择红色箭头处 就能看到音频已经被导入进去了</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181012x7jxpupuwlcup77j.jpg" /></p>
+<p>音频导入进去 后对这所在音频的位置点一下,<strong>然后 按住 （看好是按住不要松开）  键盘上的Ctrl(一般在键盘左下角)</strong></p>
+<p><strong>然后再按键盘上的 字母A,这时所有音频文件会被选中(如下图)，选中后可以松开您按住Ctrl的手.....</strong></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181441robg3rcb5wbjmonr.jpg" /></p>
+<p>这时再按住Ctrl <strong>然后 再按键盘上的字母 M，</strong>这时会弹出一个界面(如下图)</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181743yvo3vsc1sk388838.jpg" /></p>
+<p>然后 将红色箭头处的地方删掉，选择 红色方框处(如下图)</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/181932wx73h7lw3afddruv.jpg" /></p>
+<p>这是 红色箭头处填写将要 其实的数字，这个数字设多少第一个文件的名字就会被改成多少</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/182215fgbzlbadawd47cx7.jpg" /></p>
+<p>最后全部设置完后，最终要的一部就是-------帅气的按下键盘上的回车键(Enter),然后上图的界面会消失............改名成功，赶紧去已经改好名的地方看看吧</p>
+]]></content>
+      <categories>
+        <category>育儿</category>
+        <category>点读笔</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>育儿</tag>
+        <tag>教程</tag>
+        <tag>技能</tag>
+        <tag>点读笔</tag>
       </tags>
   </entry>
   <entry>
@@ -6621,6 +6621,33 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>学习：相机标定中的几个问题</title>
+    <url>/arcticle/Several-problems-in-camera-Calibration.html</url>
+    <content><![CDATA[<h2 id="关于相机内参中的焦距fx和fy">关于相机内参中的焦距fx和fy</h2>
+<p>当我们用OpenCV相机标定函数去标定相机时，我们能得到一个相机的内部参数，简称“内参”。内参是一个<span class="math inline">\(3 \times 3\)</span> 的矩阵，</p>
+<p><span class="math display">\[A=\begin{bmatrix} f_x &amp; 0 &amp; c_x \\ 0 &amp; f_y &amp; c_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\]</span></p>
+<!---more--->
+<p>其中<span class="math inline">\(c_x\)</span>和<span class="math inline">\(c_y\)</span>很容易理解，它们表示相机光轴在<strong>图像坐标系</strong>中的偏移量，以像素为单位。但对于焦距<span class="math inline">\(f_x\)</span>和<span class="math inline">\(f_y\)</span>就不是很直观了。为什么一个相机会出现两个焦距呢？在我们习惯使用的相机针孔模型中，一个透镜的焦距通常只有一个。然而我们不能用针孔模型去解释这两个内参中的焦距。但我们可以从透视规律来解释这两个焦距。</p>
+<p>由相机拍摄得到的图像是遵从线性透视规律的。也就是说，一个物体的的宽和高会随着这个物体与相机间的距离增加而<strong>按比例</strong>变小。而对于一张<strong>矩形</strong>的图片，一个物体的宽和高则会根据物体与相机的距离<strong>按不同的比例</strong>变小。而这个比例，就是根据相机的<strong>焦距</strong>得到的。现在我们再利用针孔模型推导出这个比例关系，</p>
+<p><span class="math display">\[\frac{f} {d} = \frac{x} {w} = \frac{y} {h}\]</span></p>
+<p>以上是当图像是正方形时的关系，就是当<span class="math inline">\(f_x=f_y\)</span>时的情况。其中f是相机的焦距，以像素为单位；d为物体到相机的距离，单位为米；x是物体在图像中的宽度，w为物体的实际宽度；y是物体在图像中的高度，而h是物体的实际高度。而对于一张矩形的图像，则有</p>
+<p><span class="math display">\[\frac{f_x} {d} = \frac{x} {w}\]</span></p>
+<p><span class="math display">\[\frac{f_y} {d} = \frac{y} {h}\]</span></p>
+<p>这就是相机内参有两个焦距的原因了。</p>
+<p>参考文献：</p>
+<p><a href="http://www.cnblogs.com/zipeilu/p/6658177.html">关于相机内参中的焦距fx和fy</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>视觉</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>视觉</tag>
+        <tag>相机标定</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>孩子为什么有这些“怪癖”？</title>
     <url>/arcticle/guaipi.html</url>
     <content><![CDATA[<p>我走进卧室，发现我儿子正在床上撅起屁股，小鸡鸡在床单上一直蹭啊蹭的，还满头大汗，他才5岁呀；</p>
@@ -6656,33 +6683,6 @@ nginx/1.12.2
         <tag>育儿</tag>
         <tag>健康</tag>
         <tag>性教育</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学习：相机标定中的几个问题</title>
-    <url>/arcticle/Several-problems-in-camera-Calibration.html</url>
-    <content><![CDATA[<h2 id="关于相机内参中的焦距fx和fy">关于相机内参中的焦距fx和fy</h2>
-<p>当我们用OpenCV相机标定函数去标定相机时，我们能得到一个相机的内部参数，简称“内参”。内参是一个<span class="math inline">\(3 \times 3\)</span> 的矩阵，</p>
-<p><span class="math display">\[A=\begin{bmatrix} f_x &amp; 0 &amp; c_x \\ 0 &amp; f_y &amp; c_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\]</span></p>
-<!---more--->
-<p>其中<span class="math inline">\(c_x\)</span>和<span class="math inline">\(c_y\)</span>很容易理解，它们表示相机光轴在<strong>图像坐标系</strong>中的偏移量，以像素为单位。但对于焦距<span class="math inline">\(f_x\)</span>和<span class="math inline">\(f_y\)</span>就不是很直观了。为什么一个相机会出现两个焦距呢？在我们习惯使用的相机针孔模型中，一个透镜的焦距通常只有一个。然而我们不能用针孔模型去解释这两个内参中的焦距。但我们可以从透视规律来解释这两个焦距。</p>
-<p>由相机拍摄得到的图像是遵从线性透视规律的。也就是说，一个物体的的宽和高会随着这个物体与相机间的距离增加而<strong>按比例</strong>变小。而对于一张<strong>矩形</strong>的图片，一个物体的宽和高则会根据物体与相机的距离<strong>按不同的比例</strong>变小。而这个比例，就是根据相机的<strong>焦距</strong>得到的。现在我们再利用针孔模型推导出这个比例关系，</p>
-<p><span class="math display">\[\frac{f} {d} = \frac{x} {w} = \frac{y} {h}\]</span></p>
-<p>以上是当图像是正方形时的关系，就是当<span class="math inline">\(f_x=f_y\)</span>时的情况。其中f是相机的焦距，以像素为单位；d为物体到相机的距离，单位为米；x是物体在图像中的宽度，w为物体的实际宽度；y是物体在图像中的高度，而h是物体的实际高度。而对于一张矩形的图像，则有</p>
-<p><span class="math display">\[\frac{f_x} {d} = \frac{x} {w}\]</span></p>
-<p><span class="math display">\[\frac{f_y} {d} = \frac{y} {h}\]</span></p>
-<p>这就是相机内参有两个焦距的原因了。</p>
-<p>参考文献：</p>
-<p><a href="http://www.cnblogs.com/zipeilu/p/6658177.html">关于相机内参中的焦距fx和fy</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>视觉</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>视觉</tag>
-        <tag>相机标定</tag>
       </tags>
   </entry>
   <entry>
@@ -6812,6 +6812,34 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>宝宝什么时候可以吃酸奶</title>
+    <url>/arcticle/When-can-my-baby-eat-yogurt?.html</url>
+    <content><![CDATA[<p>大多数婴儿在4到6个月大的时候就可以开始吃酸奶了。酸奶是婴儿早期食物的绝佳选择，因为它含有钙、蛋白质和维生素等营养成分。最好的选择是由全脂牛奶制成的原味、不加糖的巴氏灭菌酸奶(普通或希腊酸奶)。</p>
+<!---more--->
+<h2 id="为什么要用全脂牛奶制成的无糖酸奶呢">为什么要用全脂牛奶制成的无糖酸奶呢?</h2>
+<p>几乎所有的口味和果味的酸奶，甚至是针对婴儿的产品，都含有添加糖，这可能导致蛀牙和肥胖。选择原味酸奶是避免添加糖分的最简单方法。你怎么知道一个产品是否添加了糖?检查标签上营养信息的含糖量并不一定会有帮助，因为所有的酸奶都含有一些乳糖的天然糖分。</p>
+<p>相反，你需要检查“糖”一词的成分列表，或者其他添加糖的名称:甘蔗晶体，玉米甜味剂，玉米糖浆，葡萄糖，果糖，脱水甘蔗汁，果汁浓缩汁，蜂蜜，葡萄糖，高果糖玉米糖浆，乳糖，麦芽糖，麦芽糖浆，糖蜜和蔗糖。此外，婴儿需要从全脂牛奶中摄取的热量和脂肪。除非他的医生建议，否则不要在2岁之前给孩子提供低脂或无脂肪的酸奶。</p>
+<h2 id="让原味酸奶更好吃">让原味酸奶更好吃?</h2>
+<p>你可以通过混合水果或蔬菜来给宝宝的原味酸奶添加味道(和营养)。对于刚接触固体的婴儿，首先要吃的是pureed水果和煮过的蔬菜。对于大一点的婴儿，你可以把软的水果和熟的蔬菜切成小块。鳄梨、苹果酱、燕麦和小麦胚芽也是不错的补充。注意:不要给12个月以下的婴儿喂蜂蜜，因为它可能含有细菌，会导致儿童的肉毒中毒。</p>
+<h2 id="什么是活性物质">什么是活性物质?</h2>
+<p>有些类型的酸奶含有活性物质，也被称为益生菌。这些微生物(细菌)用于将牛奶转化为酸奶，或随后添加到酸奶中。它们促进肠道内健康细菌的生长，研究人员认为这可能有助于消化。请参阅我们关于<a href="http://zymin.cn/arcticle/Probiotics-for-babies.html">益生菌的文章</a>。你如何判断酸奶中是否含有这种有益的细菌?产品标签应该说明酸奶含有活性或活性成分，这意味着在加工过程中，这些微生物没有被加热破坏。</p>
+<p>然而，一个标签上写着“made with active cultures ”并不意味着酸奶仍然含有活性物质，只是酸奶是用它们做的(就像所有的酸奶一样)。很难判断酸奶中是否含有大量有益菌。一种方法是寻找活性物质标志（<a href="http://aboutyogurt.com/index.asp?bid=28">Live &amp; Active Cultures logo</a> ），由全国酸奶协会创建。该标识标识了每克包含至少1亿生活和活性物质的产品。但是参与这个项目是自愿的，所以没有标识的产品不一定代表不是。</p>
+<h2 id="如果我的孩子有牛奶过敏或乳糖不耐症怎么办">如果我的孩子有牛奶过敏或乳糖不耐症怎么办?</h2>
+<p>如果你的宝宝被诊断为牛奶过敏或有食物过敏症状(比如湿疹)，在你和医生确认之前不要给他酸奶。否则，就像任何一种新食物一样，在给宝宝再吃一份新食物之前，至少要等三天。这样的话，如果你的宝宝有过敏反应，就更容易知道是什么原因造成的。</p>
+<p>过敏反应的常见症状包括发痒的红斑或斑块，在嘴唇或眼睛周围肿胀，或在进食后两小时内呕吐。如果你注意到任何这些症状，在你和医生确认之前不要再给你的孩子吃任何食物。乳糖不耐症在婴儿中很少见。即使你的孩子有乳糖不耐症，他也可以吃酸奶。这是因为生产过程分解了很多乳糖，使得酸奶比其他乳制品更容易被容忍。</p>
+<h2 id="为什么可以吃酸奶不能喝牛奶">为什么可以吃酸奶不能喝牛奶?</h2>
+<p>你可能想知道为什么婴儿吃酸奶是可以的，但是在宝宝至少12个月大之前，不推荐喝牛奶。事实上，一点点牛奶，就像偶尔喝酸奶的量一样，不会伤害你的宝宝。这并不能很好地替代母乳或配方，这是他第一年的大部分饮食习惯。这是因为婴儿不能像母乳或配方奶那样容易地消化牛奶。而牛奶并没有你的宝宝从母乳或配方奶中得到的脂肪和营养成分的理想比例。</p>
+]]></content>
+      <categories>
+        <category>育儿</category>
+        <category>健康</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>健康</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>宝宝什么时候能自己吃饭</title>
     <url>/arcticle/When-can-my-baby-feed-himself.html</url>
     <content><![CDATA[<p>孩子们很善于自我监控，这意味着当他们饱了就会停止进食，”亚特兰大注册营养师Rachel Brandeis说。她说:“但是他们没有能力把所有的食物都放到嘴里，直到18个月左右，有时甚至更晚。”</p>
@@ -6833,23 +6861,41 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>宝宝什么时候可以吃酸奶</title>
-    <url>/arcticle/When-can-my-baby-eat-yogurt?.html</url>
-    <content><![CDATA[<p>大多数婴儿在4到6个月大的时候就可以开始吃酸奶了。酸奶是婴儿早期食物的绝佳选择，因为它含有钙、蛋白质和维生素等营养成分。最好的选择是由全脂牛奶制成的原味、不加糖的巴氏灭菌酸奶(普通或希腊酸奶)。</p>
+    <title>宝宝夏天消暑误区</title>
+    <url>/arcticle/the-misconception-of-summer-heat-elimination-of-baby.html</url>
+    <content><![CDATA[<p>每到夏天，总是能在小区里看到很多小光头，甚至还有很多女孩子都被剃光了。老人们甚至很多父母都认为剃了光头更凉快。但事实真的如此么？</p>
 <!---more--->
-<h2 id="为什么要用全脂牛奶制成的无糖酸奶呢">为什么要用全脂牛奶制成的无糖酸奶呢?</h2>
-<p>几乎所有的口味和果味的酸奶，甚至是针对婴儿的产品，都含有添加糖，这可能导致蛀牙和肥胖。选择原味酸奶是避免添加糖分的最简单方法。你怎么知道一个产品是否添加了糖?检查标签上营养信息的含糖量并不一定会有帮助，因为所有的酸奶都含有一些乳糖的天然糖分。</p>
-<p>相反，你需要检查“糖”一词的成分列表，或者其他添加糖的名称:甘蔗晶体，玉米甜味剂，玉米糖浆，葡萄糖，果糖，脱水甘蔗汁，果汁浓缩汁，蜂蜜，葡萄糖，高果糖玉米糖浆，乳糖，麦芽糖，麦芽糖浆，糖蜜和蔗糖。此外，婴儿需要从全脂牛奶中摄取的热量和脂肪。除非他的医生建议，否则不要在2岁之前给孩子提供低脂或无脂肪的酸奶。</p>
-<h2 id="让原味酸奶更好吃">让原味酸奶更好吃?</h2>
-<p>你可以通过混合水果或蔬菜来给宝宝的原味酸奶添加味道(和营养)。对于刚接触固体的婴儿，首先要吃的是pureed水果和煮过的蔬菜。对于大一点的婴儿，你可以把软的水果和熟的蔬菜切成小块。鳄梨、苹果酱、燕麦和小麦胚芽也是不错的补充。注意:不要给12个月以下的婴儿喂蜂蜜，因为它可能含有细菌，会导致儿童的肉毒中毒。</p>
-<h2 id="什么是活性物质">什么是活性物质?</h2>
-<p>有些类型的酸奶含有活性物质，也被称为益生菌。这些微生物(细菌)用于将牛奶转化为酸奶，或随后添加到酸奶中。它们促进肠道内健康细菌的生长，研究人员认为这可能有助于消化。请参阅我们关于<a href="http://zymin.cn/arcticle/Probiotics-for-babies.html">益生菌的文章</a>。你如何判断酸奶中是否含有这种有益的细菌?产品标签应该说明酸奶含有活性或活性成分，这意味着在加工过程中，这些微生物没有被加热破坏。</p>
-<p>然而，一个标签上写着“made with active cultures ”并不意味着酸奶仍然含有活性物质，只是酸奶是用它们做的(就像所有的酸奶一样)。很难判断酸奶中是否含有大量有益菌。一种方法是寻找活性物质标志（<a href="http://aboutyogurt.com/index.asp?bid=28">Live &amp; Active Cultures logo</a> ），由全国酸奶协会创建。该标识标识了每克包含至少1亿生活和活性物质的产品。但是参与这个项目是自愿的，所以没有标识的产品不一定代表不是。</p>
-<h2 id="如果我的孩子有牛奶过敏或乳糖不耐症怎么办">如果我的孩子有牛奶过敏或乳糖不耐症怎么办?</h2>
-<p>如果你的宝宝被诊断为牛奶过敏或有食物过敏症状(比如湿疹)，在你和医生确认之前不要给他酸奶。否则，就像任何一种新食物一样，在给宝宝再吃一份新食物之前，至少要等三天。这样的话，如果你的宝宝有过敏反应，就更容易知道是什么原因造成的。</p>
-<p>过敏反应的常见症状包括发痒的红斑或斑块，在嘴唇或眼睛周围肿胀，或在进食后两小时内呕吐。如果你注意到任何这些症状，在你和医生确认之前不要再给你的孩子吃任何食物。乳糖不耐症在婴儿中很少见。即使你的孩子有乳糖不耐症，他也可以吃酸奶。这是因为生产过程分解了很多乳糖，使得酸奶比其他乳制品更容易被容忍。</p>
-<h2 id="为什么可以吃酸奶不能喝牛奶">为什么可以吃酸奶不能喝牛奶?</h2>
-<p>你可能想知道为什么婴儿吃酸奶是可以的，但是在宝宝至少12个月大之前，不推荐喝牛奶。事实上，一点点牛奶，就像偶尔喝酸奶的量一样，不会伤害你的宝宝。这并不能很好地替代母乳或配方，这是他第一年的大部分饮食习惯。这是因为婴儿不能像母乳或配方奶那样容易地消化牛奶。而牛奶并没有你的宝宝从母乳或配方奶中得到的脂肪和营养成分的理想比例。</p>
+<p>为了宝宝能够顺利度过暑热天，家长们会采取很多办法，本意是防止宝宝生病，但有些措施不但不管用，还可能会伤害宝宝。比如下面这几种：</p>
+<ul>
+<li>给宝宝剃光头</li>
+<li>随便给宝宝睡凉席</li>
+<li>夏天一定得多喝水</li>
+<li>热天光膀子、穿开裆裤</li>
+<li>天再热都得穿袜子</li>
+</ul>
+<h2 id="小光头会更热">小光头会更热</h2>
+<p>有一种凉快，叫“别人觉得凉快”。剃光头就是这种，妈妈奶奶都觉得凉快，但宝宝自己的皮肤会感觉更热。头发是宝宝的天然保护伞，起到保护和散热的作用。剃了光头，宝宝没有“保护伞”的覆盖，光线直接照射在宝宝的头皮上（不管是室外还是室内），没有了头发的阻隔，头皮会更吸热。</p>
+<p>出了汗之后，由于没有头发，汗珠会直接流下来，缺少了汗珠蒸发带走热量的过程，头皮的热量无法及时散去，宝宝会觉得更热。而且，宝宝的皮肤非常娇嫩，在室外的时候，让TA的头皮直接在强烈的紫外线下“裸奔”，很可能被晒伤，还容易被晒成日光性皮炎。</p>
+<p>剃光头比有头发更热，但短发一定比长发凉快。所以如果你想让宝宝更凉快，我们给你一些建议：男宝：适当剪短，保留1-2cm即可，既透气又能保护到头皮。女宝：适当剪短或者扎个辫子，但不建议剪太短。因为1岁半以后的宝宝，已经逐渐有了性别意识，人家也是要面子的~</p>
+<p>随便说一句，还有很多父母觉得宝宝小时候经常剃头剪头，以后的头发会比较浓密，但其实这点早就辟谣了，发量的多少跟剃头无关。</p>
+<h2 id="睡错凉席小心一身病">睡错凉席，小心一身病</h2>
+<p>一到夏天，很多宝妈尤其是小月龄的宝妈都在问宝宝能不能睡凉席呢？答案是完全可以的。只要觉得舒服，孩子也能睡，不要把宝宝当成一个特殊的群体。但是给宝宝睡凉席，一定要有所选择。睡错了反而容易睡出病！ - 腹泻 首先开着空调睡凉席时，一定要注意室温。空调温度最好不要低于26℃（南北方差异，可以适当调整）。温度过低，很容易导致宝宝受凉而引起腹泻。 - 皮炎 还有的宝宝身体会出现红斑或者丘疹，这是因为宝宝对凉席的材质出现了过敏，或者被凉席缝里面的螨虫叮咬而得的凉席性皮炎。</p>
+<p>对于宝宝凉席，选择的标准第一是凉而不冰，有些你体感上去立即能降温的其实不适合小宝宝。家里最常见的竹席和麻将席，都比较凉，不建议给宝宝睡。如果只有这两种凉席的话，可以在凉席上铺一层薄床单，让宝宝躺在床单上。其次是选择天然产物，不选人工制成产品。冰丝席和亚麻席就是比较好的选择，凉性适中，透气性和吸湿性都比较好。</p>
+<h2 id="大热天就得多喝水">大热天就得多喝水?</h2>
+<p>错！喝多了可能发生危险！有些妈妈会觉得，夏天这么热，宝宝要多喝水，不然爱上火。尤其是出了汗之后，得赶紧补充水分。但事实是：1岁内的宝宝喝多了水，反而不好。１岁以下宝宝的肾脏还未达到成人的成熟度，如果喝过多的水，会导致体内水分来不及排出。当体内血液的含水量过多，血液里的钠离子浓度太低，会造成电解质失调，严重可能会引发抽筋等状况。</p>
+<p>而且宝宝喝很多水之后，喝奶量肯定会减少，很可能体重增加缓慢，营养不良。所以，即使在夏天也没必要不停的让宝宝喝水，尤其是6个月内的宝宝纯母乳喂养的宝宝。给宝宝喂水时，如果宝宝拒绝，就没必要强迫。如果宝宝大量出汗，水分流失，可以让宝宝喝一些口服补液盐。</p>
+<h2 id="宝宝脱光光更凉快">宝宝脱光光更凉快？</h2>
+<p>错！面对酷热，很多爸妈会给宝宝光膀子。但实际情况是这样的：如果外界的温度低于体温，那么宝宝不穿衣服确实能够觉得凉快点。可是当外界气温高于体温时，皮肤反而会吸热。而现在温度动不动就超过36度，光膀子反而会让宝宝从外界中吸收热量，不但不会凉快，反而觉得更热。</p>
+<p>况且，大多数宝宝都很好动，经常一身汗。我们在出汗的时候，汗液先形成小水珠，然后融合成大汗珠。我们都知道，汗液的蒸发可以散热，带来清凉的感觉。不穿衣服时汗珠会顺着身体流下，这样就不能通过汗的蒸发带走热量，宝宝就会感到热。穿着衣服时，一来可以抵挡阳光中紫外线对宝宝的伤害，二来衣服也能够吸汗，有利于热量的蒸发，从而能够减轻闷热感。</p>
+<p>还有一些家长非常热衷给宝宝穿开裆裤，尤其到了夏天，总以为穿开裆裤更凉快。我们说过很多遍，宝宝穿开裆裤没有一点好处。一方面，开裆裤确实不雅观，不能保护宝宝的隐私。另一方面，夏天公园里、草坪上有很多小虫子。宝宝喜欢在地上玩耍，或爬或坐，地上的细菌及寄生虫卵很可能从宝宝的肛门、尿道及伤口侵入体内，从而使患上蛔虫病、钩虫病或蛲虫病等，危害孩子的健康。如果女孩子穿开裆裤，还很容易引起细菌直接感染现象，产生阴道炎、滴虫病等。</p>
+<h2 id="夏天不穿袜子会着凉">夏天不穿袜子会着凉？</h2>
+<p>错！适当光脚丫更健康.咱们中国有句老话叫“寒从脚生”，很多家长，尤其一些老人，大夏天都一定给宝宝穿袜子，认为把宝宝的脚保护好才不会受凉生病。有时候宝宝用手把袜子揪掉，家长还给穿上。其实，我们大人都有这种感觉，夏天穿袜子会捂得慌。小宝宝的血液循环更快，要比我们大人怕热。所以，即使在夏天也不必时刻都让宝宝穿袜子，适当光脚反而有很多好处。</p>
+<h3 id="好处1光脚可以增强体质">好处1：光脚可以增强体质</h3>
+<p>在国外经常有这种训练，让孩子成群结队的光着脚在老师的带领下，绕着操场或者在楼道里进行慢跑，他们把这种训练叫做“赤脚教育”。有研究表明，光脚有利于足部血液循环，提高抵抗力和耐寒力，预防感冒或受凉拉肚子等疾病。</p>
+<h3 id="好处2光脚刺激触觉和感官发育">好处2：光脚刺激触觉和感官发育</h3>
+<p>人的脚掌布满了知觉和触觉的神经末梢，宝宝用脚部接触到不同物品，不同温度，不同材质，都能刺激脚底触觉神经，提高宝宝身体的协调能力。所以，不妨让宝宝光脚在地板上玩耍，在弹簧床上跳来跳去的吧。这种不用花钱就能训练感官能力的好主意，妈妈们可以让宝宝多尝试一下吧。</p>
+<h3 id="好处3光脚避免皮肤感染">好处3：光脚避免皮肤感染</h3>
+<p>宝宝的小脚丫是最容易出汗的地方。天气闷热，让脚丫经常捂在袜子里面，出的汗不容易挥发掉，潮湿的脚部环境更容易滋生细菌，引发感染。</p>
 ]]></content>
       <categories>
         <category>育儿</category>
@@ -6894,52 +6940,6 @@ nginx/1.12.2
 <p>正确做法：体温超过38.5℃，建议服用退烧药</p>
 <p>在未见到医生之前一定要积极给孩子降温，若宝宝只是低热，温度未超过38.5℃，妈妈可先采取物理降温，如选用退热贴、洗温水浴等物理降温方法。同时注意给孩子补充水分、流质食物，以免脱水。当宝宝体温达到38.5℃以上时，建议及时吃退烧药。同时，宝宝发热时，妈妈可先观察宝宝的精神状态，若除了发热之外，还伴有咳嗽、流涕、鼻塞、腹泻、腹痛等症状，2~3天不退热或伴随的症状加重，应及时到医院就诊。</p>
 <p>对于孩子发烧，家长切勿听信谣言，充当”内行“。很多传说中的退烧妙招都是不科学的，甚至会加重病情，引起其他更严重的症状。宝宝发热时，首先要用物理方法降温，如果体温超过38.5℃，也无高热惊厥史，宜选用物理降温。若效果不明显，再选用药物降温。若伴有咳嗽、腹泻、腹痛等症状时应及时到医院</p>
-]]></content>
-      <categories>
-        <category>育儿</category>
-        <category>健康</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>健康</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝宝夏天消暑误区</title>
-    <url>/arcticle/the-misconception-of-summer-heat-elimination-of-baby.html</url>
-    <content><![CDATA[<p>每到夏天，总是能在小区里看到很多小光头，甚至还有很多女孩子都被剃光了。老人们甚至很多父母都认为剃了光头更凉快。但事实真的如此么？</p>
-<!---more--->
-<p>为了宝宝能够顺利度过暑热天，家长们会采取很多办法，本意是防止宝宝生病，但有些措施不但不管用，还可能会伤害宝宝。比如下面这几种：</p>
-<ul>
-<li>给宝宝剃光头</li>
-<li>随便给宝宝睡凉席</li>
-<li>夏天一定得多喝水</li>
-<li>热天光膀子、穿开裆裤</li>
-<li>天再热都得穿袜子</li>
-</ul>
-<h2 id="小光头会更热">小光头会更热</h2>
-<p>有一种凉快，叫“别人觉得凉快”。剃光头就是这种，妈妈奶奶都觉得凉快，但宝宝自己的皮肤会感觉更热。头发是宝宝的天然保护伞，起到保护和散热的作用。剃了光头，宝宝没有“保护伞”的覆盖，光线直接照射在宝宝的头皮上（不管是室外还是室内），没有了头发的阻隔，头皮会更吸热。</p>
-<p>出了汗之后，由于没有头发，汗珠会直接流下来，缺少了汗珠蒸发带走热量的过程，头皮的热量无法及时散去，宝宝会觉得更热。而且，宝宝的皮肤非常娇嫩，在室外的时候，让TA的头皮直接在强烈的紫外线下“裸奔”，很可能被晒伤，还容易被晒成日光性皮炎。</p>
-<p>剃光头比有头发更热，但短发一定比长发凉快。所以如果你想让宝宝更凉快，我们给你一些建议：男宝：适当剪短，保留1-2cm即可，既透气又能保护到头皮。女宝：适当剪短或者扎个辫子，但不建议剪太短。因为1岁半以后的宝宝，已经逐渐有了性别意识，人家也是要面子的~</p>
-<p>随便说一句，还有很多父母觉得宝宝小时候经常剃头剪头，以后的头发会比较浓密，但其实这点早就辟谣了，发量的多少跟剃头无关。</p>
-<h2 id="睡错凉席小心一身病">睡错凉席，小心一身病</h2>
-<p>一到夏天，很多宝妈尤其是小月龄的宝妈都在问宝宝能不能睡凉席呢？答案是完全可以的。只要觉得舒服，孩子也能睡，不要把宝宝当成一个特殊的群体。但是给宝宝睡凉席，一定要有所选择。睡错了反而容易睡出病！ - 腹泻 首先开着空调睡凉席时，一定要注意室温。空调温度最好不要低于26℃（南北方差异，可以适当调整）。温度过低，很容易导致宝宝受凉而引起腹泻。 - 皮炎 还有的宝宝身体会出现红斑或者丘疹，这是因为宝宝对凉席的材质出现了过敏，或者被凉席缝里面的螨虫叮咬而得的凉席性皮炎。</p>
-<p>对于宝宝凉席，选择的标准第一是凉而不冰，有些你体感上去立即能降温的其实不适合小宝宝。家里最常见的竹席和麻将席，都比较凉，不建议给宝宝睡。如果只有这两种凉席的话，可以在凉席上铺一层薄床单，让宝宝躺在床单上。其次是选择天然产物，不选人工制成产品。冰丝席和亚麻席就是比较好的选择，凉性适中，透气性和吸湿性都比较好。</p>
-<h2 id="大热天就得多喝水">大热天就得多喝水?</h2>
-<p>错！喝多了可能发生危险！有些妈妈会觉得，夏天这么热，宝宝要多喝水，不然爱上火。尤其是出了汗之后，得赶紧补充水分。但事实是：1岁内的宝宝喝多了水，反而不好。１岁以下宝宝的肾脏还未达到成人的成熟度，如果喝过多的水，会导致体内水分来不及排出。当体内血液的含水量过多，血液里的钠离子浓度太低，会造成电解质失调，严重可能会引发抽筋等状况。</p>
-<p>而且宝宝喝很多水之后，喝奶量肯定会减少，很可能体重增加缓慢，营养不良。所以，即使在夏天也没必要不停的让宝宝喝水，尤其是6个月内的宝宝纯母乳喂养的宝宝。给宝宝喂水时，如果宝宝拒绝，就没必要强迫。如果宝宝大量出汗，水分流失，可以让宝宝喝一些口服补液盐。</p>
-<h2 id="宝宝脱光光更凉快">宝宝脱光光更凉快？</h2>
-<p>错！面对酷热，很多爸妈会给宝宝光膀子。但实际情况是这样的：如果外界的温度低于体温，那么宝宝不穿衣服确实能够觉得凉快点。可是当外界气温高于体温时，皮肤反而会吸热。而现在温度动不动就超过36度，光膀子反而会让宝宝从外界中吸收热量，不但不会凉快，反而觉得更热。</p>
-<p>况且，大多数宝宝都很好动，经常一身汗。我们在出汗的时候，汗液先形成小水珠，然后融合成大汗珠。我们都知道，汗液的蒸发可以散热，带来清凉的感觉。不穿衣服时汗珠会顺着身体流下，这样就不能通过汗的蒸发带走热量，宝宝就会感到热。穿着衣服时，一来可以抵挡阳光中紫外线对宝宝的伤害，二来衣服也能够吸汗，有利于热量的蒸发，从而能够减轻闷热感。</p>
-<p>还有一些家长非常热衷给宝宝穿开裆裤，尤其到了夏天，总以为穿开裆裤更凉快。我们说过很多遍，宝宝穿开裆裤没有一点好处。一方面，开裆裤确实不雅观，不能保护宝宝的隐私。另一方面，夏天公园里、草坪上有很多小虫子。宝宝喜欢在地上玩耍，或爬或坐，地上的细菌及寄生虫卵很可能从宝宝的肛门、尿道及伤口侵入体内，从而使患上蛔虫病、钩虫病或蛲虫病等，危害孩子的健康。如果女孩子穿开裆裤，还很容易引起细菌直接感染现象，产生阴道炎、滴虫病等。</p>
-<h2 id="夏天不穿袜子会着凉">夏天不穿袜子会着凉？</h2>
-<p>错！适当光脚丫更健康.咱们中国有句老话叫“寒从脚生”，很多家长，尤其一些老人，大夏天都一定给宝宝穿袜子，认为把宝宝的脚保护好才不会受凉生病。有时候宝宝用手把袜子揪掉，家长还给穿上。其实，我们大人都有这种感觉，夏天穿袜子会捂得慌。小宝宝的血液循环更快，要比我们大人怕热。所以，即使在夏天也不必时刻都让宝宝穿袜子，适当光脚反而有很多好处。</p>
-<h3 id="好处1光脚可以增强体质">好处1：光脚可以增强体质</h3>
-<p>在国外经常有这种训练，让孩子成群结队的光着脚在老师的带领下，绕着操场或者在楼道里进行慢跑，他们把这种训练叫做“赤脚教育”。有研究表明，光脚有利于足部血液循环，提高抵抗力和耐寒力，预防感冒或受凉拉肚子等疾病。</p>
-<h3 id="好处2光脚刺激触觉和感官发育">好处2：光脚刺激触觉和感官发育</h3>
-<p>人的脚掌布满了知觉和触觉的神经末梢，宝宝用脚部接触到不同物品，不同温度，不同材质，都能刺激脚底触觉神经，提高宝宝身体的协调能力。所以，不妨让宝宝光脚在地板上玩耍，在弹簧床上跳来跳去的吧。这种不用花钱就能训练感官能力的好主意，妈妈们可以让宝宝多尝试一下吧。</p>
-<h3 id="好处3光脚避免皮肤感染">好处3：光脚避免皮肤感染</h3>
-<p>宝宝的小脚丫是最容易出汗的地方。天气闷热，让脚丫经常捂在袜子里面，出的汗不容易挥发掉，潮湿的脚部环境更容易滋生细菌，引发感染。</p>
 ]]></content>
       <categories>
         <category>育儿</category>
@@ -7564,6 +7564,57 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>孩子磨蹭怎么办</title>
+    <url>/arcticle/how-to-deal-with-children-dawdle.html</url>
+    <content><![CDATA[<p>今天，我们来说说一个让很多父母都头疼的问题：孩子磨蹭。也许，你和这位妈妈会有很多共鸣。她女儿5岁了，可干什么事都特别磨蹭，尤其是吃饭。就算已经坐到餐桌旁了，还是总是找理由溜出去。一般情况下，她会让女儿再玩一会儿，也让她多吃会儿。可她还是磨蹭，直到最后她再也忍不住了，就会开始朝她嚷嚷。女儿洗澡也是，有时要花一个多小时才能开始洗澡，这位妈妈说，她已经尽量保持耐心了，可真的是太难了！</p>
+<!---more--->
+<p>她问我，该怎么做才能改善这种情况呢？孩子磨蹭，虽然常见，但是讲起来，却是个比较复杂的情形。我今天会通过游戏力育儿的三个重要原则，和大家一起看看，孩子磨蹭背后的原因到底是什么？父母能做些什么？</p>
+<h2 id="三个原则">三个原则</h2>
+<h3 id="第一个原则先联结后指导">第一个原则：先联结，后指导</h3>
+<p>无论我们希望孩子养成什么习惯，大人们打算告诉孩子什么道理，比如：让他们按时刷牙、自己洗脸、定期洗澡、上学不迟到等等，在发出指令之前，都需要和他们先建立紧密而温暖的联结。如果我们隔着整个房间，甚至在另外一个房间，对孩子大声嚷嚷：“我提醒你啊，还有15分钟我们就要走了……还有10分钟……时间到了，得出门了。”</p>
+<p>这可不叫亲密的联结。孩子是不会理你的，也不会按照你说的去做。不过，在父母看来，这就是磨蹭，还会越来越着急。你可能还会想：“我们讨论过这个问题了呀，你答应了要配合的！今天我还特意提前了15分钟就开始提醒，怎么还这样！”发生这样的情况，只能说明你并没有和孩子建立起良好的联结，也没有享受和孩子之间的亲密感觉。你的关注点只是在于：为什么我做了这么多，都没有用呢？试试先联结，后指导吧！</p>
+<p><strong>那该怎样做，才能和孩子建立联结呢？</strong></p>
+<p>不要隔着老远发号施令，走到孩子身边蹲下来或坐下来，目光和他平视，用手轻轻地抱住他，或者把手放在他的肩膀上，很感兴趣地看着他正在玩的东西、或者做的事情。无论你看到了什么，都尝试<strong>真实地描述，并给予他积极的评价</strong>，比如说：“哇哦！跟我说说，你盖了一个什么？”或者：“我看到，在这幅画上，你用了很多颜色。”</p>
+<p><strong>你需要对他所做的事情做出一个积极的回应</strong>，哪怕他做的事情是拒绝洗澡——“哇，为了不洗澡，你想出了很多有创意的主意啊！”然后，再平静地对孩子说:“现在，我们把这个玩具或者这本书收起来吧，这样，下次玩的时候就知道去哪找了。”你也可以说:“现在，我们去洗澡吧。”</p>
+<p>孩子可能不会那么听话，开始跟你讨价还价：“求求你了，再让我玩一分钟吧。”你也可以回答：“好啊，我陪你一起玩一分钟！立刻就不玩了去洗澡，确实不是一件容易的事儿。”不用担心多玩一分钟会惯坏孩子。看到了吗？我们就是这样一步一步地建立联结，而不是破坏联结。</p>
+<p>家长还有哪些常见的做法，会破坏联结呢？比如，严厉的责备、没完没了的说教，都会破坏你和孩子之间的联结。经常这样做之后，你会发现：你的话在孩子那里好像不起作用了，你好好说，孩子也不听。除非你特别凶，才能吓得孩子不得不暂时屈服于你。但是<strong>这种以害怕为基础的服从，是不可能长期持续的。</strong>被迫服从的孩子，会经常探索你的边界，只要你不爆，他就不断挑战。</p>
+<p>所以，不要责备和说教，而是要让孩子知道，你能理解他磨蹭的原因。就算有些时候，你不得不催他快点，那就要用简单的句子，比如：“我知道你想慢慢来，我催你，你也不高兴。我帮你吧，咱们一起把这个做完……”当你用共情和温暖与孩子建立起联结的时候，他就会更加愿意合作，也就不会有那么多的“磨蹭”了。</p>
+<h3 id="第二个原则是沟通要清晰">第二个原则是：沟通要清晰。</h3>
+<p>很多父母没有意识到是自己没有说清楚，之后却埋怨孩子不能按照我们的话去做。举个例子，父母原本想对孩子说：“该洗澡了”，可实际上说的却是：“我陪你去洗澡吧？”后面是一个问句，所以，孩子很自然地就会回答:“不，我现在不想去洗澡。”这个回答一定会让你抓狂的，因为，你其实并不是想征求他的意见，可是你并没有表达清楚，孩子当然可以说不。这就是不清楚的沟通。</p>
+<p>如果孩子说不，父母接下来做的事情就是：要么贿赂他们、要么威胁、批评，或者干脆就算了，忘记洗澡这件事儿。但其实你完全可以更清晰地表达，微笑着对孩子说:“宝贝，现在是洗澡的时间。”然后，你可以抱起他去洗澡。这样做的前提是，你已经非常清楚地表达了你的要求——现在是洗澡时间，你要去洗澡。如果我们花很长时间来威胁孩子，或者谈条件，有的时候用武力，有的时候又妥协，孩子就不能清楚地知道，你到底会怎样做。直接抱起来去洗，这种做法的前提，是之前有了良好的沟通。</p>
+<p>大家要牢记一个法则：重复旧的做法只能得到旧的结果。比如我们和孩子讲道理孩子不听，重复这个做法，哪怕说破天孩子依然也不会听。当然，家长可以直接给孩子讲一些正确的道理，但如果孩子不听，就应该考虑换一种做法。</p>
+<h3 id="第三个原则是向内看">第三个原则是：向内看。</h3>
+<p>尽管我们已经是成年人了，但仍然有必要向内看，去了解我们自己，观察自己的感受，明确自己的需求。孩子磨蹭，正好给我们提供了一个向内看的绝佳机会。磨磨蹭蹭让你感到生气和焦虑，真想让他们快一点。你知道这些，也知道孩子要有自己的步骤，但却仍然无法耐心地面对。</p>
+<p>这个时候，你就需要向内看，挖掘自己内心深处的感受。也许，你心里依然在害怕，如果上学迟到了，老师会批评你，让你羞愧难当。也许，生活让你总是忙忙碌碌，不习惯放松下来、慢下脚步，享受每个时刻。当你能够发现你自己更深层次的感受和需求的时候，就有了很好的机会去继续深入探索。</p>
+<p>举个例子，我的女儿艾玛小时候一磨蹭，我就会非常焦虑。后来，我意识到，不是她太慢，而是我太着急了。比如，我总是吃饭太快，总是匆匆忙忙，总是忘记去享受那些美好的小细节。而作为一个小女孩，她总是慢慢地吃饭，慢慢地走路，会关注到路上的每一个细节。</p>
+<p>这是多么美好啊！她在向我展示如何活在当下。这么多年过去了，这仍然是一个我需要努力学习的功课。非常感谢我的女儿，能让我认识到这一点。她也许需要学习加快速度，但是我肯定需要学习如何慢下来。当你肯花时间向内看，就会对孩子的磨蹭有重新的认识，也会明白为什么自己会有这么大的反应。这些认识会让你更有耐心，更有能力有效地去解决磨蹭等类似的问题，也会明白，孩子的行为只是触发了你。</p>
+<h2 id="关于吃饭磨蹭">关于吃饭磨蹭</h2>
+<p>我可是花了很长时间才理解，对于中国家长来说，为什么快快吃饭那么重要。因为你们希望孩子能够吃到热饭，也希望孩子不要浪费宝贵的时间。坦率地讲，我很难接受这个观点。因为正如我刚才所说，我吃饭就太快了，我常常都尝不出食物的味道，明明已经吃饱了，却还是不停地吃，导致最后吃多了。但我确实能够理解，你们希望孩子能够快点吃饭的愿望，我也会尽量提供一些帮助。</p>
+<p><strong>不同年龄阶段的孩子，对食物和吃饭，有不同的理解。</strong>对于刚刚学习会使用勺子的学步儿来说，这个世界里所有的事物都是全新的，而他要想探索这个巨大的新世界，方法就是玩耍。她一直在玩食物，都忘了吃饭。所以，在开饭之前，在把食物端出来之前，你可以让她先好好地玩一阵勺子和筷子，让他去探索和享受这个全新的的活动。这是玩耍时间，不是吃饭时间，因为不用担心食物会冷掉，你也不会着急。最后她一定会玩够的，就可以准备吃饭了。但是如果你总是催他的话，就会花更长的时间。</p>
+<p>现在，我们再来看一看年龄大一些的孩子。一个三岁的男孩儿，他吃饭非常非常慢。他的妈妈告诉我，有时候她会有耐心，玩个游戏，但有时候，她还是忍不住会唠叨孩子，甚至骂过、打过。这让她感觉非常不好，觉得对不起孩子。她说，孩子每次吃一顿饭，都让她感觉身心疲惫。</p>
+<p>面对这位向我提问的妈妈，我尝试着去体会孩子的感受：我因为吃得太慢，而被妈妈骂，甚至被打，我感觉到非常难过，但是也有很多困惑。我把这种感觉反馈给妈妈，她很吃惊。我给她和先生的建议是：你们唠叨孩子、训斥他，或者打他之前，先把自己想象成一个孩子。如果你是他，会有什么样的感受呢？</p>
+<p>请记住，作为一个孩子，他想要的东西也许和大人不一样。在孩子的成长过程中，为他们提供食物，是我们表达爱的一种方式，也是保证孩子健康成长的重要途径。我知道，在中国更是如此，但我们也必须要小心，<strong>不要剥夺了孩子与生俱来感知饥饱的能力。</strong></p>
+<p>为了让孩子吃得更多，我们总是有很多方法，来剥夺孩子的这种内在能力，比如：强迫、哄骗、分散注意力、催促等等。这些方式都让孩子无法去关注自己身体的感受，不知道到底什么是饿，什么是饱。等他们长大了，当身边不再有人喂饭的时候，他就有可能像我一样吃得太多，或者像我的妻子丽兹一样，完全忘记吃饭。</p>
+<p>除了把自己想象成一个孩子之外，我也尝试着去理解这位妈妈。我能够感受到，她非常担心孩子的健康，花那么多时间，去喂孩子吃饭。其实，她也非常苦恼。<strong>当我们被情绪淹没的时候，明明知道正确的方式，却根本做不到。</strong>我非常能够理解那种难受。所以，我要分享一些可以应对磨蹭的游戏，能尽快地帮助到大家。</p>
+<h2 id="用游戏化解">用游戏化解</h2>
+<p>首先，最重要的一个游戏是: <strong>在每次吃饭之前，或者做那件孩子容易磨蹭的事情之前，先花10到15分钟和孩子玩游戏。</strong>因为你们之间需要加强联结，而增强联结最好的方法就是一起玩游戏。玩什么都可以，角色扮演、摔跤、或者一起搭积木，都行。</p>
+<p>在磨蹭之前玩游戏，还有另外一个原因：<strong>很多孩子吃饭很慢，是希望能够获得妈妈更长时间全然的关注。</strong>如果我们能通过玩游戏，来满足孩子内心对爱和关注的渴望，那么，他就不用在吃饭的时候，再去寻求这种关注了。</p>
+<p>最后，我还有一个主意，虽然这个建议可能会有点难度，但我还是希望你可以尝试一下。为了打破那个“孩子吃饭磨蹭，我就着急”的恶循环，你可以下一个决心：<strong>每周一次，在孩子吃饭的时候，不去催促他，对他吃饭的速度完全没有要求。</strong></p>
+<p>明确地告诉他，只有这顿饭或这次洗澡，你不会催他，不会要求他快点吃或者快点洗。如果小朋友决定用整个下午去吃午餐，那你就放松地坐在旁边，愉快地陪伴。你要放下手里所有的活儿，放松地陪着孩子，享受这段时光。</p>
+<p>当然，对你来说，开始可能会很难，但却非常值得。你会看到自己以前通常的做法，是如何破坏你们之间联结的。也许你还能发现，是什么让孩子那么慢。</p>
+<p>今天，我给了你一个挑战，让你去反思自己对于磨蹭的反应。也许你和我一样，了解到了让自己慢下来的价值；也许，再遇到孩子磨蹭，在回应之前，你会稍微停顿一下；也许你能够从孩子的角度去看问题。</p>
+<p>希望这篇文章，能让你对磨蹭有新的了解，学会新的方法，并帮助你保持平静和放松的状态。</p>
+]]></content>
+      <categories>
+        <category>育儿</category>
+        <category>教育</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>教育</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>当你说“no”时，宝宝的脑袋里在想什么</title>
     <url>/arcticle/what-baby-think-when-you-say-no.html</url>
     <content><![CDATA[<p>从宝宝8、9个月开始咿呀学语到1岁半左右能和父母简单交流，父母就迫不及待地想教给宝宝生活规则。告诉ta什么是对，什么是错其实不必着急。2岁前的宝宝根本“不讲理”，你越禁止的，TA就会越强烈地要。今天，我们就来翻译一下，当你说“no”时，宝宝的脑袋里在想什么。</p>
@@ -7631,57 +7682,6 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>孩子磨蹭怎么办</title>
-    <url>/arcticle/how-to-deal-with-children-dawdle.html</url>
-    <content><![CDATA[<p>今天，我们来说说一个让很多父母都头疼的问题：孩子磨蹭。也许，你和这位妈妈会有很多共鸣。她女儿5岁了，可干什么事都特别磨蹭，尤其是吃饭。就算已经坐到餐桌旁了，还是总是找理由溜出去。一般情况下，她会让女儿再玩一会儿，也让她多吃会儿。可她还是磨蹭，直到最后她再也忍不住了，就会开始朝她嚷嚷。女儿洗澡也是，有时要花一个多小时才能开始洗澡，这位妈妈说，她已经尽量保持耐心了，可真的是太难了！</p>
-<!---more--->
-<p>她问我，该怎么做才能改善这种情况呢？孩子磨蹭，虽然常见，但是讲起来，却是个比较复杂的情形。我今天会通过游戏力育儿的三个重要原则，和大家一起看看，孩子磨蹭背后的原因到底是什么？父母能做些什么？</p>
-<h2 id="三个原则">三个原则</h2>
-<h3 id="第一个原则先联结后指导">第一个原则：先联结，后指导</h3>
-<p>无论我们希望孩子养成什么习惯，大人们打算告诉孩子什么道理，比如：让他们按时刷牙、自己洗脸、定期洗澡、上学不迟到等等，在发出指令之前，都需要和他们先建立紧密而温暖的联结。如果我们隔着整个房间，甚至在另外一个房间，对孩子大声嚷嚷：“我提醒你啊，还有15分钟我们就要走了……还有10分钟……时间到了，得出门了。”</p>
-<p>这可不叫亲密的联结。孩子是不会理你的，也不会按照你说的去做。不过，在父母看来，这就是磨蹭，还会越来越着急。你可能还会想：“我们讨论过这个问题了呀，你答应了要配合的！今天我还特意提前了15分钟就开始提醒，怎么还这样！”发生这样的情况，只能说明你并没有和孩子建立起良好的联结，也没有享受和孩子之间的亲密感觉。你的关注点只是在于：为什么我做了这么多，都没有用呢？试试先联结，后指导吧！</p>
-<p><strong>那该怎样做，才能和孩子建立联结呢？</strong></p>
-<p>不要隔着老远发号施令，走到孩子身边蹲下来或坐下来，目光和他平视，用手轻轻地抱住他，或者把手放在他的肩膀上，很感兴趣地看着他正在玩的东西、或者做的事情。无论你看到了什么，都尝试<strong>真实地描述，并给予他积极的评价</strong>，比如说：“哇哦！跟我说说，你盖了一个什么？”或者：“我看到，在这幅画上，你用了很多颜色。”</p>
-<p><strong>你需要对他所做的事情做出一个积极的回应</strong>，哪怕他做的事情是拒绝洗澡——“哇，为了不洗澡，你想出了很多有创意的主意啊！”然后，再平静地对孩子说:“现在，我们把这个玩具或者这本书收起来吧，这样，下次玩的时候就知道去哪找了。”你也可以说:“现在，我们去洗澡吧。”</p>
-<p>孩子可能不会那么听话，开始跟你讨价还价：“求求你了，再让我玩一分钟吧。”你也可以回答：“好啊，我陪你一起玩一分钟！立刻就不玩了去洗澡，确实不是一件容易的事儿。”不用担心多玩一分钟会惯坏孩子。看到了吗？我们就是这样一步一步地建立联结，而不是破坏联结。</p>
-<p>家长还有哪些常见的做法，会破坏联结呢？比如，严厉的责备、没完没了的说教，都会破坏你和孩子之间的联结。经常这样做之后，你会发现：你的话在孩子那里好像不起作用了，你好好说，孩子也不听。除非你特别凶，才能吓得孩子不得不暂时屈服于你。但是<strong>这种以害怕为基础的服从，是不可能长期持续的。</strong>被迫服从的孩子，会经常探索你的边界，只要你不爆，他就不断挑战。</p>
-<p>所以，不要责备和说教，而是要让孩子知道，你能理解他磨蹭的原因。就算有些时候，你不得不催他快点，那就要用简单的句子，比如：“我知道你想慢慢来，我催你，你也不高兴。我帮你吧，咱们一起把这个做完……”当你用共情和温暖与孩子建立起联结的时候，他就会更加愿意合作，也就不会有那么多的“磨蹭”了。</p>
-<h3 id="第二个原则是沟通要清晰">第二个原则是：沟通要清晰。</h3>
-<p>很多父母没有意识到是自己没有说清楚，之后却埋怨孩子不能按照我们的话去做。举个例子，父母原本想对孩子说：“该洗澡了”，可实际上说的却是：“我陪你去洗澡吧？”后面是一个问句，所以，孩子很自然地就会回答:“不，我现在不想去洗澡。”这个回答一定会让你抓狂的，因为，你其实并不是想征求他的意见，可是你并没有表达清楚，孩子当然可以说不。这就是不清楚的沟通。</p>
-<p>如果孩子说不，父母接下来做的事情就是：要么贿赂他们、要么威胁、批评，或者干脆就算了，忘记洗澡这件事儿。但其实你完全可以更清晰地表达，微笑着对孩子说:“宝贝，现在是洗澡的时间。”然后，你可以抱起他去洗澡。这样做的前提是，你已经非常清楚地表达了你的要求——现在是洗澡时间，你要去洗澡。如果我们花很长时间来威胁孩子，或者谈条件，有的时候用武力，有的时候又妥协，孩子就不能清楚地知道，你到底会怎样做。直接抱起来去洗，这种做法的前提，是之前有了良好的沟通。</p>
-<p>大家要牢记一个法则：重复旧的做法只能得到旧的结果。比如我们和孩子讲道理孩子不听，重复这个做法，哪怕说破天孩子依然也不会听。当然，家长可以直接给孩子讲一些正确的道理，但如果孩子不听，就应该考虑换一种做法。</p>
-<h3 id="第三个原则是向内看">第三个原则是：向内看。</h3>
-<p>尽管我们已经是成年人了，但仍然有必要向内看，去了解我们自己，观察自己的感受，明确自己的需求。孩子磨蹭，正好给我们提供了一个向内看的绝佳机会。磨磨蹭蹭让你感到生气和焦虑，真想让他们快一点。你知道这些，也知道孩子要有自己的步骤，但却仍然无法耐心地面对。</p>
-<p>这个时候，你就需要向内看，挖掘自己内心深处的感受。也许，你心里依然在害怕，如果上学迟到了，老师会批评你，让你羞愧难当。也许，生活让你总是忙忙碌碌，不习惯放松下来、慢下脚步，享受每个时刻。当你能够发现你自己更深层次的感受和需求的时候，就有了很好的机会去继续深入探索。</p>
-<p>举个例子，我的女儿艾玛小时候一磨蹭，我就会非常焦虑。后来，我意识到，不是她太慢，而是我太着急了。比如，我总是吃饭太快，总是匆匆忙忙，总是忘记去享受那些美好的小细节。而作为一个小女孩，她总是慢慢地吃饭，慢慢地走路，会关注到路上的每一个细节。</p>
-<p>这是多么美好啊！她在向我展示如何活在当下。这么多年过去了，这仍然是一个我需要努力学习的功课。非常感谢我的女儿，能让我认识到这一点。她也许需要学习加快速度，但是我肯定需要学习如何慢下来。当你肯花时间向内看，就会对孩子的磨蹭有重新的认识，也会明白为什么自己会有这么大的反应。这些认识会让你更有耐心，更有能力有效地去解决磨蹭等类似的问题，也会明白，孩子的行为只是触发了你。</p>
-<h2 id="关于吃饭磨蹭">关于吃饭磨蹭</h2>
-<p>我可是花了很长时间才理解，对于中国家长来说，为什么快快吃饭那么重要。因为你们希望孩子能够吃到热饭，也希望孩子不要浪费宝贵的时间。坦率地讲，我很难接受这个观点。因为正如我刚才所说，我吃饭就太快了，我常常都尝不出食物的味道，明明已经吃饱了，却还是不停地吃，导致最后吃多了。但我确实能够理解，你们希望孩子能够快点吃饭的愿望，我也会尽量提供一些帮助。</p>
-<p><strong>不同年龄阶段的孩子，对食物和吃饭，有不同的理解。</strong>对于刚刚学习会使用勺子的学步儿来说，这个世界里所有的事物都是全新的，而他要想探索这个巨大的新世界，方法就是玩耍。她一直在玩食物，都忘了吃饭。所以，在开饭之前，在把食物端出来之前，你可以让她先好好地玩一阵勺子和筷子，让他去探索和享受这个全新的的活动。这是玩耍时间，不是吃饭时间，因为不用担心食物会冷掉，你也不会着急。最后她一定会玩够的，就可以准备吃饭了。但是如果你总是催他的话，就会花更长的时间。</p>
-<p>现在，我们再来看一看年龄大一些的孩子。一个三岁的男孩儿，他吃饭非常非常慢。他的妈妈告诉我，有时候她会有耐心，玩个游戏，但有时候，她还是忍不住会唠叨孩子，甚至骂过、打过。这让她感觉非常不好，觉得对不起孩子。她说，孩子每次吃一顿饭，都让她感觉身心疲惫。</p>
-<p>面对这位向我提问的妈妈，我尝试着去体会孩子的感受：我因为吃得太慢，而被妈妈骂，甚至被打，我感觉到非常难过，但是也有很多困惑。我把这种感觉反馈给妈妈，她很吃惊。我给她和先生的建议是：你们唠叨孩子、训斥他，或者打他之前，先把自己想象成一个孩子。如果你是他，会有什么样的感受呢？</p>
-<p>请记住，作为一个孩子，他想要的东西也许和大人不一样。在孩子的成长过程中，为他们提供食物，是我们表达爱的一种方式，也是保证孩子健康成长的重要途径。我知道，在中国更是如此，但我们也必须要小心，<strong>不要剥夺了孩子与生俱来感知饥饱的能力。</strong></p>
-<p>为了让孩子吃得更多，我们总是有很多方法，来剥夺孩子的这种内在能力，比如：强迫、哄骗、分散注意力、催促等等。这些方式都让孩子无法去关注自己身体的感受，不知道到底什么是饿，什么是饱。等他们长大了，当身边不再有人喂饭的时候，他就有可能像我一样吃得太多，或者像我的妻子丽兹一样，完全忘记吃饭。</p>
-<p>除了把自己想象成一个孩子之外，我也尝试着去理解这位妈妈。我能够感受到，她非常担心孩子的健康，花那么多时间，去喂孩子吃饭。其实，她也非常苦恼。<strong>当我们被情绪淹没的时候，明明知道正确的方式，却根本做不到。</strong>我非常能够理解那种难受。所以，我要分享一些可以应对磨蹭的游戏，能尽快地帮助到大家。</p>
-<h2 id="用游戏化解">用游戏化解</h2>
-<p>首先，最重要的一个游戏是: <strong>在每次吃饭之前，或者做那件孩子容易磨蹭的事情之前，先花10到15分钟和孩子玩游戏。</strong>因为你们之间需要加强联结，而增强联结最好的方法就是一起玩游戏。玩什么都可以，角色扮演、摔跤、或者一起搭积木，都行。</p>
-<p>在磨蹭之前玩游戏，还有另外一个原因：<strong>很多孩子吃饭很慢，是希望能够获得妈妈更长时间全然的关注。</strong>如果我们能通过玩游戏，来满足孩子内心对爱和关注的渴望，那么，他就不用在吃饭的时候，再去寻求这种关注了。</p>
-<p>最后，我还有一个主意，虽然这个建议可能会有点难度，但我还是希望你可以尝试一下。为了打破那个“孩子吃饭磨蹭，我就着急”的恶循环，你可以下一个决心：<strong>每周一次，在孩子吃饭的时候，不去催促他，对他吃饭的速度完全没有要求。</strong></p>
-<p>明确地告诉他，只有这顿饭或这次洗澡，你不会催他，不会要求他快点吃或者快点洗。如果小朋友决定用整个下午去吃午餐，那你就放松地坐在旁边，愉快地陪伴。你要放下手里所有的活儿，放松地陪着孩子，享受这段时光。</p>
-<p>当然，对你来说，开始可能会很难，但却非常值得。你会看到自己以前通常的做法，是如何破坏你们之间联结的。也许你还能发现，是什么让孩子那么慢。</p>
-<p>今天，我给了你一个挑战，让你去反思自己对于磨蹭的反应。也许你和我一样，了解到了让自己慢下来的价值；也许，再遇到孩子磨蹭，在回应之前，你会稍微停顿一下；也许你能够从孩子的角度去看问题。</p>
-<p>希望这篇文章，能让你对磨蹭有新的了解，学会新的方法，并帮助你保持平静和放松的状态。</p>
-]]></content>
-      <categories>
-        <category>育儿</category>
-        <category>教育</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>教育</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>当教条不重要，“教养”才重要</title>
     <url>/arcticle/make-no-sense.html</url>
     <content><![CDATA[<p>“讲道理”是很多家长喜欢的一种教育方式，一直以来被正面推崇。但人们也往往发现讲道理对于很多孩子来说没用，越喜欢讲道理的家长，他的孩子往往越不听话。 讲道理孩子不听，不妨换个做法。大家要牢记一个法则：重复旧的做法只能得到旧的结果。比如我们和孩子讲道理孩子不听，重复这个做法，哪怕说破天孩子依然也不会听。当然，家长可以直接给孩子讲一些正确的道理，但如果孩子不听，就应该考虑换一种做法。实践证明：想要孩子接受一个观点，从情绪上入手最容易。通过问答的方式，调动孩子去思考，刺激他天性中善良的一面。</p>
@@ -7703,44 +7703,6 @@ nginx/1.12.2
       <tags>
         <tag>育儿</tag>
         <tag>教育</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>成功制作海报的十个简单法则</title>
-    <url>/arcticle/Ten%20Simple%20Rules%20for%20a%20Good%20Poster%20Presentation.html</url>
-    <content><![CDATA[<p>海报是将你的研究成果与别人交流过程中的关键部分，也是成功科研生涯的重要元素。虽然同样传递着高质量的科学信息，海报无论从口头讲演或以文献发表的形式都提供了一个不同的媒介，所以应该区别对待。你的海报可以被看成是一张张记录工作中同事们沟通的快照，无论你是否在沟通现场，这样的概括将激起读者想去了解更多的兴趣。多数毕生的合作都是从一张海报开始的。准备和展示一个高效的海报是要消耗时间的，那么如何确保在同样的过程中得到最大化的回报，以下列出了十条简单的法则。</p>
-<!---more--->
-<p>1．明确目标</p>
-<p>目标会因被展示工作的情况、性质、内容，以及意图而异。一些海报设计好后会一次再一次的被使用。例如，这些海报让与会人员了解到共享资源。其他的可能只会在一次会议中使用，之后就被丢弃在角落里。所以，在你开始准备海报之前，问问自己下面这几个问题：你希望那些在看过你海报之后的人做些什么？是针对海报内容展开讨论？还是觉得学习到很多而离开，打算自己开始尝试？或是想要与你合作？所有上面提到的，或者其他没有提到的，都相应地取决于你海报的形式。</p>
-<p>2．在十秒钟内秀出你的成果</p>
-<p>由于有些会议将展出成百上千幅的海报，所以你必须争取到大家的注意。第一印象是至关重要的，因为它使得站在海报前面的人知道你想表达的核心内容，就像在电梯里面要在某人走出去之前，用很短的时间激起他们的兴趣一样。问题在于你一定要秀出你的东西。一种方法就是抛出一个结论性的问题，然后围绕这个问题施展你最好的解决方法；同时，一旦你提出的问题又是研究的动力，那么海报的焦点就会清晰、简明地转移到解决那个问题上面来。</p>
-<p>3．标题很重要</p>
-<p>标题是秀出你内容的好方法。它可能是与会者在了解你海报内容之前唯一看到的东西。标题可以使他们产生想要走近看看的想法。标题可以提出一个结论性问题，明确研究范围或是蕴藏一个新的发现。综上所述，标题对于广大观众应该简短、容易理解。标题就相当于报纸的大标题-简短、犀利、夺人耳目。</p>
-<p>4．不用考虑海报的赞同程度</p>
-<p>不要将海报的赞同度看作是对你工作的认可。大会需要有人参加才能保证经济收入的充足。很多受到项目资助的与会者只有在让他们作演讲的前提下，才会去参加会议；而在众多与会者当中，进行讲演的人毕竟是少数。怎样解决这一矛盾呢？引入海报形式，通过这种方法，每个人都能够做演讲。换句话说，你的海报仅仅是被采纳，还没有被支持。所以为了从一起参展的同行那里得到支持，你需要认真做好科研的同时，在海报上面展示优质的结果。</p>
-<p>5．很多写出好论文的法则同样适用于海报的制作</p>
-<p>先针对你的观众群进行判断，以准备出合适的海报范围和内容深度。如果与会者中有非专业性人员，那就要考虑迎合他们。就像论文的摘要需要包含目的、有待验证的假设、主要结果和结论一样，你的海报也要如此。</p>
-<p>6．优质海报要拥有特性而不是仅仅与论文相关</p>
-<p>在论文中写出的内容所涵盖的材料要远远的多于海报所展示出来的内容。海报要求你萃取出内容的精华，还不丢失信息或逻辑框架。海报需要远观却能够展示出你的优点。海报可以作为相关论文副本，补充信息和其他手稿的发行载体。海报允许你更具冒险性。通常，仅仅是海报的题目或最多是摘要能够发表，更确切地说是，广泛发行。大多时候，他们可能再也不会被看到。所以这让你有机会比在传统的文学中说得更多，却不会成为永久记录的一部分。因此要利用好这些特质。</p>
-<p>7．框架和格式很重要</p>
-<p>流行乐手Keith Richards与Der Spiegel进行了很好的面谈：“如果你是一个画家，那么稀珍的油画就是你最看重的东西。一个好的画家从来不会把所有的空间画满，总会留些空白。我的油画是沉默。”海报作者的油画也是一片白色的空间。要从始至终，以一种逻辑的方式从一个简洁的框架到另外一个，引领过客的注意力。这并不像文学作品，是靠一页接着一页线性排列的，海报的读者可以自由的徜徉在页与页之间，就像他们被随机的拖到海报板前面。所以要利用箭头，编号引导读者，或是无论其他什么方法，能够使他们从一个逻辑步骤移向另外一个。可以试着去用一个不寻常且吸引眼球的方式来实现这些引领。要在其他人的海报中寻找合适的框架，多多借鉴他们的方法。最后，切记--不要用小于24号的字，并且要确保核心观点能够一眼被发现。</p>
-<p>8．内容很重要，但是要保持简明</p>
-<p>海报上的每部分内容都要围绕中心思想展开。内容必须符合可靠的科学报告的形式：表达清晰准确，话语简洁，由于海报受固有空间的限制，所以后者对于制作海报尤其重要。将一流的绘画素材引入到海报当中，有时候能够使本来令人困惑杂乱无章的数据转变成协调一致且有信服力的故事，一张仔细制作的表或图往往比长篇的文字说得更清楚。这是主要是利用图片“将复杂的陈述清楚化”，并不是使用高难的艺术效果去表达。要通过整体和细节两种方式展示数字，例如，一张大的表格固然气势雄伟，可以揭示大量不同种类样本的相关信息；而小表则可以为需要的人提供强有力的细节。同样，一张图中可以有一条明显的趋势线（用以清晰明了的陈述其含义），同时也要有误差条图用以表示具体点值的细节。同时，在摘要之后，要有一个清晰明显的结论，因为这是参观者的视线将会浏览到的地方，只有看完了这些之后，他们才会继续阅读方法部分以及后面的结果部分。 9．海报应该体现制作者的个性</p>
-<p>海报不同于枯燥、死板、人性化不强的论文。你应该把海报当成是你个性的延伸，通过它去吸引路人，使得他们想要深入阅读或是直接与你交谈。科研合作的开始往往是由于一些对个人的兴趣而并不是共同的科研爱好。即使当时你没站在海报旁边，它上面的照片也能够让人在会议上找到你，同时照片还可以显示出能够引起对话的习惯和兴趣。</p>
-<p>10．海报在展出当时和之后都会产生效应</p>
-<p>为制作海报付出了相当大的努力后，不要指望在做演讲的当天就获得最大的影响，因为这需要好的演讲者和观众的互动。要通过努力吸引观众，一名仔细阅读的观众会吸引到其他人。不要打扰读者，让他们自己阅读，这是需要按照法则2好好准备。阅读完之后，马上让所有的观众开始思考，不要让参观者等待你的注意，同时与每位参观者保持视线的接触。</p>
-<p>让每一位与会者感到你是容易接触的。手上要拿着复印的相关文献和标准纸打印的海报，以备分发。工作要更加成熟多样，如作为分发的另一种形式，可以将海报上传到网上，并确保连接有效。要清楚列出你的EMAIL和人数统计，为那些来看海报的人提供注册的清单。</p>
-<p>由于比起海报的内容，参观者似乎更容易记住你，所以要让自己更容易被人记住。作为主要的工作者出现在海报上面，你要做到专心、开放、细致、自信，但是不要自大和挑衅，要留给参观者足够的空间和时间--因为他们要用自己的判断和节奏来阅读你的海报；如果参观者提出问题，请简单、大方地介绍你的工作，因为这是在成果发表之前你可以获得反馈信息的机会。同时，你最好在自己的海报前走动，而不是一直看着演讲稿。</p>
-<p>优质的海报和对其的精彩讲解能够提高你的声誉，不仅在你工作小组或是机构之内乃至外部都会有很好的效果，更可能对某种科学的自由作出贡献。当同行看到你的简历时，就会考虑是否应该对你的海报予以奖励。</p>
-<p>来源：Erren TC, Bourne PE (2007) Ten Simple Rules for a Good Poster Presentation. PLoS Comput Biol 3(5):e102. doi:10.1371/journal.pcbi.0030102</p>
-<p>翻译：EpiMan Forum</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>科研</tag>
-        <tag>海报</tag>
       </tags>
   </entry>
   <entry>
@@ -7813,6 +7775,44 @@ nginx/1.12.2
         <tag>nas</tag>
         <tag>win10</tag>
         <tag>ftp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>成功制作海报的十个简单法则</title>
+    <url>/arcticle/Ten%20Simple%20Rules%20for%20a%20Good%20Poster%20Presentation.html</url>
+    <content><![CDATA[<p>海报是将你的研究成果与别人交流过程中的关键部分，也是成功科研生涯的重要元素。虽然同样传递着高质量的科学信息，海报无论从口头讲演或以文献发表的形式都提供了一个不同的媒介，所以应该区别对待。你的海报可以被看成是一张张记录工作中同事们沟通的快照，无论你是否在沟通现场，这样的概括将激起读者想去了解更多的兴趣。多数毕生的合作都是从一张海报开始的。准备和展示一个高效的海报是要消耗时间的，那么如何确保在同样的过程中得到最大化的回报，以下列出了十条简单的法则。</p>
+<!---more--->
+<p>1．明确目标</p>
+<p>目标会因被展示工作的情况、性质、内容，以及意图而异。一些海报设计好后会一次再一次的被使用。例如，这些海报让与会人员了解到共享资源。其他的可能只会在一次会议中使用，之后就被丢弃在角落里。所以，在你开始准备海报之前，问问自己下面这几个问题：你希望那些在看过你海报之后的人做些什么？是针对海报内容展开讨论？还是觉得学习到很多而离开，打算自己开始尝试？或是想要与你合作？所有上面提到的，或者其他没有提到的，都相应地取决于你海报的形式。</p>
+<p>2．在十秒钟内秀出你的成果</p>
+<p>由于有些会议将展出成百上千幅的海报，所以你必须争取到大家的注意。第一印象是至关重要的，因为它使得站在海报前面的人知道你想表达的核心内容，就像在电梯里面要在某人走出去之前，用很短的时间激起他们的兴趣一样。问题在于你一定要秀出你的东西。一种方法就是抛出一个结论性的问题，然后围绕这个问题施展你最好的解决方法；同时，一旦你提出的问题又是研究的动力，那么海报的焦点就会清晰、简明地转移到解决那个问题上面来。</p>
+<p>3．标题很重要</p>
+<p>标题是秀出你内容的好方法。它可能是与会者在了解你海报内容之前唯一看到的东西。标题可以使他们产生想要走近看看的想法。标题可以提出一个结论性问题，明确研究范围或是蕴藏一个新的发现。综上所述，标题对于广大观众应该简短、容易理解。标题就相当于报纸的大标题-简短、犀利、夺人耳目。</p>
+<p>4．不用考虑海报的赞同程度</p>
+<p>不要将海报的赞同度看作是对你工作的认可。大会需要有人参加才能保证经济收入的充足。很多受到项目资助的与会者只有在让他们作演讲的前提下，才会去参加会议；而在众多与会者当中，进行讲演的人毕竟是少数。怎样解决这一矛盾呢？引入海报形式，通过这种方法，每个人都能够做演讲。换句话说，你的海报仅仅是被采纳，还没有被支持。所以为了从一起参展的同行那里得到支持，你需要认真做好科研的同时，在海报上面展示优质的结果。</p>
+<p>5．很多写出好论文的法则同样适用于海报的制作</p>
+<p>先针对你的观众群进行判断，以准备出合适的海报范围和内容深度。如果与会者中有非专业性人员，那就要考虑迎合他们。就像论文的摘要需要包含目的、有待验证的假设、主要结果和结论一样，你的海报也要如此。</p>
+<p>6．优质海报要拥有特性而不是仅仅与论文相关</p>
+<p>在论文中写出的内容所涵盖的材料要远远的多于海报所展示出来的内容。海报要求你萃取出内容的精华，还不丢失信息或逻辑框架。海报需要远观却能够展示出你的优点。海报可以作为相关论文副本，补充信息和其他手稿的发行载体。海报允许你更具冒险性。通常，仅仅是海报的题目或最多是摘要能够发表，更确切地说是，广泛发行。大多时候，他们可能再也不会被看到。所以这让你有机会比在传统的文学中说得更多，却不会成为永久记录的一部分。因此要利用好这些特质。</p>
+<p>7．框架和格式很重要</p>
+<p>流行乐手Keith Richards与Der Spiegel进行了很好的面谈：“如果你是一个画家，那么稀珍的油画就是你最看重的东西。一个好的画家从来不会把所有的空间画满，总会留些空白。我的油画是沉默。”海报作者的油画也是一片白色的空间。要从始至终，以一种逻辑的方式从一个简洁的框架到另外一个，引领过客的注意力。这并不像文学作品，是靠一页接着一页线性排列的，海报的读者可以自由的徜徉在页与页之间，就像他们被随机的拖到海报板前面。所以要利用箭头，编号引导读者，或是无论其他什么方法，能够使他们从一个逻辑步骤移向另外一个。可以试着去用一个不寻常且吸引眼球的方式来实现这些引领。要在其他人的海报中寻找合适的框架，多多借鉴他们的方法。最后，切记--不要用小于24号的字，并且要确保核心观点能够一眼被发现。</p>
+<p>8．内容很重要，但是要保持简明</p>
+<p>海报上的每部分内容都要围绕中心思想展开。内容必须符合可靠的科学报告的形式：表达清晰准确，话语简洁，由于海报受固有空间的限制，所以后者对于制作海报尤其重要。将一流的绘画素材引入到海报当中，有时候能够使本来令人困惑杂乱无章的数据转变成协调一致且有信服力的故事，一张仔细制作的表或图往往比长篇的文字说得更清楚。这是主要是利用图片“将复杂的陈述清楚化”，并不是使用高难的艺术效果去表达。要通过整体和细节两种方式展示数字，例如，一张大的表格固然气势雄伟，可以揭示大量不同种类样本的相关信息；而小表则可以为需要的人提供强有力的细节。同样，一张图中可以有一条明显的趋势线（用以清晰明了的陈述其含义），同时也要有误差条图用以表示具体点值的细节。同时，在摘要之后，要有一个清晰明显的结论，因为这是参观者的视线将会浏览到的地方，只有看完了这些之后，他们才会继续阅读方法部分以及后面的结果部分。 9．海报应该体现制作者的个性</p>
+<p>海报不同于枯燥、死板、人性化不强的论文。你应该把海报当成是你个性的延伸，通过它去吸引路人，使得他们想要深入阅读或是直接与你交谈。科研合作的开始往往是由于一些对个人的兴趣而并不是共同的科研爱好。即使当时你没站在海报旁边，它上面的照片也能够让人在会议上找到你，同时照片还可以显示出能够引起对话的习惯和兴趣。</p>
+<p>10．海报在展出当时和之后都会产生效应</p>
+<p>为制作海报付出了相当大的努力后，不要指望在做演讲的当天就获得最大的影响，因为这需要好的演讲者和观众的互动。要通过努力吸引观众，一名仔细阅读的观众会吸引到其他人。不要打扰读者，让他们自己阅读，这是需要按照法则2好好准备。阅读完之后，马上让所有的观众开始思考，不要让参观者等待你的注意，同时与每位参观者保持视线的接触。</p>
+<p>让每一位与会者感到你是容易接触的。手上要拿着复印的相关文献和标准纸打印的海报，以备分发。工作要更加成熟多样，如作为分发的另一种形式，可以将海报上传到网上，并确保连接有效。要清楚列出你的EMAIL和人数统计，为那些来看海报的人提供注册的清单。</p>
+<p>由于比起海报的内容，参观者似乎更容易记住你，所以要让自己更容易被人记住。作为主要的工作者出现在海报上面，你要做到专心、开放、细致、自信，但是不要自大和挑衅，要留给参观者足够的空间和时间--因为他们要用自己的判断和节奏来阅读你的海报；如果参观者提出问题，请简单、大方地介绍你的工作，因为这是在成果发表之前你可以获得反馈信息的机会。同时，你最好在自己的海报前走动，而不是一直看着演讲稿。</p>
+<p>优质的海报和对其的精彩讲解能够提高你的声誉，不仅在你工作小组或是机构之内乃至外部都会有很好的效果，更可能对某种科学的自由作出贡献。当同行看到你的简历时，就会考虑是否应该对你的海报予以奖励。</p>
+<p>来源：Erren TC, Bourne PE (2007) Ten Simple Rules for a Good Poster Presentation. PLoS Comput Biol 3(5):e102. doi:10.1371/journal.pcbi.0030102</p>
+<p>翻译：EpiMan Forum</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>科研</tag>
+        <tag>海报</tag>
       </tags>
   </entry>
   <entry>
@@ -8176,34 +8176,6 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
-    <title>教你如何看懂血常规报告</title>
-    <url>/arcticle/blood-report.html</url>
-    <content><![CDATA[<p>血常规是指通过观察血细胞的数量变化及形态分布从而判断血液状况及疾病的检查，是最简单且最重要的常规血液检查，故而取名血常规。很多人一拿到化验单，看着报告单上20多个医学术语（白细胞、红细胞、血小板等），箭头上上下下的，有点懵，不知所谓。今天我们就简单了解一下如何解读血常规化验报告。</p>
-<!---more--->
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560861009090.png" /></p>
-<h2 id="白细胞是我们的战斗力">白细胞是我们的战斗力</h2>
-<p>白细胞是人体抗感染的第一道屏障，主要起免疫的作用，白细胞的变化提示体内免疫系统的变化(正常值3.5-9.5*10^9/L) 。<strong>如果体内的白细胞数量高于正常值，提示我们体内可能有了炎症</strong>。要具体判断究竟是什么感染引起的炎症，还得同时看3个主要的血象指标：<strong>白细胞计数、中性粒细胞比例和淋巴细胞比例</strong>。白细胞分为中性粒细胞、嗜酸性粒细胞、嗜碱性粒细胞、单核细胞、淋巴细胞5类。白细胞各种组分保持相对稳定的比例，例如中性粒细胞正常情况下占所有白细胞的50–70%。</p>
-<p>白细胞(WBC)的增加或减少主要受到中性粒细胞的影响，其次是淋巴细胞。一般情况下，<strong>细菌感染</strong>会让前线兵种<strong>中性粒细胞</strong>升高；但是病毒感染能绕过前线兵种，直接挑战炮兵团<strong>淋巴细胞</strong>；<strong>单核细胞</strong>算是特种兵吧，只是在面对疟疾、结核等几个敌人时才出马；<strong>嗜酸性粒细胞</strong>是一个脾气火爆的战士，对于寄生虫感染常常积极升高应战，但是它有时候也会对一些本来无关紧要的刺激过度亢奋，引起过敏；至于<strong>嗜碱性粒细胞</strong>，他政治立场不坚定，常常挑拨离间，它的升高常常见于自身免疫病攻击自身。各项白细胞比例反应免疫系统的工作侧重点，提示免疫系统正在加强某一方面的免疫反应。值得注意的是，<strong>当白细胞计数有十倍甚至百倍的波动，外周血涂片中还出现了幼稚细胞，常提示白血病</strong>，这种情况下应给予高度重视。</p>
-<h2 id="红细胞反映的是我们的精气神"><strong>红细胞反映的是我们的精气神</strong></h2>
-<p>红细胞主要作用是给全身输送氧气，排除二氧化碳，但运送氧气的功能是由红细胞内部的血红蛋白完成的(红细胞计数正常值3.8-5.1*10^12/L)。血红蛋白的主要作用是结合氧气，协助红细胞输送氧气。反映在报告单上就是<strong>红细胞计数、血红蛋白水平和红细胞压积</strong>这三个指标，分别从红细胞的数量、血红蛋白含量和红细胞在血液中所占体积这三个侧面进行考察，它们彼此相关，但是<strong>血红蛋白最常用</strong>。</p>
-<p><strong>如果红细胞计数、血红蛋白水平和红细胞压积比正常低，您很有可能患有贫血</strong>。贫血可以引起乏力、头晕和心悸心慌等不适。贫血的原因有许多，可以是缺少造血原料（铁、叶酸、B12）、失血或者骨髓造血过程（再障、白血病等）受到影响。</p>
-<p><strong>如果红细胞计数、血红蛋白水平或红细胞压积增高，就要考虑红细胞增多症，可能由吸烟、心脏病、肺部疾病等引起，处于海拔较高的居民，血红蛋白也会偏高一点</strong>；造血系统的肿瘤也可能波及红细胞造成红细胞和血红蛋白的增高，比如真性红细胞增多症的患者，血红蛋白可以高达180g/L以上，他们虽说整天红光满面、看着容光焕发，但也是需要治疗和干预的。</p>
-<h2 id="血小板是我们的维修师"><strong>血小板是我们的维修师</strong></h2>
-<p>血小板是从骨髓成熟的巨核细胞胞浆解脱落下来的小块胞质，是血液中最小的细胞成分。它的功能主要是促进止血和加速凝血，维护毛细血管壁完整性(正常值125-350*10^9/L)。血小板过多或过少均会引起凝血功能异常，医生一般也是从生成不足、消耗过多、破坏增加等方面分析病因。血液中的血小板过少时，就要注意是否患上造血系统疾病，或者脾脏功能亢进。血小板的升高常常提示骨髓病变，或脾脏于近期被切除。而血小板异常增多的人可能血栓的风险就会增加。更细节的情况应通过反映血小板发育情况的“平均血小板体积”、“血小板分布宽度”、“大型血小板比率”来判断。</p>
-<p><strong>另外，做血常规时有时还会做一项指标-C反应蛋白（CRP），</strong>CRP是第一个被认为是急性时相反应蛋白的，<strong>由肝脏合成的反映全身性炎症反应急性期的非特异性标志物，</strong>正常情况下含量极微量，在急性创伤和感染时其血浓度急剧升高。<strong>可通过C反应蛋白增高来判断炎症程度，考虑治疗方案。</strong></p>
-<p>血液在人体全身循环，它储存了很多的人体健康信息。无论疾病是大是小，无论是一些疾病原因还是非疾病原因，都可能导致血常规的变化，指标变化的范围及数量也各有不同。如果化验单上的异常值比正常值只升高或降低一点点，其意义并不太大。<strong>只有当与正常值至少相差10%～20%以上时</strong>，异常结果才有临床意义。所以，您看到自己的血常规报告时，不必因为几个异常的箭头而惴惴不安，人体的健康不是单单看几个客观的数据就可以判定的，所有的检查项目都需要结合病史，必要时还要做更深入的检查，若非专业医生，切不可妄自诊断，即使您能明白每一项的意义。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>科普</tag>
-        <tag>健康</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>撰写国家自然科学基金项目申请书的一点体会</title>
     <url>/arcticle/fonds-experence.html</url>
     <content><![CDATA[<p>一年一度的寒假即将开始，大学的老师们（包括博士后）将要利用寒假这个空闲时间集中精力撰写国家自然科学基金申请书。最近几年针对国家自然科学基金申请书中的几个专门问题写过几篇博文（见后面目录）。今年到几个单位作“做自己的科学研究”报告，由于时间关系，其中“撰写科研项目申请书”部分的内容没有展开细讲。为此，决定以“国家自然科学基金申请书”为对象，介绍一点我对科研项目立项书的“创作”体会，供大家参考。</p>
@@ -8267,6 +8239,34 @@ nginx/1.12.2
       </tags>
   </entry>
   <entry>
+    <title>教你如何看懂血常规报告</title>
+    <url>/arcticle/blood-report.html</url>
+    <content><![CDATA[<p>血常规是指通过观察血细胞的数量变化及形态分布从而判断血液状况及疾病的检查，是最简单且最重要的常规血液检查，故而取名血常规。很多人一拿到化验单，看着报告单上20多个医学术语（白细胞、红细胞、血小板等），箭头上上下下的，有点懵，不知所谓。今天我们就简单了解一下如何解读血常规化验报告。</p>
+<!---more--->
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1560861009090.png" /></p>
+<h2 id="白细胞是我们的战斗力">白细胞是我们的战斗力</h2>
+<p>白细胞是人体抗感染的第一道屏障，主要起免疫的作用，白细胞的变化提示体内免疫系统的变化(正常值3.5-9.5*10^9/L) 。<strong>如果体内的白细胞数量高于正常值，提示我们体内可能有了炎症</strong>。要具体判断究竟是什么感染引起的炎症，还得同时看3个主要的血象指标：<strong>白细胞计数、中性粒细胞比例和淋巴细胞比例</strong>。白细胞分为中性粒细胞、嗜酸性粒细胞、嗜碱性粒细胞、单核细胞、淋巴细胞5类。白细胞各种组分保持相对稳定的比例，例如中性粒细胞正常情况下占所有白细胞的50–70%。</p>
+<p>白细胞(WBC)的增加或减少主要受到中性粒细胞的影响，其次是淋巴细胞。一般情况下，<strong>细菌感染</strong>会让前线兵种<strong>中性粒细胞</strong>升高；但是病毒感染能绕过前线兵种，直接挑战炮兵团<strong>淋巴细胞</strong>；<strong>单核细胞</strong>算是特种兵吧，只是在面对疟疾、结核等几个敌人时才出马；<strong>嗜酸性粒细胞</strong>是一个脾气火爆的战士，对于寄生虫感染常常积极升高应战，但是它有时候也会对一些本来无关紧要的刺激过度亢奋，引起过敏；至于<strong>嗜碱性粒细胞</strong>，他政治立场不坚定，常常挑拨离间，它的升高常常见于自身免疫病攻击自身。各项白细胞比例反应免疫系统的工作侧重点，提示免疫系统正在加强某一方面的免疫反应。值得注意的是，<strong>当白细胞计数有十倍甚至百倍的波动，外周血涂片中还出现了幼稚细胞，常提示白血病</strong>，这种情况下应给予高度重视。</p>
+<h2 id="红细胞反映的是我们的精气神"><strong>红细胞反映的是我们的精气神</strong></h2>
+<p>红细胞主要作用是给全身输送氧气，排除二氧化碳，但运送氧气的功能是由红细胞内部的血红蛋白完成的(红细胞计数正常值3.8-5.1*10^12/L)。血红蛋白的主要作用是结合氧气，协助红细胞输送氧气。反映在报告单上就是<strong>红细胞计数、血红蛋白水平和红细胞压积</strong>这三个指标，分别从红细胞的数量、血红蛋白含量和红细胞在血液中所占体积这三个侧面进行考察，它们彼此相关，但是<strong>血红蛋白最常用</strong>。</p>
+<p><strong>如果红细胞计数、血红蛋白水平和红细胞压积比正常低，您很有可能患有贫血</strong>。贫血可以引起乏力、头晕和心悸心慌等不适。贫血的原因有许多，可以是缺少造血原料（铁、叶酸、B12）、失血或者骨髓造血过程（再障、白血病等）受到影响。</p>
+<p><strong>如果红细胞计数、血红蛋白水平或红细胞压积增高，就要考虑红细胞增多症，可能由吸烟、心脏病、肺部疾病等引起，处于海拔较高的居民，血红蛋白也会偏高一点</strong>；造血系统的肿瘤也可能波及红细胞造成红细胞和血红蛋白的增高，比如真性红细胞增多症的患者，血红蛋白可以高达180g/L以上，他们虽说整天红光满面、看着容光焕发，但也是需要治疗和干预的。</p>
+<h2 id="血小板是我们的维修师"><strong>血小板是我们的维修师</strong></h2>
+<p>血小板是从骨髓成熟的巨核细胞胞浆解脱落下来的小块胞质，是血液中最小的细胞成分。它的功能主要是促进止血和加速凝血，维护毛细血管壁完整性(正常值125-350*10^9/L)。血小板过多或过少均会引起凝血功能异常，医生一般也是从生成不足、消耗过多、破坏增加等方面分析病因。血液中的血小板过少时，就要注意是否患上造血系统疾病，或者脾脏功能亢进。血小板的升高常常提示骨髓病变，或脾脏于近期被切除。而血小板异常增多的人可能血栓的风险就会增加。更细节的情况应通过反映血小板发育情况的“平均血小板体积”、“血小板分布宽度”、“大型血小板比率”来判断。</p>
+<p><strong>另外，做血常规时有时还会做一项指标-C反应蛋白（CRP），</strong>CRP是第一个被认为是急性时相反应蛋白的，<strong>由肝脏合成的反映全身性炎症反应急性期的非特异性标志物，</strong>正常情况下含量极微量，在急性创伤和感染时其血浓度急剧升高。<strong>可通过C反应蛋白增高来判断炎症程度，考虑治疗方案。</strong></p>
+<p>血液在人体全身循环，它储存了很多的人体健康信息。无论疾病是大是小，无论是一些疾病原因还是非疾病原因，都可能导致血常规的变化，指标变化的范围及数量也各有不同。如果化验单上的异常值比正常值只升高或降低一点点，其意义并不太大。<strong>只有当与正常值至少相差10%～20%以上时</strong>，异常结果才有临床意义。所以，您看到自己的血常规报告时，不必因为几个异常的箭头而惴惴不安，人体的健康不是单单看几个客观的数据就可以判定的，所有的检查项目都需要结合病史，必要时还要做更深入的检查，若非专业医生，切不可妄自诊断，即使您能明白每一项的意义。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>科普</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>科普</tag>
+        <tag>健康</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Office办公软件教程收藏</title>
     <url>/arcticle/office-tuitor.html</url>
     <content><![CDATA[<p>今天分享一些B站上的Office办公软件学习视频给大家，无需付费，无需下载，随时点开就能看！欢迎前去收藏学习！（或者收藏之后就搁置一边= =）</p>
@@ -8293,6 +8293,58 @@ nginx/1.12.2
         <tag>教程</tag>
         <tag>win10</tag>
         <tag>office</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>教程：Win10共享打印机设置（无需密码访问）</title>
+    <url>/arcticle/win10-printer-share.html</url>
+    <content><![CDATA[<p>升级到Win10系统后，很多朋友在打印机共享方面遇到了问题，如Win10共享打印机，别的电脑不能访问，访问要密码，XP访问需要凭据，输入密码也无法连接等种种情况，下面小编分享下Win10共享打印机所需要的一些设置，通过连接测试。可以帮助用户实现打印机共享无需密码连接，有兴趣的朋友不妨看看。</p>
+<!---more--->
+<h2 id="预备工作">预备工作</h2>
+<p>安装打印机驱动，确定打印机在本地可以使用。</p>
+<h2 id="开启共享">开启共享</h2>
+<p>开始里面搜索打印机，按照下图顺序，进入管理打印机属性界面</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/059444f1f0acda38a443db35da0b3b38.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/347acc1481496145b89b3a30cd2d845d.png" /></p>
+<p>勾选共享此打印机 <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/a187765572e06ccd0dfc45fb41af0c23.png" /></p>
+<h2 id="修改本地安全策略">修改本地安全策略</h2>
+<p>（这里的修改很重要，win7和win8【拒绝从网络访问这台计算机】默认为空，只有win10默认添加了guest）</p>
+<p>1、WIN+R然后“运行”里输入secpol.msc，打开本地安全策略</p>
+<p>【本地策略】—【安全选项】—【网络访问：本地账户的共享和安全模型】---改来宾</p>
+<p>【本地策略】—【安全选项】—【账户：来宾账户状态】---改启用</p>
+<p>【本地策略】—【用户权限分配】—【拒绝从网络访问这台计算机】---删除guest</p>
+<p>如下三图所示：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/222414472d8b8641df3770779e0ab17a.jpg" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4e00efd6b519da2dcbf76f8317ec984b.jpg" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/953c315575e567dff9452d154bf497e5.jpg" /></p>
+<h2 id="修改高级共享设置">修改高级共享设置</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">控制面板---&gt;网络和共享中心---&gt;选择家庭组和共享选项---&gt;更改高级共享设置</span><br><span class="line">&lt;当前配置文件&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>启用网络发现</p></li>
+<li><p>启用文件和打印机共享</p></li>
+</ul>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4c890d9a9701515ae9230bf22b947770.jpg" /></p>
+<p>&lt;所有网络&gt;</p>
+<ul>
+<li><p>关闭公用文件夹共享</p></li>
+<li><p>为使用40位或56位加密的设备启用文件共享</p></li>
+<li><p>关闭密码保护共享</p></li>
+</ul>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/0eeaf62d499f9204b88168c0e0cb513b.jpg" /></p>
+<p>在需要局域网共享的文件夹右键菜单选择：共享—特定用户 添加everybody，按实际修改everybody权限，【读取】或者【读写】（添加guest也应该可以滴） 无需用户密码的文件夹共享搞好，打印机的共享应该就OK了。 ps.一般在专用网络启用共享，如果第一次发现网络的时候没有配置成共享的话，默认被配置成公用网络。 修改成专用方法：打开你的网络设置 ——选择你正在使用的网络——查找设备和内容——【开】</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4803ff39764b60487259877d1058e9d7.jpg" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/ec559bfece262151b413b83dd4b3715e.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/835d2c6698b11def7372d2f6d2cf6125.png" /></p>
+<p>相信通过上面的设置后，大家就能成功的实现Win10打印机共享,并无障碍访问了~希望对大家有帮助。</p>
+<p><a href="https://zymin.cn/tags/win10/">更多Win10 相关文章阅读</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>教程</tag>
+        <tag>win10</tag>
       </tags>
   </entry>
   <entry>
@@ -8364,58 +8416,6 @@ nginx/1.12.2
         <tag>数学</tag>
         <tag>距离</tag>
         <tag>hausdorff distance</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>教程：Win10共享打印机设置（无需密码访问）</title>
-    <url>/arcticle/win10-printer-share.html</url>
-    <content><![CDATA[<p>升级到Win10系统后，很多朋友在打印机共享方面遇到了问题，如Win10共享打印机，别的电脑不能访问，访问要密码，XP访问需要凭据，输入密码也无法连接等种种情况，下面小编分享下Win10共享打印机所需要的一些设置，通过连接测试。可以帮助用户实现打印机共享无需密码连接，有兴趣的朋友不妨看看。</p>
-<!---more--->
-<h2 id="预备工作">预备工作</h2>
-<p>安装打印机驱动，确定打印机在本地可以使用。</p>
-<h2 id="开启共享">开启共享</h2>
-<p>开始里面搜索打印机，按照下图顺序，进入管理打印机属性界面</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/059444f1f0acda38a443db35da0b3b38.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/347acc1481496145b89b3a30cd2d845d.png" /></p>
-<p>勾选共享此打印机 <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/a187765572e06ccd0dfc45fb41af0c23.png" /></p>
-<h2 id="修改本地安全策略">修改本地安全策略</h2>
-<p>（这里的修改很重要，win7和win8【拒绝从网络访问这台计算机】默认为空，只有win10默认添加了guest）</p>
-<p>1、WIN+R然后“运行”里输入secpol.msc，打开本地安全策略</p>
-<p>【本地策略】—【安全选项】—【网络访问：本地账户的共享和安全模型】---改来宾</p>
-<p>【本地策略】—【安全选项】—【账户：来宾账户状态】---改启用</p>
-<p>【本地策略】—【用户权限分配】—【拒绝从网络访问这台计算机】---删除guest</p>
-<p>如下三图所示：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/222414472d8b8641df3770779e0ab17a.jpg" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4e00efd6b519da2dcbf76f8317ec984b.jpg" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/953c315575e567dff9452d154bf497e5.jpg" /></p>
-<h2 id="修改高级共享设置">修改高级共享设置</h2>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">控制面板---&gt;网络和共享中心---&gt;选择家庭组和共享选项---&gt;更改高级共享设置</span><br><span class="line">&lt;当前配置文件&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>启用网络发现</p></li>
-<li><p>启用文件和打印机共享</p></li>
-</ul>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4c890d9a9701515ae9230bf22b947770.jpg" /></p>
-<p>&lt;所有网络&gt;</p>
-<ul>
-<li><p>关闭公用文件夹共享</p></li>
-<li><p>为使用40位或56位加密的设备启用文件共享</p></li>
-<li><p>关闭密码保护共享</p></li>
-</ul>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/0eeaf62d499f9204b88168c0e0cb513b.jpg" /></p>
-<p>在需要局域网共享的文件夹右键菜单选择：共享—特定用户 添加everybody，按实际修改everybody权限，【读取】或者【读写】（添加guest也应该可以滴） 无需用户密码的文件夹共享搞好，打印机的共享应该就OK了。 ps.一般在专用网络启用共享，如果第一次发现网络的时候没有配置成共享的话，默认被配置成公用网络。 修改成专用方法：打开你的网络设置 ——选择你正在使用的网络——查找设备和内容——【开】</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4803ff39764b60487259877d1058e9d7.jpg" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/ec559bfece262151b413b83dd4b3715e.png" /></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/835d2c6698b11def7372d2f6d2cf6125.png" /></p>
-<p>相信通过上面的设置后，大家就能成功的实现Win10打印机共享,并无障碍访问了~希望对大家有帮助。</p>
-<p><a href="https://zymin.cn/tags/win10/">更多Win10 相关文章阅读</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>教程</tag>
-        <tag>win10</tag>
       </tags>
   </entry>
   <entry>
@@ -9004,6 +9004,76 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
+    <title>显微镜视野大小的计算方法</title>
+    <url>/arcticle/micro-shiye.html</url>
+    <content><![CDATA[<p>光学显微镜是为了使肉眼看不清楚的标本影像，人们设想经过一种装置，使肉眼能够观察到该标本组织形态和其间的结构。这种设想的装置就被后人创造问世了。当前广泛应用在各种微小物体的观察、测定、分析、分类、鉴定等。在波长范围上也不限於可见光波段(4000~7000 )而且(＞2000 )到红外(1~2u)以及用眼睛观察、显微、摄影和一般辐射检测器放大。</p>
+<!---more--->
+<h2 id="一些概念">一些概念</h2>
+<h3 id="分类">分类</h3>
+<p>显微镜的分类是根据照明方法，有透射型与反射(落射)型二种。透射型显微镜是应用透射照明通过透明物体的打光方法。反射型显微镜是以物镜上方打光到(落射照明)不透明的物体上。另一种分类方法，系根据观察方法的差异，分为明视野显微镜、暗视野显微镜、相位差显微镜、偏光显微镜、干涉相位差显微镜、萤光显微镜等。每种显微镜一般又各有透射型和反射型二种。在这些显微镜中，特别是明视野显微镜是构成所有显微镜中组成最基本的基础。通过这种显微镜观察的物体，穿过透过(吸收)率、反射率，因场所不同而各不相同，这种物体被称为随照明光强度(振幅)变化振幅物体，无色透明物体只有在照明相位改变时，才能被肉眼观察到，由於明视野显微镜不能改变相位，所以对透明不染色标本不能被观察到。</p>
+<h3 id="倍率">倍率</h3>
+<p>显微镜的综合倍率是物镜倍率G1与目镜倍率G2的乘积，G＝G1×G2。G1是1<sub>100倍，G2是5</sub>20的范围。</p>
+<h3 id="数值孔径numerical-aperturen.a.">数值孔径(Numerical Aperture)N.A.</h3>
+<p>是决定物镜的分辨率、焦深、图像亮度的基本数据，如图所示，当物镜焦点对好后，物镜前透镜最边缘处的倾斜光线与显微镜光轴所交角成α，此即该物镜的半孔径角设标本数据空间的折射率为n，则N.A.＝n×sinα。</p>
+<p>n通常在空气中为1，在物镜与标本间浸入水、甘油、油脂时，该标本折射率，即随浸液不同而异。这种物镜称为浸液系物镜；如是空气时，称为乾燥系物镜。</p>
+<h3 id="视野数">视野数</h3>
+<p>在显微镜上，限制视野的装置是视野光圈。以物镜侧观看这种视野光圈时的直径以mm单位表示的值称为视野数。</p>
+<p>实际视野＝视野数／物镜倍率</p>
+<p>例如，视野数为20，则10×物镜就观看2mm视野范围。应用聚光镜时，根据可变的视野光圈，再决定选用聚光镜的N.A.值，其值是取决於可变聚光镜孔径光圈来确定。</p>
+<p>红字部分是计算一个显微镜实际视野大小的公式，我们可以得知，实际视野大小是由目镜和物镜共同决定的。一般目镜的参数里有视野数（视场数）的大小值。</p>
+<p>我们使用的olympus CX31显微镜使用的uis光学系统 ，10倍目镜的视野数是20，那么4倍物镜的视野大小是20/4=5mm，10倍是2mm，40倍是0.5mm，10倍目镜视野数超过20的为大视野目镜，这样实际视野也会大一些。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>视觉</category>
+      </categories>
+      <tags>
+        <tag>科研</tag>
+        <tag>视觉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>期刊让推荐审稿人，应该从哪里找，怎么选？</title>
+    <url>/arcticle/recommend-reviewers.html</url>
+    <content><![CDATA[<p>基本上国际学术期刊都是采用同行评议的方式来评估论文的科学性。其中很多都需要作者在投稿时推荐3－5个审稿人。首先我们应该了解杂志这样做的目的。针对每篇来稿，杂志社会尽可能的把文章送到同行专家手中审阅。大多数学术期刊都有一个审稿人库，审稿人主要来自三个方面：（1）杂志的编委会成员，对于一些新创期刊尤为如此；（2）世界范围内的同行。杂志社会通过关键词检索到近似文章，然后联系文章的通讯作者，发邮件询问是否愿意做审稿人；（3）投稿作者自己提供的审稿人候选。</p>
+<!---more--->
+<p>如果杂志社有足够多并研究范围足够广的审稿人，能基本保证收到文章后找到合适的审稿人，就不会让作者推荐审稿专家。这类期刊通常是行业内顶级期刊或热门期刊。然而，大部分期刊编辑部在送审的时候， 会遇到找不到合适审稿人的困境。所以会出现让作者推荐审稿人的情况。细分来说，有以下方面：（1）文章研究的领域和内容不常见，文献检索未发现相似的文章；（2）编辑部指派的审稿人没有回复或者拒绝审稿。</p>
+<p>作者提供审稿人可能增加稿件的接收率。因为一方面作者提供的审稿人可能对你的研究比较了解，审稿人可能会给你的稿件一个积极肯定的评价。另一方面提供的审稿人可能具有相同的研究背景，因此这样的审稿人给出的意见可能更中肯、更科学。</p>
+<h2 id="稿件处理模式">稿件处理模式</h2>
+<p>有多少种期刊，就有多少种稿件处理模式。但在有些模式下编辑为什么不采纳，并不是编辑们不关心，一叶障目。只是有些改革的推进就是很缓慢，就是阻力重重，结果很好，过程却需要摸索，只能慢慢来。虽然期刊之间送审模式不同，但是在审稿人的挑选还是有一些相同的地方。</p>
+<p>有些期刊采用的是栏目编辑送审制。栏目编辑是全职编辑，只有大方向相关的研究生教育背景，而非兼职的研究人员。这是送审的弊端，很多情况下对文章讨论问题的了解都很粗浅。初审的编辑会把所有来稿看一遍，滤去特别不符合要求的部分稿件，然后剩余稿件分配至栏目编辑。栏目编辑送审步骤如下：</p>
+<p>1、查作者在杂志社所有期刊的投稿记录。如果有投稿，还会查审稿记录，根据情况选择是否考虑继续邀请以前的审稿人。</p>
+<p>2、编辑一般会扫一下全文，然后着重读一下摘要和引言以及结论。主要目的是了解作者这篇文章讲了一件什么事情。看完脑子里会蹦跶出几个比较熟悉、联系过的审稿人。但是有时选择暂时hold住，不马上请，查查最近两年他们都发了与这个特别想关的文章没，然后放在步骤3后邀请。</p>
+<p>3、了解作者推荐的审稿人。这些审稿人的研究背景会稍微调查一下。个人主页，和近五年发表论文情况是必看的。研究方向非常相近的推荐审稿人，编辑当然会选。编辑们很能理解作者很希望听到来自名人的评价，但也同时很理解名人的时间总是有限。通常为了避嫌，编辑还会查一下被推荐的审稿人是不是跟作者沾亲带故（这种情况下送出去有点儿让大家都不好做人）。有时遇到的作者里不超过百分之五十会做出非常合适的推荐。但恰恰作者是小方向里的专家，合适的推荐对于送审非有有利。专家常常会因为忙而拒绝审稿，但如果送审方向非常准确，审稿时间就会相对短，这时候稿件被拒审的几率就会相对小一些。</p>
+<p>4、看文章的参考文献。会着重关注那些文献题目一看就比较相关，期刊名也耳熟能详，而且最近5年发表的文章。仍然会对这篇目标参考文献进行全文检索，看看是不是真实相关。然后开始重复步骤2的过程，把关键作者（第一作者，或者通信联系人）研究背景调查一下。差不多的都会发邀请信。这个环节里，特别希望作者可以引相关的、新近的、优质的文献。而且也特别希望作者的文献条撰写标准，条条都附上文献题目。如果作者文献引得特别不给力，3个步骤下来都没有觅到足够多的审稿人，那编辑只能靠自己查文献了，进入步骤4。</p>
+<p>5、根据之前阅读的文章大意，用几个觉得特别贴切的关键词放到Web of science里面去查，然后对找到文献里的关键作者重复步骤2。如果查不到，就再减一个关键词。。再减一个。。。最后放宽要求吧，换转google scholar。如果发现小方向内的文章这几年都已经被大家伙儿搞成专利在发了，所剩无几的几篇学术论文还都来自知网万方，作为编辑就有点儿怀疑正在送审的文章是否选对了期刊。步骤4行不通再进步骤5。</p>
+<p>6、通过关键词在审稿人数据库中找审稿人。其实的审稿人数据库很大，为什么不一开始就在数据库里找呢？只是有些编辑们的个人习惯。会觉得应该把文章塞给那些刚刚享受过被审并且幸运通过的作者团队，思路都还是热的，应该意见回来很快、很到位。另外数据库里审稿人的研究方向不会全都更新很快，相对刚出炉的论文有些滞后。很多时候通过步骤2、3、4找到的审稿人也正是已在库里的审稿人。</p>
+<h2 id="几个问题">几个问题</h2>
+<p><strong>1. 杂志社让我推荐审稿人，我需要征得这些人的同意然后再推荐吗？ </strong></p>
+<p>A: 不，不需要。许多杂志采取盲审，因此审稿人不一定知道作者的姓名和联系信息。因此我们需要尽量避免任何影响审稿的行为，即使你是出于礼貌。审稿人不会知道是你推荐他去审稿。因为审稿邀请信是从期刊主编那里发出的。</p>
+<p><strong>2. 如果我的文章被一个期刊拒稿，有没有可能我投稿到另一个期刊，这个期刊还是用同样的审稿人来审稿?</strong></p>
+<p>A: Yes, 有可能。尤其是如果你的研究领域比较窄。这也说明，为什么建议你要根据之前的拒稿意见，修改一下文章然后再投稿的重要性。想象一下审稿人看到同样一篇文章但是已经采纳了她/他的意见后的版本，他/她的审稿意见有可能会发生变化。 同时，记住期刊主编是最后决定文章是否录用的人。 不同的期刊有不同的侧重点，也许第二个期刊有更多的版面空间从而更多的机会来录用文章。</p>
+<p><strong>3. 如果文章被拒，我还可以向第二个期刊建议同样的一批审稿人吗？</strong></p>
+<p>A: 完全取决于你自己，有利于弊。有利的是审稿人已经熟悉文章，如果作者根据审稿意见进行修改，审稿人会有好的印象。但是最终做出决定是杂志社主编。大部分情况下主编会根据文章质量来决定是否接受，有的时候也会根据杂志版面多少、是否对文章感兴趣或是否已出版类似研究来决定。在这种情况下，推荐同样的审稿人是有利的。实际上，大部分作者会选择推荐不同的审稿人，这样会对修改后文章有不一样的意见。记住，谁也不知道自己之前推荐的审稿人是否审过自己的稿件，也许他们拒绝审稿，也许主编决定让其他人来作为你文章的审稿人。</p>
+<p><strong>4. 杂志社要求我推荐4个审稿人，杂志社最后会用我推荐的这些人吗？</strong></p>
+<p>A: 作者不会知道。因为由于盲审，杂志社通常情况下不会告知读者谁审他的稿子。我个人认为，如果你推荐的审稿人合适，杂志社会选择你推荐的审稿人，因为杂志社自己去寻找审稿人有的时候会很困难。选择合适的审稿人迄今为止还是延迟出版的最大原因。 杂志社也有可能将你推荐的审稿人添加到自己的审稿人库。不管在何种情况下，作者都没有选择-如果杂志社让你推荐，那作者一定要推荐。</p>
+<p><strong>5. 当让我推荐审稿人的时候，我是仅仅推荐西方的专家还是仅仅推荐国内的专家？</strong></p>
+<p>A: 推荐审稿人我有几个建议如下：</p>
+<p>国内专家和国外专家混搭。至少要有一位国外专家，这样至少能显示你的文章可以被国际读者阅读。</p>
+<p>资深的专家和初级的专家搭配。顶级专家有可能最了解你的文章水平而初级的研究者可能最有时间。</p>
+<p>近期和你研究领域类似的发表文章的通讯作者。这样他/她会对你的研究内容比较熟悉。</p>
+<p>你的文章参考文献列表中的通讯作者。这样至少审稿人在审稿的时候，看到自己的文章被引用，他会很高兴，毕竟每个人都希望自己的文章被引用。</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>科研</tag>
+        <tag>论文</tag>
+        <tag>投稿</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器人中的速度概念</title>
     <url>/arcticle/concept-of-robot-speed.html</url>
     <content><![CDATA[<p>在机器人领域，运动可以说是一个永不过时的话题，因为我们制造机器人最主要的目的就是替代人类从事体力劳动，这当然离不开运动了。而谈到运动也离不开一个基本概念 —— 速度。要弄明白运动学和动力学，速度可是绕不过去的重要概念，这可能也是挡在初学者面前的第一只拦路虎。在不同的机器人教科书中甚至采用了不同的表示方法，不同的速度概念之间也少有人去解释它们的关系和转换方法。</p>
@@ -9049,76 +9119,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       <tags>
         <tag>学习</tag>
         <tag>机器人</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>期刊让推荐审稿人，应该从哪里找，怎么选？</title>
-    <url>/arcticle/recommend-reviewers.html</url>
-    <content><![CDATA[<p>基本上国际学术期刊都是采用同行评议的方式来评估论文的科学性。其中很多都需要作者在投稿时推荐3－5个审稿人。首先我们应该了解杂志这样做的目的。针对每篇来稿，杂志社会尽可能的把文章送到同行专家手中审阅。大多数学术期刊都有一个审稿人库，审稿人主要来自三个方面：（1）杂志的编委会成员，对于一些新创期刊尤为如此；（2）世界范围内的同行。杂志社会通过关键词检索到近似文章，然后联系文章的通讯作者，发邮件询问是否愿意做审稿人；（3）投稿作者自己提供的审稿人候选。</p>
-<!---more--->
-<p>如果杂志社有足够多并研究范围足够广的审稿人，能基本保证收到文章后找到合适的审稿人，就不会让作者推荐审稿专家。这类期刊通常是行业内顶级期刊或热门期刊。然而，大部分期刊编辑部在送审的时候， 会遇到找不到合适审稿人的困境。所以会出现让作者推荐审稿人的情况。细分来说，有以下方面：（1）文章研究的领域和内容不常见，文献检索未发现相似的文章；（2）编辑部指派的审稿人没有回复或者拒绝审稿。</p>
-<p>作者提供审稿人可能增加稿件的接收率。因为一方面作者提供的审稿人可能对你的研究比较了解，审稿人可能会给你的稿件一个积极肯定的评价。另一方面提供的审稿人可能具有相同的研究背景，因此这样的审稿人给出的意见可能更中肯、更科学。</p>
-<h2 id="稿件处理模式">稿件处理模式</h2>
-<p>有多少种期刊，就有多少种稿件处理模式。但在有些模式下编辑为什么不采纳，并不是编辑们不关心，一叶障目。只是有些改革的推进就是很缓慢，就是阻力重重，结果很好，过程却需要摸索，只能慢慢来。虽然期刊之间送审模式不同，但是在审稿人的挑选还是有一些相同的地方。</p>
-<p>有些期刊采用的是栏目编辑送审制。栏目编辑是全职编辑，只有大方向相关的研究生教育背景，而非兼职的研究人员。这是送审的弊端，很多情况下对文章讨论问题的了解都很粗浅。初审的编辑会把所有来稿看一遍，滤去特别不符合要求的部分稿件，然后剩余稿件分配至栏目编辑。栏目编辑送审步骤如下：</p>
-<p>1、查作者在杂志社所有期刊的投稿记录。如果有投稿，还会查审稿记录，根据情况选择是否考虑继续邀请以前的审稿人。</p>
-<p>2、编辑一般会扫一下全文，然后着重读一下摘要和引言以及结论。主要目的是了解作者这篇文章讲了一件什么事情。看完脑子里会蹦跶出几个比较熟悉、联系过的审稿人。但是有时选择暂时hold住，不马上请，查查最近两年他们都发了与这个特别想关的文章没，然后放在步骤3后邀请。</p>
-<p>3、了解作者推荐的审稿人。这些审稿人的研究背景会稍微调查一下。个人主页，和近五年发表论文情况是必看的。研究方向非常相近的推荐审稿人，编辑当然会选。编辑们很能理解作者很希望听到来自名人的评价，但也同时很理解名人的时间总是有限。通常为了避嫌，编辑还会查一下被推荐的审稿人是不是跟作者沾亲带故（这种情况下送出去有点儿让大家都不好做人）。有时遇到的作者里不超过百分之五十会做出非常合适的推荐。但恰恰作者是小方向里的专家，合适的推荐对于送审非有有利。专家常常会因为忙而拒绝审稿，但如果送审方向非常准确，审稿时间就会相对短，这时候稿件被拒审的几率就会相对小一些。</p>
-<p>4、看文章的参考文献。会着重关注那些文献题目一看就比较相关，期刊名也耳熟能详，而且最近5年发表的文章。仍然会对这篇目标参考文献进行全文检索，看看是不是真实相关。然后开始重复步骤2的过程，把关键作者（第一作者，或者通信联系人）研究背景调查一下。差不多的都会发邀请信。这个环节里，特别希望作者可以引相关的、新近的、优质的文献。而且也特别希望作者的文献条撰写标准，条条都附上文献题目。如果作者文献引得特别不给力，3个步骤下来都没有觅到足够多的审稿人，那编辑只能靠自己查文献了，进入步骤4。</p>
-<p>5、根据之前阅读的文章大意，用几个觉得特别贴切的关键词放到Web of science里面去查，然后对找到文献里的关键作者重复步骤2。如果查不到，就再减一个关键词。。再减一个。。。最后放宽要求吧，换转google scholar。如果发现小方向内的文章这几年都已经被大家伙儿搞成专利在发了，所剩无几的几篇学术论文还都来自知网万方，作为编辑就有点儿怀疑正在送审的文章是否选对了期刊。步骤4行不通再进步骤5。</p>
-<p>6、通过关键词在审稿人数据库中找审稿人。其实的审稿人数据库很大，为什么不一开始就在数据库里找呢？只是有些编辑们的个人习惯。会觉得应该把文章塞给那些刚刚享受过被审并且幸运通过的作者团队，思路都还是热的，应该意见回来很快、很到位。另外数据库里审稿人的研究方向不会全都更新很快，相对刚出炉的论文有些滞后。很多时候通过步骤2、3、4找到的审稿人也正是已在库里的审稿人。</p>
-<h2 id="几个问题">几个问题</h2>
-<p><strong>1. 杂志社让我推荐审稿人，我需要征得这些人的同意然后再推荐吗？ </strong></p>
-<p>A: 不，不需要。许多杂志采取盲审，因此审稿人不一定知道作者的姓名和联系信息。因此我们需要尽量避免任何影响审稿的行为，即使你是出于礼貌。审稿人不会知道是你推荐他去审稿。因为审稿邀请信是从期刊主编那里发出的。</p>
-<p><strong>2. 如果我的文章被一个期刊拒稿，有没有可能我投稿到另一个期刊，这个期刊还是用同样的审稿人来审稿?</strong></p>
-<p>A: Yes, 有可能。尤其是如果你的研究领域比较窄。这也说明，为什么建议你要根据之前的拒稿意见，修改一下文章然后再投稿的重要性。想象一下审稿人看到同样一篇文章但是已经采纳了她/他的意见后的版本，他/她的审稿意见有可能会发生变化。 同时，记住期刊主编是最后决定文章是否录用的人。 不同的期刊有不同的侧重点，也许第二个期刊有更多的版面空间从而更多的机会来录用文章。</p>
-<p><strong>3. 如果文章被拒，我还可以向第二个期刊建议同样的一批审稿人吗？</strong></p>
-<p>A: 完全取决于你自己，有利于弊。有利的是审稿人已经熟悉文章，如果作者根据审稿意见进行修改，审稿人会有好的印象。但是最终做出决定是杂志社主编。大部分情况下主编会根据文章质量来决定是否接受，有的时候也会根据杂志版面多少、是否对文章感兴趣或是否已出版类似研究来决定。在这种情况下，推荐同样的审稿人是有利的。实际上，大部分作者会选择推荐不同的审稿人，这样会对修改后文章有不一样的意见。记住，谁也不知道自己之前推荐的审稿人是否审过自己的稿件，也许他们拒绝审稿，也许主编决定让其他人来作为你文章的审稿人。</p>
-<p><strong>4. 杂志社要求我推荐4个审稿人，杂志社最后会用我推荐的这些人吗？</strong></p>
-<p>A: 作者不会知道。因为由于盲审，杂志社通常情况下不会告知读者谁审他的稿子。我个人认为，如果你推荐的审稿人合适，杂志社会选择你推荐的审稿人，因为杂志社自己去寻找审稿人有的时候会很困难。选择合适的审稿人迄今为止还是延迟出版的最大原因。 杂志社也有可能将你推荐的审稿人添加到自己的审稿人库。不管在何种情况下，作者都没有选择-如果杂志社让你推荐，那作者一定要推荐。</p>
-<p><strong>5. 当让我推荐审稿人的时候，我是仅仅推荐西方的专家还是仅仅推荐国内的专家？</strong></p>
-<p>A: 推荐审稿人我有几个建议如下：</p>
-<p>国内专家和国外专家混搭。至少要有一位国外专家，这样至少能显示你的文章可以被国际读者阅读。</p>
-<p>资深的专家和初级的专家搭配。顶级专家有可能最了解你的文章水平而初级的研究者可能最有时间。</p>
-<p>近期和你研究领域类似的发表文章的通讯作者。这样他/她会对你的研究内容比较熟悉。</p>
-<p>你的文章参考文献列表中的通讯作者。这样至少审稿人在审稿的时候，看到自己的文章被引用，他会很高兴，毕竟每个人都希望自己的文章被引用。</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>科研</tag>
-        <tag>论文</tag>
-        <tag>投稿</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>显微镜视野大小的计算方法</title>
-    <url>/arcticle/micro-shiye.html</url>
-    <content><![CDATA[<p>光学显微镜是为了使肉眼看不清楚的标本影像，人们设想经过一种装置，使肉眼能够观察到该标本组织形态和其间的结构。这种设想的装置就被后人创造问世了。当前广泛应用在各种微小物体的观察、测定、分析、分类、鉴定等。在波长范围上也不限於可见光波段(4000~7000 )而且(＞2000 )到红外(1~2u)以及用眼睛观察、显微、摄影和一般辐射检测器放大。</p>
-<!---more--->
-<h2 id="一些概念">一些概念</h2>
-<h3 id="分类">分类</h3>
-<p>显微镜的分类是根据照明方法，有透射型与反射(落射)型二种。透射型显微镜是应用透射照明通过透明物体的打光方法。反射型显微镜是以物镜上方打光到(落射照明)不透明的物体上。另一种分类方法，系根据观察方法的差异，分为明视野显微镜、暗视野显微镜、相位差显微镜、偏光显微镜、干涉相位差显微镜、萤光显微镜等。每种显微镜一般又各有透射型和反射型二种。在这些显微镜中，特别是明视野显微镜是构成所有显微镜中组成最基本的基础。通过这种显微镜观察的物体，穿过透过(吸收)率、反射率，因场所不同而各不相同，这种物体被称为随照明光强度(振幅)变化振幅物体，无色透明物体只有在照明相位改变时，才能被肉眼观察到，由於明视野显微镜不能改变相位，所以对透明不染色标本不能被观察到。</p>
-<h3 id="倍率">倍率</h3>
-<p>显微镜的综合倍率是物镜倍率G1与目镜倍率G2的乘积，G＝G1×G2。G1是1<sub>100倍，G2是5</sub>20的范围。</p>
-<h3 id="数值孔径numerical-aperturen.a.">数值孔径(Numerical Aperture)N.A.</h3>
-<p>是决定物镜的分辨率、焦深、图像亮度的基本数据，如图所示，当物镜焦点对好后，物镜前透镜最边缘处的倾斜光线与显微镜光轴所交角成α，此即该物镜的半孔径角设标本数据空间的折射率为n，则N.A.＝n×sinα。</p>
-<p>n通常在空气中为1，在物镜与标本间浸入水、甘油、油脂时，该标本折射率，即随浸液不同而异。这种物镜称为浸液系物镜；如是空气时，称为乾燥系物镜。</p>
-<h3 id="视野数">视野数</h3>
-<p>在显微镜上，限制视野的装置是视野光圈。以物镜侧观看这种视野光圈时的直径以mm单位表示的值称为视野数。</p>
-<p>实际视野＝视野数／物镜倍率</p>
-<p>例如，视野数为20，则10×物镜就观看2mm视野范围。应用聚光镜时，根据可变的视野光圈，再决定选用聚光镜的N.A.值，其值是取决於可变聚光镜孔径光圈来确定。</p>
-<p>红字部分是计算一个显微镜实际视野大小的公式，我们可以得知，实际视野大小是由目镜和物镜共同决定的。一般目镜的参数里有视野数（视场数）的大小值。</p>
-<p>我们使用的olympus CX31显微镜使用的uis光学系统 ，10倍目镜的视野数是20，那么4倍物镜的视野大小是20/4=5mm，10倍是2mm，40倍是0.5mm，10倍目镜视野数超过20的为大视野目镜，这样实际视野也会大一些。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>视觉</category>
-      </categories>
-      <tags>
-        <tag>科研</tag>
-        <tag>视觉</tag>
       </tags>
   </entry>
   <entry>
@@ -9168,6 +9168,36 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
+    <title>材料的特性及常用材料特性值</title>
+    <url>/arcticle/material.html</url>
+    <content><![CDATA[<p>杨氏模量E ：描述材料的应变对单一轴应力，在该应力方向上的反应（比如：拉一根金属丝的末端或者在一根木棍的上方放置一个重物，金属丝会变长、木棍长度会缩短）</p>
+<p>泊松比ν:描述材料在正交与单一轴应力方向上的响应（金属丝变细、木棍变粗）</p>
+<p>体积模量K：描述材料对均匀静水压力的响应（比如：水对海底或深游泳池的压力）</p>
+<p>剪切模量 <em>G :</em> 描述材料对剪应力的响应（比如：用钝的剪刀剪）</p>
+<p>这些模量不是独立的，对于各向同性的材料，它们有等式：<code>2G(1+ν)=E=3K(1-2ν</code></p>
+<!---more--->
+<h3 id="常用材料的弹性模量泊松比密度">常用材料的弹性模量、泊松比、密度</h3>
+
+
+	<div class="row">
+    <embed src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/%E5%B8%B8%E7%94%A8%E6%9D%90%E6%96%99%E7%9A%84%E5%BC%B9%E6%80%A7%E6%A8%A1%E9%87%8F%E4%B8%8E%E6%B3%8A%E6%9D%BE%E6%AF%94.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p>原文：https://blog.csdn.net/dxuehui/article/details/52497907</p>
+<h3 id="材料与工程学科相关软件">材料与工程学科相关软件</h3>
+<p>原文：https://blog.csdn.net/tengh/article/details/19487767</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>科研</tag>
+        <tag>材料</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机油分类、质量级别与选择方法</title>
     <url>/arcticle/SJ-SL-SM-SN.html</url>
     <content><![CDATA[<p>粘度是衡量机油对发动机各部位润滑性能的重要指标。<strong>机油粘度可以被看作是“厚度”或流动阻力。</strong>机油有“厚度”才能形成油膜保护发动机，但同时又不能太厚，否则机油不能及时流动到发动机的各个部位。粘度指数是衡量机油粘度适应温度变化的能力。简单来说，低温时候，机油要流动得快，高温时候，又不至于太稀而让发动机失去保护。机油有SJ、SL、SM、SN级别，但是这几个级别究竟如何的区别呢，带着这个问题，笔者采访了达诺的润滑油专家。</p>
@@ -9208,33 +9238,57 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>材料的特性及常用材料特性值</title>
-    <url>/arcticle/material.html</url>
-    <content><![CDATA[<p>杨氏模量E ：描述材料的应变对单一轴应力，在该应力方向上的反应（比如：拉一根金属丝的末端或者在一根木棍的上方放置一个重物，金属丝会变长、木棍长度会缩短）</p>
-<p>泊松比ν:描述材料在正交与单一轴应力方向上的响应（金属丝变细、木棍变粗）</p>
-<p>体积模量K：描述材料对均匀静水压力的响应（比如：水对海底或深游泳池的压力）</p>
-<p>剪切模量 <em>G :</em> 描述材料对剪应力的响应（比如：用钝的剪刀剪）</p>
-<p>这些模量不是独立的，对于各向同性的材料，它们有等式：<code>2G(1+ν)=E=3K(1-2ν</code></p>
+    <title>材料硬度测试和表示方法</title>
+    <url>/arcticle/yingdu.html</url>
+    <content><![CDATA[<p>硬度是各种机械零件和工具必须具备的力学性能指标 ， 用于表征材料的软硬程度，是指材料抵抗局部变形，特别是塑性变形、压痕或划痕的能力。测试硬度的方法很多，常用的布氏硬度试验法、洛氏硬度试验法、维氏硬度试验法、努氏硬度试验法、肖氏硬度试验法、里氏硬度试验法和莫氏硬度试验法等。</p>
 <!---more--->
-<h3 id="常用材料的弹性模量泊松比密度">常用材料的弹性模量、泊松比、密度</h3>
 
 
 	<div class="row">
-    <embed src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/%E5%B8%B8%E7%94%A8%E6%9D%90%E6%96%99%E7%9A%84%E5%BC%B9%E6%80%A7%E6%A8%A1%E9%87%8F%E4%B8%8E%E6%B3%8A%E6%9D%BE%E6%AF%94.pdf" width="100%" height="550" type="application/pdf">
+    <embed src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/%E5%B8%B8%E7%94%A8%E7%A1%AC%E5%BA%A6%E7%9A%84%E6%B5%8B%E8%AF%95%E5%8E%9F%E7%90%86%E5%8F%8A%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95_%E9%99%88%E4%BF%9D%E5%8D%8E.pdf" width="100%" height="550" type="application/pdf">
 	</div>
 
 
 
-<p>原文：https://blog.csdn.net/dxuehui/article/details/52497907</p>
-<h3 id="材料与工程学科相关软件">材料与工程学科相关软件</h3>
-<p>原文：https://blog.csdn.net/tengh/article/details/19487767</p>
+
+
+	<div class="row">
+    <embed src="http://zsvr.zymin.cn:8000/f/c4a4a00f544246fda060/" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1ad5ad6eddc451da662dd1b7bffd5266d1163297.jpg" /></p>
 ]]></content>
       <categories>
-        <category>科研</category>
+        <category>学习</category>
+        <category>科普</category>
       </categories>
       <tags>
-        <tag>科研</tag>
+        <tag>科普</tag>
+        <tag>学习</tag>
         <tag>材料</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>比巴M11P上传音频到机器的方法</title>
+    <url>/arcticle/biba.html</url>
+    <content><![CDATA[<p>首先，机器更新到最新版本。然后，在手机APP上查找比巴的IP地址：<code>我--&gt;设置--&gt;设备管理</code></p>
+<h3 id="方法一">方法一：</h3>
+<p>保持机器是连网状态，电脑浏览器（建议用谷歌）输入：<code>http://机器ip/d.html</code>，根据网页提示上传操作。</p>
+<h3 id="方法二">方法二：</h3>
+<p>1、机器关机状态下，按住“语音键”+“开机键”，旋转旋钮至“上传歌曲”选项，按播放键进入传输模式；电脑连接“Beeba-”开头热点，浏览器输入<code>http://192.168.88.1/d.html</code>，根据网页提示上传操作。 2、歌曲默认上传到“上传的歌曲”文件夹中，用户可更改该文件夹名称，再次上传将自动创建“上传的歌曲”文件夹。</p>
+<blockquote>
+<p>文件路径可在比巴APP里依次点击：我--&gt;缓存--&gt;上传的歌曲</p>
+</blockquote>
+<p>3、文件夹不超过50首歌曲，继续上传需更改该文件夹名称。</p>
+<p>注意：只支持MP3格式文件。上传的文件只能删除不能移动位置。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -9342,60 +9396,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       <tags>
         <tag>育儿</tag>
         <tag>神器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>材料硬度测试和表示方法</title>
-    <url>/arcticle/yingdu.html</url>
-    <content><![CDATA[<p>硬度是各种机械零件和工具必须具备的力学性能指标 ， 用于表征材料的软硬程度，是指材料抵抗局部变形，特别是塑性变形、压痕或划痕的能力。测试硬度的方法很多，常用的布氏硬度试验法、洛氏硬度试验法、维氏硬度试验法、努氏硬度试验法、肖氏硬度试验法、里氏硬度试验法和莫氏硬度试验法等。</p>
-<!---more--->
-
-
-	<div class="row">
-    <embed src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/%E5%B8%B8%E7%94%A8%E7%A1%AC%E5%BA%A6%E7%9A%84%E6%B5%8B%E8%AF%95%E5%8E%9F%E7%90%86%E5%8F%8A%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95_%E9%99%88%E4%BF%9D%E5%8D%8E.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-
-	<div class="row">
-    <embed src="http://zsvr.zymin.cn:8000/f/c4a4a00f544246fda060/" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1ad5ad6eddc451da662dd1b7bffd5266d1163297.jpg" /></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>科普</category>
-      </categories>
-      <tags>
-        <tag>科普</tag>
-        <tag>学习</tag>
-        <tag>材料</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>比巴M11P上传音频到机器的方法</title>
-    <url>/arcticle/biba.html</url>
-    <content><![CDATA[<p>首先，机器更新到最新版本。然后，在手机APP上查找比巴的IP地址：<code>我--&gt;设置--&gt;设备管理</code></p>
-<h3 id="方法一">方法一：</h3>
-<p>保持机器是连网状态，电脑浏览器（建议用谷歌）输入：<code>http://机器ip/d.html</code>，根据网页提示上传操作。</p>
-<h3 id="方法二">方法二：</h3>
-<p>1、机器关机状态下，按住“语音键”+“开机键”，旋转旋钮至“上传歌曲”选项，按播放键进入传输模式；电脑连接“Beeba-”开头热点，浏览器输入<code>http://192.168.88.1/d.html</code>，根据网页提示上传操作。 2、歌曲默认上传到“上传的歌曲”文件夹中，用户可更改该文件夹名称，再次上传将自动创建“上传的歌曲”文件夹。</p>
-<blockquote>
-<p>文件路径可在比巴APP里依次点击：我--&gt;缓存--&gt;上传的歌曲</p>
-</blockquote>
-<p>3、文件夹不超过50首歌曲，继续上传需更改该文件夹名称。</p>
-<p>注意：只支持MP3格式文件。上传的文件只能删除不能移动位置。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -9849,6 +9849,35 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
+    <title>生活：如何正确使用葱姜蒜和花椒</title>
+    <url>/arcticle/onion-ginger-garlic-pepper.html</url>
+    <content><![CDATA[<p>你知道调味料“四君子”是什么吗？</p>
+<p>葱、姜、蒜、椒，它们不仅能够增加食物鲜味还能杀菌去霉，对人体健康大有裨益。做菜时，葱姜蒜你可别乱放！原来都是有讲究的。</p>
+<!---more--->
+<h2 id="肉类多放花椒">肉类多放花椒</h2>
+<p>花椒是土生土场的中国原产香料，味辛、性热，有芳香健胃、温中散寒、除湿止痛、杀虫解毒、止痒解腥的功效。花椒气味芳香，能促进唾液分泌，增加食欲。还能使血管扩张，从而起到降低血压的作用。除此之外，服食花椒水还能驱除寄生虫。烧肉时宜多放一些花椒，有助暖作用，牛肉、羊肉更应多放。</p>
+<h2 id="鱼类多放姜">鱼类多放姜</h2>
+<p>生姜又称“食物中的阿司匹林”，因为生姜里含有姜酚，在抑制血小板聚集的作用上，和阿司匹林相差无几，可以预防心血管疾病。对关节疼痛、肿胀、发炎及牙痛等也有一定效果。还可有清胃、促进肠内蠕动、降低胆固醇、治疗恶心呕吐、抗病毒感冒、稀释血液和减轻风湿病等多种功能。鱼腥气大，性寒，食之不当会产生呕吐症状。生姜既可缓和鱼的寒性，又可解腥味。做时多放姜，可以帮助消化。</p>
+<h2 id="贝类多放葱">贝类多放葱</h2>
+<p>营养学家发现，葱含有蛋白质、脂肪、糖类、维生素A、B、C以及钙、铁、镁等多种营养元素，对痢疾杆菌、葡萄球菌及皮肤真菌等都有抑制作用，可增强人体免疫力，预防呼吸道及肠道传染病流行。</p>
+<p>大葱不仅仅能够缓解贝类(如螺、蚌、蟹等)的寒性，而且还能够抵抗过敏。 不少人食用贝类后会产生过敏性咳嗽、腹痛等症，烹调时就应多放一些大葱，避免过敏反应。葱里提炼出的葱素还有舒张血管的作用，有助于防治高血压。</p>
+<p>更为重要的是葱白能有效分解蛋白质，在烹饪含蛋白质和脂肪多的食物时，加上葱就可减少胆固醇在血管壁上的沉积，起到预防动脉粥样硬化，降低血脂、血糖和血压的作用。</p>
+<h2 id="禽类多放蒜">禽类多放蒜</h2>
+<p>大蒜以超强的杀菌能力闻名，是一种天然“抗生素”。因为其含有一种叫蒜氨酸的独有物质，进入血液后会转换为大蒜素。这种大蒜素即使被稀释仍能杀死大肠杆菌、痢疾杆菌、葡萄球菌等多种病菌。蒜能够提味。烹调鸡、鸭、鹅肉的时候宜多放蒜，这样使肉更香更好吃，也不会因为消化不良而泻肚子。</p>
+<p>尽管大蒜对防病治病有诸多好处，但也不是多多益善。建议每天生吃大蒜不要超过4瓣，且不能空腹食用。而且阴虚火旺，并患有胃炎、胃溃疡、十二指肠溃疡、肾炎、心脏病和便秘者最好不要生食大蒜。</p>
+<p>记住这些小常识，愿您吃得美味又健康！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>常识</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>技能</tag>
+        <tag>常识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>生活：怎么蒸包子又大又软</title>
     <url>/arcticle/patties.html</url>
     <content><![CDATA[<p>鲜嫩多汁的肉包子，早餐来两个再配上一杯现榨豆浆，别提有多幸福了！大人孩子都喜欢~~ <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/patties/1a3fc1bb08e11d3218d9257abaed4343.gif" /></p>
@@ -9892,35 +9921,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       <tags>
         <tag>生活</tag>
         <tag>技能</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>生活：如何正确使用葱姜蒜和花椒</title>
-    <url>/arcticle/onion-ginger-garlic-pepper.html</url>
-    <content><![CDATA[<p>你知道调味料“四君子”是什么吗？</p>
-<p>葱、姜、蒜、椒，它们不仅能够增加食物鲜味还能杀菌去霉，对人体健康大有裨益。做菜时，葱姜蒜你可别乱放！原来都是有讲究的。</p>
-<!---more--->
-<h2 id="肉类多放花椒">肉类多放花椒</h2>
-<p>花椒是土生土场的中国原产香料，味辛、性热，有芳香健胃、温中散寒、除湿止痛、杀虫解毒、止痒解腥的功效。花椒气味芳香，能促进唾液分泌，增加食欲。还能使血管扩张，从而起到降低血压的作用。除此之外，服食花椒水还能驱除寄生虫。烧肉时宜多放一些花椒，有助暖作用，牛肉、羊肉更应多放。</p>
-<h2 id="鱼类多放姜">鱼类多放姜</h2>
-<p>生姜又称“食物中的阿司匹林”，因为生姜里含有姜酚，在抑制血小板聚集的作用上，和阿司匹林相差无几，可以预防心血管疾病。对关节疼痛、肿胀、发炎及牙痛等也有一定效果。还可有清胃、促进肠内蠕动、降低胆固醇、治疗恶心呕吐、抗病毒感冒、稀释血液和减轻风湿病等多种功能。鱼腥气大，性寒，食之不当会产生呕吐症状。生姜既可缓和鱼的寒性，又可解腥味。做时多放姜，可以帮助消化。</p>
-<h2 id="贝类多放葱">贝类多放葱</h2>
-<p>营养学家发现，葱含有蛋白质、脂肪、糖类、维生素A、B、C以及钙、铁、镁等多种营养元素，对痢疾杆菌、葡萄球菌及皮肤真菌等都有抑制作用，可增强人体免疫力，预防呼吸道及肠道传染病流行。</p>
-<p>大葱不仅仅能够缓解贝类(如螺、蚌、蟹等)的寒性，而且还能够抵抗过敏。 不少人食用贝类后会产生过敏性咳嗽、腹痛等症，烹调时就应多放一些大葱，避免过敏反应。葱里提炼出的葱素还有舒张血管的作用，有助于防治高血压。</p>
-<p>更为重要的是葱白能有效分解蛋白质，在烹饪含蛋白质和脂肪多的食物时，加上葱就可减少胆固醇在血管壁上的沉积，起到预防动脉粥样硬化，降低血脂、血糖和血压的作用。</p>
-<h2 id="禽类多放蒜">禽类多放蒜</h2>
-<p>大蒜以超强的杀菌能力闻名，是一种天然“抗生素”。因为其含有一种叫蒜氨酸的独有物质，进入血液后会转换为大蒜素。这种大蒜素即使被稀释仍能杀死大肠杆菌、痢疾杆菌、葡萄球菌等多种病菌。蒜能够提味。烹调鸡、鸭、鹅肉的时候宜多放蒜，这样使肉更香更好吃，也不会因为消化不良而泻肚子。</p>
-<p>尽管大蒜对防病治病有诸多好处，但也不是多多益善。建议每天生吃大蒜不要超过4瓣，且不能空腹食用。而且阴虚火旺，并患有胃炎、胃溃疡、十二指肠溃疡、肾炎、心脏病和便秘者最好不要生食大蒜。</p>
-<p>记住这些小常识，愿您吃得美味又健康！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>常识</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>技能</tag>
-        <tag>常识</tag>
       </tags>
   </entry>
   <entry>
@@ -9997,34 +9997,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>生活：被欺骗的道闸摄像头</title>
-    <url>/arcticle/traffic-camera-deceived-by-photo.html</url>
-    <content><![CDATA[<p>抖音上最近有个蛮火的小视频，有人忘带门禁卡进不了小区，于是用手机拍下车牌号码，对着道闸摄像头晃了一下，结果道闸的拦杆就升了起来。有网友质疑，这种操作有可能是造假摆拍的，一张手机照片怎么可能代替真实车牌，蒙混过关呢？</p>
-<!---more--->
-<p>为了验证这个视频，我在汽配城的机动车入口处，用手机拍了一张车牌照片，试试看。最开始没成功，但经过大史反复调整手机角度以及图片大小，终于成功了.</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/a3f321dc05a23b03cd1e52540bd5b57f.gif" /></p>
-<p>这看起来挺高科技的道闸摄像头，居然没法判断是真车牌还是手机照片，也是出乎我们的预料，是不是所有的道闸摄像头都有这个缺陷呢？在一个商业综合体的地下停车场，我们又试了一下，这一次不管怎么试，道闸的拦杆就是纹丝不动。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/20180509093048.jpg" /></p>
-<p>和之前实验成功的汽配城不同，这个地下停车场的道闸前，应该是埋设了地感线圈，也就是说，只有地上的线圈感应到了金属物，比如汽车的经过，道闸的摄像头才会启动抓拍并扫描车牌信息。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/20180509093110.jpg" /></p>
-<p>所以，我们换了个办法。A4纸打印的车牌，贴在车上，</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/20180509093119.jpg" /></p>
-<p>竟然成功地通过了地感线圈的道闸，而且，门禁系统也成功读取了这张纸车牌的车牌号码。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/a2a714d16f7801765bbc666a7e14a3c0.gif" /></p>
-<p>这么看来，一般的道闸系统，它只具备简单的拍照、识别和处理能力。如果在一些收费停车场，刷别人的车牌号码，确实有逃费的可能不过我也要提醒，投机取巧和占小便宜的事，咱们坚决不能干，就说这遮挡车牌，交警叔叔就能扣你12分了。</p>
-<p>来源：好奇实验室</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>常识</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>科普</tag>
-        <tag>常识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>生活：被蚊子叮咬后如何止痒</title>
     <url>/arcticle/How-to-stop-itching-after-mosquito-bite.html</url>
     <content><![CDATA[<p>夏季被蚊虫叮咬是再平常不过的事情，被咬后的皮肤瘙痒难忍，有时甚至会出现红肿。那么办呢？生活妙招网小编今天就来分享一些止痒的方法。</p>
@@ -10058,6 +10030,66 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
+    <title>生活：被欺骗的道闸摄像头</title>
+    <url>/arcticle/traffic-camera-deceived-by-photo.html</url>
+    <content><![CDATA[<p>抖音上最近有个蛮火的小视频，有人忘带门禁卡进不了小区，于是用手机拍下车牌号码，对着道闸摄像头晃了一下，结果道闸的拦杆就升了起来。有网友质疑，这种操作有可能是造假摆拍的，一张手机照片怎么可能代替真实车牌，蒙混过关呢？</p>
+<!---more--->
+<p>为了验证这个视频，我在汽配城的机动车入口处，用手机拍了一张车牌照片，试试看。最开始没成功，但经过大史反复调整手机角度以及图片大小，终于成功了.</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/a3f321dc05a23b03cd1e52540bd5b57f.gif" /></p>
+<p>这看起来挺高科技的道闸摄像头，居然没法判断是真车牌还是手机照片，也是出乎我们的预料，是不是所有的道闸摄像头都有这个缺陷呢？在一个商业综合体的地下停车场，我们又试了一下，这一次不管怎么试，道闸的拦杆就是纹丝不动。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/20180509093048.jpg" /></p>
+<p>和之前实验成功的汽配城不同，这个地下停车场的道闸前，应该是埋设了地感线圈，也就是说，只有地上的线圈感应到了金属物，比如汽车的经过，道闸的摄像头才会启动抓拍并扫描车牌信息。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/20180509093110.jpg" /></p>
+<p>所以，我们换了个办法。A4纸打印的车牌，贴在车上，</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/20180509093119.jpg" /></p>
+<p>竟然成功地通过了地感线圈的道闸，而且，门禁系统也成功读取了这张纸车牌的车牌号码。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/traffic-camera-deceived-by-photo/a2a714d16f7801765bbc666a7e14a3c0.gif" /></p>
+<p>这么看来，一般的道闸系统，它只具备简单的拍照、识别和处理能力。如果在一些收费停车场，刷别人的车牌号码，确实有逃费的可能不过我也要提醒，投机取巧和占小便宜的事，咱们坚决不能干，就说这遮挡车牌，交警叔叔就能扣你12分了。</p>
+<p>来源：好奇实验室</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>常识</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>科普</tag>
+        <tag>常识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>生活：非接触性交通事故</title>
+    <url>/arcticle/Non-contact-traffic-accident.html</url>
+    <content><![CDATA[<p>前两天到保险公司找我们的老乡业务员，去家长里短聊天。我说最近有没有什么奇葩的事故和理赔跟我们分享一下？**他说最近还真有，做了一起非接触性事故理赔。</p>
+<!---more--->
+<p><strong>什么是非接触性交通事件？</strong></p>
+<p>我说非接触性是什么意思？他说就是车子和车子，或者车子和人没有碰到，也没有撞上，但是就是发生了交通事故了。</p>
+<p><strong>没有直接接触造成的事故</strong></p>
+<p>就好比你车子要开到路边上的酒店，你先要经过脚踏车道，然后再开到酒店门口，你把车子停好。就是在自行车道的一瞬间，后面一辆电动车开上来的时候，你一个急刹车了，吓死了，他也一个急刹车，吓死了。</p>
+<p>那你急刹车四个轮子是稳的，他两个轮子，一个急刹车，他稳不了，直接倒在地上了，摔了一跤，腿也是蹭破了。</p>
+<p><strong>仍然算是交通事故</strong></p>
+<p>我没有碰到他，他也没有碰到我，但这种情况下依然会认定为交通事故，那就叫非接触性交通事故。最后判定是这样的，这个车子开在脚踏车车道上面，非机动车道，那机动车开上去就负全责，100%赔了对方的医疗费和脚踏车的修车钱。</p>
+<p><strong>车辆违规算全责</strong></p>
+<p>这听起来是不是很冤枉？搞得好像这不就是碰瓷吗？这和碰瓷还是有一点点区别。碰瓷是人家主动来撞你，这是接触事故，是碰到了，这个等于说是没有碰到，你把人家吓到了，人家倒在地上依然是要你赔。</p>
+<p>那人家说我们路上开车也太艰难了，我要是今天按了个喇叭，把边上的人吓了摔倒了，他万一摔了一下，很严重，住院都要住一个月，那怎么办呢？</p>
+<p><strong>是否违章是主要判断标准</strong></p>
+<p>那中间一个核心的判定标准就是我们这个车子本身有没有违章，这个是非常关键的。你好端端在路上开，你按一下喇叭，隔了两条马路，远处的一个人吓了一跳，撞在玻璃上，那当然和你没有什么关系了。但是比如说你在逆向行驶，人行横道线边上你没有减速，直接冲过去压过去等等这种情况，基本上都要算在我们头上的。</p>
+<p><strong>非接触事故也可以报保险</strong></p>
+<p>听起来好像很头疼？还好，刚才我说了，我是去保险公司问到的这么个八卦新闻。你所碰到的非接触性交通事故，这个时候不要私了，你让交警过来开个单子，然后有个括号的，写着非接触。</p>
+<p><strong>按照正常的理赔手续</strong></p>
+<p>发生了什么事情，凭着这张单子，保险公司依然是会给你进行理赔的，你就把它当成正常事故就可以了。也不要特别来气，或者一定觉得别人有什么恶意，这个都是完全没有必要的。碰到这种事情，还是老样子，报警，取证，开单子，理赔，和和气气平平安安，把事情做完就好了。</p>
+<p>来自：备胎说车</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>常识</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>常识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>生活：被蚊子叮咬后起水泡了怎么办</title>
     <url>/arcticle/What-about-blisters-after-mosquito-bites.html</url>
     <content><![CDATA[<p>蚊子在夏季可是随时都会与大家打交道的，而一些人在被蚊子叮咬之后，就会出现起水泡的现象。那么蚊子叮咬后起水泡该怎么办呢？</p>
@@ -10084,38 +10116,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
 <h2 id="晚上如何预防蚊虫叮咬"><strong>晚上如何预防蚊虫叮咬</strong></h2>
 <p>1、可以从根源上预防蚊虫叮咬，进而减少这些水泡的产生。可以在睡前点一些蚊香，或者挂蚊帐等，还可以喷一些花露水，这些都可以在一定程度上减少蚊虫叮咬，进一步减少水泡。 2、门窗严密，楼道经常清扫、通风，不留死角。门前、窗前种上几株薄荷、夜来香、薰衣草、猪笼草、天竺葵驱蚊。即使有蚊子进屋及时拍死。 3、用空酒瓶装35毫升糖水或啤酒放在桌面或室内蚊子较多处，蚊子闻到甜酒味就会注瓶子里钻，被糖水或啤酒粘住致死。</p>
 <p>4、关上门窗，在窗前放置一个盆子，盆中加点混合洗衣粉的水，第二天，水盆中就会有一些死去的蚊子。每天持续使用这种方法，几乎可以不用再喷杀虫液去杀蚊子了。而且蚊子也会越来越少。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>常识</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>常识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>生活：非接触性交通事故</title>
-    <url>/arcticle/Non-contact-traffic-accident.html</url>
-    <content><![CDATA[<p>前两天到保险公司找我们的老乡业务员，去家长里短聊天。我说最近有没有什么奇葩的事故和理赔跟我们分享一下？**他说最近还真有，做了一起非接触性事故理赔。</p>
-<!---more--->
-<p><strong>什么是非接触性交通事件？</strong></p>
-<p>我说非接触性是什么意思？他说就是车子和车子，或者车子和人没有碰到，也没有撞上，但是就是发生了交通事故了。</p>
-<p><strong>没有直接接触造成的事故</strong></p>
-<p>就好比你车子要开到路边上的酒店，你先要经过脚踏车道，然后再开到酒店门口，你把车子停好。就是在自行车道的一瞬间，后面一辆电动车开上来的时候，你一个急刹车了，吓死了，他也一个急刹车，吓死了。</p>
-<p>那你急刹车四个轮子是稳的，他两个轮子，一个急刹车，他稳不了，直接倒在地上了，摔了一跤，腿也是蹭破了。</p>
-<p><strong>仍然算是交通事故</strong></p>
-<p>我没有碰到他，他也没有碰到我，但这种情况下依然会认定为交通事故，那就叫非接触性交通事故。最后判定是这样的，这个车子开在脚踏车车道上面，非机动车道，那机动车开上去就负全责，100%赔了对方的医疗费和脚踏车的修车钱。</p>
-<p><strong>车辆违规算全责</strong></p>
-<p>这听起来是不是很冤枉？搞得好像这不就是碰瓷吗？这和碰瓷还是有一点点区别。碰瓷是人家主动来撞你，这是接触事故，是碰到了，这个等于说是没有碰到，你把人家吓到了，人家倒在地上依然是要你赔。</p>
-<p>那人家说我们路上开车也太艰难了，我要是今天按了个喇叭，把边上的人吓了摔倒了，他万一摔了一下，很严重，住院都要住一个月，那怎么办呢？</p>
-<p><strong>是否违章是主要判断标准</strong></p>
-<p>那中间一个核心的判定标准就是我们这个车子本身有没有违章，这个是非常关键的。你好端端在路上开，你按一下喇叭，隔了两条马路，远处的一个人吓了一跳，撞在玻璃上，那当然和你没有什么关系了。但是比如说你在逆向行驶，人行横道线边上你没有减速，直接冲过去压过去等等这种情况，基本上都要算在我们头上的。</p>
-<p><strong>非接触事故也可以报保险</strong></p>
-<p>听起来好像很头疼？还好，刚才我说了，我是去保险公司问到的这么个八卦新闻。你所碰到的非接触性交通事故，这个时候不要私了，你让交警过来开个单子，然后有个括号的，写着非接触。</p>
-<p><strong>按照正常的理赔手续</strong></p>
-<p>发生了什么事情，凭着这张单子，保险公司依然是会给你进行理赔的，你就把它当成正常事故就可以了。也不要特别来气，或者一定觉得别人有什么恶意，这个都是完全没有必要的。碰到这种事情，还是老样子，报警，取证，开单子，理赔，和和气气平平安安，把事情做完就好了。</p>
-<p>来自：备胎说车</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -11988,6 +11988,38 @@ http://vod.xinhuanet.com/v/vod.html?vid=397363
       </tags>
   </entry>
   <entry>
+    <title>育儿：如何安全的给宝宝喂药</title>
+    <url>/arcticle/How-to-safely-feed-the-baby-medicine.html</url>
+    <content><![CDATA[<p>以前发生过一起悲剧，一个窒息15分钟的2岁的婴孩被抱来急诊室，原因是家长捏着孩子的鼻子往下灌药，一不小心跑到气管，造成误吸。家长是多么椎心刺痛，但都唤不回宝贝的生命。捏着鼻子喝药，孩子的嘴开放了气道也开放了，而宝宝喉头保护性反射功能尚未发育完全。如果在宝宝哭闹时强行灌药，严重的会造成呼吸道阻塞，引起呼吸困难，甚至窒息死亡。那到底怎么喂药才是正确的方法呢？</p>
+<!---more--->
+<h2 id="喂药的正确方法">喂药的正确方法</h2>
+<h3 id="喂药水类的药物">喂药水类的药物</h3>
+<p>1.妈妈采取坐姿，让宝宝半躺在妈妈的手臂上。 2.妈妈用手指轻按宝宝的下巴，让宝宝张开小嘴。 3.用滴管或针筒式喂药器取少量药液，利用器具将药液慢慢地送进宝宝口内。 4.轻抬宝宝的下巴，帮助其吞咽。 5.将所有药液都喂完后，再用小勺加喂几勺白开水，尽量帮助宝宝将口腔内的余药咽下。</p>
+<h3 id="喂片剂类的药物">喂片剂类的药物</h3>
+<p>1.将片剂碾碎，并捣成散粉状。 2.取适量粉末倒在小勺上，并在药粉上撒少许糖粉，用以遮盖药粉的味道 3.让宝宝张开小嘴后，将药粉直接送入口中。 4.取装有适量白开水的奶瓶给宝宝吮吸，以利于宝宝将药粉咽下。 5.给宝宝吃一块小饼干，以减少药在嘴里留下的苦味。</p>
+<h2 id="种妈妈必备的喂药工具">4种妈妈必备的喂药工具</h2>
+<p>1.汤匙：适合新生儿至1岁以上幼儿。 2.针筒或滴管：对还不会吞咽的婴幼儿最适用。 3.药杯：适用于已经学会吞咽的1岁以上幼儿。 4.甜点诱惑：对1岁以上幼儿，可以准备小零食当作奖励。</p>
+<p>虽然每次喂小孩吃药都跟打仗一样，但用针筒喂比较能确定宝宝吃进去的量，但是宝宝开始大哭大闹的时候要先停下来，不然虽然喂的药量不多，还是有呛到的危险！用针筒喂食是最快的方法，但是限于药水类的。</p>
+<h2 id="喂宝宝吃药的禁忌">喂宝宝吃药的禁忌</h2>
+<h3 id="不要在打骂下喂药">1.不要在打骂下喂药</h3>
+<p>有些家长看到孩子哭闹就心急上火，失去耐心，易采取哄、吓、压或打的办法，但其实只会更增加孩子的恐惧。其实喂药也有技巧，对小孩子，可以采用“声东击西”的方法，藉由分散注意力，可以趁小孩在玩的时候一口一口边骗边喂，或是在小朋友吃点心时，半骗半哄的喂。如今儿童药物，大多口感比较好，如果必须要吃苦药，最好在饭前先给他吃，孩子空腹的话，不容易把药物吐出来，相反如果吃饱后喂药，孩子很容易把药和饭都吐出来。</p>
+<h3 id="不要捏鼻子喂药">2.不要捏鼻子喂药</h3>
+<p>这点真的非常重要！有的父母给小孩喂药，不注意方法，孩子不张嘴，家长就捏鼻子硬喂，这种喂药办法危险性很大，人的气管和食管是并排挨着的，鼻子不能吸气，就只能通过嘴吸气了，这样就非常容易把药和水呛入小孩的气管，甚至可因气道被堵而使小孩窒息死亡。</p>
+<h3 id="不要用温热开水化药">3.不要用温热开水化药</h3>
+<p>经专家证实，药汤温度在37℃时，口感是最苦的，高于或低于37℃，苦味就会减弱。因此，喂药的温度应在37℃以下。有些家长着急，不等开水变较凉就开始冲药，其实这是不对的，许多药物，遇热后会变质，所以对所有的药物，还是用微温水化开比较不会影响药的作用。</p>
+<p>文章整理：<a href="http://www.lifeskill.cn/">生活妙招网</a></p>
+]]></content>
+      <categories>
+        <category>育儿</category>
+        <category>健康</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>健康</tag>
+        <tag>安全</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>育儿：如何跟孩子讲道理</title>
     <url>/arcticle/How-to-reason-with-a-child.html</url>
     <content><![CDATA[<p>如果你曾尝试过和一个孩子讲道理，你会明白那是多么受挫的一种体验。尤其是你觉得他好像听懂了，但是同样的情况发生，他仍然会“重蹈覆辙”。你一定会忍不住质问：我要说多少遍你才懂？</p>
@@ -12045,38 +12077,6 @@ http://vod.xinhuanet.com/v/vod.html?vid=397363
       <tags>
         <tag>育儿</tag>
         <tag>教育</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>育儿：如何安全的给宝宝喂药</title>
-    <url>/arcticle/How-to-safely-feed-the-baby-medicine.html</url>
-    <content><![CDATA[<p>以前发生过一起悲剧，一个窒息15分钟的2岁的婴孩被抱来急诊室，原因是家长捏着孩子的鼻子往下灌药，一不小心跑到气管，造成误吸。家长是多么椎心刺痛，但都唤不回宝贝的生命。捏着鼻子喝药，孩子的嘴开放了气道也开放了，而宝宝喉头保护性反射功能尚未发育完全。如果在宝宝哭闹时强行灌药，严重的会造成呼吸道阻塞，引起呼吸困难，甚至窒息死亡。那到底怎么喂药才是正确的方法呢？</p>
-<!---more--->
-<h2 id="喂药的正确方法">喂药的正确方法</h2>
-<h3 id="喂药水类的药物">喂药水类的药物</h3>
-<p>1.妈妈采取坐姿，让宝宝半躺在妈妈的手臂上。 2.妈妈用手指轻按宝宝的下巴，让宝宝张开小嘴。 3.用滴管或针筒式喂药器取少量药液，利用器具将药液慢慢地送进宝宝口内。 4.轻抬宝宝的下巴，帮助其吞咽。 5.将所有药液都喂完后，再用小勺加喂几勺白开水，尽量帮助宝宝将口腔内的余药咽下。</p>
-<h3 id="喂片剂类的药物">喂片剂类的药物</h3>
-<p>1.将片剂碾碎，并捣成散粉状。 2.取适量粉末倒在小勺上，并在药粉上撒少许糖粉，用以遮盖药粉的味道 3.让宝宝张开小嘴后，将药粉直接送入口中。 4.取装有适量白开水的奶瓶给宝宝吮吸，以利于宝宝将药粉咽下。 5.给宝宝吃一块小饼干，以减少药在嘴里留下的苦味。</p>
-<h2 id="种妈妈必备的喂药工具">4种妈妈必备的喂药工具</h2>
-<p>1.汤匙：适合新生儿至1岁以上幼儿。 2.针筒或滴管：对还不会吞咽的婴幼儿最适用。 3.药杯：适用于已经学会吞咽的1岁以上幼儿。 4.甜点诱惑：对1岁以上幼儿，可以准备小零食当作奖励。</p>
-<p>虽然每次喂小孩吃药都跟打仗一样，但用针筒喂比较能确定宝宝吃进去的量，但是宝宝开始大哭大闹的时候要先停下来，不然虽然喂的药量不多，还是有呛到的危险！用针筒喂食是最快的方法，但是限于药水类的。</p>
-<h2 id="喂宝宝吃药的禁忌">喂宝宝吃药的禁忌</h2>
-<h3 id="不要在打骂下喂药">1.不要在打骂下喂药</h3>
-<p>有些家长看到孩子哭闹就心急上火，失去耐心，易采取哄、吓、压或打的办法，但其实只会更增加孩子的恐惧。其实喂药也有技巧，对小孩子，可以采用“声东击西”的方法，藉由分散注意力，可以趁小孩在玩的时候一口一口边骗边喂，或是在小朋友吃点心时，半骗半哄的喂。如今儿童药物，大多口感比较好，如果必须要吃苦药，最好在饭前先给他吃，孩子空腹的话，不容易把药物吐出来，相反如果吃饱后喂药，孩子很容易把药和饭都吐出来。</p>
-<h3 id="不要捏鼻子喂药">2.不要捏鼻子喂药</h3>
-<p>这点真的非常重要！有的父母给小孩喂药，不注意方法，孩子不张嘴，家长就捏鼻子硬喂，这种喂药办法危险性很大，人的气管和食管是并排挨着的，鼻子不能吸气，就只能通过嘴吸气了，这样就非常容易把药和水呛入小孩的气管，甚至可因气道被堵而使小孩窒息死亡。</p>
-<h3 id="不要用温热开水化药">3.不要用温热开水化药</h3>
-<p>经专家证实，药汤温度在37℃时，口感是最苦的，高于或低于37℃，苦味就会减弱。因此，喂药的温度应在37℃以下。有些家长着急，不等开水变较凉就开始冲药，其实这是不对的，许多药物，遇热后会变质，所以对所有的药物，还是用微温水化开比较不会影响药的作用。</p>
-<p>文章整理：<a href="http://www.lifeskill.cn/">生活妙招网</a></p>
-]]></content>
-      <categories>
-        <category>育儿</category>
-        <category>健康</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>健康</tag>
-        <tag>安全</tag>
       </tags>
   </entry>
   <entry>
@@ -12725,6 +12725,44 @@ http://vod.xinhuanet.com/v/vod.html?vid=397363
       </tags>
   </entry>
   <entry>
+    <title>育儿：让宝宝科学食用水果</title>
+    <url>/arcticle/baby-food-fruits.html</url>
+    <content><![CDATA[<p>水果可不是吃越多就越好，每天水果的品种不要太杂，每次吃水果的量也要有节制，一些水果中含糖量很高，吃多了不仅会造成宝宝食欲不振，还会影响孩子的消化功能，影响其他必需营养素的摄取。</p>
+<!---more--->
+<h2 id="给宝宝吃水果的时间">1.给宝宝吃水果的时间</h2>
+<p>早餐吃水果，对于正在生长发育中的宝宝并不适宜。因为，水果中有不少单糖物质，极易被小肠吸收，但若是堵在胃中，就很容易形成胀气，以至于引起便秘。所以在饱餐之后不要马上给宝宝食用水果。餐前也不要给宝宝吃水果，因为，宝宝的胃容量还比较小，如果在餐前食用，就会占据胃的一定空间，影响正餐营养素的摄入。另外，宝宝吃柑橘前后的一小时不宜喝牛奶，不然的话，柑橘中的果酸与牛奶中的蛋白质相遇后，即可发生凝固，影响柑橘中的营养吸收。</p>
+<p>最佳的做法是，把食用水果的时间安排在两餐之间，或是中午午睡醒来后，这样，可让宝宝把水果当做点心吃。每次给宝宝水果的适宜量为50～100克，并可根据宝宝的年龄大小及消化能力，把水果制成适合宝宝消化吸收的果汁或果泥，如1～3个月的小婴儿最好喝果汁，4～9个月的宝宝则可吃果泥，一岁以后的宝宝就可以吃整个水果了。</p>
+<h2 id="根据宝宝的体质有选择地食用一些水果">2.根据宝宝的体质有选择地食用一些水果</h2>
+<p>给宝宝选用水果时，要注意与体质、身体状况相宜。舌苔厚、便秘、体质偏热的宝宝，最好吃寒凉性水果，如梨、西瓜、香蕉、猕猴桃、芒果等，可以败火；秋冬季节宝宝患急慢性气管炎时，吃柑橘可疏通经络，消除痰积，因此有助于治疗。但柑橘不能过多食用，如果吃多了，会引起宝宝上火，每天给宝宝吃2～3个就可以了；当宝宝缺乏维生素A、维生素C时，多吃含胡萝卜素的杏、甜瓜及葡萄柚，能给身体补充大量的维生素A和维生素C；在秋季气候干燥时，宝宝易患感冒咳嗽，可以给宝宝经常做些梨粥喝，或是用梨加冰糖炖水喝，因为梨性寒，可润肺生津、清肺热，从而止咳祛痰，但宝宝腹泻时不宜吃梨。另外，皮肤生痈疮时也不宜吃桃，这样会使宝宝病情更为加重。还有宝宝食用水果一定要适量，如荔枝、柿子、香蕉和西瓜等吃多了对身体并没有益处。</p>
+<h2 id="不可经常让宝宝以水果代替蔬菜">3.不可经常让宝宝以水果代替蔬菜</h2>
+<p>蔬菜和水果一比，无论是口感还是口味都远不及水果，因为水果中含有果糖，所以有好吃的甜味，而且果肉细腻又含有汁水，还易于消化吸收。因此，有些妈咪在宝宝不爱吃蔬菜时，经常就让他多吃点水果，认为这样可以弥补不吃蔬菜而对身体造成的损失。然而，这种水果与蔬菜互替的做法并不科学。</p>
+<p>首先，如果经常让宝宝以水果代替蔬菜，势必会增大水果的摄入量，因而导致身体摄入过量的果糖。而体内果糖太多时，不仅会使宝宝的身体缺乏铜元素，影响骨骼的发育使身材矮小，而且还会使宝宝经常有饱腹感，结果导致食欲下降。</p>
+<p>其次，水果中的无机盐、粗纤维的含量要比蔬菜少，与蔬菜相比，促进肠肌蠕动，保证无机盐中钙和铁的摄入的功用要相对弱一些。因此，宝宝不爱吃蔬菜时，妈咪最好不要经常以水果代替。</p>
+<h2 id="怎样给4个月宝宝做水果食品">4.怎样给4个月宝宝做水果食品</h2>
+<p>水果中有宝宝正常生长发育所需要的维生素C，且酸甜可口，是非常适宜的婴儿辅食。孩子到4～6个月以后，除了饮用果汁外，还可将水果进行加工做成糊状制品，更适合婴儿食用。</p>
+<p><strong>苹果泥：</strong>取新鲜苹果洗净去皮核，切成薄片，与适量白糖或蜂蜜同入锅煮，稍加点水，先强火煮沸后，中火熬成糊状，用勺子研成泥。煮一次应为食3天的量，开始每次1/2汤匙，以后逐增。小儿腹泻时吃点苹果泥有止泻作用。</p>
+<p><strong>香蕉粥：</strong>备香蕉1/6根，牛奶一大匙，蜂蜜少许，把香蕉洗干净后剥去皮，用勺子背把香蕉研成泥状，然后放入锅内加牛奶混合后上火煮，边煮边搅拌均匀，停火加入少许蜂蜜。这对小儿便秘尤为适用。</p>
+<p><strong>山楂酱：</strong>取山楂适量，洗净去核，与白糖、水共煮，煮至糊状，用勺子研成泥，放凉后每天服用少许，有消食助消化的功效。</p>
+<p><strong>西瓜糊：</strong>将西瓜去籽，用小勺在容器中研碎，对于夏天的孩子有消暑利尿作用。</p>
+<p><strong>梨酱：</strong>将梨洗净去皮核，切成薄片，与适量冰糖、水共煮，煮成糊状，研成泥。对咳嗽的小儿有一定功效。</p>
+<p><strong>橘子糊：</strong>橘子7～8个瓣，蜂蜜少许，把橘子洗干净剥去皮，再把内皮剥去，然后放容器内研碎，并加入少许蜂蜜进行搅拌，使其具有一点柔和的酸味。其中维生素C的含量较高。</p>
+<p><strong>苹果土豆泥</strong>(适合6个月以上的宝贝)土豆去皮洗净，切成小块放入锅内，加入适量的水煮熟或在蒸锅中蒸熟。熟后用汤匙或捣泥棒捣成泥状。苹果刮出2勺果泥，与土豆泥混匀即可。提示：将苹果换成香蕉、胡萝卜也不错。</p>
+<p><strong>土豆浓汤</strong>(适合8个月以上宝宝)土豆和胡萝卜切成小丁。锅中放入1杯半水、1汤匙乳酪，将切丁的材料放入锅中煮至熟烂。用打蛋器拌匀成浓稠状。将浓汤倒入汤碗中，西红柿去皮后，切下一小块并继续切成碎粒点缀。提示：西红柿、香菜叶、芹菜叶用于点缀。乳酪超市中有适合宝宝吃的迷你盒包装的，1小盒的量放入就可以。</p>
+<p><strong>果味土豆沙拉</strong>(适合9个月以上宝宝) 将土豆、胡萝卜洗净去皮，切成小丁。 将切成的丁放水中煮熟。 捞出土豆和胡萝卜丁，控干水放入小碗中，浇上果汁。提示：果汁可以用各种口味的，比如苹果汁、橘汁、葡萄汁等。妈妈也可以在家中用榨汁机榨出水果汁浇在上面。</p>
+<p><strong>土豆丝摊鸡蛋</strong>(适合10个月以上宝宝)将土豆去皮切成细丝，打入1个鸡蛋，放入切碎的葱，洒上盐，用筷子将鸡蛋和土豆丝打匀。将平底锅烧热放油，把搅好的蛋糊平摊在锅内，两面煎黄，土豆丝熟透后出锅装盘。提示：假如妈妈没有那么好的刀功，也可以用擦床擦土豆丝。制作时火不要大，以免土豆熟不透。不要用水洗土豆丝，因为水洗后土豆丝少了淀粉，营养会损失，而且不容易烂。</p>
+<p><strong>土豆煎饼</strong>(适合10个月以上宝宝) 将土豆洗净，去皮，在沸水中煮熟。 土豆放在大碗中，用汤勺或捣泥棒压烂成泥状，再放入面粉和少许食盐、葱花，加入少量清水拌匀。平底锅放油，待油热后放入拌好的土豆泥，用勺压平成一个圆形的饼，用中火煎至两面呈微黄色即可。提示：饼做得大小要适合宝宝拿在手里，如果做得大了，可用刀切成几块。</p>
+]]></content>
+      <categories>
+        <category>育儿</category>
+        <category>辅食</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>辅食</tag>
+        <tag>水果</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>育儿：给宝宝加辅食后便便有哪些变化</title>
     <url>/arcticle/changes-in-stool-after-feeding.html</url>
     <content><![CDATA[<p>今天，我们就来说说给宝宝添加辅食后，你可能会遇到或者已经遇到的那些大便问题。</p>
@@ -12769,44 +12807,6 @@ http://vod.xinhuanet.com/v/vod.html?vid=397363
         <tag>健康</tag>
         <tag>辅食</tag>
         <tag>常识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>育儿：让宝宝科学食用水果</title>
-    <url>/arcticle/baby-food-fruits.html</url>
-    <content><![CDATA[<p>水果可不是吃越多就越好，每天水果的品种不要太杂，每次吃水果的量也要有节制，一些水果中含糖量很高，吃多了不仅会造成宝宝食欲不振，还会影响孩子的消化功能，影响其他必需营养素的摄取。</p>
-<!---more--->
-<h2 id="给宝宝吃水果的时间">1.给宝宝吃水果的时间</h2>
-<p>早餐吃水果，对于正在生长发育中的宝宝并不适宜。因为，水果中有不少单糖物质，极易被小肠吸收，但若是堵在胃中，就很容易形成胀气，以至于引起便秘。所以在饱餐之后不要马上给宝宝食用水果。餐前也不要给宝宝吃水果，因为，宝宝的胃容量还比较小，如果在餐前食用，就会占据胃的一定空间，影响正餐营养素的摄入。另外，宝宝吃柑橘前后的一小时不宜喝牛奶，不然的话，柑橘中的果酸与牛奶中的蛋白质相遇后，即可发生凝固，影响柑橘中的营养吸收。</p>
-<p>最佳的做法是，把食用水果的时间安排在两餐之间，或是中午午睡醒来后，这样，可让宝宝把水果当做点心吃。每次给宝宝水果的适宜量为50～100克，并可根据宝宝的年龄大小及消化能力，把水果制成适合宝宝消化吸收的果汁或果泥，如1～3个月的小婴儿最好喝果汁，4～9个月的宝宝则可吃果泥，一岁以后的宝宝就可以吃整个水果了。</p>
-<h2 id="根据宝宝的体质有选择地食用一些水果">2.根据宝宝的体质有选择地食用一些水果</h2>
-<p>给宝宝选用水果时，要注意与体质、身体状况相宜。舌苔厚、便秘、体质偏热的宝宝，最好吃寒凉性水果，如梨、西瓜、香蕉、猕猴桃、芒果等，可以败火；秋冬季节宝宝患急慢性气管炎时，吃柑橘可疏通经络，消除痰积，因此有助于治疗。但柑橘不能过多食用，如果吃多了，会引起宝宝上火，每天给宝宝吃2～3个就可以了；当宝宝缺乏维生素A、维生素C时，多吃含胡萝卜素的杏、甜瓜及葡萄柚，能给身体补充大量的维生素A和维生素C；在秋季气候干燥时，宝宝易患感冒咳嗽，可以给宝宝经常做些梨粥喝，或是用梨加冰糖炖水喝，因为梨性寒，可润肺生津、清肺热，从而止咳祛痰，但宝宝腹泻时不宜吃梨。另外，皮肤生痈疮时也不宜吃桃，这样会使宝宝病情更为加重。还有宝宝食用水果一定要适量，如荔枝、柿子、香蕉和西瓜等吃多了对身体并没有益处。</p>
-<h2 id="不可经常让宝宝以水果代替蔬菜">3.不可经常让宝宝以水果代替蔬菜</h2>
-<p>蔬菜和水果一比，无论是口感还是口味都远不及水果，因为水果中含有果糖，所以有好吃的甜味，而且果肉细腻又含有汁水，还易于消化吸收。因此，有些妈咪在宝宝不爱吃蔬菜时，经常就让他多吃点水果，认为这样可以弥补不吃蔬菜而对身体造成的损失。然而，这种水果与蔬菜互替的做法并不科学。</p>
-<p>首先，如果经常让宝宝以水果代替蔬菜，势必会增大水果的摄入量，因而导致身体摄入过量的果糖。而体内果糖太多时，不仅会使宝宝的身体缺乏铜元素，影响骨骼的发育使身材矮小，而且还会使宝宝经常有饱腹感，结果导致食欲下降。</p>
-<p>其次，水果中的无机盐、粗纤维的含量要比蔬菜少，与蔬菜相比，促进肠肌蠕动，保证无机盐中钙和铁的摄入的功用要相对弱一些。因此，宝宝不爱吃蔬菜时，妈咪最好不要经常以水果代替。</p>
-<h2 id="怎样给4个月宝宝做水果食品">4.怎样给4个月宝宝做水果食品</h2>
-<p>水果中有宝宝正常生长发育所需要的维生素C，且酸甜可口，是非常适宜的婴儿辅食。孩子到4～6个月以后，除了饮用果汁外，还可将水果进行加工做成糊状制品，更适合婴儿食用。</p>
-<p><strong>苹果泥：</strong>取新鲜苹果洗净去皮核，切成薄片，与适量白糖或蜂蜜同入锅煮，稍加点水，先强火煮沸后，中火熬成糊状，用勺子研成泥。煮一次应为食3天的量，开始每次1/2汤匙，以后逐增。小儿腹泻时吃点苹果泥有止泻作用。</p>
-<p><strong>香蕉粥：</strong>备香蕉1/6根，牛奶一大匙，蜂蜜少许，把香蕉洗干净后剥去皮，用勺子背把香蕉研成泥状，然后放入锅内加牛奶混合后上火煮，边煮边搅拌均匀，停火加入少许蜂蜜。这对小儿便秘尤为适用。</p>
-<p><strong>山楂酱：</strong>取山楂适量，洗净去核，与白糖、水共煮，煮至糊状，用勺子研成泥，放凉后每天服用少许，有消食助消化的功效。</p>
-<p><strong>西瓜糊：</strong>将西瓜去籽，用小勺在容器中研碎，对于夏天的孩子有消暑利尿作用。</p>
-<p><strong>梨酱：</strong>将梨洗净去皮核，切成薄片，与适量冰糖、水共煮，煮成糊状，研成泥。对咳嗽的小儿有一定功效。</p>
-<p><strong>橘子糊：</strong>橘子7～8个瓣，蜂蜜少许，把橘子洗干净剥去皮，再把内皮剥去，然后放容器内研碎，并加入少许蜂蜜进行搅拌，使其具有一点柔和的酸味。其中维生素C的含量较高。</p>
-<p><strong>苹果土豆泥</strong>(适合6个月以上的宝贝)土豆去皮洗净，切成小块放入锅内，加入适量的水煮熟或在蒸锅中蒸熟。熟后用汤匙或捣泥棒捣成泥状。苹果刮出2勺果泥，与土豆泥混匀即可。提示：将苹果换成香蕉、胡萝卜也不错。</p>
-<p><strong>土豆浓汤</strong>(适合8个月以上宝宝)土豆和胡萝卜切成小丁。锅中放入1杯半水、1汤匙乳酪，将切丁的材料放入锅中煮至熟烂。用打蛋器拌匀成浓稠状。将浓汤倒入汤碗中，西红柿去皮后，切下一小块并继续切成碎粒点缀。提示：西红柿、香菜叶、芹菜叶用于点缀。乳酪超市中有适合宝宝吃的迷你盒包装的，1小盒的量放入就可以。</p>
-<p><strong>果味土豆沙拉</strong>(适合9个月以上宝宝) 将土豆、胡萝卜洗净去皮，切成小丁。 将切成的丁放水中煮熟。 捞出土豆和胡萝卜丁，控干水放入小碗中，浇上果汁。提示：果汁可以用各种口味的，比如苹果汁、橘汁、葡萄汁等。妈妈也可以在家中用榨汁机榨出水果汁浇在上面。</p>
-<p><strong>土豆丝摊鸡蛋</strong>(适合10个月以上宝宝)将土豆去皮切成细丝，打入1个鸡蛋，放入切碎的葱，洒上盐，用筷子将鸡蛋和土豆丝打匀。将平底锅烧热放油，把搅好的蛋糊平摊在锅内，两面煎黄，土豆丝熟透后出锅装盘。提示：假如妈妈没有那么好的刀功，也可以用擦床擦土豆丝。制作时火不要大，以免土豆熟不透。不要用水洗土豆丝，因为水洗后土豆丝少了淀粉，营养会损失，而且不容易烂。</p>
-<p><strong>土豆煎饼</strong>(适合10个月以上宝宝) 将土豆洗净，去皮，在沸水中煮熟。 土豆放在大碗中，用汤勺或捣泥棒压烂成泥状，再放入面粉和少许食盐、葱花，加入少量清水拌匀。平底锅放油，待油热后放入拌好的土豆泥，用勺压平成一个圆形的饼，用中火煎至两面呈微黄色即可。提示：饼做得大小要适合宝宝拿在手里，如果做得大了，可用刀切成几块。</p>
-]]></content>
-      <categories>
-        <category>育儿</category>
-        <category>辅食</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>辅食</tag>
-        <tag>水果</tag>
       </tags>
   </entry>
   <entry>
@@ -13758,6 +13758,39 @@ v = f_y\frac{Y}{Z} + c_y
       </tags>
   </entry>
   <entry>
+    <title>论文：如何写好摘要</title>
+    <url>/arcticle/abstract-writing.html</url>
+    <content><![CDATA[<p>摘要（Abstract）的第一个句子应该清楚地介绍论文的主题，以便读者能把它与他们所熟悉的其他工作联系起来。然而，从对各个领域的论文摘要的分析表明，很少有人遵循这个建议，而且他们也没有机会在第二句话中总结以前的工作。撰写论文摘要中的一个核心问题是，作者们缺乏一个标准化摘要写作结构的认知，所以大多数作者也不会意识到第三句话应该去指出目前的研究有哪些不足之处。</p>
+<!---more--->
+<p>为了解决这个问题，本文描述了一种技巧，它通过一组含有六个句子的结构来组成整个摘要，每一个句子都扮演着一个特定的角色，所以在写完前四个句子时，你已经充分地介绍了你的想法。这个结构允许你使用第五个句子来详细说明研究，解释它是如何工作的，并讨论你应用它的各种方法。这项技巧很有帮助，因为它能让你更清楚自己的想法，并引出最后一句话，总结出为什么你的研究很重要。</p>
+<p>关键的技巧是用六句话来规划你的论点，然后用它们来构建整个论文。接下去我们会分别讨论这六个句子。</p>
+<p><strong>1、引入。要写第一句话，先思考文章的主题是什么？</strong>用一种读者能理解的方式来表达。如果你正在写博士论文，你的读者是评审官——假设他们熟悉普遍的研究领域，所以你需要明确地告诉他们你的论文主题是什么。同样的建议也适用于科学论文——读者一开始是同行评审者，而最终是要让你所在领域的其他人对你的研究感兴趣，所以他们当然也知道研究背景，但更想知道你的论文主题的亮点是什么。</p>
+<p><strong>2、陈述你研究的问题。</strong>关键的研究问题是什么？同样，用一个句子表达。记住，你的第一句话介绍了整个主题，所以现在你可以在这个问题上继续讨论，集中在那个主题中的一个关键问题上。如果你不能在一个关键问题上总结你的论文，那么你还不明白你想写什么。在这个步骤中继续思考，直到你可以总结出一个单一的、简明的、并且可以被理解的关键性问题。</p>
+<p><strong>3、用一句话总结为什么至今还没有人能充分的回答/解决你研究的问题。</strong>对于一篇博士论文，你将会用一整章来综述之前文献中所做的大量工作。但在科技论文中，你要把它浓缩成一句话。但要记住，关键是不要列举人们尝试失败的各种方式，重点是要去说明有一种方法是其他人都没有尝试过的，而这正是你的研究所做的事情。然而，在这里你需要用一种清晰、直观的方式来表达出这个问题是过往的文献中的一个空白点。所以，考虑用 “previous work has failed to address…” 这样的短语。</p>
+<p><strong>4、用一句话来解释你是如何解决这个研究问题的。</strong>你在你的研究中采用了什么创新的方法？</p>
+<p><strong>5、通过一句话说明，你是如何来根据你的想法来实施并完成这项研究的。</strong>你是通过科学的实验吗？还是构建了一个软件？或是进行案例研究？这句可能是整个摘要最长的句子，特别是如果是博士论文的话——毕竟，你可能要花费好几年的时间研究。但切忌不要过于冗长——你需要寻找的是一个可以大声朗读但却不用停下来喘口气的句子。记住，“摘要”这个词是指对主要思想的提炼和总结，显然绝大部分的细节都应当被忽略掉。所以请随意忽略细节！</p>
+<p><strong>6、作为最后一个单独的句子，重点应当放在你的研究的主要影响是什么？</strong>这里我们不是在试图寻找一个实验的结果，我们正在寻找对其产生的影响的总结。你所有的研究结果归根结底究竟意味着什么？为什么其他人要关心你的研究呢？他们能做什么来进一步研究你的研究。</p>
+<p>下面是一个非常简单的例子，便于读者理解我们刚才讨论的写作结构：</p>
+<p><strong>ABSTRACT</strong></p>
+<ol type="1">
+<li>In widgetology, it’s long been understood that you have to glomp the widgets before you can squiffle them. (2) But there is still no known general method to determine when they’ve been sufficiently glomped. (3) The literature describes several specialist techniques that measure how wizzled or how whomped the widgets have become during glomping, but all of these involve slowing down the glomping, and thus risking a fracturing of the widgets. (4) In this thesis, we introduce a new glomping technique, which we call googa-glomping, that allows direct measurement of whifflization, a superior metric for assessing squiffle-readiness. (5) We describe a series of experiments on each of the five major types of widget, and show that in each case, googa-glomping runs faster than competing techniques, and produces glomped widgets that are perfect for squiffling. (6) We expect this new approach to dramatically reduce the cost of squiffled widgets without any loss of quality, and hence make mass production viable.</li>
+</ol>
+<p>参考原文：</p>
+<p><a href="http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps" class="uri">http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps</a></p>
+<p><strong>转自：LetPub专业SCI论文编辑</strong></p>
+]]></content>
+      <categories>
+        <category>科研</category>
+        <category>论文</category>
+      </categories>
+      <tags>
+        <tag>科研</tag>
+        <tag>写作</tag>
+        <tag>论文</tag>
+        <tag>摘要</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文：如何写对比句</title>
     <url>/arcticle/how-to-compare.html</url>
     <content><![CDATA[<p>当我们设计一个实验时，经常有不止一个分组，也许是一个对照组和一个实验组；例如，健康个体vs. 糖尿病患者，未处理的细胞相vs. 用酪氨酸激酶抑制剂处理的细胞，又或是常规植物vs. 转基因植物。我们甚至可能有多个实验组。今天我们来讨论作者在写比较句时应该注意的一些事项。</p>
@@ -13819,39 +13852,6 @@ v = f_y\frac{Y}{Z} + c_y
       <tags>
         <tag>写作</tag>
         <tag>论文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>论文：如何写好摘要</title>
-    <url>/arcticle/abstract-writing.html</url>
-    <content><![CDATA[<p>摘要（Abstract）的第一个句子应该清楚地介绍论文的主题，以便读者能把它与他们所熟悉的其他工作联系起来。然而，从对各个领域的论文摘要的分析表明，很少有人遵循这个建议，而且他们也没有机会在第二句话中总结以前的工作。撰写论文摘要中的一个核心问题是，作者们缺乏一个标准化摘要写作结构的认知，所以大多数作者也不会意识到第三句话应该去指出目前的研究有哪些不足之处。</p>
-<!---more--->
-<p>为了解决这个问题，本文描述了一种技巧，它通过一组含有六个句子的结构来组成整个摘要，每一个句子都扮演着一个特定的角色，所以在写完前四个句子时，你已经充分地介绍了你的想法。这个结构允许你使用第五个句子来详细说明研究，解释它是如何工作的，并讨论你应用它的各种方法。这项技巧很有帮助，因为它能让你更清楚自己的想法，并引出最后一句话，总结出为什么你的研究很重要。</p>
-<p>关键的技巧是用六句话来规划你的论点，然后用它们来构建整个论文。接下去我们会分别讨论这六个句子。</p>
-<p><strong>1、引入。要写第一句话，先思考文章的主题是什么？</strong>用一种读者能理解的方式来表达。如果你正在写博士论文，你的读者是评审官——假设他们熟悉普遍的研究领域，所以你需要明确地告诉他们你的论文主题是什么。同样的建议也适用于科学论文——读者一开始是同行评审者，而最终是要让你所在领域的其他人对你的研究感兴趣，所以他们当然也知道研究背景，但更想知道你的论文主题的亮点是什么。</p>
-<p><strong>2、陈述你研究的问题。</strong>关键的研究问题是什么？同样，用一个句子表达。记住，你的第一句话介绍了整个主题，所以现在你可以在这个问题上继续讨论，集中在那个主题中的一个关键问题上。如果你不能在一个关键问题上总结你的论文，那么你还不明白你想写什么。在这个步骤中继续思考，直到你可以总结出一个单一的、简明的、并且可以被理解的关键性问题。</p>
-<p><strong>3、用一句话总结为什么至今还没有人能充分的回答/解决你研究的问题。</strong>对于一篇博士论文，你将会用一整章来综述之前文献中所做的大量工作。但在科技论文中，你要把它浓缩成一句话。但要记住，关键是不要列举人们尝试失败的各种方式，重点是要去说明有一种方法是其他人都没有尝试过的，而这正是你的研究所做的事情。然而，在这里你需要用一种清晰、直观的方式来表达出这个问题是过往的文献中的一个空白点。所以，考虑用 “previous work has failed to address…” 这样的短语。</p>
-<p><strong>4、用一句话来解释你是如何解决这个研究问题的。</strong>你在你的研究中采用了什么创新的方法？</p>
-<p><strong>5、通过一句话说明，你是如何来根据你的想法来实施并完成这项研究的。</strong>你是通过科学的实验吗？还是构建了一个软件？或是进行案例研究？这句可能是整个摘要最长的句子，特别是如果是博士论文的话——毕竟，你可能要花费好几年的时间研究。但切忌不要过于冗长——你需要寻找的是一个可以大声朗读但却不用停下来喘口气的句子。记住，“摘要”这个词是指对主要思想的提炼和总结，显然绝大部分的细节都应当被忽略掉。所以请随意忽略细节！</p>
-<p><strong>6、作为最后一个单独的句子，重点应当放在你的研究的主要影响是什么？</strong>这里我们不是在试图寻找一个实验的结果，我们正在寻找对其产生的影响的总结。你所有的研究结果归根结底究竟意味着什么？为什么其他人要关心你的研究呢？他们能做什么来进一步研究你的研究。</p>
-<p>下面是一个非常简单的例子，便于读者理解我们刚才讨论的写作结构：</p>
-<p><strong>ABSTRACT</strong></p>
-<ol type="1">
-<li>In widgetology, it’s long been understood that you have to glomp the widgets before you can squiffle them. (2) But there is still no known general method to determine when they’ve been sufficiently glomped. (3) The literature describes several specialist techniques that measure how wizzled or how whomped the widgets have become during glomping, but all of these involve slowing down the glomping, and thus risking a fracturing of the widgets. (4) In this thesis, we introduce a new glomping technique, which we call googa-glomping, that allows direct measurement of whifflization, a superior metric for assessing squiffle-readiness. (5) We describe a series of experiments on each of the five major types of widget, and show that in each case, googa-glomping runs faster than competing techniques, and produces glomped widgets that are perfect for squiffling. (6) We expect this new approach to dramatically reduce the cost of squiffled widgets without any loss of quality, and hence make mass production viable.</li>
-</ol>
-<p>参考原文：</p>
-<p><a href="http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps" class="uri">http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps</a></p>
-<p><strong>转自：LetPub专业SCI论文编辑</strong></p>
-]]></content>
-      <categories>
-        <category>科研</category>
-        <category>论文</category>
-      </categories>
-      <tags>
-        <tag>科研</tag>
-        <tag>写作</tag>
-        <tag>论文</tag>
-        <tag>摘要</tag>
       </tags>
   </entry>
   <entry>
