@@ -321,9 +321,9 @@
     <title>3D打印仿真软件</title>
     <url>/arcticle/3d-print-simulation.html</url>
     <content><![CDATA[<p>3D打印 / 增材制造仿真是一个广泛的概念，从打印材料熔化，到刀具路径，再到打印后处理工艺，整套3D打印制造流程几乎都可以通过仿真软件进行模拟。借助仿真的力量，3D打印零件的设计能够得到优化，打印失败的情况也将减少。但是由于仿真技术能够涵盖到整个3D打印过程，市场上各种3D打印仿真软件的应用侧重点也是不同的。本期，3D科学谷整理了几款3D打印仿真软件，从中我们可以看到这些软件所实现的不同仿真功能。</p>
-<a id="more"></a>
+<!---more--->
 <h2 id="ansys">ANSYS</h2>
-<p>ANSYS (<a href="https://v.qq.com/x/page/a0784lh8d19.html" target="_blank" rel="noopener">视频</a>)增材制造仿真技术的聚焦点是<strong>金属增材制造工艺</strong>，包括粉末床熔融和定向能量沉积两种。</p>
+<p>ANSYS (<a href="https://v.qq.com/x/page/a0784lh8d19.html">视频</a>)增材制造仿真技术的聚焦点是<strong>金属增材制造工艺</strong>，包括粉末床熔融和定向能量沉积两种。</p>
 <figure>
 <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/ANSYS.png" alt="" /><figcaption>ANSYS</figcaption>
 </figure>
@@ -337,7 +337,7 @@ ANSYS 打印仿真
 </CENTER>
 <p>ANSYS增材制造仿真的应用价值体现在改善、减少和开发几个方面。改善，包括改善金属增材制造设计流程、对工艺过程的了解、机器生产效率、材料利用率、可重复性和质量；减少，包括减少打印失败，打印时间，不合格零件，后处理，试错，设备维护和对环境的影响；开发，包括开发新材料，新机器，新参数，个性化微观结构和期望的材料属性。</p>
 <h2 id="amphyon">Amphyon</h2>
-<p>Amphyon （<a href="https://v.qq.com/x/page/h0784p04rz9.html" target="_blank" rel="noopener">视频</a>）的仿真技术也是专注于金属增材制造，特别是<strong>激光熔融增材制造技术</strong>。</p>
+<p>Amphyon （<a href="https://v.qq.com/x/page/h0784p04rz9.html">视频</a>）的仿真技术也是专注于金属增材制造，特别是<strong>激光熔融增材制造技术</strong>。</p>
 <figure>
 <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/Amphyon.png" alt="" /><figcaption>Amphyon</figcaption>
 </figure>
@@ -457,8 +457,8 @@ Digimat-AM中的翘曲分析
 <p>[3] http://www.3dhoo.com/news/guowai/29954.html</p>
 ]]></content>
       <categories>
-        <category>学习</category>
-        <category>科普</category>
+        <category>生活</category>
+        <category>教程</category>
       </categories>
       <tags>
         <tag>3d打印</tag>
@@ -22103,6 +22103,27 @@ v = f_y\frac{Y}{Z} + c_y
       <tags>
         <tag>生活</tag>
         <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>比巴M11P上传音频到机器的方法</title>
+    <url>/arcticle/biba.html</url>
+    <content><![CDATA[<p>首先，机器更新到最新版本。然后，在手机APP上查找比巴的IP地址：<code>我--&gt;设置--&gt;设备管理</code></p>
+<h3 id="方法一">方法一：</h3>
+<p>保持机器是连网状态，电脑浏览器（建议用谷歌）输入：<code>http://机器ip/d.html</code>，根据网页提示上传操作。</p>
+<h3 id="方法二">方法二：</h3>
+<p>1、机器关机状态下，按住“语音键”+“开机键”，旋转旋钮至“上传歌曲”选项，按播放键进入传输模式；电脑连接“Beeba-”开头热点，浏览器输入<code>http://192.168.88.1/d.html</code>，根据网页提示上传操作。 2、歌曲默认上传到“上传的歌曲”文件夹中，用户可更改该文件夹名称，再次上传将自动创建“上传的歌曲”文件夹。</p>
+<blockquote>
+<p>文件路径可在比巴APP里依次点击：我--&gt;缓存--&gt;上传的歌曲</p>
+</blockquote>
+<p>3、文件夹不超过50首歌曲，继续上传需更改该文件夹名称。</p>
+<p>注意：只支持MP3格式文件。上传的文件只能删除不能移动位置。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
       </tags>
   </entry>
 </search>

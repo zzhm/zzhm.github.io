@@ -1,1305 +1,313 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="分享是一种习惯">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZYMIN - 生活 | 学习 | 科研 | 育儿</title><meta name="keywords" content="知识分享, 生活技能, 科研技巧, 学习资源, 育儿教育, 娱乐资源"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="分享是一种习惯">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZYMIN">
 <meta property="og:url" content="https://zymin.cn/page/2/index.html">
 <meta property="og:site_name" content="ZYMIN">
 <meta property="og:description" content="分享是一种习惯">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin.cn/null">
 <meta property="article:author" content="ZYMIN">
-<meta property="article:tag" content="知识分享">
-<meta property="article:tag" content=" 生活技能">
-<meta property="article:tag" content=" 科研技巧">
-<meta property="article:tag" content=" 学习资源">
-<meta property="article:tag" content=" 育儿教育">
-<meta property="article:tag" content=" 娱乐资源">
+<meta property="article:tag" content="知识分享, 生活技能, 科研技巧, 学习资源, 育儿教育, 娱乐资源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zymin.cn/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-175241210-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
 
-<link rel="canonical" href="https://zymin.cn/page/2/">
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-  <title>ZYMIN - 生活 | 学习 | 科研 | 育儿</title>
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-175241210-1');
-      }
-    </script>
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
 
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-01-30 10:40:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ZYMIN</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/citavi-latex.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/citavi-latex.html" class="post-title-link" itemprop="url">citavi6插入latex参考文献</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-23 16:08:14" itemprop="dateCreated datePublished" datetime="2020-06-23T16:08:14+08:00">2020-06-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>You are using LaTeX to write a thesis or journal submission. With Citavi you can insert your sources and quotations with the corresponding BibTeX-Key into your TeX document. Citavi will automatically create the BibTeX file that your TeX program needs in order to create the final version of your document.</p>
-<p>Do you want to create a publication using an Online LaTeX editor like <a href="https://www.overleaf.com/" target="_blank" rel="noopener">Overleaf</a>? <a href="https://vimeo.com/283962071" target="_blank" rel="noopener">Our video shows how to do so</a>.</p>
-<p>The formatting depends on the LaTeX style you select; Citavi has no influence on the appearance of your footnotes and bibliography.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/citavi-latex.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/zhiwangpdf.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/zhiwangpdf.html" class="post-title-link" itemprop="url">知网下载pdf格式博士和硕士论文的两种方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-19 16:08:14" itemprop="dateCreated datePublished" datetime="2020-06-19T16:08:14+08:00">2020-06-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>方法一、使用海外版知网</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200619211411.png" /></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/zhiwangpdf.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/zhongjixian.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/zhongjixian.html" class="post-title-link" itemprop="url">关于重疾险你需要知道的事情</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-16 16:08:14" itemprop="dateCreated datePublished" datetime="2020-06-16T16:08:14+08:00">2020-06-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/%E7%A7%91%E6%99%AE/" itemprop="url" rel="index"><span itemprop="name">科普</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>避坑提示：</p>
-<ul>
-<li>不要对某些概念想当然，比如你以为的确诊和合同里写的可能并不是一回事。</li>
-<li>主要陷阱，限制条件太过苛刻，而且越是发病率高的疾病，条件越苛刻。
-<ul>
-<li>限定了疾病的类型、需到达的程度甚至具体指标；（要不这些类型发病率低，要不指标难以达到）</li>
-<li>限定了治疗方式（通常创伤大，实际不会选择）；</li>
-<li>限定了生存期（还得坚持住，死了不赔）；</li>
-<li>限定需要同时满足多个条件；</li>
-</ul></li>
-<li>摆正心态，不要一厢情愿地对重疾险报太大的期望，仿佛买了之后就什么事情都可以解决了。</li>
-</ul>
-<p>总之，不要听业务员怎么讲，更关键的是合同里是怎么写的。毕竟，赔付的时候人家可是严格按照合同写的来的。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/zhongjixian.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/marendeyishu.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/marendeyishu.html" class="post-title-link" itemprop="url">骂人的艺术</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-11 09:43:16" itemprop="dateCreated datePublished" datetime="2020-05-11T09:43:16+08:00">2020-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>古今中外没有一个不骂人的人。骂人就是有道德观念的意思，因为在骂人的时候，至少在骂人者自己总觉得那人有该骂的地方。何者该骂，何者不该骂，这个抉择的标准，是极道德的。所以根本不骂人，大可不必。骂人是一种发泄感情的方法，尤其是那一种怨怒的感情。想骂人的时候而不骂，时常在身体上弄出毛病，所以想骂人时，骂骂何妨。</p>
-<p>但是，骂人是一种高深的学问，不是人人都可以随便试的。有因为骂人挨嘴巴的，有因为骂人吃官司的，有因为骂人反被人骂的，这都是不会骂人的原故。今以研究所得，公诸同好，或可为骂人时之一助乎？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/marendeyishu.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/debian10-samba.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/debian10-samba.html" class="post-title-link" itemprop="url">debian 10 + samba共享设置采坑指南</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-30 14:47:22" itemprop="dateCreated datePublished" datetime="2020-04-30T14:47:22+08:00">2020-04-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>用root账户安装，以免权限问题</p>
-</blockquote>
-<ul>
-<li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install samba</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>注意：若提示有依赖问题，就把相应的软件卸载掉先，apt-get autoremove</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/debian10-samba.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/chrome-flash.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/chrome-flash.html" class="post-title-link" itemprop="url">谷歌chrome浏览器启用Flash插件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-30 13:05:40" itemprop="dateCreated datePublished" datetime="2020-03-30T13:05:40+08:00">2020-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome:&#x2F;&#x2F;flags&#x2F;#enable-ephemeral-flash-permission</span><br></pre></td></tr></table></figure>
-<p>这个选项就不要找了，因为没有了。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">谷歌浏览器54版本 移除flash插件 2016年10月13号 下载flash 即可</span><br><span class="line">谷歌浏览器62版本 移除flash选项 2017年10月18号 下载flash 手动启用 即可</span><br><span class="line">谷歌浏览器69版本 弃用Flash插件 2018年9月5号 下载flash 每次重启浏览器都要手动启用!</span><br><span class="line">谷歌浏览器78版本 阻止Flash内容 2019年10月</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/chrome-flash.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/picgo.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/picgo.html" class="post-title-link" itemprop="url">Typora+PicGo+腾讯COS实现图片自动上传到图床</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-30 11:52:34" itemprop="dateCreated datePublished" datetime="2020-03-30T11:52:34+08:00">2020-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Hexo博客，利用Typora+PicGo+腾讯COS实现图片自动上传到图床。</p>
-<p>windows用户请下载最新版本的<code>exe</code>文件.</p>
-<p>网址：https://github.com/Molunerfinn/PicGo/releases</p>
-<p>注意：请确保你安装了 Node.js， 并且版本 &gt;= 8。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/picgo.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/KodExplorer-plu.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/KodExplorer-plu.html" class="post-title-link" itemprop="url">Kodexplorer开源插件分享汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 23:40:57" itemprop="dateCreated datePublished" datetime="2020-03-29T23:40:57+08:00">2020-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/nas/" itemprop="url" rel="index"><span itemprop="name">nas</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Kodexplorer开源插件分享汇总</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/KodExplorer-plu.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/omv-kodexplorer.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/omv-kodexplorer.html" class="post-title-link" itemprop="url">OMV里Kodexplorer大文件上传优化与错误解决</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 12:00:26" itemprop="dateCreated datePublished" datetime="2020-03-29T12:00:26+08:00">2020-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/nas/" itemprop="url" rel="index"><span itemprop="name">nas</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近停了Nextcloud，打算用作为主力了，因此优化了一波。基本情况：OMV+nginx插件搭建的kodexplorer。</p>
-<p>上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。据人指点“最后合并上传失败很可能是登录超时引起的”。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodshibai.jpeg" /></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/omv-kodexplorer.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/abaqus2020-install.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/abaqus2020-install.html" class="post-title-link" itemprop="url">ABAQUS2020安装失败-unsupport version ABAQUSLM</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-28 21:20:11" itemprop="dateCreated datePublished" datetime="2020-03-28T21:20:11+08:00">2020-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>原因就是这里没设置！！之前版本好像是没有的，导致在输入“27800@localhost”之后一直无法继续往后面安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装</span><br><span class="line">变量名：NOLICENSECHECK</span><br><span class="line">变量值：true(这里千万别选错了，会导致后面无法使用)</span><br></pre></td></tr></table></figure>
-<p>另附完整安装过程！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/abaqus2020-install.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
   }
-</script>
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="no-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/citavi-index.html" title="citavi 6 教程索引">citavi 6 教程索引</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-06-23T08:08:14.000Z" title="发表于 2020-06-23 16:08:14">2020-06-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%A7%91%E7%A0%94/">科研</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/">论文</a></span></div><div class="content">What do you want to do with Citavi? Here are some suggestions for various projects:
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">ZYMIN</p>
-  <div class="site-description" itemprop="description">分享是一种习惯</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">295</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">146</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
+Prepare for a Presentation
+Creating a Project → Adding a Book by ISBN Number → Adding a Webpage with the Citavi Picker → Creating Categories → Adding Quotations by Hand → Creating a Publication with Word
+Write a Thesis, Dissertation, or Book
+Creating a Project → Adding a Book by Hand → Adding a Book by ISBN Number → Adding a Contribution in an Edited Book → Linking a File to a Reference → Importing Results  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/citavi-latex.html" title="citavi6插入latex参考文献">citavi6插入latex参考文献</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-06-23T08:08:14.000Z" title="发表于 2020-06-23 16:08:14">2020-06-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%A7%91%E7%A0%94/">科研</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87/">论文</a></span></div><div class="content">You are using LaTeX to write a thesis or journal submission. With Citavi you can insert your sources and quotations with the corresponding BibTeX-Key into your TeX document. Citavi will automatically create the BibTeX file that your TeX program needs in order to create the final version of your document.
+Do you want to create a publication using an Online LaTeX editor like Overleaf? Our video shows how to do so.
+The formatting depends on the LaTeX style you select; Citavi has no influence on t ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/zhiwangpdf.html" title="知网下载pdf格式博士和硕士论文的两种方法">知网下载pdf格式博士和硕士论文的两种方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-06-19T08:08:14.000Z" title="发表于 2020-06-19 16:08:14">2020-06-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">方法一、使用海外版知网
 
 
-      </div>
+直达连接：
+http://new.oversea.cnki.net/kns/brief/result.aspx?dbPrefix=CDMD
+方法二、使用知网下载助手
+谷歌浏览器安装暴力猴
+https://violentmonkey.github.io/
+安装知网下载助手
 
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+https://greasyfork.org/zh-CN/scripts/371938-%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B
+正常使用即可
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/zhongjixian.html" title="关于重疾险你需要知道的事情">关于重疾险你需要知道的事情</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-06-16T08:08:14.000Z" title="发表于 2020-06-16 16:08:14">2020-06-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E7%A7%91%E6%99%AE/">科普</a></span></div><div class="content">避坑提示：
 
+不要对某些概念想当然，比如你以为的确诊和合同里写的可能并不是一回事。
+主要陷阱，限制条件太过苛刻，而且越是发病率高的疾病，条件越苛刻。
 
-      </div>
-    </main>
+限定了疾病的类型、需到达的程度甚至具体指标；（要不这些类型发病率低，要不指标难以达到）
+限定了治疗方式（通常创伤大，实际不会选择）；
+限定了生存期（还得坚持住，死了不赔）；
+限定需要同时满足多个条件；
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+摆正心态，不要一厢情愿地对重疾险报太大的期望，仿佛买了之后就什么事情都可以解决了。
 
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+总之，不要听业务员怎么讲，更关键的是合同里是怎么写的。毕竟，赔付的时候人家可是严格按照合同写的来的。
 
 
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
-  </div>
+本文转自知乎：https://zhuanlan.zhihu.com/archxh
+需要注意的是，文中提到的部分文件有的新的进展，请予以关注。
+2020年03月31日，中国保险行业协会就《重大疾病保险的疾病定义使用规范修订版（征求意见稿）》向行业征求意见并就相关问题答记者问，
+http://www.iachina.cn/art/2020/3/31/art_22_104440.html
+
+当你兴致勃勃选购了一款重 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/marendeyishu.html" title="骂人的艺术">骂人的艺术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-11T01:43:16.000Z" title="发表于 2020-05-11 09:43:16">2020-05-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">古今中外没有一个不骂人的人。骂人就是有道德观念的意思，因为在骂人的时候，至少在骂人者自己总觉得那人有该骂的地方。何者该骂，何者不该骂，这个抉择的标准，是极道德的。所以根本不骂人，大可不必。骂人是一种发泄感情的方法，尤其是那一种怨怒的感情。想骂人的时候而不骂，时常在身体上弄出毛病，所以想骂人时，骂骂何妨。
+但是，骂人是一种高深的学问，不是人人都可以随便试的。有因为骂人挨嘴巴的，有因为骂人吃官司的，有因为骂人反被人骂的，这都是不会骂人的原故。今以研究所得，公诸同好，或可为骂人时之一助乎？
+
+一、知己知彼
+骂人是和动手打架一样的，你如其敢打人一拳，你先要自己忖度下，你吃得起别人的一拳否。这叫做知己知彼。骂人也是一样。譬如你骂他是“屈死”，你先要反省，自己和“屈死”有无分别。你骂别人荒唐，你自己想想曾否吃喝嫖赌。否则别人回敬你一二句，你就受不了。所以别人有着某种短处，而足下也正有同病，那么你在骂他的时候只得割爱。
+二、无骂不如己者
+要骂人须要挑比你大一点的人物，比你漂亮一点的或者比你坏得万倍而比你得势的人物总之，你要骂人，那人无论在好的一方面或坏的一方面都要能胜过你，你才不吃亏的。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/debian10-samba.html" title="debian 10 + samba共享设置采坑指南">debian 10 + samba共享设置采坑指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-30T06:47:22.000Z" title="发表于 2020-04-30 14:47:22">2020-04-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E5%8D%9A%E5%AE%A2/">博客</a></span></div><div class="content">
+用root账户安装，以免权限问题
+
+
+安装
+1apt-get install samba
+
+
+注意：若提示有依赖问题，就把相应的软件卸载掉先，apt-get autoremove
 
 
 
+新建账户
+
+12smbpasswd -a username   #然后输入密码，pdbedit -w -L #列出现有的Samba用户列表
+
+注意这个账户必须是系统已经有的！！！！
 
 
+新建目录
 
-      </div>
-    </footer>
-  </div>
+123mkdir -p  &#x2F;srv&#x2F;smbsharechmod -R 777 &#x2F;srv&#x2F;smbshare  #可以有问题的时候再给权限，有人说给600更安全,不懂chown username:usergroup  -R  &#x2F;srv&#x2F;smbshare
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
+目录提前建好，不然会显示网络路径找不到。
 
 
-<script src="/js/schemes/pisces.js"></script>
+配置smb.conf文件
+目录：nano /etc/samba/smb.conf
+在文件的最后按照下述格式添加文件夹就行。
+123456789[disk1]  # 显示的名称path &#x3D;  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/chrome-flash.html" title="谷歌chrome浏览器启用Flash插件">谷歌chrome浏览器启用Flash插件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-30T05:05:40.000Z" title="发表于 2020-03-30 13:05:40">2020-03-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">1chrome:&#x2F;&#x2F;flags&#x2F;#enable-ephemeral-flash-permission
+这个选项就不要找了，因为没有了。。。
+1234谷歌浏览器54版本 移除flash插件 2016年10月13号 下载flash 即可谷歌浏览器62版本 移除flash选项 2017年10月18号 下载flash 手动启用 即可谷歌浏览器69版本 弃用Flash插件 2018年9月5号 下载flash 每次重启浏览器都要手动启用!谷歌浏览器78版本 阻止Flash内容 2019年10月
+
+打开浏览器设置chrome://settings/，滚到最下面打开“高级”，找到内容设置：
+或者直接输入：chrome://settings/content/flash
+
+3、点开内容设置，找到Flash
+
+4、打开Flash，在允许的地方添加你的网站即可
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/picgo.html" title="Typora+PicGo+腾讯COS实现图片自动上传到图床">Typora+PicGo+腾讯COS实现图片自动上传到图床</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-30T03:52:34.000Z" title="发表于 2020-03-30 11:52:34">2020-03-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E5%8D%9A%E5%AE%A2/">博客</a></span></div><div class="content">Hexo博客，利用Typora+PicGo+腾讯COS实现图片自动上传到图床。
+windows用户请下载最新版本的exe文件.
+网址：https://github.com/Molunerfinn/PicGo/releases
+注意：请确保你安装了 Node.js， 并且版本 &gt;= 8。
+
+PicGo设置
+打开PicGo，找到图床设置，界面如下：
+
+密钥获取
+
+picgo设置界面
+
+图中参数含义：
+V4版本说明
+v4版本是这个：
+
+需要登录腾讯云控制台。打开密钥管理
+
+按照对应的提示找到自己的APPID、SecretId、SecretKey。
+存储的空间名是你的bucket名字。
+存储的区域需要额外注意，请到bucket列表里打开需要上传的bucket空间，然后如图可以看到对应的区域以及区域代码，比如我的是tj：
+
+对应的区域代码如下：
+
+如果你想把图片上传到你的bucket空间的某个文件夹下，则需要在PicGo里的指定存储路径里加上你的文件夹路径。比如temp/（注意一定要加/）
+#V5版本说明
+1. 获取你的APPID、Sec ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/KodExplorer-plu.html" title="Kodexplorer开源插件分享汇总">Kodexplorer开源插件分享汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-29T15:40:57.000Z" title="发表于 2020-03-29 23:40:57">2020-03-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/nas/">nas</a></span></div><div class="content">Kodexplorer开源插件分享汇总
+
+photopea
+有个非常好用在线PS工具，www.photopea.com，就想把它做成KodExplorer的插件。
+下载：https://github.com/zhtengw/kodexplorer-plugins/tree/master/Photopea 
+draw.io
+draw.io是个非常好用的在线图表工具，开源流程图利器。现已做成kod插件，支持4.40和新的KodBox。 
+下载地址：
+KodExplorer 4.40版
+https://github.com/zhtengw/kodexplorer-plugins/tree/master/drawio
+KodBox版
+https://github.com/zhtengw/kodexplorer-plugins/tree/v5.0/drawio
+OnlyOffice
+下载地址： https://github.com/zhtengw/kodexplorer-plugins/releases/tag/OnlyOffice-plugin-v2.1
+Uedit ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/omv-kodexplorer.html" title="OMV里Kodexplorer大文件上传优化与错误解决">OMV里Kodexplorer大文件上传优化与错误解决</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-29T04:00:26.000Z" title="发表于 2020-03-29 12:00:26">2020-03-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/nas/">nas</a></span></div><div class="content">最近停了Nextcloud，打算用作为主力了，因此优化了一波。基本情况：OMV+nginx插件搭建的kodexplorer。
+上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。据人指点“最后合并上传失败很可能是登录超时引起的”。
 
 
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+首先明确可道云没有对上传下载做任何限制，速度快慢和网络环境有关。可道云是基于http上传，所以和其他http上传速度基本一致；可以对比其他web系统或网站说附件上传速度。同其他例如webdav、FTP、QQ传输等软件底层协议不一样；传输速度也会不一样。
+传输速度受三方面影响：
+本机客户端：网卡、连接方式(有线、无线)、本机磁盘IO负载情况； 网络环境：网络带宽、wifi还是网线等造成的影响；网络环境复杂、或使用人多时路由器或交换机处理速度也都会是瓶颈之一。 服务器：受服务器负载、磁盘IO、服务器网络带宽等影响。同时受并发影响；比如20M上行带宽,10个人同时在上传或下载,那么每个人平均就是2M/s 可道云为了能在更多的服务器环境下良好运行，各方面 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">ZYMIN</div><div class="author-info__description">分享是一种习惯</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/biba.html" title="比巴M11P上传音频到机器的方法">比巴M11P上传音频到机器的方法</a><time datetime="2021-01-30T02:30:06.000Z" title="发表于 2021-01-30 10:30:06">2021-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/markdown-rumen.html" title="markdown快速入门">markdown快速入门</a><time datetime="2020-09-20T06:27:57.000Z" title="发表于 2020-09-20 14:27:57">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/photoshop-qianming.html" title="Photoshop制作电子签名">Photoshop制作电子签名</a><time datetime="2020-09-20T06:24:08.000Z" title="发表于 2020-09-20 14:24:08">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/freefilesync.html" title="Windows离线文件同步和备份-Freefilesync">Windows离线文件同步和备份-Freefilesync</a><time datetime="2020-09-20T05:54:01.000Z" title="发表于 2020-09-20 13:54:01">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/kindle-jiqiao.html" title="Kindle咪咕版使用技巧总结">Kindle咪咕版使用技巧总结</a><time datetime="2020-09-20T01:12:20.000Z" title="发表于 2020-09-20 09:12:20">2020-09-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">62</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%8E%A7%E5%88%B6/"><span class="card-category-list-name">控制</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/"><span class="card-category-list-name">数学</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/"><span class="card-category-list-name">科普</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/"><span class="card-category-list-name">视觉</span><span class="card-category-list-count">11</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%99%E7%A8%8B/"><span class="card-category-list-name">教程</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">61</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/nas/"><span class="card-category-list-name">nas</span><span class="card-category-list-count">8</span></a></li></ul></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories/">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/3D%E6%89%93%E5%8D%B0/" style="font-size: 1.1em; color: #999">3D打印</a> <a href="/tags/3d%E6%89%93%E5%8D%B0/" style="font-size: 1.27em; color: #99a0a9">3d打印</a> <a href="/tags/abaqus/" style="font-size: 1.27em; color: #99a0a9">abaqus</a> <a href="/tags/ansys/" style="font-size: 1.1em; color: #999">ansys</a> <a href="/tags/api/" style="font-size: 1.1em; color: #999">api</a> <a href="/tags/app/" style="font-size: 1.1em; color: #999">app</a> <a href="/tags/citavi/" style="font-size: 1.16em; color: #999b9e">citavi</a> <a href="/tags/ctex/" style="font-size: 1.1em; color: #999">ctex</a> <a href="/tags/discussion/" style="font-size: 1.1em; color: #999">discussion</a> <a href="/tags/diy/" style="font-size: 1.44em; color: #99a7ba">diy</a> <a href="/tags/edem/" style="font-size: 1.16em; color: #999b9e">edem</a> <a href="/tags/ei/" style="font-size: 1.1em; color: #999">ei</a> <a href="/tags/endnote/" style="font-size: 1.1em; color: #999">endnote</a> <a href="/tags/ftp/" style="font-size: 1.1em; color: #999">ftp</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/hausdorff-distance/" style="font-size: 1.1em; color: #999">hausdorff distance</a> <a href="/tags/hexo/" style="font-size: 1.39em; color: #99a4b4">hexo</a> <a href="/tags/horner/" style="font-size: 1.1em; color: #999">horner</a> <a href="/tags/ipv6/" style="font-size: 1.1em; color: #999">ipv6</a> <a href="/tags/j3455/" style="font-size: 1.33em; color: #99a2af">j3455</a> <a href="/tags/kindle/" style="font-size: 1.1em; color: #999">kindle</a> <a href="/tags/kodexplorer/" style="font-size: 1.1em; color: #999">kodexplorer</a> <a href="/tags/latex/" style="font-size: 1.21em; color: #999ea4">latex</a> <a href="/tags/mathematica/" style="font-size: 1.27em; color: #99a0a9">mathematica</a> <a href="/tags/mathtype/" style="font-size: 1.16em; color: #999b9e">mathtype</a> <a href="/tags/matlab/" style="font-size: 1.33em; color: #99a2af">matlab</a> <a href="/tags/nas/" style="font-size: 1.5em; color: #99a9bf">nas</a> <a href="/tags/nextcloud/" style="font-size: 1.21em; color: #999ea4">nextcloud</a> <a href="/tags/office/" style="font-size: 1.16em; color: #999b9e">office</a> <a href="/tags/omv/" style="font-size: 1.27em; color: #99a0a9">omv</a> <a href="/tags/pdf/" style="font-size: 1.1em; color: #999">pdf</a> <a href="/tags/pdz/" style="font-size: 1.1em; color: #999">pdz</a> <a href="/tags/sci-hub/" style="font-size: 1.1em; color: #999">sci-hub</a> <a href="/tags/seafile/" style="font-size: 1.1em; color: #999">seafile</a> <a href="/tags/simulink/" style="font-size: 1.1em; color: #999">simulink</a> <a href="/tags/svd/" style="font-size: 1.1em; color: #999">svd</a> <a href="/tags/win10/" style="font-size: 1.39em; color: #99a4b4">win10</a> <a href="/tags/workbench/" style="font-size: 1.1em; color: #999">workbench</a> <a href="/tags/wps/" style="font-size: 1.1em; color: #999">wps</a> <a href="/tags/%E4%B8%93%E5%88%A9/" style="font-size: 1.21em; color: #999ea4">专利</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/04/"><span class="card-archive-list-date">四月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">三月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives/">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">296</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-30T02:40:40.928Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

@@ -1,1283 +1,248 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="分享是一种习惯">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZYMIN - 生活 | 学习 | 科研 | 育儿</title><meta name="keywords" content="知识分享, 生活技能, 科研技巧, 学习资源, 育儿教育, 娱乐资源"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="分享是一种习惯">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZYMIN">
 <meta property="og:url" content="https://zymin.cn/page/21/index.html">
 <meta property="og:site_name" content="ZYMIN">
 <meta property="og:description" content="分享是一种习惯">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin.cn/null">
 <meta property="article:author" content="ZYMIN">
-<meta property="article:tag" content="知识分享">
-<meta property="article:tag" content=" 生活技能">
-<meta property="article:tag" content=" 科研技巧">
-<meta property="article:tag" content=" 学习资源">
-<meta property="article:tag" content=" 育儿教育">
-<meta property="article:tag" content=" 娱乐资源">
+<meta property="article:tag" content="知识分享, 生活技能, 科研技巧, 学习资源, 育儿教育, 娱乐资源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zymin.cn/page/21/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-175241210-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
 
-<link rel="canonical" href="https://zymin.cn/page/21/">
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-  <title>ZYMIN - 生活 | 学习 | 科研 | 育儿</title>
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-175241210-1');
-      }
-    </script>
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
 
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-01-30 10:40:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ZYMIN</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/When-can-my-baby-eat-yogurt?.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/When-can-my-baby-eat-yogurt?.html" class="post-title-link" itemprop="url">宝宝什么时候可以吃酸奶</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-29 13:24:16" itemprop="dateCreated datePublished" datetime="2018-05-29T13:24:16+08:00">2018-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>大多数婴儿在4到6个月大的时候就可以开始吃酸奶了。酸奶是婴儿早期食物的绝佳选择，因为它含有钙、蛋白质和维生素等营养成分。最好的选择是由全脂牛奶制成的原味、不加糖的巴氏灭菌酸奶(普通或希腊酸奶)。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/When-can-my-baby-eat-yogurt?.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/Age-by-age-guide-to-feeding-your-baby.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/Age-by-age-guide-to-feeding-your-baby.html" class="post-title-link" itemprop="url">Age-by-age guide to feeding your baby</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-29 13:13:58" itemprop="dateCreated datePublished" datetime="2018-05-29T13:13:58+08:00">2018-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Use this guide to find out what and how much to feed your child in the first year. The amounts are general recommendations only, so don't worry if your little one eats a bit more or less than suggested. It's always a good idea to discuss your plan for <a href="https://www.babycenter.com/404_do-i-need-to-introduce-solid-foods-to-my-baby-in-a-certain-o_10418662.bc" target="_blank" rel="noopener">starting solids</a> with your child’s doctor before getting started.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/Age-by-age-guide-to-feeding-your-baby.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/5-tips-to-develop-healthy-eating-habits.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/5-tips-to-develop-healthy-eating-habits.html" class="post-title-link" itemprop="url">5 tips to develop healthy eating habits</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-29 13:09:52" itemprop="dateCreated datePublished" datetime="2018-05-29T13:09:52+08:00">2018-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>It's never too early to help your child develop healthy eating habits. Discover ways that babies can become healthy and adventurous eaters from the moment they start solids. Learn which foods to load up on and which ones to avoid.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/5-tips-to-develop-healthy-eating-habits.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/Policy-addresses-how-to-help-parents-manage-young-children%E2%80%99s-media-use.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/Policy-addresses-how-to-help-parents-manage-young-children%E2%80%99s-media-use.html" class="post-title-link" itemprop="url">Policy addresses how to help parents manage young children’s media use</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-29 12:34:40" itemprop="dateCreated datePublished" datetime="2018-05-29T12:34:40+08:00">2018-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Children are growing up in a world surrounded by media that are portable and instantly accessible. Parents and pediatricians may find it hard to keep up with the vast amount of content and new features constantly being introduced, and this can be anxiety-provoking. But one thing that will never change is that parents and trusted caregivers help children make sense of the world, particularly when things are in flux.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/Policy-addresses-how-to-help-parents-manage-young-children%E2%80%99s-media-use.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/How%20does%20darling%20drink%20water%20just%20healthy.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/How%20does%20darling%20drink%20water%20just%20healthy.html" class="post-title-link" itemprop="url">宝宝如何喝水才健康</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-29 11:30:11" itemprop="dateCreated datePublished" datetime="2018-05-29T11:30:11+08:00">2018-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>美国儿科学会（AAP）早就建议了，6个月内的宝宝在身体未出现异常情况下，是不需要喂水的。在那之前，即使在炎热的天气里，他也能从母乳或配方奶中得到所需的水分。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/How%20does%20darling%20drink%20water%20just%20healthy.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/Florida-Water-and-drunk-driving.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/Florida-Water-and-drunk-driving.html" class="post-title-link" itemprop="url">花露水也会导致酒驾</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-29 09:56:13" itemprop="dateCreated datePublished" datetime="2018-05-29T09:56:13+08:00">2018-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>男子开车回家途中为了驱蚊在车内喷了些花露水半路被交警拦住竟然查出司机是酒驾！这到底是怎么回事？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/Florida-Water-and-drunk-driving.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/How-to-set-rules-for-children.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/How-to-set-rules-for-children.html" class="post-title-link" itemprop="url">犯罪心理学教授：如何给孩子立规矩</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-28 10:20:37" itemprop="dateCreated datePublished" datetime="2018-05-28T10:20:37+08:00">2018-05-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E6%95%99%E8%82%B2/" itemprop="url" rel="index"><span itemprop="name">教育</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我们有句老话叫：小时偷针，大时偷金。说的就是如果小时候养成了坏习惯，大了就会做出更大的坏事。“三岁看老“说的也是这么一个理。孩子小时候的行为习惯，对一生都有非常大的影响，特别是6岁前的习惯。那么，六岁前的孩子应该怎样教育？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/How-to-set-rules-for-children.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/pdz2pdf.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/pdz2pdf.html" class="post-title-link" itemprop="url">超星pdz格式转成pdf格式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-23 16:53:02" itemprop="dateCreated datePublished" datetime="2018-05-23T16:53:02+08:00">2018-05-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>提纲：</p>
-<ul>
-<li>超星阅读器打开pdz文档；</li>
-<li>图书打印成xps格式；</li>
-<li>用解压软件解压上述xps文件，在images文件夹下可以找到jpg格式的文档；</li>
-<li>用福昕编辑器合成pdf；</li>
-<li>用万彩办公软件压缩PDF文件</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/baby-sunburn.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/baby-sunburn.html" class="post-title-link" itemprop="url">育儿：宝宝夏季防晒指南</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-22 19:52:22" itemprop="dateCreated datePublished" datetime="2018-05-22T19:52:22+08:00">2018-05-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>又快到骄阳似火、一年中最热的几个月了，妈妈们外出遛娃，防晒成了必须要考虑的事情，但对于防晒，妈妈们还是会存在很多担心：涂防晒霜，会不会对宝宝皮肤有伤害？戴墨镜，会不会对眼睛有伤害？……</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/baby-sunburn.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/how-to-read-literature.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/how-to-read-literature.html" class="post-title-link" itemprop="url">文献：如何阅读科研文献</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-22 19:42:59" itemprop="dateCreated datePublished" datetime="2018-05-22T19:42:59+08:00">2018-05-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/%E6%96%87%E7%8C%AE/" itemprop="url" rel="index"><span itemprop="name">文献</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>文献分析是科学研究的基础, 是选题的重要依据。</strong>目前, 许多高校学生对如何进行文献研究不得要领。本文结合笔者自己的研究经历和心理学研究的成果,谈些个人看法, 希望对高校学生研究能力的培养有所帮助。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/how-to-read-literature.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
   }
-</script>
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="no-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/Probiotics-for-babies.html" title="宝宝与益生菌">宝宝与益生菌</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-29T05:37:14.000Z" title="发表于 2018-05-29 13:37:14">2018-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">益生菌是什么?
+益生菌是微生物，如细菌或酵母，对你的健康有益。例如，某些类型的微生物就存在于你的肠道内。益生菌也存在于食物中，例如某些种类的酸奶。它们也可以作为膳食补充剂使用，一些婴儿配方甚至添加了益生菌。一些成年人服用益生菌补充剂来帮助消化问题。益生菌可能对婴儿也有好处，例如减轻绞痛和治疗腹泻。但并没有科学证据支持所有支持益生菌的说法。在给你的宝宝服用益生菌补充剂或益生菌强化配方之前，先和你的孩子的医生谈谈，做一些研究。
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+益生菌是如何工作的?
+你的身体拥有数以万亿计的微生物，其中大部分是细菌，它们被统称为你的微生物组。有些类型被认为是有害的，而另一些则是有益的，但理想情况下，它们是相互平衡的。当平衡被扰乱，导致过多的“坏”细菌，它会导致腹泻或其他健康问题。某些疾病会破坏肠道内细菌的平衡。所以可以服用抗生素，它可以消除好的和坏的细菌。身体通常会随着时间的推移恢复平衡。但研究表明，服用益生菌有时可以加速这一过程，并可能预防或减轻某些症状。
+益生菌如何帮助婴儿?
+益生菌可以帮助婴儿
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
+腹泻:有强有力的证据表明某些益生菌可以帮助治疗由感染或抗生素引起的腹泻。一项研究表明，在 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/When-can-my-baby-eat-yogurt?.html" title="宝宝什么时候可以吃酸奶">宝宝什么时候可以吃酸奶</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-29T05:24:16.000Z" title="发表于 2018-05-29 13:24:16">2018-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">大多数婴儿在4到6个月大的时候就可以开始吃酸奶了。酸奶是婴儿早期食物的绝佳选择，因为它含有钙、蛋白质和维生素等营养成分。最好的选择是由全脂牛奶制成的原味、不加糖的巴氏灭菌酸奶(普通或希腊酸奶)。
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
+为什么要用全脂牛奶制成的无糖酸奶呢?
+几乎所有的口味和果味的酸奶，甚至是针对婴儿的产品，都含有添加糖，这可能导致蛀牙和肥胖。选择原味酸奶是避免添加糖分的最简单方法。你怎么知道一个产品是否添加了糖?检查标签上营养信息的含糖量并不一定会有帮助，因为所有的酸奶都含有一些乳糖的天然糖分。
+相反，你需要检查“糖”一词的成分列表，或者其他添加糖的名称:甘蔗晶体，玉米甜味剂，玉米糖浆，葡萄糖，果糖，脱水甘蔗汁，果汁浓缩汁，蜂蜜，葡萄糖，高果糖玉米糖浆，乳糖，麦芽糖，麦芽糖浆，糖蜜和蔗糖。此外，婴儿需要从全脂牛奶中摄取的热量和脂肪。除非他的医生建议，否则不要在2岁之前给孩子提供低脂或无脂肪的酸奶。
+让原味酸奶更好吃?
+你可以通过混合水果或蔬菜来给宝宝的原味酸奶添加味道(和营养)。对于刚接触固体的婴儿，首先要吃的是pureed水果和煮过的蔬菜。对于大一点的婴儿，你可以把软的水果和熟的蔬菜切成小块。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/Age-by-age-guide-to-feeding-your-baby.html" title="Age-by-age guide to feeding your baby">Age-by-age guide to feeding your baby</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-29T05:13:58.000Z" title="发表于 2018-05-29 13:13:58">2018-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">Use this guide to find out what and how much to feed your child in the first year. The amounts are general recommendations only, so don't worry if your little one eats a bit more or less than suggested. It's always a good idea to discuss your plan for starting solids with your child’s doctor before getting started.
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
+Also, you don't have to introduce foods to your child in any special order. If you want to give your baby a taste of tofu at age 6 months, go ahead, even though it's not listed on  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/5-tips-to-develop-healthy-eating-habits.html" title="5 tips to develop healthy eating habits">5 tips to develop healthy eating habits</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-29T05:09:52.000Z" title="发表于 2018-05-29 13:09:52">2018-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">It's never too early to help your child develop healthy eating habits. Discover ways that babies can become healthy and adventurous eaters from the moment they start solids. Learn which foods to load up on and which ones to avoid.
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">ZYMIN</p>
-  <div class="site-description" itemprop="description">分享是一种习惯</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">295</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">146</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
+1. Enjoy healthy fats.
 
+Full-fat dairy products: yogurt, cheese, milk (after 12 months)
+Omega-3 fatty acids: salmon and other fatty fish
+Unsaturated fats: avocados, olive oil
 
+2. Teach your baby to be an adventurous eater. Explore a wide range of flavors:
 
-      </div>
+S ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/Policy-addresses-how-to-help-parents-manage-young-children%E2%80%99s-media-use.html" title="Policy addresses how to help parents manage young children’s media use">Policy addresses how to help parents manage young children’s media use</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-29T04:34:40.000Z" title="发表于 2018-05-29 12:34:40">2018-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">Children are growing up in a world surrounded by media that are portable and instantly accessible. Parents and pediatricians may find it hard to keep up with the vast amount of content and new features constantly being introduced, and this can be anxiety-provoking. But one thing that will never change is that parents and trusted caregivers help children make sense of the world, particularly when things are in flux.
 
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+This is especially crucial in early childhood, according to the new policy sta ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/How%20does%20darling%20drink%20water%20just%20healthy.html" title="宝宝如何喝水才健康">宝宝如何喝水才健康</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-29T03:30:11.000Z" title="发表于 2018-05-29 11:30:11">2018-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">美国儿科学会（AAP）早就建议了，6个月内的宝宝在身体未出现异常情况下，是不需要喂水的。在那之前，即使在炎热的天气里，他也能从母乳或配方奶中得到所需的水分。
 
+为什么给6个月大的婴儿注射水是不安全的?
+给6个月大的婴儿喂食过多的水会干扰他的身体吸收母乳或配方奶中的营养成分的能力。它也会使他的肚子感到饱，这抑制了他的食欲。在极少数情况下，饮用过多水的婴儿会患上水中毒，这可能会引起癫痫甚至昏迷。当过多的水稀释了体内钠的浓度，扰乱了电解质平衡，导致组织膨胀，水中毒就会发生。
+用水稀释配方可以吗?
+宝宝6个月大后，如果你愿意，可以给她少量的白开水。但是因为水不含任何营养或热量，所以不要用水来代替食物，也不要试着用水稀释配方，仔细地按照包装说明来制作配方，并使用推荐量的水。在宝宝的配方中加入过多的水不仅会导致水中毒，还意味着你的宝宝摄入的营养比他需要的要少。 配方奶喂养或混合喂养的宝宝，须严格按照配方奶说明书上的冲调比例加奶粉和安全的水。
+宝宝需要补充多少水？
 
-      </div>
-    </main>
+712个月的宝宝，在不低于600ml奶量的基础上，每天可喂水23次，每天饮水量在50ml左右即可。
+1~3岁的宝宝： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/Florida-Water-and-drunk-driving.html" title="花露水也会导致酒驾">花露水也会导致酒驾</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-29T01:56:13.000Z" title="发表于 2018-05-29 09:56:13">2018-05-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E5%B8%B8%E8%AF%86/">常识</a></span></div><div class="content">男子开车回家途中为了驱蚊在车内喷了些花露水半路被交警拦住竟然查出司机是酒驾！这到底是怎么回事？
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+5月27日武汉一司机在车上接受酒精测试结果显示男子为酒后驾驶，交警多次询问是否喝酒，男子坚称一天都没喝过任何酒，而妻子说车上刚喷了花露水。交警让司机下车后再次检测这时检测数值显示为0。为了让事情水落石出交警立刻用酒精测试仪在车内挥动快速测试，结果数值又一次达到酒驾标准，罪魁祸首真的是花露水。
+为什么会出现这种情况？
+原来，花露水中含有酒精的成分，当男子车内喷洒过花露水后，这时空气中大量的酒精分子就会留在封闭的车内。人呼吸的时候，花露水的酒精含量会被口腔带动进入体内。当司机下车测试时，酒精从空气中迅速挥发，这就是为什么司机两次测出来的结果不一样的原因。
+花露水酒精的浓度一般在70%左右，相当于70度的白酒。所以，当人在喷过花露水后的密闭空间里很容易被测出“酒驾”。不只是喝酒，香水、花露水等刺激性的味道都有可能被认定为酒精含量超标。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/How-to-set-rules-for-children.html" title="犯罪心理学教授：如何给孩子立规矩">犯罪心理学教授：如何给孩子立规矩</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-28T02:20:37.000Z" title="发表于 2018-05-28 10:20:37">2018-05-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E6%95%99%E8%82%B2/">教育</a></span></div><div class="content">我们有句老话叫：小时偷针，大时偷金。说的就是如果小时候养成了坏习惯，大了就会做出更大的坏事。“三岁看老“说的也是这么一个理。孩子小时候的行为习惯，对一生都有非常大的影响，特别是6岁前的习惯。那么，六岁前的孩子应该怎样教育？
 
-        
+我们来看看中国公安大学犯罪心理学教授李玫瑾刷屏演讲里分享的观点，希望能够对你有所启发。李玫瑾教授长期从事犯罪心理和青少年心理问题研究，曾对许多个案进行过详细调查，在她眼里，养育孩子的过程中有一些规律是可以追寻的。
+(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/video/%E4%BA%BA%E6%B0%91%E5%85%AC%E5%AE%89%E5%A4%A7%E5%AD%A6%E6%9D%8E%E7%8E%AB%E7%91%BE%E6% ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/pdz2pdf.html" title="超星pdz格式转成pdf格式">超星pdz格式转成pdf格式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-23T08:53:02.000Z" title="发表于 2018-05-23 16:53:02">2018-05-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">提纲：
 
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+超星阅读器打开pdz文档；
+图书打印成xps格式；
+用解压软件解压上述xps文件，在images文件夹下可以找到jpg格式的文档；
+用福昕编辑器合成pdf；
+用万彩办公软件压缩PDF文件
 
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/baby-sunburn.html" title="育儿：宝宝夏季防晒指南">育儿：宝宝夏季防晒指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-05-22T11:52:22.000Z" title="发表于 2018-05-22 19:52:22">2018-05-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">又快到骄阳似火、一年中最热的几个月了，妈妈们外出遛娃，防晒成了必须要考虑的事情，但对于防晒，妈妈们还是会存在很多担心：涂防晒霜，会不会对宝宝皮肤有伤害？戴墨镜，会不会对眼睛有伤害？……
 
+还有，对于防晒这件事，很多妈妈也会存在很多误区——
 
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
-  </div>
+去海边才需要防晒，平时遛个弯没必要
+不就晒会儿太阳吗，哪那么容易晒伤
+不就晒黑点儿吗，没什么大惊小怪的
 
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+那么，对于夏天的防晒利器：防晒霜、太阳镜、防晒衣、遮阳伞等，对宝宝来说究竟是一种保护还是伤害呢？这就要看妈妈是否选对了产品，用对了方法。
+不重视宝宝防晒到底有多可怕?
+晒黑、晒伤,宝宝皮肤癌的几率翻倍。 英国黑色素瘤援助与防治机构研究表明，恶性黑色素瘤通常都是由于暴晒所导致，这非常严重，那些不及时为孩子们防晒的父母使孩子们患皮肤癌的几率增加了两倍。宝宝皮肤娇嫩，天然的“抗晒防御能力”远不如成人，更容易被晒伤，而童年的晒伤，可能会造成成年后的各种皮肤问题，甚至可能增加患皮肤癌的几率。这绝不是危言耸听！所以，宝宝防晒问题，不容忽视，所有宝妈都要都要给宝宝做好防晒工作！
+怎么才能选到适合宝宝使用的防晒用品
+给宝宝用的东西，尤其 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/20/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/22/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">ZYMIN</div><div class="author-info__description">分享是一种习惯</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/biba.html" title="比巴M11P上传音频到机器的方法">比巴M11P上传音频到机器的方法</a><time datetime="2021-01-30T02:30:06.000Z" title="发表于 2021-01-30 10:30:06">2021-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/markdown-rumen.html" title="markdown快速入门">markdown快速入门</a><time datetime="2020-09-20T06:27:57.000Z" title="发表于 2020-09-20 14:27:57">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/photoshop-qianming.html" title="Photoshop制作电子签名">Photoshop制作电子签名</a><time datetime="2020-09-20T06:24:08.000Z" title="发表于 2020-09-20 14:24:08">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/freefilesync.html" title="Windows离线文件同步和备份-Freefilesync">Windows离线文件同步和备份-Freefilesync</a><time datetime="2020-09-20T05:54:01.000Z" title="发表于 2020-09-20 13:54:01">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/kindle-jiqiao.html" title="Kindle咪咕版使用技巧总结">Kindle咪咕版使用技巧总结</a><time datetime="2020-09-20T01:12:20.000Z" title="发表于 2020-09-20 09:12:20">2020-09-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">62</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%8E%A7%E5%88%B6/"><span class="card-category-list-name">控制</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/"><span class="card-category-list-name">数学</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/"><span class="card-category-list-name">科普</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/"><span class="card-category-list-name">视觉</span><span class="card-category-list-count">11</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%99%E7%A8%8B/"><span class="card-category-list-name">教程</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">61</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/nas/"><span class="card-category-list-name">nas</span><span class="card-category-list-count">8</span></a></li></ul></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories/">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/3D%E6%89%93%E5%8D%B0/" style="font-size: 1.1em; color: #999">3D打印</a> <a href="/tags/3d%E6%89%93%E5%8D%B0/" style="font-size: 1.27em; color: #99a0a9">3d打印</a> <a href="/tags/abaqus/" style="font-size: 1.27em; color: #99a0a9">abaqus</a> <a href="/tags/ansys/" style="font-size: 1.1em; color: #999">ansys</a> <a href="/tags/api/" style="font-size: 1.1em; color: #999">api</a> <a href="/tags/app/" style="font-size: 1.1em; color: #999">app</a> <a href="/tags/citavi/" style="font-size: 1.16em; color: #999b9e">citavi</a> <a href="/tags/ctex/" style="font-size: 1.1em; color: #999">ctex</a> <a href="/tags/discussion/" style="font-size: 1.1em; color: #999">discussion</a> <a href="/tags/diy/" style="font-size: 1.44em; color: #99a7ba">diy</a> <a href="/tags/edem/" style="font-size: 1.16em; color: #999b9e">edem</a> <a href="/tags/ei/" style="font-size: 1.1em; color: #999">ei</a> <a href="/tags/endnote/" style="font-size: 1.1em; color: #999">endnote</a> <a href="/tags/ftp/" style="font-size: 1.1em; color: #999">ftp</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/hausdorff-distance/" style="font-size: 1.1em; color: #999">hausdorff distance</a> <a href="/tags/hexo/" style="font-size: 1.39em; color: #99a4b4">hexo</a> <a href="/tags/horner/" style="font-size: 1.1em; color: #999">horner</a> <a href="/tags/ipv6/" style="font-size: 1.1em; color: #999">ipv6</a> <a href="/tags/j3455/" style="font-size: 1.33em; color: #99a2af">j3455</a> <a href="/tags/kindle/" style="font-size: 1.1em; color: #999">kindle</a> <a href="/tags/kodexplorer/" style="font-size: 1.1em; color: #999">kodexplorer</a> <a href="/tags/latex/" style="font-size: 1.21em; color: #999ea4">latex</a> <a href="/tags/mathematica/" style="font-size: 1.27em; color: #99a0a9">mathematica</a> <a href="/tags/mathtype/" style="font-size: 1.16em; color: #999b9e">mathtype</a> <a href="/tags/matlab/" style="font-size: 1.33em; color: #99a2af">matlab</a> <a href="/tags/nas/" style="font-size: 1.5em; color: #99a9bf">nas</a> <a href="/tags/nextcloud/" style="font-size: 1.21em; color: #999ea4">nextcloud</a> <a href="/tags/office/" style="font-size: 1.16em; color: #999b9e">office</a> <a href="/tags/omv/" style="font-size: 1.27em; color: #99a0a9">omv</a> <a href="/tags/pdf/" style="font-size: 1.1em; color: #999">pdf</a> <a href="/tags/pdz/" style="font-size: 1.1em; color: #999">pdz</a> <a href="/tags/sci-hub/" style="font-size: 1.1em; color: #999">sci-hub</a> <a href="/tags/seafile/" style="font-size: 1.1em; color: #999">seafile</a> <a href="/tags/simulink/" style="font-size: 1.1em; color: #999">simulink</a> <a href="/tags/svd/" style="font-size: 1.1em; color: #999">svd</a> <a href="/tags/win10/" style="font-size: 1.39em; color: #99a4b4">win10</a> <a href="/tags/workbench/" style="font-size: 1.1em; color: #999">workbench</a> <a href="/tags/wps/" style="font-size: 1.1em; color: #999">wps</a> <a href="/tags/%E4%B8%93%E5%88%A9/" style="font-size: 1.21em; color: #999ea4">专利</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/04/"><span class="card-archive-list-date">四月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">三月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives/">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">296</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-30T02:40:40.928Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

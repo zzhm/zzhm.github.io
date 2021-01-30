@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://zymin.cn/arcticle/biba.html</loc>
+        <lastmod>2021-01-30T02:30:06.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zymin.cn/arcticle/h-infinity-principle.html</loc>
         <lastmod>2021-01-20T08:09:02.191Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -2328,14 +2336,6 @@
     </url>
 
     <url>
-        <loc>https://zymin.cn/arcticle/3d-print-simulation.html</loc>
-        <lastmod>2021-01-20T08:09:02.048Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zymin.cn/arcticle/3d-print-materials.html</loc>
         <lastmod>2021-01-20T08:09:02.048Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -2362,6 +2362,14 @@
     <url>
         <loc>https://zymin.cn/arcticle/jijin-2019.html</loc>
         <lastmod>2021-01-20T08:09:02.047Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zymin.cn/arcticle/3d-print-simulation.html</loc>
+        <lastmod>2019-06-01T12:05:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

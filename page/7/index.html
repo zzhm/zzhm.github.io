@@ -1,1284 +1,307 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zymin.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"text":"Load valine","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="分享是一种习惯">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZYMIN - 生活 | 学习 | 科研 | 育儿</title><meta name="keywords" content="知识分享, 生活技能, 科研技巧, 学习资源, 育儿教育, 娱乐资源"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="分享是一种习惯">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZYMIN">
 <meta property="og:url" content="https://zymin.cn/page/7/index.html">
 <meta property="og:site_name" content="ZYMIN">
 <meta property="og:description" content="分享是一种习惯">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zymin.cn/null">
 <meta property="article:author" content="ZYMIN">
-<meta property="article:tag" content="知识分享">
-<meta property="article:tag" content=" 生活技能">
-<meta property="article:tag" content=" 科研技巧">
-<meta property="article:tag" content=" 学习资源">
-<meta property="article:tag" content=" 育儿教育">
-<meta property="article:tag" content=" 娱乐资源">
+<meta property="article:tag" content="知识分享, 生活技能, 科研技巧, 学习资源, 育儿教育, 娱乐资源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zymin.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zymin.cn/page/7/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-175241210-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
 
-<link rel="canonical" href="https://zymin.cn/page/7/">
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-  <title>ZYMIN - 生活 | 学习 | 科研 | 育儿</title>
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-175241210-1');
-      }
-    </script>
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
 
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-01-30 10:40:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ZYMIN</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">生活 | 学习 | 科研 | 育儿</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/edem-particles.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/edem-particles.html" class="post-title-link" itemprop="url">EDEM快速填充颗粒的方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-03-06 16:07:46" itemprop="dateCreated datePublished" datetime="2019-03-06T16:07:46+08:00">2019-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>利用离散元方法做仿真实验的过程中，所用的模型并非都是单一的颗粒体，很多时候要用到颗粒群模型。小体积的模型可以用聚合法将多个颗粒填充在颗粒模板里面，从而组成所需要的非规则模型。然而，大体积的模型通过聚合法逐个布置颗粒位置显然是工作量相当大的一种做法。本文简介两种快速生成颗粒群的方法，以供交流学习。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/edem-particles.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/edem-contact-models.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/edem-contact-models.html" class="post-title-link" itemprop="url">EDEM的接触模型</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-03-06 12:13:49" itemprop="dateCreated datePublished" datetime="2019-03-06T12:13:49+08:00">2019-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol type="1">
-<li><p>Hertz-Mindlin模型。基本的颗粒接触模型，用于常规颗粒的接触作用。</p></li>
-<li><p>Hertz-Mindlin with RVD RollingFriction模型。在基本的Hertz-Mindlin模型基础上调整了滚动摩擦力的计算方式，适于强旋转体系对物料滚动特性有严格要求的问题。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/edem-contact-models.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/force-field-method.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/force-field-method.html" class="post-title-link" itemprop="url">分子力学与分子模拟</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-23 16:07:01" itemprop="dateCreated datePublished" datetime="2019-02-23T16:07:01+08:00">2019-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/" itemprop="url" rel="index"><span itemprop="name">科普</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>分子力学，又叫力场方法（force field method），目前广泛地用于计算分子的构象和能量。分子力学从本质上说上是能量最小值方法，即在原子间相互作用势的作用下, 通过改变粒子分布的几何位型,以能量最小为判据,从而获得体系的最佳结构。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/force-field-method.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/quantum.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/quantum.html" class="post-title-link" itemprop="url">量子力学简单科普</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-23 13:09:31" itemprop="dateCreated datePublished" datetime="2019-02-23T13:09:31+08:00">2019-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/" itemprop="url" rel="index"><span itemprop="name">科普</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>更新中</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/quantum.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/babycare-lists.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/babycare-lists.html" class="post-title-link" itemprop="url">育儿误区清单</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-21 18:42:35" itemprop="dateCreated datePublished" datetime="2019-02-21T18:42:35+08:00">2019-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol type="1">
-<li>宝宝戴小首饰虽萌，但弊大于利：容易误吞首饰配件窒息，还可能出现皮肤过敏。</li>
-<li>我不建议给 1 岁以内的宝宝床上用防撞护垫，它对于防止宝宝撞伤作用微小，反倒很可能导致宝宝被缠住、卡住甚至窒息。</li>
-<li>通常4~6周后，母乳喂养稳定了就能用安抚奶嘴，我也是推荐的，美国儿科学会认为安抚奶嘴可以预防宝宝窒息，而且它确实是解放宝妈的哄娃利器。不过等到1岁时，就该开始逐渐限制安抚奶嘴的使用频次了。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/babycare-lists.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/guaipi.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/guaipi.html" class="post-title-link" itemprop="url">孩子为什么有这些“怪癖”？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-21 18:24:45" itemprop="dateCreated datePublished" datetime="2019-02-21T18:24:45+08:00">2019-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">育儿</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%82%B2%E5%84%BF/%E6%95%99%E8%82%B2/" itemprop="url" rel="index"><span itemprop="name">教育</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我走进卧室，发现我儿子正在床上撅起屁股，小鸡鸡在床单上一直蹭啊蹭的，还满头大汗，他才5岁呀；</p>
-<p>我儿子平常老是摸它的小鸡鸡，捏来捏去，还屡教不改，他才这么大，不会吧？</p>
-<p>女儿睡觉前会在卷起的被子上蹭来蹭去，这是怎么了？</p>
-<p>……</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/guaipi.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/2019-5fu.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/2019-5fu.html" class="post-title-link" itemprop="url">2019年集五福如何每天扫8个福字</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-25 18:29:39" itemprop="dateCreated datePublished" datetime="2019-01-25T18:29:39+08:00">2019-01-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>每天可扫8张福卡，亲测有效。另外说一下今年福卡“彩蛋”很多，支付宝“彩蛋”中包括：全年帮你还花呗；欧洲国家联赛观赛之旅；清空淘宝购物车；淘票票全年观影；蚂蚁森林带你去看树；春节到店付款15天免单；余额宝100万全年体验金。而这些彩蛋都藏在福卡背面-一张五福刮刮卡，刮开有惊喜，你想要的都在里面。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/2019-5fu.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/cv-daniu.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/cv-daniu.html" class="post-title-link" itemprop="url">CV行业一些牛人blog和牛实验室</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-23 17:23:29" itemprop="dateCreated datePublished" datetime="2019-01-23T17:23:29+08:00">2019-01-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">视觉</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以下链接是转载别人整理的关于计算机视觉（ComputerVision, CV）相关领域的网站链接，其中有CV牛人的主页，CV研究小组的主页，CV领域的paper,代码，CV领域的最新动态，国内的应用情况等等。打算从事这个行业或者刚入门的朋友可以多关注这些网站，多了解一些CV的具体应用。搞研究的朋友也可以从中了解到很多牛人的研究动态、招生情况等。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/cv-daniu.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/highroad.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/highroad.html" class="post-title-link" itemprop="url">高速公路安全行车新手必备基础知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-22 18:06:27" itemprop="dateCreated datePublished" datetime="2019-01-22T18:06:27+08:00">2019-01-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="错过出口怎么办">错过出口怎么办</h2>
-<p>千万不要什么停车、掉头、倒车，怎么说，最轻的处罚是扣12分，吊销驾驶执照，这已经是最轻的处罚了。那如果真的就开过了这个路口了，那我们怎么办呢？基本上，就这么几个安全的靠谱的办法。</p>
-<ul>
-<li>开到下一个路口</li>
-<li>服务区下面有隧道可以通往对向车道</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/highroad.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zymin.cn/arcticle/material.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ZYMIN">
-      <meta itemprop="description" content="分享是一种习惯">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZYMIN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/arcticle/material.html" class="post-title-link" itemprop="url">材料的特性及常用材料特性值</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-22 17:18:05" itemprop="dateCreated datePublished" datetime="2019-01-22T17:18:05+08:00">2019-01-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 16:09:02" itemprop="dateModified" datetime="2021-01-20T16:09:02+08:00">2021-01-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>杨氏模量E ：描述材料的应变对单一轴应力，在该应力方向上的反应（比如：拉一根金属丝的末端或者在一根木棍的上方放置一个重物，金属丝会变长、木棍长度会缩短）</p>
-<p>泊松比ν:描述材料在正交与单一轴应力方向上的响应（金属丝变细、木棍变粗）</p>
-<p>体积模量K：描述材料对均匀静水压力的响应（比如：水对海底或深游泳池的压力）</p>
-<p>剪切模量 <em>G :</em> 描述材料对剪应力的响应（比如：用钝的剪刀剪）</p>
-<p>这些模量不是独立的，对于各向同性的材料，它们有等式：<code>2G(1+ν)=E=3K(1-2ν</code></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/arcticle/material.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
   }
-</script>
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="no-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/UU125-fangdao.html" title="优友UU125原车防盗器安装操作流程">优友UU125原车防盗器安装操作流程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-04-17T11:04:29.000Z" title="发表于 2019-04-17 19:04:29">2019-04-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+需要工具
+10 mm 套筒一个，长柄梅花螺丝刀，5mm 内六角一个，扎带或线（可选）
+安装教程
+拆下座箱6颗螺栓
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
+### 找到防盗器预留插头
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
+### 安装防盗器
+插上防盗器，把防盗器电池安装上，黏贴主机和电池，理顺线路
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
+安装后的效果
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">ZYMIN</p>
-  <div class="site-description" itemprop="description">分享是一种习惯</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">295</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">146</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="mailto:admin@zymin.cn" title="E-Mail → mailto:admin@zymin.cn"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
+安装好后，先按遥控器圆圈键解锁，进行启动，每次启动都要按圆圈键。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/edem-particles.html" title="EDEM快速填充颗粒的方法">EDEM快速填充颗粒的方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-03-06T08:07:46.000Z" title="发表于 2019-03-06 16:07:46">2019-03-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">利用离散元方法做仿真实验的过程中，所用的模型并非都是单一的颗粒体，很多时候要用到颗粒群模型。小体积的模型可以用聚合法将多个颗粒填充在颗粒模板里面，从而组成所需要的非规则模型。然而，大体积的模型通过聚合法逐个布置颗粒位置显然是工作量相当大的一种做法。本文简介两种快速生成颗粒群的方法，以供交流学习。
 
+一种利用fluent中udf库文件进行快速填充的方法，这种方法针对结构化网格适用性很强，可以很方便控制颗粒粒径，而对于非结构化网格就相对很尴尬，粒径不好控制。
+一、快速填充模型
+基本思路
 
+建立模型，划分网格。利用网格前处理软件对模型区域划分网格，另存为“.msh”文件。（网格划分软件Gambit、ICEM CFD、Ansys等）
+Fluent加载udf库文件，获取网格坐标信息。将生成的.msh导入fluent，加载udf库文件，编译源文件CalcRadius.c，最后执行CalcRadiusVolume，会在文件夹里面生成point.txt网格坐标文件。
+对网格坐标信息进行编辑，准备颗粒工厂dll文件。将point.txt里面的数据粘贴进Block_Factory_Data ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/edem-contact-models.html" title="EDEM的接触模型">EDEM的接触模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-03-06T04:13:49.000Z" title="发表于 2019-03-06 12:13:49">2019-03-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">
+Hertz-Mindlin模型。基本的颗粒接触模型，用于常规颗粒的接触作用。
+Hertz-Mindlin with RVD RollingFriction模型。在基本的Hertz-Mindlin模型基础上调整了滚动摩擦力的计算方式，适于强旋转体系对物料滚动特性有严格要求的问题。
 
-      </div>
+Hertz-Mindlin with JKR模型，又称JKR Cohesion模型。适用于药粉等粉体颗粒和农作物、矿石、泥土等含湿物料，颗粒间因静电力、含湿水分等原因发生明显粘结和团聚。
+Hertz-Mindlin with bonding模型。用于模拟破碎、断裂等问题，采用小颗粒粘结成大块物料，外力作用下颗粒间粘结力会发生破坏，从而产生破碎及断裂效果。
+Hertz-Mindlin with Heat Conduction模型。带有热传导的基本接触模型，用于要求温度分析的场合，颗粒接触后会因温度差而产生热传导。
+Hysteretic Spring模型。用于颗粒受到较大压力后产生塑性形变的场合，如：注塑充模、压路、捣固等。
+Linear Cohesion模型。传统的颗粒粘结模型，用于一般性粘结 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/force-field-method.html" title="分子力学与分子模拟">分子力学与分子模拟</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-02-23T08:07:01.000Z" title="发表于 2019-02-23 16:07:01">2019-02-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/">科普</a></span></div><div class="content">分子力学，又叫力场方法（force field method），目前广泛地用于计算分子的构象和能量。分子力学从本质上说上是能量最小值方法，即在原子间相互作用势的作用下, 通过改变粒子分布的几何位型,以能量最小为判据,从而获得体系的最佳结构。
 
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+分子力学
+分子力学的基本思想
+在分子内部，化学键都有“自然”的键长值和键角值。分子要调整它的几何形状（构象），以使其键长值和键角值尽可能接近自然值，同时也使非键作用（van der Waals力）处于最小的状态，给出原子核位置的最佳排布。
+分子力学的基本假设
+原子核的运动与电子的运动可以看成是独立的
 
+分子是一组靠各种作用力维系在一起的原子集合。这些原子在空间上若过于靠近，便相互排斥；但又不能远离，否则连接它们的化学键以及由这些键构成的键角等会发生变化，即出现键的拉伸或压缩、键角的扭变等，会引起分子内部应力的增加。每个真实的分子结构，都是在上述几种作用达到平衡状态的表现。
 
-      </div>
-    </main>
+分子力学与量子化学计算的区别
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+分子力学是一种经验方法，其力场是在大量的实验数据的基础上产生的。分子力学宜用于对大分子进行构象分析、研究与空间效应密切 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/quantum.html" title="量子力学简单科普">量子力学简单科普</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-02-23T05:09:31.000Z" title="发表于 2019-02-23 13:09:31">2019-02-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/">科普</a></span></div><div class="content">更新中
 
-        
+量子究竟是个什么东东？
+量子的对应英文是Quantum，英文释义为：a discrete quantity of energy proportional in magnitude to the frequency of the radiation it represents.翻译成中文：一个表征辐射能量的离散量，大小与辐射频率成比例。量子在日文中也写作“量子”，即书写相同发音不同，由于众所周知的原因，推测：“量子”这个中文词汇是直接使用的日文，配上了中文发音。日语中，量子解释为能量子，一粒一粒的能量，一份一份的能量，也就是离散的能量。
+从量子的定义，我们可以有这样一些推论：
+（1）因为辐射频率是离散量，所以辐射能量也是离散量。
+（2）还是因为离散量的原因，某个确定的辐射能量，即频率一定，细分到只有一份，也就是量子，再往后就不能再细分了，换句话说，量子是特定辐射的最小能量单元。
+（3）量子这个最小的能量单元，有许多不同的取值，分别对应于不同的频率，不同的辐射。例如：可见光就是一种辐射，红光有自己的量子，就叫红量子吧，红光由大量的红量子组成，这个红量子不能再细分了， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/babycare-lists.html" title="育儿误区清单">育儿误区清单</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-02-21T10:42:35.000Z" title="发表于 2019-02-21 18:42:35">2019-02-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E5%81%A5%E5%BA%B7/">健康</a></span></div><div class="content">
+宝宝戴小首饰虽萌，但弊大于利：容易误吞首饰配件窒息，还可能出现皮肤过敏。
+我不建议给 1 岁以内的宝宝床上用防撞护垫，它对于防止宝宝撞伤作用微小，反倒很可能导致宝宝被缠住、卡住甚至窒息。
+通常4~6周后，母乳喂养稳定了就能用安抚奶嘴，我也是推荐的，美国儿科学会认为安抚奶嘴可以预防宝宝窒息，而且它确实是解放宝妈的哄娃利器。不过等到1岁时，就该开始逐渐限制安抚奶嘴的使用频次了。 
+如果宝宝可以灵活自如地翻身、坐立，而且睡觉时喜欢头枕着某些东西，就可以考虑给宝宝用上枕头了，而绝大多数孩子都是在1岁后开始使用枕头。
+枕秃≠缺钙，作为儿科医生，跪求别乱补。
+同理，看到小宝宝头发稀、黄，便以为是缺钙、缺营养。其实宝宝什么都不缺，只是家长缺耐心。 &gt; 枕秃是正常的生理性脱发，出牙晚是因为遗传，手上长倒刺是角质层脱落，稀黄的头发2岁以后也会浓密起来……这些和营养元素都没有什么直接关系。只要宝宝身体发育正常，就啥都不用补，就算要补，也首先考虑食补。 &gt; 早在2013年，微量元素检测就已经被国家卫计委叫停了！因为微量元素检测很困难，医院里抽血测的结果都不见得靠谱。母婴店里那种夹一 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/guaipi.html" title="孩子为什么有这些“怪癖”？">孩子为什么有这些“怪癖”？</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-02-21T10:24:45.000Z" title="发表于 2019-02-21 18:24:45">2019-02-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/">育儿</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E8%82%B2%E5%84%BF/%E6%95%99%E8%82%B2/">教育</a></span></div><div class="content">我走进卧室，发现我儿子正在床上撅起屁股，小鸡鸡在床单上一直蹭啊蹭的，还满头大汗，他才5岁呀；
+我儿子平常老是摸它的小鸡鸡，捏来捏去，还屡教不改，他才这么大，不会吧？
+女儿睡觉前会在卷起的被子上蹭来蹭去，这是怎么了？
+……
 
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZYMIN</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+孩子的这些行为，看起来好像都和性沾了一点关系。孩子在本不应该出现的年龄段出现了这种“成人性行为”，这让很多家长困惑不已，再加上部分家长对性教育知识的缺乏，觉着这事是肮脏的，不好的，几乎会出于本能的去阻止孩子。
+但其实强制的干涉根本不起作用。孩子的这些行为绝不会凭空出现，但无奈家长不懂读心术，看不到孩子心里到底在想什么，反而上来就是一顿打骂、强行制止，那结果必然不会如家长所愿。与其急着解决问题，倒不如先来弄清楚宝宝这样做的原因。
+孩子为什么有这些“怪癖”？
+只是想认识一下“他是谁”
+男宝宝喜欢摸自己的小鸡鸡，女宝宝会看自己的私处，很可能是他们想好好研究一下自己的身体。这和他们探索自己的手脚、鼻子、嘴巴是一样，只不过那个部位是生殖器而已。生殖器这个部位有个特点是，神经很丰富。孩子触摸这些神经后有的性感觉，他会觉得很舒服。因为舒服，所以他会很频繁的去摸。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/2019-5fu.html" title="2019年集五福如何每天扫8个福字">2019年集五福如何每天扫8个福字</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-01-25T10:29:39.000Z" title="发表于 2019-01-25 18:29:39">2019-01-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">每天可扫8张福卡，亲测有效。另外说一下今年福卡“彩蛋”很多，支付宝“彩蛋”中包括：全年帮你还花呗；欧洲国家联赛观赛之旅；清空淘宝购物车；淘票票全年观影；蚂蚁森林带你去看树；春节到店付款15天免单；余额宝100万全年体验金。而这些彩蛋都藏在福卡背面-一张五福刮刮卡，刮开有惊喜，你想要的都在里面。
 
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+支付宝AR扫任意福字得2张
 
+支付宝进入蚂蚁森林“福气林”参与全民浇水
+有机会获得福卡，可以得两张。
+上面这个2个步奏的福卡，属于最基本的4张,市面上的上都知道,下面还有4张，很少人知道！！
+此外还有4张，分别是扫可乐，扫移动，扫KFC，扫年货
+支付宝AR扫可乐：
+没出福 重复扫 没出福 重复扫 没出福 重复扫
 
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1274310462&web_id=1274310462"></script>
-  </div>
+支付宝AR移动：
 
+支付宝ARKFC：
 
+淘宝APP扫年货
+方法：淘宝app，搜索：集五福，进去扫就完事（需最新版淘宝app）
 
+沾福气卡
 
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/cv-daniu.html" title="CV行业一些牛人blog和牛实验室">CV行业一些牛人blog和牛实验室</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-01-23T09:23:29.000Z" title="发表于 2019-01-23 17:23:29">2019-01-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/">视觉</a></span></div><div class="content">以下链接是转载别人整理的关于计算机视觉（ComputerVision, CV）相关领域的网站链接，其中有CV牛人的主页，CV研究小组的主页，CV领域的paper,代码，CV领域的最新动态，国内的应用情况等等。打算从事这个行业或者刚入门的朋友可以多关注这些网站，多了解一些CV的具体应用。搞研究的朋友也可以从中了解到很多牛人的研究动态、招生情况等。
 
 
-  
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+googleResearch； http://research.google.com/index.html
+MIT博士，汤晓欧学生林达华； http://people.csail.mit.edu/dhlin/index.html
+MIT博士后Douglas Lanman； http://web.media.mit.edu/~dlanman/
+opencv中文网站； http://www.opencv.org.cn/index.php/%E9%A6%96%E9%A1%B5
+Stanford大学vision实验室； http://vision.stanford.edu/research.html
+Stanford大学博士崔靖宇； ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/arcticle/highroad.html" title="高速公路安全行车新手必备基础知识">高速公路安全行车新手必备基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-01-22T10:06:27.000Z" title="发表于 2019-01-22 18:06:27">2019-01-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">错过出口怎么办
+千万不要什么停车、掉头、倒车，怎么说，最轻的处罚是扣12分，吊销驾驶执照，这已经是最轻的处罚了。那如果真的就开过了这个路口了，那我们怎么办呢？基本上，就这么几个安全的靠谱的办法。
+
+开到下一个路口
+服务区下面有隧道可以通往对向车道
 
 
+测速摄像头
+测速种类
 
+卡口测速
+流动测速
+区间测速
 
-  
-<script src="/js/local-search.js"></script>
+常见位置
 
+隧道口
+山区死角弯道
+高速间的交通枢纽
+长下坡路段
 
+高速通行卡掉了怎么办？
+总的来说，就是做个登记，赔个卡的工本费70块钱，不便宜，过路费是可以查监控的，查出来跑多远，算出这个费用蛮简单。
+高速路上爆胎了怎么办？
+常见爆胎原因
 
+车速过高
+胎压过高或过低都容易爆胎
+要按汽车铭牌上的标准打气
 
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+应该是看看自己车子的铭牌，一般都在正驾驶或者副驾驶的门框附近，或者左侧仪表台边上，或者说油箱盖背面，这三个地方，一般有一个地方你是找得到的。铭牌上面的胎压是冷车胎压，就好比你早上刚爬起来的时候看到的胎压，或者行驶距离低于两公里的时候测的胎压，冷车胎压。
+高速公路上，如何正确换胎？
+高速换胎算不算违章，主要看停车的时候有 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">ZYMIN</div><div class="author-info__description">分享是一种习惯</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/biba.html" title="比巴M11P上传音频到机器的方法">比巴M11P上传音频到机器的方法</a><time datetime="2021-01-30T02:30:06.000Z" title="发表于 2021-01-30 10:30:06">2021-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/markdown-rumen.html" title="markdown快速入门">markdown快速入门</a><time datetime="2020-09-20T06:27:57.000Z" title="发表于 2020-09-20 14:27:57">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/photoshop-qianming.html" title="Photoshop制作电子签名">Photoshop制作电子签名</a><time datetime="2020-09-20T06:24:08.000Z" title="发表于 2020-09-20 14:24:08">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/freefilesync.html" title="Windows离线文件同步和备份-Freefilesync">Windows离线文件同步和备份-Freefilesync</a><time datetime="2020-09-20T05:54:01.000Z" title="发表于 2020-09-20 13:54:01">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/kindle-jiqiao.html" title="Kindle咪咕版使用技巧总结">Kindle咪咕版使用技巧总结</a><time datetime="2020-09-20T01:12:20.000Z" title="发表于 2020-09-20 09:12:20">2020-09-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">62</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%8E%A7%E5%88%B6/"><span class="card-category-list-name">控制</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/"><span class="card-category-list-name">数学</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%A7%91%E6%99%AE/"><span class="card-category-list-name">科普</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/"><span class="card-category-list-name">视觉</span><span class="card-category-list-count">11</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%99%E7%A8%8B/"><span class="card-category-list-name">教程</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">61</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/nas/"><span class="card-category-list-name">nas</span><span class="card-category-list-count">8</span></a></li></ul></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories/">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/3D%E6%89%93%E5%8D%B0/" style="font-size: 1.1em; color: #999">3D打印</a> <a href="/tags/3d%E6%89%93%E5%8D%B0/" style="font-size: 1.27em; color: #99a0a9">3d打印</a> <a href="/tags/abaqus/" style="font-size: 1.27em; color: #99a0a9">abaqus</a> <a href="/tags/ansys/" style="font-size: 1.1em; color: #999">ansys</a> <a href="/tags/api/" style="font-size: 1.1em; color: #999">api</a> <a href="/tags/app/" style="font-size: 1.1em; color: #999">app</a> <a href="/tags/citavi/" style="font-size: 1.16em; color: #999b9e">citavi</a> <a href="/tags/ctex/" style="font-size: 1.1em; color: #999">ctex</a> <a href="/tags/discussion/" style="font-size: 1.1em; color: #999">discussion</a> <a href="/tags/diy/" style="font-size: 1.44em; color: #99a7ba">diy</a> <a href="/tags/edem/" style="font-size: 1.16em; color: #999b9e">edem</a> <a href="/tags/ei/" style="font-size: 1.1em; color: #999">ei</a> <a href="/tags/endnote/" style="font-size: 1.1em; color: #999">endnote</a> <a href="/tags/ftp/" style="font-size: 1.1em; color: #999">ftp</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/hausdorff-distance/" style="font-size: 1.1em; color: #999">hausdorff distance</a> <a href="/tags/hexo/" style="font-size: 1.39em; color: #99a4b4">hexo</a> <a href="/tags/horner/" style="font-size: 1.1em; color: #999">horner</a> <a href="/tags/ipv6/" style="font-size: 1.1em; color: #999">ipv6</a> <a href="/tags/j3455/" style="font-size: 1.33em; color: #99a2af">j3455</a> <a href="/tags/kindle/" style="font-size: 1.1em; color: #999">kindle</a> <a href="/tags/kodexplorer/" style="font-size: 1.1em; color: #999">kodexplorer</a> <a href="/tags/latex/" style="font-size: 1.21em; color: #999ea4">latex</a> <a href="/tags/mathematica/" style="font-size: 1.27em; color: #99a0a9">mathematica</a> <a href="/tags/mathtype/" style="font-size: 1.16em; color: #999b9e">mathtype</a> <a href="/tags/matlab/" style="font-size: 1.33em; color: #99a2af">matlab</a> <a href="/tags/nas/" style="font-size: 1.5em; color: #99a9bf">nas</a> <a href="/tags/nextcloud/" style="font-size: 1.21em; color: #999ea4">nextcloud</a> <a href="/tags/office/" style="font-size: 1.16em; color: #999b9e">office</a> <a href="/tags/omv/" style="font-size: 1.27em; color: #99a0a9">omv</a> <a href="/tags/pdf/" style="font-size: 1.1em; color: #999">pdf</a> <a href="/tags/pdz/" style="font-size: 1.1em; color: #999">pdz</a> <a href="/tags/sci-hub/" style="font-size: 1.1em; color: #999">sci-hub</a> <a href="/tags/seafile/" style="font-size: 1.1em; color: #999">seafile</a> <a href="/tags/simulink/" style="font-size: 1.1em; color: #999">simulink</a> <a href="/tags/svd/" style="font-size: 1.1em; color: #999">svd</a> <a href="/tags/win10/" style="font-size: 1.39em; color: #99a4b4">win10</a> <a href="/tags/workbench/" style="font-size: 1.1em; color: #999">workbench</a> <a href="/tags/wps/" style="font-size: 1.1em; color: #999">wps</a> <a href="/tags/%E4%B8%93%E5%88%A9/" style="font-size: 1.21em; color: #999ea4">专利</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/04/"><span class="card-archive-list-date">四月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">三月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives/">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">296</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-30T02:40:40.928Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
