@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
   })
 
   function search (path) {
-    fetch(https://cdn.jsdelivr.net/gh/zzhm/zzhm.github.io@master/search.xml)
+    fetch(‘https://cdn.jsdelivr.net/gh/zzhm/zzhm.github.io@master/search.xml’)
       .then(response => response.text())
       .then(str => new window.DOMParser().parseFromString(str, 'text/xml'))
       .then(data => {
