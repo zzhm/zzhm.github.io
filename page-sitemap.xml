@@ -8,29 +8,29 @@
     </url>
     
     <url>
-        <loc>https://zymin.cn/tags/</loc>
-        <lastmod>2021-01-20T08:09:02.196Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://zymin.cn/schedule/</loc>
-        <lastmod>2021-01-20T08:09:02.195Z</lastmod>
+        <loc>https://zymin.cn/about/</loc>
+        <lastmod>2019-09-25T04:22:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://zymin.cn/categories/</loc>
-        <lastmod>2021-01-20T08:09:02.194Z</lastmod>
+        <lastmod>2019-09-24T14:29:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://zymin.cn/about/</loc>
-        <lastmod>2021-01-20T08:09:02.192Z</lastmod>
+        <loc>https://zymin.cn/schedule/</loc>
+        <lastmod>2019-09-24T14:29:05.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zymin.cn/tags/</loc>
+        <lastmod>2019-09-24T14:28:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
