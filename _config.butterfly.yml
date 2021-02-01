@@ -79,7 +79,7 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/favicon.png
 
 # Avatar (頭像)
 avatar:
