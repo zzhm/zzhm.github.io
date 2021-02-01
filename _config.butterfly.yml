@@ -83,7 +83,7 @@ favicon: /img/favicon.png
 
 # Avatar (頭像)
 avatar:
-  img:
+  img: https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png
   effect: false
 
 # The banner image of home page
@@ -898,7 +898,8 @@ CDN:
   mermaid: https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
 
   # count
-  busuanzi: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+  #busuanzi: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+  busuanzi:https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js
 
   # background effect
   canvas_ribbon: https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js
