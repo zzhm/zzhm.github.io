@@ -108,14 +108,14 @@
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
+        <loc>https://zymin.cn/tags/hexo/</loc>
         <lastmod>2020-03-30T03:52:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/hexo/</loc>
+        <loc>https://zymin.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
         <lastmod>2020-03-30T03:52:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -192,14 +192,14 @@
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/%E5%85%AC%E5%BC%8F/</loc>
+        <loc>https://zymin.cn/tags/mathtype/</loc>
         <lastmod>2019-09-29T14:21:51.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/mathtype/</loc>
+        <loc>https://zymin.cn/tags/%E5%85%AC%E5%BC%8F/</loc>
         <lastmod>2019-09-29T14:21:51.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

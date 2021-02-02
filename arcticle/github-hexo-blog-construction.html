@@ -1,19 +1,19 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Github+Hexo搭建个人博客实操教程 | ZYMIN</title><meta name="keywords" content="hexo,博客,github"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="准备工作安装软件需要安装的软件有Node.js、Git、Pandoc、Typora、Word2Md 搭建环境在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“Git Bash Here”，打开命令窗口，输入命令。  安装hexo，npm install hexo-cli -g，输入hexo -v，检查hexo是否安装成功  初始化，hexo init  安">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Github+Hexo搭建个人博客实操教程 | ZYMIN</title><meta name="keywords" content="博客,github,hexo"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="准备工作 安装软件 需要安装的软件有Node.js、Git、Pandoc、Typora、Word2Md 搭建环境 在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“Git Bash Here”，打开命令窗口，输入命令。  安装hexo，npm install hexo-cli -g，输入hexo -v，检查hexo是否安装成功 初始化，hex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github+Hexo搭建个人博客实操教程">
 <meta property="og:url" content="https://zymin.cn/arcticle/github-hexo-blog-construction.html">
 <meta property="og:site_name" content="ZYMIN">
-<meta property="og:description" content="准备工作安装软件需要安装的软件有Node.js、Git、Pandoc、Typora、Word2Md 搭建环境在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“Git Bash Here”，打开命令窗口，输入命令。  安装hexo，npm install hexo-cli -g，输入hexo -v，检查hexo是否安装成功  初始化，hexo init  安">
+<meta property="og:description" content="准备工作 安装软件 需要安装的软件有Node.js、Git、Pandoc、Typora、Word2Md 搭建环境 在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“Git Bash Here”，打开命令窗口，输入命令。  安装hexo，npm install hexo-cli -g，输入hexo -v，检查hexo是否安装成功 初始化，hex">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg">
 <meta property="article:published_time" content="2018-04-27T12:00:08.000Z">
 <meta property="article:modified_time" content="2018-04-27T12:00:08.000Z">
 <meta property="article:author" content="ZYMIN">
-<meta property="article:tag" content="hexo">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="github">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zymin.cn/arcticle/github-hexo-blog-construction"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/favicon.png"><link rel="canonical" href="https://zymin.cn/arcticle/github-hexo-blog-construction"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
@@ -24,7 +24,7 @@
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-175241210-1');
-</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>var GLOBAL_CONFIG = { 
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -65,50 +65,7 @@ gtag('config', 'UA-175241210-1');
   isPhotoFigcaption: false,
   islazyload: false,
   isanchor: false
-};
-
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}
-
-// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
-const getScript = url => new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.onerror = reject
-  script.onload = script.onreadystatechange = function() {
-    const loadState = this.readyState
-    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-    script.onload = script.onreadystatechange = null
-    resolve()
-  }
-  document.head.appendChild(script)
-})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
@@ -126,156 +83,167 @@ const getScript = url => new Promise((resolve, reject) => {
   #post-meta time {
     display: inline !important
   }
-</style></noscript><script>(function () {  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-   if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
         const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }const asideStatus = saveToLocal.get('aside-status')
-if (asideStatus !== undefined) {
-   if (asideStatus === 'hide') {
-     document.documentElement.classList.add('hide-aside')
-   } else {
-     document.documentElement.classList.remove('hide-aside')
-   }
-}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Github+Hexo搭建个人博客实操教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-04-27T12:00:08.000Z" title="发表于 2018-04-27 20:00:08">2018-04-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-04-27T12:00:08.000Z" title="更新于 2018-04-27 20:00:08">2018-04-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/%E7%BD%91%E7%AB%99/">网站</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><p>需要安装的软件有<a target="_blank" rel="noopener" href="https://nodejs.org/en/"><strong>Node.js</strong></a>、<a target="_blank" rel="noopener" href="https://git-scm.com/downloads"><strong>Git</strong></a>、<a target="_blank" rel="noopener" href="http://www.softpedia.com/get/Programming/Other-Programming-Files/Pandoc.shtml"><strong>Pandoc</strong></a>、<a target="_blank" rel="noopener" href="https://www.typora.io/#windows"><strong>Typora</strong></a>、<a target="_blank" rel="noopener" href="http://www.writage.com/"><strong>Word2Md</strong></a></p>
-<h3 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h3><p>在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“<code>Git Bash Here</code>”，打开命令窗口，输入命令。</p>
-<ul>
-<li><p>安装hexo，<code>npm install hexo-cli -g</code>，输入<code>hexo -v</code>，检查hexo是否安装成功</p>
-</li>
-<li><p>初始化，<code>hexo init</code></p>
-</li>
-<li><p>安装依赖组件，<code>npm install</code></p>
-</li>
-<li><p>安装编译器，<code>npm install hexo-deployer-git --save</code></p>
-</li>
-<li><p>本地查看</p>
-</li>
-</ul>
-<p>输入<code>hexo g</code>编译文件，输入<code>hexo s</code>，开启服务器，访问该网址，本地体验Hexo（<a target="_blank" rel="noopener" href="http://localhost:4000/%EF%BC%89%EF%BC%8C%E5%81%87%E5%A6%82%E9%A1%B5%E9%9D%A2%E4%B8%80%E7%9B%B4%E6%97%A0%E6%B3%95%E8%B7%B3%E8%BD%AC%EF%BC%8C%E9%82%A3%E4%B9%88%E5%8F%AF%E8%83%BD%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E4%BA%86%E3%80%82%E6%AD%A4%E6%97%B6%E6%88%91%E4%BB%ACctrl+c%E5%81%9C%E6%AD%A2%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E6%8E%A5%E7%9D%80%E8%BE%93%E5%85%A5%E2%80%9C%60hexo">http://localhost:4000/），假如页面一直无法跳转，那么可能端口被占用了。此时我们ctrl+c停止服务器，接着输入“`hexo</a> server -p 端口号<code>”来改变端口号，比如5000 （</code>hexo s -p 5000`）</p>
-<!--- more --->
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<h2 id="连接Github"><a href="#连接Github" class="headerlink" title="连接Github"></a>连接Github</h2><h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p>注册Github账户，并新建项目（repository），项目必须要遵守格式：<strong>账户名.github.io</strong>，不然接下来会有很多麻烦。并且需要勾选<strong>Initialize this repository with a README</strong>。</p>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Github+Hexo搭建个人博客实操教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-04-27T12:00:08.000Z" title="发表于 2018-04-27 20:00:08">2018-04-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-04-27T12:00:08.000Z" title="更新于 2018-04-27 20:00:08">2018-04-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/%E7%BD%91%E7%AB%99/">网站</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="准备工作">准备工作</h2>
+<h3 id="安装软件">安装软件</h3>
+<p>需要安装的软件有<a target="_blank" rel="noopener" href="https://nodejs.org/en/"><strong>Node.js</strong></a>、<a target="_blank" rel="noopener" href="https://git-scm.com/downloads"><strong>Git</strong></a>、<a target="_blank" rel="noopener" href="http://www.softpedia.com/get/Programming/Other-Programming-Files/Pandoc.shtml"><strong>Pandoc</strong></a>、<a target="_blank" rel="noopener" href="https://www.typora.io/#windows"><strong>Typora</strong></a>、<a target="_blank" rel="noopener" href="http://www.writage.com/"><strong>Word2Md</strong></a></p>
+<h3 id="搭建环境">搭建环境</h3>
+<p>在电脑上找一个存放网站的地方，新建文件夹，以hexo为例，在hexo文件加上鼠标右键，选择“<code>Git Bash Here</code>”，打开命令窗口，输入命令。</p>
+<ul>
+<li><p>安装hexo，<code>npm install hexo-cli -g</code>，输入<code>hexo -v</code>，检查hexo是否安装成功</p></li>
+<li><p>初始化，<code>hexo init</code></p></li>
+<li><p>安装依赖组件，<code>npm install</code></p></li>
+<li><p>安装编译器，<code>npm install hexo-deployer-git --save</code></p></li>
+<li><p>本地查看</p></li>
+</ul>
+<p>输入<code>hexo g</code>编译文件，输入<code>hexo s</code>，开启服务器，访问该网址，本地体验Hexo（http://localhost:4000/），假如页面一直无法跳转，那么可能端口被占用了。此时我们ctrl+c停止服务器，接着输入“<code>hexo server -p 端口号</code>”来改变端口号，比如5000 （<code>hexo s -p 5000</code>）</p>
+<!--- more --->
+<h2 id="连接github">连接Github</h2>
+<h3 id="配置github">配置Github</h3>
+<p>注册Github账户，并新建项目（repository），项目必须要遵守格式：<strong>账户名.github.io</strong>，不然接下来会有很多麻烦。并且需要勾选<strong>Initialize this repository with a README</strong>。</p>
 <p>在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub Pages，你会看到那边有个网址，访问它，你将会惊奇的发现该项目已经被部署到网络上，能够通过外网来访问它。</p>
-<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><ul>
+<h3 id="配置ssh">配置SSH</h3>
+<ul>
 <li><p>设置Git的user name和email（如果是第一次的话）,这里“xujun”可以替换成自己的用户名，邮箱可以替换成自己的邮箱</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xujun&quot;</span><br><span class="line">git config --global user.email &quot;gdutxiaoxu@163.com&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>输入<code>ssh-keygen -t rsa -C “929762930@qq.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）。</p>
-</li>
-<li><p>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>，添加密钥到ssh-agent</p>
-</li>
-<li><p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p>
-</li>
-<li><p>登录Github，点击头像下的settings，添加ssh（新建一个new ssh key，将id_rsa.pub文件里的内容复制上去）</p>
-</li>
-<li><p>输入<code>ssh -T git@github.com</code>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
-</li>
+<li><p>输入<code>ssh-keygen -t rsa -C “929762930@qq.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）。</p></li>
+<li><p>输入<code>eval "$(ssh-agent -s)"</code>，添加密钥到ssh-agent</p></li>
+<li><p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p></li>
+<li><p>登录Github，点击头像下的settings，添加ssh（新建一个new ssh key，将id_rsa.pub文件里的内容复制上去）</p></li>
+<li><p>输入<code>ssh -T git@github.com</code>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p></li>
 </ul>
-<h3 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h3><ul>
+<h3 id="配置deployment">配置Deployment</h3>
+<ul>
 <li><p>在hexo文件夹中，找到_config.yml文件，修改repo值（在末尾）</p>
-<p>repo值是你在github项目里的ssh（右下角）</p>
-</li>
+<p>repo值是你在github项目里的ssh（右下角）</p></li>
 </ul>
-<h3 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h3><ul>
+<h3 id="测试文章">测试文章</h3>
+<ul>
 <li>新建一篇博客，执行命令：<code>hexo new post “博客名”</code>。这时候在文件夹_posts目录下将会看到已经创建的文件。</li>
 <li>使用编辑器编好文章。</li>
 <li>使用命令：<code>hexo d -g</code>，生成以及部署。</li>
 <li>部署成功后访问你的地址：<code>http://用户名.github.io</code>。</li>
 </ul>
-<h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>安装NexT，在其文件夹中鼠标右键，点击Git Base Here。输入命令：</p>
+<h2 id="主题安装">主题安装</h2>
+<h3 id="安装主题">安装主题</h3>
+<p>安装NexT，在其文件夹中鼠标右键，点击Git Base Here。输入命令：</p>
 <p><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">更多主题</a></p>
-<h3 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h3><p>启用主题，在站点目录中（blog），打开配置文件_config.yml，修改theme：next</p>
-<h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><ul>
-<li><p>更换主题样式，在next主题目录下的_config.yml文件中将scheme设定为Pisces</p>
-</li>
-<li><p>语言设定，在<strong>站点根目录下</strong>修改配置文件_cofig.yml中的language为zh-Hans（简体中文）</p>
-</li>
+<h3 id="启用主题">启用主题</h3>
+<p>启用主题，在站点目录中（blog），打开配置文件_config.yml，修改theme：next</p>
+<h3 id="主题设置">主题设置</h3>
+<ul>
+<li><p>更换主题样式，在next主题目录下的_config.yml文件中将scheme设定为Pisces</p></li>
+<li><p>语言设定，在<strong>站点根目录下</strong>修改配置文件_cofig.yml中的language为zh-Hans（简体中文）</p></li>
 <li><p>修改菜单项，在<strong>主题目录下</strong>修改配置文件_cofig.yml中的menu，增添一个something（注：千万不要在这设置中文，后面的值那是查找文件的地方！若你的站点运行在子目录中，请将链接前缀的 <code>/</code> 去掉）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022141652959-1002921163.png"></p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022141652959-1002921163.png" /></p>
 <p>这些配置都要与你主题目录下的languages文件中对应的yml文档里配置相关联。比如你在站点根目录中的配置文件设置language为zh-Hans，那么就要进入到主题目录下的languages文件中修改zh-Hans.yml，这样才能显示出菜单项新增的中文内容（以something为例子）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022113026318-265709135.png"></p>
-</li>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022113026318-265709135.png" /></p></li>
 <li><p>设置菜单项图标，对应的字段是menu_icons。格式为item name：icon name，其中item name与所配置的菜单名字对应，icon name是Font Awesome图标的名字。而 enable 可用于控制是否显示图标，你可以设置成 false 来去掉图标。（本机出问题，无法显示icon，还未解决，求指导）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022172514318-965544980.png"></p>
-</li>
-<li><p>设置侧栏位置，修改主题目录下sidebar的position值</p>
-</li>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022172514318-965544980.png" /></p></li>
+<li><p>设置侧栏位置，修改主题目录下sidebar的position值</p></li>
 <li><p>设置头像，在站点根目录下载配置文件中新增avatar，值设置为头像的链接地址。地址可以是网络地址，也可以是本地地址（放置在source/images/ 目录下）</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022131752974-1304180995.png"></p>
-</li>
-<li><p>设置文章代码主题，在主题目录下修改配置文件highlight_theme，默认值为nomal。可以设置为night</p>
-</li>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022131752974-1304180995.png" /></p></li>
+<li><p>设置文章代码主题，在主题目录下修改配置文件highlight_theme，默认值为nomal。可以设置为night</p></li>
 <li><p>添加标签页面，前面通过修改next主题下的<code>_config.yml</code>文件中的menu选项，可以在主页面的菜单栏添加标签选项，但是此时点击标签，跳转的页面会显示page not found。此时我们要新建一个页面<code>hexo new page tags</code></p>
-<p>在新建的index.md文件中添加type: “tags”</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022134821896-1919728091.png"></p>
+<p>在新建的index.md文件中添加type: "tags"</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022134821896-1919728091.png" /></p>
 <p>当要为某一篇文章添加标签，只需在b<code>log/source/_post</code>目录下的具体文章的tags中添加标签即可，如：</p>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022135128006-180948588.png"></p>
-</li>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022135128006-180948588.png" /></p></li>
 <li><p>添加关于我页面，步骤和以上差不多<code>hexo new page about</code></p>
-<p>在新建的index.md文件中添加如下内容</p>
-</li>
+<p>在新建的index.md文件中添加如下内容</p></li>
 </ul>
-<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022153607990-455892762.png"></p>
-<h2 id="公式渲染"><a href="#公式渲染" class="headerlink" title="公式渲染"></a>公式渲染</h2><p>Hexo 默认选用是 Markdown 渲染引擎是 <a target="_blank" rel="noopener" href="https://github.com/chjj/marked">marked</a> (<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>)。除了默认的 marked，目前在 Hexo 上已有的其它比较好且还在维护的 Markdown 渲染引擎也就有 <a target="_blank" rel="noopener" href="https://github.com/celsomiranda/hexo-renderer-markdown-it">hexo-renderer-markdown-it</a> 和 <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a>，其中前者 markdown-it 支持 <a target="_blank" rel="noopener" href="http://commonmark.org/"><code>CommonMark</code></a> 标准，后者则支持 <a target="_blank" rel="noopener" href="http://pandoc.org/"><code>Pandoc</code></a>。</p>
+<p><img src="http://img.shihuidaren.cn/blog/1108615-20171022153607990-455892762.png" /></p>
+<h2 id="公式渲染">公式渲染</h2>
+<p>Hexo 默认选用是 Markdown 渲染引擎是 <a target="_blank" rel="noopener" href="https://github.com/chjj/marked">marked</a> (<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>)。除了默认的 marked，目前在 Hexo 上已有的其它比较好且还在维护的 Markdown 渲染引擎也就有 <a target="_blank" rel="noopener" href="https://github.com/celsomiranda/hexo-renderer-markdown-it">hexo-renderer-markdown-it</a> 和 <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a>，其中前者 markdown-it 支持 <a target="_blank" rel="noopener" href="http://commonmark.org/"><code>CommonMark</code></a> 标准，后者则支持 <a target="_blank" rel="noopener" href="http://pandoc.org/"><code>Pandoc</code></a>。</p>
 <p>写公式的话可以试下 MathJax 吧，MathJax 渲染器在 Hexo 上的实现也有的。具体自行谷歌：<a target="_blank" rel="noopener" href="https://www.google.com/?q=Hexo+MathJax">Hexo MathJax</a>。</p>
 <p>如何使用别的 Markdown 渲染引擎。先安装Pandoc，然后把 hexo 里 <code>package.json</code> 的 Markdown 渲染器依赖换掉，比如 <code>hexo-renderer-marked</code> 换成 <code>hexo-renderer-pandoc</code>。然后重新编译一下文件就可以了。</p>
-<h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><p>当然，你不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。</p>
+<h2 id="域名绑定">域名绑定</h2>
+<p>当然，你不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。</p>
 <p>首先你要注册一个域名，域名注册以前总是推荐去<code>godaddy</code>，现在觉得其实国内的阿里云也挺不错的，价格也不贵，毕竟是大公司，放心！</p>
 <p>绑定域名分2种情况：带www和不带www的。</p>
 <p>域名配置最常见有2种方式，CNAME和A记录，CNAME填写域名，A记录填写IP，由于不带www方式只能采用A记录，所以必须先ping一下<code>你的用户名.github.io</code>的IP，然后到你的域名DNS设置页，将A记录指向你ping出来的IP，将CNAME指向<code>你的用户名.github.io</code>，这样可以保证无论是否添加www都可以访问，如下：</p>
-<p><img src="http://img.shihuidaren.cn/blog/20160823_191336_238_8683.png"></p>
+<p><img src="http://img.shihuidaren.cn/blog/20160823_191336_238_8683.png" /></p>
 <p>然后到你的github项目根目录新建一个名为CNAME的文件（无后缀），里面填写你的域名，加不加www看你自己喜好，因为经测试：</p>
 <ul>
 <li>如果你填写的是没有www的，比如 mygit.me，那么无论是访问 <a target="_blank" rel="noopener" href="http://www.mygit.me/">http://www.mygit.me</a> 还是 <a target="_blank" rel="noopener" href="http://mygit.me/">http://mygit.me</a> ，都会自动跳转到 <a target="_blank" rel="noopener" href="http://mygit.me/">http://mygit.me</a></li>
-<li>如果你填写的是带www的，比如 <a target="_blank" rel="noopener" href="http://www.mygit.me/">www.mygit.me</a> ，那么无论是访问 <a target="_blank" rel="noopener" href="http://www.mygit.me/">http://www.mygit.me</a> 还是 <a target="_blank" rel="noopener" href="http://mygit.me/">http://mygit.me</a> ，都会自动跳转到 <a target="_blank" rel="noopener" href="http://www.mygit.me/">http://www.mygit.me</a></li>
+<li>如果你填写的是带www的，比如 www.mygit.me ，那么无论是访问 <a target="_blank" rel="noopener" href="http://www.mygit.me/">http://www.mygit.me</a> 还是 <a target="_blank" rel="noopener" href="http://mygit.me/">http://mygit.me</a> ，都会自动跳转到 <a target="_blank" rel="noopener" href="http://www.mygit.me/">http://www.mygit.me</a></li>
 <li>如果你填写的是其它子域名，比如 abc.mygit.me，那么访问 <a target="_blank" rel="noopener" href="http://abc.mygit.me/">http://abc.mygit.me</a> 没问题，但是访问 <a target="_blank" rel="noopener" href="http://mygit.me/">http://mygit.me</a> ，不会自动跳转到 <a target="_blank" rel="noopener" href="http://abc.mygit.me/">http://abc.mygit.me</a></li>
 </ul>
 <p>另外说一句，在你绑定了新域名之后，原来的<code>你的用户名.github.io</code>并没有失效，而是会自动跳转到你的新域名。</p>
-<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>一般来说，URL只能使用英文和数字和一些标点符号表示。这是因为网络标准RFC 1738 做了硬性规定。虽然在Hexo中引用<code>:title</code>可以显示中文的网址，但是复制粘贴到记事本会发现得到的是一大串百分号之类的“乱码”（其实这并不是乱码，而是中文被转码成十六进制编码的结果），看起来不怎么好看。</p>
+<h2 id="永久链接">永久链接</h2>
+<p>一般来说，URL只能使用英文和数字和一些标点符号表示。这是因为网络标准RFC 1738 做了硬性规定。虽然在Hexo中引用<code>:title</code>可以显示中文的网址，但是复制粘贴到记事本会发现得到的是一大串百分号之类的“乱码”（其实这并不是乱码，而是中文被转码成十六进制编码的结果），看起来不怎么好看。</p>
 <p><strong>在permalink中使用文章id替代“:title”</strong></p>
 <p>在官方文档<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/permalinks.html">永久链接（Permalinks） | Hexo</a>一章中有这样一段描述：</p>
-<p><img src="http://img.shihuidaren.cn/blog/5069493.jpg"></p>
+<p><img src="http://img.shihuidaren.cn/blog/5069493.jpg" /></p>
 <p><code>permalink</code>的变量就这几个，其中<strong>文章id</strong>这个变量非常有用。</p>
 <p>我们可以在博客根目录的配置文件（<code>_config.yml</code>）中这样修改：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title # 这是原配置</span><br><span class="line">permalink: :year&#x2F;:id.html # 替换为此新配置12</span><br></pre></td></tr></table></figure>
@@ -283,14 +251,44 @@ if (asideStatus !== undefined) {
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">id: </span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">updated: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">permalink: </span><br><span class="line">---123456789</span><br></pre></td></tr></table></figure>
 <p>在我们的具体文章中，你可以使用<strong>任意字符串</strong>作为此文章的id，例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 如何让你的Hexo博客网址使用全英文路径</span><br><span class="line">id: 123456789-abcd</span><br><span class="line">date: 2017-12-30 20:57:46</span><br><span class="line">updated: 2017-12-30</span><br><span class="line">categories: 后台01 文档管理</span><br><span class="line">tags:</span><br><span class="line">permalink:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h3 id="清理Git缓存"><a href="#清理Git缓存" class="headerlink" title="清理Git缓存"></a>清理Git缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#清空git缓存</span><br><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;update&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="清理git缓存">清理Git缓存</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#清空git缓存</span><br><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;update&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="参考文章">参考文章</h3>
+<p>[1] http://blog.haoji.me/build-blog-website-by-hexo-github.html</p>
+<p>[2] http://www.cnblogs.com/fengxiongZz/p/7707568.html</p>
+<p>[3] https://www.cnblogs.com/fengxiongZz/p/7707219.html</p>
+<p>[4] http://theme-next.iissnan.com/third-party-services.html</p>
+<p>[5] https://hexo.io/zh-cn/docs/index.html</p>
+<p>[6] https://www.cnblogs.com/MuYunyun/p/5927491.html</p>
+<p>[7] https://blog.csdn.net/likianta/article/details/79343427</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ZYMIN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zymin.cn/arcticle/github-hexo-blog-construction.html">https://zymin.cn/arcticle/github-hexo-blog-construction.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zymin.cn" target="_blank">ZYMIN</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a><a class="post-meta__tags" href="/tags/github/">github</a><a class="post-meta__tags" href="/tags/hexo/">hexo</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/arcticle/HistCite-paper-ansys.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">HistCite文献分析软件使用教程</div></div></a></div><div class="next-post pull-right"><a href="/arcticle/svd.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">奇异值分解漫谈（SVD）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/arcticle/hexo-vps.html" title="Hexo与阿里云虚拟主机搭建博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-08</div><div class="title">Hexo与阿里云虚拟主机搭建博客</div></div></a></div><div><a href="/arcticle/picgo.html" title="Typora+PicGo+腾讯COS实现图片自动上传到图床"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-30</div><div class="title">Typora+PicGo+腾讯COS实现图片自动上传到图床</div></div></a></div><div><a href="/arcticle/hexo+ejs+material.html" title="hexo+ejs+material x 添加CNZZ统计代码"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-17</div><div class="title">hexo+ejs+material x 添加CNZZ统计代码</div></div></a></div><div><a href="/arcticle/hexo-commands.html" title="hexo常用命令笔记及使用技巧"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-11-29</div><div class="title">hexo常用命令笔记及使用技巧</div></div></a></div><div><a href="/arcticle/hexo-baidu-submits.html" title="hexo提交内容到百度和熊掌号"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-08</div><div class="title">hexo提交内容到百度和熊掌号</div></div></a></div><div><a href="/arcticle/hexo-multi-pc.html" title="hexo多电脑同步管理一个博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-05-30</div><div class="title">hexo多电脑同步管理一个博客</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="toc-number">1.2.</span> <span class="toc-text">搭建环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5github"><span class="toc-number">2.</span> <span class="toc-text">连接Github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEgithub"><span class="toc-number">2.1.</span> <span class="toc-text">配置Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEssh"><span class="toc-number">2.2.</span> <span class="toc-text">配置SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEdeployment"><span class="toc-number">2.3.</span> <span class="toc-text">配置Deployment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0"><span class="toc-number">2.4.</span> <span class="toc-text">测试文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">主题安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98"><span class="toc-number">3.1.</span> <span class="toc-text">安装主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E4%B8%BB%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">启用主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">主题设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93"><span class="toc-number">4.</span> <span class="toc-text">公式渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A"><span class="toc-number">5.</span> <span class="toc-text">域名绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5"><span class="toc-number">6.</span> <span class="toc-text">永久链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%90%86git%E7%BC%93%E5%AD%98"><span class="toc-number">6.1.</span> <span class="toc-text">清理Git缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">6.2.</span> <span class="toc-text">参考文章</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/biba.html" title="比巴M11P上传音频到机器的方法">比巴M11P上传音频到机器的方法</a><time datetime="2021-01-30T02:30:06.000Z" title="发表于 2021-01-30 10:30:06">2021-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/markdown-rumen.html" title="markdown快速入门">markdown快速入门</a><time datetime="2020-09-20T06:27:57.000Z" title="发表于 2020-09-20 14:27:57">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/photoshop-qianming.html" title="Photoshop制作电子签名">Photoshop制作电子签名</a><time datetime="2020-09-20T06:24:08.000Z" title="发表于 2020-09-20 14:24:08">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/freefilesync.html" title="Windows离线文件同步和备份-Freefilesync">Windows离线文件同步和备份-Freefilesync</a><time datetime="2020-09-20T05:54:01.000Z" title="发表于 2020-09-20 13:54:01">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/kindle-jiqiao.html" title="Kindle咪咕版使用技巧总结">Kindle咪咕版使用技巧总结</a><time datetime="2020-09-20T01:12:20.000Z" title="发表于 2020-09-20 09:12:20">2020-09-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian3.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    let initData = {
+      el: '#waline-wrap',
+      serverURL: 'https://waline-f9d1yxoxc.vercel.app/',
+      avatar: 'monsterid',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const waline = new Waline(initData)
+  }
 
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
 
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>[1] <a target="_blank" rel="noopener" href="http://blog.haoji.me/build-blog-website-by-hexo-github.html">http://blog.haoji.me/build-blog-website-by-hexo-github.html</a></p>
-<p>[2] <a target="_blank" rel="noopener" href="http://www.cnblogs.com/fengxiongZz/p/7707568.html">http://www.cnblogs.com/fengxiongZz/p/7707568.html</a></p>
-<p>[3] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/fengxiongZz/p/7707219.html">https://www.cnblogs.com/fengxiongZz/p/7707219.html</a></p>
-<p>[4] <a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/third-party-services.html">http://theme-next.iissnan.com/third-party-services.html</a></p>
-<p>[5] <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">https://hexo.io/zh-cn/docs/index.html</a></p>
-<p>[6] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/MuYunyun/p/5927491.html">https://www.cnblogs.com/MuYunyun/p/5927491.html</a></p>
-<p>[7] <a target="_blank" rel="noopener" href="https://blog.csdn.net/likianta/article/details/79343427">https://blog.csdn.net/likianta/article/details/79343427</a></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ZYMIN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zymin.cn/arcticle/github-hexo-blog-construction.html">https://zymin.cn/arcticle/github-hexo-blog-construction.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zymin.cn" target="_blank">ZYMIN</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a><a class="post-meta__tags" href="/tags/github/">github</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/arcticle/HistCite-paper-ansys.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">HistCite文献分析软件使用教程</div></div></a></div><div class="next-post pull-right"><a href="/arcticle/svd.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">奇异值分解漫谈（SVD）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/arcticle/hexo-vps.html" title="Hexo与阿里云虚拟主机搭建博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-08</div><div class="title">Hexo与阿里云虚拟主机搭建博客</div></div></a></div><div><a href="/arcticle/picgo.html" title="Typora+PicGo+腾讯COS实现图片自动上传到图床"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-30</div><div class="title">Typora+PicGo+腾讯COS实现图片自动上传到图床</div></div></a></div><div><a href="/arcticle/hexo+ejs+material.html" title="hexo+ejs+material x 添加CNZZ统计代码"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-17</div><div class="title">hexo+ejs+material x 添加CNZZ统计代码</div></div></a></div><div><a href="/arcticle/hexo-commands.html" title="hexo常用命令笔记及使用技巧"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-11-29</div><div class="title">hexo常用命令笔记及使用技巧</div></div></a></div><div><a href="/arcticle/hexo-baidu-submits.html" title="hexo提交内容到百度和熊掌号"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-08</div><div class="title">hexo提交内容到百度和熊掌号</div></div></a></div><div><a href="/arcticle/hexo-multi-pc.html" title="hexo多电脑同步管理一个博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-05-30</div><div class="title">hexo多电脑同步管理一个博客</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="toc-number">1.2.</span> <span class="toc-text">搭建环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5Github"><span class="toc-number">2.</span> <span class="toc-text">连接Github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGithub"><span class="toc-number">2.1.</span> <span class="toc-text">配置Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH"><span class="toc-number">2.2.</span> <span class="toc-text">配置SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEDeployment"><span class="toc-number">2.3.</span> <span class="toc-text">配置Deployment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0"><span class="toc-number">2.4.</span> <span class="toc-text">测试文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">主题安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98"><span class="toc-number">3.1.</span> <span class="toc-text">安装主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E4%B8%BB%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">启用主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">主题设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93"><span class="toc-number">4.</span> <span class="toc-text">公式渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A"><span class="toc-number">5.</span> <span class="toc-text">域名绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5"><span class="toc-number">6.</span> <span class="toc-text">永久链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%90%86Git%E7%BC%93%E5%AD%98"><span class="toc-number">6.1.</span> <span class="toc-text">清理Git缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">6.2.</span> <span class="toc-text">参考文章</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/biba.html" title="比巴M11P上传音频到机器的方法">比巴M11P上传音频到机器的方法</a><time datetime="2021-01-30T02:30:06.000Z" title="发表于 2021-01-30 10:30:06">2021-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/markdown-rumen.html" title="markdown快速入门">markdown快速入门</a><time datetime="2020-09-20T06:27:57.000Z" title="发表于 2020-09-20 14:27:57">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/photoshop-qianming.html" title="Photoshop制作电子签名">Photoshop制作电子签名</a><time datetime="2020-09-20T06:24:08.000Z" title="发表于 2020-09-20 14:24:08">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/freefilesync.html" title="Windows离线文件同步和备份-Freefilesync">Windows离线文件同步和备份-Freefilesync</a><time datetime="2020-09-20T05:54:01.000Z" title="发表于 2020-09-20 13:54:01">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/kindle-jiqiao.html" title="Kindle咪咕版使用技巧总结">Kindle咪咕版使用技巧总结</a><time datetime="2020-09-20T01:12:20.000Z" title="发表于 2020-09-20 09:12:20">2020-09-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian3.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js"></script></div></div></body></html>
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script async data-pjax src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多相机阵列综述 | ZYMIN</title><meta name="keywords" content="科普,学习,科研,视觉"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="最近实验室在搞基于微透镜阵列的光场相机，很时髦的玩意，可以先拍照然后对焦，可以说重新定义了摄影，但很可惜，国外已经研究的比较成熟了，基本理论，也就是光场技术，在1996年由斯坦福的Marc Levoy等人提出，采集光场的手段主要有两种，一种是通过微透镜阵列，这样不但能记录光线的强度信息，还能记录光线的角度信息，另外一种是通过相机阵列技术。前者已经由RenNG成功商业化成Lytro光场相机，后者嘛，">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多相机阵列综述 | ZYMIN</title><meta name="keywords" content="科普,学习,科研,视觉"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最近实验室在搞基于微透镜阵列的光场相机，很时髦的玩意，可以先拍照然后对焦，可以说重新定义了摄影，但很可惜，国外已经研究的比较成熟了，基本理论，也就是光场技术，在1996年由斯坦福的Marc Levoy等人提出，采集光场的手段主要有两种，一种是通过微透镜阵列，这样不但能记录光线的强度信息，还能记录光线的角度信息，另外一种是通过相机阵列技术。前者已经由RenNG成功商业化成Lytro光场相机，后者嘛，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多相机阵列综述">
 <meta property="og:url" content="https://zymin.cn/arcticle/camera-arrays.html">
@@ -14,7 +14,7 @@
 <meta property="article:tag" content="科研">
 <meta property="article:tag" content="视觉">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zymin.cn/arcticle/camera-arrays"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/favicon.png"><link rel="canonical" href="https://zymin.cn/arcticle/camera-arrays"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
@@ -25,7 +25,7 @@
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-175241210-1');
-</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>var GLOBAL_CONFIG = { 
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -66,50 +66,7 @@ gtag('config', 'UA-175241210-1');
   isPhotoFigcaption: false,
   islazyload: false,
   isanchor: false
-};
-
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}
-
-// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
-const getScript = url => new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.onerror = reject
-  script.onload = script.onreadystatechange = function() {
-    const loadState = this.readyState
-    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-    script.onload = script.onreadystatechange = null
-    resolve()
-  }
-  document.head.appendChild(script)
-})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
@@ -127,78 +84,94 @@ const getScript = url => new Promise((resolve, reject) => {
   #post-meta time {
     display: inline !important
   }
-</style></noscript><script>(function () {  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-   if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
         const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }const asideStatus = saveToLocal.get('aside-status')
-if (asideStatus !== undefined) {
-   if (asideStatus === 'hide') {
-     document.documentElement.classList.add('hide-aside')
-   } else {
-     document.documentElement.classList.remove('hide-aside')
-   }
-}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">多相机阵列综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-05-15T08:55:32.000Z" title="发表于 2019-05-15 16:55:32">2019-05-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-05-15T08:55:32.000Z" title="更新于 2019-05-15 16:55:32">2019-05-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/">视觉</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>最近实验室在搞基于微透镜阵列的<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/5979448.htm?fr=aladdin">光场相机</a>，很时髦的玩意，可以先拍照然后对焦，可以说重新定义了摄影，但很可惜，国外已经研究的比较成熟了，基本理论，也就是光场技术，在1996年由斯坦福的<a target="_blank" rel="noopener" href="http://graphics.stanford.edu/~levoy/">Marc Levoy</a>等人提出，采集光场的手段主要有两种，一种是通过微透镜阵列，这样不但能记录光线的强度信息，还能记录光线的角度信息，另外一种是通过相机阵列技术。前者已经由RenNG成功商业化成<a target="_blank" rel="noopener" href="https://www.lytro.com/">Lytro光场相机</a>，后者嘛，还停留在实验室阶段→_→，不过由相机阵列引发出的合成口径成像技术，很是牛逼，号称能看清楚被遮挡物体的表面，于是呢，我就调研了一下多相机阵列的国内外研究的情况。下面的这些内容基本上是我写给老板的调研报告，为了便于大家理解，我放了很多图，但毕竟是综述类的报告，有点文绉绉的说教语气，木有办法，凑合着看呗~</p>
-<!---more--->
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">多相机阵列综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-05-15T08:55:32.000Z" title="发表于 2019-05-15 16:55:32">2019-05-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-05-15T08:55:32.000Z" title="更新于 2019-05-15 16:55:32">2019-05-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%A7%86%E8%A7%89/">视觉</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>最近实验室在搞基于微透镜阵列的<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/5979448.htm?fr=aladdin">光场相机</a>，很时髦的玩意，可以先拍照然后对焦，可以说重新定义了摄影，但很可惜，国外已经研究的比较成熟了，基本理论，也就是光场技术，在1996年由斯坦福的<a target="_blank" rel="noopener" href="http://graphics.stanford.edu/~levoy/">Marc Levoy</a>等人提出，采集光场的手段主要有两种，一种是通过微透镜阵列，这样不但能记录光线的强度信息，还能记录光线的角度信息，另外一种是通过相机阵列技术。前者已经由RenNG成功商业化成<a target="_blank" rel="noopener" href="https://www.lytro.com/">Lytro光场相机</a>，后者嘛，还停留在实验室阶段→_→，不过由相机阵列引发出的合成口径成像技术，很是牛逼，号称能看清楚被遮挡物体的表面，于是呢，我就调研了一下多相机阵列的国内外研究的情况。下面的这些内容基本上是我写给老板的调研报告，为了便于大家理解，我放了很多图，但毕竟是综述类的报告，有点文绉绉的说教语气，木有办法，凑合着看呗~</p>
+<!---more--->
 <p><strong>我看相机阵列</strong></p>
 <p>多相机阵列（Camera Arrays）利用不同空间位置的多个相机来采集不同视角的照片。斯坦福大学的Bennett Wilburn等人[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">1]</a>用廉价的相机搭建一个高性能的相机阵列（图1）。这个系统使用常规的MPEG视频压缩标准以及IEEE1394通信标准，使得100台CMOS相机协同工作，而所有相机所产生的数据仅需要4台普通的PC处理即可。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912363971.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912363971.png" /></p>
 <p>多相机阵列各子相机之间的距离不同，整个相机阵列就有不同的用途。当所有的子相机之间的距离比较小时，也就是相机紧挨着放在一起，这时整个相机阵列可以看作一个单中心投影相机（Single-Center-of-Projection Camera）。这时整个相机阵列可以用来产生超分辨率、高信噪比、高动态范围的照片。从图3中可以看到，通过对不同子相机采用不同的曝光时间，我们得到了比所有相机都采用相同曝光时间（图2）更加广的动态范围[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">1]</a>。另外，当监控相机在夜晚工作时，由于光线不足，相机往往需要使用大光圈，然后大光圈带来的一个弊端是使图片的景深急剧减小，而相机阵列可以克服大光圈带来景深小的问题[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">2]</a>（图4-图6）。</p>
-<p> <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912347260.png">      </p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912347260.png" /></p>
 <p>当所有的子相机之间的距离都很大时，这时整个相机阵列可以看成是一个多中心投影相机（Multiple-Center-of-Projection Camera），整个相机阵列所产生的数据就叫做光场，通过这些数据，我们可以得到物体的多视角信息，为其3D重建提供重要信息。除此之外，可以利用图片中的多视角信息，构建全景照片[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">3</a>,<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">4]</a>，如图7所示。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912390488.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912390488.png" /></p>
 <p>当所有的子相机之间的距离处于中等尺度时，这时整个相机阵列可以看作是一个拥有合成孔径（Synthetic Aperture）的相机：每个子相机作为一个子部分进行采样，多个相机的组合可以等效为一个具有更大光圈数的大孔径相机。这个相机能透过树枝或者人群看到其后面被遮挡物体的表面[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">5]</a>。在火车站等人流密集的地方，这项技术可以用来跟踪定位可疑的犯罪分子[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">6]</a>。图8是用普通的相机拍的照片，在这些树枝后面有一个雕像，在雕像后面后一些人，用普通相机无法透过树枝看到其后面的物体，而合成孔径的相机可以做到（图9）。在人群密集的场所，被跟踪的物体容易被遮挡，用合成孔径相机进行数字重对焦，能使前景的人群被严重的虚化，从而可以轻松透过人群监控其一举一动（图10-图11）。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912458976.png">      </p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912458976.png" /></p>
 <p>当被监控的物体所在的平面与相机阵列所在的平面不平行时，用合成孔径相机去监控物体，可能会导致计算量过大以及被监控物体不同部分不能同时清晰呈现的问题，幸运的是，Vaibhav Vaish等人[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">6]</a>发现，当不同对焦平面交于一条直线的时候（图14），可以完美的解决这个问题（图12-图15）。Vaibhav Vaish等人[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">7]</a>针对多视角的特点设计了多种重构图像的算法，分别基于对焦（Focus）特征、中值（Median）特征、立体（stereo）特征、熵（Entropy）特征、立体像素着色（Voxel Coloring）特征（图16-图22），周志良博士根据广场强度在遮拦物所对应的空间位置和投影方向上具有强相似性和小方差的特性[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">8]</a>，进一步提高了重构算法的性能（图23）。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912481384.png"></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912514482.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912481384.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912514482.png" /></p>
 <p>当然，当被遮挡物体被严重遮挡的时候，由于每个子相机采集的信息太少，所以最终得不到理想的被遮挡物体的表面，为了解决这个问题，结合现有的成熟的城市监控系统，Tao Yang等人[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">9]</a>提出了一种新型的实时混合合成口径成像监控技术，它由两组相机阵列组成，一组从上而下监控，主要负责合成口径追踪，另外一组由一组横向排列的相机组成，主要负责合成口径成像（图24）。用这种方法，即使在物体被严重遮挡的情况下，仍然能依靠前一组的相机进行目标追踪。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912529760.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912529760.png" /></p>
 <p>此外，整个相机阵列可以划分成多个子阵列，通过对不同子阵列设置不同的曝光时间，可以实现时间和空间上的孔径合成，从而用来解决低光环境下小光圈拍高速运动物体导致的模糊问题[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html#reference">1]</a>。如图25所示，用小光圈长时间曝光的方法得到的图片虽然景深大，但是风扇的叶片由于长时间曝光而模糊了，如果通过缩短快门时间，叶片清晰的代价是整张图片曝光不足（图26），虽然可以通过调整对比度的方式来增强图片（图27），但是同时也产生噪点，另一方面，通过大光圈的方法拍摄（图28），又会使景深太小，导致背景物体不清晰，所以，如何确定光圈大小、曝光时间以及快门时间等参数是件很困难的事，幸运的是，采用相机阵列的混合型合成口径成像（Hybrid Synthetic Aperture Imaging），通过等效口径尺寸和曝光时间的控制，能够获得大景深且高速运动部分清晰的高信噪比图像（图29）。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912546459.png"></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912562584.png"> </p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912546459.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1557912562584.png" /></p>
 <p>综上所述，相机阵列通过利用不同视角的信息，以及更加广阔的视场范围，使其在合成孔径成像技术的焦点选择以及景深调节上有着先天的优势，同时，其高可拓展性以及低成本的优势，非常适合景物的识别以及追踪，已成为隐藏目标的检测与追踪的重要手段。</p>
 <p><strong>写在最后</strong></p>
 <p>总体来说，多相机阵列技术，在国外，斯坦福大学<a target="_blank" rel="noopener" href="http://graphics.stanford.edu/projects/array/">做的工作</a>比较多，很前沿的东西都是那边出来的。国内的话，西北工业大学，对，自己的母校，<a target="_blank" rel="noopener" href="http://www.saiip-vision.org/tyang/index.html">做的还是不错</a>。作为博士生课题的话，还是很适合的，新方向，容易出文章。可惜我对它不是太感兴趣，所以跟老板商量了一下，换了一个方向，主要是偏向工程的，我感觉这样才能发挥出我的优势，嘿嘿，希望能给有志在此方向发展的朋友点启发哈，发论文了，求挂名，O(∩_∩)O哈哈~</p>
@@ -206,11 +179,41 @@ if (asideStatus !== undefined) {
 <p>[1] Wilburn, B., et al. <em>High performance imaging using large camera arrays</em>. in <em>ACM Transactions on Graphics (TOG)</em>. 2005. ACM.</p>
 <p>[2] Haeberli, P., <em>A multifocus method for controlling depth of field.</em> 1994.</p>
 <p>[3] Román, A. and H.P. Lensch. <em>Automatic multiperspective images</em>. in <em>Proceedings of the 17th Eurographics conference on Rendering Techniques</em>. 2006. Eurographics Association.</p>
-<p>[4] Roman, A., G. Garg, and M. Levoy. <em>Interactive design of multi-perspective images for visualizing urban landscapes</em>. in <em>Proceedings of the conference on Visualization’04</em>. 2004. IEEE Computer Society.</p>
+<p>[4] Roman, A., G. Garg, and M. Levoy. <em>Interactive design of multi-perspective images for visualizing urban landscapes</em>. in <em>Proceedings of the conference on Visualization'04</em>. 2004. IEEE Computer Society.</p>
 <p>[5] Vaish, V., et al. <em>Using plane+ parallax for calibrating dense camera arrays</em>. in <em>Computer Vision and Pattern Recognition, 2004. CVPR 2004. Proceedings of the 2004 IEEE Computer Society Conference on</em>. 2004. IEEE.</p>
 <p>[6] Vaish, V., et al. <em>Synthetic aperture focusing using a shear-warp factorization of the viewing transform</em>. in <em>Computer Vision and Pattern Recognition-Workshops, 2005. CVPR Workshops. IEEE Computer Society Conference on</em>. 2005. IEEE.</p>
 <p>[7] Vaish, V., et al. <em>Reconstructing occluded surfaces using synthetic apertures: Stereo, focus and robust measures</em>. in <em>Computer Vision and Pattern Recognition, 2006 IEEE Computer Society Conference on</em>. 2006. IEEE.</p>
 <p>[8] 周志良, <em>光场成像技术研究</em>. 2012, 中国科学技术大学.</p>
 <p>[9] Yang, T., et al. <em>Continuously tracking and see-through occlusion based on a new hybrid synthetic aperture imaging model</em>. in <em>Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference on</em>. 2011. IEEE.</p>
-<p>原文转自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderyuhui/p/3745778.html">https://www.cnblogs.com/coderyuhui/p/3745778.html</a></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ZYMIN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zymin.cn/arcticle/camera-arrays.html">https://zymin.cn/arcticle/camera-arrays.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zymin.cn" target="_blank">ZYMIN</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%91%E6%99%AE/">科普</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/%E7%A7%91%E7%A0%94/">科研</a><a class="post-meta__tags" href="/tags/%E8%A7%86%E8%A7%89/">视觉</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/arcticle/3d-print-simulation.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">3D打印仿真软件</div></div></a></div><div class="next-post pull-right"><a href="/arcticle/super-resolution-optical-microscopy.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">超分辨率光学成像</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/arcticle/super-resolution-optical-microscopy.html" title="超分辨率光学成像"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-05-15</div><div class="title">超分辨率光学成像</div></div></a></div><div><a href="/arcticle/3d-print-simulation.html" title="3D打印仿真软件"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-01</div><div class="title">3D打印仿真软件</div></div></a></div><div><a href="/arcticle/3d-print-materials.html" title="3D打印材料"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-01</div><div class="title">3D打印材料</div></div></a></div><div><a href="/arcticle/mask-aligner-system.html" title="光刻机技术原理与发展趋势"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-03</div><div class="title">光刻机技术原理与发展趋势</div></div></a></div><div><a href="/arcticle/3d-print-tech.html" title="常见3D打印技术"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-01</div><div class="title">常见3D打印技术</div></div></a></div><div><a href="/arcticle/nondestructive-testing-of-new-materials.html" title="科研：新材料无损检测技术"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-05-04</div><div class="title">科研：新材料无损检测技术</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/biba.html" title="比巴M11P上传音频到机器的方法">比巴M11P上传音频到机器的方法</a><time datetime="2021-01-30T02:30:06.000Z" title="发表于 2021-01-30 10:30:06">2021-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/markdown-rumen.html" title="markdown快速入门">markdown快速入门</a><time datetime="2020-09-20T06:27:57.000Z" title="发表于 2020-09-20 14:27:57">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/photoshop-qianming.html" title="Photoshop制作电子签名">Photoshop制作电子签名</a><time datetime="2020-09-20T06:24:08.000Z" title="发表于 2020-09-20 14:24:08">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/freefilesync.html" title="Windows离线文件同步和备份-Freefilesync">Windows离线文件同步和备份-Freefilesync</a><time datetime="2020-09-20T05:54:01.000Z" title="发表于 2020-09-20 13:54:01">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/kindle-jiqiao.html" title="Kindle咪咕版使用技巧总结">Kindle咪咕版使用技巧总结</a><time datetime="2020-09-20T01:12:20.000Z" title="发表于 2020-09-20 09:12:20">2020-09-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian3.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js"></script></div></div></body></html>
+<p>原文转自：https://www.cnblogs.com/coderyuhui/p/3745778.html</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ZYMIN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zymin.cn/arcticle/camera-arrays.html">https://zymin.cn/arcticle/camera-arrays.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zymin.cn" target="_blank">ZYMIN</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%91%E6%99%AE/">科普</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/%E7%A7%91%E7%A0%94/">科研</a><a class="post-meta__tags" href="/tags/%E8%A7%86%E8%A7%89/">视觉</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/arcticle/3d-print-simulation.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">3D打印仿真软件</div></div></a></div><div class="next-post pull-right"><a href="/arcticle/super-resolution-optical-microscopy.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">超分辨率光学成像</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/arcticle/super-resolution-optical-microscopy.html" title="超分辨率光学成像"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-05-15</div><div class="title">超分辨率光学成像</div></div></a></div><div><a href="/arcticle/3d-print-simulation.html" title="3D打印仿真软件"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-01</div><div class="title">3D打印仿真软件</div></div></a></div><div><a href="/arcticle/3d-print-materials.html" title="3D打印材料"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-01</div><div class="title">3D打印材料</div></div></a></div><div><a href="/arcticle/mask-aligner-system.html" title="光刻机技术原理与发展趋势"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-03</div><div class="title">光刻机技术原理与发展趋势</div></div></a></div><div><a href="/arcticle/3d-print-tech.html" title="常见3D打印技术"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-01</div><div class="title">常见3D打印技术</div></div></a></div><div><a href="/arcticle/nondestructive-testing-of-new-materials.html" title="科研：新材料无损检测技术"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-05-04</div><div class="title">科研：新材料无损检测技术</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/biba.html" title="比巴M11P上传音频到机器的方法">比巴M11P上传音频到机器的方法</a><time datetime="2021-01-30T02:30:06.000Z" title="发表于 2021-01-30 10:30:06">2021-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/markdown-rumen.html" title="markdown快速入门">markdown快速入门</a><time datetime="2020-09-20T06:27:57.000Z" title="发表于 2020-09-20 14:27:57">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/photoshop-qianming.html" title="Photoshop制作电子签名">Photoshop制作电子签名</a><time datetime="2020-09-20T06:24:08.000Z" title="发表于 2020-09-20 14:24:08">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/freefilesync.html" title="Windows离线文件同步和备份-Freefilesync">Windows离线文件同步和备份-Freefilesync</a><time datetime="2020-09-20T05:54:01.000Z" title="发表于 2020-09-20 13:54:01">2020-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/kindle-jiqiao.html" title="Kindle咪咕版使用技巧总结">Kindle咪咕版使用技巧总结</a><time datetime="2020-09-20T01:12:20.000Z" title="发表于 2020-09-20 09:12:20">2020-09-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian3.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    let initData = {
+      el: '#waline-wrap',
+      serverURL: 'https://waline-f9d1yxoxc.vercel.app/',
+      avatar: 'monsterid',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const waline = new Waline(initData)
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script async data-pjax src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js"></script></div></body></html>
