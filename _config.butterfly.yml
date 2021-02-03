@@ -11,10 +11,11 @@ menu:
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
+  说说: /artitalk/   || fas fa-music
   # List||fas fa-list:
   #   - Music || /music/ || fas fa-music
   #   - Movie || /movies/ || fas fa-video
-  # Link: /link/ || fas fa-link
+ #LEAN_KEY 链接: /link/ || fas fa-link
   关于: /about/ || fas fa-heart
 
 # Hide the child menu items in mobile sidebar
@@ -245,6 +246,7 @@ comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo
   use:
+    - Waline 
   # - Valine
   # - Disqus
   text: true # Display the comment name next to the button
@@ -291,26 +293,26 @@ gitalk:
 
 # valine
 # https://valine.js.org
-valine:
-  appid: Swt33bHjRiA8uVnmGwVHWD0S-gzGzoHsz 
-  appkey: sxiq9Ku7LHrHjSqGrPRrnhPe
-  pageSize: 10 # comment list page size
-  avatar: monsterid # gravatar style https://valine.js.org/#/avatar
-  lang: en # i18n: zh-CN/zh-TW/en/ja
-  placeholder: Please leave your footprints # valine comment input placeholder (like: Please leave your footprints)
-  guest_info: nick,mail,link # valine comment header info (nick/mail/link)
-  recordIP: false # Record reviewer IP
-  serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
-  bg: # valine background
-  emojiCDN: # emoji CDN
-  enableQQ: false # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
-  requiredFields: nick,mail # required fields (nick/mail)
-  option:
+# valine:
+  # appid: Swt33bHjRiA8uVnmGwVHWD0S-gzGzoHsz 
+  # appkey: sxiq9Ku7LHrHjSqGrPRrnhPe
+  # pageSize: 10 # comment list page size
+  # avatar: monsterid # gravatar style https://valine.js.org/#/avatar
+  # lang: en # i18n: zh-CN/zh-TW/en/ja
+  # placeholder: Please leave your footprints # valine comment input placeholder (like: Please leave your footprints)
+  # guest_info: nick,mail,link # valine comment header info (nick/mail/link)
+  # recordIP: false # Record reviewer IP
+  # serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
+  # bg: # valine background
+  # emojiCDN: # emoji CDN
+  # enableQQ: false # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  # requiredFields: nick,mail # required fields (nick/mail)
+  # option:
 
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: # Waline server address url
+  serverURL: https://waline-15iowqrgj.vercel.app/  # Waline server address url
   avatar: monsterid # gravatar style https://zh-tw.gravatar.com/site/implement/images/#default-image
   emojiCDN: # emoji CDN
   bg: /image/comment_bg.png # waline background
@@ -776,8 +778,8 @@ note:
 # Artitalk
 # see https://artitalk.js.org/
 artitalk:
-  appId:
-  appKey:
+  appId: qWvWgplstwDaGOlzM3zSASD7-MdYXbMMI
+  appKey: tUrymeX48DiMOuaXPHNB76VD
   option:
 
 # Pjax [Beta]
@@ -899,7 +901,7 @@ CDN:
 
   # count
   #busuanzi: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
-  busuanzi:https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js
+  busuanzi: https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js
 
   # background effect
   canvas_ribbon: https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js

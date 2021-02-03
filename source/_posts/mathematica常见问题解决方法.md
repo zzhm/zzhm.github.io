@@ -29,5 +29,3 @@ The theme generates a framed plot. You need to use `FrameLabel`,e.g.
 Plot[x^2, {x, 0, 3}, FrameLabel -> {Style[x, 30], Style[y, 30]}, 
  PlotTheme -> "Scientific"]
 ```
-
-![](https://i.stack.imgur.com/lqb35.png)
