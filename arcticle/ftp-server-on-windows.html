@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>快速搭建一个本地的FTP服务器 | ZYMIN</title><meta name="keywords" content="nas,win10,ftp"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="如果需要开发FTP文件上传下载功能，那么需要在本机上搭建一个本地FTP服务器，方便调试。   第一步：配置IIS Web服务器 1.1 控制面板中找到“程序”并打开  1.2 程序界面找到“启用或关闭Windows功能”并打开  1.3 上面两步也可以简化为一步：按【Win +R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键  1.4 从“启用或关闭Window">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>快速搭建一个本地的FTP服务器 | ZYMIN</title><meta name="keywords" content="nas,win10,ftp"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="如果需要开发FTP文件上传下载功能，那么需要在本机上搭建一个本地FTP服务器，方便调试。  第一步：配置IIS Web服务器 1.1 控制面板中找到“程序”并打开  1.2 程序界面找到“启用或关闭Windows功能”并打开  1.3 上面两步也可以简化为一步：按【Win +R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键  1.4 从“启用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速搭建一个本地的FTP服务器">
 <meta property="og:url" content="https://zymin.cn/arcticle/ftp-server-on-windows.html">
 <meta property="og:site_name" content="ZYMIN">
-<meta property="og:description" content="如果需要开发FTP文件上传下载功能，那么需要在本机上搭建一个本地FTP服务器，方便调试。   第一步：配置IIS Web服务器 1.1 控制面板中找到“程序”并打开  1.2 程序界面找到“启用或关闭Windows功能”并打开  1.3 上面两步也可以简化为一步：按【Win +R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键  1.4 从“启用或关闭Window">
+<meta property="og:description" content="如果需要开发FTP文件上传下载功能，那么需要在本机上搭建一个本地FTP服务器，方便调试。  第一步：配置IIS Web服务器 1.1 控制面板中找到“程序”并打开  1.2 程序界面找到“启用或关闭Windows功能”并打开  1.3 上面两步也可以简化为一步：按【Win +R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键  1.4 从“启用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg">
 <meta property="article:published_time" content="2018-10-16T11:31:08.000Z">
@@ -152,62 +152,61 @@ gtag('config', 'UA-175241210-1');
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-music"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-music"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">快速搭建一个本地的FTP服务器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-10-16T11:31:08.000Z" title="发表于 2018-10-16 19:31:08">2018-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-10-16T11:31:08.000Z" title="更新于 2018-10-16 19:31:08">2018-10-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/nas/">nas</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">296</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-music"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-music"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">快速搭建一个本地的FTP服务器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-10-16T11:31:08.000Z" title="发表于 2018-10-16 19:31:08">2018-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-10-16T11:31:08.000Z" title="更新于 2018-10-16 19:31:08">2018-10-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/nas/">nas</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr />
 <p>  如果需要开发FTP文件上传下载功能，那么需要在本机上搭建一个本地FTP服务器，方便调试。</p>
 <!---more--->
-
 <p><strong>第一步：配置IIS Web服务器</strong></p>
 <p><strong>1.1 控制面板中找到“程序”并打开</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/5c905b2d8d6292e50d0cc4319575e101.jpg"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/5c905b2d8d6292e50d0cc4319575e101.jpg" /></p>
 <p><strong>1.2 程序界面找到“启用或关闭Windows功能”并打开</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/3874a45f0df9405dfb19c90b1e8bc0dd.jpg"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/3874a45f0df9405dfb19c90b1e8bc0dd.jpg" /></p>
 <p><strong>1.3 上面两步也可以简化为一步：按【Win +R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/af3a6cc4a982fc337b3fe906546d31d3.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/af3a6cc4a982fc337b3fe906546d31d3.png" /></p>
 <p><strong>1.4 从“启用或关闭Windows功能”弹窗中找到Internet Information Services(或者中文版Internet信息服务)并打开</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/ece8ab31c6ff669953ecfd9829bd3c5c.jpg"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/ece8ab31c6ff669953ecfd9829bd3c5c.jpg" /></p>
 <p><strong>1.5 配置IIS并点击确定</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/40e9b37676141739fb8768e1665e756f.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/40e9b37676141739fb8768e1665e756f.png" /></p>
 <p><strong>第二步：配置IIS Web站点</strong></p>
 <p><strong>2.1 开始菜单搜索“IIS”并点击进入IIS管理器</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/8d90171ba5b75ce52578aecacd4f3af2.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/8d90171ba5b75ce52578aecacd4f3af2.png" /></p>
 <p><strong>2.2 新建FTP站点</strong></p>
 <p><strong>2.2.1 新建FTP服务器根目录文件夹</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/e354c1271f3672d15e3028895634fab8.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/e354c1271f3672d15e3028895634fab8.png" /></p>
 <p><strong>2.2.2 查看本机ip地址，后续访问Ftp地址需要用到（打开cmd输入ipconfig）</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/974aa7f2ee8c41c4fc34ea98fcfd366b.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/974aa7f2ee8c41c4fc34ea98fcfd366b.png" /></p>
 <p><strong>2.2.3 IIS网站管理器界面左边导航栏找到“网站”，右键弹出菜单</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/4a61920418220d86a15ee0986880364b.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/4a61920418220d86a15ee0986880364b.png" /></p>
 <p><strong>2.2.4 IIS网站管理器“网站”右键弹出菜单点击“添加FTP站点”</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/3d3d2fcd955cec574ad0ff5d006e4141.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/3d3d2fcd955cec574ad0ff5d006e4141.png" /></p>
 <p><strong>2.2.5 配置网站（网站名称：FtpSite 物理路径：E:\ftpserver 本机IP地址(从下拉菜单选择)：192.168.0.105）</strong></p>
 <p><strong>Ftp站点名称和物理路径设置</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/c1206bb880655aa50c4d40a1e1bdfe78.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/c1206bb880655aa50c4d40a1e1bdfe78.png" /></p>
 <p><strong>IP 端口号 SSL设置</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/802eb1e5de9ace52cf5bb0a9cc2e412e.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/802eb1e5de9ace52cf5bb0a9cc2e412e.png" /></p>
 <p><strong>身份验证和授权信息设置</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/4e9b08650842dd6d2a5856b029c7023d.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/4e9b08650842dd6d2a5856b029c7023d.png" /></p>
 <p><strong>第三步：测试FTP站点（先在物理路径：E:\ftpserver随便放一个文件）</strong></p>
-<p><strong>3.1 浏览器或者文件管理器地址栏输入ftp地址（<a href="ftp://192.168.0.105)/">ftp://192.168.0.105）</a></strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/a7262543a5b8022aaf0d3c9d78c480b9.png"></p>
+<p><strong>3.1 浏览器或者文件管理器地址栏输入ftp地址（ftp://192.168.0.105）</strong></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/a7262543a5b8022aaf0d3c9d78c480b9.png" /></p>
 <p>  输入FTP地址时发现需要用户和密码（这个看情况，有些默认就可以直接访问了），可是配置的过程中好像没有看到设置用户和密码的步骤，没关系，我们可以自己设置。</p>
 <p><strong>3.2 IIS管理器中的FTP身份验证里面配置启用匿名身份认证（无密码）</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/8758100297fa74954fa14fd034239ea0.png"></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/7758b5be62481b84748afb1101401232.png"></p>
-<p><strong>3.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址（<a href="ftp://192.168.0.105)/">ftp://192.168.0.105）</a></strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/969a12bc00c8c4af04ca912b8581d50f.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/8758100297fa74954fa14fd034239ea0.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/7758b5be62481b84748afb1101401232.png" /></p>
+<p><strong>3.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址（ftp://192.168.0.105）</strong></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/969a12bc00c8c4af04ca912b8581d50f.png" /></p>
 <p><strong>3.4 配置FTP站点用户名和密码</strong></p>
 <p><strong>3.4.1IIS管理器中的FTP身份验证里面配置禁用匿名身份认证同时启用基本身份认证（再次访问就会要求输入用户名和密码）</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/7210a4ee2d54b9f084f058e87e47d5fe.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/7210a4ee2d54b9f084f058e87e47d5fe.png" /></p>
 <p><strong>3.4.2此电脑（桌面计算机图标右键）—&gt;管理-&gt;本地用户和组-&gt;用户-&gt;新建一个用户，并设置密码</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/fc31619dd0ba0b79033719d8b589a137.png"></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/d9fba0d58016f4d67bf04a4131409420.png"></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/10259389f6dde8116962af402fea7dd3.png"></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/dbac29e54e591acf8b4e3f7fa9ef3ed2.png"></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/fc31619dd0ba0b79033719d8b589a137.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/d9fba0d58016f4d67bf04a4131409420.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/10259389f6dde8116962af402fea7dd3.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/dbac29e54e591acf8b4e3f7fa9ef3ed2.png" /></p>
 <p><strong>备注：</strong>细心的你可以能已经发现这里的账户就是我们计算机的账户，所以说我们应该可以使用自己登录电脑的用户名和密码来登录FTP站点，不用新建这个test用户都可以。</p>
-<p><strong>3.4.3再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名:test，密:test（<a href="ftp://192.168.0.105)/">ftp://192.168.0.105）</a></strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/a7262543a5b8022aaf0d3c9d78c480b9.png"></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/969a12bc00c8c4af04ca912b8581d50f.png"></p>
-<p>  到此一个简单的FTP服务器搭建成功，同一个局域网内其他人可以访问到你的电脑了，可以相互传输文件。传输文件是一个用途，本文主要是想用来当做一个java<br>上传下载项目的测试服务器。</p>
+<p><strong>3.4.3再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名:test，密:test（ftp://192.168.0.105）</strong></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/a7262543a5b8022aaf0d3c9d78c480b9.png" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/nas/969a12bc00c8c4af04ca912b8581d50f.png" /></p>
+<p>  到此一个简单的FTP服务器搭建成功，同一个局域网内其他人可以访问到你的电脑了，可以相互传输文件。传输文件是一个用途，本文主要是想用来当做一个java 上传下载项目的测试服务器。</p>
 <p>错误处理：参考系列文章，注意更换非IE浏览器尝试连接或专门软件连接，可能问题就不存在了。还可以尝试关闭IE浏览器的保护模式。有文章说20/21端口均需要映射到外网。端口需要添加防火墙。</p>
 <p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/b7001fe1829deb0e7282ddb7.html">FTP文件夹打开错误，Windows无法访问此文件夹</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31698883/article/details/53856474">外网无法内网FTP （200 Type set to A）</a></p>
@@ -215,7 +214,7 @@ gtag('config', 'UA-175241210-1');
   function initWaline () {
     let initData = {
       el: '#waline-wrap',
-      serverURL: 'https://waline-rose.vercel.app/',
+      serverURL: 'https://waline-15iowqrgj.vercel.app/',
       avatar: 'monsterid',
       path: location.pathname,
       emojiCDN: '',
