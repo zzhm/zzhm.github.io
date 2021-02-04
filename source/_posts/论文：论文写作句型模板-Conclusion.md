@@ -4,10 +4,8 @@ mathjax: false
 date: 2018-05-04 21:14:30
 id: Conclusion-template 
 tags:
-- 模板
-- 论文
-- 结论
-- 科研
+- 论文写作
+- 句式
 categories:
 - 学习笔记
 ---

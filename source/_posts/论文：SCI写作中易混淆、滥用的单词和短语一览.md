@@ -4,10 +4,8 @@ mathjax: false
 date: 2018-05-04 20:45:36
 id: sci-synonym
 tags:
-- 词汇
-- 写作
-- 论文
-- 科研
+- 论文写作
+- 词语
 categories:
 - 学习笔记
 ---

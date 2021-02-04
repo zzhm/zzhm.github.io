@@ -4,9 +4,8 @@ mathjax: false
 date: 2018-05-03 15:00:33
 id: anomaly-detection 
 tags: 
-- 视觉
+- 机器视觉
 - matlab
-- 距离
 categories:
 - 学习笔记
 ---
