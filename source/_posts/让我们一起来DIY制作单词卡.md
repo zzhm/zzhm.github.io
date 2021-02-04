@@ -1,5 +1,5 @@
 ---
-title: 让我们一起来DIY制作单词卡
+title: 让我们一起来DIY小达人单词卡
 mathjax: false
 date: 2018-08-07 13:37:58
 id: dancika
@@ -8,7 +8,6 @@ tags:
 - diy
 - 育儿
 categories:
-- 育儿
 - 点读笔
 ---
 

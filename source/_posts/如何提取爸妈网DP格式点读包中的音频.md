@@ -8,7 +8,6 @@ tags:
 - 育儿
 - diy
 categories:
-- 育儿
 - 点读笔
 ---
 

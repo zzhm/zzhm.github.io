@@ -6,10 +6,9 @@ id: ansys-act
 tags:
 - workbench
 - 有限元
-- ansys
-- 仿真
+- 软件教程
 categories:
-- 学习
+- 实用教程
 ---
 
 在Ansys Workbench中可以通过ACT插件来拓展Ansys的功能。在Workbench主界面中点击菜单Extensions - Install Extension...，在打开的文件选择对话框中找到ACT插件，点击打开进行ACT插件的安装。

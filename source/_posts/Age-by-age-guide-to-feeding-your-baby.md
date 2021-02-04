@@ -7,8 +7,7 @@ tags:
 - 育儿
 - 健康
 categories:
-- 育儿
-- 健康
+- 科学育儿
 ---
 
 Use this guide to find out what and how much to feed your child in the first year. The amounts are general recommendations only, so don't worry if your little one eats a bit more or less than suggested. It's always a good idea to discuss your plan for [starting solids](https://www.babycenter.com/404_do-i-need-to-introduce-solid-foods-to-my-baby-in-a-certain-o_10418662.bc) with your child’s doctor before getting started.

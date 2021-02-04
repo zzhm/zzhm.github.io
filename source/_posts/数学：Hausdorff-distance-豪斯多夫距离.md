@@ -8,8 +8,7 @@ tags:
 - 距离
 - hausdorff distance
 categories: 
-- 学习
-- 数学
+- 学习笔记
 ---
 
 Hausdorff距离是描述两组点集之间相似程度的一种量度，它是两个点集之间距离的一种定义形式：假设有两组集合A={a1,…,ap},B={b1,…,bq},则这两个点集合之间的Hausdorff距离定义为

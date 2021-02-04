@@ -6,7 +6,7 @@ id: nextcloud-update
 tags:
 - nextcloud
 categories:
-- 生活
+- 实用教程
 ---
 
 较大的NextCloud实例更新系统版本时可能出现如下错误：

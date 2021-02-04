@@ -7,7 +7,7 @@ tags:
 - 教程
 - office
 categories:
-- 生活
+- 实用教程
 ---
 
 本文总结了Office/浏览器/Win10的快捷键。

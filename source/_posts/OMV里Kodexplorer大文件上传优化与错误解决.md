@@ -7,8 +7,7 @@ tags:
 - omv
 - nas
 categories:
-- 生活
-- nas
+- 实用教程
 ---
 
 最近停了Nextcloud，打算用作为主力了，因此优化了一波。基本情况：OMV+nginx插件搭建的kodexplorer。

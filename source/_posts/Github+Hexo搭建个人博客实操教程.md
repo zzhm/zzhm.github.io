@@ -3,8 +3,7 @@ title: Github+Hexo搭建个人博客实操教程
 id: github-hexo-blog-construction
 date: 2018-04-27 20:00:08
 categories:
-- 生活
-- 网站
+- 实用教程
 tags:
 - 博客
 - github

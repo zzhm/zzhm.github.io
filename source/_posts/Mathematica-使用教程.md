@@ -8,7 +8,7 @@ tag:
 - 学习
 - 数学
 category:
-- 学习
+- 学习笔记
 ---
 
 - Mathematica中大写小写是有区别的，如Name、name、NAME等是不同的变量名或函数名。 

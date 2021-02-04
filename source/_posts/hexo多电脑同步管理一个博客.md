@@ -8,8 +8,7 @@ tags:
 - 生活
 - hexo
 categories:
-- 生活
-- 网站
+- 实用教程
 ---
 
 主要的思路是利用git分支实现。hexo生成的静态博客文件默认放在master分支上。 hexo的源文件（部署环境文件）可以都放在hexo分支上（可以新创建一个hexo分支），换新电脑时，直接`git clone hexo分支`进行博客的书写和编译等工作 。

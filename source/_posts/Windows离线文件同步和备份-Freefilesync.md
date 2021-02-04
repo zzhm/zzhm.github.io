@@ -7,7 +7,7 @@ tags:
 - 软件
 - 教程
 categories:
-- 教程
+- 实用教程
 ---
 
 ![](https://freefilesync.org/images/manual/main-window.png)

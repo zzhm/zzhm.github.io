@@ -8,7 +8,7 @@ tags:
 - 生活
 - kindle
 categories:
-- 教程
+- 实用教程
 ---
 
 ![](https://gitee.com/zihm/images/raw/master/hexo/20200920132832.jpg)

@@ -4,11 +4,9 @@ mathjax: false
 date: 2018-06-29 18:56:58
 id: h-infinity-principle
 tags:
-- 控制
-- 学习
+- 控制理论
 categories:
-- 学习
-- 控制
+- 学习笔记
 ---
 鲁棒指系统在不确定参数（parameter uncertainties）摄动下，系统维持其自身某种性能（稳定、某指标）的特性。鲁棒性的主要问题是高频的未建模动态。应该注意的是，我们在进行鲁棒稳定性分析时，要将干扰与控制输入置0。
 

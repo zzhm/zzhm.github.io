@@ -6,10 +6,9 @@ id: latex-advice-for-paper-writing
 tags:
 - 论文写作
 - latex
-- mathtype
+- 软件教程
 categories:
-- 科研
-- 论文
+- 学习笔记
 ---
 
 ## 关于LaTeX版本的选择

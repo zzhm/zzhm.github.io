@@ -7,9 +7,9 @@ tags:
 - win10
 - nas
 - 网站
+- 软件教程
 categories:
-- 生活
-- nas
+- 实用教程
 ---
 
 Windows Server 2016和J3455搭建私有云

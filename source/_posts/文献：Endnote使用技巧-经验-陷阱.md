@@ -5,13 +5,10 @@ date: 2018-05-02 10:43:09
 updated:
 id: endnote-skills
 tags: 
-- 工具
-- endnote
-- 文献
-- 教程
-- 科研
+- 文献管理
+- 软件教程
 categories: 
-- 教程
+- 实用教程
 ---
 
 ### 1. 安装版本问题。

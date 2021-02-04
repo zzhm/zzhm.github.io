@@ -10,8 +10,7 @@ tags:
 - 网站
 - j3455
 categories:
-- 生活
-- nas
+- 实用教程
 ---
 
 本教程说明了Windows系统下部署Seafile服务器的问题。

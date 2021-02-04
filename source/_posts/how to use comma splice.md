@@ -8,8 +8,7 @@ tags:
 - 语法
 - 学习
 categories:
-- 科研
-- 论文
+- 学习笔记
 ---
 
 - When you join two independent clauses with a comma and no conjunction, it’s called a **comma splice**. Some people consider this a type of run-on sentence, while other people think of it as a punctuation error.

@@ -9,7 +9,7 @@ tags:
 - pdz
 - 技能
 categories:
-- 教程
+- 实用教程
 ---
 
 提纲：

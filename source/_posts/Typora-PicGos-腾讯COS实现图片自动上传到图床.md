@@ -8,8 +8,7 @@ tags:
 - 博客
 - 图床
 categories:
-- 生活
-- 博客
+- 实用教程
 ---
 
 Hexo博客，利用Typora+PicGo+腾讯COS实现图片自动上传到图床。

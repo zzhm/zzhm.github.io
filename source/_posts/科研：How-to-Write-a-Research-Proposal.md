@@ -5,12 +5,10 @@ date: 2018-05-01 19:11:09
 id:  How-to-Write-a-Research-Proposal
 tags: 
 - 写作
-- 论文
-- 科研 
-- 申请
-categories:
-- 科研
+- 论文 
 - 项目申请
+categories:
+- 学习笔记
 ---
 
 Most students and beginning researchers do not fully understand what a research proposal means, nor do they understand its importance. To put it bluntly, one's research is only as a good as one's proposal. An ill-conceived proposal dooms the project even if it somehow gets through the Thesis Supervisory Committee. A high quality proposal, on the other hand, not only promises success for the project, but also impresses your Thesis Committee about your potential as a researcher.

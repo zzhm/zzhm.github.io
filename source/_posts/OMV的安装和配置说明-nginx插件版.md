@@ -10,8 +10,7 @@ tags:
 - nextcloud
 - j3455
 categories:
-- 生活
-- nas
+- 学习笔记
 ---
 
 安装参考该教程：[使用Open Media Vault和NextCloud构建家庭私有云](http://www.azurew.com/6350.html)

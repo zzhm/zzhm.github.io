@@ -7,7 +7,7 @@ tags:
 - mathematica
 - 教程
 categories:
-- 教程
+- 实用教程
 ---
 
 制作一个简单的三维图表：

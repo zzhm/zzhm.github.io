@@ -7,9 +7,9 @@ tags:
 - nas
 - win10
 - j3455
+- 软件教程
 categories:
-- 生活
-- nas
+- 实用教程
 ---
 
 windows系统，基于Xampp和kodexplorer搭建私有云。

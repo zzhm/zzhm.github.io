@@ -3,13 +3,10 @@ title: HistCite文献分析软件使用教程
 date: 2018-04-29 09:43:33
 id: HistCite-paper-ansys
 categories: 
-- 科研
-- 文献
+- 实用教程
 tags:
-- 工具
-- 文献
-- 科研
-- 教程
+- 软件教程
+- 文献管理
 ---
 
 首先要了解一点，HistCite 这款软件是 Thomson Reuters （汤森路透）公司开发的，和 WOS 是一家公司，所以 **HistCite 只支持 WOS 数据库**，对于 Scopus 等数据库则无能为力，不过 Github 上面有人写了一个可以将 Scopus 导入 Histcite 进行分析的脚本——[Scopus2Histcite](https://link.zhihu.com/?target=https%3A//github.com/leoatchina/Scopus2Histcite)，有兴趣的同学可以去试试看。

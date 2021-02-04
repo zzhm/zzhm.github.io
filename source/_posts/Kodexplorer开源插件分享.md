@@ -7,8 +7,7 @@ tags:
 - nas
 - kodexplorer
 categories:
-- 生活
-- nas
+- 实用教程
 ---
 
 

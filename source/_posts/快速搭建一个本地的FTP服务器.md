@@ -8,8 +8,7 @@ tags:
 - win10
 - nas
 categories:
-- 生活
-- nas
+- 实用教程
 ---
 
 ****

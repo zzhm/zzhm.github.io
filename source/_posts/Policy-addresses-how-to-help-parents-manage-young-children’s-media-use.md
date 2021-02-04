@@ -7,8 +7,7 @@ tags:
 - 育儿
 - 健康
 categories:
-- 育儿
-- 健康
+- 科学育儿
 ---
 
 Children are growing up in a world surrounded by media that are portable and instantly accessible. Parents and pediatricians may find it hard to keep up with the vast amount of content and new features constantly being introduced, and this can be anxiety-provoking. But one thing that will never change is that parents and trusted caregivers help children make sense of the world, particularly when things are in flux.

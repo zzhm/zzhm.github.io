@@ -4,8 +4,9 @@ mathjax: false
 date: 2020-03-30 13:05:40
 id: chrome-flash
 tags:
-categories:
 - 生活
+categories:
+- 实用教程
 ---
 
 ```

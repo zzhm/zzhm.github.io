@@ -7,7 +7,7 @@ tags:
 - 博客
 - j3455
 category:
-- 生活
+- 实用教程
 ---
 
 Hexo博客+ejs+material x 主题，添加统计代码。

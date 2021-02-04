@@ -7,8 +7,7 @@ tags:
 - 育儿
 - 健康
 categories:
-- 育儿
-- 健康
+- 科学育儿
 ---
 
 It's never too early to help your child develop healthy eating habits. Discover ways that babies can become healthy and adventurous eaters from the moment they start solids. Learn which foods to load up on and which ones to avoid. 

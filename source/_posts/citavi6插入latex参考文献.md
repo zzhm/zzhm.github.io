@@ -9,8 +9,7 @@ tags:
 - 文献
 - 论文
 categories:
-- 科研
-- 论文
+- 实用教程
 ---
 
 You are using LaTeX to write a thesis or journal submission. With Citavi you can insert your sources and quotations with the corresponding BibTeX-Key into your TeX document. Citavi will automatically create the BibTeX file that your TeX program needs in order to create the final version of your document.

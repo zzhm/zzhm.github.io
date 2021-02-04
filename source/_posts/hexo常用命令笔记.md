@@ -9,8 +9,7 @@ tags:
 - 博客
 - 生活
 categories:
-- 生活
-- 网站
+- 实用教程
 ---
 
 ## hexo

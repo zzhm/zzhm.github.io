@@ -4,11 +4,9 @@ mathjax: false
 date: 2020-06-19 16:08:14
 id: zhiwangpdf
 tags:
-- 生活
-- 技能
-- 教程
+- 软件教程
 categories:
-- 教程
+- 实用教程
 ---
 
 方法一、使用海外版知网
