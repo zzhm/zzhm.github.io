@@ -21239,32 +21239,27 @@ v = f_y\frac{Y}{Z} + c_y
     <title>非华为电脑安装最新版本华为电脑管家实现多屏协同+一碰传教程</title>
     <url>/arcticle/huawei-yipengchuan.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、硬件要求</p>
-<ol>
-<li><p>电脑硬件要求：支持WiFi和蓝牙。</p>
-</li>
-<li><p>手机系统要求：手机系统<a href="https://club.huawei.com/forum-gid-2867.html">EMUI</a> 10 以上。</p>
-</li>
-<li><p>NFC贴纸：实现一碰传功能必须要，如不使用一碰传可以不用。NFC贴纸规格型号要求NTAG215 。</p>
-</li>
+<ol type="1">
+<li><p>电脑硬件要求：支持WiFi和蓝牙。</p></li>
+<li><p>手机系统要求：手机系统<a href="https://club.huawei.com/forum-gid-2867.html">EMUI</a> 10 以上。</p></li>
+<li><p>NFC贴纸：实现一碰传功能必须要，如不使用一碰传可以不用。NFC贴纸规格型号要求NTAG215 。</p></li>
 </ol>
 <p>二、软件准备</p>
-<ol>
-<li><p>电脑管家安装软件（PCManagerMgr），手机软件一碰传助手下载链接详见附件。</p>
-</li>
-<li><p><a href="https://club.huawei.com/">华为</a>官网下载最新版本电脑管家。</p>
-</li>
+<ol type="1">
+<li><p>电脑管家安装软件（PCManagerMgr），手机软件一碰传助手下载链接详见附件。</p></li>
+<li><p><a href="https://club.huawei.com/">华为</a>官网下载最新版本电脑管家。</p></li>
 </ol>
 <p>三、安装软件</p>
 <p>将下载好的华为电脑管家与PCManagerMgr放在同一个文件夹内。打开PCManagerMgr ，具体如下：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214733.png"></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214733.png" /></p>
 <p>① 输入口令，开始前需要修改电脑系统时间，具体时间对应相应口令。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214740.png"></p>
-<p>② 修改电脑管家版本号，下载的什么版本就更改为什么版本。（如果其实在这里填安装包的完整路径就行）。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214740.png" /></p>
+<p>② 修改电脑管家版本号，下载的什么版本就更改为什么版本。（其实在这里填安装包的完整路径就行）。</p>
 <p>③ 选择自定义SN 。</p>
 <p>④ 输入自己编的16位序列号。或者选择自动SN ，不用编辑，系统会自动生成SN码。（注：此16位序列号需要记住，否则后续重新安装时需要修改NFC标签或者更换NFC，比较麻烦）</p>
 <p>⑤ 安装，根据提示步骤完成安装。</p>
 <p>四、 制作NFC标签</p>
-<p>在手机上下载安装<code>一碰传助手_1.0.4.0(无SN限制).apk</code> 。打开软件扫描上图步骤⑥中的二维码，完成手机与NFC标签、电脑绑定。</p>
+<p>在手机上下载安装<code>一碰传助手_1.0.4.0(无SN限制).apk</code> 。打开软件扫描上图步骤④中的NFC标签二维码，完成手机与NFC标签、电脑绑定。</p>
 <p>最后，还原电脑的系统时间，至此，所有安装步骤完成，便可实现多屏协同与一碰传了。</p>
 <p>PS：感谢大佬“汉客儿”的技术支持。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">下载链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1cY677NBjRuo3GCNsmZ3hYQ</span><br><span class="line">提取码：8e45</span><br></pre></td></tr></table></figure>
