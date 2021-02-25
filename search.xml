@@ -21272,4 +21272,978 @@ v = f_y\frac{Y}{Z} + c_y
         <tag>资源分享</tag>
       </tags>
   </entry>
+  <entry>
+    <title>mathematica中的快捷键</title>
+    <url>/arcticle/mathematica-kuaijiejian.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">插入相同样式的单元    Alt + Enter       </span><br><span class="line">超链接              Shift +  Ctrl  +  H     </span><br><span class="line"></span><br><span class="line">矩阵插入一行    	Ctrl+Enter</span><br><span class="line">矩阵插入一列    	Ctrl+Shift+，</span><br><span class="line">结束子表达式		Ctrl+␣    </span><br><span class="line">上标            Ctrl+^    </span><br><span class="line">下标            Ctrl+_    </span><br><span class="line">上              Ctrl+7    </span><br><span class="line">下              Ctrl+$    </span><br><span class="line">相反位置      	 Ctrl+5    </span><br><span class="line">分数            Ctrl+&#x2F;    </span><br><span class="line">根式            Ctrl+2    </span><br><span class="line">开始内嵌单元      Ctrl+(    </span><br><span class="line">结束内嵌单元      Ctrl+)    </span><br><span class="line">左移            Alt+Left  </span><br><span class="line">右移            Alt+Right </span><br><span class="line">下移            Alt+Down  </span><br><span class="line">上移            Alt+Up    </span><br><span class="line">方括号 []       Alt+]                 </span><br><span class="line">大括号 &#123;&#125;       Alt+&#125;                 </span><br><span class="line">圆括号 ()       Alt+)    </span><br><span class="line">                </span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Alt      +      1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chapter</td>
+<td>Alt      +      2</td>
+</tr>
+<tr>
+<td>Subchapter</td>
+<td>Alt      +      3</td>
+</tr>
+<tr>
+<td>Section</td>
+<td>Alt      +      4</td>
+</tr>
+<tr>
+<td>Subsection</td>
+<td>Alt      +      5</td>
+</tr>
+<tr>
+<td>Subsubsection</td>
+<td>Alt      +      6</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Alt      +      7</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>Alt      +      8</td>
+</tr>
+<tr>
+<td>Input</td>
+<td>Alt      +      9</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>不定积分 (      ∫                        )</th>
+<th>Esc intt Esc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定积分 (      <img src="https://reference.wolfram.com/language/tutorial/Files/KeyboardShortcutListing.zh/CellNone_2.png" alt="img">      )</td>
+<td>Esc dintt Esc</td>
+</tr>
+<tr>
+<td>偏导 (∂ )</td>
+<td>Esc dt Esc</td>
+</tr>
+<tr>
+<td>黎曼和 (      <img src="https://reference.wolfram.com/language/tutorial/Files/KeyboardShortcutListing.zh/3OverscriptBox.png" alt="img">            )</td>
+<td>Esc sumt Esc</td>
+</tr>
+<tr>
+<td>乘积 (      <img src="https://reference.wolfram.com/language/tutorial/Files/KeyboardShortcutListing.zh/4OverscriptBox.png" alt="img">            )</td>
+<td>Esc prodt Esc</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>属于 (      <a href="https://reference.wolfram.com/language/ref/character/Element.html">∈</a>      )</th>
+<th>Esc el Esc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对于全部 (      <a href="https://reference.wolfram.com/language/ref/character/ForAll.html">∀</a>      )</td>
+<td>Esc fa Esc</td>
+</tr>
+<tr>
+<td>并集 (      <a href="https://reference.wolfram.com/language/ref/character/Union.html">⋃</a>      )</td>
+<td>Esc un Esc</td>
+</tr>
+<tr>
+<td>交集 (      <a href="https://reference.wolfram.com/language/ref/character/Intersection.html">⋂</a>      )</td>
+<td>Esc inter Esc</td>
+</tr>
+<tr>
+<td>非 (      <a href="https://reference.wolfram.com/language/ref/character/Not.html">¬</a>      )</td>
+<td>Esc not Esc</td>
+</tr>
+<tr>
+<td>蕴涵 (      <a href="https://reference.wolfram.com/language/ref/character/Implies.html"></a>      )</td>
+<td>Esc =&gt; Esc</td>
+</tr>
+<tr>
+<td>因此 (      <a href="https://reference.wolfram.com/language/ref/character/Therefore.html">∴</a>      )</td>
+<td>Esc tf Esc</td>
+</tr>
+</tbody></table>
+<h2 id="导航快捷键"><a href="#导航快捷键" class="headerlink" title="导航快捷键"></a>导航快捷键</h2><table>
+<thead>
+<tr>
+<th>向后导航</th>
+<th>Alt+← 或</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向前导航</td>
+<td>Alt+→ 或</td>
+</tr>
+</tbody></table>
+<p>参考资料中心导航快捷键.</p>
+<p>窗口循环快捷键.</p>
+<table>
+<thead>
+<tr>
+<th>循环到下一个打开的笔记本窗口</th>
+<th>Ctrl      +      F6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>滚动快捷键.</p>
+<table>
+<thead>
+<tr>
+<th>向上翻页</th>
+<th>PageUp</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向下翻页</td>
+<td>PageDown</td>
+</tr>
+<tr>
+<td>滚动到笔记本的开始</td>
+<td>Ctrl      +      Home</td>
+</tr>
+<tr>
+<td>滚动到笔记本的末端</td>
+<td>Ctrl      +      End</td>
+</tr>
+</tbody></table>
+<p>编辑表达式的其它快捷键.</p>
+<table>
+<thead>
+<tr>
+<th>移动到下一个占位符</th>
+<th>Tab</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>移动到前一个占位符</td>
+<td>Shift      +      Tab</td>
+</tr>
+<tr>
+<td>移动到下一个表达式</td>
+<td>Ctrl+Tab</td>
+</tr>
+<tr>
+<td>移动到前一个表达式</td>
+<td>Shift      +      Ctrl      +      Tab</td>
+</tr>
+<tr>
+<td>删除下一个表达式</td>
+<td>Shift      +      Ctrl      +      Del</td>
+</tr>
+<tr>
+<td>删除前一个表达式</td>
+<td>Shift      +      Ctrl      +      Backspace</td>
+</tr>
+</tbody></table>
+<p>文本选择快捷键.</p>
+<table>
+<thead>
+<tr>
+<th>选择下一个</th>
+<th>Shift      +      →</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选择前一个</td>
+<td>Shift      +      ←</td>
+</tr>
+<tr>
+<td>选择下一个词</td>
+<td>Ctrl      +      Shift      +      →</td>
+</tr>
+<tr>
+<td>选择前一个词</td>
+<td>Ctrl      +      Shift      +      ←</td>
+</tr>
+<tr>
+<td>选择到行末尾</td>
+<td>Shift+End</td>
+</tr>
+<tr>
+<td>选择到行开始</td>
+<td>Shift+Home</td>
+</tr>
+</tbody></table>
+<p>幻灯片演示的导航快捷键.</p>
+<table>
+<thead>
+<tr>
+<th>上一张幻灯片</th>
+<th>PageUp</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>下一张幻灯片</td>
+<td>PageDown</td>
+</tr>
+</tbody></table>
+<h2 id="菜单快捷键"><a href="#菜单快捷键" class="headerlink" title="菜单快捷键"></a>菜单快捷键</h2><h3 id="文件菜单"><a href="#文件菜单" class="headerlink" title="文件菜单"></a>文件菜单</h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/Notebook.html">新建 ▶ 笔记本</a></th>
+<th>Ctrl      +      N</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Open.html">打开</a></td>
+<td>Ctrl      +      O</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Close.html">关闭</a></td>
+<td>Ctrl      +      F4</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Save.html">保存</a></td>
+<td>Ctrl      +      S</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/SaveAs.html">另存为</a></td>
+<td>Shift      +      Ctrl      +      S</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Print.html">打印</a></td>
+<td>Ctrl      +      P</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/PrintSelection.html">打印选择</a></td>
+<td>Shift      +      Ctrl      +      P</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Exit.html">退出</a></td>
+<td>Ctrl      +      F4</td>
+</tr>
+</tbody></table>
+<h3 id="编辑菜单"><a href="#编辑菜单" class="headerlink" title="编辑菜单"></a>编辑菜单</h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/Undo.html">撤销</a></th>
+<th>Ctrl      +      Z</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Cut.html">剪切</a></td>
+<td>Ctrl      +      X</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Copy.html">复制</a></td>
+<td>Ctrl      +      C</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Paste.html">粘贴</a></td>
+<td>Ctrl      +      V</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Clear.html">清除</a></td>
+<td>Del</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/CopyAs.html">复制为 ▶ 纯文本</a></td>
+<td>Shift      +      Ctrl      +      C</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/ExtendSelection.html">扩展选择</a></td>
+<td>Ctrl      +      .</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/SelectAll.html">全选</a></td>
+<td>Ctrl      +      A</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/CheckBalance.html">检查括号平衡</a></td>
+<td>Shift      +      Ctrl      +      B</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/CompleteSelection.html">完整指令名</a></td>
+<td>Ctrl      +      K</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/MakeTemplate.html">制作模板</a></td>
+<td>Shift      +      Ctrl      +      K</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/CheckSpelling.html">拼写检查</a></td>
+<td>Alt      +      ;</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Find.html">查找</a></td>
+<td>Ctrl      +      F</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/EnterSelection.html">输入选择</a></td>
+<td>Ctrl      +      E</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/FindNext.html">查找下一个</a></td>
+<td>F3</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/FindPrevious.html">查找上一个</a></td>
+<td>Shift+F3</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Preferences.html">偏好设置</a></td>
+<td>仅适用于 Macintosh</td>
+</tr>
+</tbody></table>
+<h3 id="插入菜单"><a href="#插入菜单" class="headerlink" title="插入菜单"></a><a href="https://reference.wolfram.com/language/guide/InsertMenu.html">插入菜单</a></h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/InputFromAbove.html">上一个单元的输入</a></th>
+<th>Ctrl      +      L</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/OutputFromAbove.html">上一个单元的输出</a></td>
+<td>Shift      +      Ctrl      +      L</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/CellWithSameStyle.html">相同样式的单元</a></td>
+<td>Alt      +      Enter</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/InlineFree-formInput.html">内嵌的自由格式输入</a></td>
+<td>Ctrl      +      =</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Hyperlink.html">超链接</a></td>
+<td>Shift      +      Ctrl      +      H</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/InsertMenu.html">插入</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/Typesetting.html">排版</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th>结束子表达式</th>
+<th>Ctrl      +      ␣</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上标</td>
+<td>Ctrl      +      ^</td>
+</tr>
+<tr>
+<td>下标</td>
+<td>Ctrl      +      _</td>
+</tr>
+<tr>
+<td>上</td>
+<td>Ctrl      +      7</td>
+</tr>
+<tr>
+<td>下</td>
+<td>Ctrl      +      $</td>
+</tr>
+<tr>
+<td>相反位置</td>
+<td>Ctrl      +      5</td>
+</tr>
+<tr>
+<td>分数</td>
+<td>Ctrl      +      /</td>
+</tr>
+<tr>
+<td>根式</td>
+<td>Ctrl      +      2</td>
+</tr>
+<tr>
+<td>开始内嵌单元</td>
+<td>Ctrl      +      (</td>
+</tr>
+<tr>
+<td>结束内嵌单元</td>
+<td>Ctrl      +      )</td>
+</tr>
+<tr>
+<td>左移</td>
+<td>Alt      +      Left</td>
+</tr>
+<tr>
+<td>右移</td>
+<td>Alt      +      Right</td>
+</tr>
+<tr>
+<td>下移</td>
+<td>Alt      +      Down</td>
+</tr>
+<tr>
+<td>上移</td>
+<td>Alt      +      Up</td>
+</tr>
+<tr>
+<td>方括号 []</td>
+<td>Alt+]</td>
+</tr>
+<tr>
+<td>大括号 {}</td>
+<td>Alt+}</td>
+</tr>
+<tr>
+<td>圆括号 ()</td>
+<td>Alt+)</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/InsertMenu.html">插入</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/TableMatrix.html">表格/矩阵</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/AddRow.html">增加行</a></th>
+<th>Ctrl      +      Enter</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/AddColumn.html">增加列</a></td>
+<td>Ctrl      +      ,</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/InsertMenu.html">插入</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/Picture.html">图片</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/Picture.html">新图形</a></th>
+<th>Ctrl      +      1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="格式菜单"><a href="#格式菜单" class="headerlink" title="格式菜单"></a><a href="https://reference.wolfram.com/language/guide/FormatMenu.html">格式菜单</a></h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/ClearFormatting.html">清除格式</a></th>
+<th>Shift      +      Ctrl      +      ␣</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/OptionInspector.html">选项设置</a></td>
+<td>Shift      +      Ctrl      +      O</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Font.html">字体</a></td>
+<td>仅适用于   Macintosh</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/FormatMenu.html">格式</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/Style.html">样式</a> 缺省样式表的菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Alt      +      1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chapter</td>
+<td>Alt      +      2</td>
+</tr>
+<tr>
+<td>Subchapter</td>
+<td>Alt      +      3</td>
+</tr>
+<tr>
+<td>Section</td>
+<td>Alt      +      4</td>
+</tr>
+<tr>
+<td>Subsection</td>
+<td>Alt      +      5</td>
+</tr>
+<tr>
+<td>Subsubsection</td>
+<td>Alt      +      6</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Alt      +      7</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>Alt      +      8</td>
+</tr>
+<tr>
+<td>Input</td>
+<td>Alt      +      9</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/FormatMenu.html">格式</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/Face.html">字体效果</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/Bold.html">粗体</a></th>
+<th>Ctrl      +      B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/Italic.html">斜体</a></td>
+<td>Ctrl      +      I</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/Underlined.html">下划线</a></td>
+<td>Ctrl      +      U</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/FormatMenu.html">格式</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/Size.html">尺寸</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/Larger.html">增大</a></th>
+<th>Alt      +      =</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/Smaller.html">缩小</a></td>
+<td>Alt      +      -</td>
+</tr>
+</tbody></table>
+<h3 id="单元菜单"><a href="#单元菜单" class="headerlink" title="单元菜单"></a><a href="https://reference.wolfram.com/language/guide/CellMenu.html">单元菜单</a></h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/DivideCell.html">划分单元</a></th>
+<th>Shift      +      Ctrl      +      D</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/MergeCells.html">合并单元</a></td>
+<td>Shift      +      Ctrl      +      M</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/ShowExpression.html">显示表达式</a></td>
+<td>Shift      +      Ctrl      +      E</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/CellMenu.html">单元</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/ConvertTo.html">转换成</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/InputForm.html">InputForm</a></th>
+<th>Shift      +      Ctrl      +      I</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/RawInputForm.html">原始 InputForm</a></td>
+<td>Shift      +      Ctrl      +      R</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/StandardForm.html">StandardForm</a></td>
+<td>Shift      +      Ctrl      +      N</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/TraditionalForm.html">TraditionalForm</a></td>
+<td>Shift      +      Ctrl      +      T</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/CellMenu.html">单元</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/CellTags.html">单元标签</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/AddRemoveCellTags.html">添加/删除单元标签</a></th>
+<th>Ctrl      +      J</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/CellMenu.html">单元</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/Grouping.html">编组</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/GroupCellsGroupTogether.html">单元编组</a></th>
+<th>Ctrl      +      Shift      +      G</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/UngroupCellsGroupNormally.html">取消单元编组</a></td>
+<td>Ctrl      +      Shift      +      U</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/OpenAllSubgroups.html">打开所有子编组</a></td>
+<td>Ctrl+{</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/CloseAllSubgroups.html">关闭所有子编组</a></td>
+<td>Ctrl+}</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/OpenCloseGroup.html">打开/关闭组</a></td>
+<td>Ctrl      +      ‘</td>
+</tr>
+</tbody></table>
+<h3 id="图形菜单"><a href="#图形菜单" class="headerlink" title="图形菜单"></a><a href="https://reference.wolfram.com/language/guide/GraphicsMenu.html">图形菜单</a></h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/NewGraphic.html">新图形</a></th>
+<th>Ctrl      +      1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/DrawingTools.html">绘图工具</a></td>
+<td>Ctrl      +      D</td>
+</tr>
+</tbody></table>
+<h3 id="计算菜单"><a href="#计算菜单" class="headerlink" title="计算菜单"></a><a href="https://reference.wolfram.com/language/guide/EvaluationMenu.html">计算菜单</a></h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/EvaluateCells.html">计算单元</a></th>
+<th>Shift      +      Enter             或             数字             键盘的             Enter</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/EvaluateInPlace.html">在当前位置上计算</a></td>
+<td>Shift      +      Ctrl      +      Enter</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/EvaluateInSubsession.html">在子会话中计算</a></td>
+<td>F7</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/AbortEvaluation.html">放弃计算</a></td>
+<td>Alt      +      .</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/RemoveFromEvaluationQueue.html">从计算队列中删除</a></td>
+<td>Shift      +      Alt      +      .</td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/EvaluationMenu.html">计算</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/DebuggerControls.html">调试控制器</a> 菜单快捷键.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/Halt.html">停止</a></th>
+<th>Ctrl+Break</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Continue.html">继续</a></td>
+<td>F5</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Step.html">步进</a></td>
+<td>F10</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/StepIn.html">步入</a></td>
+<td>F11</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/StepOut.html">步出</a></td>
+<td>Shift+F11</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/Finish.html">结束</a></td>
+<td>Shift      +      Ctrl      +      F</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/ref/menuitem/ToggleBreakpoint.html">设置中断点</a></td>
+<td>F9</td>
+</tr>
+</tbody></table>
+<h3 id="窗口菜单"><a href="#窗口菜单" class="headerlink" title="窗口菜单"></a><a href="https://reference.wolfram.com/language/guide/WindowMenu.html">窗口菜单</a></h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/FullScreen.html">全屏</a></th>
+<th>F12</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="帮助菜单"><a href="#帮助菜单" class="headerlink" title="帮助菜单"></a><a href="https://reference.wolfram.com/language/guide/HelpMenu.html">帮助菜单</a></h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/FindSelectedFunction.html">查找所选函数</a></th>
+<th>F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><a href="https://reference.wolfram.com/language/guide/HelpMenu.html">帮助</a> 菜单快捷键.</p>
+<h2 id="图形互动的快捷键"><a href="#图形互动的快捷键" class="headerlink" title="图形互动的快捷键"></a>图形互动的快捷键</h2><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/ref/menuitem/NewGraphic.html">新图形</a></th>
+<th>Ctrl      +      1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#338102806">选择/移动/调整尺寸</a></td>
+<td>O</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#697258939">获取坐标</a></td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#397350248">点</a></td>
+<td>P</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#971463503">手画线</a></td>
+<td>F</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#68926780">线</a></td>
+<td>L</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#958705727">线段</a></td>
+<td>S</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#1776421352">箭头</a></td>
+<td>A</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#1958505769">多边形</a></td>
+<td>G</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#2124602014">圆盘/圆圈</a></td>
+<td>C</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#352866690">矩形</a></td>
+<td>Q</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#1589263668">Traditional Form 文本</a></td>
+<td>M</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html#1738959613">文本</a></td>
+<td>T</td>
+</tr>
+</tbody></table>
+<p><strong>绘图工具</strong> 面板快捷键.</p>
+<p>在上述表中的快捷方式只有在图形被选中时才能使用. 这些操作也可以从 <strong>绘图工具</strong> 面板中获得（选择 <a href="https://reference.wolfram.com/language/guide/GraphicsMenu.html">图形</a> ▶ <a href="https://reference.wolfram.com/language/ref/menuitem/DrawingTools.html">绘图工具</a> 或敲入 Ctrl+D 打开面板）. 参见 “<a href="https://reference.wolfram.com/language/tutorial/InteractiveGraphicsPalette.html">绘图工具</a>“ 获取更多关于 <strong>绘图工具</strong> 面板的信息.</p>
+<p>输入别名</p>
+<p>输入 Esc 可以产生 <a href="https://reference.wolfram.com/language/ref/character/AliasDelimiter.html">[AliasDelimiter]</a>或 ( Esc ) 字符.</p>
+<table>
+<thead>
+<tr>
+<th>不定积分 (      ∫                        )</th>
+<th>Esc intt Esc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定积分 (      <img src="https://reference.wolfram.com/language/tutorial/Files/KeyboardShortcutListing.zh/CellNone_2.png" alt="img">      )</td>
+<td>Esc dintt Esc</td>
+</tr>
+<tr>
+<td>偏导 (∂ )</td>
+<td>Esc dt Esc</td>
+</tr>
+<tr>
+<td>黎曼和 (      <img src="https://reference.wolfram.com/language/tutorial/Files/KeyboardShortcutListing.zh/3OverscriptBox.png" alt="img">            )</td>
+<td>Esc sumt Esc</td>
+</tr>
+<tr>
+<td>乘积 (      <img src="https://reference.wolfram.com/language/tutorial/Files/KeyboardShortcutListing.zh/4OverscriptBox.png" alt="img">            )</td>
+<td>Esc prodt Esc</td>
+</tr>
+</tbody></table>
+<p>输入别名.</p>
+<p>设定自定义的输入别名请参见 <a href="https://reference.wolfram.com/language/ref/InputAliases.html">InputAliases</a>.</p>
+<h2 id="特殊字符的快捷键"><a href="#特殊字符的快捷键" class="headerlink" title="特殊字符的快捷键"></a>特殊字符的快捷键</h2><p>输入 Esc 可以产生 <a href="https://reference.wolfram.com/language/ref/character/AliasDelimiter.html">AliasDelimiter</a> 或 ( Esc ) 字符.</p>
+<h3 id="符号字母的快捷键选集"><a href="#符号字母的快捷键选集" class="headerlink" title="符号字母的快捷键选集."></a>符号字母的快捷键选集.</h3><table>
+<thead>
+<tr>
+<th><a href="https://reference.wolfram.com/language/guide/GreekLetters.html">希腊字母</a>       (      α      ,       Α      ,       …      )</th>
+<th>Esc a Esc 或 Esc A Esc, …</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://reference.wolfram.com/language/guide/NotationalAlphabetCharacters.html#284013842">希伯莱字母</a>       (      ℵ      ,       ℶ      ,       …      )</td>
+<td>Esc al Esc      ,       …</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/guide/NotationalAlphabetCharacters.html#148686908">手写体字母</a>       (            ,             ,       …      )</td>
+<td>Esc sca Esc 或 Esc scA Esc, …</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/guide/NotationalAlphabetCharacters.html#647579870">双字母</a>       (            ,             ,       …      )</td>
+<td>Esc dsa Esc 或 Esc dsA Esc, …</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/guide/NotationalAlphabetCharacters.html#216715631">哥特式字母</a>       (            ,             ,       …      )</td>
+<td>Esc goa Esc 或 Esc goA Esc, …</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/guide/NotationalAlphabetCharacters.html#36809601">形式符号</a>       (      a      ,       A      ,       …      )</td>
+<td>Esc a Esc 或 Esc A Esc, …</td>
+</tr>
+<tr>
+<td><a href="https://reference.wolfram.com/language/tutorial/LettersAndLetterLikeForms.html#6089">国际字符集</a>       (      á      ,       Á      ,       …      )</td>
+<td>Esca’Esc 或 EscA’Esc, …</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\kappa$</td>
+<td>Esc k Esc</td>
+</tr>
+<tr>
+<td>+-</td>
+<td>Esc +- Esc</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="数学排版的快捷键选集"><a href="#数学排版的快捷键选集" class="headerlink" title="数学排版的快捷键选集."></a>数学排版的快捷键选集.</h3><table>
+<thead>
+<tr>
+<th>指数 (      <a href="https://reference.wolfram.com/language/ref/character/ExponentialE.html"></a>      )</th>
+<th>EsceeEsc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>积分 (<a href="https://reference.wolfram.com/language/ref/character/Integral.html">∫</a> )</td>
+<td>EscintEsc</td>
+</tr>
+<tr>
+<td>微分 (      <a href="https://reference.wolfram.com/language/ref/character/DifferentialD.html"></a>      )</td>
+<td>EscddEsc</td>
+</tr>
+<tr>
+<td>黎曼和 (      <a href="https://reference.wolfram.com/language/ref/character/Sum.html">∑</a>      )</td>
+<td>EscsumEsc</td>
+</tr>
+<tr>
+<td>空集 (      <a href="https://reference.wolfram.com/language/ref/character/EmptySet.html">∅</a>      )</td>
+<td>EscesEsc</td>
+</tr>
+<tr>
+<td>虚部 (      <a href="https://reference.wolfram.com/language/ref/character/ImaginaryI.html"></a>      )</td>
+<td>EsciiEsc</td>
+</tr>
+<tr>
+<td>梯度 (      <a href="https://reference.wolfram.com/language/ref/character/Del.html">∇</a>      )</td>
+<td>EscdelEsc</td>
+</tr>
+<tr>
+<td>转置 (      <a href="https://reference.wolfram.com/language/ref/character/Transpose.html"></a>      )</td>
+<td>EsctrEsc</td>
+</tr>
+<tr>
+<td>Hbar (      <a href="https://reference.wolfram.com/language/ref/character/HBar.html">ℏ</a>      )</td>
+<td>EschbEsc</td>
+</tr>
+<tr>
+<td>无穷 (      <a href="https://reference.wolfram.com/language/ref/character/Infinity.html">∞</a>      )</td>
+<td>EscinfEsc</td>
+</tr>
+</tbody></table>
+<h3 id="逻辑连接符快捷键选集"><a href="#逻辑连接符快捷键选集" class="headerlink" title="逻辑连接符快捷键选集."></a>逻辑连接符快捷键选集.</h3><table>
+<thead>
+<tr>
+<th>属于 (      <a href="https://reference.wolfram.com/language/ref/character/Element.html">∈</a>      )</th>
+<th>Esc el Esc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对于全部 (      <a href="https://reference.wolfram.com/language/ref/character/ForAll.html">∀</a>      )</td>
+<td>Esc fa Esc</td>
+</tr>
+<tr>
+<td>并集 (      <a href="https://reference.wolfram.com/language/ref/character/Union.html">⋃</a>      )</td>
+<td>Esc un Esc</td>
+</tr>
+<tr>
+<td>交集 (      <a href="https://reference.wolfram.com/language/ref/character/Intersection.html">⋂</a>      )</td>
+<td>Esc inter Esc</td>
+</tr>
+<tr>
+<td>非 (      <a href="https://reference.wolfram.com/language/ref/character/Not.html">¬</a>      )</td>
+<td>Esc not Esc</td>
+</tr>
+<tr>
+<td>蕴涵 (      <a href="https://reference.wolfram.com/language/ref/character/Implies.html"></a>      )</td>
+<td>Esc =&gt; Esc</td>
+</tr>
+<tr>
+<td>因此 (      <a href="https://reference.wolfram.com/language/ref/character/Therefore.html">∴</a>      )</td>
+<td>Esc tf Esc</td>
+</tr>
+</tbody></table>
+<h3 id="单位快捷键选集"><a href="#单位快捷键选集" class="headerlink" title="单位快捷键选集."></a>单位快捷键选集.</h3><table>
+<thead>
+<tr>
+<th>埃 (      <a href="https://reference.wolfram.com/language/ref/character/Angstrom.html">Å</a>      )</th>
+<th>EscAngEsc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分 (      <a href="https://reference.wolfram.com/language/ref/character/Cent.html">¢</a>      )</td>
+<td>EsccentEsc</td>
+</tr>
+<tr>
+<td>度 (      <a href="https://reference.wolfram.com/language/ref/character/Degree.html">°</a>      )</td>
+<td>EscdegEsc</td>
+</tr>
+</tbody></table>
+<h3 id="形状快捷键选集"><a href="#形状快捷键选集" class="headerlink" title="形状快捷键选集."></a>形状快捷键选集.</h3><table>
+<thead>
+<tr>
+<th>实心正方形 (      <a href="https://reference.wolfram.com/language/ref/character/FilledSquare.html">■</a>      )</th>
+<th>EscfsqEsc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实心圆 (      <a href="https://reference.wolfram.com/language/ref/character/FilledCircle.html">●</a>      )</td>
+<td>EscfciEsc</td>
+</tr>
+<tr>
+<td>五角星 (      <a href="https://reference.wolfram.com/language/ref/character/FivePointedStar.html">★</a>      )</td>
+<td>Esc*5Esc</td>
+</tr>
+<tr>
+<td>Mathematica 图标 (<a href="https://reference.wolfram.com/language/ref/character/MathematicaIcon.html"></a>)</td>
+<td>EscmathEsc</td>
+</tr>
+</tbody></table>
+<p>对于 Wolfram 语言的特殊字符的更多信息请参见 “<a href="https://reference.wolfram.com/language/tutorial/MathematicalAndOtherNotation.html#19606">字母和类似字母的形式</a>“、”<a href="https://reference.wolfram.com/language/tutorial/MathematicalAndOtherNotation.html#41">算符</a>“、”<a href="https://reference.wolfram.com/language/guide/NotationalAlphabetCharacters.html">符号字母表</a>“ 和 “<a href="https://reference.wolfram.com/language/guide/SpecialCharacters.html">特殊字符</a>“.</p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>软件教程</tag>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
 </search>
