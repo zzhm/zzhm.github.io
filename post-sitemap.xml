@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zymin.cn/arcticle/abaqus-zhcn.html</loc>
+        <lastmod>2021-02-26T08:11:05.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zymin.cn/arcticle/solidworks-abaqus.html</loc>
         <lastmod>2021-02-26T03:28:46.000Z</lastmod>
         <changefreq>weekly</changefreq>

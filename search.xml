@@ -805,14 +805,6 @@ Digimat-AM中的翘曲分析
 <p>软媒魔方-》软件管理-》卸载软件，并进行“清理残留”</p>
 <p>任务管理器-》停止“lmgrd”进程</p>
 <p>手动删除文件夹</p>
-<h2 id="切换为中文界面">切换为中文界面</h2>
-<p>Abaqus2018只需完成3步即可切换为中文界面，并支持中文路径，只需操作TXT文件，极度简单！</p>
-<p>找到<code>C:\ABAQUS\CAE\win_b64\SMA\Configuration\locale.txt</code>。不同电脑的安装文件夹不同，关键是找到<code>win_b64\SMA\Configuration\locale.txt</code></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619839492.png" /></p>
-<p>把<code>locale.txt</code>中，在图中位置，加上<code>Chinese (Simplified)_China.936 = zh_CN</code></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619897524.png" /></p>
-<p><code>把locale.txt</code>中，第三串长######################之前的<code>zh_CN = 0</code>改为<code>zh_CN = 1</code></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619992412.png" /></p>
 ]]></content>
       <categories>
         <category>实用教程</category>
@@ -22279,6 +22271,28 @@ v = f_y\frac{Y}{Z} + c_y
       <tags>
         <tag>软件教程</tag>
         <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Abqaus支持中文界面和中文路径的配置方法</title>
+    <url>/arcticle/abaqus-zhcn.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Abaqus只需完成3步即可切换为中文界面，并支持中文路径，只需操作TXT文件，极度简单！</p>
+<p>（1）关闭ABAQUS 软件，</p>
+<p>（2）找到<code>C:\SIMULIA\EstProducts\2020\win_b64\SMA\Configuration\locale.txt</code>。不同电脑的安装文件夹不同，关键是找到<code>win_b64\SMA\Configuration\locale.txt</code></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619839492.png" /></p>
+<p>（3）把<code>locale.txt</code>中，在图中位置，<code>Chinese_People's Republic of China.936 = zh_CN</code>和<code>Chinese (Simplified)_People's Republic of China.936 = zh_CN</code>后面加上<code>Chinese (Simplified)_China.936 = zh_CN</code>，此时便已经可以支持中文路径了！</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619897524.png" /></p>
+<p>（4）如果需要把界面显示成中文的，则<code>把locale.txt</code>中，第三串长######################之前的<code>zh_CN = 0</code>改为<code>zh_CN = 1</code>。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619992412.png" /></p>
+<p>注意：</p>
+<p>（1）若不希望汉化abaqus界面，又希望软件能够支持中文路径，可以只修改（3）中的内容。</p>
+<p>（2）2018和2020版本测试可用。</p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>软件教程</tag>
       </tags>
   </entry>
 </search>
