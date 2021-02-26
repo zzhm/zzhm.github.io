@@ -21279,11 +21279,15 @@ v = f_y\frac{Y}{Z} + c_y
 <table>
 <thead>
 <tr>
-<th>Title</th>
-<th>Alt      +      1</th>
+<th>格式</th>
+<th>快捷键</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>Title</td>
+<td>Alt      +      1</td>
+</tr>
+<tr>
 <td>Chapter</td>
 <td>Alt      +      2</td>
 </tr>
@@ -21319,11 +21323,15 @@ v = f_y\frac{Y}{Z} + c_y
 <table>
 <thead>
 <tr>
-<th>不定积分 (      ∫                        )</th>
-<th>Esc intt Esc</th>
+<th>符号</th>
+<th>快捷键</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>不定积分 (      ∫                        )</td>
+<td>Esc intt Esc</td>
+</tr>
+<tr>
 <td>定积分 (      <img src="https://reference.wolfram.com/language/tutorial/Files/KeyboardShortcutListing.zh/CellNone_2.png" alt="img">      )</td>
 <td>Esc dintt Esc</td>
 </tr>
@@ -21343,11 +21351,15 @@ v = f_y\frac{Y}{Z} + c_y
 <table>
 <thead>
 <tr>
-<th>属于 (      <a href="https://reference.wolfram.com/language/ref/character/Element.html">∈</a>      )</th>
-<th>Esc el Esc</th>
+<th>符号</th>
+<th>快捷键</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>属于 (      <a href="https://reference.wolfram.com/language/ref/character/Element.html">∈</a>      )</td>
+<td>Esc el Esc</td>
+</tr>
+<tr>
 <td>对于全部 (      <a href="https://reference.wolfram.com/language/ref/character/ForAll.html">∀</a>      )</td>
 <td>Esc fa Esc</td>
 </tr>
@@ -22237,6 +22249,29 @@ v = f_y\frac{Y}{Z} + c_y
 </tr>
 </tbody></table>
 <p>对于 Wolfram 语言的特殊字符的更多信息请参见 “<a href="https://reference.wolfram.com/language/tutorial/MathematicalAndOtherNotation.html#19606">字母和类似字母的形式</a>“、”<a href="https://reference.wolfram.com/language/tutorial/MathematicalAndOtherNotation.html#41">算符</a>“、”<a href="https://reference.wolfram.com/language/guide/NotationalAlphabetCharacters.html">符号字母表</a>“ 和 “<a href="https://reference.wolfram.com/language/guide/SpecialCharacters.html">特殊字符</a>“.</p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>软件教程</tag>
+        <tag>资源分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks与Abaqus接口插件</title>
+    <url>/arcticle/solidworks-abaqus.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>ABAQUS非线性功能强大，但是建模能力有限，对于复杂的结构模型，ABAQUS的建模功能不足，solidworks与abaqus接口插件解决了复杂模型的建立过程，实现solidworks和abaqus之间模型的关联导入，保持SolidWorks模型和Abaqus模型间的关系。</p>
+<p>1、安装插件（分为32位和64位）</p>
+<p><img src="D:\hexoBlog\source_posts\mathematica中的快捷键.assets\icon_rar.gif" alt="img"><a href="https://oss.jishulink.com/upload/201911/bd4c259ff8a64a3294126ca685bc66fe.rar">Sw2AbqPlugin_64.rar</a></p>
+<p><img src="D:\hexoBlog\source_posts\mathematica中的快捷键.assets\icon_rar.gif" alt="img"><a href="https://oss.jishulink.com/upload/201911/91e28be2880e4cc293943aa383097ef1.zip">Sw2AbqPlugin_V1.4_32.zip</a></p>
+<p>2、具体操作，以64为为例说明。</p>
+<p>解压64位插件，打开solidworks，<code>文件-打开-Sw2AbqPlugin_64.dll</code>，插件安装成功后在工具选项中出现abaqus选项。</p>
+<p>3、在abaqus中操作</p>
+<p>选择<code>装配模块—&gt;tools—&gt;CAD interfaces—&gt;SolidWorks</code>进入接口设置，保持默认设置点Enable即可。Abaqus命令提示区，提示与solidworks 接口已建立。</p>
+<p>4、使用</p>
+<p>在solidworks中建立好模型，<code>工具-abaqus-Export to Abaqus/CAE</code>，一般来讲，这个时候在abaqus中就会自动出现cae模型，这是自动导入。如果不行可以用abaqus手动输入，<code>abaqus—&gt;import—&gt;*.assembly—&gt;*.eaf file</code>。注意导出导入文件名字必须是英文</p>
+<p>5、这样就可以Solidworks与Abaqus就相互关联了，非常方便。</p>
 ]]></content>
       <categories>
         <category>实用教程</category>
