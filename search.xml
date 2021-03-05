@@ -21228,24 +21228,29 @@ v = f_y\frac{Y}{Z} + c_y
       </tags>
   </entry>
   <entry>
-    <title>非华为电脑安装最新版本华为电脑管家实现多屏协同+一碰传教程</title>
+    <title>非华为电脑安装最新版本华为电脑管家（11）实现多屏协同+一碰传教程</title>
     <url>/arcticle/huawei-yipengchuan.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、硬件要求</p>
-<ol type="1">
-<li><p>电脑硬件要求：支持WiFi和蓝牙。</p></li>
-<li><p>手机系统要求：手机系统<a href="https://club.huawei.com/forum-gid-2867.html">EMUI</a> 10 以上。</p></li>
-<li><p>NFC贴纸：实现一碰传功能必须要，如不使用一碰传可以不用。NFC贴纸规格型号要求NTAG215 。</p></li>
+<ol>
+<li><p>电脑硬件要求：支持WiFi和蓝牙。</p>
+</li>
+<li><p>手机系统要求：手机系统EMUI10 以上。</p>
+</li>
+<li><p>NFC贴纸：实现一碰传功能必须要，如不使用一碰传可以不用。NFC贴纸规格型号要求NTAG213以上。</p>
+</li>
 </ol>
 <p>二、软件准备</p>
-<ol type="1">
-<li><p>电脑管家安装软件（PCManagerMgr），手机软件一碰传助手下载链接详见附件。</p></li>
-<li><p><a href="https://club.huawei.com/">华为</a>官网下载最新版本电脑管家。</p></li>
+<ol>
+<li><p>电脑管家安装软件（PCManagerMgr），手机软件一碰传助手下载链接详见附件。</p>
+</li>
+<li><p><a href="https://consumer.huawei.com/cn/support/pc-manager/">华为</a>官网下载最新版本电脑管家。</p>
+</li>
 </ol>
 <p>三、安装软件</p>
 <p>将下载好的华为电脑管家与PCManagerMgr放在同一个文件夹内。打开PCManagerMgr ，具体如下：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214733.png" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214733.png"></p>
 <p>① 输入口令，开始前需要修改电脑系统时间，具体时间对应相应口令。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214740.png" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214740.png"></p>
 <p>② 修改电脑管家版本号，下载的什么版本就更改为什么版本。（其实在这里填安装包的完整路径就行）。</p>
 <p>③ 选择自定义SN 。</p>
 <p>④ 输入自己编的16位序列号。或者选择自动SN ，不用编辑，系统会自动生成SN码。（注：此16位序列号需要记住，否则后续重新安装时需要修改NFC标签或者更换NFC，比较麻烦）</p>
@@ -21253,6 +21258,12 @@ v = f_y\frac{Y}{Z} + c_y
 <p>四、 制作NFC标签</p>
 <p>在手机上下载安装<code>一碰传助手_1.0.4.0(无SN限制).apk</code> 。打开软件扫描上图步骤④中的NFC标签二维码，完成手机与NFC标签、电脑绑定。</p>
 <p>最后，还原电脑的系统时间，至此，所有安装步骤完成，便可实现多屏协同与一碰传了。</p>
+<p>五、问题及解决</p>
+<p>①采用手机扫码连接，手机端不能够弹出最终的确认按钮</p>
+<p>原因：新版浏览器的问题，恢复旧版本解决了。</p>
+<p>解决：<code>设置-&gt;应用-&gt;应用管理-&gt;浏览器</code>，点右上角三个点，卸载更新。 </p>
+<p>②一碰传无法连接，</p>
+<p>先用扫码连接试一下？换个口令再来一遍？</p>
 <p>PS：感谢大佬“汉客儿”的技术支持。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">下载链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1cY677NBjRuo3GCNsmZ3hYQ</span><br><span class="line">提取码：8e45</span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -22255,8 +22266,8 @@ v = f_y\frac{Y}{Z} + c_y
     <url>/arcticle/solidworks-abaqus.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>ABAQUS非线性功能强大，但是建模能力有限，对于复杂的结构模型，ABAQUS的建模功能不足，solidworks与abaqus接口插件解决了复杂模型的建立过程，实现solidworks和abaqus之间模型的关联导入，保持SolidWorks模型和Abaqus模型间的关系。</p>
 <p>1、安装插件（分为32位和64位）</p>
-<p><img src="D:\hexoBlog\source_posts\mathematica中的快捷键.assets\icon_rar.gif" alt="img"><a href="https://oss.jishulink.com/upload/201911/bd4c259ff8a64a3294126ca685bc66fe.rar">Sw2AbqPlugin_64.rar</a></p>
-<p><img src="D:\hexoBlog\source_posts\mathematica中的快捷键.assets\icon_rar.gif" alt="img"><a href="https://oss.jishulink.com/upload/201911/91e28be2880e4cc293943aa383097ef1.zip">Sw2AbqPlugin_V1.4_32.zip</a></p>
+<p><a href="https://oss.jishulink.com/upload/201911/bd4c259ff8a64a3294126ca685bc66fe.rar">Sw2AbqPlugin_64.rar</a></p>
+<p><a href="https://oss.jishulink.com/upload/201911/91e28be2880e4cc293943aa383097ef1.zip">Sw2AbqPlugin_V1.4_32.zip</a></p>
 <p>2、具体操作，以64为为例说明。</p>
 <p>解压64位插件，打开solidworks，<code>文件-打开-Sw2AbqPlugin_64.dll</code>，插件安装成功后在工具选项中出现abaqus选项。</p>
 <p>3、在abaqus中操作</p>
@@ -22293,6 +22304,303 @@ v = f_y\frac{Y}{Z} + c_y
       </categories>
       <tags>
         <tag>软件教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ABAQUS错误abaqus.rpy file permission denied</title>
+    <url>/arcticle/abaqus2020-permission-denied.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>安装完成ABAQUS2020后打开软件出现</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IOerror: abaqus.rpy file permission denied</span><br></pre></td></tr></table></figure>
+<p>原因：软件默认的起始位置在与系统相关的文件夹<code>system32</code>，软件无法在相应的文件夹里创建文件<code>abaqus.rpy</code>。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104009.png"></p>
+<p>解决方法：</p>
+<p>先找到Abqaus CAE的快捷方式所在的文件夹，比如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dassault Systemes SIMULIA Established Products 2020</span><br></pre></td></tr></table></figure>
+<p>点击<code>鼠标右键--&gt;属性</code></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104743.png"></p>
+<p>下面有两种解决方法。</p>
+<p>方法一：设置起始位置，比如下图中的<code>C:\temp</code>。而默认文件夹也修改为相应文件夹。生成的<code>abaqus.rpy</code>等文件会默认保存在此文件夹中。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104145.png"></p>
+<p>方法二：设置使用管理员身份运行。不建议！</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104258.png"></p>
+<p>如果以管理员方式启动会发现临时文件全部存在了<code>system32</code>目录下。</p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>有限元</tag>
+        <tag>软件教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python中的数学函数</title>
+    <url>/arcticle/python-math.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>不需要引入math模块的有：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">abs</span>(),cmp(),<span class="built_in">max</span>(),<span class="built_in">min</span>(),<span class="built_in">pow</span>(),<span class="built_in">round</span>()</span><br></pre></td></tr></table></figure>
+<p><strong>需要引入math模块的：</strong></p>
+<p>三角函数，及其他数学函数，fabs(),</p>
+<p>需要特别注意：</p>
+<p>1、abs()是一个内置函数，而fabs()在math模块中定义的。<br>2、fabs()函数只适用于float和integer类型，而 abs() 也适用于复数。</p>
+<ul>
+<li><code>math.ceil(x)</code></li>
+</ul>
+<p>返回x的上限，即大于或者等于x的最小整数。如果x不是一个浮点数，则委托 <code>x.__ceil__()</code>, 返回一个 <a href="https://docs.python.org/zh-cn/3/library/numbers.html#numbers.Integral"><code>Integral</code></a> 类的值。</p>
+<ul>
+<li><code>math.comb(n, k)</code></li>
+</ul>
+<p>返回不重复且无顺序地从  n  项中选择  k  项的方式总数。当 <code>k &lt;= n</code> 时取值为 <code>n! / (k!   (n - k)!)</code>；当 <code>k &gt; n</code> 时取值为零。也称为二项式系数，因为它等价于表达式 <code>(1 + x)^n</code> 的多项式展开中第 k 项的系数。如果任一参数不为整数则会引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#TypeError"><code>TypeError</code></a>。 如果任一参数为负数则会引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError"><code>ValueError</code></a>。 </p>
+<ul>
+<li><code>math.copysign(x,y)</code></li>
+</ul>
+<p>返回一个基于x的绝对值和  y  的符号的浮点数。在支持带符号零的平台上，<code>copysign(1.0, -0.0)</code> 返回  -1.0 .</p>
+<ul>
+<li><code>math.fabs(x) </code></li>
+</ul>
+<p>返回x的绝对值。</p>
+<ul>
+<li><code>math.factorial(x) </code></li>
+</ul>
+<p>以一个整数返回x的阶乘。 如果x不是整数或为负数时则将引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError"><code>ValueError</code></a>。 </p>
+<ul>
+<li><code>math.floor(x) </code></li>
+</ul>
+<p>返回x的向下取整，小于或等于x的最大整数。如果x不是浮点数，则委托 <code>x.__floor__()</code> ，它应返回 <a href="https://docs.python.org/zh-cn/3/library/numbers.html#numbers.Integral"><code>Integral</code></a> 值。</p>
+<ul>
+<li><code>math.fmod(x,y)</code></li>
+</ul>
+<p>返回 <code>fmod(x, y)</code> ，由平台C库定义。请注意，Python表达式 <code>x % y</code> 可能不会返回相同的结果。C标准的目的是 <code>fmod(x, y)</code> 完全（数学上；到无限精度）等于 <code>x - n y</code> 对于某个整数  n  ，使得结果具有 与x相同的符号和小于 <code>abs(y)</code> 的幅度。Python的 <code>x % y</code> 返回带有  y  符号的结果，并且可能不能完全计算浮点参数。 例如， <code>fmod(-1e-100, 1e100)</code> 是 <code>-1e-100</code> ，但Python的 <code>-1e-100 % 1e100</code> 的结果是 <code>1e100-1e-100</code> ，它不能完全表示为浮点数，并且取整为令人惊讶的 <code>1e100</code> 。 出于这个原因，函数 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.fmod"><code>fmod()</code></a> 在使用浮点数时通常是首选，而Python的 <code>x % y</code> 在使用整数时是首选。</p>
+<ul>
+<li><code>math.frexp(x) </code></li>
+</ul>
+<p>以 <code>(m, e)</code> 对的形式返回x的尾数和指数。  m  是一个浮点数，  e  是一个整数，正好是 <code>x == m*2**e</code> 。 如果x为零，则返回 <code>(0.0,0)</code> ，否则返回 <code>0.5&lt;=abs(m)&lt;1</code> 。这用于以可移植方式“分离”浮点数的内部表示。</p>
+<ul>
+<li><code>math.fsum(iterable)</code></li>
+</ul>
+<p>返回迭代中的精确浮点值。通过跟踪多个中间部分和来避免精度损失:</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">sum</span>([<span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>]) </span><br><span class="line"><span class="number">0.9999999999999999</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fsum([<span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>, <span class="number">.1</span>]) </span><br><span class="line"><span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<p>该算法的准确性取决于IEEE-754算术保证和舍入模式为半偶的典型情况。在某些非Windows版本中，底层C库使用扩展精度添加，并且有时可能会使中间和加倍，导致它在最低有效位中关闭。有关待进一步讨论和两种替代方法，参见 <a href="https://code.activestate.com/recipes/393090/">ASPN cookbook recipes for accurate floating point summation</a>。</p>
+<ul>
+<li><code>math.gcd(integers)</code></li>
+</ul>
+<p>返回给定的整数参数的最大公约数。 如果有一个参数非零，则返回值将是能同时整除所有参数的最大正整数。 如果所有参数为零，则返回值为 <code>0</code>。 不带参数的 <code>gcd()</code> 返回 <code>0</code>。 3.5 新版功能.  在 3.9 版更改:  添加了对任意数量的参数的支持。 之前的版本只支持两个参数。</p>
+<ul>
+<li><code>math.isclose(a,b,*, rel_tol=1e-09, abs_tol=0.0)</code></li>
+</ul>
+<p>若a和b的值比较接近则返回 <code>True</code>，否则返回 <code>False</code>。根据给定的绝对和相对容差确定两个值是否被认为是接近的。 rel_tol  是相对容差 —— 它是  a  和  b  之间允许的最大差值，相对于  a  或  b  的较大绝对值。例如，要设置5％的容差，请传递 <code>rel_tol=0.05</code> 。默认容差为 <code>1e-09</code>，确保两个值在大约9位十进制数字内相同。  rel_tol  必须大于零。 abs_tol  是最小绝对容差 —— 对于接近零的比较很有用。  abs_tol  必须至少为零。如果没有错误发生，结果将是： <code>abs(a-b) &lt;= max(rel_tol   max(abs(a), abs(b)), abs_tol)</code> 。IEEE 754特殊值 <code>NaN</code> ， <code>inf</code> 和 <code>-inf</code> 将根据IEEE规则处理。具体来说， <code>NaN</code> 不被认为接近任何其他值，包括 <code>NaN</code> 。 <code>inf</code> 和 <code>-inf</code> 只被认为接近自己。 参见 <a href="https://www.python.org/dev/peps/pep-0485">  PEP 485  </a> —— 用于测试近似相等的函数</p>
+<ul>
+<li><code>math.isfinite(x)</code></li>
+</ul>
+<p>如果x既不是无穷大也不是NaN，则返回 <code>True</code> ，否则返回 <code>False</code> 。 （注意 <code>0.0</code> 被认为  是  有限的。） 3.2 新版功能. </p>
+<ul>
+<li><code>math.isinf(x) </code></li>
+</ul>
+<p>如果x是正或负无穷大，则返回 <code>True</code> ，否则返回 <code>False</code> 。</p>
+<ul>
+<li><code>math.isnan(x) </code></li>
+</ul>
+<p>如果x是 NaN（不是数字），则返回 <code>True</code> ，否则返回 <code>False</code> 。</p>
+<ul>
+<li><code>math.isqrt(n)</code></li>
+</ul>
+<p>返回非负整数n的整数平方根。 这就是对n的实际平方根向下取整，或者相当于使得 a² ≤ n  的最大整数a 。</p>
+<p>对于某些应用来说，可以更适合取值为使得n  ≤  a ² 的最小整数  a  ，或者换句话说就是 n的实际平方根向上取整。 对于正数n ，这可以使用<code>a = 1 + isqrt(n - 1)</code> 来计算。 </p>
+<ul>
+<li><code>math.lcm(integers)</code></li>
+</ul>
+<p>返回给定的整数参数的最小公倍数。 如果所有参数均非零，则返回值将是为所有参数的整数倍的最小正整数。 如果参数之一为零，则返回值为 <code>0</code>。 不带参数的 <code>lcm()</code> 返回 <code>1</code>。 3.9 新版功能. </p>
+<ul>
+<li><code>math.ldexp(x,i)</code></li>
+</ul>
+<p>返回 <code>x*(2**i)</code> 。 这基本上是函数 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.frexp"><code>frexp()</code></a> 的反函数。</p>
+<ul>
+<li><code>math.modf(x) </code></li>
+</ul>
+<p>返回x的小数和整数部分。两个结果都带有x的符号并且是浮点数。</p>
+<ul>
+<li><code>math.nextafter</code>(x,y)</li>
+</ul>
+<p>返回x趋向于y的最接近的浮点数值。如果x等于y则返回y 。</p>
+<p>示例：</p>
+<p><code>math.nextafter(x, math.inf)</code> 的方向朝上：趋向于正无穷。</p>
+<p><code>math.nextafter(x, -math.inf)</code> 的方向朝下：趋向于负无穷。</p>
+<p><code>math.nextafter(x, 0.0)</code> 趋向于零。</p>
+<p><code>math.nextafter(x, math.copysign(math.inf, x))</code> 趋向于零的反方向。</p>
+<p>另请参阅 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.ulp"><code>math.ulp()</code></a>。 </p>
+<ul>
+<li><code>math.perm(n,k=None)</code></li>
+</ul>
+<p>返回不重复且有顺序地从  n  项中选择  k  项的方式总数。当 <code>k &lt;= n</code> 时取值为 <code>n!/(n - k)!</code>；当 <code>k &gt; n</code> 时取值为零。如果  k  未指定或为 None，则  k  默认值为  n  并且函数将返回 <code>n!</code>。如果任一参数不为整数则会引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#TypeError"><code>TypeError</code></a>。 如果任一参数为负数则会引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError"><code>ValueError</code></a>。 3.8 新版功能. </p>
+<ul>
+<li><code>math.prod(iterable,*,start=1)</code></li>
+</ul>
+<p>计算输入的  iterable  中所有元素的积。 积的默认  start  值为 <code>1</code>。当可迭代对象为空时，返回起始值。 此函数特别针对数字值使用，并会拒绝非数字类型。 3.8 新版功能. </p>
+<ul>
+<li><code>math.remainder(x,y)</code></li>
+</ul>
+<p>返回 IEEE 754 风格的x相对于y的余数。对于有限x和有限非零y  ，这是差异 <code>x-ny</code> ，其中 <code>n</code> 是与商 <code>x/y</code> 的精确值最接近的整数。如果 <code>x/y</code> 恰好位于两个连续整数之间，则最近的   even  整数用于 <code>n</code> 。 余数 <code>r = remainder(x,y)</code> 因此总是满足 <code>abs(r) &lt;= 0.5 abs(y)</code> 。特殊情况遵循IEEE 754：特别是 <code>remainder(x, math.inf)</code> 对于任何有限x都是x，而 <code>remainder(x, 0)</code> 和 <code>remainder(math.inf, x)</code> 引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError"><code>ValueError</code></a> 适用于任何非NaN的x。如果余数运算的结果为零，则该零将具有与x相同的符号。在使用IEEE 754二进制浮点的平台上，此操作的结果始终可以完全表示：不会引入舍入错误。 </p>
+<ul>
+<li><code>math.trunc(x) </code></li>
+</ul>
+<p>返回 <a href="https://docs.python.org/zh-cn/3/library/numbers.html#numbers.Real"><code>Real</code></a> 值x截断为 <a href="https://docs.python.org/zh-cn/3/library/numbers.html#numbers.Integral"><code>Integral</code></a> （通常是整数）。 委托给 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__trunc__"><code>x.__trunc__()</code></a>。</p>
+<ul>
+<li><code>math.ulp(x) </code></li>
+</ul>
+<p>返回浮点数x的最小有效比特位的值:如果x是 NaN (非数字)，则返回  x 。如果x为负数，则返回 <code>ulp(-x)</code>。如果x为正数，则返回  x 。如果x等于，则返回  去正规化的  可表示最小正浮点数 (小于  正规化的  最小正浮点数 <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.float_info"><code>sys.float_info.min</code></a>)。如果x等于可表示最大正浮点数，则返回x的最低有效比特位的值，使得小于x的第一个浮点数为 <code>x - ulp(x)</code>。在其他情况下 ( x  是一个有限的正数)，则返回x的最低有效比特位的值，使得大于x的第一个浮点数为 <code>x + ulp(x)</code>。ULP 即 “Unit in the Last Place” 的缩写。另请参阅 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.nextafter"><code>math.nextafter()</code></a> 和 <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.float_info"><code>sys.float_info.epsilon</code></a>。</p>
+<p>注意 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.frexp"><code>frexp()</code></a> 和 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.modf"><code>modf()</code></a> 具有与它们的C等价函数不同的调用/返回模式：它们采用单个参数并返回一对值，而不是通过 ‘输出形参’ 返回它们的第二个返回参数（Python中没有这样的东西）。</p>
+<p>对于 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.ceil"><code>ceil()</code></a> ， <a href="https://docs.python.org/zh-cn/3/library/math.html#math.floor"><code>floor()</code></a> 和 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.modf"><code>modf()</code></a> 函数，请注意  所有  足够大的浮点数都是精确整数。Python浮点数通常不超过53位的精度（与平台C double类型相同），在这种情况下，任何浮点x与 <code>abs(x) &gt;= 2**52</code> 必然没有小数位。</p>
+<h2 id="幂函数与对数函数"><a href="#幂函数与对数函数" class="headerlink" title="幂函数与对数函数"></a>幂函数与对数函数</h2><ul>
+<li><code>math.exp(x) </code></li>
+</ul>
+<p>返回e次x幂，其中 <code>e = 2.718281...</code> 是自然对数的基数。这通常比 <code>math.e**x</code> 或 <code>pow(math.e, x)</code> 更精确。</p>
+<ul>
+<li><code>math.expm1(x) </code></li>
+</ul>
+<p>返回e的x次幂，减1。这里e是自然对数的基数。对于小浮点数x， <code>exp(x)-1</code> 中的减法可能导致 <a href="https://en.wikipedia.org/wiki/Loss_of_significance">significant loss of precision</a>； <a href="https://docs.python.org/zh-cn/3/library/math.html#math.expm1"><code>expm1()</code></a> 函数提供了一种将此数量计算为全精度的方法:</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> math <span class="keyword">import</span> exp, expm1 </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>exp(<span class="number">1e-5</span>) - <span class="number">1</span>  <span class="comment"># gives result accurate to 11 places </span></span><br><span class="line"><span class="number">1.0000050000069649e-05</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>expm1(<span class="number">1e-5</span>)    <span class="comment"># result accurate to full precision </span></span><br><span class="line"><span class="number">1.0000050000166668e-05</span> </span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>math.log( x [*, base])</code></li>
+</ul>
+<p>使用一个参数，返回x的自然对数（底为  e  ）。使用两个参数，返回给定的  base  的对数x，计算为 <code>log(x)/log(base)</code> 。</p>
+<ul>
+<li><code>math.log1p(x) </code></li>
+</ul>
+<p>返回  <code>1+x (base e )</code> 的自然对数。以对于接近零的x精确的方式计算结果。</p>
+<ul>
+<li><code>math.log2(x) </code></li>
+</ul>
+<p>返回x以2为底的对数。这通常比 <code>log(x,2)</code> 更准确。 参见 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#int.bit_length"><code>int.bit_length()</code></a> 返回表示二进制整数所需的位数，不包括符号和前导零。</p>
+<ul>
+<li><code>math.log10(x) </code></li>
+</ul>
+<p>返回x底为10的对数。这通常比 <code>log(x,10)</code> 更准确。</p>
+<ul>
+<li><code>math.pow(x,y)</code></li>
+</ul>
+<p>将返回 <code>x</code> 的 <code>y</code> 次幂。特殊情况尽可能遵循C99标准的附录’F’。特别是， <code>pow(1.0,x)</code> 和 <code>pow(x,0.0)</code> 总是返回 <code>1.0</code> ，即使 <code>x</code> 是零或NaN。 如果 <code>x</code> 和 <code>y</code> 都是有限的， <code>x</code> 是负数， <code>y</code> 不是整数那么 <code>pow(x,y)</code> 是未定义的，并且引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError"><code>ValueError</code></a> 。与内置的 <code> **</code> 运算符不同， <a href="https://docs.python.org/zh-cn/3/library/math.html#math.pow"><code>math.pow()</code></a> 将其参数转换为 <a href="https://docs.python.org/zh-cn/3/library/functions.html#float"><code>float</code></a> 类型。使用 <code>**</code> 或内置的 <a href="https://docs.python.org/zh-cn/3/library/functions.html#pow"><code>pow()</code></a> 函数来计算精确的整数幂。</p>
+<ul>
+<li><code>math.sqrt(x)</code></li>
+</ul>
+<p>返回x的平方根。</p>
+<h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><ul>
+<li><code>math.acos(x)</code></li>
+</ul>
+<p>返回以弧度为单位的x的反余弦值。 结果范围在 <code>0</code> 到 <code>pi</code> 之间。</p>
+<ul>
+<li><code>math.asin(x)</code></li>
+</ul>
+<p>返回以弧度为单位的x的反正弦值。 结果范围在 <code>-pi/2</code> 到 <code>pi/2</code> 之间。</p>
+<ul>
+<li><code>math.atan(x)</code></li>
+</ul>
+<p>返回以弧度为单位的x的反正切值。 结果范围在 <code>-pi/2</code> 到 <code>pi/2</code> 之间。.</p>
+<ul>
+<li><code>math.atan2(y,x)</code></li>
+</ul>
+<p>以弧度为单位返回<code>atan(y/x)</code>。结果是在<code>-pi</code> 和<code>pi</code>之间。从原点到点<code>(x, y)</code>的平面矢量使该角度与正X轴成正比。 <a href="https://docs.python.org/zh-cn/3/library/math.html#math.atan2"><code>atan2()</code></a> 的点的两个输入的符号都是已知的，因此它可以计算角度的正确象限。 例如， <code>atan(1)</code> 和 <code>atan2(1, 1)</code> 都是 <code>pi/4</code> ，但 <code>atan2(-1, -1)</code> 是 <code>-3 pi/4</code> 。</p>
+<ul>
+<li><code>math.cos(x) </code></li>
+</ul>
+<p>返回x弧度的余弦值。</p>
+<ul>
+<li><code>math.dist(p,q)</code></li>
+</ul>
+<p>返回p与q两点之间的欧几里得距离，以一个坐标序列（或可迭代对象）的形式给出。 两个点必须具有相同的维度。大致相当于：<code>sqrt(sum((px-qx)**2.0 for px, qx in zip(p, q))) </code> </p>
+<ul>
+<li><code>math.hypot(coordinates)</code></li>
+</ul>
+<p>返回欧几里得范数，<code>sqrt(sum(x**2 for x in coordinates))</code>。 这是从原点到坐标给定点的向量长度。对于一个二维点 <code>(x,y)</code>，这等价于使用毕达哥拉斯定义 <code>sqrt(x x + y y)</code> 计算一个直角三角形的斜边。 在 3.8 版更改:  添加了对 n 维点的支持。 之前的版本只支持二维点。</p>
+<ul>
+<li><code>math.sin(x) </code></li>
+</ul>
+<p>返回x弧度的正弦值。</p>
+<ul>
+<li><code>math.tan(x) </code></li>
+</ul>
+<p>返回x弧度的正切值。</p>
+<h2 id="角度转换"><a href="#角度转换" class="headerlink" title="角度转换"></a>角度转换</h2><ul>
+<li><code>math.degrees(x) </code></li>
+</ul>
+<p>将角度x从弧度转换为度数。</p>
+<ul>
+<li><code>math.radians(x) </code></li>
+</ul>
+<p>将角度x从度数转换为弧度。</p>
+<h2 id="双曲函数"><a href="#双曲函数" class="headerlink" title="双曲函数"></a>双曲函数</h2><p><a href="https://en.wikipedia.org/wiki/Hyperbolic_function">双曲函数</a> 是基于双曲线而非圆来对三角函数进行模拟。</p>
+<ul>
+<li><code>math.acosh(x) </code></li>
+</ul>
+<p>返回x的反双曲余弦值。</p>
+<ul>
+<li><code>math.asinh(x) </code></li>
+</ul>
+<p>返回x的反双曲正弦值。</p>
+<ul>
+<li><code>math.atanh(x) </code></li>
+</ul>
+<p>返回x的反双曲正切值。</p>
+<ul>
+<li><code>math.cosh(x) </code></li>
+</ul>
+<p>返回x的双曲余弦值。</p>
+<ul>
+<li><code>math.sinh(x) </code></li>
+</ul>
+<p>返回x的双曲正弦值。</p>
+<ul>
+<li><code>math.tanh(x) </code></li>
+</ul>
+<p>返回x的双曲正切值。</p>
+<h2 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h2><ul>
+<li><code>math.erf(x) </code></li>
+</ul>
+<p>返回x处的 <a href="https://en.wikipedia.org/wiki/Error_function">error function</a> 。<a href="https://docs.python.org/zh-cn/3/library/math.html#math.erf"><code>erf()</code></a> 函数可用于计算传统的统计函数，如 <a href="https://en.wikipedia.org/wiki/Normal_distribution#Cumulative_distribution_function">累积标准正态分布</a><code>def phi(x):    &#39;Cumulative distribution function for the standard normal distribution&#39;    return (1.0 + erf(x / sqrt(2.0))) / 2.0 </code> </p>
+<ul>
+<li><code>math.erfc(x) </code></li>
+</ul>
+<p>返回x处的互补误差函数。 <a href="https://en.wikipedia.org/wiki/Error_function">互补错误函数</a> 定义为 <code>1.0 - erf(x)</code>。 它用于x的大值，从其中减去一个会导致 <a href="https://en.wikipedia.org/wiki/Loss_of_significance">有效位数损失</a>。 </p>
+<ul>
+<li><code>math.gamma(x) </code></li>
+</ul>
+<p>返回x处<a href="https://en.wikipedia.org/wiki/Gamma_function">伽马函数</a> 值。 </p>
+<ul>
+<li><code>math.lgamma(x) </code></li>
+</ul>
+<p>返回Gamma函数在x绝对值的自然对数。 </p>
+<h2 id="常数"><a href="#常数" class="headerlink" title="常数"></a>常数</h2><ul>
+<li><code>math.pi</code></li>
+</ul>
+<p>数学常数<code>π  = 3.141592...</code>，精确到可用精度。</p>
+<ul>
+<li><code>math.e</code></li>
+</ul>
+<p>数学常数<code>e  = 2.718281...</code>，精确到可用精度。</p>
+<ul>
+<li><code>math.tau</code></li>
+</ul>
+<p>数学常数 <code>τ= 6.283185...</code>，精确到可用精度。T 是一个圆周常数，等于2π ，圆的周长与半径之比。更多关于 Tau 的信息可参考 Vi Hart 的视频 <a href="https://www.youtube.com/watch?v=jG7vhMMXagQ">Pi is (still) Wrong</a>。吃两倍多的派来庆祝 <a href="https://tauday.com/">Tau 日</a> 吧！ </p>
+<ul>
+<li><code>math.inf</code></li>
+</ul>
+<p>浮点正无穷大。 （对于负无穷大，使用 <code>-math.inf</code>。）相当于 <code>float(&#39;inf&#39;)</code> 的输出。</p>
+<ul>
+<li><code>math.nan</code></li>
+</ul>
+<p>浮点“非数字”（NaN）值。 相当于 <code>float(&#39;nan&#39;)</code> 的输出。</p>
+<p>CPython implementation detail:   <a href="https://docs.python.org/zh-cn/3/library/math.html#module-math"><code>math</code></a> 模块主要包含围绕平台C数学库函数的简单包装器。特殊情况下的行为在适当情况下遵循C99标准的附录F。当前的实现将引发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#ValueError"><code>ValueError</code></a> 用于无效操作，如 <code>sqrt(-1.0)</code> 或 <code>log(0.0)</code> （其中C99附件F建议发出无效操作信号或被零除）， 和 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#OverflowError"><code>OverflowError</code></a> 用于溢出的结果（例如， <code>exp(1000.0)</code> ）。除非一个或多个输入参数是NaN，否则不会从上述任何函数返回NaN；在这种情况下，大多数函数将返回一个NaN，但是（再次遵循C99附件F）这个规则有一些例外，例如 <code>pow(float(&#39;nan&#39;), 0.0)</code> 或 <code>hypot(float(&#39;nan&#39;), float(&#39;inf&#39;))</code> 。</p>
+<p>请注意，Python不会将显式NaN与静默NaN区分开来，并且显式NaN的行为仍未明确。典型的行为是将所有NaN视为静默的。</p>
+<p>参见</p>
+<ul>
+<li><p><a href="https://docs.python.org/zh-cn/3/library/cmath.html#module-cmath"><code>cmath</code></a> 模块</p>
+<p>这里很多函数的复数版本。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>资源分享</tag>
       </tags>
   </entry>
 </search>
