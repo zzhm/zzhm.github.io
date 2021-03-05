@@ -206,13 +206,6 @@
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</loc>
-        <lastmod>2019-09-30T01:06:38.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zymin.cn/tags/%E8%AE%BA%E6%96%87%E6%8A%95%E7%A8%BF/</loc>
         <lastmod>2019-09-30T01:06:38.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -220,14 +213,21 @@
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/%E5%85%AC%E5%BC%8F/</loc>
-        <lastmod>2019-09-29T14:21:51.000Z</lastmod>
+        <loc>https://zymin.cn/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</loc>
+        <lastmod>2019-09-30T01:06:38.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://zymin.cn/tags/mathtype/</loc>
+        <lastmod>2019-09-29T14:21:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zymin.cn/tags/%E5%85%AC%E5%BC%8F/</loc>
         <lastmod>2019-09-29T14:21:51.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -696,14 +696,14 @@
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/%E6%94%BF%E7%AD%96/</loc>
+        <loc>https://zymin.cn/tags/%E5%9F%BA%E9%87%91/</loc>
         <lastmod>2018-08-01T10:34:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/%E5%9F%BA%E9%87%91/</loc>
+        <loc>https://zymin.cn/tags/%E6%94%BF%E7%AD%96/</loc>
         <lastmod>2018-08-01T10:34:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
