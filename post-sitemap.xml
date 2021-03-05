@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zymin.cn/arcticle/dingchangshi.html</loc>
+        <lastmod>2021-03-05T11:23:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zymin.cn/arcticle/python-math.html</loc>
         <lastmod>2021-03-03T01:28:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
