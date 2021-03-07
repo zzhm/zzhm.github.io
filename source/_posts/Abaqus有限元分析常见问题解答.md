@@ -27,27 +27,33 @@ categories:
 
 在后处理模块(Visualization)下的使用Free Body Cut选项，可以基于View Cut的切面查看内力，也可基于网格边或者节点定义任意切面查看截面的内力：
 
+![](https://gitee.com/zihm/images/raw/master/hexo/20210307104905.jpg)
+
+ 
+
+![](https://gitee.com/zihm/images/raw/master/hexo/20210307104909.jpg)
+
+ 
+
+![](https://gitee.com/zihm/images/raw/master/hexo/20210307104913.jpg)
 
 
-| ![](https://gitee.com/zihm/images/raw/master/hexo/20210306113244) | ![](https://gitee.com/zihm/images/raw/master/hexo/20210306113246) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](https://gitee.com/zihm/images/raw/master/hexo/20210306113242) |                                                              |
-| Figure-1:  Free Body Cut                                     |                                                              |
+Figure-1:  Free Body Cut                                
 
 创建Free Body Cut后，也可在Create XY Data 中选择Free body创建相关截面内力的曲线。
 
-| ![](https://gitee.com/zihm/images/raw/master/hexo/20210306113238) |
-| ------------------------------------------------------------ |
-| Figure-2:  Free Body Force Output                            |
+![](https://gitee.com/zihm/images/raw/master/hexo/20210307104923.jpg) 
+
+ Figure-2:  Free Body Force Output                    
 
 方式二: Integrated Output Sections
 
 在Step模块的菜单，Output选项Integrated Output Sections 创建一个截面I-section，然后在History Output中定义截面I-section上合力/合力矩的输出（SOF、SOM）；从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了：
 
-| ![](https://gitee.com/zihm/images/raw/master/hexo/20210306113233) |
-| ------------------------------------------------------------ |
-| ![](https://gitee.com/zihm/images/raw/master/hexo/20210306113309) |
-| Figure-3:  Integrated Output Sections                        |
+![](https://gitee.com/zihm/images/raw/master/hexo/20210307104926.jpg) 
+
+![](https://gitee.com/zihm/images/raw/master/hexo/20210307104931.jpg) 
+Figure-3:  Integrated Output Sections                 
 
 从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了。
 
@@ -108,3 +114,13 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dassault Systemes SIMULIA E
 - **单元类型**。单元类型中有很多设置，比如对 hourglass 的控制方式。可以试着换用不同的方式。还可以考虑换个单元类型试试看。
 
 以上几点也不一定就能解决单元过度变形的问题，还需要慢慢积累经验。也欢迎有经验的朋友留言补充。
+
+
+
+### Too many attempts made for this increment
+
+作业（Job）时提示Error in job xxx:Too many attempts made for this increment。
+
+这是因为：某一个分析步缺少边界条件。
+
+在一个边界条件中，建立多个面的约束，很有可能计算错误！这可能是因为程序的设计问题，所以，尽量在每一个边界条件中，只建立关于一个面的约束。
