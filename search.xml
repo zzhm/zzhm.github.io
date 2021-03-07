@@ -669,17 +669,17 @@ Digimat-AM中的翘曲分析
 <p>有点困惑了，不知道结果在哪了？通常我们会想到用节点力的输出来合成，可是节点力似乎不够便捷直观，怎么办？这些确实不是一般状况我们需要了解或者查看的结果，不过当我们需要这些结果的时候我们也得有相关技能，现在来GET这些技能吧：</p>
 <p>方式一: Free Body Cut</p>
 <p>在后处理模块(Visualization)下的使用Free Body Cut选项，可以基于View Cut的切面查看内力，也可基于网格边或者节点定义任意切面查看截面的内力：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306113244" /></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306113246" /></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306113242" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104905.jpg" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104909.jpg" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104913.jpg" /></p>
 <p>Figure-1: Free Body Cut</p>
 <p>创建Free Body Cut后，也可在Create XY Data 中选择Free body创建相关截面内力的曲线。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306113238" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104923.jpg" /></p>
 <p>Figure-2: Free Body Force Output</p>
 <p>方式二: Integrated Output Sections</p>
 <p>在Step模块的菜单，Output选项Integrated Output Sections 创建一个截面I-section，然后在History Output中定义截面I-section上合力/合力矩的输出（SOF、SOM）；从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306113233" /></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306113309" /> Figure-3: Integrated Output Sections</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104926.jpg" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104931.jpg" /> Figure-3: Integrated Output Sections</p>
 <p>从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了。</p>
 <h2 id="常见错误处理">常见错误处理</h2>
 <h3 id="abaqus.rpy-file-permission-denied">abaqus.rpy file permission denied</h3>
