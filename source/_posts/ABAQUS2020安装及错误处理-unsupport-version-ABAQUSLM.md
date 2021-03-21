@@ -1,5 +1,5 @@
 ---
-title: ABAQUS2020安装失败-unsupport version ABAQUSLM
+title: ABAQUS2020安装及错误处理-unsupport version ABAQUSLM
 id: abaqus2020-install
 date: 2020-03-28 21:20:11
 tags:
