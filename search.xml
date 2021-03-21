@@ -550,81 +550,33 @@ Digimat-AM中的翘曲分析
       </tags>
   </entry>
   <entry>
-    <title>ABAQUS2020安装失败-unsupport version ABAQUSLM</title>
-    <url>/arcticle/abaqus2020-install.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原因就是这里没设置！！之前版本好像是没有的，导致在输入“27800@localhost”之后一直无法继续往后面安装。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装</span><br><span class="line">变量名：NOLICENSECHECK</span><br><span class="line">变量值：true(这里千万别选错了，会导致后面无法使用)</span><br></pre></td></tr></table></figure>
-<p>另附完整安装过程！</p>
-<!---more--->
-<p>1.下载安装包并解压缩，解压SSQ_UniversalLicenseServer_Core_20180127074300.zip 解压SSQ_UniversalLicenseServer_Module_DSSimulia_20180127185300.zip，复制Vendors到SolidSQUAD_License_Servers文件夹下合并文件夹</p>
-<p><img src="https://p9.pstatp.com/large/pgc-image/987cbfab61d744509fd0be256813d0ac" /></p>
-<p>2.复制SolidSQUAD_License_Servers文件夹到一个指定位置，右键管理员身份运行install_or_update.bat安装服务</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/e67a4ea8b1054e6bbbcf83b52101e712" /></p>
-<p>3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装 变量名：NOLICENSECHECK 变量值：true(这里千万别选错了，会导致后面无法使用)</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/3c31e5c97f9c48c0b5cc2f45f800e260" /></p>
-<p>4.加载DS.SIMULIA.SUITE.2020.WIN64.iso镜像文件，选择1文件夹，右键管理员身份运行Setup.exe开始安装</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/270e151b31624e00803b7c71a4416570" /></p>
-<p>5.选择需要安装的产品，（注意不要安装FlexNET License server）</p>
-<p><img src="https://p9.pstatp.com/large/pgc-image/3586e3d0ea9a4b00a4c8f3828461caeb" /></p>
-<p>6.由于软件安装包较大，安装过程中会提示选择不同的包格体，按照提示浏览加载的镜像里的文件夹即可</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/3eeb9afbebef48bc99a060d534f67045" /></p>
-<p>7.选择软件安装位置，点击浏览可自行更换安装路径</p>
-<p><img src="https://p1.pstatp.com/large/pgc-image/80c39d4173104a82a31c0608ae79cde3" /></p>
-<p>8.需要安装到目录下的部件</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/eaedd88200614ebfa41097b12e78b329" /></p>
-<p>9.安装过程中，在License Server Configuration许可证配置界面中，选择SIMULIAFLEXnet第一项</p>
-<p><img src="https://p1.pstatp.com/large/pgc-image/0a31eb0e5b4746ee847ab7bccde8e5d1" /></p>
-<p>10.在License Server 1中输入27800@localhost即可</p>
-<p><img src="https://p1.pstatp.com/large/pgc-image/e8f8c43503a54976a8a8ab3c1a595244" /></p>
-<p>11.一直点击下一步，点击安装</p>
-<p><img src="https://p1.pstatp.com/large/pgc-image/17ce513e87f14ea0b853f62bc70568e2" /></p>
-<p>12.正在安装中，请耐心等待一会，时间会稍微长一点</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/69e8a005f1a648eda8d191be65b921f1" /></p>
-<p>13.安装成功，点击关闭退出安装向导</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/65d9a23ff5914617b141c5c48e2f4e03" /></p>
-<p>14.运行软件即可免费使用了</p>
-<p><img src="https://p3.pstatp.com/large/pgc-image/6aef519a038c438997910333b544515a" /></p>
-<p>原文链接：https://www.52maicong.com/others/11292.html</p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>abaqus</tag>
-        <tag>有限元</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ABAQUS中的单元选择</title>
     <url>/arcticle/abaqus-element.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在有限元分析中，为了能够得到较为精确的收敛解，一方面取决于所用模型的误差，另一方面取决于模拟计算的误差。一个好的有限元模型，不仅需要较高的网格质量，还需要拥有合适的单元类型。ABAQUS中最常用的单元包括实体(Solid)单元、壳(Shell)单元和梁(Beam)单元。下面就根据自己对于ABAQUS应用实体单元的学习，将这些单元的特点和使用简单总结如下：</p>
 <!---more--->
 <p>实体单元主要包括完全积分、减缩积分、非协调以及杂交这四种常见的单元模式。</p>
-<h2 id="完全积分单元">完全积分单元</h2>
-<p>单元具有规则形状（边是直线并且边与边相交成直角）时，所用的Gauss积分点的数目足以对单元刚度矩阵中的多项式进行精确积分。完全积分的线性单元在每一个方向上采用2个积分点；完全积分的二次单元在每一个方向上采用3个积分点。如图</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005431201718.gif" /></p>
+<h2 id="完全积分单元"><a href="#完全积分单元" class="headerlink" title="完全积分单元"></a>完全积分单元</h2><p>单元具有规则形状（边是直线并且边与边相交成直角）时，所用的Gauss积分点的数目足以对单元刚度矩阵中的多项式进行精确积分。完全积分的线性单元在每一个方向上采用2个积分点；完全积分的二次单元在每一个方向上采用3个积分点。如图</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005431201718.gif"></p>
 <p>不足：完全积分的线性单元存在“剪切自锁”问题，原因是线性单元的边不能弯曲。在复杂应力状态下，完全积分的二次单元也有可能发生剪切自锁。</p>
-<h2 id="减缩积分单元">减缩积分单元</h2>
-<p>减缩积分单元比完全积分单元在每个方向上少用一个积分点。完全积分的线性单元只在单元的中心有一个积分点</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005528107182.gif" /></p>
+<h2 id="减缩积分单元"><a href="#减缩积分单元" class="headerlink" title="减缩积分单元"></a>减缩积分单元</h2><p>减缩积分单元比完全积分单元在每个方向上少用一个积分点。完全积分的线性单元只在单元的中心有一个积分点</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005528107182.gif"></p>
 <p>不足：线性减缩积分单元存在“沙漏模式”的数值问题，有可能过于柔软。</p>
-<p>​ ABAQUS通过绘制伪应变能(ALLAE)和内能(ALLIE)来评价沙漏模式对计算结果的影响。</p>
-<h2 id="非协调单元">非协调单元</h2>
-<p>优点：可以克服完全积分，一阶单元中的剪力自锁问题。</p>
+<p>​    ABAQUS通过绘制伪应变能(ALLAE)和内能(ALLIE)来评价沙漏模式对计算结果的影响。</p>
+<h2 id="非协调单元"><a href="#非协调单元" class="headerlink" title="非协调单元"></a>非协调单元</h2><p>优点：可以克服完全积分，一阶单元中的剪力自锁问题。</p>
 <p>特点：在一阶单元中引入一个增强单元变形梯度的附加自由度。这种对变形梯度的增强允许一阶单元在单元域上对于变形梯度有一个线性变化。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005618709005.jpg" /></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005618709005.jpg"></p>
 <p>不足：对单元的扭曲很敏感，在使用时必须小心以确保单元扭曲是非常小的。</p>
-<h2 id="杂交单元">杂交单元</h2>
-<p>应用：当材料行为是不可压缩（泊松比=0.5）或非常接近于不可压缩（泊松比&gt;0.475）时，如橡胶材料，采用杂交单元。</p>
+<h2 id="杂交单元"><a href="#杂交单元" class="headerlink" title="杂交单元"></a>杂交单元</h2><p>应用：当材料行为是不可压缩（泊松比=0.5）或非常接近于不可压缩（泊松比&gt;0.475）时，如橡胶材料，采用杂交单元。</p>
 <p>特点：对于具有不可压缩材料性质的任何单元，一个纯位移的数学公式是不适宜的，压应力不能由节点位移计算。杂交单元包含一个可以直接确定单元压应力的附加自由度，节点的位移场则主要用来计算偏应变和偏应力。</p>
 <p>在选取单元类型时需要综合考虑以下几方面的问题：</p>
-<p>1）如果需要得到的是节点应力，尽量不要选用线性减缩积分单元；</p>
-<p>2）如果使用线性减缩积分单元，应注意避免出现沙漏模式，常采用网格细化来解决；</p>
-<p>3）在定义了接触和弹塑性材料的区域后，不要使用C3D20、C3D8R、C3D10等二次单元；</p>
-<p>4）完全积分单元容易出现剪切闭锁和体积闭锁问题，一般情况下尽量不要使用；</p>
-<p>5）对于ABAQUS/Standard分析，如果能够划分四边形(Quad)或六面体(Hex)网格，建议尽量使用非协调单元(如C3D8I)，同时注意保证关键部位的单元形状是规则的。</p>
-<p>6）如果无法划分六面体(Hex)网格，则应使用修正的二次四面体单元(C3D10M)，它适用于接触和弹塑性问题，只是计算代价较大；</p>
-<p>7）有些适用于ABAQUS/Standard分析的单元类型不能用于ABAQUS/Explicit分析中(例如非协调单元)。</p>
+<p> 1）如果需要得到的是节点应力，尽量不要选用线性减缩积分单元；</p>
+<p> 2）如果使用线性减缩积分单元，应注意避免出现沙漏模式，常采用网格细化来解决；</p>
+<p> 3）在定义了接触和弹塑性材料的区域后，不要使用C3D20、C3D8R、C3D10等二次单元；</p>
+<p> 4）完全积分单元容易出现剪切闭锁和体积闭锁问题，一般情况下尽量不要使用；</p>
+<p> 5）对于ABAQUS/Standard分析，如果能够划分四边形(Quad)或六面体(Hex)网格，建议尽量使用非协调单元(如C3D8I)，同时注意保证关键部位的单元形状是规则的。</p>
+<p> 6）如果无法划分六面体(Hex)网格，则应使用修正的二次四面体单元(C3D10M)，它适用于接触和弹塑性问题，只是计算代价较大；</p>
+<p> 7）有些适用于ABAQUS/Standard分析的单元类型不能用于ABAQUS/Explicit分析中(例如非协调单元)。</p>
+<p>参考：基于abaqus的有限元分析和应用-庄茁，第4章</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -22822,6 +22774,52 @@ v = f_y\frac{Y}{Z} + c_y
       </categories>
       <tags>
         <tag>生活常识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ABAQUS2020安装及错误处理-unsupport version ABAQUSLM</title>
+    <url>/arcticle/abaqus2020-install.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原因就是这里没设置！！之前版本好像是没有的，导致在输入“27800@localhost”之后一直无法继续往后面安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装</span><br><span class="line">变量名：NOLICENSECHECK</span><br><span class="line">变量值：true(这里千万别选错了，会导致后面无法使用)</span><br></pre></td></tr></table></figure>
+<p>另附完整安装过程！</p>
+<!---more--->
+
+<p>1.下载安装包并解压缩，解压SSQ_UniversalLicenseServer_Core_20180127074300.zip<br>解压SSQ_UniversalLicenseServer_Module_DSSimulia_20180127185300.zip，复制Vendors到SolidSQUAD_License_Servers文件夹下合并文件夹</p>
+<p><img src="https://p9.pstatp.com/large/pgc-image/987cbfab61d744509fd0be256813d0ac" alt=" "></p>
+<p>2.复制SolidSQUAD_License_Servers文件夹到一个指定位置，右键管理员身份运行install_or_update.bat安装服务</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/e67a4ea8b1054e6bbbcf83b52101e712" alt=" "></p>
+<p>3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装<br>变量名：NOLICENSECHECK<br>变量值：true(这里千万别选错了，会导致后面无法使用)</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/3c31e5c97f9c48c0b5cc2f45f800e260" alt=" "></p>
+<p>4.加载DS.SIMULIA.SUITE.2020.WIN64.iso镜像文件，选择1文件夹，右键管理员身份运行Setup.exe开始安装</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/270e151b31624e00803b7c71a4416570" alt=" "></p>
+<p>5.选择需要安装的产品，（注意不要安装FlexNET License server）</p>
+<p><img src="https://p9.pstatp.com/large/pgc-image/3586e3d0ea9a4b00a4c8f3828461caeb" alt=" "></p>
+<p>6.由于软件安装包较大，安装过程中会提示选择不同的包格体，按照提示浏览加载的镜像里的文件夹即可</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/3eeb9afbebef48bc99a060d534f67045" alt=" "></p>
+<p>7.选择软件安装位置，点击浏览可自行更换安装路径</p>
+<p><img src="https://p1.pstatp.com/large/pgc-image/80c39d4173104a82a31c0608ae79cde3" alt=" "></p>
+<p>8.需要安装到目录下的部件</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/eaedd88200614ebfa41097b12e78b329" alt=" "></p>
+<p>9.安装过程中，在License Server Configuration许可证配置界面中，选择SIMULIAFLEXnet第一项</p>
+<p><img src="https://p1.pstatp.com/large/pgc-image/0a31eb0e5b4746ee847ab7bccde8e5d1" alt=" "></p>
+<p>10.在License Server 1中输入27800@localhost即可</p>
+<p><img src="https://p1.pstatp.com/large/pgc-image/e8f8c43503a54976a8a8ab3c1a595244" alt=" "></p>
+<p>11.一直点击下一步，点击安装</p>
+<p><img src="https://p1.pstatp.com/large/pgc-image/17ce513e87f14ea0b853f62bc70568e2" alt=" "></p>
+<p>12.正在安装中，请耐心等待一会，时间会稍微长一点</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/69e8a005f1a648eda8d191be65b921f1" alt=" "></p>
+<p>13.安装成功，点击关闭退出安装向导</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/65d9a23ff5914617b141c5c48e2f4e03" alt=" "></p>
+<p>14.运行软件即可免费使用了</p>
+<p><img src="https://p3.pstatp.com/large/pgc-image/6aef519a038c438997910333b544515a" alt=" "></p>
+<p>原文链接：<a href="https://www.52maicong.com/others/11292.html">https://www.52maicong.com/others/11292.html</a></p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>abaqus</tag>
+        <tag>有限元</tag>
       </tags>
   </entry>
 </search>
