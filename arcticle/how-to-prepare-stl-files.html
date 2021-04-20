@@ -1,0 +1,599 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>如何导出STL文件 | ZYMIN</title><meta name="keywords" content="软件教程,stl"><meta name="author" content="ZYMIN"><meta name="copyright" content="ZYMIN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="STL is the standard file type used by most additive manufacturing systems. STL is a triangulated representation of a 3D CAD model (Figure 1). STL is the standard file type used by most additive manufa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何导出STL文件">
+<meta property="og:url" content="https://zymin.cn/arcticle/how-to-prepare-stl-files.html">
+<meta property="og:site_name" content="ZYMIN">
+<meta property="og:description" content="STL is the standard file type used by most additive manufacturing systems. STL is a triangulated representation of a 3D CAD model (Figure 1). STL is the standard file type used by most additive manufa">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg">
+<meta property="article:published_time" content="2021-04-20T06:20:11.000Z">
+<meta property="article:modified_time" content="2021-04-20T06:20:11.000Z">
+<meta property="article:author" content="ZYMIN">
+<meta property="article:tag" content="软件教程">
+<meta property="article:tag" content="stl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/favicon.png"><link rel="canonical" href="https://zymin.cn/arcticle/how-to-prepare-stl-files"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?520b3c92f6cdaecc11a02bb0b6d128ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-175241210-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-175241210-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1274310462&amp;web_id=1274310462"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-20 14:20:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">297</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">161</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-music"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZYMIN</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-music"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">如何导出STL文件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-20T06:20:11.000Z" title="发表于 2021-04-20 14:20:11">2021-04-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-20T06:20:11.000Z" title="更新于 2021-04-20 14:20:11">2021-04-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>STL is the standard file type used by most additive manufacturing systems. STL is a triangulated representation of a 3D CAD model (Figure 1).</p>
+<p>STL is the standard file type used by most additive manufacturing systems.</p>
+<p>STL is a triangulated representation of a 3D CAD model (Figure 1).</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210420154956.jpg"></p>
+<p>The triangulation (or poly count) of a surface will cause faceting of the 3D model. The parameters used for outputting a STL will affect how much faceting occurs (Figures 2 and 3). You cannot build the model smoother than the STL file. If the STL is coarse and faceted the physical 3D printed model will be coarse and faceted as well. However, the smoother/ less faceted your surface is, (the higher the poly count or triangulation) the larger your file. 3D printing can only accept a certain file size; therefore it’s important to find a balance between your model, its desired surface, and the 3D printing process of your choice.</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210420155002.png"></p>
+<p>When exporting to STL in your CAD package, you may see parameters for chord height, deviation, angle tolerance, poly count, or something similar. These are the parameters that affect the faceting of the STL. We’ve compiled tips on exporting for the best “surface: file” size ratio below.</p>
+<h2 id="Preparing-your-files"><a href="#Preparing-your-files" class="headerlink" title="Preparing your files"></a>Preparing your files</h2><p>The following step-by-step instructions for converting CAD files to STL came from each CAD software company’s website or from 3D printing and design user forums; it’s an overall simplified step-by-step process from the greater 3D printing community. If your CAD software is not listed below or if you require additional assistance, please contact your CAD software technical support for information about exporting to an STL.</p>
+<h2 id="Select-your-CAD-software"><a href="#Select-your-CAD-software" class="headerlink" title="Select your CAD software:"></a>Select your CAD software:</h2><p><strong>3D Modeling for Beginners</strong></p>
+<ul>
+<li><a href="#Tinkercad">Tinkercad</a></li>
+<li><a href="#SketchUp">SketchUp</a></li>
+</ul>
+<p><strong>3D Modeling for Engineers</strong></p>
+<ul>
+<li><a href="#autodesk">Autodesk Inventor</a></li>
+<li><a href="#catia">CATIA</a></li>
+<li><a href="#ironCAD">IronCAD</a></li>
+<li><a href="#rhinoceros">Rhinoceros</a></li>
+<li>[PTC Creo Parametric](#PTC Creo)</li>
+<li><a href="#solidedge">Solid Edge</a></li>
+<li><a href="#solidworks">SolidWorks</a></li>
+<li><a href="#NX" title="Formerly UGS NX">NX</a></li>
+</ul>
+<p><strong>3D Modeling for Artists</strong></p>
+<ul>
+<li><a href="#blender">Blender</a></li>
+<li><a href="#ZBrush">ZBrush</a></li>
+<li><a href="#maya">Maya</a></li>
+</ul>
+<p><em>Don’t have CAD software? SolidView is an affordable solution for non-CAD users to prepare STL files from many popular CAD formats. <a target="_blank" rel="noopener" href="http://www.solidview.com/Products">Start your free trial today</a>.</em></p>
+<h2 id="Tinkercad"><a href="#Tinkercad" class="headerlink" title="Tinkercad"></a>Tinkercad</h2><p>Tinkercad is great for 3D printing simple geometrical objects. Its interface was created with 3D printing in mind.</p>
+<ol>
+<li>Design -&gt; Download for 3D Printing -&gt; .STL</li>
+</ol>
+<h2 id="SketchUp"><a href="#SketchUp" class="headerlink" title="SketchUp"></a>SketchUp</h2><p>SketchUp does not offer STL creation directly within the program. Download the extension for .STL <a target="_blank" rel="noopener" href="https://extensions.sketchup.com/en/content/sketchup-stl">here</a> (note: this plugin is open-source and updated frequently).</p>
+<ol>
+<li>Download and install the plugin</li>
+<li>Select Tools -&gt; Export to DXF or STL and select the units for your model (millimeters is recommended)</li>
+</ol>
+<p>Tip: SketchUp isn’t inherently built for model production therefore it’s useful to check your SketchUp file for additional feature accuracies once it’s exported from the interface. We recommend uploading your SketchUp file into <a target="_blank" rel="noopener" href="http://www.meshmixer.com/">Meshmixer</a> (a free program from Autodesk) to check your file for faceting and fix any surface flaws.</p>
+<p>Note: We don’t recommend Sketchup for use with 3D printing as it does not export well and is best for early design sketches rather than producing physical models.</p>
+<h2 id="Autodesk-Inventor"><a href="#Autodesk-Inventor" class="headerlink" title="Autodesk Inventor"></a>Autodesk Inventor</h2><ol>
+<li>Select IPro –&gt; Print –&gt; 3D Print Preview</li>
+<li>Select Options and choose desired resolution and click OK</li>
+<li>Within the preview window, select Save Copy As or Send to 3D Print Service</li>
+<li>Save As type to STL File (<code>*.stl</code>)</li>
+</ol>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210420155007.jpg" alt="stl"></p>
+<p>Note: The “High” setting will also produce the largest file size. From Low, Medium to High, the hairdryer sample file in Inventor went from about 6.7MB to 17.6MB to 50MB.</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210420155010.jpg" alt="stl"></p>
+<p>Tip: Before finalizing your export, select the Options tab. Within this window, you can select the resolution (faceting) for your model (High, Medium, Low and Custom) and check that your units are correct. The “High” setting will produce a large file size. Autodesk Inventor allows you to save both individual parts and assemblies in STL format, at all design levels. For a quick overview of designing in Inventor, click <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=akem4NYbFCY">here</a>.<br>To check your modifiers have been applied before exporting:</p>
+<ol>
+<li>Tools -&gt; Rebuild All (this ensures that the design data contains recent changes, and that it is not corrupt)</li>
+<li>File -&gt; Save Copy As -&gt; STL (.stl)</li>
+<li>Select High and click OK</li>
+</ol>
+<p>Note: To change the values associated with each of the resolution settings (High/Medium/Low) you need to edit the Windows registry.</p>
+<h2 id="CATIA"><a href="#CATIA" class="headerlink" title="CATIA"></a>CATIA</h2><ol>
+<li>Select STL command (we recommend setting maximum segmentation to 0.015 mm)</li>
+<li>Select the model -&gt; Yes -&gt; Export</li>
+</ol>
+<p>Note: CATIA V5 is capable of creating STL files from CATPart files, but not from assemblies (CATProduct files) or geometrical representations (car files). Therefore, source files, including those saved in a neutral format (i.e. STEP or IGES), must be saved as CATParts. If the source design was saved as an assembly, it is imported to CATIA as a CATProduct. To create an STL file from it, you must first convert it to a multi-bodied part. The procedure described below is one of several methods for doing this.<br>Saving CATProduct files as CATPart Files for 3D printing:</p>
+<ol>
+<li>File Menu -&gt; Open -&gt; select your source file (assemblies import as CATProduct)</li>
+<li>Save the imported CATProduct file</li>
+<li>Select File -&gt; New -&gt; Part -&gt; Name the new part</li>
+<li>Select one component from your master CATProduct File and copy it</li>
+<li>Paste the component in a new part window</li>
+<li>Repeat steps and until you have copied all of the components and pasted them as individual parts</li>
+<li>Once you have the assembly completely separate into individual components, select File -&gt; New Part</li>
+<li>Copy each of the individual components from the working files and paste them into the new combined model file (the geometries of all of the parts should retain and align correctly in the combined part)</li>
+<li>The new part is now ready to be exported as an STL file</li>
+<li>Select Tools -&gt; Generate CATPart from Product</li>
+<li>Finally, Select File -&gt; Salve As -&gt; Save as type: STL</li>
+</ol>
+<p>Tip: Occasionally some of the components may not align correctly in the combined part because of the way the original assembly was designed. To align parts, select Insert Menu -&gt; Constraints Feature.<br>Before saving the file, it is advisable to review the settings that determine model accuracy and file size. To see these parameters:</p>
+<ol>
+<li>Tools -&gt; Options</li>
+<li>In the Options dialog box, display the Performance tab</li>
+<li>Under the General category (on the left), select Display</li>
+<li>Review 3D Accuracy settings</li>
+</ol>
+<p>Tip: Curves’ accuracy ratio: The higher the setting, the smoother the surface will be when dealing with complex geometries, especially if surfaces contain sudden small changes with small radii (like the bumps on a golf ball).</p>
+<h2 id="IronCAD"><a href="#IronCAD" class="headerlink" title="IronCAD"></a>IronCAD</h2><ol>
+<li>Right-click on the part</li>
+<li>Click Part Properties -&gt; Rendering</li>
+<li>Set Facet Surface Smoothing to 150</li>
+<li>File -&gt; Export</li>
+<li>Select .STL</li>
+</ol>
+<p>Note: IronCAD can export in many file formats depending on your geometry.<br>Tip: When working in assembly mode, you must save each of the component parts as individual STL files. The procedures for doing so are described below.<br>Saving a model design in STL format:</p>
+<ol>
+<li>Open the model design in IronCAD.</li>
+<li>Right-click on the part and select Part Properties -&gt; Part dialog box</li>
+<li>Make sure that the Rendering tab is displayed</li>
+<li>Change the Surface Smoothness setting to an appropriate value for your model.<ol>
+<li>If you have not established an appropriate value, try 150. The higher the number, the smoother the model surface will be.</li>
+<li>Change the Max Edge Length setting to an appropriate value for your model.</li>
+</ol>
+</li>
+<li>If you have not established an appropriate value, try 0.05. This setting produces good results, but increases file size and may require several minutes to render the model to STL format.</li>
+<li>To create smoother model surfaces when designing spherical and torus geometries, select the Triangulated Mesh check box. Selecting this check box results in larger STL files, but may produce smoother curves in models. If the surfaces of the model design are planes, this setting does not improve the results.</li>
+<li>Click OK to save the settings and close the dialog box.</li>
+<li>File -&gt; Export -&gt; STL</li>
+<li>In the Stereolithography dialog box, make sure PC is selected, and select the Binary Output check box.</li>
+<li>Click OK to save the settings and create the STL file.</li>
+</ol>
+<h2 id="Rhinoceros"><a href="#Rhinoceros" class="headerlink" title="Rhinoceros"></a>Rhinoceros</h2><ol>
+<li>Select Object</li>
+<li>Mesh -&gt; From a NURBS Object</li>
+<li>Select Polygon Mesh -&gt; Detailed Controls</li>
+<li>Maximum aspect ratio: 2.0</li>
+<li>Perspective -&gt; Rendered View -&gt; Observe smoothness and confirm it meets standards</li>
+<li>To check that your mesh is uniform: Select the new object mesh -&gt; Analyze -&gt; Mass Properties -&gt; Volume</li>
+</ol>
+<h3 id="Rhinoceros-4"><a href="#Rhinoceros-4" class="headerlink" title="Rhinoceros 4"></a>Rhinoceros 4</h3><ol>
+<li>File -&gt; Save As</li>
+<li>Select File Type as STL</li>
+<li>Select File Name -&gt; Save</li>
+<li>Select Binary</li>
+<li>Select Detail Controls from Mesh Options</li>
+<li>Max angle = 20, Max aspect ratio = 6, Min edge length = 0.0001</li>
+<li>Click OK</li>
+</ol>
+<p>Tip: Check your objects geometry and surface in the Object Properties tab to ensure object uniformity.</p>
+<h3 id="Rhinoceros-Version-3-and-Later"><a href="#Rhinoceros-Version-3-and-Later" class="headerlink" title="Rhinoceros Version 3 and Later"></a>Rhinoceros Version 3 and Later</h3><p>Rhinoceros enables extensive control of STL properties when saving designs as STL files. Because Rhinoceros software is surface-based, the complete model design (even if an assembly) is saved as a single STL part.<br>Saving a model design in STL format</p>
+<ol>
+<li>Select Part -&gt; File -&gt; Export Selected -&gt; In the Save As Type box, select Stereolithography (<code>*.stl</code>)</li>
+<li>Click Save</li>
+<li>In the STL Mesh Export Options dialog box, set the STL tolerance – the maximum distance allowed between the surface of the design and the polygon mesh of the STL file.<ol>
+<li>If you do not know the other settings appropriate for your model design, try these:<ol>
+<li>Tolerance: Less than half of the printer’s resolution. For example, the setting shown in the figures above (0.01 mm) is a good setting for printing models at a resolution of 0.03 mm</li>
+<li>Maximum Angle: Default</li>
+<li>Maximum Aspect Ratio: Default</li>
+<li>Maximum Edge Length: Clear</li>
+<li>Maximum Edge Length: Clear</li>
+<li>Maximum Initial Grid Quads: Default</li>
+<li>Refine Mesh: Check</li>
+<li>Pack Textures: Check</li>
+<li>Click OK<ul>
+<li>In the STL Export Options dialog box, set the file type as Binary and click OK<ol>
+<li>Note: If the Export open objects check box is selected, STL files will be created for each of the objects currently open. If this check box is cleared, an STL file is created for the selected object.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>Important: STL files are suitable for 3D printing if the models they describe are “watertight”, that is, they do not contain holes or gaps. If an error message appears, click Cancel and fix the model design before saving it as an STL file. Steps for fixing mesh in Rhinoceros are detailed below.</p>
+<p><strong>Troubleshooting Model Designs</strong><br>If a model design contains holes or gaps, it is not suitable for 3D printing. Before saving it as an STL file, you must make it “watertight.”</p>
+<p><strong>To close holes and gaps in a model design:</strong></p>
+<ol>
+<li>Check your object for errors: Command = Checknewobjects</li>
+<li>Surface errors will display</li>
+<li>Delete problem surfaces: Command = Selbad</li>
+<li>Command: Rebuildedges</li>
+</ol>
+<p><strong>Analyze Naked Edges:</strong></p>
+<ol>
+<li>Analysis -&gt; Show Edges/ Edges Off -&gt; Command = Showedges</li>
+<li>Select object -&gt; Enter</li>
+<li>Within dialogue box, select Naked Edges<ol>
+<li>Highlighted lines are naked edges and must be joined to the rest of your model</li>
+</ol>
+</li>
+</ol>
+<p><strong>Fix Naked Edges</strong><br>Option 1:</p>
+<ol>
+<li>Command = _Mesh<ol>
+<li>This will create a mesh from the NURBS geometry (save your original NURBS file before doing this)</li>
+<li>Command = _Showedges<ol>
+<li>This will detect naked edges</li>
+<li>Command = Fillhole<ul>
+<li>If you cannot find the Fillhole command, open your Tools tab and select Toolbar Layout</li>
+<li>From the menu, check the box for Bonus Tools</li>
+<li>The Bonus Tools window will open</li>
+<li>Select Fill Mesh Hole<ol>
+<li>If you have trouble, make sure you have the right updates installed</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>Option 2:</p>
+<ol>
+<li>Click the Mesh from Surface/ Polysurface icon from toolbar</li>
+<li>Polygon Mesh dialogue box will open</li>
+<li>Click Detailed Control -&gt; Polygon Mesh Detailed Options dialogue box will open</li>
+<li>Enter desired settings -&gt; OK</li>
+<li>Select entire object</li>
+<li>Tools menu -&gt; Polygon Mesh -&gt; Weld</li>
+<li>Command = 180 for angle tolerance<ol>
+<li>The Weld command will merge adjacent triangle points when 180 angle tolerance is set</li>
+</ol>
+</li>
+<li>Validate the object is watertight</li>
+<li>Command = SelNakedMeshEdgePt<ol>
+<li>If the resulting object contains holes or gaps, the mesh needs fixed</li>
+</ol>
+</li>
+<li>Repeat the Save As procedure</li>
+</ol>
+<h2 id="PTC-Creo"><a href="#PTC-Creo" class="headerlink" title="PTC Creo"></a>PTC Creo</h2><p><strong>3D printing in PolyJet:</strong></p>
+<ol>
+<li>File -&gt; Print -&gt; 3D Print</li>
+<li>Define Material</li>
+<li>Define STL resolution<ol>
+<li>Tip: Check your file for printability through the Printability Validation Tab</li>
+</ol>
+</li>
+</ol>
+<p><strong>Retired PTC Creo Formats: Pro/ENGINEER</strong></p>
+<ol>
+<li>File -&gt; Export -&gt; Model</li>
+<li>Set type to STL</li>
+<li>Set chord height to 0. The field will be replaced by minimum acceptable value</li>
+<li>Set Angle Control to 1</li>
+<li>Click OK</li>
+</ol>
+<p>Exporting your STL file can be done at all levels of design, for both individual parts and assemblies. When dealing with assemblies, you can specify parts of an assembly to either include or exclude from the resulting STL file. Use the procedure below for saving both parts and assemblies as STL files for eventual 3D printing.</p>
+<p><strong>To save a Pro/E as an STL file:</strong></p>
+<ol>
+<li>Check that the model design is continuous and “watertight”<ol>
+<li>This step is especially important if the design was imported from a neutral design format because non-continuous bodies are likely to result in defective models</li>
+<li>To check for continuity:<ol>
+<li>View the model with hidden lines displayed.</li>
+<li>From the View menu, select Display Setting -&gt; Scheme -&gt; PreWildfire. The model surfaces are displayed in magenta. If the design is continuous, the contour lines are white. If there are gaps, the lines are yellow.</li>
+<li>Fix the model design, if necessary, before saving it as an STL file.</li>
+<li>From the File menu, select Save a Copy. The Save a Copy dialog box appears.</li>
+<li>From the Type pull-down menu, select STL</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Deviation Control</strong><br>The Deviation Control settings in the Export STL dialog box affect the accuracy of the model and the size of its file.</p>
+<ol>
+<li>Open Chord Height (chordal tolerance)<ol>
+<li>This setting specifies the maximum distance between the surface of the original design and the tessellated surface of the STL triangle (the chord)</li>
+<li>Chord height controls the degree of tessellation of the model surface</li>
+<li>The smaller the chord height, the less deviation from the actual part surface (but the bigger the file)</li>
+</ol>
+</li>
+</ol>
+<p><strong>Angle Control</strong><br>This setting regulates how much additional tessellation occurs along surfaces with small radii. The smaller the radii, the more triangles are used. The setting can be between 0 and 1. Unless a higher setting is necessary, to achieve smoother surfaces, 0 is recommended.<br>Once you have reviewed the above the controls and adjusted your settings, click Apply -&gt; OK to create the STL file.<br><strong>Saving a Pro/E Assembly as an STL File</strong></p>
+<ol>
+<li>File -&gt; Save a Copy</li>
+<li>From the Type pull-down menu, select STL.</li>
+<li>Export STL dialog box appears: Specify the parts of the assembly to either include or exclude within the resulting STL file<ol>
+<li>Example: In the dialog box one of the parts of the assembly (the tire) has been excluded, leaving two parts (the hub and the main wheel) to be exported to the STL file. The design resulting from these settings (when you click OK) is shown on the left.</li>
+</ol>
+</li>
+<li>When you have made all of the required settings, click Apply and OK to create the STL file.</li>
+</ol>
+<h2 id="Solid-Edge-ST6-ST8"><a href="#Solid-Edge-ST6-ST8" class="headerlink" title="Solid Edge ST6 - ST8"></a>Solid Edge ST6 - ST8</h2><ol>
+<li>Application Button -&gt; Save As (opens dialog box)</li>
+<li>From the Save As drop down menu, select STL documents (<code>*.stl</code>)</li>
+<li>Select the Options button from the Save As dialog box</li>
+<li>Adjust Conversion Tolerance and Tolerance Units (millimeters recommended)<ol>
+<li>The lower the conversation tolerance, the finer the tessellation</li>
+</ol>
+</li>
+<li>Adjust the Surface Plane Angle (dependent your desired surface smoothness)<ol>
+<li>The lower the surface plane angle, the greater the accuracy (noticeable in small details)<ol>
+<li>As a rule, the finer the tessellation and the greater the accuracy, the larger the size of the STL file, and the longer it takes to generate it</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Under Output File as: Check Binary<ol>
+<li>Binary STL files are much smaller than STL files saved in ASCII format</li>
+</ol>
+</li>
+<li>Click OK -&gt; Save</li>
+</ol>
+<p>Tip: Review the controls for exporting STL files in Solid Edge <a target="_blank" rel="noopener" href="https://docs.plm.automation.siemens.com/tdoc/se/107/help/#uid:index_importing_exporting_files:xid280320:xid727816:stlexp1d">here</a>.</p>
+<p>Note: Solid Edge is capable of creating individual STL files from the components of an assembly, but this functionality is not built into the program. It is achieved through the application programming interface (API), using Visual Basic scripts. This solution does not enable a visual preview of the polygon mesh before saving the STL files.<br><strong>Solid Edge (Older than ST6)</strong></p>
+<ol>
+<li>Open model and select File -&gt; Save As</li>
+<li>Save As Type -&gt;STL</li>
+<li>Options -&gt; Conversion Tolerance: 0.0254 mm for FDM; 0.015 mm for PolyJet</li>
+<li>Set Surface Plane Angle to 45°</li>
+<li>Select Binary type and OK</li>
+<li>Name and Save STL file</li>
+</ol>
+<p>Note: Solid Edge software from Siemens PLM (formerly USG) supports STL output at the core level, enabling you to save both parts and assemblies as STL files. However, when saving an assembly, all of its components are included in a single STL file.</p>
+<h2 id="SolidWorks"><a href="#SolidWorks" class="headerlink" title="SolidWorks"></a>SolidWorks</h2><ol>
+<li>File -&gt; Save As</li>
+<li>Set Save As Type to STL</li>
+<li>Options -&gt; Resolution -&gt; Fine -&gt; OK -&gt; Save</li>
+</ol>
+<p><strong>STL settings: How to change STL settings</strong></p>
+<ol>
+<li>File -&gt; Save As</li>
+<li>STL -&gt; Options</li>
+<li>For a smoother STL file, change the Resolution to Custom</li>
+<li>Change the deviation to 0.01 mm</li>
+<li>Change the angle to 5 (smaller deviations and angles will produce a smoother file, but the file size will get larger)</li>
+</ol>
+<p>Tip: Review file export options before you save your file from SolidWorks here.</p>
+<p><strong>To save a model or a model assembly in STL Format:</strong></p>
+<ol>
+<li>File -&gt; Save As (Save As dialog box opens)</li>
+<li>From the Save as type drop-down menu select STL (*.stl)</li>
+<li>Click Options</li>
+<li>The Export Options dialog box will display the file in a tessellated view</li>
+<li>File Format selection is STL</li>
+<li>In the Export Options dialog box -&gt; Output As section select Binary<ol>
+<li>The resulting file size will be much smaller than a file saved in ASCII format</li>
+</ol>
+</li>
+<li>In the Resolution section, select the appropriate option<ol>
+<li>If you select Custom, you can manually adjust the Deviation and Angle settings</li>
+<li>The Deviation and Angle settings affect the tessellation of non-planar surfaces as follows:<ol>
+<li>Lower deviation settings result in finer tessellation</li>
+<li>Lower angle settings result in greater accuracy, noticeable in small details<ul>
+<li>Note: The higher the resolution, the larger the size of the file, and the longer it takes to generate</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>For single material builds make sure that the following check box is selected: Save all components of an assembly in a single file<ol>
+<li>This ensures that all components are saved as a single STL file.</li>
+</ol>
+</li>
+<li>For dual material builds (PolyJet) make sure that the following check box is NOT selected: Save all components of an assembly in a single file<ol>
+<li>Note: Keep in mind that an assembly with many units will create many individual STL files when the “Save all components of an assembly in a single file” check box is left unchecked</li>
+</ol>
+</li>
+<li>Click OK</li>
+<li>In the Save As dialog box, click Save</li>
+<li>In the confirmation message, click Yes</li>
+</ol>
+<h2 id="NX-Formerly-UGS-NX"><a href="#NX-Formerly-UGS-NX" class="headerlink" title="NX (Formerly UGS NX)"></a>NX (Formerly UGS NX)</h2><p>NX software from Siemens PLM (formerly USG), supports STL output at the core level, enabling you to save not only entire parts as STL files, but also selected surfaces of a part. This gives you great flexibility when preparing objects for 3D printing. In addition, assembly output enables you to save several components as a single unit while maintaining each component as a separate volume (shell).</p>
+<ol>
+<li>File -&gt; Export -&gt; STL</li>
+<li>Rapid Prototyping dialogue box will appear</li>
+<li>Output Type: Binary<ol>
+<li>Binary STL files are much smaller than STL files saved in ASCII format</li>
+</ol>
+</li>
+<li>Triangle Tolerance: 0.015 mm<ol>
+<li>This is the maximum distance allowed between the surface of the original design and the tessellated surface of the STL triangle, and affects the smoothness of the model surface</li>
+</ol>
+</li>
+<li>Adjacency Tolerance: 0.015 mm<ol>
+<li>This determines if two adjacent surfaces “attach”. If the distance between the two surfaces is less than this setting, they are considered attached. This setting must be less than the printing resolution. For example, when printing models at a resolution of 30 micrometers (microns), the setting must be no more than 0.03 mm.</li>
+</ol>
+</li>
+<li>Auto Normal Gen: Check box</li>
+<li>Normal Display: Check box</li>
+<li>Triangle Display: Check box</li>
+<li>Click OK</li>
+<li>Export Rapid Prototyping dialogue box will appear</li>
+<li>Name your file and click OK</li>
+</ol>
+<h2 id="Blender"><a href="#Blender" class="headerlink" title="Blender"></a>Blender</h2><p>Prior to exporting, ensure your object is uniform by checking that all surfaces/ vertices are connected.</p>
+<p><strong>To check your file for uniformity:</strong></p>
+<ol>
+<li>Enter Edit Mode, select your object, and press “L” over the mesh<ol>
+<li>Areas that do not highlight are free-floating. All vertices must be connected for your part to print.</li>
+</ol>
+</li>
+<li>After you’ve confirmed your object is uniform, check for holes in the mesh of your part</li>
+<li>Enter Edit Mode, deselect all vertices, and select Non Manifold from the drop down menu or simply hit Shft-Ctrl-Alt-M</li>
+<li>Change the units and dimensions of your object<ol>
+<li>Blender’s default measurement is called a Blender Unit and is equal to one meter</li>
+<li>Press “N” to bring up your dimensions tab</li>
+<li>Change units from Blender Units to Metric by selecting Properties -&gt; Scene Tab</li>
+<li>Change units to Metric (preferably millimeter)</li>
+<li>Adjust your scale within the dimensions tab to compute with Metrics</li>
+</ol>
+</li>
+</ol>
+<p>Now your file is ready for export.</p>
+<ol>
+<li>Select File -&gt; Export as .STL (* .stl)</li>
+</ol>
+<p>Tip: Modifiers can be applied during export or prior.</p>
+<h2 id="ZBrush"><a href="#ZBrush" class="headerlink" title="ZBrush"></a>ZBrush</h2><p>ZBrush provides designers with incredible feature capabilities, however those features equate to thousands of tiny polygons that aren’t always feasible for 3D printing. To ensure your part is producible and that its details resolve as desired, download the Decimation Master Plugin from ZBrush.</p>
+<p>The Decimation Master Plugin will allow you to optimize the polygon mesh of your part for printing by specifying a percentage of the poly mesh to preserve for export. It will preserve detail while reducing poly count. For a quick overview of the plugin, including masking to preserve areas where high poly count is critical for your model, click <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xTp6J644zGA">here</a>.</p>
+<p>Once you have optimized your part using the above steps, it is ready to export as an STL file.</p>
+<ol>
+<li>Download the 3D Print Exporter Plugin from ZBrush</li>
+<li>Select the ZPlugin menu</li>
+<li>Click 3D Print Exporter</li>
+<li>Define and scale your dimensions</li>
+<li>Select STL -&gt; STL Export</li>
+<li>Save</li>
+</ol>
+<h2 id="Maya"><a href="#Maya" class="headerlink" title="Maya"></a>Maya</h2><p>Maya is a free-form design space not specifically tailored to production, therefore it is especially crucial to check the dimensions and producibility of your design (are the wall thicknesses defined? Are all vertices connected?).</p>
+<p>Check features for producibility:</p>
+<ol>
+<li>Window -&gt; Settings -&gt; Preferences -&gt;Settings</li>
+<li>Change measurement units to millimeters</li>
+<li>Review dimensions and scale within the Chanel Box</li>
+<li>Finally, open Create -&gt; Scene Assembly</li>
+<li>Access measurement tools to check all feature sizes and thicknesses</li>
+</ol>
+<p>Once you’ve checked your part for producibility, open the Rebuild Surface Options and define the surface density of your part. This will determine the resolution of the final 3D print. Check the design guidelines of your preferred technology to ensure the 3D print process can handle your desired resolution. Design guidelines on each 3D printing technology can be found here.</p>
+<p>Now you’re ready to export.</p>
+<ol>
+<li>Select File -&gt; Export Selection -&gt; Export as STL_DCE.</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.stratasysdirect.com/resources/tutorials/how-to-prepare-stl-files">原文链接</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ZYMIN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zymin.cn/arcticle/how-to-prepare-stl-files.html">https://zymin.cn/arcticle/how-to-prepare-stl-files.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zymin.cn" target="_blank">ZYMIN</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/">软件教程</a><a class="post-meta__tags" href="/tags/stl/">stl</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/arcticle/matplotlib-50.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Matplotlib 最具价值的50个可视化项目</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/arcticle/abaqus2020-qa.html" title="Abaqus有限元分析常见问题解答与错误处理"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-27</div><div class="title">Abaqus有限元分析常见问题解答与错误处理</div></div></a></div><div><a href="/arcticle/abaqus-zhcn.html" title="Abqaus支持中文界面和中文路径的配置方法"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-26</div><div class="title">Abqaus支持中文界面和中文路径的配置方法</div></div></a></div><div><a href="/arcticle/solidworks-abaqus.html" title="Solidworks与Abaqus接口插件"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-26</div><div class="title">Solidworks与Abaqus接口插件</div></div></a></div><div><a href="/arcticle/windows-J3455.html" title="Windows Server 2016和J3455搭建私有云"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-10-16</div><div class="title">Windows Server 2016和J3455搭建私有云</div></div></a></div><div><a href="/arcticle/windows-kodexplorer.html" title="J3455平台Windows系统用kodexplorer可道云搭建私有云"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-10-16</div><div class="title">J3455平台Windows系统用kodexplorer可道云搭建私有云</div></div></a></div><div><a href="/arcticle/ansys-act.html" title="在Ansys Workbench中添加和启用ACT插件的方法"><img class="cover" src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-07-11</div><div class="title">在Ansys Workbench中添加和启用ACT插件的方法</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preparing-your-files"><span class="toc-number">1.</span> <span class="toc-text">Preparing your files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Select-your-CAD-software"><span class="toc-number">2.</span> <span class="toc-text">Select your CAD software:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tinkercad"><span class="toc-number">3.</span> <span class="toc-text">Tinkercad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SketchUp"><span class="toc-number">4.</span> <span class="toc-text">SketchUp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Autodesk-Inventor"><span class="toc-number">5.</span> <span class="toc-text">Autodesk Inventor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CATIA"><span class="toc-number">6.</span> <span class="toc-text">CATIA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IronCAD"><span class="toc-number">7.</span> <span class="toc-text">IronCAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rhinoceros"><span class="toc-number">8.</span> <span class="toc-text">Rhinoceros</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rhinoceros-4"><span class="toc-number">8.1.</span> <span class="toc-text">Rhinoceros 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rhinoceros-Version-3-and-Later"><span class="toc-number">8.2.</span> <span class="toc-text">Rhinoceros Version 3 and Later</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PTC-Creo"><span class="toc-number">9.</span> <span class="toc-text">PTC Creo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solid-Edge-ST6-ST8"><span class="toc-number">10.</span> <span class="toc-text">Solid Edge ST6 - ST8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SolidWorks"><span class="toc-number">11.</span> <span class="toc-text">SolidWorks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NX-Formerly-UGS-NX"><span class="toc-number">12.</span> <span class="toc-text">NX (Formerly UGS NX)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blender"><span class="toc-number">13.</span> <span class="toc-text">Blender</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ZBrush"><span class="toc-number">14.</span> <span class="toc-text">ZBrush</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maya"><span class="toc-number">15.</span> <span class="toc-text">Maya</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/how-to-prepare-stl-files.html" title="如何导出STL文件">如何导出STL文件</a><time datetime="2021-04-20T06:20:11.000Z" title="发表于 2021-04-20 14:20:11">2021-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/matplotlib-50.html" title="Matplotlib 最具价值的50个可视化项目">Matplotlib 最具价值的50个可视化项目</a><time datetime="2021-04-15T13:20:11.000Z" title="发表于 2021-04-15 21:20:11">2021-04-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/zhiwang-fengmian.html" title="知网下载期刊的目录和封面页">知网下载期刊的目录和封面页</a><time datetime="2021-03-29T07:08:14.000Z" title="发表于 2021-03-29 15:08:14">2021-03-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/dingchangshi.html" title="定场诗集锦">定场诗集锦</a><time datetime="2021-03-05T11:23:40.000Z" title="发表于 2021-03-05 19:23:40">2021-03-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/arcticle/waijiaociling.html" title="外交辞令的真实含义">外交辞令的真实含义</a><time datetime="2021-03-05T10:40:40.000Z" title="发表于 2021-03-05 18:40:40">2021-03-05</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/zzhm/resource@main/image/fengmian3.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By ZYMIN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    let initData = {
+      el: '#waline-wrap',
+      serverURL: 'https://waline-15iowqrgj.vercel.app/',
+      avatar: 'monsterid',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const waline = new Waline(initData)
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script async data-pjax src="https://cdn.jsdelivr.net/gh/zzhm/resource@main/js/busuanzi.pure.mini.js"></script></div></body></html>
