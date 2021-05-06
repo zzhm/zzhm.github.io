@@ -14,7 +14,7 @@ categories:
 
 上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。据人指点“最后合并上传失败很可能是登录超时引起的”。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodshibai.jpeg)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506133935.jpeg)
 
 <!---more--->
 
@@ -51,7 +51,7 @@ define('GLOBAL_DEBUG_HOOK',0);//0 or 1
 @ini_set('session.cache_expire',1800);
 ```
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/kodyouhua.png)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506133946.png)
 
 **修改可道云配置**
 

@@ -23,18 +23,19 @@ categories:
 
 开始里面搜索打印机，按照下图顺序，进入管理打印机属性界面
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/059444f1f0acda38a443db35da0b3b38.png)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134634.png)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/347acc1481496145b89b3a30cd2d845d.png)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134658.png)
 
 勾选共享此打印机
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/a187765572e06ccd0dfc45fb41af0c23.png)
+
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134713.png)
 
 ## 修改本地安全策略
 
 （这里的修改很重要，win7和win8【拒绝从网络访问这台计算机】默认为空，只有win10默认添加了guest）
 
-1、WIN+R然后“运行”里输入secpol.msc，打开本地安全策略
+1、WIN+R然后“运行”里输入`secpol.msc`，打开本地安全策略
 
 【本地策略】—【安全选项】—【网络访问：本地账户的共享和安全模型】---改来宾
 
@@ -44,11 +45,11 @@ categories:
 
 如下三图所示：
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/222414472d8b8641df3770779e0ab17a.jpg)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134832.jpg)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4e00efd6b519da2dcbf76f8317ec984b.jpg)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134828.jpg)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/953c315575e567dff9452d154bf497e5.jpg)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134824.jpg)
 
 ## 修改高级共享设置
 
@@ -62,7 +63,7 @@ categories:
 - 启用文件和打印机共享
 
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4c890d9a9701515ae9230bf22b947770.jpg)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134820.jpg)
 
 \<所有网络\>
 
@@ -71,7 +72,7 @@ categories:
 - 为使用40位或56位加密的设备启用文件共享
 - 关闭密码保护共享
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/0eeaf62d499f9204b88168c0e0cb513b.jpg)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134817.jpg)
 
 在需要局域网共享的文件夹右键菜单选择：共享—特定用户
 添加everybody，按实际修改everybody权限，【读取】或者【读写】（添加guest也应该可以滴）
@@ -79,11 +80,13 @@ categories:
 ps.一般在专用网络启用共享，如果第一次发现网络的时候没有配置成共享的话，默认被配置成公用网络。
 修改成专用方法：打开你的网络设置 ——选择你正在使用的网络——查找设备和内容——【开】
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/4803ff39764b60487259877d1058e9d7.jpg)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134813.jpg)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/ec559bfece262151b413b83dd4b3715e.png)
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134807.png)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/win10-printer/835d2c6698b11def7372d2f6d2cf6125.png)
+
+
+![](https://gitee.com/zihm/images/raw/master/hexo/20210506134803.png)
 
 相信通过上面的设置后，大家就能成功的实现Win10打印机共享,并无障碍访问了\~希望对大家有帮助。
 

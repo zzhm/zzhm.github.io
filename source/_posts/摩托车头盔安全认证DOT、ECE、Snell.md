@@ -27,7 +27,7 @@ categories:
 
 **揭面盔：**低速时面罩部分掀起来可以透气，合上则是全脸，因揭面盔的结构原由会使头盔的保护性收到一定影响。
 
-![头盔类型](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1556590182438.png)
+![头盔类型](https://gitee.com/zihm/images/raw/master/hexo/20210506133551.png)
 
 ![全盔类型](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1556590214919.png)
 
