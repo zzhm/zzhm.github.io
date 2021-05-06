@@ -157,15 +157,15 @@ gtag('config', 'UA-175241210-1');
 <h2 id="小孔成像模型">小孔成像模型</h2>
 <p>相机可以抽象为最简单的形式：一个小孔和一个成像平面，小孔位于成像平面和真实的三维场景之间，任何来自真实世界的光只有通过小孔才能到达成像平面。因此，在成像平面和通过小孔看到的真实三维场景存在着一种对应关系，也就是图像中的二维像点和真实三维世界的三维点存在某种变换关系。找到了这种变换关系，就可以利用图像中的二维点信息来恢复场景的三维信息。</p>
 <p>下图是小孔成像的模型，为了简化模型，将成像平面放在了小孔的前面，并且成的像也是正立的</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1547434788074.png" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133855.png" /></p>
 <p>在描述小孔的成像过程前，首先来定义两个坐标系：</p>
 <h3 id="相机坐标系三维坐标系">相机坐标系（三维坐标系）</h3>
 <p>相机的中心被称为焦点或者光心，以焦点<span class="math inline">\(O_c\)</span>为原点和坐标轴<span class="math inline">\(X_c\)</span>,<span class="math inline">\(Y_c\)</span>,<span class="math inline">\(Z_c\)</span>组成了相机坐标系</p>
 <h3 id="图像坐标系二维坐标系">图像坐标系（二维坐标系）</h3>
 <p>成像平面中，以成像平面的中心O'为原点和坐标轴x',y'组成了图像坐标系。小孔成像实际就是将相机坐标系中的三维点变换到成像平面中的图像坐标系中的二维点。</p>
 <p>假设，三维空间中点P，其在相机坐标系中的坐标是<span class="math inline">\(P_c=[X,Y,Z]^T\)</span>；其像点p，在图像坐标系的中的坐标是<span class="math inline">\(p=[x,y]^T\)</span>，由于光轴垂直与成像平面，那么可以知道像点p在相机坐标系中的坐标是<span class="math inline">\(p=[x,y,z]^T\)</span>,其中z =f(f是焦点到成像平面之间的距离，被称为焦距)。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1547434808183.png" /></p>
-<p>由上图根据三角形的相似关系，可以得到如下公式： <span class="math display">\[\frac{Z}{f}=\frac{X}{x}=\frac{Y}{y}\]</span> 将上面公式整理后可以得到： <span class="math display">\[\left\{\begin{array}{l}x = f\frac{X}{Z}\\y = f\frac{Y}{Z}\\z = f\end{array}\right.​\]</span> 上面的公式就是小孔相机模型的基础公式了，有了此公式可以推导出更详细的小孔相机模型的参数：** 内参数和外参数 **。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133852.png" /></p>
+<p>由上图根据三角形的相似关系，可以得到如下公式： <span class="math display">\[\frac{Z}{f}=\frac{X}{x}=\frac{Y}{y}\]</span> 将上面公式整理后可以得到： <span class="math display">\[\left\{\begin{array}{l}x = f\frac{X}{Z}\\y = f\frac{Y}{Z}\\z = f\end{array}\right.\]</span> 上面的公式就是小孔相机模型的基础公式了，有了此公式可以推导出更详细的小孔相机模型的参数：** 内参数和外参数 **。</p>
 <p>在推导相机的内参数和外参数前，需要先了解下齐次坐标的概念。</p>
 <h2 id="齐次坐标">齐次坐标</h2>
 <p>相机的成像过程实际是将三维空间的点P=(X,Y,Z)变换到成像平面的过程，这个过程也可以被称为射影变换（更多关于射影变换的内容可参考《计算机视觉中的多视图几何》）。如上面描述的，设射影变换的中心O作为相机坐标系的原点，该点到成像平面的距离为f，P在成像平面的投影点为p=(x,y)，根据相似三角形原理，可以得到公式： <span class="math display">\[\left\{
