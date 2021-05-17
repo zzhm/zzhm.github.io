@@ -391,7 +391,7 @@ footer:
     enable: true
     since: 2016
   custom_text:
-  copyright: true # Copyright of theme and framework
+  copyright: true     # Copyright of theme and framework
 
 # Analysis
 # --------------------------------------
@@ -641,7 +641,7 @@ aside:
       text: Follow Me
       link: https://github.com/xxxxxx
   card_announcement:
-    enable: true
+    enable: false
     content: This is my Blog
   card_recent_post:
     enable: true
@@ -686,7 +686,7 @@ runtimeshow:
 
 # Aside widget - Newest Comments
 newest_comments:
-  enable: false
+  enable: true
   sort_order: # Don't modify the setting unless you know how it works
   limit: 6
   avatar: true
@@ -700,7 +700,7 @@ newest_comments:
     forum:
     api_key:
   twikoo: false
-  waline: false
+  waline: true
 
 # Bottom right button (右下角按鈕)
 # --------------------------------------
