@@ -14825,21 +14825,28 @@ v = f_y\frac{Y}{Z} + c_y
     <title>非华为电脑安装最新版本华为电脑管家（11）实现多屏协同+一碰传教程</title>
     <url>/arcticle/huawei-yipengchuan.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、硬件要求</p>
-<ol type="1">
-<li><p>电脑硬件要求：支持WiFi和蓝牙。</p></li>
-<li><p>手机系统要求：手机系统EMUI10 以上。</p></li>
-<li><p>NFC贴纸：实现一碰传功能必须要，如不使用一碰传可以不用。NFC贴纸规格型号要求NTAG213以上。</p></li>
+<ol>
+<li><p>电脑硬件要求：支持WiFi和蓝牙。</p>
+</li>
+<li><p>手机系统要求：手机系统EMUI10 以上。</p>
+</li>
+<li><p>NFC贴纸：实现一碰传功能必须要，如不使用一碰传可以不用。NFC贴纸规格型号要求NTAG213以上。</p>
+</li>
 </ol>
 <p>二、软件准备</p>
-<ol type="1">
-<li><p>电脑管家安装软件（PCManagerMgr），手机软件一碰传助手下载链接详见附件。</p></li>
-<li><p><a href="https://consumer.huawei.com/cn/support/pc-manager/">华为</a>官网下载最新版本电脑管家。</p></li>
+<ol>
+<li><p>电脑管家安装软件（PCManagerMgr），手机软件一碰传助手下载链接详见附件。</p>
+</li>
+<li><p><a href="https://consumer.huawei.com/cn/support/pc-manager/">华为</a>官网下载最新版本电脑管家。</p>
+</li>
 </ol>
 <p>三、安装软件</p>
 <p>将下载好的华为电脑管家与PCManagerMgr放在同一个文件夹内。打开PCManagerMgr ，具体如下：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214733.png" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214733.png"></p>
 <p>① 输入口令，开始前需要修改电脑系统时间，具体时间对应相应口令。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214740.png" /></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210207214740.png"></p>
+<p>2020.7.18–&gt;19221A</p>
+<p>2020.7.23–&gt;6E278B</p>
 <p>② 修改电脑管家版本号，下载的什么版本就更改为什么版本。（其实在这里填安装包的完整路径就行）。</p>
 <p>③ 选择自定义SN 。</p>
 <p>④ 输入自己编的16位序列号。或者选择自动SN ，不用编辑，系统会自动生成SN码。（注：此16位序列号需要记住，否则后续重新安装时需要修改NFC标签或者更换NFC，比较麻烦）</p>
@@ -14850,7 +14857,7 @@ v = f_y\frac{Y}{Z} + c_y
 <p>五、问题及解决</p>
 <p>①采用手机扫码连接，手机端不能够弹出最终的确认按钮</p>
 <p>原因：新版浏览器的问题，恢复旧版本解决了。</p>
-<p>解决：<code>设置-&gt;应用-&gt;应用管理-&gt;浏览器</code>，点右上角三个点，卸载更新。</p>
+<p>解决：<code>设置-&gt;应用-&gt;应用管理-&gt;浏览器</code>，点右上角三个点，卸载更新。 </p>
 <p>②一碰传无法连接，</p>
 <p>先用扫码连接试一下？换个口令再来一遍？</p>
 <p>PS：感谢大佬“汉客儿”的技术支持。</p>
