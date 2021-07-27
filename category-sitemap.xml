@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://zymin.cn/categories/%25E5%25AE%259E%25E7%2594%25A8%25E6%2595%2599%25E7%25A8%258B/</loc>
+        <lastmod>2021-07-27T02:23:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://zymin.cn/categories/%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0/</loc>
         <lastmod>2021-07-20T12:18:17.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,13 +25,6 @@
     <url>
         <loc>https://zymin.cn/categories/%25E7%2594%259F%25E6%25B4%25BB%25E7%25A7%2591%25E6%2599%25AE/</loc>
         <lastmod>2021-05-24T05:37:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://zymin.cn/categories/%25E5%25AE%259E%25E7%2594%25A8%25E6%2595%2599%25E7%25A8%258B/</loc>
-        <lastmod>2021-05-10T01:04:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

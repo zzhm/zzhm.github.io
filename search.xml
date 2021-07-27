@@ -22451,4 +22451,30 @@ Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现�
         <tag>生活常识</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LaTeX 把连续引用的参考文献合并</title>
+    <url>/arcticle/latex-reference-with-bib.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>用Latex写论文的时候需要把连续引用的参考文献合并，例如：</p>
+<p><code>[1][2][3</code>]合并为<code>[1-3]</code></p>
+<p>方法很简单，引入包即可：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">\usepackage&#123;cite&#125;</span><br><span class="line">\cite&#123;文献1,文献2,...&#125;</span><br></pre></td></tr></table></figure>
+<p>这样有可能得到的效果是<code>[1,2,3]</code></p>
+<p>如果要达到<code>[1-3]</code>的效果，可以加入下列语句：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">\usepackage[numbers,sort&amp;compress]&#123;natbib&#125;</span><br></pre></td></tr></table></figure>
+<p>其中compress代表将一组文献索引“压缩”。</p>
+<p>但使用elsarticle模板时出现报错：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">option clash for package natbib</span><br></pre></td></tr></table></figure>
+<p>应该是重复引入natbib包了，因此可以不用显式引入natbib包，在开头位置添加即可：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">\documentclass[compress]&#123;elsarticle&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>latex</tag>
+        <tag>技能</tag>
+        <tag>文献</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
 </search>

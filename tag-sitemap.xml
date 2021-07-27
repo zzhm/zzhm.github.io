@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://zymin.cn/tags/%E8%AE%BA%E6%96%87/</loc>
+        <lastmod>2021-07-27T02:23:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zymin.cn/tags/%E6%96%87%E7%8C%AE/</loc>
+        <lastmod>2021-07-27T02:23:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zymin.cn/tags/%E6%8A%80%E8%83%BD/</loc>
+        <lastmod>2021-07-27T02:23:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zymin.cn/tags/latex/</loc>
+        <lastmod>2021-07-27T02:23:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://zymin.cn/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</loc>
         <lastmod>2021-07-20T12:18:17.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -117,20 +145,6 @@
     <url>
         <loc>https://zymin.cn/tags/%E8%B5%84%E6%BA%90/</loc>
         <lastmod>2020-07-29T07:25:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://zymin.cn/tags/%E8%AE%BA%E6%96%87/</loc>
-        <lastmod>2020-06-23T08:08:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://zymin.cn/tags/%E6%96%87%E7%8C%AE/</loc>
-        <lastmod>2020-06-23T08:08:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -668,13 +682,6 @@
     </url>
 
     <url>
-        <loc>https://zymin.cn/tags/%E6%8A%80%E8%83%BD/</loc>
-        <lastmod>2018-08-07T04:16:18.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zymin.cn/tags/%E8%92%99%E5%8F%B0%E6%A2%AD%E5%88%A9/</loc>
         <lastmod>2018-08-03T01:53:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -761,13 +768,6 @@
     <url>
         <loc>https://zymin.cn/tags/%E8%BE%85%E9%A3%9F/</loc>
         <lastmod>2018-07-08T01:50:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://zymin.cn/tags/latex/</loc>
-        <lastmod>2018-07-06T04:23:52.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
