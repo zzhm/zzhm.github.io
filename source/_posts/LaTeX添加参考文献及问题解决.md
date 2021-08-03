@@ -1,5 +1,5 @@
 ---
-title: LaTeX与bib添加参考文献
+title: LaTeX 参考文献及格式调整
 mathjax: false
 date: 2018-07-06 12:23:52
 id: latex-reference-with-bib
