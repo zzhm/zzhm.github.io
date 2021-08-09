@@ -9,20 +9,10 @@ categories:
 - 实用教程
 ---
 
-原因就是这里没设置！！之前版本好像是没有的，导致在输入“27800@localhost”之后一直无法继续往后面安装。
+## 安装教程
 
-```
-3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装
-变量名：NOLICENSECHECK
-变量值：true(这里千万别选错了，会导致后面无法使用)
-```
-
-另附完整安装过程！
-
-<!---more--->
-
-1.下载安装包并解压缩，解压SSQ_UniversalLicenseServer_Core_20180127074300.zip
-解压SSQ_UniversalLicenseServer_Module_DSSimulia_20180127185300.zip，复制Vendors到SolidSQUAD_License_Servers文件夹下合并文件夹
+1.下载安装包并解压缩，解压`SSQ_UniversalLicenseServer_Core_20180127074300.zip`
+解压`SSQ_UniversalLicenseServer_Module_DSSimulia_20180127185300.zip`，复制Vendors到`SolidSQUAD_License_Servers`文件夹下合并文件夹
 
 ![ ](https://p9.pstatp.com/large/pgc-image/987cbfab61d744509fd0be256813d0ac)
 
@@ -83,3 +73,21 @@ categories:
 
 
 原文链接：https://www.52maicong.com/others/11292.html
+
+## 错误处理
+
+### unsupport version ABAQUSLM
+
+原因就是这里没设置！！之前版本好像是没有的，导致在输入“27800@localhost”之后一直无法继续往后面安装。
+
+```
+3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装
+变量名：NOLICENSECHECK
+变量值：true(这里千万别选错了，会导致后面无法使用)
+```
+
+### IOError: abaqus.rpy: Permission denied
+
+在`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dassault Systemes SIMULIA Established Products 2020`里找到“`Abaqus CAE`”的快捷方式，鼠标右键选择“属性”，在起始位置里设置个有读写权限的位置就行。
+
+![](https://gitee.com/zihm/images/raw/master/hexo/20210809152515.png)
