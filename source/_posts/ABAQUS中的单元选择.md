@@ -4,6 +4,7 @@ mathjax: false
 date: 2019-10-09 13:17:54
 id: abaqus-element
 tags:
+- 软件教程
 - abaqus
 - 有限元
 categories:
