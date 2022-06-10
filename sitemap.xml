@@ -3,22 +3,22 @@
 
 
     <sitemap>
-        <loc>https://zymin.cn/post-sitemap.xml</loc>
+        <loc>https://www.zymin.cn/post-sitemap.xml</loc>
         <lastmod>2021-10-18T05:01:19.000Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://zymin.cn/page-sitemap.xml</loc>
+        <loc>https://www.zymin.cn/page-sitemap.xml</loc>
         <lastmod>2021-02-03T02:11:11.000Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://zymin.cn/category-sitemap.xml</loc>
+        <loc>https://www.zymin.cn/category-sitemap.xml</loc>
         <lastmod>2021-10-18T05:01:19.000Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://zymin.cn/tag-sitemap.xml</loc>
+        <loc>https://www.zymin.cn/tag-sitemap.xml</loc>
         <lastmod>2021-10-18T05:01:19.000Z</lastmod>
     </sitemap>
 
