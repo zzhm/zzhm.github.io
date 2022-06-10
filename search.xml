@@ -513,69 +513,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
-    <title>ABAQUS中的单元选择</title>
-    <url>/arcticle/abaqus-element.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在有限元分析中，为了能够得到较为精确的收敛解，一方面取决于所用模型的误差，另一方面取决于模拟计算的误差。一个好的有限元模型，不仅需要较高的网格质量，还需要拥有合适的单元类型。ABAQUS中最常用的单元包括实体(Solid)单元、壳(Shell)单元和梁(Beam)单元。下面就根据自己对于ABAQUS应用实体单元的学习，将这些单元的特点和使用简单总结如下：</p>
-<!---more--->
-<p>实体单元主要包括完全积分、减缩积分、非协调以及杂交这四种常见的单元模式。</p>
-<h2 id="完全积分单元"><a href="#完全积分单元" class="headerlink" title="完全积分单元"></a>完全积分单元</h2><p>单元具有规则形状（边是直线并且边与边相交成直角）时，所用的Gauss积分点的数目足以对单元刚度矩阵中的多项式进行精确积分。完全积分的线性单元在每一个方向上采用2个积分点；完全积分的二次单元在每一个方向上采用3个积分点。如图</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005431201718.gif"></p>
-<p>不足：完全积分的线性单元存在“剪切自锁”问题，原因是线性单元的边不能弯曲。在复杂应力状态下，完全积分的二次单元也有可能发生剪切自锁。</p>
-<h2 id="减缩积分单元"><a href="#减缩积分单元" class="headerlink" title="减缩积分单元"></a>减缩积分单元</h2><p>减缩积分单元比完全积分单元在每个方向上少用一个积分点。完全积分的线性单元只在单元的中心有一个积分点</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005528107182.gif"></p>
-<p>不足：线性减缩积分单元存在“沙漏模式”的数值问题，有可能过于柔软。</p>
-<p>​    ABAQUS通过绘制伪应变能(ALLAE)和内能(ALLIE)来评价沙漏模式对计算结果的影响。</p>
-<h2 id="非协调单元"><a href="#非协调单元" class="headerlink" title="非协调单元"></a>非协调单元</h2><p>优点：可以克服完全积分，一阶单元中的剪力自锁问题。</p>
-<p>特点：在一阶单元中引入一个增强单元变形梯度的附加自由度。这种对变形梯度的增强允许一阶单元在单元域上对于变形梯度有一个线性变化。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005618709005.jpg"></p>
-<p>不足：对单元的扭曲很敏感，在使用时必须小心以确保单元扭曲是非常小的。</p>
-<h2 id="杂交单元"><a href="#杂交单元" class="headerlink" title="杂交单元"></a>杂交单元</h2><p>应用：当材料行为是不可压缩（泊松比=0.5）或非常接近于不可压缩（泊松比&gt;0.475）时，如橡胶材料，采用杂交单元。</p>
-<p>特点：对于具有不可压缩材料性质的任何单元，一个纯位移的数学公式是不适宜的，压应力不能由节点位移计算。杂交单元包含一个可以直接确定单元压应力的附加自由度，节点的位移场则主要用来计算偏应变和偏应力。</p>
-<p>在选取单元类型时需要综合考虑以下几方面的问题：</p>
-<p> 1）如果需要得到的是节点应力，尽量不要选用线性减缩积分单元；</p>
-<p> 2）如果使用线性减缩积分单元，应注意避免出现沙漏模式，常采用网格细化来解决；</p>
-<p> 3）在定义了接触和弹塑性材料的区域后，不要使用C3D20、C3D8R、C3D10等二次单元；</p>
-<p> 4）完全积分单元容易出现剪切闭锁和体积闭锁问题，一般情况下尽量不要使用；</p>
-<p> 5）对于ABAQUS/Standard分析，如果能够划分四边形(Quad)或六面体(Hex)网格，建议尽量使用非协调单元(如C3D8I)，同时注意保证关键部位的单元形状是规则的。</p>
-<p> 6）如果无法划分六面体(Hex)网格，则应使用修正的二次四面体单元(C3D10M)，它适用于接触和弹塑性问题，只是计算代价较大；</p>
-<p> 7）有些适用于ABAQUS/Standard分析的单元类型不能用于ABAQUS/Explicit分析中(例如非协调单元)。</p>
-<p>参考：基于abaqus的有限元分析和应用-庄茁，第4章</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>abaqus</tag>
-        <tag>有限元</tag>
-        <tag>软件教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Abaqus动画生成</title>
-    <url>/arcticle/abaqus.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在visualization模式中，在播放动画的状态下，点击animate—&gt;save as  然后存成AVI格式，（同时可以调节播放速度frame rate）就可以保存动画了。保存在默认的temp文件夹里。</p>
-<!---more--->
-
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1567394814636.png"></p>
-<p>用Abaqus生成动画，但是生成后动画不动，只有一帧:</p>
-<p>（1）更改动画输出格式，选<code>.mov</code>(在Abaqus中是选QuickTime)；</p>
-<p>（2）修改压缩编码方式为<code>Microsoft Video 1</code>；</p>
-<p>（3）要保存动画，必须让图像动起来再保存。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1567389270658.png"></p>
-<p>官方文档：<a href="https://help.3ds.com/2018/English/DSSIMULIA_Established/SIMACAECAERefMap/simacae-m-Animation-sb.htm?ContextScope=all&amp;id=0dee094d033b41c9aede92dfaac4ad0b#Pg0">https://help.3ds.com/2018/English/DSSIMULIA_Established/SIMACAECAERefMap/simacae-m-Animation-sb.htm?ContextScope=all&amp;id=0dee094d033b41c9aede92dfaac4ad0b#Pg0</a></p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>仿真</tag>
-        <tag>abaqus</tag>
-        <tag>教程</tag>
-        <tag>动画</tag>
-        <tag>后处理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Abaqus2018简单入门</title>
     <url>/arcticle/abaqus-simple.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>ABAQUS是国际上公认的最优秀的非线性分析软件，如果分析对象是接触、大变形或非线性材料（例如橡胶、土体）等复杂问题，建议优先考虑选择ABAQUS作为分析软件。</p>
@@ -641,8 +578,71 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <tag>学习</tag>
         <tag>abaqus</tag>
         <tag>有限元</tag>
-        <tag>教程</tag>
         <tag>软件</tag>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ABAQUS中的单元选择</title>
+    <url>/arcticle/abaqus-element.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在有限元分析中，为了能够得到较为精确的收敛解，一方面取决于所用模型的误差，另一方面取决于模拟计算的误差。一个好的有限元模型，不仅需要较高的网格质量，还需要拥有合适的单元类型。ABAQUS中最常用的单元包括实体(Solid)单元、壳(Shell)单元和梁(Beam)单元。下面就根据自己对于ABAQUS应用实体单元的学习，将这些单元的特点和使用简单总结如下：</p>
+<!---more--->
+<p>实体单元主要包括完全积分、减缩积分、非协调以及杂交这四种常见的单元模式。</p>
+<h2 id="完全积分单元"><a href="#完全积分单元" class="headerlink" title="完全积分单元"></a>完全积分单元</h2><p>单元具有规则形状（边是直线并且边与边相交成直角）时，所用的Gauss积分点的数目足以对单元刚度矩阵中的多项式进行精确积分。完全积分的线性单元在每一个方向上采用2个积分点；完全积分的二次单元在每一个方向上采用3个积分点。如图</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005431201718.gif"></p>
+<p>不足：完全积分的线性单元存在“剪切自锁”问题，原因是线性单元的边不能弯曲。在复杂应力状态下，完全积分的二次单元也有可能发生剪切自锁。</p>
+<h2 id="减缩积分单元"><a href="#减缩积分单元" class="headerlink" title="减缩积分单元"></a>减缩积分单元</h2><p>减缩积分单元比完全积分单元在每个方向上少用一个积分点。完全积分的线性单元只在单元的中心有一个积分点</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005528107182.gif"></p>
+<p>不足：线性减缩积分单元存在“沙漏模式”的数值问题，有可能过于柔软。</p>
+<p>​    ABAQUS通过绘制伪应变能(ALLAE)和内能(ALLIE)来评价沙漏模式对计算结果的影响。</p>
+<h2 id="非协调单元"><a href="#非协调单元" class="headerlink" title="非协调单元"></a>非协调单元</h2><p>优点：可以克服完全积分，一阶单元中的剪力自锁问题。</p>
+<p>特点：在一阶单元中引入一个增强单元变形梯度的附加自由度。这种对变形梯度的增强允许一阶单元在单元域上对于变形梯度有一个线性变化。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/207005618709005.jpg"></p>
+<p>不足：对单元的扭曲很敏感，在使用时必须小心以确保单元扭曲是非常小的。</p>
+<h2 id="杂交单元"><a href="#杂交单元" class="headerlink" title="杂交单元"></a>杂交单元</h2><p>应用：当材料行为是不可压缩（泊松比=0.5）或非常接近于不可压缩（泊松比&gt;0.475）时，如橡胶材料，采用杂交单元。</p>
+<p>特点：对于具有不可压缩材料性质的任何单元，一个纯位移的数学公式是不适宜的，压应力不能由节点位移计算。杂交单元包含一个可以直接确定单元压应力的附加自由度，节点的位移场则主要用来计算偏应变和偏应力。</p>
+<p>在选取单元类型时需要综合考虑以下几方面的问题：</p>
+<p> 1）如果需要得到的是节点应力，尽量不要选用线性减缩积分单元；</p>
+<p> 2）如果使用线性减缩积分单元，应注意避免出现沙漏模式，常采用网格细化来解决；</p>
+<p> 3）在定义了接触和弹塑性材料的区域后，不要使用C3D20、C3D8R、C3D10等二次单元；</p>
+<p> 4）完全积分单元容易出现剪切闭锁和体积闭锁问题，一般情况下尽量不要使用；</p>
+<p> 5）对于ABAQUS/Standard分析，如果能够划分四边形(Quad)或六面体(Hex)网格，建议尽量使用非协调单元(如C3D8I)，同时注意保证关键部位的单元形状是规则的。</p>
+<p> 6）如果无法划分六面体(Hex)网格，则应使用修正的二次四面体单元(C3D10M)，它适用于接触和弹塑性问题，只是计算代价较大；</p>
+<p> 7）有些适用于ABAQUS/Standard分析的单元类型不能用于ABAQUS/Explicit分析中(例如非协调单元)。</p>
+<p>参考：基于abaqus的有限元分析和应用-庄茁，第4章</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>abaqus</tag>
+        <tag>有限元</tag>
+        <tag>软件教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Abaqus动画生成</title>
+    <url>/arcticle/abaqus.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在visualization模式中，在播放动画的状态下，点击animate—&gt;save as  然后存成AVI格式，（同时可以调节播放速度frame rate）就可以保存动画了。保存在默认的temp文件夹里。</p>
+<!---more--->
+
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1567394814636.png"></p>
+<p>用Abaqus生成动画，但是生成后动画不动，只有一帧:</p>
+<p>（1）更改动画输出格式，选<code>.mov</code>(在Abaqus中是选QuickTime)；</p>
+<p>（2）修改压缩编码方式为<code>Microsoft Video 1</code>；</p>
+<p>（3）要保存动画，必须让图像动起来再保存。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1567389270658.png"></p>
+<p>官方文档：<a href="https://help.3ds.com/2018/English/DSSIMULIA_Established/SIMACAECAERefMap/simacae-m-Animation-sb.htm?ContextScope=all&amp;id=0dee094d033b41c9aede92dfaac4ad0b#Pg0">https://help.3ds.com/2018/English/DSSIMULIA_Established/SIMACAECAERefMap/simacae-m-Animation-sb.htm?ContextScope=all&amp;id=0dee094d033b41c9aede92dfaac4ad0b#Pg0</a></p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>仿真</tag>
+        <tag>abaqus</tag>
+        <tag>教程</tag>
+        <tag>动画</tag>
+        <tag>后处理</tag>
       </tags>
   </entry>
   <entry>
@@ -784,8 +784,8 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </categories>
       <tags>
         <tag>学习</tag>
-        <tag>教程</tag>
         <tag>软件</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -1487,35 +1487,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
-    <title>Kodexplorer开源插件分享汇总</title>
-    <url>/arcticle/KodExplorer-plu.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Kodexplorer开源插件分享汇总</p>
-<!---more--->
-
-
-
-<h2 id="photopea"><a href="#photopea" class="headerlink" title="photopea"></a>photopea</h2><p>有个非常好用在线PS工具，<a href="http://www.photopea.com,就想把它做成kodexplorer的插件./">www.photopea.com，就想把它做成KodExplorer的插件。</a></p>
-<p>下载：<a href="https://github.com/zhtengw/kodexplorer-plugins/tree/master/Photopea">https://github.com/zhtengw/kodexplorer-plugins/tree/master/Photopea</a><br><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1577546009-0-2019-12-28225041.png"></p>
-<h2 id="draw-io"><a href="#draw-io" class="headerlink" title="draw.io"></a>draw.io</h2><p>draw.io是个非常好用的在线图表工具，开源流程图利器。现已做成kod插件，支持4.40和新的KodBox。<br><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1578815292-0-2020-01-11232448.png"></p>
-<p>下载地址：</p>
-<p>KodExplorer 4.40版 </p>
-<p><a href="https://github.com/zhtengw/kodexplorer-plugins/tree/master/drawio">https://github.com/zhtengw/kodexplorer-plugins/tree/master/drawio</a></p>
-<p>KodBox版 </p>
-<p><a href="https://github.com/zhtengw/kodexplorer-plugins/tree/v5.0/drawio">https://github.com/zhtengw/kodexplorer-plugins/tree/v5.0/drawio</a></p>
-<h2 id="OnlyOffice"><a href="#OnlyOffice" class="headerlink" title="OnlyOffice"></a>OnlyOffice</h2><p>下载地址：<br><a href="https://github.com/zhtengw/kodexplorer-plugins/releases/tag/OnlyOffice-plugin-v2.1">https://github.com/zhtengw/kodexplorer-plugins/releases/tag/OnlyOffice-plugin-v2.1</a></p>
-<h2 id="Ueditor"><a href="#Ueditor" class="headerlink" title="Ueditor"></a>Ueditor</h2><p><strong>一个比MD更好用的Ueditor公式编辑器</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/11111111111.gif"><br>下载下面的附件并保存到Kodexplorer根目录下app目录下即可<br>调用的话直接创建一个快捷方式即可,</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330130257246.png"></p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>nas</tag>
-        <tag>kodexplorer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LaTeX 参考文献及格式调整</title>
     <url>/arcticle/latex-reference-with-bib.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>LaTeX参考文献添加的2中方式。</p>
@@ -1564,6 +1535,35 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <tag>技能</tag>
         <tag>文献</tag>
         <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kodexplorer开源插件分享汇总</title>
+    <url>/arcticle/KodExplorer-plu.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Kodexplorer开源插件分享汇总</p>
+<!---more--->
+
+
+
+<h2 id="photopea"><a href="#photopea" class="headerlink" title="photopea"></a>photopea</h2><p>有个非常好用在线PS工具，<a href="http://www.photopea.com,就想把它做成kodexplorer的插件./">www.photopea.com，就想把它做成KodExplorer的插件。</a></p>
+<p>下载：<a href="https://github.com/zhtengw/kodexplorer-plugins/tree/master/Photopea">https://github.com/zhtengw/kodexplorer-plugins/tree/master/Photopea</a><br><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1577546009-0-2019-12-28225041.png"></p>
+<h2 id="draw-io"><a href="#draw-io" class="headerlink" title="draw.io"></a>draw.io</h2><p>draw.io是个非常好用的在线图表工具，开源流程图利器。现已做成kod插件，支持4.40和新的KodBox。<br><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1578815292-0-2020-01-11232448.png"></p>
+<p>下载地址：</p>
+<p>KodExplorer 4.40版 </p>
+<p><a href="https://github.com/zhtengw/kodexplorer-plugins/tree/master/drawio">https://github.com/zhtengw/kodexplorer-plugins/tree/master/drawio</a></p>
+<p>KodBox版 </p>
+<p><a href="https://github.com/zhtengw/kodexplorer-plugins/tree/v5.0/drawio">https://github.com/zhtengw/kodexplorer-plugins/tree/v5.0/drawio</a></p>
+<h2 id="OnlyOffice"><a href="#OnlyOffice" class="headerlink" title="OnlyOffice"></a>OnlyOffice</h2><p>下载地址：<br><a href="https://github.com/zhtengw/kodexplorer-plugins/releases/tag/OnlyOffice-plugin-v2.1">https://github.com/zhtengw/kodexplorer-plugins/releases/tag/OnlyOffice-plugin-v2.1</a></p>
+<h2 id="Ueditor"><a href="#Ueditor" class="headerlink" title="Ueditor"></a>Ueditor</h2><p><strong>一个比MD更好用的Ueditor公式编辑器</strong></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/11111111111.gif"><br>下载下面的附件并保存到Kodexplorer根目录下app目录下即可<br>调用的话直接创建一个快捷方式即可,</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330130257246.png"></p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>nas</tag>
+        <tag>kodexplorer</tag>
       </tags>
   </entry>
   <entry>
@@ -1880,6 +1880,40 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
+    <title>Nextcloud命令升级方法</title>
+    <url>/arcticle/nextcloud-update.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>较大的NextCloud实例更新系统版本时可能出现如下错误：</p>
+<blockquote>
+<p><strong>Verifying integrity</strong></p>
+<p>Parsing response failed. <html> <head><title>504 Gateway Time-out</title></head><br> <body bgcolor="white"> <center><h1>504 Gateway<br>Time-out</h1></center> </p>
+<hr><center>nginx/1.12.2</center> </body> 
+</html>
+</blockquote>
+<!---more--->
+
+<p>查找官方论坛发现<a href="https://help.nextcloud.com/t/updater-app-runs-into-timeout/12891/3">解决方案。</a></p>
+<p>由于php执行有时间限制，较大的nextcloud实例在更新操作时容易出现超时而报错；</p>
+<p>对此可修改超时参数，或在命令行中执行更新操作（命令行中没有超时限制）。</p>
+<p>具体更新操作如下：</p>
+<p>在bash终端中执行：</p>
+<blockquote>
+<p>sudo -u www-data php /path/to/nextcloud/updater/updater.phar</p>
+</blockquote>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1566884676438.png"></p>
+<p>进行命令更新，并使用occ进行更新系统，并关闭维护模式：</p>
+<blockquote>
+<p>sudo -u www-data php /path/to/nextcloud/occ upgrade<br>sudo -u www-data php /path/to/nextcloud/occ maintenance:mode –off</p>
+</blockquote>
+<p>（其中路径需改为nextcloud的绝对路径，www-data改为php进程使用的账户。）</p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>nextcloud</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matlab符号工具箱</title>
     <url>/arcticle/matlab-symbol-toolbox.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Matlab的符号数学工具箱可以完成几乎所有得符号运算功能。这些功能主要包括：符号表达式的运算，符号表达式的复合、化简，符号矩阵的运算，符号微积分、符号函数画图，符号代数方程求解，符号微分方程求解等。此外，工具箱还支持可变精度运算，既支持符号运算并以指定的精度返回结果。</p>
@@ -1953,40 +1987,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       <tags>
         <tag>数学</tag>
         <tag>matlab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nextcloud命令升级方法</title>
-    <url>/arcticle/nextcloud-update.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>较大的NextCloud实例更新系统版本时可能出现如下错误：</p>
-<blockquote>
-<p><strong>Verifying integrity</strong></p>
-<p>Parsing response failed. <html> <head><title>504 Gateway Time-out</title></head><br> <body bgcolor="white"> <center><h1>504 Gateway<br>Time-out</h1></center> </p>
-<hr><center>nginx/1.12.2</center> </body> 
-</html>
-</blockquote>
-<!---more--->
-
-<p>查找官方论坛发现<a href="https://help.nextcloud.com/t/updater-app-runs-into-timeout/12891/3">解决方案。</a></p>
-<p>由于php执行有时间限制，较大的nextcloud实例在更新操作时容易出现超时而报错；</p>
-<p>对此可修改超时参数，或在命令行中执行更新操作（命令行中没有超时限制）。</p>
-<p>具体更新操作如下：</p>
-<p>在bash终端中执行：</p>
-<blockquote>
-<p>sudo -u www-data php /path/to/nextcloud/updater/updater.phar</p>
-</blockquote>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1566884676438.png"></p>
-<p>进行命令更新，并使用occ进行更新系统，并关闭维护模式：</p>
-<blockquote>
-<p>sudo -u www-data php /path/to/nextcloud/occ upgrade<br>sudo -u www-data php /path/to/nextcloud/occ maintenance:mode –off</p>
-</blockquote>
-<p>（其中路径需改为nextcloud的绝对路径，www-data改为php进程使用的账户。）</p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>nextcloud</tag>
       </tags>
   </entry>
   <entry>
@@ -2121,6 +2121,31 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
+    <title>PDF加密破解 PDF Password Remover 6.0绿色破解版</title>
+    <url>/arcticle/PDF%20Password%20Remover.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>PDF文件加密分两种，一种是加用户密码，就是打开后输入密码才能看。另一种是加限制，就是限制打印，复制，合并，修改内容等。PDF Password Remover 破解版是一款小巧的PDF密码清除工具，能彻底解决加密的PDF文档不能复制、转换等操作的问题。</p>
+<!---more--->
+
+<p>百度网盘下载链接：<a href="https://pan.baidu.com/s/1kd-0741Ow0p7e9Yovze4iA">https://pan.baidu.com/s/1kd-0741Ow0p7e9Yovze4iA</a></p>
+<p>提取码：b5p6</p>
+<p><strong>使用方法</strong></p>
+<p>1.下载文件，解压</p>
+<p>2.打开注册机，选择软件版本，自动生成注册码</p>
+<p>3.打开程序，输入刚才生成的注册码</p>
+<p>4.完毕</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569672700329.png"></p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>教程</tag>
+        <tag>pdf</tag>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Policy addresses how to help parents manage young children’s media use</title>
     <url>/arcticle/Policy-addresses-how-to-help-parents-manage-young-children%E2%80%99s-media-use.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Children are growing up in a world surrounded by media that are portable and instantly accessible. Parents and pediatricians may find it hard to keep up with the vast amount of content and new features constantly being introduced, and this can be anxiety-provoking. But one thing that will never change is that parents and trusted caregivers help children make sense of the world, particularly when things are in flux.</p>
@@ -2163,51 +2188,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       <tags>
         <tag>育儿</tag>
         <tag>健康</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PDF加密破解 PDF Password Remover 6.0绿色破解版</title>
-    <url>/arcticle/PDF%20Password%20Remover.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>PDF文件加密分两种，一种是加用户密码，就是打开后输入密码才能看。另一种是加限制，就是限制打印，复制，合并，修改内容等。PDF Password Remover 破解版是一款小巧的PDF密码清除工具，能彻底解决加密的PDF文档不能复制、转换等操作的问题。</p>
-<!---more--->
-
-<p>百度网盘下载链接：<a href="https://pan.baidu.com/s/1kd-0741Ow0p7e9Yovze4iA">https://pan.baidu.com/s/1kd-0741Ow0p7e9Yovze4iA</a></p>
-<p>提取码：b5p6</p>
-<p><strong>使用方法</strong></p>
-<p>1.下载文件，解压</p>
-<p>2.打开注册机，选择软件版本，自动生成注册码</p>
-<p>3.打开程序，输入刚才生成的注册码</p>
-<p>4.完毕</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569672700329.png"></p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>教程</tag>
-        <tag>pdf</tag>
-        <tag>破解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Quite Imposing Plus破解版 4.0m 补丁+安装激活图文教程</title>
-    <url>/arcticle/quite-imposing-plus.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Quite Imposing Plus是一款非常实用的Adobe Acrobat 插件，注意功能就是帮助用户进行文本排版编辑，可将页面组合到较大的纸张上以制作书籍，小册子或特殊安排。创建小册子或安排复杂的拼版版面从未如此简单，它需要在Acrobat中使用，让你在设计书册、手册、杂志等PDF文本的时候可以更加轻松的拼版，将你设计的文本以一种更加合理、更加美观的方式打印或印刷出来，提高文本拼版的效率。手动操作需要很多专业知识和技能。</p>
-<!---more--->
-
-<p>下载：<a href="https://www.sdbeta.com/wg/2018/1012/226233.html">https://www.sdbeta.com/wg/2018/1012/226233.html</a></p>
-<p>1、在本站下载并解压，得到qiplus4_en.exe安装程序和crack破解文件夹<br>2、安装本插件需要在电脑上安装Adobe Acrobat Pro ，否则无法安装插件<br>3、双击qiplus4_en.exe运行，如图所示，点击setup，非常简单，一直next即可<br>4、安装完成，不要运行，将crack破解文件夹中的Go2CrckTeam.dll和qiplus4.api复制到Adobe Acrobat pro / lite的“plugin_ins”文件夹（With Overwride）<br>5、运行Adobe Acrobat pro / lite，转到插件&gt; Quite Imposing Plus 4&gt;imposition Control Panel拼版控制面板<br>6、输入任何名称，任何公司和序列号，点击注册并取消在线注册</p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>科研</tag>
-        <tag>教程</tag>
-        <tag>软件</tag>
-        <tag>资源</tag>
       </tags>
   </entry>
   <entry>
@@ -2277,6 +2257,26 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <tag>科研</tag>
         <tag>论文</tag>
         <tag>期刊</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Quite Imposing Plus破解版 4.0m 补丁+安装激活图文教程</title>
+    <url>/arcticle/quite-imposing-plus.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Quite Imposing Plus是一款非常实用的Adobe Acrobat 插件，注意功能就是帮助用户进行文本排版编辑，可将页面组合到较大的纸张上以制作书籍，小册子或特殊安排。创建小册子或安排复杂的拼版版面从未如此简单，它需要在Acrobat中使用，让你在设计书册、手册、杂志等PDF文本的时候可以更加轻松的拼版，将你设计的文本以一种更加合理、更加美观的方式打印或印刷出来，提高文本拼版的效率。手动操作需要很多专业知识和技能。</p>
+<!---more--->
+
+<p>下载：<a href="https://www.sdbeta.com/wg/2018/1012/226233.html">https://www.sdbeta.com/wg/2018/1012/226233.html</a></p>
+<p>1、在本站下载并解压，得到qiplus4_en.exe安装程序和crack破解文件夹<br>2、安装本插件需要在电脑上安装Adobe Acrobat Pro ，否则无法安装插件<br>3、双击qiplus4_en.exe运行，如图所示，点击setup，非常简单，一直next即可<br>4、安装完成，不要运行，将crack破解文件夹中的Go2CrckTeam.dll和qiplus4.api复制到Adobe Acrobat pro / lite的“plugin_ins”文件夹（With Overwride）<br>5、运行Adobe Acrobat pro / lite，转到插件&gt; Quite Imposing Plus 4&gt;imposition Control Panel拼版控制面板<br>6、输入任何名称，任何公司和序列号，点击注册并取消在线注册</p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>科研</tag>
+        <tag>软件</tag>
+        <tag>教程</tag>
+        <tag>资源</tag>
       </tags>
   </entry>
   <entry>
@@ -2566,8 +2566,8 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <category>实用教程</category>
       </categories>
       <tags>
-        <tag>教程</tag>
         <tag>软件</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -3308,8 +3308,8 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <category>实用教程</category>
       </categories>
       <tags>
-        <tag>教程</tag>
         <tag>软件</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -3618,8 +3618,8 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <category>实用教程</category>
       </categories>
       <tags>
-        <tag>教程</tag>
         <tag>软件</tag>
+        <tag>教程</tag>
         <tag>mathematica</tag>
       </tags>
   </entry>
@@ -3682,8 +3682,8 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </categories>
       <tags>
         <tag>生活</tag>
-        <tag>教程</tag>
         <tag>软件</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -4943,6 +4943,43 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
+    <title>变态的高考-从旗开得胜说起</title>
+    <url>/arcticle/college-entrance-examination.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目所说“变态的高考”，特指一种令人忧虑的社会现象。我得从“旗开得胜”说起。</p>
+<!---more--->
+
+<p>“旗开得胜”是一个大家熟知的成语，意思是，军旗一展开，战斗就取得了胜利。比喻事情刚开始就取得成功。这里的“旗”显然是指“军旗”。但现在这个成语中的“旗”变成了“旗袍”。最近几年在许多高考考场门外，有不少穿着旗袍的中年妇女，摆着各种造型拍照，还传到微信上去晒。据说是因为“旗开得胜”。</p>
+<p>亲爱的母亲们，我理解你们盼望儿女高考获胜的心情和愿望。但你们表达这种心情和愿望的方式太愚昧了啊！妈妈如果“旗开”，孩子就能“得胜”？这“胜”来得这么容易？可“旗开”“旗开”，你“旗”得撕“开”呀！但并没有哪个妈妈在大庭广众之下让旗袍真的“开”呢！你没有“旗开”，盼望哪门子“得胜”呀？可见这迷信有多么荒唐！所谓“可怜天下父母心”，将“得胜”寄托于“旗开”的妈妈，的确可怜。</p>
+<p>成语“旗开得胜”往往和“马到成功”一起连用，于是，除了妈妈穿旗袍，爸爸还得穿马褂——“马到成功”嘛！更有甚者，开车的师傅得选择姓陈的，与“成功”的“成”谐音。其实，在我看来，干脆直接找姓“成”的师傅，副驾驶找姓“龚”的得了，这“成功”不就“成”了吗？只是姓“成”的和姓“龚”的都比较少，还不太好找，如果较真非要“成”“龚”送，那孩子很可能就没人送考场了。</p>
+<p> 还有更奇葩的呢！读到一则“高考三天穿衣提示”：<strong>第一天穿红色（开门红），第二天穿绿色（一路绿灯），第三天穿灰色和黄色（走向辉煌）。考生拿到试卷后不要慌，先亲一下，这叫吻过，即“稳过”……</strong></p>
+<p> 我不知道吻过试卷的考生是不是都“稳过”了，反正我感到了一种邪教的味道。 也许有考生家长不服了：“不就表达一个心愿吗？犯得上这样‘上纲上线’吗？再说了，我穿衣服我做主，穿旗袍，穿马褂，你管得着吗你？”</p>
+<p> 穿衣当然是个人行为，但当穿衣同高考结果连在了一起，就给孩子传递了一种畸形的信息甚至价值观：好的成绩是靠类似于“刀枪不入”的义和团咒语得来的。难怪有人把这种丑态称作“高考义和团”。</p>
+<p>“春节不还要在门上贴个福字呀鱼儿年画呀之类，不也是图个‘年年有余’的吉祥吗？难道那也是迷信和邪教？”估计有人会愤愤然。</p>
+<p>是的，谁没有给别人作揖说过“恭喜发财”呢？谁又没有被人祝福过“一路平安”“一生幸福”呢？微信发红包，往往都发含有6元、8元、66元、88元什么的，不也是图个“顺”图个“发”吗？在农村，如果高考那天刚好房上有喜鹊叫，父母很自然地会给孩子说：“孩子，好兆头！”</p>
+<p>凡事都有个度，超过一定的度性质就变了，所谓“量变到质变”。麻将桌上，几元几十元的输赢那叫“娱乐”，没人管你；几万十几万的输赢那叫“赌博”，法律就要追究你了。你一个人穿旗袍或马褂，既不犯法也不妨碍他人，确实谁也管不着，不容置喙；但当更多的“旗袍”“马褂”汇聚于高考场外等公共场合时，当许多人团体操一般高举向日葵以示“一举夺魁（葵）”时，当不少家长举着“文曲星附体一周”的牌子在考场外游荡时，当学校十几辆甚至几十辆送考生的大巴都统一用“666”的车牌号时，当考生们穿上古装有组织地跪拜神灵以求“金榜题名”“状元及第”时……这种社会现象还叫“个人行为”，还是“小事儿”吗？</p>
+<p>在倡导践行社会主义核心价值观的今天，这给孩子传递怎样一种“高考价值观”？一切都是侥幸，一切都是天命，一切都是撞大运，一切都是神灵保佑……不是说“幸福是奋斗出来的”吗？“旗（袍）开”就“得胜”，“马（褂）到”就“成功”，还“奋斗”个啥呢？</p>
+<p>如果说“不懂教育”的家长是无意识地给孩子传递了不正确的观念；那么作为专业教育工作者的一些校长和老师，则是在所谓“励志”的名义下有意识地给学生赤裸裸地灌输扭曲了的价值观，许多充满腐朽没落的思想意识沉渣泛起，堂而皇之地进入了21世纪社会主义中国的校园，请看这些挂在教学楼或贴在教室里的口号吧——</p>
+<p>“提高一分，干掉千人！”“愿你们合上笔帽的刹那，有着侠客收剑入鞘的骄傲！”“此生只为高考狂，冲进重点孝爹娘！”“为了爹娘，为了自己，拼了！”“进清华，与主席总理称兄道弟；入北大，同大家巨匠论道谈经。”“要成功，先发疯！”“血战考场酬壮志”“不拼搏没老婆，不用功没老公”“睡吧！玩吧！毕业一起收破烂吧！”“天王盖地虎全上985，宝塔镇河妖最次211”……</p>
+<p>还有一次又一次的操场“誓师”。一张张年轻稚气的脸，却杀气腾腾，两眼喷火：“唯我英雄”“独霸考场”“舍我其谁”“破釜沉舟”“背水一战”“有去无回”……一只只手臂整齐地挥舞着，嘶哑的声音回荡天空。</p>
+<p>八十多年前，陶行知就抨击过的“吃得苦中苦，方为人上人”的陈腐观念，今天以更血淋淋或更有火药味的语言堂而皇之地出现在社会主义的校园。高考只是“为自己”“孝爹娘”，境界再高一些也不过“光宗耀祖”，因此什么“民族复兴”“中国梦”“责任”“使命”“担当”……全被当做“虚”的，无影无踪。只有赤裸裸的“发疯”“血战”“拼了”“干掉”！</p>
+<p>而高考最后一刻终了，在全中国几乎所有校园会上演同一幕“壮观”的景象——撕书，或烧书！整个学校如盛大的节日，被撕碎的书页如六月飞雪，洋洋洒洒在空中飞舞。考生们在欢呼，在诅咒——欢呼终于不再熬夜、不再补课、不再排名、不再“发疯”了，诅咒长达十二年的“应试劳役”终于结束了！</p>
+<p>每当看到这种狂欢，我就情不自禁地想到这些孩子们的十二年前，就是他们上小学一年级的前一天晚上，该是怎样的兴奋啊！明天就是小学生了，要读书了，小书包放在枕头边看了又看，摸了又摸，兴奋得睡不着。妈妈一遍遍催促：“孩子，快睡吧！明天得早点去报名呢！”可孩子依然睡不着，他在向往，他憧憬……</p>
+<p> 可为什么，十二年前孩子憧憬的生活，现在成了他诅咒的岁月？请不要用“高考是唯一公平的制度”“高考是贫寒子弟通向幸福人生的唯一途径”之类的话，来为种种高考丑态辩护！我没有否认高考制度（尽管它需要更完善），我也没有否认高考对每一个孩子（不仅仅是农家子弟）未来的重要意义，可上述种种关于高考的变态现象，和高考公平没有关系。退回去二十年三十年前四十年前，我们的高考干干净净，清清爽爽，一代代有志气的青年，包括无数农村孩子，不也经过高考走向了成功吗？</p>
+<p>1977年10月，当恢复高考的时候，整个民族都为之一振；谁曾想到，四十多年过去，中国大地竟然出现了——</p>
+<p><strong>畸形的校园，癫狂的高考，愚昧的父母，可怜的孩子！</strong></p>
+<p><strong>谁来拯救中国的教育？谁来拯救我们的未来？</strong></p>
+<p>本文来源：镇西茶馆。</p>
+]]></content>
+      <categories>
+        <category>科学育儿</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>教育</tag>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>参考文献标注规则与常见问题解答</title>
     <url>/arcticle/Refer-to-the-literature-labeling-rules.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
@@ -5047,43 +5084,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       <tags>
         <tag>科研</tag>
         <tag>文献</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>变态的高考-从旗开得胜说起</title>
-    <url>/arcticle/college-entrance-examination.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题目所说“变态的高考”，特指一种令人忧虑的社会现象。我得从“旗开得胜”说起。</p>
-<!---more--->
-
-<p>“旗开得胜”是一个大家熟知的成语，意思是，军旗一展开，战斗就取得了胜利。比喻事情刚开始就取得成功。这里的“旗”显然是指“军旗”。但现在这个成语中的“旗”变成了“旗袍”。最近几年在许多高考考场门外，有不少穿着旗袍的中年妇女，摆着各种造型拍照，还传到微信上去晒。据说是因为“旗开得胜”。</p>
-<p>亲爱的母亲们，我理解你们盼望儿女高考获胜的心情和愿望。但你们表达这种心情和愿望的方式太愚昧了啊！妈妈如果“旗开”，孩子就能“得胜”？这“胜”来得这么容易？可“旗开”“旗开”，你“旗”得撕“开”呀！但并没有哪个妈妈在大庭广众之下让旗袍真的“开”呢！你没有“旗开”，盼望哪门子“得胜”呀？可见这迷信有多么荒唐！所谓“可怜天下父母心”，将“得胜”寄托于“旗开”的妈妈，的确可怜。</p>
-<p>成语“旗开得胜”往往和“马到成功”一起连用，于是，除了妈妈穿旗袍，爸爸还得穿马褂——“马到成功”嘛！更有甚者，开车的师傅得选择姓陈的，与“成功”的“成”谐音。其实，在我看来，干脆直接找姓“成”的师傅，副驾驶找姓“龚”的得了，这“成功”不就“成”了吗？只是姓“成”的和姓“龚”的都比较少，还不太好找，如果较真非要“成”“龚”送，那孩子很可能就没人送考场了。</p>
-<p> 还有更奇葩的呢！读到一则“高考三天穿衣提示”：<strong>第一天穿红色（开门红），第二天穿绿色（一路绿灯），第三天穿灰色和黄色（走向辉煌）。考生拿到试卷后不要慌，先亲一下，这叫吻过，即“稳过”……</strong></p>
-<p> 我不知道吻过试卷的考生是不是都“稳过”了，反正我感到了一种邪教的味道。 也许有考生家长不服了：“不就表达一个心愿吗？犯得上这样‘上纲上线’吗？再说了，我穿衣服我做主，穿旗袍，穿马褂，你管得着吗你？”</p>
-<p> 穿衣当然是个人行为，但当穿衣同高考结果连在了一起，就给孩子传递了一种畸形的信息甚至价值观：好的成绩是靠类似于“刀枪不入”的义和团咒语得来的。难怪有人把这种丑态称作“高考义和团”。</p>
-<p>“春节不还要在门上贴个福字呀鱼儿年画呀之类，不也是图个‘年年有余’的吉祥吗？难道那也是迷信和邪教？”估计有人会愤愤然。</p>
-<p>是的，谁没有给别人作揖说过“恭喜发财”呢？谁又没有被人祝福过“一路平安”“一生幸福”呢？微信发红包，往往都发含有6元、8元、66元、88元什么的，不也是图个“顺”图个“发”吗？在农村，如果高考那天刚好房上有喜鹊叫，父母很自然地会给孩子说：“孩子，好兆头！”</p>
-<p>凡事都有个度，超过一定的度性质就变了，所谓“量变到质变”。麻将桌上，几元几十元的输赢那叫“娱乐”，没人管你；几万十几万的输赢那叫“赌博”，法律就要追究你了。你一个人穿旗袍或马褂，既不犯法也不妨碍他人，确实谁也管不着，不容置喙；但当更多的“旗袍”“马褂”汇聚于高考场外等公共场合时，当许多人团体操一般高举向日葵以示“一举夺魁（葵）”时，当不少家长举着“文曲星附体一周”的牌子在考场外游荡时，当学校十几辆甚至几十辆送考生的大巴都统一用“666”的车牌号时，当考生们穿上古装有组织地跪拜神灵以求“金榜题名”“状元及第”时……这种社会现象还叫“个人行为”，还是“小事儿”吗？</p>
-<p>在倡导践行社会主义核心价值观的今天，这给孩子传递怎样一种“高考价值观”？一切都是侥幸，一切都是天命，一切都是撞大运，一切都是神灵保佑……不是说“幸福是奋斗出来的”吗？“旗（袍）开”就“得胜”，“马（褂）到”就“成功”，还“奋斗”个啥呢？</p>
-<p>如果说“不懂教育”的家长是无意识地给孩子传递了不正确的观念；那么作为专业教育工作者的一些校长和老师，则是在所谓“励志”的名义下有意识地给学生赤裸裸地灌输扭曲了的价值观，许多充满腐朽没落的思想意识沉渣泛起，堂而皇之地进入了21世纪社会主义中国的校园，请看这些挂在教学楼或贴在教室里的口号吧——</p>
-<p>“提高一分，干掉千人！”“愿你们合上笔帽的刹那，有着侠客收剑入鞘的骄傲！”“此生只为高考狂，冲进重点孝爹娘！”“为了爹娘，为了自己，拼了！”“进清华，与主席总理称兄道弟；入北大，同大家巨匠论道谈经。”“要成功，先发疯！”“血战考场酬壮志”“不拼搏没老婆，不用功没老公”“睡吧！玩吧！毕业一起收破烂吧！”“天王盖地虎全上985，宝塔镇河妖最次211”……</p>
-<p>还有一次又一次的操场“誓师”。一张张年轻稚气的脸，却杀气腾腾，两眼喷火：“唯我英雄”“独霸考场”“舍我其谁”“破釜沉舟”“背水一战”“有去无回”……一只只手臂整齐地挥舞着，嘶哑的声音回荡天空。</p>
-<p>八十多年前，陶行知就抨击过的“吃得苦中苦，方为人上人”的陈腐观念，今天以更血淋淋或更有火药味的语言堂而皇之地出现在社会主义的校园。高考只是“为自己”“孝爹娘”，境界再高一些也不过“光宗耀祖”，因此什么“民族复兴”“中国梦”“责任”“使命”“担当”……全被当做“虚”的，无影无踪。只有赤裸裸的“发疯”“血战”“拼了”“干掉”！</p>
-<p>而高考最后一刻终了，在全中国几乎所有校园会上演同一幕“壮观”的景象——撕书，或烧书！整个学校如盛大的节日，被撕碎的书页如六月飞雪，洋洋洒洒在空中飞舞。考生们在欢呼，在诅咒——欢呼终于不再熬夜、不再补课、不再排名、不再“发疯”了，诅咒长达十二年的“应试劳役”终于结束了！</p>
-<p>每当看到这种狂欢，我就情不自禁地想到这些孩子们的十二年前，就是他们上小学一年级的前一天晚上，该是怎样的兴奋啊！明天就是小学生了，要读书了，小书包放在枕头边看了又看，摸了又摸，兴奋得睡不着。妈妈一遍遍催促：“孩子，快睡吧！明天得早点去报名呢！”可孩子依然睡不着，他在向往，他憧憬……</p>
-<p> 可为什么，十二年前孩子憧憬的生活，现在成了他诅咒的岁月？请不要用“高考是唯一公平的制度”“高考是贫寒子弟通向幸福人生的唯一途径”之类的话，来为种种高考丑态辩护！我没有否认高考制度（尽管它需要更完善），我也没有否认高考对每一个孩子（不仅仅是农家子弟）未来的重要意义，可上述种种关于高考的变态现象，和高考公平没有关系。退回去二十年三十年前四十年前，我们的高考干干净净，清清爽爽，一代代有志气的青年，包括无数农村孩子，不也经过高考走向了成功吗？</p>
-<p>1977年10月，当恢复高考的时候，整个民族都为之一振；谁曾想到，四十多年过去，中国大地竟然出现了——</p>
-<p><strong>畸形的校园，癫狂的高考，愚昧的父母，可怜的孩子！</strong></p>
-<p><strong>谁来拯救中国的教育？谁来拯救我们的未来？</strong></p>
-<p>本文来源：镇西茶馆。</p>
-]]></content>
-      <categories>
-        <category>科学育儿</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>教育</tag>
-        <tag>杂谈</tag>
       </tags>
   </entry>
   <entry>
@@ -5416,40 +5416,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
-    <title>外研社点读书的小达人点读包制作方法</title>
-    <url>/arcticle/waiyanshe-diandubao-xiaodaren.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测试环境 </p>
-<p>点读笔：C-PEN通用型。</p>
-<p>点读书：外研社丽声拼读故事会  </p>
-<p>经过测试，这种方法制作的dab包可以完美点读外研社的点读书。 </p>
-<!---more--->
-
-<h2 id="点读包制作方法"><a href="#点读包制作方法" class="headerlink" title="点读包制作方法"></a>点读包制作方法</h2><ul>
-<li>启动爱贝亲子点读笔客户端–&gt;切换到附加功能–&gt;智能自制内容工具，启动工具。 </li>
-<li>点击“新建项目”<ul>
-<li>命名，比如叫做“SongbirdsL1_TopCat”，每本书需要制作一个dab包，不知是否有更好的方法把多本书的安装包放到一起。</li>
-<li>封面编号：填写点读笔在读码模式读取Top Cat这本书的封面时读出的内容。 </li>
-<li>封面声音：点击未设定，选择封面声音对应的音频文件mp3即可。</li>
-<li>教材内容：需要根据每句话读出的编号，填写到左下角的标贴编号，然后点击添加音源，浏览对应的mp3文件。每句话都要重复这个步骤添加进去。 </li>
-<li>最后：点击右边的“生成”按钮，就会生成dab安装包了。</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506131950.png"></p>
-<h2 id="点读包安装方法"><a href="#点读包安装方法" class="headerlink" title="点读包安装方法"></a>点读包安装方法</h2><p>小达人笔关机，连接电脑。附加功能-&gt;智能内容安装工具-&gt;浏览到刚才生成的dab包-&gt;就会弹出下面的安装界面，编号自动填充了63052（我这里是另外一本书所以是63051），点击安装，完成即可。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506131954.jpg"></p>
-<p>弹出小达人笔。打开小达人笔，切换到<strong>通用模式</strong>（必须为通用模式，不同于4000 words，它用的智能模式），点读外研社书的封面，就能读出封面内容，随后可以读出书内容中的每句话。第一次尝试制作dab安装包，感谢爱贝亲子-技术的指点，之前安装为智能模式无法点读，安装为通用模式就解决了。</p>
-]]></content>
-      <categories>
-        <category>点读笔</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>diy</tag>
-        <tag>点读笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>外交辞令的真实含义</title>
     <url>/arcticle/waijiaociling.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>亲切友好的交谈–就寒暄一下，没谈正事儿</p>
@@ -5489,6 +5455,40 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </categories>
       <tags>
         <tag>生活常识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>外研社点读书的小达人点读包制作方法</title>
+    <url>/arcticle/waiyanshe-diandubao-xiaodaren.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测试环境 </p>
+<p>点读笔：C-PEN通用型。</p>
+<p>点读书：外研社丽声拼读故事会  </p>
+<p>经过测试，这种方法制作的dab包可以完美点读外研社的点读书。 </p>
+<!---more--->
+
+<h2 id="点读包制作方法"><a href="#点读包制作方法" class="headerlink" title="点读包制作方法"></a>点读包制作方法</h2><ul>
+<li>启动爱贝亲子点读笔客户端–&gt;切换到附加功能–&gt;智能自制内容工具，启动工具。 </li>
+<li>点击“新建项目”<ul>
+<li>命名，比如叫做“SongbirdsL1_TopCat”，每本书需要制作一个dab包，不知是否有更好的方法把多本书的安装包放到一起。</li>
+<li>封面编号：填写点读笔在读码模式读取Top Cat这本书的封面时读出的内容。 </li>
+<li>封面声音：点击未设定，选择封面声音对应的音频文件mp3即可。</li>
+<li>教材内容：需要根据每句话读出的编号，填写到左下角的标贴编号，然后点击添加音源，浏览对应的mp3文件。每句话都要重复这个步骤添加进去。 </li>
+<li>最后：点击右边的“生成”按钮，就会生成dab安装包了。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506131950.png"></p>
+<h2 id="点读包安装方法"><a href="#点读包安装方法" class="headerlink" title="点读包安装方法"></a>点读包安装方法</h2><p>小达人笔关机，连接电脑。附加功能-&gt;智能内容安装工具-&gt;浏览到刚才生成的dab包-&gt;就会弹出下面的安装界面，编号自动填充了63052（我这里是另外一本书所以是63051），点击安装，完成即可。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506131954.jpg"></p>
+<p>弹出小达人笔。打开小达人笔，切换到<strong>通用模式</strong>（必须为通用模式，不同于4000 words，它用的智能模式），点读外研社书的封面，就能读出封面内容，随后可以读出书内容中的每句话。第一次尝试制作dab安装包，感谢爱贝亲子-技术的指点，之前安装为智能模式无法点读，安装为通用模式就解决了。</p>
+]]></content>
+      <categories>
+        <category>点读笔</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>diy</tag>
+        <tag>点读笔</tag>
       </tags>
   </entry>
   <entry>
@@ -5760,6 +5760,76 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
+    <title>如何得到投稿时要求的300dpi高质量高清图</title>
+    <url>/arcticle/300dpi.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>DPI是指每英寸的像素，也就是扫描精度。DPI越低，扫描的清晰度越低，由于受网络传输速度的影响，web上使用的图片都是72dpi，但是冲洗照片不能使用这个参数，必须是300dpi或者更高350dpi。例如要冲洗4<em>6英寸的照片，扫描精度必须是300dpi，那么文件尺寸应该是(4</em>300)<em>(6</em>300)=1200像素*1800像素。</p>
+<!---more--->
+
+<h2 id="方法一：Excel-PPT"><a href="#方法一：Excel-PPT" class="headerlink" title="方法一：Excel/PPT"></a>方法一：Excel/PPT</h2><p>第1步：将Excel/PPT另存为PDF<br>第2步：在photoshop里打开存好的PDF，注意在打开的时候要首先选择分辨率为1200（&gt;300dpi即可），</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133734.png"></p>
+<p>第3步：根据需要裁减图片</p>
+<p>第4步：<code>文件-&gt;存储为</code>将文件另存为tif格式图片，注意保存的时候选择LZW压缩，否则图片很大，压缩后可能只有几十到几百k，但是依然清晰无比。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133731.png"></p>
+<h2 id="方法二：Adobe-Acrobat"><a href="#方法二：Adobe-Acrobat" class="headerlink" title="方法二：Adobe Acrobat"></a>方法二：Adobe Acrobat</h2><ol>
+<li><p>另存为你的ppt为PDF格式</p>
+</li>
+<li><p>使用Adobe Acrobat  Pro 专业版打开PDF文件，根据需要进行裁减和修改</p>
+</li>
+<li><p>依次点击【文件】【另存为】【图像】选择图片格式，弹出对话框，点击右侧【设置】按钮，弹出对话框</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133728.png"></p>
+</li>
+<li><p>点击分辨率右侧倒三角形，选择你需要的分辨率数值，点击确认</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133722.png"></p>
+</li>
+<li><p>点击【保存】按钮，保存你的图片，恭喜你已经获得高精度的图片了</p>
+</li>
+</ol>
+<h2 id="方法三：Visio"><a href="#方法三：Visio" class="headerlink" title="方法三：Visio"></a>方法三：Visio</h2><ol>
+<li><p>在Visio中用鼠标框选要保存为一张图片的所有元素，选择“文件”|“另存为”命令，弹出图3所示的“另存为”对话框，在“保存类型”中选择“tif”格式，再单击“保存”按钮。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306230832.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231020.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
+</li>
+<li><p>这时弹出图4所示的“TIFF输出选项”对话框，我一般选择数据压缩为“LZW”(所占存储空间要小一些)；如果是黑白图片，颜色格式选为“256色灰度”，如果是彩色图片，颜色格式选为“256色”，分辨率选项选择“打印机”(600dpi)；大小选项选择“源”。完成设置的“TIFF输出选项”对话框如下图所示。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231015.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
+</li>
+<li><p>使用visio输出tif格式，如果图像大小选择“源”，会完全按照所绘制的图形的最外侧矩形边界保存，这样会存在大量不必要的空白区域。其实可以在visio中直接设置空白区域。visio画图时，系统默认为A4纸大小</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231012.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
+</li>
+<li><p>此时，可以点<strong>设计</strong>》<strong>适应绘图</strong>会自动适应图片大小，消去不必要的空白区域</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231005.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231003.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
+</li>
+<li><p>点击保存即可得到分辨率高的图片，如下图所示</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231001.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
+</li>
+</ol>
+<h2 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h2><h3 id="PPI与DPI"><a href="#PPI与DPI" class="headerlink" title="PPI与DPI"></a>PPI与DPI</h3><p>ppi(pixels per inch)：图像的采样率（在图像中，每<a href="https://baike.baidu.com/item/%E8%8B%B1%E5%AF%B8">英寸</a>所包含的像素数目）</p>
+<p>dpi(dots per inch)：打印分辨率（每英寸所能打印的点数，即<a href="https://baike.baidu.com/item/%E6%89%93%E5%8D%B0%E7%B2%BE%E5%BA%A6">打印精度</a>）</p>
+<p>打印尺寸、图像的像素数与打印分辨率之间的关系可以利用下列的计算公式加以表示：</p>
+<p>图像的横向（竖向）像素数=打印横向（竖向）分辨率×打印的横向（竖向）尺寸，</p>
+<p>图像的横向（竖向）像素数/打印横向（竖向）分辨率=打印的横向（竖向）尺寸。</p>
+<p>针对特定的图像而言，图像的像素数是固定的，所以，打印分辨率和打印尺寸便呈现反比的关系。</p>
+<p>例如：希望打印照片的尺寸是4<em>3inch，而打印分辨率横向和竖向都是300dpi，则需要照相机采集的像素数至少为（300</em>4）<em>（300</em>3）=1080000像素，约一百万像素。采集的像素数过低会降低图像的打印质量，过高也不能提升打印质量。</p>
+<h2 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h2><p><strong>号数制：</strong>汉字大小定为七个号数等级——按1号、2号、3号、4号、5号、6号、7号由大至小排列。在字号等级之间又增加一些字号，并取名为“小几号字”，如“小4号”、“小5号”等等。 </p>
+<p>号数制的特点是用起来简单、方便，使用时指定字号即可，无需关心字体的实际尺寸；缺点是字体的大小受号的限制，有时不够用，大字无法用号数来表达，号数不能直接表达字体的实际尺寸，字号之间没有统一的倍数关系，折算起来不方便。尽管如此，号数制仍是目前表示字体规格最基本的方法。（需要注意的是，传统标准铅字的字号大小与一般字处理软件实际输出的文字尺寸会有一些误差，这是由于字的变倍计算处理造成的。） </p>
+<p><strong>点数制：</strong>是目前国际上最通行的印刷字体的计量方法。这里的“点”不是计算机字形的“点阵”的意思，“点”是国际上计量字体大小的基本单位，从英文“Point”译音而来，一般用小写“p”来表示，俗称“磅”。 1磅≈0.35毫米 1英寸＝72磅 </p>
+<p>px是像素单位，em是相对单位，pt是绝对单位。</p>
+<p>px就是表示pixel，像素，是屏幕上显示数据的最基本的点；而pt就是point，英文音译为“磅因”，中文读作“点”，是排版印刷中常用的文字大小单位。这样很明白，px是一个点，它不是自然界的长度单位，谁能说出一个“点”有多长多大么？可以画的很小，也可以很大。如果点很小，那画面就清晰，我们称它为“分辨率高”，反之，就是“分辨率低”。所以，“像素”的大小是会“变”的，也称为“相对长度”。</p>
+<p>pt全称为point，但中文不叫“磅”，正确的说法是一个专用的印刷单位“点”，1点=0.376毫米=1.07英美点=0.0148英尺=0.1776英寸。</p>
+<p>因为点制排版印刷系统传入国内后，国内行业素质参差不齐，不懂的人听音译“磅因”，误认为与质量单位“磅”有关系，故网络传播上造成解读错误。point（pt）点，须与磅（重量单位）区分开。</p>
+<p>它们各自的好处是：px可以在计算机屏幕上，能达到预期的效果，在打印机和其它的高分辨率设备上，它又能取得所希望的效果。em的优点很多，比如在一个页面上，你给定了一个父元素的字体大小，这样就可以通过调整一个元素来成比例的改变所有元素大小。它可以自由缩放，比如用来制作可伸缩的样式表。pt是一种固定长度的度量单位，是能够使用测量设备测得的长度。绝对单位作用有限，因为它们不能够缩放，通常只用在已经知道是用在哪种输出媒体的情况下才使用。但大多数情况下最好使用相对单位。一般都是用px和em这两种种配搭比较好。</p>
+<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133712.jpg"></p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>论文写作</tag>
+        <tag>论文投稿</tag>
+        <tag>软件技能</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TotalCMD批量修改文件名称</title>
     <url>/arcticle/mingcheng-xiugai-piliang.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>各位家长们，在制作点读包的时候可能为了 不停的重命名MP3的文件名而苦恼，没事，我来了\这个就是批量改名工具的下载链接:链接：<a href="http://pan.baidu.com/s/1hqqykL2">http://pan.baidu.com/s/1hqqykL2</a> 密码：9zlk</p>
@@ -5830,76 +5900,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <tag>育儿</tag>
         <tag>diy</tag>
         <tag>点读笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何得到投稿时要求的300dpi高质量高清图</title>
-    <url>/arcticle/300dpi.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>DPI是指每英寸的像素，也就是扫描精度。DPI越低，扫描的清晰度越低，由于受网络传输速度的影响，web上使用的图片都是72dpi，但是冲洗照片不能使用这个参数，必须是300dpi或者更高350dpi。例如要冲洗4<em>6英寸的照片，扫描精度必须是300dpi，那么文件尺寸应该是(4</em>300)<em>(6</em>300)=1200像素*1800像素。</p>
-<!---more--->
-
-<h2 id="方法一：Excel-PPT"><a href="#方法一：Excel-PPT" class="headerlink" title="方法一：Excel/PPT"></a>方法一：Excel/PPT</h2><p>第1步：将Excel/PPT另存为PDF<br>第2步：在photoshop里打开存好的PDF，注意在打开的时候要首先选择分辨率为1200（&gt;300dpi即可），</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133734.png"></p>
-<p>第3步：根据需要裁减图片</p>
-<p>第4步：<code>文件-&gt;存储为</code>将文件另存为tif格式图片，注意保存的时候选择LZW压缩，否则图片很大，压缩后可能只有几十到几百k，但是依然清晰无比。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133731.png"></p>
-<h2 id="方法二：Adobe-Acrobat"><a href="#方法二：Adobe-Acrobat" class="headerlink" title="方法二：Adobe Acrobat"></a>方法二：Adobe Acrobat</h2><ol>
-<li><p>另存为你的ppt为PDF格式</p>
-</li>
-<li><p>使用Adobe Acrobat  Pro 专业版打开PDF文件，根据需要进行裁减和修改</p>
-</li>
-<li><p>依次点击【文件】【另存为】【图像】选择图片格式，弹出对话框，点击右侧【设置】按钮，弹出对话框</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133728.png"></p>
-</li>
-<li><p>点击分辨率右侧倒三角形，选择你需要的分辨率数值，点击确认</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133722.png"></p>
-</li>
-<li><p>点击【保存】按钮，保存你的图片，恭喜你已经获得高精度的图片了</p>
-</li>
-</ol>
-<h2 id="方法三：Visio"><a href="#方法三：Visio" class="headerlink" title="方法三：Visio"></a>方法三：Visio</h2><ol>
-<li><p>在Visio中用鼠标框选要保存为一张图片的所有元素，选择“文件”|“另存为”命令，弹出图3所示的“另存为”对话框，在“保存类型”中选择“tif”格式，再单击“保存”按钮。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306230832.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231020.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
-</li>
-<li><p>这时弹出图4所示的“TIFF输出选项”对话框，我一般选择数据压缩为“LZW”(所占存储空间要小一些)；如果是黑白图片，颜色格式选为“256色灰度”，如果是彩色图片，颜色格式选为“256色”，分辨率选项选择“打印机”(600dpi)；大小选项选择“源”。完成设置的“TIFF输出选项”对话框如下图所示。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231015.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
-</li>
-<li><p>使用visio输出tif格式，如果图像大小选择“源”，会完全按照所绘制的图形的最外侧矩形边界保存，这样会存在大量不必要的空白区域。其实可以在visio中直接设置空白区域。visio画图时，系统默认为A4纸大小</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231012.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
-</li>
-<li><p>此时，可以点<strong>设计</strong>》<strong>适应绘图</strong>会自动适应图片大小，消去不必要的空白区域</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231005.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231003.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
-</li>
-<li><p>点击保存即可得到分辨率高的图片，如下图所示</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210306231001.jpg" alt="Visio作图满足SCI期刊图片分辨率大小要求？"></p>
-</li>
-</ol>
-<h2 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h2><h3 id="PPI与DPI"><a href="#PPI与DPI" class="headerlink" title="PPI与DPI"></a>PPI与DPI</h3><p>ppi(pixels per inch)：图像的采样率（在图像中，每<a href="https://baike.baidu.com/item/%E8%8B%B1%E5%AF%B8">英寸</a>所包含的像素数目）</p>
-<p>dpi(dots per inch)：打印分辨率（每英寸所能打印的点数，即<a href="https://baike.baidu.com/item/%E6%89%93%E5%8D%B0%E7%B2%BE%E5%BA%A6">打印精度</a>）</p>
-<p>打印尺寸、图像的像素数与打印分辨率之间的关系可以利用下列的计算公式加以表示：</p>
-<p>图像的横向（竖向）像素数=打印横向（竖向）分辨率×打印的横向（竖向）尺寸，</p>
-<p>图像的横向（竖向）像素数/打印横向（竖向）分辨率=打印的横向（竖向）尺寸。</p>
-<p>针对特定的图像而言，图像的像素数是固定的，所以，打印分辨率和打印尺寸便呈现反比的关系。</p>
-<p>例如：希望打印照片的尺寸是4<em>3inch，而打印分辨率横向和竖向都是300dpi，则需要照相机采集的像素数至少为（300</em>4）<em>（300</em>3）=1080000像素，约一百万像素。采集的像素数过低会降低图像的打印质量，过高也不能提升打印质量。</p>
-<h2 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h2><p><strong>号数制：</strong>汉字大小定为七个号数等级——按1号、2号、3号、4号、5号、6号、7号由大至小排列。在字号等级之间又增加一些字号，并取名为“小几号字”，如“小4号”、“小5号”等等。 </p>
-<p>号数制的特点是用起来简单、方便，使用时指定字号即可，无需关心字体的实际尺寸；缺点是字体的大小受号的限制，有时不够用，大字无法用号数来表达，号数不能直接表达字体的实际尺寸，字号之间没有统一的倍数关系，折算起来不方便。尽管如此，号数制仍是目前表示字体规格最基本的方法。（需要注意的是，传统标准铅字的字号大小与一般字处理软件实际输出的文字尺寸会有一些误差，这是由于字的变倍计算处理造成的。） </p>
-<p><strong>点数制：</strong>是目前国际上最通行的印刷字体的计量方法。这里的“点”不是计算机字形的“点阵”的意思，“点”是国际上计量字体大小的基本单位，从英文“Point”译音而来，一般用小写“p”来表示，俗称“磅”。 1磅≈0.35毫米 1英寸＝72磅 </p>
-<p>px是像素单位，em是相对单位，pt是绝对单位。</p>
-<p>px就是表示pixel，像素，是屏幕上显示数据的最基本的点；而pt就是point，英文音译为“磅因”，中文读作“点”，是排版印刷中常用的文字大小单位。这样很明白，px是一个点，它不是自然界的长度单位，谁能说出一个“点”有多长多大么？可以画的很小，也可以很大。如果点很小，那画面就清晰，我们称它为“分辨率高”，反之，就是“分辨率低”。所以，“像素”的大小是会“变”的，也称为“相对长度”。</p>
-<p>pt全称为point，但中文不叫“磅”，正确的说法是一个专用的印刷单位“点”，1点=0.376毫米=1.07英美点=0.0148英尺=0.1776英寸。</p>
-<p>因为点制排版印刷系统传入国内后，国内行业素质参差不齐，不懂的人听音译“磅因”，误认为与质量单位“磅”有关系，故网络传播上造成解读错误。point（pt）点，须与磅（重量单位）区分开。</p>
-<p>它们各自的好处是：px可以在计算机屏幕上，能达到预期的效果，在打印机和其它的高分辨率设备上，它又能取得所希望的效果。em的优点很多，比如在一个页面上，你给定了一个父元素的字体大小，这样就可以通过调整一个元素来成比例的改变所有元素大小。它可以自由缩放，比如用来制作可伸缩的样式表。pt是一种固定长度的度量单位，是能够使用测量设备测得的长度。绝对单位作用有限，因为它们不能够缩放，通常只用在已经知道是用在哪种输出媒体的情况下才使用。但大多数情况下最好使用相对单位。一般都是用px和em这两种种配搭比较好。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133712.jpg"></p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>论文写作</tag>
-        <tag>论文投稿</tag>
-        <tag>软件技能</tag>
       </tags>
   </entry>
   <entry>
@@ -6747,6 +6747,40 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
+    <title>小达人魔法转转卡使用教程</title>
+    <url>/arcticle/zhuanzhuanka.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前买的小达人点读笔上面有个魔法转转卡，刚开始以为这是一张没用的卡，没想到在网上一搜，这是一张播放卡，可以点读存储在笔里点读卡片内的24 个音 频文件。点击内圈数字可以播放指定的音频，点外圈以外的动物是随机播放，增加了趣味性；中间的“播放/暂停”功能可以暂停正在播放的音频或继续已暂停的音频。</p>
+<!---more--->
+
+<p>那么如何来使用这么有趣的卡片呢？下面简单的几步，教你玩转转转卡。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/a6332242e815f7926c528b74599ef909.jpg"></p>
+<p><strong>第一步：将点读笔关机连接电脑，打开麦芽客户端的录音内容管理工具</strong></p>
+<p>界面默认是录音管理，点转转卡管理的标签，就进入了转转卡管理界面。在未设置任何音源的情况之下，界面都是灰色的。这里要说明一下，转转卡只支持添加MP3文件！</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/025cbde81444d5dd03005f3d592c0cb0.jpg"></p>
+<p><strong>第二步：新建卡片。我们可以建很多个卡片，每张卡片对应24个不同的音频。</strong></p>
+<p>比如我建三张卡片，一张是钢琴曲，这张卡片里面我存放宝宝睡前听的24首钢琴曲；一张是故事，这里面存放24个故事；另外一张是儿歌，里面存放24首儿歌。当需要听那些的时候，直接打开后缀名为zzk的卡片，再写入点读笔就可以了。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/8c44e5ec5e2160f7e4476da62ed74633.jpg"></p>
+<p><strong>第三步：添加文件。每个数字的下面都有四个功能按钮，它们分别代表的功能为：</strong></p>
+<p>存：保存音频文件。点“存”，在弹出的对话框里面选择需要添加的音频文件，这样我们一个声音就添加好了。</p>
+<p>播：播放刚刚添加的音频文件。</p>
+<p>导：将该音频文件导入电脑。</p>
+<p>删：删除该音频文件。</p>
+<p>下图中，绿色的号码表示我已经添加了音源，灰色的号码表示还未添加音源。就这样，添加完24个音频之后，点“保存卡片”，该卡片就制作完毕了，你还可以在卡片说明里面对该卡片进行备注。如果想修改某个音源，把该音源删除掉，再添加你想要替换的音源就可以了。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/4571de884bc8bc7fcd4d1a31b5452a51.jpg"></p>
+<p><strong>第四步：写入点读笔。这是最重要的一步！</strong></p>
+<p>我们刚刚的操作都是在电脑上的操作，转转卡的文件也是保存在电脑里，还没有存到点读笔上。确定好要导入的卡片之后，点“写入点读笔”，等进度条走完之后，这张卡片就保存到点读笔里了。下次连接点读笔的时候，界面默认为灰色，如果想对该卡片进行操作，就点“读取点读笔”，这时候点读笔里面的文件就读取出来，就可以对该卡片进行修改或者删除。记住，修改完毕之后，保存卡片，再记得写入点读笔。</p>
+<p>就这样简单的四步，转转卡就做好了，赶紧用点读笔点点转转卡吧！</p>
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>diy</tag>
+        <tag>点读笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>崔玉涛谈从疱疹性咽颊炎谈小儿病毒感染、发烧的处理</title>
     <url>/arcticle/cuiyutao-bingduganran.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>夏季来临，疱疹性咽颊炎又进入高发期。面对疱疹性咽颊炎，医生动辄开抗生素、打点滴，面对38、39度的高烧，家长也寝食难安。崔玉涛大夫告诉我们，疱疹性咽颊炎的病程就是一个从病毒增生复制到自然消退的过程，说抗生素能预防感染完全没有道理，正确的护理更重要。 </p>
@@ -6813,40 +6847,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
         <tag>育儿</tag>
         <tag>健康</tag>
         <tag>发烧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小达人魔法转转卡使用教程</title>
-    <url>/arcticle/zhuanzhuanka.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前买的小达人点读笔上面有个魔法转转卡，刚开始以为这是一张没用的卡，没想到在网上一搜，这是一张播放卡，可以点读存储在笔里点读卡片内的24 个音 频文件。点击内圈数字可以播放指定的音频，点外圈以外的动物是随机播放，增加了趣味性；中间的“播放/暂停”功能可以暂停正在播放的音频或继续已暂停的音频。</p>
-<!---more--->
-
-<p>那么如何来使用这么有趣的卡片呢？下面简单的几步，教你玩转转转卡。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/a6332242e815f7926c528b74599ef909.jpg"></p>
-<p><strong>第一步：将点读笔关机连接电脑，打开麦芽客户端的录音内容管理工具</strong></p>
-<p>界面默认是录音管理，点转转卡管理的标签，就进入了转转卡管理界面。在未设置任何音源的情况之下，界面都是灰色的。这里要说明一下，转转卡只支持添加MP3文件！</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/025cbde81444d5dd03005f3d592c0cb0.jpg"></p>
-<p><strong>第二步：新建卡片。我们可以建很多个卡片，每张卡片对应24个不同的音频。</strong></p>
-<p>比如我建三张卡片，一张是钢琴曲，这张卡片里面我存放宝宝睡前听的24首钢琴曲；一张是故事，这里面存放24个故事；另外一张是儿歌，里面存放24首儿歌。当需要听那些的时候，直接打开后缀名为zzk的卡片，再写入点读笔就可以了。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/8c44e5ec5e2160f7e4476da62ed74633.jpg"></p>
-<p><strong>第三步：添加文件。每个数字的下面都有四个功能按钮，它们分别代表的功能为：</strong></p>
-<p>存：保存音频文件。点“存”，在弹出的对话框里面选择需要添加的音频文件，这样我们一个声音就添加好了。</p>
-<p>播：播放刚刚添加的音频文件。</p>
-<p>导：将该音频文件导入电脑。</p>
-<p>删：删除该音频文件。</p>
-<p>下图中，绿色的号码表示我已经添加了音源，灰色的号码表示还未添加音源。就这样，添加完24个音频之后，点“保存卡片”，该卡片就制作完毕了，你还可以在卡片说明里面对该卡片进行备注。如果想修改某个音源，把该音源删除掉，再添加你想要替换的音源就可以了。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/baby/4571de884bc8bc7fcd4d1a31b5452a51.jpg"></p>
-<p><strong>第四步：写入点读笔。这是最重要的一步！</strong></p>
-<p>我们刚刚的操作都是在电脑上的操作，转转卡的文件也是保存在电脑里，还没有存到点读笔上。确定好要导入的卡片之后，点“写入点读笔”，等进度条走完之后，这张卡片就保存到点读笔里了。下次连接点读笔的时候，界面默认为灰色，如果想对该卡片进行操作，就点“读取点读笔”，这时候点读笔里面的文件就读取出来，就可以对该卡片进行修改或者删除。记住，修改完毕之后，保存卡片，再记得写入点读笔。</p>
-<p>就这样简单的四步，转转卡就做好了，赶紧用点读笔点点转转卡吧！</p>
-]]></content>
-      <categories>
-        <category>实用教程</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>diy</tag>
-        <tag>点读笔</tag>
       </tags>
   </entry>
   <entry>
@@ -8217,6 +8217,63 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
       </tags>
   </entry>
   <entry>
+    <title>文献下载工具</title>
+    <url>/arcticle/paper-download.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>前段时间推荐过一个包含谷歌镜像、谷歌学术镜像、scihub的优秀导航站谷歌学术和Sci-Hub结合起来搜文献是种怎样的体验？可惜由于”人多力量大”，此网站很快被和谐，隔三差五更换域名，很不方便。</p>
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y1.png)
+
+<!--- more --->
+
+</center>
+为了解决此问题，一个更加优秀的软件诞生了 ：Y学术。
+
+<p>下载地址：<a href="http://www.biotocol.com/yxueshu/yxueshu.exe">http://www.biotocol.com/yxueshu/yxueshu.exe</a></p>
+<p>绿色免安装程序，471kb，超精简，下载到桌面即可 ，双击打开（若360出现黄色提示，无需理会，阻止也行，允许亦可，就是如此便捷）</p>
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y2.png)
+</center>
+Win10可能会出现系统提示，点击仍要运行即可 。
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y3.png)
+</center>
+此程序集合了谷歌、谷歌学术、scihub可用地址，可称之为一个完美的导航程序 
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y4.png)
+</center>
+任意点击一个谷歌学术镜像，输入一个关键词，比如与 “brian tumor”，我想查询最新文献，那么可点击左边的”2018年以来”，以第一篇文献为例，点击进去 
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y5.png)
+</center>
+找到文章的doi，如下图
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y6.png)
+</center>
+然后回到Y学术软件界面，点击左上角的”文献下载”， 输入文献的doi，10.1016/j.bbcan.2018.01.004，点击下载， 
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y7.png)
+</center>
+等待5~10秒开始下载，下载完成后，你会发现，文献已经出现在你的电脑桌面了 
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y8.png)
+</center>
+无法打开？ win xp系统无法使用？ 请先百度 netframework4.0，点击”普通下载”，下载完成并安装，再运行”Y学术” 
+<center>
+![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y9.png)
+</center>
+
+
+<p>来源：<a href="http://www.biotocol.com/read-70.html">http://www.biotocol.com/read-70.html</a></p>
+]]></content>
+      <categories>
+        <category>资源分享</category>
+      </categories>
+      <tags>
+        <tag>软件教程</tag>
+        <tag>文献下载</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文献：很多国外博士论文检索地址</title>
     <url>/arcticle/doctoral-dissertation.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>国外博士论文检索下载入口</p>
@@ -8342,63 +8399,6 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
 <p>Networked Digital Library of Theses and Dissertations<br><a href="http://tennessee.cc.vt.edu/~lming/cgi-bin/ODL/nm-ui/members/">http://tennessee.cc.vt.edu/~lming/cgi-bin/ODL/nm-ui/members/</a></p>
 <p>Tesionline (Commercial)<br><a href="http://www.tesionline.com/intl/theses-list.jsp?hl=en">http://www.tesionline.com/intl/theses-list.jsp?hl=en</a></p>
 <p>来自<a href="http://blog.sciencenet.cn/blog-3777-8677.html">桂耀荣科学网博客</a></p>
-]]></content>
-      <categories>
-        <category>资源分享</category>
-      </categories>
-      <tags>
-        <tag>软件教程</tag>
-        <tag>文献下载</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>文献下载工具</title>
-    <url>/arcticle/paper-download.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>前段时间推荐过一个包含谷歌镜像、谷歌学术镜像、scihub的优秀导航站谷歌学术和Sci-Hub结合起来搜文献是种怎样的体验？可惜由于”人多力量大”，此网站很快被和谐，隔三差五更换域名，很不方便。</p>
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y1.png)
-
-<!--- more --->
-
-</center>
-为了解决此问题，一个更加优秀的软件诞生了 ：Y学术。
-
-<p>下载地址：<a href="http://www.biotocol.com/yxueshu/yxueshu.exe">http://www.biotocol.com/yxueshu/yxueshu.exe</a></p>
-<p>绿色免安装程序，471kb，超精简，下载到桌面即可 ，双击打开（若360出现黄色提示，无需理会，阻止也行，允许亦可，就是如此便捷）</p>
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y2.png)
-</center>
-Win10可能会出现系统提示，点击仍要运行即可 。
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y3.png)
-</center>
-此程序集合了谷歌、谷歌学术、scihub可用地址，可称之为一个完美的导航程序 
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y4.png)
-</center>
-任意点击一个谷歌学术镜像，输入一个关键词，比如与 “brian tumor”，我想查询最新文献，那么可点击左边的”2018年以来”，以第一篇文献为例，点击进去 
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y5.png)
-</center>
-找到文章的doi，如下图
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y6.png)
-</center>
-然后回到Y学术软件界面，点击左上角的”文献下载”， 输入文献的doi，10.1016/j.bbcan.2018.01.004，点击下载， 
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y7.png)
-</center>
-等待5~10秒开始下载，下载完成后，你会发现，文献已经出现在你的电脑桌面了 
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y8.png)
-</center>
-无法打开？ win xp系统无法使用？ 请先百度 netframework4.0，点击”普通下载”，下载完成并安装，再运行”Y学术” 
-<center>
-![img](http://shihuidaren.cn/blog/wp-content/uploads/2018/03/033118_1258_Y9.png)
-</center>
-
-
-<p>来源：<a href="http://www.biotocol.com/read-70.html">http://www.biotocol.com/read-70.html</a></p>
 ]]></content>
       <categories>
         <category>资源分享</category>
@@ -9178,6 +9178,29 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
+    <title>生活：如何正确使用葱姜蒜和花椒</title>
+    <url>/arcticle/onion-ginger-garlic-pepper.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>你知道调味料“四君子”是什么吗？</p>
+<p>葱、姜、蒜、椒，它们不仅能够增加食物鲜味还能杀菌去霉，对人体健康大有裨益。做菜时，葱姜蒜你可别乱放！原来都是有讲究的。</p>
+<!---more--->
+
+<h2 id="肉类多放花椒"><a href="#肉类多放花椒" class="headerlink" title="肉类多放花椒"></a>肉类多放花椒</h2><p>花椒是土生土场的中国原产香料，味辛、性热，有芳香健胃、温中散寒、除湿止痛、杀虫解毒、止痒解腥的功效。花椒气味芳香，能促进唾液分泌，增加食欲。还能使血管扩张，从而起到降低血压的作用。除此之外，服食花椒水还能驱除寄生虫。烧肉时宜多放一些花椒，有助暖作用，牛肉、羊肉更应多放。</p>
+<h2 id="鱼类多放姜"><a href="#鱼类多放姜" class="headerlink" title="鱼类多放姜"></a>鱼类多放姜</h2><p>生姜又称“食物中的阿司匹林”，因为生姜里含有姜酚，在抑制血小板聚集的作用上，和阿司匹林相差无几，可以预防心血管疾病。对关节疼痛、肿胀、发炎及牙痛等也有一定效果。还可有清胃、促进肠内蠕动、降低胆固醇、治疗恶心呕吐、抗病毒感冒、稀释血液和减轻风湿病等多种功能。鱼腥气大，性寒，食之不当会产生呕吐症状。生姜既可缓和鱼的寒性，又可解腥味。做时多放姜，可以帮助消化。</p>
+<h2 id="贝类多放葱"><a href="#贝类多放葱" class="headerlink" title="贝类多放葱"></a>贝类多放葱</h2><p>营养学家发现，葱含有蛋白质、脂肪、糖类、维生素A、B、C以及钙、铁、镁等多种营养元素，对痢疾杆菌、葡萄球菌及皮肤真菌等都有抑制作用，可增强人体免疫力，预防呼吸道及肠道传染病流行。</p>
+<p>大葱不仅仅能够缓解贝类(如螺、蚌、蟹等)的寒性，而且还能够抵抗过敏。 不少人食用贝类后会产生过敏性咳嗽、腹痛等症，烹调时就应多放一些大葱，避免过敏反应。葱里提炼出的葱素还有舒张血管的作用，有助于防治高血压。</p>
+<p>更为重要的是葱白能有效分解蛋白质，在烹饪含蛋白质和脂肪多的食物时，加上葱就可减少胆固醇在血管壁上的沉积，起到预防动脉粥样硬化，降低血脂、血糖和血压的作用。</p>
+<h2 id="禽类多放蒜"><a href="#禽类多放蒜" class="headerlink" title="禽类多放蒜"></a>禽类多放蒜</h2><p>大蒜以超强的杀菌能力闻名，是一种天然“抗生素”。因为其含有一种叫蒜氨酸的独有物质，进入血液后会转换为大蒜素。这种大蒜素即使被稀释仍能杀死大肠杆菌、痢疾杆菌、葡萄球菌等多种病菌。蒜能够提味。烹调鸡、鸭、鹅肉的时候宜多放蒜，这样使肉更香更好吃，也不会因为消化不良而泻肚子。</p>
+<p>尽管大蒜对防病治病有诸多好处，但也不是多多益善。建议每天生吃大蒜不要超过4瓣，且不能空腹食用。而且阴虚火旺，并患有胃炎、胃溃疡、十二指肠溃疡、肾炎、心脏病和便秘者最好不要生食大蒜。</p>
+<p>记住这些小常识，愿您吃得美味又健康！</p>
+]]></content>
+      <categories>
+        <category>生活科普</category>
+      </categories>
+      <tags>
+        <tag>生活常识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>生活：怎么蒸包子又大又软</title>
     <url>/arcticle/patties.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>鲜嫩多汁的肉包子，早餐来两个再配上一杯现榨豆浆，别提有多幸福了！大人孩子都喜欢~~<br><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/patties/1a3fc1bb08e11d3218d9257abaed4343.gif"></p>
@@ -9217,20 +9240,23 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>生活：如何正确使用葱姜蒜和花椒</title>
-    <url>/arcticle/onion-ginger-garlic-pepper.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>你知道调味料“四君子”是什么吗？</p>
-<p>葱、姜、蒜、椒，它们不仅能够增加食物鲜味还能杀菌去霉，对人体健康大有裨益。做菜时，葱姜蒜你可别乱放！原来都是有讲究的。</p>
+    <title>生活：蚂蚁、蚊子、蟑螂都怕啥</title>
+    <url>/arcticle/what-does-ant-mosquito-cockroach-fear.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>蚂蚁、蚊子、蟑螂都怕啥？</p>
 <!---more--->
 
-<h2 id="肉类多放花椒"><a href="#肉类多放花椒" class="headerlink" title="肉类多放花椒"></a>肉类多放花椒</h2><p>花椒是土生土场的中国原产香料，味辛、性热，有芳香健胃、温中散寒、除湿止痛、杀虫解毒、止痒解腥的功效。花椒气味芳香，能促进唾液分泌，增加食欲。还能使血管扩张，从而起到降低血压的作用。除此之外，服食花椒水还能驱除寄生虫。烧肉时宜多放一些花椒，有助暖作用，牛肉、羊肉更应多放。</p>
-<h2 id="鱼类多放姜"><a href="#鱼类多放姜" class="headerlink" title="鱼类多放姜"></a>鱼类多放姜</h2><p>生姜又称“食物中的阿司匹林”，因为生姜里含有姜酚，在抑制血小板聚集的作用上，和阿司匹林相差无几，可以预防心血管疾病。对关节疼痛、肿胀、发炎及牙痛等也有一定效果。还可有清胃、促进肠内蠕动、降低胆固醇、治疗恶心呕吐、抗病毒感冒、稀释血液和减轻风湿病等多种功能。鱼腥气大，性寒，食之不当会产生呕吐症状。生姜既可缓和鱼的寒性，又可解腥味。做时多放姜，可以帮助消化。</p>
-<h2 id="贝类多放葱"><a href="#贝类多放葱" class="headerlink" title="贝类多放葱"></a>贝类多放葱</h2><p>营养学家发现，葱含有蛋白质、脂肪、糖类、维生素A、B、C以及钙、铁、镁等多种营养元素，对痢疾杆菌、葡萄球菌及皮肤真菌等都有抑制作用，可增强人体免疫力，预防呼吸道及肠道传染病流行。</p>
-<p>大葱不仅仅能够缓解贝类(如螺、蚌、蟹等)的寒性，而且还能够抵抗过敏。 不少人食用贝类后会产生过敏性咳嗽、腹痛等症，烹调时就应多放一些大葱，避免过敏反应。葱里提炼出的葱素还有舒张血管的作用，有助于防治高血压。</p>
-<p>更为重要的是葱白能有效分解蛋白质，在烹饪含蛋白质和脂肪多的食物时，加上葱就可减少胆固醇在血管壁上的沉积，起到预防动脉粥样硬化，降低血脂、血糖和血压的作用。</p>
-<h2 id="禽类多放蒜"><a href="#禽类多放蒜" class="headerlink" title="禽类多放蒜"></a>禽类多放蒜</h2><p>大蒜以超强的杀菌能力闻名，是一种天然“抗生素”。因为其含有一种叫蒜氨酸的独有物质，进入血液后会转换为大蒜素。这种大蒜素即使被稀释仍能杀死大肠杆菌、痢疾杆菌、葡萄球菌等多种病菌。蒜能够提味。烹调鸡、鸭、鹅肉的时候宜多放蒜，这样使肉更香更好吃，也不会因为消化不良而泻肚子。</p>
-<p>尽管大蒜对防病治病有诸多好处，但也不是多多益善。建议每天生吃大蒜不要超过4瓣，且不能空腹食用。而且阴虚火旺，并患有胃炎、胃溃疡、十二指肠溃疡、肾炎、心脏病和便秘者最好不要生食大蒜。</p>
-<p>记住这些小常识，愿您吃得美味又健康！</p>
+<p><strong>蚂蚁怕酸味</strong></p>
+<p>家里的甜食摆没几分钟，蚂蚁大军立即来袭，让人又气又厌！献给各位一项无毒无污染又安全有效的妙招。整粒的新鲜柠檬，对切成两半，在看得到蚂蚁的地方及其动线，挤出柠檬汁，并拿着切半有果肉的那一面，沿途涂抹，神奇效果让您再一次验证大自然的奥妙！</p>
+<p><strong>蚊子怕辣味</strong></p>
+<p>蒜头呛退它，我家院子百花争艳，诱使我常流连其中不忍离去，然而花多蚊子也多，叮咬得我肿包累累。一天，友人送了一袋蒜头，妈妈留下够用的量，其余的分植于花坛四周，其特殊的辛辣味隐隐飘散。令人讶异的是，平日凶猛的蚊子不见了，连下雨过后会出现的超大只蚊子，也销声匿迹了！所以，驱蚊除了打扫环境、清除枯枝烂叶，试植蒜头绝对是上上之策！</p>
+<p><strong>蟑螂怕香味</strong></p>
+<p>神出鬼没的蟑螂，最爱隐身于掌管我们民生大计的厨房里。面对“打不死的蟑螂”，我的办法是：</p>
+<p>将一块浴用香皂切成数小块，置于容器内注入清水，摆放在蟑螂出没的橱柜内，不出数日，打开橱柜将令您讶异于蟑螂的无影无踪，橱柜内还多了怡人的香味。想要效果持续，仅须定期补充香皂容器内的清水。</p>
+<p><strong>千万别拿把蟑螂砸烂</strong></p>
+<p>俗话说“乌龟怕铁锤，蟑螂怕拖鞋。”，看到蟑螂在面前爬来爬去，若真的拿拖鞋用力砸下去，虽可逞一时之快，却也得承担染上传染病的风险，未必划算。蟑螂早已在地球上生存数亿年之久，其生命力之强韧可想而知，就算杀虫剂喷了又喷，随时会在厨房、洗手间甚至客厅不期而遇。</p>
+<p>医学专家提醒：“处决”蟑螂的方法很多，可千万别动气而把它砸得肚破肠流。因为蟑螂是筒线虫的中间宿主，蟑螂吃下这种寄生虫的虫卵后，孵化的幼虫就在体腔内大量繁殖。一旦把蟑螂打得稀巴烂，寄生其内的筒线虫就会趁机外窜，污染居家环境、餐具及食物，进而导致人类的感染。筒线虫进入人体后，会寄生在舌头、牙床、气管及食道等口腔周围组织及器官，不仅牙床会溃烂穿孔，舌头还可能被钻来钻去的成虫搞得不成“舌”形。</p>
+<p>提供大家一个妙招，在任何时候，任何地点，看到蟑螂，只要你身边有可以“起泡泡”的东西，要马上利用，将泡泡倒在蟑螂身上过不久，蟑螂就一命呜呼了，像在浴室里看到蟑螂，浴室里有什么可以起泡的东西呢？非常好，有沐浴乳、洗发精、洗面奶、清洁剂马上加水起泡，想办法把泡沫倒在蟑大哥身上，你就可以跟他说拜拜啰！</p>
+<p>文章整理：生活妙招网 </p>
 ]]></content>
       <categories>
         <category>生活科普</category>
@@ -9268,32 +9294,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
 <p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/clothes-tag-meaning/e04d751eaa8bb432c2dc844d3406ed69.jpg" alt="B966CA5D22474A4A9EDDC4573C0EA42B.jpeg"></p>
 <p>更多精彩内容请关注高质量生活家   微信号：gzlshzs</p>
 <p>最后小编要提醒大家，新衣服刚买回来时，可能还残留着防皱处理时用的化学药品-甲醛，除了能引起急性眼症状、咳嗽、流泪、视力障碍及发疹等，甲醛还具有致癌作用。因此，无论是贴身衣服还是外衣，买来后应该用少量洗涤剂清洗。也可以用食盐水浸泡，因为食盐具有消毒、杀菌、防褪色的作用。</p>
-]]></content>
-      <categories>
-        <category>生活科普</category>
-      </categories>
-      <tags>
-        <tag>生活常识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>生活：蚂蚁、蚊子、蟑螂都怕啥</title>
-    <url>/arcticle/what-does-ant-mosquito-cockroach-fear.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>蚂蚁、蚊子、蟑螂都怕啥？</p>
-<!---more--->
-
-<p><strong>蚂蚁怕酸味</strong></p>
-<p>家里的甜食摆没几分钟，蚂蚁大军立即来袭，让人又气又厌！献给各位一项无毒无污染又安全有效的妙招。整粒的新鲜柠檬，对切成两半，在看得到蚂蚁的地方及其动线，挤出柠檬汁，并拿着切半有果肉的那一面，沿途涂抹，神奇效果让您再一次验证大自然的奥妙！</p>
-<p><strong>蚊子怕辣味</strong></p>
-<p>蒜头呛退它，我家院子百花争艳，诱使我常流连其中不忍离去，然而花多蚊子也多，叮咬得我肿包累累。一天，友人送了一袋蒜头，妈妈留下够用的量，其余的分植于花坛四周，其特殊的辛辣味隐隐飘散。令人讶异的是，平日凶猛的蚊子不见了，连下雨过后会出现的超大只蚊子，也销声匿迹了！所以，驱蚊除了打扫环境、清除枯枝烂叶，试植蒜头绝对是上上之策！</p>
-<p><strong>蟑螂怕香味</strong></p>
-<p>神出鬼没的蟑螂，最爱隐身于掌管我们民生大计的厨房里。面对“打不死的蟑螂”，我的办法是：</p>
-<p>将一块浴用香皂切成数小块，置于容器内注入清水，摆放在蟑螂出没的橱柜内，不出数日，打开橱柜将令您讶异于蟑螂的无影无踪，橱柜内还多了怡人的香味。想要效果持续，仅须定期补充香皂容器内的清水。</p>
-<p><strong>千万别拿把蟑螂砸烂</strong></p>
-<p>俗话说“乌龟怕铁锤，蟑螂怕拖鞋。”，看到蟑螂在面前爬来爬去，若真的拿拖鞋用力砸下去，虽可逞一时之快，却也得承担染上传染病的风险，未必划算。蟑螂早已在地球上生存数亿年之久，其生命力之强韧可想而知，就算杀虫剂喷了又喷，随时会在厨房、洗手间甚至客厅不期而遇。</p>
-<p>医学专家提醒：“处决”蟑螂的方法很多，可千万别动气而把它砸得肚破肠流。因为蟑螂是筒线虫的中间宿主，蟑螂吃下这种寄生虫的虫卵后，孵化的幼虫就在体腔内大量繁殖。一旦把蟑螂打得稀巴烂，寄生其内的筒线虫就会趁机外窜，污染居家环境、餐具及食物，进而导致人类的感染。筒线虫进入人体后，会寄生在舌头、牙床、气管及食道等口腔周围组织及器官，不仅牙床会溃烂穿孔，舌头还可能被钻来钻去的成虫搞得不成“舌”形。</p>
-<p>提供大家一个妙招，在任何时候，任何地点，看到蟑螂，只要你身边有可以“起泡泡”的东西，要马上利用，将泡泡倒在蟑螂身上过不久，蟑螂就一命呜呼了，像在浴室里看到蟑螂，浴室里有什么可以起泡的东西呢？非常好，有沐浴乳、洗发精、洗面奶、清洁剂马上加水起泡，想办法把泡沫倒在蟑大哥身上，你就可以跟他说拜拜啰！</p>
-<p>文章整理：生活妙招网 </p>
 ]]></content>
       <categories>
         <category>生活科普</category>
@@ -9389,6 +9389,25 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
+    <title>生活：鸡精是从鸡身上来的吗</title>
+    <url>/arcticle/chicken-bouillon.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>提起鸡精，很多人都第一反应都是：“鸡精应该就是从鸡身上提取出来的某种提鲜味的物质吧，而且据说比味精更有营养”。同时，鸡精外包装上往往会画上一只大母鸡，这也让不少人对“鸡精来自鸡身上”的说法深信不疑。有些人还到处宣扬鸡精的好处，并鼓励大家用鸡精代替味精。但事实上，鸡精和鸡并没有太大关系，这是怎么回事？在日常做饭时到底应该使用鸡精还是味精呢？</p>
+<!---more--->
+
+<p>鸡精并非像其外包装暗示的那样是“一种主要是由鸡肉、鸡骨或其浓缩抽提物做成的天然调味品”。据中国广播网报道，鸡精的主要成份还是味精，其中谷氨酸钠的含量大概是在40%左右，只不过味精的主要成分是谷氨酸钠，而鸡精是一种复合的调味料。鸡精中除了味精之外，还有淀粉、增味核苷酸、糖以及其它一些香料。</p>
+<p>由此可见，“鸡精来自鸡身上”的说法真是误会了鸡精。那么，鸡精是不是比味精更有营养呢？陕西科技大学食品与生物工程学院教授李宏梁在接受西部网采访时介绍，不管是鸡精还是味精，都只不过是一种调味品，都是为了提供味道，而不是为了提供营养的，所以大家没有必要纠结哪个更有营养的问题，与其纠结鸡精中有多少营养，还不如去喝一碗鸡汤实在。</p>
+<p>那么，在做饭时到底应该使用鸡精还是味精呢？《武汉晚报》建议大家，在实际生活中，选择味精还是选择鸡精，主要看烹饪对象和每个人的口味和要求。比如对于鱼、肉等食物而言，可以直接选择味精增鲜，特别是瘦肉食品，只需要加一点味精就可以达到效果，这时加鸡精可能会有损本身食物的特殊风味；但如果烹饪的食物风味不太明显，如馅类、汤类的食物，则可以考虑使用鸡精提鲜。</p>
+<p>此外，还要提醒大家，鸡精中含有10%左右的盐，所以在食物中加鸡精时，应该适量减少用盐。（陆海军）</p>
+<p>来源：人民网</p>
+]]></content>
+      <categories>
+        <category>生活科普</category>
+      </categories>
+      <tags>
+        <tag>生活常识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用GoldWave软件速成无铺码书籍点读包</title>
     <url>/arcticle/diandubao-xiaodaren-goldwave.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>首先，请避免一个误区：小达人点读笔并不是所有的书籍都需要自己制作才可以点读哦。因为它的开放和共享性，以致市面上可供小达人直接使用的点读包已经上万不止了。只要是DAB格式的点读包，都是小达人专用哦。所以在学习制作前，大家可以先找找看，是不是这本书已经有了配套点读包，如果没有，再动手不迟。</p>
@@ -9475,25 +9494,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>生活：鸡精是从鸡身上来的吗</title>
-    <url>/arcticle/chicken-bouillon.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>提起鸡精，很多人都第一反应都是：“鸡精应该就是从鸡身上提取出来的某种提鲜味的物质吧，而且据说比味精更有营养”。同时，鸡精外包装上往往会画上一只大母鸡，这也让不少人对“鸡精来自鸡身上”的说法深信不疑。有些人还到处宣扬鸡精的好处，并鼓励大家用鸡精代替味精。但事实上，鸡精和鸡并没有太大关系，这是怎么回事？在日常做饭时到底应该使用鸡精还是味精呢？</p>
-<!---more--->
-
-<p>鸡精并非像其外包装暗示的那样是“一种主要是由鸡肉、鸡骨或其浓缩抽提物做成的天然调味品”。据中国广播网报道，鸡精的主要成份还是味精，其中谷氨酸钠的含量大概是在40%左右，只不过味精的主要成分是谷氨酸钠，而鸡精是一种复合的调味料。鸡精中除了味精之外，还有淀粉、增味核苷酸、糖以及其它一些香料。</p>
-<p>由此可见，“鸡精来自鸡身上”的说法真是误会了鸡精。那么，鸡精是不是比味精更有营养呢？陕西科技大学食品与生物工程学院教授李宏梁在接受西部网采访时介绍，不管是鸡精还是味精，都只不过是一种调味品，都是为了提供味道，而不是为了提供营养的，所以大家没有必要纠结哪个更有营养的问题，与其纠结鸡精中有多少营养，还不如去喝一碗鸡汤实在。</p>
-<p>那么，在做饭时到底应该使用鸡精还是味精呢？《武汉晚报》建议大家，在实际生活中，选择味精还是选择鸡精，主要看烹饪对象和每个人的口味和要求。比如对于鱼、肉等食物而言，可以直接选择味精增鲜，特别是瘦肉食品，只需要加一点味精就可以达到效果，这时加鸡精可能会有损本身食物的特殊风味；但如果烹饪的食物风味不太明显，如馅类、汤类的食物，则可以考虑使用鸡精提鲜。</p>
-<p>此外，还要提醒大家，鸡精中含有10%左右的盐，所以在食物中加鸡精时，应该适量减少用盐。（陆海军）</p>
-<p>来源：人民网</p>
-]]></content>
-      <categories>
-        <category>生活科普</category>
-      </categories>
-      <tags>
-        <tag>生活常识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>申请基金的十个简单法则</title>
     <url>/arcticle/fond-apply.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1．适当的新颖 </p>
@@ -9524,6 +9524,57 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </categories>
       <tags>
         <tag>基金申请</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑配置快速科普</title>
+    <url>/arcticle/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%BF%AB%E9%80%9F%E7%A7%91%E6%99%AE.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>电脑是人类智慧的结晶，我们可以把一台电脑比喻成一个人。CPU可以理解为人的大脑，操作系统可以理解为人的思维方式，没有安装系统的电脑就是一堆冷冰冰的物件，就像人如果没有思想就会变成死人，有的人用Windows，有的人用Linux，有的人用Mac，思维方法不同但目的是差不多的。内存可以理解为人的短期记忆，保存我们当下正在做的事情。硬盘可以理解为人的长期记忆，保存我们长期记得的事情。</p>
+<!---more--->
+
+<h2 id="一、处理器-CPU"><a href="#一、处理器-CPU" class="headerlink" title="一、处理器 CPU"></a>一、处理器 CPU</h2><p>在选购电脑时会遇到各种各样的型号和参数，通过这些数据可以初步判断一个电脑硬件的好坏。下面以市场占有率大的品牌为例，先讲一讲电脑各部位硬件的入门知识。<br> <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fha8ooyuypj20l40cojsj.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
+<p>1，目前市面上主要有 <strong>Intel 和 AMD</strong> 两个品牌，Intel 占据了市场的绝大部分，AMD  靠一些高性价比的产品占领了剩余不多的市场。如果你图省心稳定，你可以只考虑 Intel  的处理器。如果你有一定的折腾能力，希望花更少的钱买到性价比更高的产品，那 AMD 的 R5，R7 系列产品是不错的选择。</p>
+<p>2，处理器名称后面通常在还会跟有一个类似 3.50Ghz 的参数，代表的是处理器的主频，通常情况下<strong>主频越高性能就越好，但不是判断好坏的唯一标准</strong>。</p>
+<p>3，Intel 处理器中的赛扬、凌动家族产品过于老旧，已被市场淘汰，不建议购买，奔腾家族产品在低端处理器中还占有一定的市场。至强家族定位是服务器处理器，特点是多核多线程，大缓存，低主频，一般用作商用服务器和建模渲染。而酷睿家族产品是专为家用处理器而生。<strong>如果说至强处理器是货车的话，那酷睿处理器就是家用轿车。</strong></p>
+<p>4，处理器分为<strong>台式CPU和笔记本CPU</strong>，受技术限制，一般来说台式CPU的性能要远高于笔记本CPU，笔记本CPU产品名称后面会跟有M这样的后缀，后缀K表示可以超频，台式CPU的低功耗版本意义不大，笔记本CPU的U和Y后缀用于超极本等轻薄的笔记本，为的是提升续航能力进行了性能缩水，有两个字母后缀的是后缀的组合，比如M是移动版，X是至尊版，那么XM就是移动至尊版了。</p>
+<p>5，处理器一般会以<strong>盒装CPU和散装CPU</strong>这两种形式出售，<strong>散装和盒装CPU并没有本质的区别</strong>，在质量上也不存在优劣的问题。盒装CPU是行货，自带散热器并官保三年，散装CPU是水货或者旧货，没有散热器，需要额外购买散热器，散装CPU在价格上也要比盒装CPU便宜不少。事实上，<strong>CPU没有正品和山寨的区别</strong>，因为CPU这种技术密集型产品是没办法山寨的。CPU经久耐用，损坏的情况极少，全新的和二手也不会有什么差别。</p>
+<p>6，通过观察CPU的名称我们就能知道CPU性能的大概，但要想知道具体怎么样的话，可以用鼎鼎大名的CPU测试软件 CPUZ 来查看，也可以到跑分网站 CPUBOSS来比较查询，还可以通过喜闻乐闻的「天梯图」 来比较，在线查询比如 驱动之家和 <a href="https://www.runningcheese.com/go?url=http://topic.expreview.com/CPU/">超能网</a>推出的天梯图。更详细的天梯图推荐百度笔记本吧做的<a href="https://tva1.sinaimg.cn/large/7a6a15d5gy1fvo881o6goj21kw2mptrk.jpg">CPU天梯图</a>。</p>
+<h2 id="二、内存-RAM"><a href="#二、内存-RAM" class="headerlink" title="二、内存 RAM"></a>二、内存 RAM</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fvocexs26yj20l40bajrq.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
+<p>1，内存全称是随机存取存储器，英文叫RAM，全称为Random Access Memory，内存是CPU能直接读取和写入数据的地方，是数据的中转站。内存计算速度极快，一个程序运行时，电脑会把这个程序运行所需要的数据全部放到内存里去。<strong>就好比我们吃饭时，不是直接拿着电饭锅吃而是用碗装着吃一样</strong>。</p>
+<p>2，<strong>内存的好坏也决定了电脑运行的质量</strong>。内存主要分为DDR3和DDR4两种，理论上内存频率越高，传输速度也就越快，但DDR4也需要相应的硬件支持。<strong>影响内存最重要的还是内存的总容量大小</strong>。使用大容量内存可以让电脑运行更加畅，比如你可以同时开启多个程序而不会觉得卡顿，程序之间的切换速度也更快，也不用为了节省内存而关闭这个效果，优化那个设置。</p>
+<p>3，32位系统的最大内存使用量为3.9GB，即使你装了16GB的内存，能够用得上的内存也只有3.9GB而已，推荐使用64位操作系统。</p>
+<p>4，值得一提的是，有时候我们会听到有人说“我的电脑内存500G”，这明显是不正确的说法。内存是内存，硬盘是硬盘，内存和硬盘的区别我们还可以用上面说的“我们吃饭不是直接拿着电饭锅吃的，而是用碗装着吃”来类比。</p>
+<h2 id="三-、硬盘-Disk"><a href="#三-、硬盘-Disk" class="headerlink" title="三 、硬盘 Disk"></a>三 、硬盘 Disk</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fi849sz5ywj20l40by761.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
+<p>1，硬盘是电脑数据的存储器，储存着电脑中的所有文件，包括电脑系统本身。市面上主要有<strong>机械硬盘 (HDD) 和固态硬盘 (SSD)</strong> 两种硬盘，在不特指的情况下，我们常说的硬盘指的就是机械硬盘。简单地说，机械硬盘存储数据用的是磁碟，固态硬盘存储数据用的是芯片。<strong>固态硬盘有着机械硬盘无可比拟的读写速度，但机械硬盘具有文件误删可恢复的特性。</strong></p>
+<p>2，因为机械硬盘使用的是碟片高速转动来回寻道读写数据的原理，所以机械硬盘使用时间长了之后会出现不同程度的磨损，导致出现<strong>物理坏道</strong>，而物理坏道是不可修复的。出现物理坏道通常会有一些“征兆”，比如有时电脑特别的卡，鼠标移动像幻灯片一样，有时还会莫名其妙的蓝屏死机。</p>
+<p>根据我的个人经验，一般5年左右就需要更换新的机械硬盘了。应对机械硬盘损伤，我们需要<strong>避免高强度震动，特别是在电脑运行中的时候，避免频繁跳电，直接拔电源强行关机</strong>，也不要使用关机键强行关机，应该使用系统的关机按钮，同时不要高强度长时间的使用电脑。</p>
+<p>3，我们会有这样的感觉，就是在复制文件的时候速度很慢，但如果要是删除文件的话速度就非常快，其<strong>原因并不是文件真正地被删除，而只是被标记为删除</strong>。被删除文件所处的位置在没有被其他文件覆盖前，是可以通过数据恢复软件找回的，数据恢复公司使用的也是同样的方法。当我们在误删文件后，应该立即停止操作，防止文件占用位置被覆盖的可能，覆盖了就再也找不回来了。</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fhbeymp9ktj20l408raa9.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"><br> 4，固态硬盘采用闪存颗粒芯片，没有机械传动机构，相比机械硬盘有更加轻薄的机身和更好的抗震力，所以<strong>固态硬盘的寿命非常长，根本用不着当心寿命的问题</strong>，通常都是电脑比固态硬盘先退役，而且现在电子技术发展技术这么快，5年以上的电子产品基本都要淘汰了。</p>
+<p>比起固态硬盘的寿命问题，你更应该关心的是<strong>不要高强度长时间使用和突然断电</strong>。如果高强度长时间工作而散热不到位就会导致固态硬盘过热而加速老化。突然断电可能会导致数据丢失，包括已保存的数据，固态硬盘是不能像机械硬盘那样能找得回来的。</p>
+<p>5，当然，<strong>不同的固态硬盘之间性能还是有差别的</strong>。速度最快、寿命最长的SLC闪存颗粒价格也最贵，速度较快、寿命较长的MLC闪存颗粒价格也较贵，速度较慢、寿命较短的TLC闪存颗粒价格也最低。固态硬盘查询软件推荐使用 AS SSD Benchmark。对比两块固态硬盘的差距可以到网站 SSDBOSS上查询，也可以使用百度显卡吧制作的<a href="http://tva3.sinaimg.com/large/7a6a15d5gy1fhbeoejy33j20mo0phabb.jpg">固态硬盘天梯图</a>来对比。</p>
+<p>6，事实上，<strong>我们使用电脑的本质就是不断读写电脑里各种文件的过程</strong>，硬盘数据读写的快慢影响着电脑操作的流畅程度。我们常说电脑开机慢，打开软件时间特别久，不是因为电脑的配置不好，而是硬盘的读写速度跟不上，使用固态硬盘对于使用电脑的流畅程度有着极大的提升。比较通行的做法是采用S<strong>SD+HDD的混合方案，SSD用于系统和软件的存储，HDD用于资料的存储</strong>。</p>
+<p>7，不管机械硬盘还是固态硬盘，我都只推荐选购一线品牌，而且要买全新的，同时只在推荐在官方或官方授权店购买，贵的那部分钱的换来的是电脑数据的安全稳定。</p>
+<h2 id="四、显卡-GPU"><a href="#四、显卡-GPU" class="headerlink" title="四、显卡 GPU"></a>四、显卡 GPU</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fvobdz5jx0j20l40coaav.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
+<p>1，显卡也是电脑的重要组成部分，承担着输出显示图形的任务，作用是协助CPU，提高整体的运行速度。比如我们玩游戏时，<strong>CPU负责计算怪物的血量，显卡负责渲染你和怪物打斗时的场景</strong>，这样既减轻了CPU的负担，也提高了游戏的流畅度。</p>
+<p>2，一张显卡由GPU、风扇、电容等部件组成，其核心部件是GPU（显示核心），是显卡的心脏，相当于CPU在电脑中的作用。现在的GPU生产公司只有两家：<strong>NVIDIA和AMD</strong>，这两家公司在生产出一块GPU之后会对其进行命名，比如 GTX960、GTX970、GTX1080Ti等，再交付给下游的显卡制造商（比如影驰，七彩虹）去组装成显卡，这类显卡被称之为“<strong>非公版显卡</strong>”，在出售时会在“显卡核心型号”前加上自己厂商的名称作为前缀，用于和其他厂商进行区分。</p>
+<p>3，显卡制造商还根据制作工艺的不同，<strong>在商品名称后面加入自己命名的后缀以表示该款显卡的定位</strong>。以影驰为例，“黑将”等将军团后缀是入门级显卡，“Gamer”为发烧级显卡，“名人堂”无论是做工用料还是性能都远胜其他系列，属于影驰的顶级产品。</p>
+<p>比如同样是GTX960，“影驰GTX960名人堂”的性能就要比“影驰GTX960黑将”高出不少。不同的显卡制造商都有自己各自的后缀，比如七彩虹的顶级产品叫“九段“，技嘉的顶级产品叫”萤火虫“。NVIDIA公司本身也会生产一些显卡，但往往是新品和高端显卡，这类显卡被称之为“<strong>公版显卡</strong>”，公版显卡规格标准，稳定性高，同时价格也比较昂贵。</p>
+<p>4，显卡性能检测可以使用软件 GPU-Z，对比两款显卡性能的差别可以用网站 GPUBOSS进行查询，也可以参考驱动之家的桌面显卡天梯图、笔记本显卡天梯图 或者超能网的显卡天梯图。</p>
+<h2 id="五、主板-Motherboard"><a href="#五、主板-Motherboard" class="headerlink" title="五、主板 Motherboard"></a>五、主板 Motherboard</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fvocegd03zj20l40cowff.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"><br> 1，主板也是电脑的重要组成部分，它为CPU、内存、硬盘、显卡、键盘、鼠标、显示器等部件提供了一个安装平台，让这些部件联系在一起。因为要与CPU配对，所以<strong>主板也分为Intel主板和AMD主板</strong>。同时由于不同代CPU针脚的不同，<strong>选购主板时还要选择与之配对的某系主板</strong>。比如6系7系对应LGA 1155针脚的2代3代CPU，8系对应LGA 1150针脚4代5代CPU，100系和200系对应LGA 1151针脚6代7代CPU，300系对应就8代CPU。</p>
+<p>2，高端主板和低端主板的差距在于做工用料，BIOS设计，功能性（超频）和拓展性（更多接口），<strong>但即使是最低端的主板基本该有的接口都会有</strong>，不会出现低端主板没有显卡槽的情况。</p>
+<p>3，<strong>主板属于有功能性但没性能的配件</strong>，主板的高端低端并不会对CPU性能产生影响，也不会对显卡性能产生影响。所以主板不像CPU，GPU那样有性能天梯图。选购主板时可根据自己的预算，可以选择像华硕，技嘉，微星这样的一线大公司，也可以选择其他二线公司做的主板。</p>
+<p>可以选择H系这样的入门主板，也可以选择B系这样的高性价比主板，只要主板本身质量过关，能适配上，接口够用，不需要超频，任何一款主板都行。考虑空间和散热可以选择大板，不考虑可以选择小板。<strong>高端主板和低端主板我们可以用高端轿车和普通轿车来类比。</strong></p>
+<h2 id="六、电源和显示器"><a href="#六、电源和显示器" class="headerlink" title="六、电源和显示器"></a>六、电源和显示器</h2><p>最后再简单说一下电源、显示器，声卡和网卡。电源是一个应该给于足够重视的环节，<strong>通常电脑的其他硬件都不容易坏，如果坏了多数和电源有关</strong>，电源的供电稳定与否与整台电脑的使用寿命有直接相关，廉价的电源很容易让电脑出现这样那样的毛病。选购电源时，一是**不要让电脑的实际最大使用功率超过电源额定功率的70%**，第二就是要单独购买口碑好销量高的品牌电源，切勿为了省一点钱而选择买机箱送电源的那种店家。</p>
+<p>显示器主要分<strong>TN屏幕和IPS屏幕</strong>两种，TN屏幕与IPS屏幕最明显的区别就在于用手按压TN屏幕时会塌陷，也就是我们印象中的”液晶屏“，IPS屏幕相对较硬，俗称“硬屏”。IPS屏幕相比TN屏幕还是有很多优势的，比如色域更广显示的色彩更加艳丽，还有可视角度更好，从上下左右四个视角上都不会有看不清屏幕的情况。不过，目前主流已经是IPS屏幕了，如果是全新购买的话，推荐IPS屏幕。</p>
+<p>现在绝大部分主板都会集成有声卡和网卡，如果对音质没有特别要求，则不需要额外安装独立声卡。如果不需要无线上网的话，也不需要安装独立网卡，而且现在的无线上网卡已经改用USB接口了。</p>
+<p>注：本文由 奔跑中的奶酪 作者：<a href="https://www.runningcheese.com/author/1">奔跑中的奶酪</a> 发表，其版权均为作者所有，如需转载，请注明作者名字以及文章来源。    </p>
+]]></content>
+      <categories>
+        <category>生活科普</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>科普</tag>
       </tags>
   </entry>
   <entry>
@@ -9593,57 +9644,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       <tags>
         <tag>生活</tag>
         <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑配置快速科普</title>
-    <url>/arcticle/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%BF%AB%E9%80%9F%E7%A7%91%E6%99%AE.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>电脑是人类智慧的结晶，我们可以把一台电脑比喻成一个人。CPU可以理解为人的大脑，操作系统可以理解为人的思维方式，没有安装系统的电脑就是一堆冷冰冰的物件，就像人如果没有思想就会变成死人，有的人用Windows，有的人用Linux，有的人用Mac，思维方法不同但目的是差不多的。内存可以理解为人的短期记忆，保存我们当下正在做的事情。硬盘可以理解为人的长期记忆，保存我们长期记得的事情。</p>
-<!---more--->
-
-<h2 id="一、处理器-CPU"><a href="#一、处理器-CPU" class="headerlink" title="一、处理器 CPU"></a>一、处理器 CPU</h2><p>在选购电脑时会遇到各种各样的型号和参数，通过这些数据可以初步判断一个电脑硬件的好坏。下面以市场占有率大的品牌为例，先讲一讲电脑各部位硬件的入门知识。<br> <img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fha8ooyuypj20l40cojsj.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
-<p>1，目前市面上主要有 <strong>Intel 和 AMD</strong> 两个品牌，Intel 占据了市场的绝大部分，AMD  靠一些高性价比的产品占领了剩余不多的市场。如果你图省心稳定，你可以只考虑 Intel  的处理器。如果你有一定的折腾能力，希望花更少的钱买到性价比更高的产品，那 AMD 的 R5，R7 系列产品是不错的选择。</p>
-<p>2，处理器名称后面通常在还会跟有一个类似 3.50Ghz 的参数，代表的是处理器的主频，通常情况下<strong>主频越高性能就越好，但不是判断好坏的唯一标准</strong>。</p>
-<p>3，Intel 处理器中的赛扬、凌动家族产品过于老旧，已被市场淘汰，不建议购买，奔腾家族产品在低端处理器中还占有一定的市场。至强家族定位是服务器处理器，特点是多核多线程，大缓存，低主频，一般用作商用服务器和建模渲染。而酷睿家族产品是专为家用处理器而生。<strong>如果说至强处理器是货车的话，那酷睿处理器就是家用轿车。</strong></p>
-<p>4，处理器分为<strong>台式CPU和笔记本CPU</strong>，受技术限制，一般来说台式CPU的性能要远高于笔记本CPU，笔记本CPU产品名称后面会跟有M这样的后缀，后缀K表示可以超频，台式CPU的低功耗版本意义不大，笔记本CPU的U和Y后缀用于超极本等轻薄的笔记本，为的是提升续航能力进行了性能缩水，有两个字母后缀的是后缀的组合，比如M是移动版，X是至尊版，那么XM就是移动至尊版了。</p>
-<p>5，处理器一般会以<strong>盒装CPU和散装CPU</strong>这两种形式出售，<strong>散装和盒装CPU并没有本质的区别</strong>，在质量上也不存在优劣的问题。盒装CPU是行货，自带散热器并官保三年，散装CPU是水货或者旧货，没有散热器，需要额外购买散热器，散装CPU在价格上也要比盒装CPU便宜不少。事实上，<strong>CPU没有正品和山寨的区别</strong>，因为CPU这种技术密集型产品是没办法山寨的。CPU经久耐用，损坏的情况极少，全新的和二手也不会有什么差别。</p>
-<p>6，通过观察CPU的名称我们就能知道CPU性能的大概，但要想知道具体怎么样的话，可以用鼎鼎大名的CPU测试软件 CPUZ 来查看，也可以到跑分网站 CPUBOSS来比较查询，还可以通过喜闻乐闻的「天梯图」 来比较，在线查询比如 驱动之家和 <a href="https://www.runningcheese.com/go?url=http://topic.expreview.com/CPU/">超能网</a>推出的天梯图。更详细的天梯图推荐百度笔记本吧做的<a href="https://tva1.sinaimg.cn/large/7a6a15d5gy1fvo881o6goj21kw2mptrk.jpg">CPU天梯图</a>。</p>
-<h2 id="二、内存-RAM"><a href="#二、内存-RAM" class="headerlink" title="二、内存 RAM"></a>二、内存 RAM</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fvocexs26yj20l40bajrq.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
-<p>1，内存全称是随机存取存储器，英文叫RAM，全称为Random Access Memory，内存是CPU能直接读取和写入数据的地方，是数据的中转站。内存计算速度极快，一个程序运行时，电脑会把这个程序运行所需要的数据全部放到内存里去。<strong>就好比我们吃饭时，不是直接拿着电饭锅吃而是用碗装着吃一样</strong>。</p>
-<p>2，<strong>内存的好坏也决定了电脑运行的质量</strong>。内存主要分为DDR3和DDR4两种，理论上内存频率越高，传输速度也就越快，但DDR4也需要相应的硬件支持。<strong>影响内存最重要的还是内存的总容量大小</strong>。使用大容量内存可以让电脑运行更加畅，比如你可以同时开启多个程序而不会觉得卡顿，程序之间的切换速度也更快，也不用为了节省内存而关闭这个效果，优化那个设置。</p>
-<p>3，32位系统的最大内存使用量为3.9GB，即使你装了16GB的内存，能够用得上的内存也只有3.9GB而已，推荐使用64位操作系统。</p>
-<p>4，值得一提的是，有时候我们会听到有人说“我的电脑内存500G”，这明显是不正确的说法。内存是内存，硬盘是硬盘，内存和硬盘的区别我们还可以用上面说的“我们吃饭不是直接拿着电饭锅吃的，而是用碗装着吃”来类比。</p>
-<h2 id="三-、硬盘-Disk"><a href="#三-、硬盘-Disk" class="headerlink" title="三 、硬盘 Disk"></a>三 、硬盘 Disk</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fi849sz5ywj20l40by761.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
-<p>1，硬盘是电脑数据的存储器，储存着电脑中的所有文件，包括电脑系统本身。市面上主要有<strong>机械硬盘 (HDD) 和固态硬盘 (SSD)</strong> 两种硬盘，在不特指的情况下，我们常说的硬盘指的就是机械硬盘。简单地说，机械硬盘存储数据用的是磁碟，固态硬盘存储数据用的是芯片。<strong>固态硬盘有着机械硬盘无可比拟的读写速度，但机械硬盘具有文件误删可恢复的特性。</strong></p>
-<p>2，因为机械硬盘使用的是碟片高速转动来回寻道读写数据的原理，所以机械硬盘使用时间长了之后会出现不同程度的磨损，导致出现<strong>物理坏道</strong>，而物理坏道是不可修复的。出现物理坏道通常会有一些“征兆”，比如有时电脑特别的卡，鼠标移动像幻灯片一样，有时还会莫名其妙的蓝屏死机。</p>
-<p>根据我的个人经验，一般5年左右就需要更换新的机械硬盘了。应对机械硬盘损伤，我们需要<strong>避免高强度震动，特别是在电脑运行中的时候，避免频繁跳电，直接拔电源强行关机</strong>，也不要使用关机键强行关机，应该使用系统的关机按钮，同时不要高强度长时间的使用电脑。</p>
-<p>3，我们会有这样的感觉，就是在复制文件的时候速度很慢，但如果要是删除文件的话速度就非常快，其<strong>原因并不是文件真正地被删除，而只是被标记为删除</strong>。被删除文件所处的位置在没有被其他文件覆盖前，是可以通过数据恢复软件找回的，数据恢复公司使用的也是同样的方法。当我们在误删文件后，应该立即停止操作，防止文件占用位置被覆盖的可能，覆盖了就再也找不回来了。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fhbeymp9ktj20l408raa9.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"><br> 4，固态硬盘采用闪存颗粒芯片，没有机械传动机构，相比机械硬盘有更加轻薄的机身和更好的抗震力，所以<strong>固态硬盘的寿命非常长，根本用不着当心寿命的问题</strong>，通常都是电脑比固态硬盘先退役，而且现在电子技术发展技术这么快，5年以上的电子产品基本都要淘汰了。</p>
-<p>比起固态硬盘的寿命问题，你更应该关心的是<strong>不要高强度长时间使用和突然断电</strong>。如果高强度长时间工作而散热不到位就会导致固态硬盘过热而加速老化。突然断电可能会导致数据丢失，包括已保存的数据，固态硬盘是不能像机械硬盘那样能找得回来的。</p>
-<p>5，当然，<strong>不同的固态硬盘之间性能还是有差别的</strong>。速度最快、寿命最长的SLC闪存颗粒价格也最贵，速度较快、寿命较长的MLC闪存颗粒价格也较贵，速度较慢、寿命较短的TLC闪存颗粒价格也最低。固态硬盘查询软件推荐使用 AS SSD Benchmark。对比两块固态硬盘的差距可以到网站 SSDBOSS上查询，也可以使用百度显卡吧制作的<a href="http://tva3.sinaimg.com/large/7a6a15d5gy1fhbeoejy33j20mo0phabb.jpg">固态硬盘天梯图</a>来对比。</p>
-<p>6，事实上，<strong>我们使用电脑的本质就是不断读写电脑里各种文件的过程</strong>，硬盘数据读写的快慢影响着电脑操作的流畅程度。我们常说电脑开机慢，打开软件时间特别久，不是因为电脑的配置不好，而是硬盘的读写速度跟不上，使用固态硬盘对于使用电脑的流畅程度有着极大的提升。比较通行的做法是采用S<strong>SD+HDD的混合方案，SSD用于系统和软件的存储，HDD用于资料的存储</strong>。</p>
-<p>7，不管机械硬盘还是固态硬盘，我都只推荐选购一线品牌，而且要买全新的，同时只在推荐在官方或官方授权店购买，贵的那部分钱的换来的是电脑数据的安全稳定。</p>
-<h2 id="四、显卡-GPU"><a href="#四、显卡-GPU" class="headerlink" title="四、显卡 GPU"></a>四、显卡 GPU</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fvobdz5jx0j20l40coaav.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"></p>
-<p>1，显卡也是电脑的重要组成部分，承担着输出显示图形的任务，作用是协助CPU，提高整体的运行速度。比如我们玩游戏时，<strong>CPU负责计算怪物的血量，显卡负责渲染你和怪物打斗时的场景</strong>，这样既减轻了CPU的负担，也提高了游戏的流畅度。</p>
-<p>2，一张显卡由GPU、风扇、电容等部件组成，其核心部件是GPU（显示核心），是显卡的心脏，相当于CPU在电脑中的作用。现在的GPU生产公司只有两家：<strong>NVIDIA和AMD</strong>，这两家公司在生产出一块GPU之后会对其进行命名，比如 GTX960、GTX970、GTX1080Ti等，再交付给下游的显卡制造商（比如影驰，七彩虹）去组装成显卡，这类显卡被称之为“<strong>非公版显卡</strong>”，在出售时会在“显卡核心型号”前加上自己厂商的名称作为前缀，用于和其他厂商进行区分。</p>
-<p>3，显卡制造商还根据制作工艺的不同，<strong>在商品名称后面加入自己命名的后缀以表示该款显卡的定位</strong>。以影驰为例，“黑将”等将军团后缀是入门级显卡，“Gamer”为发烧级显卡，“名人堂”无论是做工用料还是性能都远胜其他系列，属于影驰的顶级产品。</p>
-<p>比如同样是GTX960，“影驰GTX960名人堂”的性能就要比“影驰GTX960黑将”高出不少。不同的显卡制造商都有自己各自的后缀，比如七彩虹的顶级产品叫“九段“，技嘉的顶级产品叫”萤火虫“。NVIDIA公司本身也会生产一些显卡，但往往是新品和高端显卡，这类显卡被称之为“<strong>公版显卡</strong>”，公版显卡规格标准，稳定性高，同时价格也比较昂贵。</p>
-<p>4，显卡性能检测可以使用软件 GPU-Z，对比两款显卡性能的差别可以用网站 GPUBOSS进行查询，也可以参考驱动之家的桌面显卡天梯图、笔记本显卡天梯图 或者超能网的显卡天梯图。</p>
-<h2 id="五、主板-Motherboard"><a href="#五、主板-Motherboard" class="headerlink" title="五、主板 Motherboard"></a>五、主板 Motherboard</h2><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/7a6a15d5gy1fvocegd03zj20l40cowff.jpg" alt="国庆装机不求人，10 分钟电脑配置挑选速成攻略"><br> 1，主板也是电脑的重要组成部分，它为CPU、内存、硬盘、显卡、键盘、鼠标、显示器等部件提供了一个安装平台，让这些部件联系在一起。因为要与CPU配对，所以<strong>主板也分为Intel主板和AMD主板</strong>。同时由于不同代CPU针脚的不同，<strong>选购主板时还要选择与之配对的某系主板</strong>。比如6系7系对应LGA 1155针脚的2代3代CPU，8系对应LGA 1150针脚4代5代CPU，100系和200系对应LGA 1151针脚6代7代CPU，300系对应就8代CPU。</p>
-<p>2，高端主板和低端主板的差距在于做工用料，BIOS设计，功能性（超频）和拓展性（更多接口），<strong>但即使是最低端的主板基本该有的接口都会有</strong>，不会出现低端主板没有显卡槽的情况。</p>
-<p>3，<strong>主板属于有功能性但没性能的配件</strong>，主板的高端低端并不会对CPU性能产生影响，也不会对显卡性能产生影响。所以主板不像CPU，GPU那样有性能天梯图。选购主板时可根据自己的预算，可以选择像华硕，技嘉，微星这样的一线大公司，也可以选择其他二线公司做的主板。</p>
-<p>可以选择H系这样的入门主板，也可以选择B系这样的高性价比主板，只要主板本身质量过关，能适配上，接口够用，不需要超频，任何一款主板都行。考虑空间和散热可以选择大板，不考虑可以选择小板。<strong>高端主板和低端主板我们可以用高端轿车和普通轿车来类比。</strong></p>
-<h2 id="六、电源和显示器"><a href="#六、电源和显示器" class="headerlink" title="六、电源和显示器"></a>六、电源和显示器</h2><p>最后再简单说一下电源、显示器，声卡和网卡。电源是一个应该给于足够重视的环节，<strong>通常电脑的其他硬件都不容易坏，如果坏了多数和电源有关</strong>，电源的供电稳定与否与整台电脑的使用寿命有直接相关，廉价的电源很容易让电脑出现这样那样的毛病。选购电源时，一是**不要让电脑的实际最大使用功率超过电源额定功率的70%**，第二就是要单独购买口碑好销量高的品牌电源，切勿为了省一点钱而选择买机箱送电源的那种店家。</p>
-<p>显示器主要分<strong>TN屏幕和IPS屏幕</strong>两种，TN屏幕与IPS屏幕最明显的区别就在于用手按压TN屏幕时会塌陷，也就是我们印象中的”液晶屏“，IPS屏幕相对较硬，俗称“硬屏”。IPS屏幕相比TN屏幕还是有很多优势的，比如色域更广显示的色彩更加艳丽，还有可视角度更好，从上下左右四个视角上都不会有看不清屏幕的情况。不过，目前主流已经是IPS屏幕了，如果是全新购买的话，推荐IPS屏幕。</p>
-<p>现在绝大部分主板都会集成有声卡和网卡，如果对音质没有特别要求，则不需要额外安装独立声卡。如果不需要无线上网的话，也不需要安装独立网卡，而且现在的无线上网卡已经改用USB接口了。</p>
-<p>注：本文由 奔跑中的奶酪 作者：<a href="https://www.runningcheese.com/author/1">奔跑中的奶酪</a> 发表，其版权均为作者所有，如需转载，请注明作者名字以及文章来源。    </p>
-]]></content>
-      <categories>
-        <category>生活科普</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>科普</tag>
       </tags>
   </entry>
   <entry>
@@ -10108,6 +10108,101 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
+    <title>How to Write a Research Proposal?</title>
+    <url>/arcticle/How-to-Write-a-Research-Proposal.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Most students and beginning researchers do not fully understand what a research proposal means, nor do they understand its importance. To put it bluntly, one’s research is only as a good as one’s proposal. An ill-conceived proposal dooms the project even if it somehow gets through the Thesis Supervisory Committee. A high quality proposal, on the other hand, not only promises success for the project, but also impresses your Thesis Committee about your potential as a researcher.</p>
+<!--- more --->
+
+<p>A research proposal is intended to convince others that you have a worthwhile research project and that you have the competence and the work-plan to complete it. Generally, a research proposal should contain all the key elements involved in the research process and include sufficient information for the readers to evaluate the proposed study.</p>
+<p>Regardless of your research area and the methodology you choose, all research proposals must address the following questions: What you plan to accomplish, why you want to do it and how you are going to do it.</p>
+<p>The proposal should have sufficient information to convince your readers that you have an important research idea, that you have a good grasp of the relevant literature and the major issues, and that your methodology is sound.</p>
+<p>The quality of your research proposal depends not only on the quality of your proposed project, but also on the quality of your proposal writing. A good research project may run the risk of rejection simply because the proposal is poorly written. Therefore, it pays if your writing is coherent, clear and compelling.</p>
+<p>This paper focuses on proposal writing rather than on the development of research ideas.</p>
+<h2 id="Title"><a href="#Title" class="headerlink" title="Title:"></a>Title:</h2><p>It should be concise and descriptive. For example, the phrase, “An investigation of . . .” could be omitted. Often titles are stated in terms of a functional relationship, because such titles clearly indicate the independent and dependent variables. However, if possible, think of an informative but catchy title. An effective title not only pricks the reader’s interest, but also predisposes him/her favorably towards the proposal.</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h2><p>It is a brief summary of approximately 300 words. It should include the research question, the rationale for the study, the hypothesis (if any), the method and the main findings. Descriptions of the method may include the design, procedures, the sample and any instruments that will be used.</p>
+<p>Introduction:</p>
+<p>The main purpose of the introduction is to provide the necessary background or context for your research problem. How to frame the research problem is perhaps the biggest problem in proposal writing.</p>
+<p>If the research problem is framed in the context of a general, rambling literature review, then the research question may appear trivial and uninteresting. However, if the same question is placed in the context of a very focused and current research area, its significance will become evident.</p>
+<p>Unfortunately, there are no hard and fast rules on how to frame your research question just as there is no prescription on how to write an interesting and informative opening paragraph. A lot depends on your creativity, your ability to think clearly and the depth of your understanding of problem areas.</p>
+<p>However, try to place your research question in the context of either a current “hot” area, or an older area that remains viable. Secondly, you need to provide a brief but appropriate historical backdrop. Thirdly, provide the contemporary context in which your proposed research question occupies the central stage. Finally, identify “key players” and refer to the most relevant and representative publications. In short, try to paint your research question in broad brushes and at the same time bring out its significance.</p>
+<p>The introduction typically begins with a general statement of the problem area, with a focus on a specific research problem, to be followed by the rational or justification for the proposed study. The introduction generally covers the following elements:</p>
+<ol>
+<li>State the research problem, which is often referred to as the purpose of the study.</li>
+<li>Provide the context and set the stage for your research question in such a way as to show its necessity and importance.</li>
+<li>Present the rationale of your proposed study and clearly indicate why it is worth doing.</li>
+<li>Briefly describe the major issues and sub-problems to be addressed by your research.</li>
+<li>Identify the key independent and dependent variables of your experiment. Alternatively, specify the phenomenon you want to study.</li>
+<li>State your hypothesis or theory, if any. For exploratory or phenomenological research, you may not have any hypotheses. (Please do not confuse the hypothesis with the statistical null hypothesis.)</li>
+<li>Set the delimitation or boundaries of your proposed research in order to provide a clear focus.</li>
+<li>Provide definitions of key concepts. (This is optional.)</li>
+</ol>
+<p>##Literature Review:</p>
+<p>Sometimes the literature review is incorporated into the introduction section. However, most professors prefer a separate section, which allows a more thorough review of the literature.</p>
+<p>The literature review serves several important functions:</p>
+<ol>
+<li>Ensures that you are not “reinventing the wheel”.</li>
+<li>Gives credits to those who have laid the groundwork for your research.</li>
+<li>Demonstrates your knowledge of the research problem.</li>
+<li>Demonstrates your understanding of the theoretical and research issues related to your research question.</li>
+<li>Shows your ability to critically evaluate relevant literature information.</li>
+<li>Indicates your ability to integrate and synthesize the existing literature.</li>
+<li>Provides new theoretical insights or develops a new model as the conceptual framework for your research.</li>
+<li>Convinces your reader that your proposed research will make a significant and substantial contribution to the literature (i.e., resolving an important theoretical issue or filling a major gap in the literature).</li>
+</ol>
+<p>Most students’ literature reviews suffer from the following problems:</p>
+<ul>
+<li>Lacking organization and structure</li>
+<li>Lacking focus, unity and coherence</li>
+<li>Being repetitive and verbose</li>
+<li>Failing to cite influential papers</li>
+<li>Failing to keep up with recent developments</li>
+<li>Failing to critically evaluate cited papers</li>
+<li>Citing irrelevant or trivial references</li>
+<li>Depending too much on secondary sources</li>
+</ul>
+<p>Your scholarship and research competence will be questioned if any of the above applies to your proposal.</p>
+<p>There are different ways to organize your literature review. Make use of subheadings to bring order and coherence to your review. For example, having established the importance of your research area and its current state of development, you may devote several subsections on related issues as: theoretical models, measuring instruments, cross-cultural and gender differences, etc.</p>
+<p>It is also helpful to keep in mind that you are telling a story to an audience. Try to tell it in a stimulating and engaging manner. Do not bore them, because it may lead to rejection of your worthy proposal. (Remember: Professors and scientists are human beings too.)</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods:"></a>Methods:</h2><p>The Method section is very important because it tells your Research Committee how you plan to tackle your research problem. It will provide your work plan and describe the activities necessary for the completion of your project.</p>
+<p>The guiding principle for writing the Method section is that it should contain sufficient information for the reader to determine whether methodology is sound. Some even argue that a good proposal should contain sufficient details for another qualified researcher to implement the study.</p>
+<p>You need to demonstrate your knowledge of alternative methods and make the case that your approach is the most appropriate and most valid way to address your research question.</p>
+<p>Please note that your research question may be best answered by qualitative research. However, since most mainstream psychologists are still biased against qualitative research, especially the phenomenological variety, you may need to justify your qualitative method.</p>
+<p>Furthermore, since there are no well-established and widely accepted canons in qualitative analysis, your method section needs to be more elaborate than what is required for traditional quantitative research. More importantly, the data collection process in qualitative research has a far greater impact on the results as compared to quantitative research. That is another reason for greater care in describing how you will collect and analyze your data. (How to write the Method section for qualitative research is a topic for another paper.)</p>
+<p>For quantitative studies, the method section typically consists of the following sections:</p>
+<ol>
+<li>Design -Is it a questionnaire study or a laboratory experiment? What kind of design do you choose?</li>
+<li>Subjects or participants - Who will take part in your study ? What kind of sampling procedure do you use?</li>
+<li>Instruments - What kind of measuring instruments or questionnaires do you use? Why do you choose them? Are they valid and reliable?</li>
+<li>Procedure - How do you plan to carry out your study? What activities are involved? How long does it take?</li>
+</ol>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results:"></a>Results:</h2><p>Obviously you do not have results at the proposal stage. However, you need to have some idea about what kind of data you will be collecting, and what statistical procedures will be used in order to answer your research question or test your hypothesis.</p>
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion:"></a>Discussion:</h2><p>It is important to convince your reader of the potential impact of your proposed research. You need to communicate a sense of enthusiasm and confidence without exaggerating the merits of your proposal. That is why you also need to mention the limitations and weaknesses of the proposed research, which may be justified by time and financial constraints as well as by the early developmental stage of your research area.</p>
+<h2 id="Common-Mistakes-in-Proposal-Writing"><a href="#Common-Mistakes-in-Proposal-Writing" class="headerlink" title="Common Mistakes in Proposal Writing"></a>Common Mistakes in Proposal Writing</h2><ol>
+<li>Failure to provide the proper context to frame the research question.</li>
+<li>Failure to delimit the boundary conditions for your research.</li>
+<li>Failure to cite landmark studies.</li>
+<li>Failure to accurately present the theoretical and empirical contributions by other researchers.</li>
+<li>Failure to stay focused on the research question.</li>
+<li>Failure to develop a coherent and persuasive argument for the proposed research.</li>
+<li>Too much detail on minor issues, but not enough detail on major issues.</li>
+<li>Too much rambling – going “all over the map” without a clear sense of direction. (The best proposals move forward with ease and grace like a seamless river.)</li>
+<li>Too many citation lapses and incorrect references.</li>
+<li>Too long or too short.</li>
+<li>Failing to follow the APA style.</li>
+<li>Slopping writing.</li>
+</ol>
+<p>Source by: Paul T. P. Wong, Ph.D., C.Psych. </p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>项目申请</tag>
+        <tag>写作</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matlab绘图教程</title>
     <url>/arcticle/matlab-drawing.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="基本xy平面绘图命令"><a href="#基本xy平面绘图命令" class="headerlink" title="基本xy平面绘图命令"></a>基本xy平面绘图命令</h2><p>MATLAB不但擅长於矩阵相关的数值运算，也适合用在各种科学目视表示（Scientific visualization）。</p>
@@ -10257,101 +10352,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>How to Write a Research Proposal?</title>
-    <url>/arcticle/How-to-Write-a-Research-Proposal.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Most students and beginning researchers do not fully understand what a research proposal means, nor do they understand its importance. To put it bluntly, one’s research is only as a good as one’s proposal. An ill-conceived proposal dooms the project even if it somehow gets through the Thesis Supervisory Committee. A high quality proposal, on the other hand, not only promises success for the project, but also impresses your Thesis Committee about your potential as a researcher.</p>
-<!--- more --->
-
-<p>A research proposal is intended to convince others that you have a worthwhile research project and that you have the competence and the work-plan to complete it. Generally, a research proposal should contain all the key elements involved in the research process and include sufficient information for the readers to evaluate the proposed study.</p>
-<p>Regardless of your research area and the methodology you choose, all research proposals must address the following questions: What you plan to accomplish, why you want to do it and how you are going to do it.</p>
-<p>The proposal should have sufficient information to convince your readers that you have an important research idea, that you have a good grasp of the relevant literature and the major issues, and that your methodology is sound.</p>
-<p>The quality of your research proposal depends not only on the quality of your proposed project, but also on the quality of your proposal writing. A good research project may run the risk of rejection simply because the proposal is poorly written. Therefore, it pays if your writing is coherent, clear and compelling.</p>
-<p>This paper focuses on proposal writing rather than on the development of research ideas.</p>
-<h2 id="Title"><a href="#Title" class="headerlink" title="Title:"></a>Title:</h2><p>It should be concise and descriptive. For example, the phrase, “An investigation of . . .” could be omitted. Often titles are stated in terms of a functional relationship, because such titles clearly indicate the independent and dependent variables. However, if possible, think of an informative but catchy title. An effective title not only pricks the reader’s interest, but also predisposes him/her favorably towards the proposal.</p>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h2><p>It is a brief summary of approximately 300 words. It should include the research question, the rationale for the study, the hypothesis (if any), the method and the main findings. Descriptions of the method may include the design, procedures, the sample and any instruments that will be used.</p>
-<p>Introduction:</p>
-<p>The main purpose of the introduction is to provide the necessary background or context for your research problem. How to frame the research problem is perhaps the biggest problem in proposal writing.</p>
-<p>If the research problem is framed in the context of a general, rambling literature review, then the research question may appear trivial and uninteresting. However, if the same question is placed in the context of a very focused and current research area, its significance will become evident.</p>
-<p>Unfortunately, there are no hard and fast rules on how to frame your research question just as there is no prescription on how to write an interesting and informative opening paragraph. A lot depends on your creativity, your ability to think clearly and the depth of your understanding of problem areas.</p>
-<p>However, try to place your research question in the context of either a current “hot” area, or an older area that remains viable. Secondly, you need to provide a brief but appropriate historical backdrop. Thirdly, provide the contemporary context in which your proposed research question occupies the central stage. Finally, identify “key players” and refer to the most relevant and representative publications. In short, try to paint your research question in broad brushes and at the same time bring out its significance.</p>
-<p>The introduction typically begins with a general statement of the problem area, with a focus on a specific research problem, to be followed by the rational or justification for the proposed study. The introduction generally covers the following elements:</p>
-<ol>
-<li>State the research problem, which is often referred to as the purpose of the study.</li>
-<li>Provide the context and set the stage for your research question in such a way as to show its necessity and importance.</li>
-<li>Present the rationale of your proposed study and clearly indicate why it is worth doing.</li>
-<li>Briefly describe the major issues and sub-problems to be addressed by your research.</li>
-<li>Identify the key independent and dependent variables of your experiment. Alternatively, specify the phenomenon you want to study.</li>
-<li>State your hypothesis or theory, if any. For exploratory or phenomenological research, you may not have any hypotheses. (Please do not confuse the hypothesis with the statistical null hypothesis.)</li>
-<li>Set the delimitation or boundaries of your proposed research in order to provide a clear focus.</li>
-<li>Provide definitions of key concepts. (This is optional.)</li>
-</ol>
-<p>##Literature Review:</p>
-<p>Sometimes the literature review is incorporated into the introduction section. However, most professors prefer a separate section, which allows a more thorough review of the literature.</p>
-<p>The literature review serves several important functions:</p>
-<ol>
-<li>Ensures that you are not “reinventing the wheel”.</li>
-<li>Gives credits to those who have laid the groundwork for your research.</li>
-<li>Demonstrates your knowledge of the research problem.</li>
-<li>Demonstrates your understanding of the theoretical and research issues related to your research question.</li>
-<li>Shows your ability to critically evaluate relevant literature information.</li>
-<li>Indicates your ability to integrate and synthesize the existing literature.</li>
-<li>Provides new theoretical insights or develops a new model as the conceptual framework for your research.</li>
-<li>Convinces your reader that your proposed research will make a significant and substantial contribution to the literature (i.e., resolving an important theoretical issue or filling a major gap in the literature).</li>
-</ol>
-<p>Most students’ literature reviews suffer from the following problems:</p>
-<ul>
-<li>Lacking organization and structure</li>
-<li>Lacking focus, unity and coherence</li>
-<li>Being repetitive and verbose</li>
-<li>Failing to cite influential papers</li>
-<li>Failing to keep up with recent developments</li>
-<li>Failing to critically evaluate cited papers</li>
-<li>Citing irrelevant or trivial references</li>
-<li>Depending too much on secondary sources</li>
-</ul>
-<p>Your scholarship and research competence will be questioned if any of the above applies to your proposal.</p>
-<p>There are different ways to organize your literature review. Make use of subheadings to bring order and coherence to your review. For example, having established the importance of your research area and its current state of development, you may devote several subsections on related issues as: theoretical models, measuring instruments, cross-cultural and gender differences, etc.</p>
-<p>It is also helpful to keep in mind that you are telling a story to an audience. Try to tell it in a stimulating and engaging manner. Do not bore them, because it may lead to rejection of your worthy proposal. (Remember: Professors and scientists are human beings too.)</p>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods:"></a>Methods:</h2><p>The Method section is very important because it tells your Research Committee how you plan to tackle your research problem. It will provide your work plan and describe the activities necessary for the completion of your project.</p>
-<p>The guiding principle for writing the Method section is that it should contain sufficient information for the reader to determine whether methodology is sound. Some even argue that a good proposal should contain sufficient details for another qualified researcher to implement the study.</p>
-<p>You need to demonstrate your knowledge of alternative methods and make the case that your approach is the most appropriate and most valid way to address your research question.</p>
-<p>Please note that your research question may be best answered by qualitative research. However, since most mainstream psychologists are still biased against qualitative research, especially the phenomenological variety, you may need to justify your qualitative method.</p>
-<p>Furthermore, since there are no well-established and widely accepted canons in qualitative analysis, your method section needs to be more elaborate than what is required for traditional quantitative research. More importantly, the data collection process in qualitative research has a far greater impact on the results as compared to quantitative research. That is another reason for greater care in describing how you will collect and analyze your data. (How to write the Method section for qualitative research is a topic for another paper.)</p>
-<p>For quantitative studies, the method section typically consists of the following sections:</p>
-<ol>
-<li>Design -Is it a questionnaire study or a laboratory experiment? What kind of design do you choose?</li>
-<li>Subjects or participants - Who will take part in your study ? What kind of sampling procedure do you use?</li>
-<li>Instruments - What kind of measuring instruments or questionnaires do you use? Why do you choose them? Are they valid and reliable?</li>
-<li>Procedure - How do you plan to carry out your study? What activities are involved? How long does it take?</li>
-</ol>
-<h2 id="Results"><a href="#Results" class="headerlink" title="Results:"></a>Results:</h2><p>Obviously you do not have results at the proposal stage. However, you need to have some idea about what kind of data you will be collecting, and what statistical procedures will be used in order to answer your research question or test your hypothesis.</p>
-<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion:"></a>Discussion:</h2><p>It is important to convince your reader of the potential impact of your proposed research. You need to communicate a sense of enthusiasm and confidence without exaggerating the merits of your proposal. That is why you also need to mention the limitations and weaknesses of the proposed research, which may be justified by time and financial constraints as well as by the early developmental stage of your research area.</p>
-<h2 id="Common-Mistakes-in-Proposal-Writing"><a href="#Common-Mistakes-in-Proposal-Writing" class="headerlink" title="Common Mistakes in Proposal Writing"></a>Common Mistakes in Proposal Writing</h2><ol>
-<li>Failure to provide the proper context to frame the research question.</li>
-<li>Failure to delimit the boundary conditions for your research.</li>
-<li>Failure to cite landmark studies.</li>
-<li>Failure to accurately present the theoretical and empirical contributions by other researchers.</li>
-<li>Failure to stay focused on the research question.</li>
-<li>Failure to develop a coherent and persuasive argument for the proposed research.</li>
-<li>Too much detail on minor issues, but not enough detail on major issues.</li>
-<li>Too much rambling – going “all over the map” without a clear sense of direction. (The best proposals move forward with ease and grace like a seamless river.)</li>
-<li>Too many citation lapses and incorrect references.</li>
-<li>Too long or too short.</li>
-<li>Failing to follow the APA style.</li>
-<li>Slopping writing.</li>
-</ol>
-<p>Source by: Paul T. P. Wong, Ph.D., C.Psych. </p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>项目申请</tag>
-        <tag>写作</tag>
-        <tag>论文</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>科研：使用ipv6访问google</title>
     <url>/arcticle/ipv6-google.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>华科是网络是教育网，且具有ipv6/ipv4双栈协议，就是联网时会自动给你分配ipv4和ipv6地址。<br>配置步骤： </p>
@@ -10460,34 +10460,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>稳定性分析的一个例子</title>
-    <url>/arcticle/Lyapunov-stabolity-example.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>已知系统：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215344.png"></p>
-<p>请判断其稳定性。</p>
-<!---more--->
-
-<p>思路：判断系统的稳定性，只要求出系统的闭环极点即可，而系统的闭环极点就是闭环传递函数的分母多项式的根，可以利用MATLAB中的tf2zp函数求出系统的零极点，或者利用root函数求分母多项式的根来确定系统的闭环极点，从而判断系统的稳定性。同时采用阶跃响应曲线可以验证系统稳定性。</p>
-<p>以下为基于Simulink采用阶跃响应曲线验证并观察系统稳定性。</p>
-<p><strong>Simulink建模如下：</strong></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215230.png" alt="img"></p>
-<p>结果如下：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215249.png" alt="img"></p>
-<p>以下为基于MATLAB编程（改变系统增益K的值，观察并分析K值得改变对于系统稳定性的影响）绘制系统零极点分布图分析系统稳定性：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">clc;clear;close all;</span><br><span class="line">i &#x3D; 1;</span><br><span class="line">z &#x3D; -2.5;</span><br><span class="line">p &#x3D; [0 -0.5 -0.7 -3];</span><br><span class="line">for k &#x3D; [0.2 0.5 2 5]</span><br><span class="line">    G &#x3D; zpk(z,p,k);</span><br><span class="line">    H &#x3D; zpk(0,0,1);</span><br><span class="line">    Cloop &#x3D; feedback(G,H);</span><br><span class="line">    subplot(4,2,i),step(Cloop);</span><br><span class="line">    title(sprintf(&#39;增益为%2.1f时系阶跃响应图&#39;,k));</span><br><span class="line">    subplot(4,2,i+1),pzmap(Cloop);</span><br><span class="line">   title(sprintf(&#39;增益为%2.1f时系统零极点图&#39;,k));</span><br><span class="line">   i &#x3D; i + 2;</span><br><span class="line">end</span><br><span class="line">set(gcf,&#39;color&#39;,&#39;w&#39;);</span><br></pre></td></tr></table></figure>
-<p>结果如下：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215328.png" alt="img"></p>
-<p>观察上图可以发现当增益小于1时，系统稳定，此时系统的所有极点都位于S平面的左半平面。而当增益大于1时，系统变得不稳定。此时系统的有极点位于S平面的右半平面。</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>稳定性</tag>
-        <tag>控制</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>积极教养</title>
     <url>/arcticle/Positive-upbringing.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>父母都期望孩子具备自信、坚韧、有责任感、积极等好品格，可这些好品格不是天生的，也不是“教”出来的，是孩子通过父母营造的家庭环境“体验”和“感受”出来的。只有在一种和善而坚定的气氛中，才能培养出孩子自律、责任感、合作以及自己解决问题的能力。</p>
@@ -10533,6 +10505,34 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       <tags>
         <tag>育儿</tag>
         <tag>教育</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>稳定性分析的一个例子</title>
+    <url>/arcticle/Lyapunov-stabolity-example.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>已知系统：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215344.png"></p>
+<p>请判断其稳定性。</p>
+<!---more--->
+
+<p>思路：判断系统的稳定性，只要求出系统的闭环极点即可，而系统的闭环极点就是闭环传递函数的分母多项式的根，可以利用MATLAB中的tf2zp函数求出系统的零极点，或者利用root函数求分母多项式的根来确定系统的闭环极点，从而判断系统的稳定性。同时采用阶跃响应曲线可以验证系统稳定性。</p>
+<p>以下为基于Simulink采用阶跃响应曲线验证并观察系统稳定性。</p>
+<p><strong>Simulink建模如下：</strong></p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215230.png" alt="img"></p>
+<p>结果如下：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215249.png" alt="img"></p>
+<p>以下为基于MATLAB编程（改变系统增益K的值，观察并分析K值得改变对于系统稳定性的影响）绘制系统零极点分布图分析系统稳定性：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">clc;clear;close all;</span><br><span class="line">i &#x3D; 1;</span><br><span class="line">z &#x3D; -2.5;</span><br><span class="line">p &#x3D; [0 -0.5 -0.7 -3];</span><br><span class="line">for k &#x3D; [0.2 0.5 2 5]</span><br><span class="line">    G &#x3D; zpk(z,p,k);</span><br><span class="line">    H &#x3D; zpk(0,0,1);</span><br><span class="line">    Cloop &#x3D; feedback(G,H);</span><br><span class="line">    subplot(4,2,i),step(Cloop);</span><br><span class="line">    title(sprintf(&#39;增益为%2.1f时系阶跃响应图&#39;,k));</span><br><span class="line">    subplot(4,2,i+1),pzmap(Cloop);</span><br><span class="line">   title(sprintf(&#39;增益为%2.1f时系统零极点图&#39;,k));</span><br><span class="line">   i &#x3D; i + 2;</span><br><span class="line">end</span><br><span class="line">set(gcf,&#39;color&#39;,&#39;w&#39;);</span><br></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/control/20180628215328.png" alt="img"></p>
+<p>观察上图可以发现当增益小于1时，系统稳定，此时系统的所有极点都位于S平面的左半平面。而当增益大于1时，系统变得不稳定。此时系统的有极点位于S平面的右半平面。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>稳定性</tag>
+        <tag>控制</tag>
       </tags>
   </entry>
   <entry>
@@ -11157,47 +11157,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>育儿：宝宝辅食添加需要注意的5件事</title>
-    <url>/arcticle/baby-food-5.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>宝妈说，好几个邻居家的宝宝，在4个月就开始吃辅食。所以，她也就在宝宝刚满4个月给他加了。结果导致宝宝腹泻。</p>
-<!---more--->
-
-<h2 id="添辅食的时间"><a href="#添辅食的时间" class="headerlink" title="添辅食的时间"></a>添辅食的时间</h2><p>“到时间就得给宝宝加辅食”这一点大家都没有分歧，问题就出在了“什么时候加”这儿。江湖上的说辞也着实不少，关键是还都听起来有理有据的。</p>
-<p>有人说，4个月可以加了。我家妞妞就是4个月加的，嘛事儿没有。加了辅食以后，身体长地倍棒儿；也有人说，6个月吧，专家说的；更有人说，哪有那么多穷讲究，想加就加呗；站着说话不腰疼，不是你生的你当然不讲究。实际上，这些言辞也不是毫无根据，只不过都过于绝对。</p>
-<p>世界卫生组织建议，宝宝在六个月大的时候，就要开始接受辅食了。单一的母乳已经不能满足宝宝的身体所需了。看清楚，<strong>是建议，</strong>而不是必须。因为谁也不敢把话说的太满，不然就会出现菌菌这几天接诊的情况。这是因为，每个宝宝的成长发育时间不一样。有的宝宝成长发育快，那人家4个月就需要辅食了；有的就是慢，可能7个月还对辅食不来电。关键是，你还急不得，一急他就跟你闹，闹肚子。</p>
-<p>再说了，也没必要死守着这个时间点。和宝宝拉了尿了哭闹一样，他准备好吃辅食的时候，会向你示意，这时候宝妈就要准备好“察言观色”了。最明显的一个就是，宝宝对你的饭，开始感兴趣了。你拿着筷子，往嘴里送冒着热气的美味佳肴时，宝宝的眼睛会跟着你的筷子动。再者，宝宝会用手抓起玩具，吃！自己能吞下一点点很小的软食物，不会用舌头把它从嘴里吐出来。</p>
-<p>还有，宝宝可以在没有支撑时，自己坐上个10分钟。所以说，宝宝要不要加辅食的判断标准是“他准备好吃饭的信号”，而不是“死板的时间”。如果宝宝出现上述信号，家长就可以考虑添加辅食了，而这些信号出现的时间大概是4-6个月。</p>
-<p>“时间”这个小插曲解决了，接下里就是重中之重的辅食添加了。辅食这个“大盘菜”，我们得慢点来，急不得！这里总结了5个注意事项</p>
-<h2 id="1-母乳不能停，继续跟上"><a href="#1-母乳不能停，继续跟上" class="headerlink" title="1. 母乳不能停，继续跟上"></a>1. 母乳不能停，继续跟上</h2><p>其实我有一点挺不能理解的，部分宝妈在后台留言问，“那母乳还是继续吃吗？”当然是继续了，母乳仍然可以给宝宝提供能量、蛋白质、免疫因子等重要营养物质。同时还可以促进和宝宝间的亲密关系。</p>
-<p><strong>6-12个月的宝宝</strong>，每天的奶摄入量要保持在600—800ml；</p>
-<p><strong>1-1岁半的宝宝</strong>，每天的奶摄入量要不少于400—600ml。</p>
-<h2 id="2-先从富含铁的泥糊状食物开始，一种食物一种食物加"><a href="#2-先从富含铁的泥糊状食物开始，一种食物一种食物加" class="headerlink" title="2. 先从富含铁的泥糊状食物开始，一种食物一种食物加"></a>2. 先从富含铁的泥糊状食物开始，一种食物一种食物加</h2><p>因为宝宝长到六个月大的时候，他体内储存的铁几乎被消耗完了。而富含铁的泥糊状食物可以很及时地补充到宝宝成长需要的铁元素。比如含有强化铁的婴儿米粉，肉泥等。在此基础上，再逐步引入其他种类的食物，来补充宝宝成长逐步需要的营养素。</p>
-<p>每次只加一种食物，观察宝宝食用这种食物以后的反应，观察2-3天。宝宝出现腹泻，呕吐等不舒适反应时，表明宝宝不适合这种食物。3-7天后再试着给宝宝给添加这种食物，如果还是出现同样的问题，就表明咱家宝宝不耐受这种食物。等三个月以后再试。</p>
-<p>总而言之，给宝宝添加辅食时，遵循这个方针。</p>
-<p><strong>由少到多：</strong>6-8个月的时候辅食每天2-3次，9-11个月的时候增加到3-4次；</p>
-<p><strong>由细到粗：</strong>先是细菜泥，接着是粗菜泥，再到碎菜；</p>
-<p><strong>由稀到稠：</strong>糊状、稀粥、饭等；</p>
-<p><strong>由泥糊状到半固体到固体：</strong>逐渐给宝宝加烂面、肉末、碎菜等。</p>
-<h2 id="3-不要加调味品，保持淡口味"><a href="#3-不要加调味品，保持淡口味" class="headerlink" title="3. 不要加调味品，保持淡口味"></a>3. 不要加调味品，保持淡口味</h2><p>辅食以原味为主，不加盐、糖和一些刺激性的调味品。一说起无盐无糖，我们就开始脑补食不知味，难以下咽的减肥画面。但是，宝宝和我们不一样。他这才是刚刚开始接触人间烟火，淡口味的食物反而会有助于宝宝接受天然食物，减少偏食挑食。</p>
-<p>不光是现在好，淡口味食物也会减少儿童期和成年期的糖尿病、高血压、肥胖的风险。说到这了，不光宝宝如此，我们也一样。准备食物的时候也要以清淡口味为主，我们要做到以身作则。</p>
-<h2 id="4-尊重宝宝的食物选择，不强迫进食"><a href="#4-尊重宝宝的食物选择，不强迫进食" class="headerlink" title="4. 尊重宝宝的食物选择，不强迫进食"></a>4. 尊重宝宝的食物选择，不强迫进食</h2><p>宝宝的认知、感知、运动能力都在逐步发展，所以我们在喂的时候，要以宝宝的需求为前提。这也是宝宝建立规律进餐，养成良好的饮食习惯的时间段，宝妈可要把握好。</p>
-<p>在给宝宝喂饭时，宝宝向你发出了“宝宝饱了”的暗示时，比如不张嘴，就不要因为碗里还剩点，强让他吃完。做饭时，要有所估量，部分宝妈因为不想浪费，一天吃一点，时间长了嘛，你就知道了。</p>
-<p>要在安静，轻松的环境下给宝宝喂饭。同时不要开着电视之类，分散他注意力的东西。每次和宝宝吃饭的时间也要控制在<strong>20分钟以内</strong>。</p>
-<p>在喂奶前给宝宝吃辅食，吃完后再给宝宝吃母乳，直到宝宝吃饱为止。每次让宝宝吃饱，这样他就不会养成少食多餐的饮食习惯了。</p>
-<h2 id="5-吃进嘴里的食物一定要安全"><a href="#5-吃进嘴里的食物一定要安全" class="headerlink" title="5. 吃进嘴里的食物一定要安全"></a>5. 吃进嘴里的食物一定要安全</h2><p>什么不干不净吃了没病之类的，听听也就罢了，当真你可就输了，宝宝就得遭罪了。这个洗可不单单是食物的清洗。包括我们做辅食之前的双手清洗，厨具都要清洗。</p>
-<p>辅食要煮透了，及时吃。</p>
-<p>还有就是花生、坚果、果冻之类的对于宝宝高危的食物，就先不要给宝宝吃了。把这些东西都远远扔出宝宝的食谱中。</p>
-<p>说到底，任何规则也好，建议也罢，不过是我们的一个参考标准而已。我们在给宝宝添加辅食时，更多的是考虑到宝宝的实际需求，接着在规则、建议的基础上，给予最适合宝宝的辅食。这样才是真正起到了辅食添加的作用，促进了宝宝的成长。</p>
-]]></content>
-      <categories>
-        <category>科学育儿</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>辅食</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>育儿：宝宝每天需要喝多少奶</title>
     <url>/arcticle/Baby-appetite.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>大家都知道，奶是0-1岁宝宝摄入的主要营养，然而很多家长从宝宝一出生就不知道怎么判断他吃饱没有。究竟该怎么判断0-1岁宝宝吃饱没有？这个阶段的宝宝每天应该需要多少奶呢？下面小编就给大家讲解一下。</p>
@@ -11249,6 +11208,47 @@ Win10可能会出现系统提示，点击仍要运行即可 。
         <tag>育儿</tag>
         <tag>辅食</tag>
         <tag>常识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>育儿：宝宝辅食添加需要注意的5件事</title>
+    <url>/arcticle/baby-food-5.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>宝妈说，好几个邻居家的宝宝，在4个月就开始吃辅食。所以，她也就在宝宝刚满4个月给他加了。结果导致宝宝腹泻。</p>
+<!---more--->
+
+<h2 id="添辅食的时间"><a href="#添辅食的时间" class="headerlink" title="添辅食的时间"></a>添辅食的时间</h2><p>“到时间就得给宝宝加辅食”这一点大家都没有分歧，问题就出在了“什么时候加”这儿。江湖上的说辞也着实不少，关键是还都听起来有理有据的。</p>
+<p>有人说，4个月可以加了。我家妞妞就是4个月加的，嘛事儿没有。加了辅食以后，身体长地倍棒儿；也有人说，6个月吧，专家说的；更有人说，哪有那么多穷讲究，想加就加呗；站着说话不腰疼，不是你生的你当然不讲究。实际上，这些言辞也不是毫无根据，只不过都过于绝对。</p>
+<p>世界卫生组织建议，宝宝在六个月大的时候，就要开始接受辅食了。单一的母乳已经不能满足宝宝的身体所需了。看清楚，<strong>是建议，</strong>而不是必须。因为谁也不敢把话说的太满，不然就会出现菌菌这几天接诊的情况。这是因为，每个宝宝的成长发育时间不一样。有的宝宝成长发育快，那人家4个月就需要辅食了；有的就是慢，可能7个月还对辅食不来电。关键是，你还急不得，一急他就跟你闹，闹肚子。</p>
+<p>再说了，也没必要死守着这个时间点。和宝宝拉了尿了哭闹一样，他准备好吃辅食的时候，会向你示意，这时候宝妈就要准备好“察言观色”了。最明显的一个就是，宝宝对你的饭，开始感兴趣了。你拿着筷子，往嘴里送冒着热气的美味佳肴时，宝宝的眼睛会跟着你的筷子动。再者，宝宝会用手抓起玩具，吃！自己能吞下一点点很小的软食物，不会用舌头把它从嘴里吐出来。</p>
+<p>还有，宝宝可以在没有支撑时，自己坐上个10分钟。所以说，宝宝要不要加辅食的判断标准是“他准备好吃饭的信号”，而不是“死板的时间”。如果宝宝出现上述信号，家长就可以考虑添加辅食了，而这些信号出现的时间大概是4-6个月。</p>
+<p>“时间”这个小插曲解决了，接下里就是重中之重的辅食添加了。辅食这个“大盘菜”，我们得慢点来，急不得！这里总结了5个注意事项</p>
+<h2 id="1-母乳不能停，继续跟上"><a href="#1-母乳不能停，继续跟上" class="headerlink" title="1. 母乳不能停，继续跟上"></a>1. 母乳不能停，继续跟上</h2><p>其实我有一点挺不能理解的，部分宝妈在后台留言问，“那母乳还是继续吃吗？”当然是继续了，母乳仍然可以给宝宝提供能量、蛋白质、免疫因子等重要营养物质。同时还可以促进和宝宝间的亲密关系。</p>
+<p><strong>6-12个月的宝宝</strong>，每天的奶摄入量要保持在600—800ml；</p>
+<p><strong>1-1岁半的宝宝</strong>，每天的奶摄入量要不少于400—600ml。</p>
+<h2 id="2-先从富含铁的泥糊状食物开始，一种食物一种食物加"><a href="#2-先从富含铁的泥糊状食物开始，一种食物一种食物加" class="headerlink" title="2. 先从富含铁的泥糊状食物开始，一种食物一种食物加"></a>2. 先从富含铁的泥糊状食物开始，一种食物一种食物加</h2><p>因为宝宝长到六个月大的时候，他体内储存的铁几乎被消耗完了。而富含铁的泥糊状食物可以很及时地补充到宝宝成长需要的铁元素。比如含有强化铁的婴儿米粉，肉泥等。在此基础上，再逐步引入其他种类的食物，来补充宝宝成长逐步需要的营养素。</p>
+<p>每次只加一种食物，观察宝宝食用这种食物以后的反应，观察2-3天。宝宝出现腹泻，呕吐等不舒适反应时，表明宝宝不适合这种食物。3-7天后再试着给宝宝给添加这种食物，如果还是出现同样的问题，就表明咱家宝宝不耐受这种食物。等三个月以后再试。</p>
+<p>总而言之，给宝宝添加辅食时，遵循这个方针。</p>
+<p><strong>由少到多：</strong>6-8个月的时候辅食每天2-3次，9-11个月的时候增加到3-4次；</p>
+<p><strong>由细到粗：</strong>先是细菜泥，接着是粗菜泥，再到碎菜；</p>
+<p><strong>由稀到稠：</strong>糊状、稀粥、饭等；</p>
+<p><strong>由泥糊状到半固体到固体：</strong>逐渐给宝宝加烂面、肉末、碎菜等。</p>
+<h2 id="3-不要加调味品，保持淡口味"><a href="#3-不要加调味品，保持淡口味" class="headerlink" title="3. 不要加调味品，保持淡口味"></a>3. 不要加调味品，保持淡口味</h2><p>辅食以原味为主，不加盐、糖和一些刺激性的调味品。一说起无盐无糖，我们就开始脑补食不知味，难以下咽的减肥画面。但是，宝宝和我们不一样。他这才是刚刚开始接触人间烟火，淡口味的食物反而会有助于宝宝接受天然食物，减少偏食挑食。</p>
+<p>不光是现在好，淡口味食物也会减少儿童期和成年期的糖尿病、高血压、肥胖的风险。说到这了，不光宝宝如此，我们也一样。准备食物的时候也要以清淡口味为主，我们要做到以身作则。</p>
+<h2 id="4-尊重宝宝的食物选择，不强迫进食"><a href="#4-尊重宝宝的食物选择，不强迫进食" class="headerlink" title="4. 尊重宝宝的食物选择，不强迫进食"></a>4. 尊重宝宝的食物选择，不强迫进食</h2><p>宝宝的认知、感知、运动能力都在逐步发展，所以我们在喂的时候，要以宝宝的需求为前提。这也是宝宝建立规律进餐，养成良好的饮食习惯的时间段，宝妈可要把握好。</p>
+<p>在给宝宝喂饭时，宝宝向你发出了“宝宝饱了”的暗示时，比如不张嘴，就不要因为碗里还剩点，强让他吃完。做饭时，要有所估量，部分宝妈因为不想浪费，一天吃一点，时间长了嘛，你就知道了。</p>
+<p>要在安静，轻松的环境下给宝宝喂饭。同时不要开着电视之类，分散他注意力的东西。每次和宝宝吃饭的时间也要控制在<strong>20分钟以内</strong>。</p>
+<p>在喂奶前给宝宝吃辅食，吃完后再给宝宝吃母乳，直到宝宝吃饱为止。每次让宝宝吃饱，这样他就不会养成少食多餐的饮食习惯了。</p>
+<h2 id="5-吃进嘴里的食物一定要安全"><a href="#5-吃进嘴里的食物一定要安全" class="headerlink" title="5. 吃进嘴里的食物一定要安全"></a>5. 吃进嘴里的食物一定要安全</h2><p>什么不干不净吃了没病之类的，听听也就罢了，当真你可就输了，宝宝就得遭罪了。这个洗可不单单是食物的清洗。包括我们做辅食之前的双手清洗，厨具都要清洗。</p>
+<p>辅食要煮透了，及时吃。</p>
+<p>还有就是花生、坚果、果冻之类的对于宝宝高危的食物，就先不要给宝宝吃了。把这些东西都远远扔出宝宝的食谱中。</p>
+<p>说到底，任何规则也好，建议也罢，不过是我们的一个参考标准而已。我们在给宝宝添加辅食时，更多的是考虑到宝宝的实际需求，接着在规则、建议的基础上，给予最适合宝宝的辅食。这样才是真正起到了辅食添加的作用，促进了宝宝的成长。</p>
+]]></content>
+      <categories>
+        <category>科学育儿</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>辅食</tag>
       </tags>
   </entry>
   <entry>
@@ -11724,44 +11724,6 @@ Win10可能会出现系统提示，点击仍要运行即可 。
       </tags>
   </entry>
   <entry>
-    <title>小达人点读笔自制简单内容帖教程</title>
-    <url>/arcticle/diy-neirongtie.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>基本过程是</p>
-<ul>
-<li>准备软件OidProducer 7.26a</li>
-<li>制作底图，EXCEL制作，转成PDF，转成图片<ul>
-<li>单个贴的面积通过行高列宽控制，单个帖内需要有空白</li>
-</ul>
-</li>
-<li>导入OidProducer，插入表格，设置行列，使之与底图重合<ul>
-<li>按住Ctrl拖动表格，布满整页</li>
-</ul>
-</li>
-<li>全选，右键-&gt;制定ID码，指定初值</li>
-<li>Output-&gt;输出PDF文件<ul>
-<li>checking border for debug不选</li>
-</ul>
-</li>
-<li>打印纸质<ul>
-<li>不要缩放</li>
-<li>相片纸更好</li>
-</ul>
-</li>
-</ul>
-<p>详见视频教程</p>
-<p>链接: <a href="http://pan.baidu.com/s/1pJv7Ykj">http://pan.baidu.com/s/1pJv7Ykj</a>    密码: yqrw </p>
-]]></content>
-      <categories>
-        <category>点读笔</category>
-      </categories>
-      <tags>
-        <tag>育儿</tag>
-        <tag>教程</tag>
-        <tag>diy</tag>
-        <tag>点读笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>育儿：那些存在安全隐患的衣服</title>
     <url>/arcticle/dangerous-clothes.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>孩子安全无小事，多一分小心就能避免一分危险，别等到危险发生时才去后悔。前段时间，一名6岁的小男孩，因为一件衣服，差点窒息而亡。</p>
@@ -11819,6 +11781,44 @@ Win10可能会出现系统提示，点击仍要运行即可 。
         <tag>育儿</tag>
         <tag>健康</tag>
         <tag>安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小达人点读笔自制简单内容帖教程</title>
+    <url>/arcticle/diy-neirongtie.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>基本过程是</p>
+<ul>
+<li>准备软件OidProducer 7.26a</li>
+<li>制作底图，EXCEL制作，转成PDF，转成图片<ul>
+<li>单个贴的面积通过行高列宽控制，单个帖内需要有空白</li>
+</ul>
+</li>
+<li>导入OidProducer，插入表格，设置行列，使之与底图重合<ul>
+<li>按住Ctrl拖动表格，布满整页</li>
+</ul>
+</li>
+<li>全选，右键-&gt;制定ID码，指定初值</li>
+<li>Output-&gt;输出PDF文件<ul>
+<li>checking border for debug不选</li>
+</ul>
+</li>
+<li>打印纸质<ul>
+<li>不要缩放</li>
+<li>相片纸更好</li>
+</ul>
+</li>
+</ul>
+<p>详见视频教程</p>
+<p>链接: <a href="http://pan.baidu.com/s/1pJv7Ykj">http://pan.baidu.com/s/1pJv7Ykj</a>    密码: yqrw </p>
+]]></content>
+      <categories>
+        <category>点读笔</category>
+      </categories>
+      <tags>
+        <tag>育儿</tag>
+        <tag>教程</tag>
+        <tag>diy</tag>
+        <tag>点读笔</tag>
       </tags>
   </entry>
   <entry>
