@@ -106,7 +106,7 @@ deploy:
 - type: git
   repo: 
     github: git@github.com:zzhm/zzhm.github.io.git,master
-    coding: git@e.git.coding.net:zzhm/zzhm.git,master
+#    coding: git@e.git.coding.net:zzhm/zzhm.git,master
 #    coding: git@git.dev.tencent.com:zzhm/zzhm.git,master
 sitemap:
     path: sitemap.xml
