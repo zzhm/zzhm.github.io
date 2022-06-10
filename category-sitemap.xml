@@ -2,49 +2,49 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://www.zymin.cn/</loc>
+        <loc>https://zymin.cn/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
 
     <url>
-        <loc>https://www.zymin.cn/categories/%25E5%25AE%259E%25E7%2594%25A8%25E6%2595%2599%25E7%25A8%258B/</loc>
+        <loc>https://zymin.cn/categories/%25E5%25AE%259E%25E7%2594%25A8%25E6%2595%2599%25E7%25A8%258B/</loc>
         <lastmod>2021-10-18T05:01:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.zymin.cn/categories/%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0/</loc>
+        <loc>https://zymin.cn/categories/%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0/</loc>
         <lastmod>2021-07-20T12:18:17.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.zymin.cn/categories/%25E7%2594%259F%25E6%25B4%25BB%25E7%25A7%2591%25E6%2599%25AE/</loc>
+        <loc>https://zymin.cn/categories/%25E7%2594%259F%25E6%25B4%25BB%25E7%25A7%2591%25E6%2599%25AE/</loc>
         <lastmod>2021-05-24T05:37:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.zymin.cn/categories/%25E8%25B5%2584%25E6%25BA%2590%25E5%2588%2586%25E4%25BA%25AB/</loc>
+        <loc>https://zymin.cn/categories/%25E8%25B5%2584%25E6%25BA%2590%25E5%2588%2586%25E4%25BA%25AB/</loc>
         <lastmod>2020-07-29T07:25:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.zymin.cn/categories/%25E7%25A7%2591%25E5%25AD%25A6%25E8%2582%25B2%25E5%2584%25BF/</loc>
+        <loc>https://zymin.cn/categories/%25E7%25A7%2591%25E5%25AD%25A6%25E8%2582%25B2%25E5%2584%25BF/</loc>
         <lastmod>2019-10-21T08:07:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.zymin.cn/categories/%25E7%2582%25B9%25E8%25AF%25BB%25E7%25AC%2594/</loc>
+        <loc>https://zymin.cn/categories/%25E7%2582%25B9%25E8%25AF%25BB%25E7%25AC%2594/</loc>
         <lastmod>2018-08-07T10:59:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
