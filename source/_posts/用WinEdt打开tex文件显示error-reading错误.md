@@ -14,7 +14,7 @@ categories:
 
 - 解决方法一
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20211018113940.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20211018113940.jpg)
 
 在WinEdt中，【File】-【Open】（或使用快捷键`Ctrl+O`），在弹出的打开对话框中，右下角【文件名】右侧有一个打开扩展名方式，默认是`default(*.*)`形式，点击下三角号，选择`UTF-8(*.*)`形式。再选择相应的`.tex`文件打开即可。
 
@@ -35,7 +35,7 @@ categories:
 Tex;UTF-8|ACP;EDT;INI
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20211018125255.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20211018125255.png)
 
 就可以了。这样所有的`.tex`文档都被默认是`utf-8`文档打开。但是WinEdt还没有办法很好支持两种以上的`utf-8`文档，比如同时输入中文和韩语。这方案我基本不用，建议使用第二方案！
 
