@@ -160,20 +160,20 @@ gtag('config', 'UA-175241210-1');
 <!---more--->
 
 <h2 id="PicGo设置"><a href="#PicGo设置" class="headerlink" title="PicGo设置"></a>PicGo设置</h2><p>打开PicGo，找到图床设置，界面如下：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124015976.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124015976.png"></p>
 <p>密钥获取</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124725478.png" alt="picgo设置界面"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124725478.png" alt="picgo设置界面"></p>
 <p>图中参数含义：</p>
 <h4 id="V4版本说明"><a href="#V4版本说明" class="headerlink" title="V4版本说明"></a>V4版本说明</h4><p>v4版本是这个：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124659890.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124659890.png"></p>
 <p>需要登录腾讯云控制台。打开<a target="_blank" rel="noopener" href="https://console.qcloud.com/cos4/secret">密钥管理</a></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124820795.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124820795.png"></p>
 <p>按照对应的提示找到自己的<code>APPID</code>、<code>SecretId</code>、<code>SecretKey</code>。</p>
 <p>存储的空间名是你的bucket名字。</p>
 <p>存储的区域需要额外注意，请到bucket列表里打开需要上传的bucket空间，然后如图可以看到对应的区域以及区域代码，比如我的是<code>tj</code>：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124746932.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124746932.png"></p>
 <p>对应的区域代码如下：</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330122625126.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330122625126.png"></p>
 <p>如果你想把图片上传到你的bucket空间的某个文件夹下，则需要在PicGo里的<code>指定存储路径</code>里加上你的文件夹路径。比如<code>temp/</code>（注意一定要加<code>/</code>）</p>
 <h4 id="V5版本说明"><a href="#V5版本说明" class="headerlink" title="#V5版本说明"></a><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#v5%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">#</a>V5版本说明</h4><p><strong>1.</strong> 获取你的APPID、SecretId和SecretKey</p>
 <p>访问：<a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/cam/capi">https://console.cloud.tencent.com/cam/capi</a></p>
@@ -188,16 +188,16 @@ gtag('config', 'UA-175241210-1');
 <p>然后记得点击<code>设为默认图床</code>，这样上传才会默认走的是腾讯云COS。</p>
 <h2 id="Typora设置图片设置"><a href="#Typora设置图片设置" class="headerlink" title="Typora设置图片设置"></a>Typora设置图片设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件&#x3D;&#x3D;&gt;偏好设置&#x3D;&#x3D;&gt;设置图片插入模式</span><br></pre></td></tr></table></figure>
 <p>直接粘贴从网站复制的图片提醒自动上传失败，原因不明。新建了一个<code>tmp</code>文件夹作为过渡，现在应该是复制网站的图片先保存到<code>tmp</code>文件夹，然后由PicGo上传。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/picgo-2.0.gif" alt="Typora设置"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/picgo-2.0.gif" alt="Typora设置"></p>
 <h2 id="手动上传方式"><a href="#手动上传方式" class="headerlink" title="手动上传方式"></a>手动上传方式</h2><p>单张图片：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片上右键-&gt;上传图片</span><br></pre></td></tr></table></figure>
 <p>多张图片：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式-&gt;图像-&gt;上传全部图片</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="一个问题"><a href="#一个问题" class="headerlink" title="一个问题"></a>一个问题</h3><p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200401124823836.png"></p>
+<h3 id="一个问题"><a href="#一个问题" class="headerlink" title="一个问题"></a>一个问题</h3><p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200401124823836.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你这个是PicGo Server的端口不是36677，去PicGo设置里调整一下Server的端口吧。改成36677才可以。</span><br></pre></td></tr></table></figure>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200401124907544.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200401124907544.png"></p>
 <p>Typora：<a target="_blank" rel="noopener" href="https://support.typora.io/Upload-Image/">https://support.typora.io/Upload-Image/</a></p>
 <p>官方指南：<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">https://picgo.github.io/PicGo-Doc/zh/guide/</a></p>
 <p>据说还有很多插件：<a target="_blank" rel="noopener" href="https://github.com/PicGo/Awesome-PicGo">https://github.com/PicGo/Awesome-PicGo</a></p>
