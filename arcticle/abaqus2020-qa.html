@@ -157,32 +157,32 @@ gtag('config', 'UA-175241210-1');
 <p>有点困惑了，不知道结果在哪了？通常我们会想到用节点力的输出来合成，可是节点力似乎不够便捷直观，怎么办？这些确实不是一般状况我们需要了解或者查看的结果，不过当我们需要这些结果的时候我们也得有相关技能，现在来GET这些技能吧：</p>
 <p>方式一: Free Body Cut</p>
 <p>在后处理模块(Visualization)下的使用Free Body Cut选项，可以基于View Cut的切面查看内力，也可基于网格边或者节点定义任意切面查看截面的内力：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104905.jpg"></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104909.jpg"></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104913.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104905.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104909.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104913.jpg"></p>
 <p>Figure-1:  Free Body Cut                                </p>
 <p>创建Free Body Cut后，也可在Create XY Data 中选择Free body创建相关截面内力的曲线。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104923.jpg"> </p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104923.jpg"> </p>
 <p> Figure-2:  Free Body Force Output                    </p>
 <p>方式二: Integrated Output Sections</p>
 <p>在Step模块的菜单，Output选项Integrated Output Sections 创建一个截面I-section，然后在History Output中定义截面I-section上合力/合力矩的输出（SOF、SOM）；从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104926.jpg"> </p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210307104931.jpg"><br>Figure-3:  Integrated Output Sections                 </p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104926.jpg"> </p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104931.jpg"><br>Figure-3:  Integrated Output Sections                 </p>
 <p>从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了。</p>
 <h2 id="常见错误处理"><a href="#常见错误处理" class="headerlink" title="常见错误处理"></a>常见错误处理</h2><h3 id="abaqus-rpy-file-permission-denied"><a href="#abaqus-rpy-file-permission-denied" class="headerlink" title="abaqus.rpy file permission denied"></a>abaqus.rpy file permission denied</h3><p>安装完成ABAQUS2020后打开软件出现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IOerror: abaqus.rpy file permission denied</span><br></pre></td></tr></table></figure>
 <p>原因：软件默认的起始位置在与系统相关的文件夹<code>system32</code>，软件无法在相应的文件夹里创建文件<code>abaqus.rpy</code>。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104009.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104009.png"></p>
 <p>解决方法：</p>
 <p>先找到Abqaus CAE的快捷方式所在的文件夹，比如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dassault Systemes SIMULIA Established Products 2020</span><br></pre></td></tr></table></figure>
 <p>点击<code>鼠标右键--&gt;属性</code></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104743.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104743.png"></p>
 <p>下面有两种解决方法。</p>
 <p>方法一：设置起始位置，比如下图中的<code>C:\temp</code>。而默认文件夹也修改为相应文件夹。生成的<code>abaqus.rpy</code>等文件会默认保存在此文件夹中。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104145.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104145.png"></p>
 <p>方法二：设置使用管理员身份运行。不建议！</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210227104258.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104258.png"></p>
 <p>如果以管理员方式启动会发现临时文件全部存在了<code>system32</code>目录下。</p>
 <h3 id="单元过度变形（Excessive-distortion-）"><a href="#单元过度变形（Excessive-distortion-）" class="headerlink" title="单元过度变形（Excessive distortion ）"></a>单元过度变形（Excessive distortion ）</h3><p>使用 Abaqus 模拟分析大变形情况时一个经常出现又不容易解决的错误就是单元过度变形（Excessive Element Distortion）。出现该错误模型就会中止运行。虽然 Abaqus 会具体地给出出现过度变形的那些单元（<a target="_blank" rel="noopener" href="https://cnzhx.net/fe/2015/01/29/view-errelemexcessdistortion-elements/">ErrElemExcessDistortion</a>），然而这些信息往往对解决问题并没有多少帮助。</p>
 <p>按照一般的经验，可以考虑检查下面的模型设置，</p>
