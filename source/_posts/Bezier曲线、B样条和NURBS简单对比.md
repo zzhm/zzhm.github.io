@@ -22,6 +22,6 @@ categories:
 
 - Bezier曲线只是B样条的一个特例而已，而B样条又是NURBS的一个特例，它们的关系可以图示为：
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1543579993403.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1543579993403.png)
 
 B样条克服了Bezier曲线的一些缺点，Bezier曲线的每个控制点对整条曲线都有影响，也就是说，改变一个控制点的位置，整条曲线的形状都会发生变化，而B样条中的每个控制点只会影响曲线的一段参数范围，从而实现了局部修改；

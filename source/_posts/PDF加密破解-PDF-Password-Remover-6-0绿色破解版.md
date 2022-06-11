@@ -30,4 +30,4 @@ PDF文件加密分两种，一种是加用户密码，就是打开后输入密�
 
 4.完毕
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1569672700329.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1569672700329.png)

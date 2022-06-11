@@ -74,7 +74,7 @@ git pull  #git pull origin hexo:hexo
 
 解决方案 .打开控制面板>> 用户账户 >> 凭据管理 >> 修改对应的git凭据
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200727102511.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200727102511.png)
 
 
 

@@ -15,13 +15,13 @@ tags:
 
 打开WOS，注意数据库要选择**核心合集（Core Collection）**！
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/35b6a3eea278b8e0bcb0dc8ef2558865_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/35b6a3eea278b8e0bcb0dc8ef2558865_hd.jpg)
 
 
 
 例如简单检索一下石墨烯在锂离子电池负极中的应用：
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1c0f54e6e334e3cbe48c393667b55503_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1c0f54e6e334e3cbe48c393667b55503_hd.jpg)
 
 
 
@@ -47,13 +47,13 @@ tags:
 
 下面使用 HistCite 来分析这6个txt格式的引文数据文件。由于 HistCite 多年不更新，现在存在各种 Bug，比如直接打开 HistCite，一加载文件就报错：**No such file or directory**。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/793bdbf672010434236dad6a9641ea7e_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/793bdbf672010434236dad6a9641ea7e_hd.jpg)
 
 
 
 尝试第二种方法。选中所有的 txt 文件，然后拖到 HistCite 的图标上，放开鼠标，果然自动打开了软件。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/5418126ccc24fc10c4a6c0f790d97c41_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/5418126ccc24fc10c4a6c0f790d97c41_hd.jpg)
 
 
 
@@ -95,13 +95,13 @@ tags:
 
 好了，数据加载完毕，下面开始分析数据吧，点击 Tools 菜单下的 **Graph Maker**。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/51ec673cdbbccebdfc3f33a8c1555a4c_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/51ec673cdbbccebdfc3f33a8c1555a4c_hd.jpg)
 
 
 
 在弹出的页面上点击 Make Graph 即可得到一张引文关系图，包含了最有价值的前 **30** 篇文章的完整引文关系，**这个数字 30 是可以自行修改的**。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/3bb493c02c999157efdddfa1b1993586_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/3bb493c02c999157efdddfa1b1993586_hd.jpg)
 
 
 
@@ -109,13 +109,13 @@ tags:
 
 ![](assets/a1b3418bf31c6f707f8cdc39e84de86d_hd.jpg)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/3c2944fdf7a3071103fdf2b3c70a024f_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/3c2944fdf7a3071103fdf2b3c70a024f_hd.jpg)
 
 图上有 30 个圆圈，每个圆圈表示一篇文献，中间的数字是这篇文献在数据库中的序号。圆圈越大，表示被引用次数越多。不同圆圈之间有箭头相连，箭头表示文献之间的引用关系。多数情况下，你会看到最上面有一个圆圈较大，并有很多箭头指向这篇文章。那么这篇文章很可能就是这个领域的**开山之作**。
 
 通过我绘制出的这张关系图，我们发现标号为29、49、56、60的四个大圆圈非常显眼，可见这四篇文献的被引次数都是非常高的，我们对全部文献进行**按照 LCS 排序**，发现前四位刚好就是这 4 篇文献。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/8debe218aa75ffa2f7fb0fc941b2619a_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/8debe218aa75ffa2f7fb0fc941b2619a_hd.jpg)
 
 
 
@@ -179,7 +179,7 @@ tags:
 
 下图红框内就是标记选择工具栏。左边栏用于指定选择范围，可以选择当前列表中的全部文献，也可以按照序号（#）、LCS、LCR等数值的区间来选择文献，还可以手动勾选需要的文献。中间栏表示的是需要导出的信息范围，可以只导出记录本身，也可以选择导出引用的文献或者被引的文献。右边栏的【**Mark**】按钮就是确认选择按钮。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/27a5cdc8ac64eea38323f72510ac5180_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/27a5cdc8ac64eea38323f72510ac5180_hd.jpg)
 
 
 
@@ -191,7 +191,7 @@ tags:
 
 然后，我们就会发现上面出现了一个新的标签【Marks】，后面的数字就是我们选中的记录条数，如果发现这个数字不正确，点击【Mark】按钮旁边的【Unmark】来重新选择。确认无误之后，**点击图示的【Marks】标签链接**，即可显示全部被选的文献记录。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/8ede4dc74af5a43b22c66010f6243bf4_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/8ede4dc74af5a43b22c66010f6243bf4_hd.jpg)
 
 
 
@@ -203,7 +203,7 @@ tags:
 
 成功导出后得到一个 **.hci** 格式的文本文件，直接修改后缀为 **txt**。如果导出不成功，一般多尝试几次就可以。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/061712ba82106c3479ecf0c2f6200f41_hd.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/061712ba82106c3479ecf0c2f6200f41_hd.jpg)
 
 
 

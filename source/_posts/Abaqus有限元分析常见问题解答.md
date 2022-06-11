@@ -27,22 +27,22 @@ categories:
 
 在后处理模块(Visualization)下的使用Free Body Cut选项，可以基于View Cut的切面查看内力，也可基于网格边或者节点定义任意切面查看截面的内力：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210307104905.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104905.jpg)
 
  
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210307104909.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104909.jpg)
 
  
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210307104913.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104913.jpg)
 
 
 Figure-1:  Free Body Cut                                
 
 创建Free Body Cut后，也可在Create XY Data 中选择Free body创建相关截面内力的曲线。
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210307104923.jpg) 
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104923.jpg) 
 
  Figure-2:  Free Body Force Output                    
 
@@ -50,9 +50,9 @@ Figure-1:  Free Body Cut
 
 在Step模块的菜单，Output选项Integrated Output Sections 创建一个截面I-section，然后在History Output中定义截面I-section上合力/合力矩的输出（SOF、SOM）；从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210307104926.jpg) 
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104926.jpg) 
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210307104931.jpg) 
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210307104931.jpg) 
 Figure-3:  Integrated Output Sections                 
 
 从结果文件中我们就能在历史输出变量中绘制所指定截面的合力曲线了。
@@ -71,7 +71,7 @@ IOerror: abaqus.rpy file permission denied
 
 原因：软件默认的起始位置在与系统相关的文件夹`system32`，软件无法在相应的文件夹里创建文件`abaqus.rpy`。
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210227104009.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104009.png)
 
 
 
@@ -85,19 +85,19 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dassault Systemes SIMULIA E
 
 点击`鼠标右键-->属性`
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210227104743.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104743.png)
 
 下面有两种解决方法。
 
 方法一：设置起始位置，比如下图中的`C:\temp`。而默认文件夹也修改为相应文件夹。生成的`abaqus.rpy`等文件会默认保存在此文件夹中。
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210227104145.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104145.png)
 
 
 
 方法二：设置使用管理员身份运行。不建议！
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210227104258.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210227104258.png)
 
 如果以管理员方式启动会发现临时文件全部存在了`system32`目录下。
 

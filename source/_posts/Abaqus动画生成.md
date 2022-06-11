@@ -17,7 +17,7 @@ categories:
 
 <!---more--->
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1567394814636.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1567394814636.png)
 
 用Abaqus生成动画，但是生成后动画不动，只有一帧:
 
@@ -27,6 +27,6 @@ categories:
 
 （3）要保存动画，必须让图像动起来再保存。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1567389270658.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1567389270658.png)
 
 官方文档：https://help.3ds.com/2018/English/DSSIMULIA_Established/SIMACAECAERefMap/simacae-m-Animation-sb.htm?ContextScope=all&id=0dee094d033b41c9aede92dfaac4ad0b#Pg0

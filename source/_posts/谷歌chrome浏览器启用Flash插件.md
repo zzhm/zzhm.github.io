@@ -28,14 +28,14 @@ chrome://flags/#enable-ephemeral-flash-permission
 
 或者直接输入：[chrome://settings/content/flash](chrome://settings/content/flash)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/821932-20190112033649515-1967099312.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/821932-20190112033649515-1967099312.png)
 
 3、点开内容设置，找到Flash
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/821932-20190112033809366-439884329.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/821932-20190112033809366-439884329.png)
 
  
 
 4、打开Flash，在允许的地方添加你的网站即可
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/821932-20190112034051015-1413670707.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/821932-20190112034051015-1413670707.png)

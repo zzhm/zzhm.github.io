@@ -33,7 +33,7 @@ categories:
 
 > sudo -u www-data php /path/to/nextcloud/updater/updater.phar
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1566884676438.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1566884676438.png)
 
 进行命令更新，并使用occ进行更新系统，并关闭维护模式：
 

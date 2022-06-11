@@ -28,7 +28,7 @@ categories:
 
 汤森路透JCR影响因子计算：
 
-​                                    ![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/235635sh019gz4n1g8pnb2.png)
+![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/235635sh019gz4n1g8pnb2.png)
 
 中科院影响因子计算：
 

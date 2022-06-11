@@ -28,7 +28,7 @@ categories:
 - 等待一会就会出现一个提示窗口，单击finish即可，在打开你的温word就关联起来了
 
 <center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/endnote-skill/endmoteword.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/endmoteword.png)
 </center>
 
 ### 3. Endnote 库的问题。
@@ -46,7 +46,7 @@ categories:
 想解决这个问题，第一种方法是关闭即时格式化.
 
 <center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/endnote-skill/closee.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/closee.png)
 </center>
 
 5.2 关于参考文献格式的修改，想补充一点以进一步提升性能。Endnote 所有文献格式文件均放在安装目录的Styles文件夹下。
@@ -60,7 +60,7 @@ categories:
 这个问题 Endnote 配合 Word 完美解决。我们只需要在 Word 表图附录的第一页开头位置插入一个分节符号， 再在 Endnote 中编辑相应的格式文件，点击 sections（分节设置），选择其中的 「Create a bibliography for each section」，这样 Endnote 就会把参考文献插入在分节符的前面那一页的最后，即表图附录的前面。分节同样特别适合于编撰书籍，因为每一个章节最后都要附上参考文献。
 
 <center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/endnote-skill/fenjie.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/fenjie.png)
 </center>
 
 5.4 **【敲黑板！重点！】**论文中插入文献之前必须去除重复文献，最好在导入文献库后马上进行，在菜单中选择 references – find duplicates，会自动查找重复的文献，弹出对话框，选择保留其中一个。

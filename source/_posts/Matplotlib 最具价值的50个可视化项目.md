@@ -101,7 +101,7 @@ d:\anaconda3\lib\site-packages\ipykernel\ipkernel.py:287: DeprecationWarning: `s
   and should_run_async(code)
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413143326.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413143326.png)
 
 ### 带边界的气泡图（Bubble plot with Encircling）
 
@@ -159,7 +159,7 @@ plt.legend(fontsize=12)
 plt.show()    
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145035.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145035.png)
 
 ### 带线性回归最佳拟合线的散点图 （Scatter plot with linear regression line of best fit）
 
@@ -184,7 +184,7 @@ plt.title("Scatterplot with line of best fit grouped by number of cylinders", fo
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145058.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145058.png)
 
 **针对每列绘制线性回归线**
 
@@ -211,7 +211,7 @@ gridobj.set(xlim=(0.5, 7.5), ylim=(0, 50))
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145122.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145122.png)
 
 ### 抖动图 （Jittering with stripplot）
 
@@ -232,7 +232,7 @@ plt.title('Use jittered plots to avoid overlapping of points', fontsize=22)
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145201.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145201.png)
 
 ### 计数图 （Counts Plot）
 
@@ -258,7 +258,7 @@ plt.title('Counts Plot - Size of circle is bigger as more points overlap', fonts
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145226.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145226.png)
 
 ### 边缘直方图 （Marginal Histogram）
 
@@ -300,7 +300,7 @@ ax_main.set_xticklabels(xlabels)
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145252.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145252.png)
 
 ### 边缘箱形图 （Marginal Boxplot）
 
@@ -344,7 +344,7 @@ for item in ([ax_main.xaxis.label, ax_main.yaxis.label] + ax_main.get_xticklabel
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145427.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145427.png)
 
 ### 相关图 （Correllogram）
 
@@ -367,7 +367,7 @@ plt.yticks(fontsize=12)
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145346.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145346.png)
 
 ### 矩阵图 （Pairwise Plot）
 
@@ -386,7 +386,7 @@ plt.show()
 <Figure size 800x640 with 0 Axes>
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413145737.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413145737.png)
 
 In [12]:
 
@@ -401,7 +401,7 @@ plt.show()
 <Figure size 800x640 with 0 Axes>
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413150150.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150150.png)
 
 ## 2、偏差 （Deviation）
 
@@ -432,7 +432,7 @@ plt.grid(linestyle='--', alpha=0.5)
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413150155.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150155.png)
 
 ### 发散型文本 （Diverging Texts）
 
@@ -464,7 +464,7 @@ plt.xlim(-2.5, 2.5)
 plt.show()
 ```
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210413150129.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150129.png)
 
 ### 发散型包点图 （Diverging Dot Plot）
 
@@ -503,7 +503,7 @@ plt.xlim(-2.5, 2.5)
 plt.show()
 ```
 
-![2222](https://gitee.com/zihm/images/raw/master/hexo/20210413150123.png)
+![2222](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150123.png)
 
 ### 带标记的发散型棒棒糖图 （Diverging Lollipop Chart with Markers）
 
@@ -551,7 +551,7 @@ plt.grid(linestyle='--', alpha=0.5)
 plt.show()
 ```
 
-![下载](https://gitee.com/zihm/images/raw/master/hexo/20210413153653.png)
+![下载](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413153653.png)
 
 
 
@@ -594,7 +594,7 @@ plt.grid(alpha=0.5)
 plt.show()
 ```
 
-![444](https://gitee.com/zihm/images/raw/master/hexo/20210413150112.png)
+![444](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150112.png)
 
 
 
@@ -637,7 +637,7 @@ fig.add_artist(p2)
 plt.show()
 ```
 
-![1](https://gitee.com/zihm/images/raw/master/hexo/20210413150401.png)
+![1](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150401.png)
 
 ### 棒棒糖图 （Lollipop Chart）
 
@@ -671,7 +671,7 @@ for row in df.itertuples():
 plt.show()
 ```
 
-![2](https://gitee.com/zihm/images/raw/master/hexo/20210413150411.png)
+![2](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150411.png)
 
 ### 包点图 （Dot Plot）
 
@@ -700,7 +700,7 @@ ax.set_xlim(10, 27)
 plt.show()
 ```
 
-![3](https://gitee.com/zihm/images/raw/master/hexo/20210413150420.png)
+![3](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150420.png)
 
 ### 坡度图 （Slope Chart）
 
@@ -760,7 +760,7 @@ plt.gca().spines["left"].set_alpha(.0)
 plt.show()
 ```
 
-![4](https://gitee.com/zihm/images/raw/master/hexo/20210413150430.png)
+![4](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150430.png)
 
 ### 哑铃图 （Dumbbell Plot）
 
@@ -810,7 +810,7 @@ ax.set_xticklabels(['5%', '15%', '20%', '25%'])
 plt.show()
 ```
 
-![5](https://gitee.com/zihm/images/raw/master/hexo/20210413150439.png)
+![5](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150439.png)
 
 ## 4、分布 （Distribution）
 
@@ -846,7 +846,7 @@ plt.xticks(ticks=bins[::3], labels=[round(b,1) for b in bins[::3]])
 plt.show()
 ```
 
-![6](https://gitee.com/zihm/images/raw/master/hexo/20210413150451.png)
+![6](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150451.png)
 
 ### 类型变量的直方图 （Histogram for Categorical Variable）
 
@@ -879,7 +879,7 @@ plt.xticks(rotation=90, horizontalalignment='left')
 plt.show()
 ```
 
-![7](https://gitee.com/zihm/images/raw/master/hexo/20210413150458.png)
+![7](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150458.png)
 
 ### 密度图 （Density Plot）
 
@@ -904,7 +904,7 @@ plt.legend()
 plt.show()
 ```
 
-![下载 (1)](https://gitee.com/zihm/images/raw/master/hexo/20210413153802.png)
+![下载 (1)](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413153802.png)
 
 
 
@@ -931,7 +931,7 @@ plt.legend()
 plt.show()
 ```
 
-![9](https://gitee.com/zihm/images/raw/master/hexo/20210413150527.png)
+![9](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150527.png)
 
 ### Joy Plot
 
@@ -955,7 +955,7 @@ plt.show()
 <Figure size 1280x800 with 0 Axes>
 ```
 
-![10](https://gitee.com/zihm/images/raw/master/hexo/20210413150601.png)
+![10](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413150601.png)
 
 ### 分布式包点图 （Distributed Dot Plot）
 
@@ -1007,7 +1007,7 @@ plt.grid(axis='both', alpha=.4, linewidth=.1)
 plt.show()
 ```
 
-![1](https://gitee.com/zihm/images/raw/master/hexo/20210413151254.png)
+![1](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151254.png)
 
 ### 箱形图 （Box Plot）
 
@@ -1041,7 +1041,7 @@ plt.ylim(10, 40)
 plt.show()
 ```
 
-![2](https://gitee.com/zihm/images/raw/master/hexo/20210413151301.png)
+![2](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151301.png)
 
 ### 包点+箱形图 （Dot + Box Plot）
 
@@ -1067,7 +1067,7 @@ plt.legend(title='Cylinders')
 plt.show()
 ```
 
-![3](https://gitee.com/zihm/images/raw/master/hexo/20210413151306.png)
+![3](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151306.png)
 
 ### 小提琴图 （Violin Plot）
 
@@ -1088,7 +1088,7 @@ plt.title('Violin Plot of Highway Mileage by Vehicle Class', fontsize=22)
 plt.show()
 ```
 
-![4](https://gitee.com/zihm/images/raw/master/hexo/20210413151309.png)
+![4](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151309.png)
 
 ### 人口金字塔 （Population Pyramid）
 
@@ -1118,7 +1118,7 @@ plt.legend()
 plt.show()
 ```
 
-![5](https://gitee.com/zihm/images/raw/master/hexo/20210413151314.png)
+![5](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151314.png)
 
 ### 分类图 （Categorical Plots）
 
@@ -1140,7 +1140,7 @@ fig.suptitle('sf')
 plt.show()
 ```
 
-![6](https://gitee.com/zihm/images/raw/master/hexo/20210413151351.png)
+![6](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151351.png)
 
 In [34]:
 
@@ -1162,7 +1162,7 @@ Out[34]:
 <seaborn.axisgrid.FacetGrid at 0x22d0e6bba58>
 ```
 
-![7](https://gitee.com/zihm/images/raw/master/hexo/20210413151409.png)
+![7](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151409.png)
 
 ## 5、组成 （Composition）
 
@@ -1201,7 +1201,7 @@ fig = plt.figure(
 )
 ```
 
-![8](https://gitee.com/zihm/images/raw/master/hexo/20210413151437.png)
+![8](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151437.png)
 
 In [36]:
 
@@ -1260,7 +1260,7 @@ fig = plt.figure(
 )
 ```
 
-![9](https://gitee.com/zihm/images/raw/master/hexo/20210413151445.png)
+![9](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151445.png)
 
 ### 饼图 （Pie Chart）
 
@@ -1282,7 +1282,7 @@ plt.ylabel("")
 plt.show()
 ```
 
-![10](https://gitee.com/zihm/images/raw/master/hexo/20210413151453.png)
+![10](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151453.png)
 
 In [38]:
 
@@ -1318,7 +1318,7 @@ ax.set_title("Class of Vehicles: Pie Chart")
 plt.show()
 ```
 
-![11](https://gitee.com/zihm/images/raw/master/hexo/20210413151506.png)
+![11](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151506.png)
 
 ### 树形图 （Treemap）
 
@@ -1348,7 +1348,7 @@ plt.axis('off')
 plt.show()
 ```
 
-![12](https://gitee.com/zihm/images/raw/master/hexo/20210413152205.png)
+![12](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152205.png)
 
 ### 条形图 （Bar Chart）
 
@@ -1383,7 +1383,7 @@ plt.ylim(0, 45)
 plt.show()
 ```
 
-![下载](https://gitee.com/zihm/images/raw/master/hexo/20210413153948.png)
+![下载](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413153948.png)
 
 ## 6、变化 （Change）
 
@@ -1419,7 +1419,7 @@ plt.gca().spines["left"].set_alpha(0.3)
 plt.show()
 ```
 
-![14](https://gitee.com/zihm/images/raw/master/hexo/20210413152157.png)
+![14](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152157.png)
 
 ### 带波峰波谷标记的时序图 （Time Series with Peaks and Troughs Annotated）
 
@@ -1469,7 +1469,7 @@ plt.grid(axis='y', alpha=.3)
 plt.show()
 ```
 
-![15](https://gitee.com/zihm/images/raw/master/hexo/20210413152020.png)
+![15](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152020.png)
 
 ### 自相关和部分自相关图 （Autocorrelation (ACF) and Partial Autocorrelation (PACF) Plot）
 
@@ -1507,7 +1507,7 @@ ax2.tick_params(axis='both', labelsize=12)
 plt.show()
 ```
 
-![16](https://gitee.com/zihm/images/raw/master/hexo/20210413152150.png)
+![16](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152150.png)
 
 ### 交叉相关图 （Cross Correlation plot）
 
@@ -1546,7 +1546,7 @@ plt.xlim(0,len(ccs))
 plt.show()
 ```
 
-![17](https://gitee.com/zihm/images/raw/master/hexo/20210413152012.png)
+![17](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152012.png)
 
 ### 时间序列分解图 （Time Series Decomposition Plot）
 
@@ -1572,7 +1572,7 @@ result.plot().suptitle('Time Series Decomposition of Air Passengers')
 plt.show()
 ```
 
-![18](https://gitee.com/zihm/images/raw/master/hexo/20210413152145.png)
+![18](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152145.png)
 
 ### 多个时间序列 （Multiple Time Series）
 
@@ -1620,7 +1620,7 @@ plt.xlim(-2, 80)
 plt.show()
 ```
 
-![19](https://gitee.com/zihm/images/raw/master/hexo/20210413152140.png)
+![19](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152140.png)
 
 ### 使用辅助 Y 轴来绘制不同范围的图形 （Plotting with different scales using secondary Y axis）
 
@@ -1662,7 +1662,7 @@ fig.tight_layout()
 plt.show()
 ```
 
-![20](https://gitee.com/zihm/images/raw/master/hexo/20210413152135.png)
+![20](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152135.png)
 
 ### 带有误差带的时间序列 （Time Series with Error Bands）
 
@@ -1707,7 +1707,7 @@ for y in range(8, 20, 2):
 plt.show()
 ```
 
-![21](https://gitee.com/zihm/images/raw/master/hexo/20210413152131.png)
+![21](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413152131.png)
 
 In [49]:
 
@@ -1752,7 +1752,7 @@ for y in range(5, 10, 1):
 plt.show()
 ```
 
-![22](https://gitee.com/zihm/images/raw/master/hexo/20210413151953.png)
+![22](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151953.png)
 
 ### 堆积面积图 （Stacked Area Chart）
 
@@ -1806,7 +1806,7 @@ plt.gca().spines["left"].set_alpha(.3)
 plt.show()
 ```
 
-![下载 (1)](https://gitee.com/zihm/images/raw/master/hexo/20210413154039.png)
+![下载 (1)](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413154039.png)
 
 ### 未堆积的面积图 （Area Chart UnStacked）
 
@@ -1850,7 +1850,7 @@ plt.gca().spines["left"].set_alpha(.3)
 plt.show()
 ```
 
-![24](https://gitee.com/zihm/images/raw/master/hexo/20210413151945.png)
+![24](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151945.png)
 
 ### 日历热力图 （Calendar Heat Map）
 
@@ -1921,7 +1921,7 @@ plt.legend(loc='upper right', ncol=2, fontsize=12)
 plt.show()
 ```
 
-![2](https://gitee.com/zihm/images/raw/master/hexo/20210413153117.png)
+![2](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413153117.png)
 
 ## 7、分组 （Groups）
 
@@ -1945,7 +1945,7 @@ plt.xticks(fontsize=12)
 plt.show()
 ```
 
-![27](https://gitee.com/zihm/images/raw/master/hexo/20210413151928.png)
+![27](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151928.png)
 
 ### 簇状图 （Cluster Plot）
 
@@ -1990,7 +1990,7 @@ plt.title('Agglomerative Clustering of USArrests (5 Groups)', fontsize=22)
 plt.show()
 ```
 
-![28](https://gitee.com/zihm/images/raw/master/hexo/20210413151923.png)
+![28](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151923.png)
 
 ### 安德鲁斯曲线 （Andrews Curve）
 
@@ -2023,7 +2023,7 @@ plt.yticks(fontsize=12)
 plt.show()
 ```
 
-![29](https://gitee.com/zihm/images/raw/master/hexo/20210413151233.png)
+![29](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151233.png)
 
 ### 平行坐标 （Parallel Coordinates）
 
@@ -2054,7 +2054,7 @@ plt.yticks(fontsize=12)
 plt.show()
 ```
 
-![30](https://gitee.com/zihm/images/raw/master/hexo/20210413151912.png)
+![30](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210413151912.png)
 
 原文链接：
 

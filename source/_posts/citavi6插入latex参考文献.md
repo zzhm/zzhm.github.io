@@ -22,31 +22,31 @@ The formatting depends on the LaTeX style you select; Citavi has no influence on
 
 **1** Under **Tools** > **Options** > **Citation**, enable the **LaTeX support** checkbox.
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455.png)
 
 **2** Select your TeX editor. In the LaTeX project folder box, select the folder that your editor uses for LaTeX projects. Citavi needs to use this folder in order to make images available to your editor. Click **OK**. Citavi creates BibTeX keys for all of the references in your project. You can [define BibTeX keys](https://www1.citavi.com/sub/manual6/en/bibtex_keys.html).
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-1.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-1.png)
 
 **3** Open the LaTeX Assistant. Click **Citation** > **LaTeX Assistant**.
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-2.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-2.png)
 
 **4** Double-clicking a reference in the LaTeX Assistant inserts \cite{} into your TeX document.
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-3.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-3.png)
 
 **5** Knowledge items are inserted the same way.
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-4.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-4.png)
 
 **6** To create a BibTeX file, in Citavi, on the **File** menu, click **Export**. Export all of the references in your project as a BibTeX file. Select **BibTeX** as the format. Click **Next**. If necessary, select a different package (such as jurabib or natbib). To do so, click **Add export filter**.
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-5.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-5.png)
 
 **7** Save the BibTeX file in your LaTeX project folder.
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-6.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-6.png)
 
 **8** Enter the style and name of the BibTeX file, for example:
 
@@ -55,11 +55,11 @@ COPY*\bibliographystyle{plain}*
 *\bibliography{information-literacy}*
 ```
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-7.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-7.png)
 
 **9** You may need to run the output command (pdfLaTeX, MakeIndex, BibTeX) several times until the compilation routine is complete.
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200623193455-8.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200623193455-8.png)
 
 ## See also:
 

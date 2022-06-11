@@ -25,11 +25,11 @@ windows用户请下载最新版本的`exe`文件.
 
 打开PicGo，找到图床设置，界面如下：
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124015976.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124015976.png)
 
 密钥获取
 
-![picgo设置界面](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124725478.png)
+![picgo设置界面](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124725478.png)
 
 
 
@@ -39,11 +39,11 @@ windows用户请下载最新版本的`exe`文件.
 
 v4版本是这个：
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124659890.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124659890.png)
 
 需要登录腾讯云控制台。打开[密钥管理](https://console.qcloud.com/cos4/secret)
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124820795.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124820795.png)
 
 按照对应的提示找到自己的`APPID`、`SecretId`、`SecretKey`。
 
@@ -51,11 +51,11 @@ v4版本是这个：
 
 存储的区域需要额外注意，请到bucket列表里打开需要上传的bucket空间，然后如图可以看到对应的区域以及区域代码，比如我的是`tj`：
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330124746932.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330124746932.png)
 
 对应的区域代码如下：
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200330122625126.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200330122625126.png)
 
 如果你想把图片上传到你的bucket空间的某个文件夹下，则需要在PicGo里的`指定存储路径`里加上你的文件夹路径。比如`temp/`（注意一定要加`/`）
 
@@ -91,7 +91,7 @@ v5版本的存储桶名称格式是`bucket-appId`，类似于`xxxx-12312313`。�
 
 直接粘贴从网站复制的图片提醒自动上传失败，原因不明。新建了一个`tmp`文件夹作为过渡，现在应该是复制网站的图片先保存到`tmp`文件夹，然后由PicGo上传。
 
-![Typora设置](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/picgo-2.0.gif)
+![Typora设置](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/picgo-2.0.gif)
 
 
 
@@ -113,15 +113,13 @@ v5版本的存储桶名称格式是`bucket-appId`，类似于`xxxx-12312313`。�
 
 ### 一个问题
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200401124823836.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200401124823836.png)
 
 ```
 你这个是PicGo Server的端口不是36677，去PicGo设置里调整一下Server的端口吧。改成36677才可以。
 ```
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/image-20200401124907544.png)
-
-
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/image-20200401124907544.png)
 
 
 

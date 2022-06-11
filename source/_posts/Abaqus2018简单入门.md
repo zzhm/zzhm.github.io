@@ -21,7 +21,7 @@ ABAQUS是国际上公认的最优秀的非线性分析软件，如果分析对�
 
 ABAQUS中没有固定的单位制， 读者选用相互匹配的单位即可， 最后得出的计算结果的单位与所采用的单位制相对应。在Sketch功能模块中，ABAQUS能够接受的模型尺寸范围是$10^{-3}~10^5$因此读者在建立模型之前应该根据模型尺寸选择一套合适的单位制，使模型的大小在上述范围内。一般可 以选择国际单位制（长度单位为m或mm),如果模型的尺寸很小（微细观结构），就必须更改单位制，选择长度单位为纳米或者微米，所有其他单位也要进行相应的换算，以保待量纲一致。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561621164753.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561621164753.png)
 
 ## 关于仿真时间
 
@@ -30,7 +30,7 @@ ABAQUS中没有固定的单位制， 读者选用相互匹配的单位即可， 
 2)分析步时间(step time)计量法：每个分析步的开始为0时刻（线性摄动分析步除外， 它不考虑时间影响）。
 图所示的例子可以说明这两种时间计量法的差异。在这个例子中， 共包含三个分析步(step) , 每个分析步步长为50s。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561625314899.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561625314899.png)
 
 在静力分析中， 如果模型中不包含阻尼或与速率相关的材料时间就没有实际的物理意义。为方便起见， 一般把分析步时间设置为默认值1。动力分析中涉及到爆炸、冲击等与时间有关的效应， 应根据实际情况选择合适的时间计措方法。
 
@@ -65,40 +65,40 @@ ABAQUS中没有固定的单位制， 读者选用相互匹配的单位即可， 
 
 ## 仿真的基本流程
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561622118424.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561622118424.png)
 
 ## 界面与工具箱
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561691977714.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561691977714.png)
 
 <center>部件工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561692238946.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561692238946.png)
 
 <center>属性工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561692443443.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561692443443.png)
 
 <center>装配工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561692594056.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561692594056.png)
 
 <center>分析步工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561692706141.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561692706141.png)
 
 <center>相互作用工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561692815577.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561692815577.png)
 
 <center>载荷工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561698786627.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561698786627.png)
 
 <center>网格工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561692898081.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561692898081.png)
 
 <center>作业工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561693037595.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561693037595.png)
 
 <center>可视化工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561692079138.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561692079138.png)
 
 <center>草图工具栏</center>
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1567394289377.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1567394289377.png)
 
 <center>功能模块使用顺序</center>

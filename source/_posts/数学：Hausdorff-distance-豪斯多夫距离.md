@@ -30,7 +30,21 @@ Hausdorff距离是描述两组点集之间相似程度的一种量度，它是�
 由式(1)知,双向Hausdorff距离H(A,B)是单向距离h(A,B)和h(B,A)两者中的较大者,它度量了两个点集间的最大不匹配程度.
 
 <center>
-![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155801968-1361698747.png) ![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155719093-1949884193.png) ![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155815171-1358998697.png) ![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155830359-1992187318.png) ![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155839437-239038889.png)![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155846780-241591623.png)![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155854140-458635263.png)![img](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/Hausdorff_distance/276683-20160510155901421-1693927402.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155801968-1361698747.png) 
+
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155719093-1949884193.png) 
+
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155815171-1358998697.png) 
+
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155830359-1992187318.png) 
+
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155839437-239038889.png)
+
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155846780-241591623.png)
+
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155854140-458635263.png)
+
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/276683-20160510155901421-1693927402.png)
 </center>
 
 

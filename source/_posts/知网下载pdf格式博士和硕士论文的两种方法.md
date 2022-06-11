@@ -11,7 +11,7 @@ categories:
 
 方法一、使用海外版知网
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200619211411.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200619211411.png)
 
 <!---more--->
 
@@ -28,7 +28,7 @@ https://violentmonkey.github.io/
 
 安装知网下载助手
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200619211431.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200619211431.png)
 
 https://greasyfork.org/zh-CN/scripts/371938-%E7%9F%A5%E7%BD%91%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B
 

@@ -12,7 +12,7 @@ categories:
 
 制作一个简单的三维图表：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105506.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105506.png)
 
 <!---more--->
 
@@ -20,17 +20,17 @@ categories:
 
 添加选项来改变样式和图像大小，使其符号出版要求：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722110154.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110154.png)
 
 Out[2]=
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105543.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105543.png)
 
 ### 导出图形
 
 把图形按 PDF 格式导出到文件中：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105551.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105551.png)
 
 - 缺省情况下，[Export](https://reference.wolfram.com/language/ref/Export.html) 会在当前目录下（由 [SetDirectory](https://reference.wolfram.com/language/ref/SetDirectory.html) 设定）创建一个文件.
 - [Export](https://reference.wolfram.com/language/ref/Export.html) 可以产生各种图形格式的文件，包括 GIF、JPEG 和 PNG. 请到[图形导入和导出](https://reference.wolfram.com/language/guide/GraphicsImportingAndExporting.html)查看更多信息.
@@ -43,7 +43,7 @@ Out[2]=
 
 在 TeX 源文件中，用 `\includegraphics` 嵌入图形:
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722110032.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110032.png)
 
 ### 技术要点
 
@@ -51,7 +51,7 @@ Out[2]=
 
 In[4]:=
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722110025.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110025.png)
 
 ```mathematica
 Labeled[BubbleChart3D[RandomReal[1, {5, 5, 4}],     PlotTheme -> #], #] & /@ {"Classic", "Minimal", "Detailed",   "Monochrome", "Scientific", "Marketing"}
@@ -59,13 +59,13 @@ Labeled[BubbleChart3D[RandomReal[1, {5, 5, 4}],     PlotTheme -> #], #] & /@ {"C
 
 Out[4]=
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105453.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105453.png)
 
 用 面板 ▶ 图表元素方案 插入高级样式的选项：
 
 In[5]:=
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105603.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105603.png)
 
 ```mathematica
 BubbleChart3D[RandomReal[1, {5, 5, 4}], PlotTheme -> "SolidGrid",  ChartElementFunction ->   ChartElementDataFunction["Cube", "Shape" -> "Square",    "Shading" -> "Fading", "TaperRatio" -> 1]]
@@ -73,7 +73,7 @@ BubbleChart3D[RandomReal[1, {5, 5, 4}], PlotTheme -> "SolidGrid",  ChartElementF
 
 Out[5]=
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105609.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105609.png)
 
 - 请到[自定义图表](https://reference.wolfram.com/language/workflow/CustomizeCharts.html)查看更多信息.
 
@@ -81,15 +81,15 @@ Out[5]=
 
 绘图主题为图表和曲线图提供预先配置好的样式. 指定一个绘图主题以自定义图形的外观. 自动补全功能可以帮助你选择合适的主题：
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110320.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110320.png)
 
 在基本主题上添加“特色主题”改变绘图主题：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722110232.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110232.png)
 
 Out[2]=
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722110329.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110329.png)
 
 - 到 [PlotTheme](https://reference.wolfram.com/language/ref/PlotTheme.html) 文档查看主题清单.
 
@@ -101,7 +101,7 @@ Out[2]=
 
 In[3]:=
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722110242.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110242.png)
 
 ```mathematica
 BarChart3D[{1, 2, 5, 4, 3}]
@@ -109,43 +109,43 @@ BarChart3D[{1, 2, 5, 4, 3}]
 
 Out[3]=
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110335.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110335.png)
 
 ### 准备插入选项
 
 在输入表达式的右方括号前面点击 (])，输入逗号，准备插入图表选项：
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110402.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110402.png)
 
 ### 打开“图表元素方案”面板
 
 选择 面板 ▶ 图表元素方案：
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110421.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110421.png)
 
 ### 选择图表类型
 
 选择想要定义的图表的类型：
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110434.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110434.png)
 
 ### 选择图表样式
 
 选择喜欢的图表样式：
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110538.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110538.png)
 
 ### 调整图表外观
 
 调整样式的参数：
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110553.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110553.png)
 
 ### 插入图表外观选项并计算
 
 点击“插入选项”重新计算输入：
 
-![img](https://gitee.com/zihm/images/raw/master/hexo/20200722110609.png)
+![img](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722110609.png)
 
 # PlotTheme
 
@@ -172,17 +172,17 @@ Out[3]=
 
 常见基本主题包括：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105629.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105629.png)
 
 特殊主题的设置会影响绘图的某个具体细节，一般和基本主题或其他特殊主题联合使用.
 
 坐标轴特殊主题的设置会影响坐标轴、边框以及网格. 坐标轴特殊主题设置选择如下：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105633.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105633.png)
 
 颜色特殊主题的设置会影响线和面. 颜色特殊主题设置选择如下：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105636.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105636.png)
 
 字体特殊主题的设置会影响坐标轴的标记、绘图标记和图例. 字体特殊主题设置选择如下：
 
@@ -190,27 +190,27 @@ Out[3]=
 
 尺寸特殊主题的设置会影响绘图的大小和形状. 尺寸特殊主题设置选择如下：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105639.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105639.png)
 
 数据点标记符号特殊主题的设置会影响 [PlotMarkers](https://reference.wolfram.com/language/ref/PlotMarkers.html). 数据点标记符号特殊主题设置选择如下：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105643.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105643.png)
 
 曲线特征主题影响绘图曲线. 主题包括：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105646.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105646.png)
 
 表面网格特殊主题的设置会影响三维图形表面的网格. 主题设置选择如下：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105649.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105649.png)
 
 图表元素方案特殊主题的设置会影响数据的图形样式. 主题设置选择如下：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105652.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105652.png)
 
 体特征主题影响 3D 曲面，这对于 3D 打印很有用. 主题包括：
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200722105659.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200722105659.png)
 
 
 

@@ -279,4 +279,4 @@ CTEX：http://ftp.ctex.org/mirrors/
 
 编译出错，先更编译器尝试一下，让后更下一下宏包（针对undefined control sequence）。
 
-由于CTeX长期不更新。因此，并不推荐使用CTeX，而是推荐使用TeX Live，[官方网站](http://tug.org/texlive/)，[镜像下载地址](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlihttps://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/)
+由于CTeX长期不更新。因此，并不推荐使用CTeX，而是推荐使用TeX Live，[官方网站](http://tug.org/texlive/)，[镜像下载地址](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlihttps://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/)

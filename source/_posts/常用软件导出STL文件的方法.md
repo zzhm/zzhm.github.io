@@ -17,11 +17,11 @@ STL is the standard file type used by most additive manufacturing systems.
 
 STL is a triangulated representation of a 3D CAD model (Figure 1).
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210420154956.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210420154956.jpg)
 
 The triangulation (or poly count) of a surface will cause faceting of the 3D model. The parameters used for outputting a STL will affect how much faceting occurs (Figures 2 and 3). You cannot build the model smoother than the STL file. If the STL is coarse and faceted the physical 3D printed model will be coarse and faceted as well. However, the smoother/ less faceted your surface is, (the higher the poly count or triangulation) the larger your file. 3D printing can only accept a certain file size; therefore it’s important to find a balance between your model, its desired surface, and the 3D printing process of your choice.
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20210420155002.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210420155002.png)
 
 When exporting to STL in your CAD package, you may see parameters for chord height, deviation, angle tolerance, poly count, or something similar. These are the parameters that affect the faceting of the STL. We’ve compiled tips on exporting for the best “surface: file” size ratio below.
 
@@ -79,11 +79,11 @@ Note: We don’t recommend Sketchup for use with 3D printing as it does not expo
 3. Within the preview window, select Save Copy As or Send to 3D Print Service
 4. Save As type to STL File (`*.stl`)
 
-![stl](https://gitee.com/zihm/images/raw/master/hexo/20210420155007.jpg)
+![stl](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210420155007.jpg)
 
 Note: The “High” setting will also produce the largest file size. From Low, Medium to High, the hairdryer sample file in Inventor went from about 6.7MB to 17.6MB to 50MB.
 
-![stl](https://gitee.com/zihm/images/raw/master/hexo/20210420155010.jpg)
+![stl](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210420155010.jpg)
 
 Tip: Before finalizing your export, select the Options tab. Within this window, you can select the resolution (faceting) for your model (High, Medium, Low and Custom) and check that your units are correct. The “High” setting will produce a large file size. Autodesk Inventor allows you to save both individual parts and assemblies in STL format, at all design levels. For a quick overview of designing in Inventor, click [here](https://www.youtube.com/watch?v=akem4NYbFCY).
 To check your modifiers have been applied before exporting:

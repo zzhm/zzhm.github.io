@@ -20,11 +20,11 @@ categories:
 
 粘度的秘密都藏在机油标号里了。按照我国目前执行的SAE（美国汽车工程师协会）机油粘度标准，机油标号的形式类似“0W-40”这样，**“W”泛指“冬季”，W前的数字越小，则低温流动性越好。**在我国大部分地区，5W、10W、15W等都能正常使用。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/ng_dm_1_03.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/ng_dm_1_03.jpg)
 
 **“W”后面的数值表示的是机油的高温粘性指数，数值越大粘度越高**，指的是在高温气候下冷车启动时适应大致的温度范围。市场上常见的机油，高温粘度从20到50不等。而通常，我们认为20-30的机油属于相对的“低粘度”机油。
 
-![](https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/ng_dm_1_04.jpg)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/ng_dm_1_04.jpg)
 
 ## 机油质量等级
 

@@ -33,25 +33,25 @@ categories:
 
 1. 选择左右文件夹。
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200920140251.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200920140251.png)
 
 ​    
 
 2. 比较它们。
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200920140251-1.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200920140251-1.png)
 
  
 
 3. 选择同步设置。
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200920140251-2.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200920140251-2.png)
 
 ​    
 
 4. 按**同步**开始同步。
 
-![](https://gitee.com/zihm/images/raw/master/hexo/20200920140251-3.png)
+![](https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200920140251-3.png)
 
 
 
