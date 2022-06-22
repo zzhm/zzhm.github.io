@@ -502,7 +502,7 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
 <h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="unsupport-version-ABAQUSLM"><a href="#unsupport-version-ABAQUSLM" class="headerlink" title="unsupport version ABAQUSLM"></a>unsupport version ABAQUSLM</h3><p>原因就是这里没设置！！之前版本好像是没有的，导致在输入“27800@localhost”之后一直无法继续往后面安装。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3.开始安装程序之前，可以通过创建下面的环境变量跳过FlexNET License server的安装</span><br><span class="line">变量名：NOLICENSECHECK</span><br><span class="line">变量值：true(这里千万别选错了，会导致后面无法使用)</span><br></pre></td></tr></table></figure>
 <h3 id="IOError-abaqus-rpy-Permission-denied"><a href="#IOError-abaqus-rpy-Permission-denied" class="headerlink" title="IOError: abaqus.rpy: Permission denied"></a>IOError: abaqus.rpy: Permission denied</h3><p>在<code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dassault Systemes SIMULIA Established Products 2020</code>里找到“<code>Abaqus CAE</code>”的快捷方式，鼠标右键选择“属性”，在起始位置里设置个有读写权限的位置就行。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210809152515.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210809152515.png"></p>
 ]]></content>
       <categories>
         <category>实用教程</category>
@@ -794,11 +794,11 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Abaqus只需完成3步即可切换为中文界面，并支持中文路径，只需操作TXT文件，极度简单！</p>
 <p>（1）关闭ABAQUS 软件，</p>
 <p>（2）找到<code>C:\SIMULIA\EstProducts\2020\win_b64\SMA\Configuration\locale.txt</code>。不同电脑的安装文件夹不同，关键是找到<code>win_b64\SMA\Configuration\locale.txt</code></p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619839492.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561619839492.png"></p>
 <p>（3）把<code>locale.txt</code>中，在图中位置，<code>Chinese_People&#39;s Republic of China.936 = zh_CN</code>和<code> Chinese (Simplified)_People&#39;s Republic of China.936 = zh_CN</code>后面加上<code>Chinese (Simplified)_China.936 = zh_CN</code>，此时便已经可以支持中文路径了！</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619897524.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561619897524.png"></p>
 <p>（4）如果需要把界面显示成中文的，则<code>把locale.txt</code>中，第三串长######################之前的<code>zh_CN = 0</code>改为<code>zh_CN = 1</code>。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1561619992412.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/1561619992412.png"></p>
 <p>注意：</p>
 <p>（1）若不希望汉化abaqus界面，又希望软件能够支持中文路径，可以只修改（3）中的内容。</p>
 <p>（2）2018和2020版本测试可用。</p>
@@ -2076,7 +2076,7 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
     <url>/arcticle/omv-kodexplorer.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近停了Nextcloud，打算用作为主力了，因此优化了一波。基本情况：OMV+nginx插件搭建的kodexplorer。</p>
 <p>上传大文件时发现，基本超过1G以上的大文件上传，经过合并等待时间之后，基本都会显示上传失败。但是多等待一会儿之后，刷新文件夹，文件实际是上传成功了的。据人指点“最后合并上传失败很可能是登录超时引起的”。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133935.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133935.jpeg"></p>
 <!---more--->
 
 <p>首先明确可道云没有对上传下载做任何限制，速度快慢和网络环境有关。可道云是基于http上传，所以和其他http上传速度基本一致；可以对比其他web系统或网站说附件上传速度。同其他例如webdav、FTP、QQ传输等软件底层协议不一样；传输速度也会不一样。</p>
@@ -2086,7 +2086,7 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">max_execution_time &#x3D; 3600</span><br><span class="line">max_input_time &#x3D; 3600</span><br><span class="line">post_max_size &#x3D; &#39;150M&#39;</span><br><span class="line">upload_max_filesize &#x3D; &#39;150M&#39;</span><br></pre></td></tr></table></figure>
 <p>注意：这个可以在kod的config文件夹里的<code>config.php</code>中修改。</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">define(&#x27;GLOBAL_DEBUG&#x27;,0);//0 or 1</span><br><span class="line">define(&#x27;GLOBAL_DEBUG_HOOK&#x27;,0);//0 or 1</span><br><span class="line">@date_default_timezone_set(@date_default_timezone_get());</span><br><span class="line">@set_time_limit(3600);//20min pathInfoMuti,search,upload,download...</span><br><span class="line">@ini_set(&quot;max_execution_time&quot;,3600);</span><br><span class="line">@ini_set(&quot;max_input_time&quot;,3600);</span><br><span class="line">@ini_set(&quot;post_max_size&quot;,&#x27;150M&#x27;);</span><br><span class="line">@ini_set(&quot;upload_max_filesize&quot;,&#x27;150M&#x27;);</span><br><span class="line">@ini_set(&#x27;memory_limit&#x27;,&#x27;500M&#x27;);//</span><br><span class="line">@ini_set(&#x27;session.cache_expire&#x27;,1800);</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133946.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133946.png"></p>
 <p><strong>修改可道云配置</strong></p>
 <p>在config/下新建 setting_user.php文件;粘贴如下内容；(已存在则略过)</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;分片上传: 每个切片5M,需要php.ini 中upload_max_filesize大于此值</span><br><span class="line">$GLOBALS[&#39;config&#39;][&#39;settings&#39;][&#39;updloadChunkSize&#39;] &#x3D; 1024*1024*5;</span><br><span class="line">&#x2F;&#x2F;上传并发数量; 推荐15个并发;</span><br><span class="line">$GLOBALS[&#39;config&#39;][&#39;settings&#39;][&#39;updloadThreads&#39;] &#x3D; 15;</span><br></pre></td></tr></table></figure>
@@ -4148,19 +4148,19 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
   <entry>
     <title>优友UU125原车防盗器安装操作流程</title>
     <url>/arcticle/UU125-fangdao.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134238.png"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134238.png"></p>
 <!---more--->
 
 <h2 id="需要工具"><a href="#需要工具" class="headerlink" title="需要工具"></a>需要工具</h2><p>10 mm 套筒一个，长柄梅花螺丝刀，5mm 内六角一个，扎带或线（可选）</p>
-<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><h3 id="拆下座箱6颗螺栓"><a href="#拆下座箱6颗螺栓" class="headerlink" title="拆下座箱6颗螺栓"></a>拆下座箱6颗螺栓</h3><p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134235.jpg"></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134333.jpg"></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134345.jpg"></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134355.jpg"></p>
-<h3 id="找到防盗器预留插头"><a href="#找到防盗器预留插头" class="headerlink" title="找到防盗器预留插头"></a>找到防盗器预留插头</h3><p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134403.jpg"></p>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><h3 id="拆下座箱6颗螺栓"><a href="#拆下座箱6颗螺栓" class="headerlink" title="拆下座箱6颗螺栓"></a>拆下座箱6颗螺栓</h3><p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134235.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134333.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134345.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134355.jpg"></p>
+<h3 id="找到防盗器预留插头"><a href="#找到防盗器预留插头" class="headerlink" title="找到防盗器预留插头"></a>找到防盗器预留插头</h3><p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134403.jpg"></p>
 <h3 id="安装防盗器"><a href="#安装防盗器" class="headerlink" title="安装防盗器"></a>安装防盗器</h3><p>插上防盗器，把防盗器电池安装上，黏贴主机和电池，理顺线路</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134410.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134410.jpg"></p>
 <p> 安装后的效果</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134416.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134416.jpg"></p>
 <p>安装好后，先按遥控器圆圈键解锁，进行启动，每次启动都要按圆圈键。</p>
 ]]></content>
       <categories>
@@ -7489,7 +7489,7 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
 <p><strong>越野盔：</strong>在全脸类型的基础上加强下颌保护，并且在前额有个帽沿，用来遮挡尘土和阳光，所以需要额外加护目镜。</p>
 <p><strong>拉力盔：</strong>拉力盔和越野盔相近，下颌设计会收敛一些，并会配备头盔镜片。</p>
 <p><strong>揭面盔：</strong>低速时面罩部分掀起来可以透气，合上则是全脸，因揭面盔的结构原由会使头盔的保护性收到一定影响。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133551.png" alt="头盔类型"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133551.png" alt="头盔类型"></p>
 <p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/1556590214919.png" alt="全盔类型"></p>
 <h2 id="安全认证"><a href="#安全认证" class="headerlink" title="安全认证"></a>安全认证</h2><h3 id="美国的DOT标准"><a href="#美国的DOT标准" class="headerlink" title="美国的DOT标准"></a>美国的DOT标准</h3><p>DOT是美国运输部The US Department of Transportation的缩写，目前道路上使用的摩托车头盔大部份都以DOT的安全标准为依据，DOT由成立至今已有33年历史。目前对产品还只是采取制造商保证制度，只要生产商声称可以达到DOT所定下的标准，便可以在头盔上贴上DOT贴纸。虽然采自行认证方式，但美国运输部会经由抽查检验，若没通过就不允许在美国贩卖，甚至会被重罚，一般大厂皆会严格执行认证标准，以免受罚。</p>
 <p><strong>测试规格 :</strong></p>
@@ -7561,7 +7561,7 @@ COMSOL 有部分客户是增材制造设备厂商，他们使用COMSOL Multiphys
   <entry>
     <title>摩托车安全驾驶指南</title>
     <url>/arcticle/motor-safety.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506134506.png"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506134506.png"></p>
 <!---more--->
 
 <p>1、院子的出口。占交通事故的13%，死亡事故的17%。提前减速观察，将手指放在刹车杆上。</p>
@@ -9428,37 +9428,37 @@ Win10可能会出现系统提示，点击仍要运行即可 。
 <p>1.找到这本书对应的MP3文件，配套的光盘或者网络上一般都可以找到。如果实在没有，有条件的客户可以在录音棚进行录音。（备注：MP3文件通常对应的都是一整本书的音频，如果已经是跟每页内容对应的音频，则无需切割，直接用数字按顺序给每个文件重命名后，跳到第二步的合成。）<br>2.在电脑上新建一个文件夹——用来存放整本书切割好的MP3音频文件。</p>
 <p>3.切割，首先要有切割软件。百度上可以搜索到GoldWave，它是专业的音频工具。</p>
 <p><strong>a. 双击GoldWave软件,然后打开要切割的音频</strong>。这里是“我好喜欢她”这本书的整本音频</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133507.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133507.jpg"></p>
 <p><strong>b.导入音频后，页面如下：</strong></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133504.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133504.jpg"></p>
 <ul>
 <li>一般整本书的音频导入后，由于音频过大，所以波形排列非常紧密。直接切割会造成音频的不准确，这时候，我们点击放大，将音频的波形排列拉开。</li>
 <li>如上图所示，在音频的起始处，有一根长横线。这通常是没有声音的留白，可以直接选中后，点击上方的“剪切”去掉。以免导入点读笔后，因播放过长的留白，让使用者误以为点读笔不灵敏。</li>
 </ul>
 <p><strong>c.切割音频</strong></p>
 <p>在要剪切的图形区域中，按住鼠标左键，拖到自己要剪切内容的开头处再滑动到结尾处。选中部分会呈现蓝色。可在蓝色区域中点击鼠标右键选择“从这里播放”，听听是不是自己想要的内容，如果不是，可以用鼠标拖动蓝色左右边缘处进行变更。满意后，点击剪切。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133501.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133501.jpg"></p>
 <p>剪切后，点击左上方的“编辑”中的“黏贴为新文件”</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133457.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133457.png"></p>
 <p>此时，剪切后的音频以一个新文件的方式在原音频的上方出现。点击左上方的“文件”——“另存为”，用数字命名后，存在之前新建的文件夹中，然后关闭即可。接着再剪切第二段音频，直至整本书全部切完。（注：每本书的第一个音频请用数字1命名，然后第二个用2，依次类推，书名对应的音频请放到所有内容音频之后，也就是最后一个数字。）</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133454.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133454.jpg"></p>
 <p><strong>第二步：</strong>合成</p>
 <p>1.启动智能自制内容工具</p>
 <p>2.点右边的新建项目。</p>
 <p>3.输入制作的教材名称，选择保存文件的路径之后，点确认键。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133451.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133451.jpg"></p>
 <p>4.进入制作页面，选择：批量添加，导入刚刚存放剪切音频的<strong>文件夹</strong>。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133448.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133448.jpg"></p>
 <p>5.设置封皮音，选择教材的种类之后，点击生成。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133445.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133445.jpg"></p>
 <p>OK。这样一本普通书就制作完成了。是不是很简单？</p>
 <p>备注：生成后的文件如下图</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133443.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133443.jpg"></p>
 <p>双击紫色DAB文件，按对话框提示选择标贴号，便可以安装到点读笔里了。</p>
 <p>在封面贴上您刚刚在安装时选择的“书名贴”</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133440.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133440.jpg"></p>
 <p>，里面贴上“内容贴”</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133438.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133438.jpg"></p>
 <p>。一本有声书就做好了。现在，我们开始点读吧~</p>
 ]]></content>
       <categories>
@@ -12067,7 +12067,9 @@ Win10可能会出现系统提示，点击仍要运行即可 。
 </li>
 <li><p><a href="https://dict.cnki.net/index">CNKI翻译助手</a></p>
 </li>
-<li><p><a href="https://ludwig.guru/">ludwig</a></p>
+<li><p><a href="https://ludwig.guru/">Ludwig</a></p>
+</li>
+<li><p><a href="https://www.deepl.com/translator">DeepL</a></p>
 </li>
 </ul>
 <p><strong>语法检查</strong></p>
@@ -12190,12 +12192,12 @@ Win10可能会出现系统提示，点击仍要运行即可 。
 
 <h2 id="小孔成像模型"><a href="#小孔成像模型" class="headerlink" title="小孔成像模型"></a>小孔成像模型</h2><p>相机可以抽象为最简单的形式：一个小孔和一个成像平面，小孔位于成像平面和真实的三维场景之间，任何来自真实世界的光只有通过小孔才能到达成像平面。因此，在成像平面和通过小孔看到的真实三维场景存在着一种对应关系，也就是图像中的二维像点和真实三维世界的三维点存在某种变换关系。找到了这种变换关系，就可以利用图像中的二维点信息来恢复场景的三维信息。</p>
 <p>下图是小孔成像的模型，为了简化模型，将成像平面放在了小孔的前面，并且成的像也是正立的</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133855.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133855.png"></p>
 <p>在描述小孔的成像过程前，首先来定义两个坐标系：</p>
 <h3 id="相机坐标系（三维坐标系）"><a href="#相机坐标系（三维坐标系）" class="headerlink" title="相机坐标系（三维坐标系）"></a>相机坐标系（三维坐标系）</h3><p>相机的中心被称为焦点或者光心，以焦点$O_c$为原点和坐标轴$X_c$,$Y_c$,$Z_c$组成了相机坐标系</p>
 <h3 id="图像坐标系（二维坐标系）"><a href="#图像坐标系（二维坐标系）" class="headerlink" title="图像坐标系（二维坐标系）"></a>图像坐标系（二维坐标系）</h3><p>成像平面中，以成像平面的中心O’为原点和坐标轴x’,y’组成了图像坐标系。小孔成像实际就是将相机坐标系中的三维点变换到成像平面中的图像坐标系中的二维点。</p>
 <p>假设，三维空间中点P，其在相机坐标系中的坐标是$P_c=[X,Y,Z]^T$；其像点p，在图像坐标系的中的坐标是$p=[x,y]^T$，由于光轴垂直与成像平面，那么可以知道像点p在相机坐标系中的坐标是$p=[x,y,z]^T$,其中z =f(f是焦点到成像平面之间的距离，被称为焦距)。</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20210506133852.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20210506133852.png"></p>
 <p>由上图根据三角形的相似关系，可以得到如下公式：<br>$$\frac{Z}{f}=\frac{X}{x}=\frac{Y}{y}$$<br>将上面公式整理后可以得到：<br>$$\left{\begin{array}{l}x = f\frac{X}{Z}\y = f\frac{Y}{Z}\z = f\end{array}\right.$$<br>上面的公式就是小孔相机模型的基础公式了，有了此公式可以推导出更详细的小孔相机模型的参数：** 内参数和外参数 **。</p>
 <p>在推导相机的内参数和外参数前，需要先了解下齐次坐标的概念。</p>
 <h2 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h2><p>相机的成像过程实际是将三维空间的点P=(X,Y,Z)变换到成像平面的过程，这个过程也可以被称为射影变换（更多关于射影变换的内容可参考《计算机视觉中的多视图几何》）。如上面描述的，设射影变换的中心O作为相机坐标系的原点，该点到成像平面的距离为f，P在成像平面的投影点为p=(x,y)，根据相似三角形原理，可以得到公式：<br>$$\left{<br>\begin{array}{l}<br>x = f\frac{X}{Z} \<br>y = f\frac{Y}{Z} \<br>z = f<br>\end{array}<br>\right.$$</p>
@@ -18497,20 +18499,20 @@ Win10可能会出现系统提示，点击仍要运行即可 。
     <title>微纳3D打印技术简介</title>
     <url>/arcticle/3d-micro-print.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>作为快速成型技术的一种，3D打印技术已经拥有了近30年的发展历史。市场调研机构Technavio预计，全球3D打印服务市场在2021年前将以每年44%的速度增长。但是近日《麻省理工科技评论》发表评论文章认为，一些知名的3D打印初创企业，如Desktop Metal、Carbon，大多聚焦于大幅面的制造，但随着3D打印技术快速发展，打印更精密、微细器件的能力进一步提高。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/3D%E6%89%93%E5%8D%B0%E6%8A%80%E6%9C%AF.png"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/3D%E6%89%93%E5%8D%B0%E6%8A%80%E6%9C%AF.png"></p>
 <!---more--->
 
 <h2 id="微立体光刻"><a href="#微立体光刻" class="headerlink" title="微立体光刻"></a>微立体光刻</h2><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>微立体光刻是在传统3D打印工艺——立体光固化成型(stereolithography，SL)基础上发展起来的一种新型微细加工技术，与传统的SL工艺相比，它采用更小的激光光斑(几个微米)，树脂在非常小的面积发生光固化反应，微立体光刻采用的层厚通常是 1~10 um。</p>
 <p>根据层面成型固化方式的不同划分为：<strong>扫描微立体光刻技术和面投影微立体光刻技术</strong>，其基本原理如图1所示。扫描微立体光刻是由Ikuta 和 Kirowatari先提出，扫描微立体光刻固化每层聚合物采用点对点或者线对线方式，根据分层数据激光光斑逐点扫描固化(图1(a))。该方法加工效率较低、成本高。</p>
 <p>近年，国际上又开发了面投影微立体光刻技术(整体曝光微立体光刻)，通过一次曝光可以完成一层的制作，极大提高加工效率。其基本原理如图 1(b)所示：利用分层软件对三维的 CAD 数字模型按照一定的厚度进行分层切片，每一层切片被转化为位图文件，每个位图文件被输入到动态掩模，根据显示在动态掩模上的图形每次曝光固化树脂液面一个层面。</p>
 <p>与扫描微立体光刻相比，面投影微立体光刻具有成型效率高、生产成本低的突出优势。已经被认为是目前有前景的微细加工技术之一。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/466787a48df34f6ab8048a1c847fd899_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/466787a48df34f6ab8048a1c847fd899_th.jpeg"></p>
 <center>图 1 微立体光刻原理</center>
 ### 基于注射泵的面投影微立体光刻
 
 <p>目前多数微立体光刻工艺被限定使用单一材料，然而对于许多应用(诸如组织工程、生物器官、复合材料等)需要多种材料的微纳结构。</p>
 <p>Choi 等人开发了基于注射泵的面投影微立体光刻，实现了多材料微纳尺度3D打印，注射泵被集成到现有的微立体光刻系统中，用于多种材料的输送和分配。他们利用开发的装置和工艺，已经实现了多材料(三种不同树脂材料)微结构 3D 打印，如图2所示。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/c794ed2dac9f4c5a93978d507d214ad9_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/c794ed2dac9f4c5a93978d507d214ad9_th.jpeg"></p>
 <center> (a) 多材料 CAD 模型; (b) 打印的 Rook 和 Post and helix 结构</center>
 <center>图 2 基于多材料微立体光刻工艺打印三材料微结构</center>
 微立体光刻成型材料以光敏树脂为主，Zhang 等人开发了基于陶瓷材料的微立体光刻工艺，微结构分辨率达到 1.2 µm，已经制造出直径400 µm的陶瓷微齿轮，以及深宽比达到16的微管。
@@ -18522,7 +18524,7 @@ Win10可能会出现系统提示，点击仍要运行即可 。
 <p>图3(a) 是CLIP技术的基本原理，以及在 Science 上的封面 (图 3(b))。CLIP 的基本原理：底面的透光板采用了透氧、透紫外光的特氟龙材料(聚四氟乙烯)，而透过的氧气进入到树脂液体中可以起到阻聚剂的作用，阻止固化反应的发生。</p>
 <p>氧气和紫外光照的作用在这个区域内会产生一种相互制衡的效果：一方面，光照会活化固化剂，而另一方面，氧气又会抑制反应，使得靠近底面部分的固化速度变慢(也就是所谓的“Dead Zone”)。当制件离开这个区域后，脱离氧气制约的材料可以迅速地发生反应，将树脂固化成型。除了打印速度快，CLIP 系统也提高了 3D 打印的精度，而这一点的关键也还在“死区”上。</p>
 <p>传统的 SLA 技术在打印换层的时候需要拉动尚未完全固化的树脂层，为了不破坏树脂层的结构，每个单层切片都必须保证一定的厚度来维持强度。而 CLIP 的固化层下面接触的是液态的“死区”，不需要担心它与透光板粘连，因此自然也更不容易被破坏。于是，树脂层就可以被切得更薄，更高精度的打印也就能够实现了。CLIP实现了高速连续打印。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/d537bfdabf844660b95fae401f381c2f_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/d537bfdabf844660b95fae401f381c2f_th.jpeg"></p>
 <center>  (a) CLIP 原理示意图; (b) Science 封面和 CLIP 打印的微纳结构</center>
 <center>图 3 CLIP 技术基本原理和 Science 封面</center>
 ### 亟待突破的难题
@@ -18545,14 +18547,14 @@ Win10可能会出现系统提示，点击仍要运行即可 。
 <p>SLA／DLP或是PolyJet技术所利用的都是单光子聚合，将一个光子作为基础单位进行吸收，一次只能通过一个光子。但是实际上，极少数情况下，由于物质中存在特殊的能级跃迁模式，也会出现同时吸收两个光子的情况，这就是“双光子吸收效应”。但双光子吸收的条件非常苛刻，它要求特定的物质和极高的能量密度。只有在高度聚焦的激光中心部位，才会有足够高的辐照度来确保有两个光子同时被吸收。</p>
 </blockquote>
 <p>单光子激发聚合固化和双光子激发聚合固化二者的区别如图3所示。因此，双光子过程具有良好的空间选择性。双光子聚合激光直写3D打印就是利用了双光子吸收过程对材料穿透性好、空间选择性高的特点，其基本原理如图4所示。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/3be319bee462445e8c83b6c76b0dfc36_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/3be319bee462445e8c83b6c76b0dfc36_th.jpeg"></p>
 <center>图 3 单光子激发聚合和双光子激发聚合</center>
 Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现有的其他工艺相比，双光子聚合能够制造更高分辨率的三维微纳结构。根据阿贝衍射极限，聚焦激光的分辨率被限定在所使用的光的波长和聚焦物镜的数值孔径(NA)，基于单光子聚合的微立体光刻难以达到亚微米分辨率。
 
 <p>其它高分辨微纳制造技术如电子束光刻受限于表面效应，不像双光子聚合，它是一种按量技术(in-volume)。双光子吸收是一种非线性现象，如果辐照足够高并且在基态和激发态之间的跃迁能与两个光子的结合能相匹配，任何材料都能发生双光子吸收。双光子吸收率与入射光的强度的平法成正比。</p>
 <p>这个二元效应限制这种现象在焦点处发生，这又转而限制了光聚合在亚微尺度的体积内。<strong>双光子聚合工艺已经实现 Sub-50 nm复杂三维微纳结构的制造。</strong></p>
 <p>德国 NanoScribe公司、维也纳科技大学等研究相继开发了基于双光子聚合激光直写微纳尺度 3D 打印设备和装置，基于双光子聚合激光直写3D打印目前已经显示出巨大的潜能和工业化应用前景。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/858eea6f52874d3090aec7b1f3ec37e5_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/858eea6f52874d3090aec7b1f3ec37e5_th.jpeg"></p>
 <center>图 4 基于双光子聚合的激光直写系统原理示意图</center>
 2001年Kawata等人利用超短脉冲激光(波长为 780 nm 的近红外飞秒脉冲激光)诱导光刻胶发生双光子聚合反应制造出长10和高7 μm的纳米牛，其分辨率达到 120 nm，突破了传统光学理论的衍射极限，实现了利用双光子加工技术制造亚微米精度的三维结构。
 
@@ -18562,45 +18564,45 @@ Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现�
 <p>图3(b)是其设备照片，它是一种激光直写技术或三维激光光刻工艺(direct laser writing/three-dimensional laser lithography)，利用超短激光脉冲曝光预定义的3D微纳结构在光敏材料上制作出具有自我支撑的微纳米结构，实现无需掩模或者模具直接制造复杂三维微纳结构。</p>
 <p>图3(c)是制造的一些典型微纳结构。Photonic Professional GT 可以以每秒超过5太位(terabits)的速度来打印聚合物波导，其三维侧向特征尺寸&lt;200 nm，典型的是150 nm ，图形化面积达到 100 mm×100 mm。</p>
 <p>已经被用于光子学、微光子学、微流道、生命科学、微纳科技等许多领域，尤其在生物医学和纳米科技等领域已经显示出巨大潜能和广阔的工程应用前景。美国北卡罗莱纳州立大学、北卡罗来纳大学教堂山分校和德国汉诺威激光中心等利用该技术打印具有生物可兼容性的组织支架。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/2b9508fad8d1436da15bf8fdec6128c3.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/2b9508fad8d1436da15bf8fdec6128c3.jpeg"></p>
 <center>(a) 原理示意图; (b) Photonic Professional GT 3D 打印设备; (c) 打 印的复杂三维微纳结</center>
 <center>图 5 德国 NanoScribe 3D 打印原理、设备和打印结构</center>
 近年，大量的研究聚焦在进一步提高效率、分辨率以及降低成本，这对于基于双光子聚合激光直写3D打印的实际商业化应用非常重要。
 
 <h2 id="电喷印"><a href="#电喷印" class="headerlink" title="电喷印"></a>电喷印</h2><p>电喷印亦称为电流体动力喷射打印(electrohydrodynamic jet printing，E-jet)，由Park和Rogers 等人提出和发展的一种基于电流体动力学(EHD)微液滴喷射成形沉积技术，与传统喷印技术(热喷印、压电喷印等)采用“推”方式不同，<strong>EHD 喷印采用电场驱动以“拉”方式从液锥(泰勒锥)顶端产生极细的射流。</strong></p>
 <p>其基本原理如图6所示：在导电喷嘴(第一电极)和导电衬底(第二电极)之间施加高压电源，利用在喷嘴和衬底之间形成的强电场力将液体从喷嘴口拉出形成泰勒锥，由于喷嘴具有较高的电势，喷嘴处的液体会受到电致切应力的作用;当局部电荷力超过液体表面张力后，带电液体从喷嘴处喷射，形成极细的射流，喷射沉积在衬底之上，结合承片台(x-y方向运动)和喷嘴工作台(z向)的运动能够实现复杂三维微纳结构的制造。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/6ff9ab9343ee4e59b4ec06c552e98165_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/6ff9ab9343ee4e59b4ec06c552e98165_th.jpeg"></p>
 <center>(a) 原理示意图; (b) 打印机结构示意图</center>
 <center>图 6 电喷印原理和结构示意图</center>
 由于电喷印采用微垂流模式按需喷印的模式，能够产生非常均匀的液滴并形成高精度图案；打印分辨率不受喷嘴直径的限制，能在喷嘴不易堵塞的前提下，实现亚微米、纳米尺度分辨率复杂三维微纳结构的制造。而且可用于电喷印的材料范围非常广泛，包括从绝缘聚合物到导电聚合物，从悬浊液到单壁碳纳米管溶液，从金属材料、无机功能材料到生物材料等。因此，电喷印具有：兼容性好(适用材料广泛，以及高黏度液体)、成本低、结构简单、分辨率高等优点，尤其是对于高黏度液体能够打印出比喷头结构尺寸低一个数量级的图案。目前它已经被看作最具有应用前景的微纳尺度3D打印技术之一。图7展示了采用电喷印制造的各种三维微纳结构。
 
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/a2ca1785a61b49389cb5353261e510a2_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/a2ca1785a61b49389cb5353261e510a2_th.jpeg"></p>
 <center>图 7 电喷印打印的微纳结构</center>
 微纳尺度多材料打印具有非常广泛的应用，但是多材料打印面临许多挑战性难题。Sutanto 等人提出一种基于多打印头的多材料喷印解决方案，开发了一种多打印头装置(如图8所示)，并且论述了多单元电喷印打印头的操控和模型，以及展示了该设备和工艺在电子工业、生物传感器等方面的应用。
 
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/8fc9b57e3dbe4cbe9629ec588bf51329_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/8fc9b57e3dbe4cbe9629ec588bf51329_th.jpeg"></p>
 <center>图 8 用于多材料打印工艺的打印头结构示意图</center>
 电喷印也被用于微光学器件的制造，诸如微透镜阵列(图9(a))、光学波导(图 9(b))等，尤其是采用多喷头、多材料工艺，成功制造出具有多种折射率的衍射光栅(图 9(c))，实现了具有不同光学特性多种异质材料低成本、柔性集成。这拓展了电喷印新的应用。
 
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/335b563c33e8436ca7b12d7ff394faae_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/335b563c33e8436ca7b12d7ff394faae_th.jpeg"></p>
 <center>图 9 电喷印制造的微光学器件</center>
 喷墨打印有两种供墨打印方式：连续喷墨打印和按需喷墨打印(drop-on-demand，DOD)。通过采用脉冲直流电压，并结合优化的工艺参数(如低偏置电压、脉冲宽度、脉冲峰值电压等)，实现按需喷墨打印;为了进一步提高打印图形的一致性，Prasetyo等人系统研究了基于DOD 电喷印制造金属银点状结构，重点研究了衬底表面能、温度对于点结构形状(尺寸、一致性)的影响，在硅衬底上打印出分辨率 10 µm 以下均匀金属银点状结构阵列，如图10所示。
 
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/050b0dd2736c4067bbf1fc33d79fff22.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/050b0dd2736c4067bbf1fc33d79fff22.jpeg"></p>
 <center>图10 基于DOD模式电喷印制造的均匀点状结构阵列</center>
 电喷印已经被用于再生组织领域，尤其在包含微纳纤维3D支架组织材料制造方面，与现有的其他3D打印工艺相比，采用电喷印展示出更好的性能，细胞培养结果显示，采用电喷印制造的支架对于种子细胞的生长提供了更加优良的微孔生长环境条件 (约高于3.5 倍最初细胞附着和高于2.1倍细胞增殖)。图6给出了采用电喷印和传统3D打印制造的组织支架结构对比。
 
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/036bc5c5fd544940b0c9983c32c74d52_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/036bc5c5fd544940b0c9983c32c74d52_th.jpeg"></p>
 <center>图 11 传统 3D 打印制造支架与电喷印制造支架</center>
 2012年Rogers教授等报道了基于电喷印图形化蛋白质材料，打印出功能蛋白质微阵列结构(图12)，采用多喷头打印系统将四种不同蛋白质材料打印在同一个衬底上。
 
 <p>电喷印提供了一种适用于蛋白质材料大面积微纳图形化方法，具有高效、图形一致性好、定位精度高的特点，而且能够兼容多种生物材料和衬底，实现多种微纳图形的制造。实验结果展示电喷印在生物技术和医疗等领域具有良好的应用前景和巨大的潜能。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/c3301005d7a4448c89774a2732a8a331.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/c3301005d7a4448c89774a2732a8a331.jpeg"></p>
 <center>图 12 电喷印打印的功能性蛋白质微阵列</center>
 2013 年 Rogers 教授等将电喷印与自组装技术相结合，实现了复杂三维纳米结构的制造，他们指出，打印出的纳米结构的分辨率还可以进一步提高到 15 nm。相关的研究成果发表在《自然・纳米技术》上，他们打印出的一些纳米结构如图13所示。
 
 <p>将电喷印与自组装、纳米压印等其他微纳制造结合起来，在实现4D打印、微纳复合结构制造、高分辨率纳米结构制造方面具有非常好的应用前景和潜能。</p>
-<p><img src="https://zymin-1255632454.cos.ap-shanghai.myqcloud.com/0newblog/ca44b0174f0f4a618691d25250024e35_th.jpeg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/ca44b0174f0f4a618691d25250024e35_th.jpeg"></p>
 <center>图 13 电喷印和自组装相结合制造的纳米结构</center>
 印刷电子尤其是柔性电子是电喷印具有工业化应用前景的领域之一，Choi 等人报道了他们的研究结果。2011 年英国伦敦大学的 Wang等人报道了采用电喷印制造薄壁陶瓷结构，一个厚度100 µm氧化锆薄壁结构被成功制造。
 
@@ -21359,7 +21361,7 @@ Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现�
 <p>至于当前，这些保险条款中的疾病定义到底如何，不妨我们花些力气，逐一拎出来看看。</p>
 <p>注：纯重疾险探讨，不含轻症、中症责任。因为所交保费买的是重疾，本该由重疾承担的部分，却成了缩水7成多的轻症。不做任何保险推荐，也不批判任何特定保险，因为在座的重疾险都是垃圾。</p>
 <p><strong>2007年中国保险行业协会制定的《重大疾病保险的疾病定义使用规范》中列明的疾病。</strong></p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200616160247.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200616160247.jpg"></p>
 <p><strong>（1）恶性肿瘤</strong></p>
 <p><strong>属性：严重疾病、确诊即赔</strong></p>
 <p><strong>陷阱指数：★</strong></p>
@@ -21654,13 +21656,13 @@ Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现�
 <p>昆仑健康保重大疾病保险（昆仑健康）——简称“昆仑保”</p>
 <p>健康随心重大疾病保险（大都会人寿）——简称“随心保”</p>
 <p>对照组疾病定义的评分标准，基于标准组100种重疾：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200616160247-1.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200616160247-1.jpg" alt="img"></p>
 <p>病种空缺项，与5星陷阱一样，-2分</p>
 <p>由表可知，当标准组100种重疾全2~1星较小陷阱时，标准组最高分100分，对照组最高分200分。当标准组100种重疾全5星重大陷阱时，标准组最低分-200分，对照组最高分-200分。</p>
 <p>当对照组存在空缺项时，等同于5星陷阱，按-2分计。举例：标准组有“埃博拉病毒感染”，要求“从发病开始有超过 30 天的进行性感染症状”，意思是要求病人存活至少30天。但埃博拉病毒凶险异常，绝大多数人感染后2天~2周就会病逝，故此条款纯属凑数，5星陷阱-2分。若对照组某保险未含此病种，与含有此病种的待遇一致，均-2分。</p>
 <p>注：纯重疾险探讨，不含轻症、中症责任。因为所交保费买的是重疾，本该由重疾承担的部分，不应变成缩水7成多的轻症。不做任何保险推荐。</p>
 <p>附——文本所述重大疾病一览表（26~35）：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200616160247-2.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200616160247-2.jpg" alt="img"></p>
 <p><strong>(26) 慢性呼吸功能衰竭</strong></p>
 <p><strong>属性：重大疾病、约定状态</strong></p>
 <p><strong>陷阱指数：★</strong>★★★★（满级）</p>
@@ -21887,7 +21889,7 @@ Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现�
 <p>2、100种重疾定义和顺序以“支付宝长期住院医疗”为例，并与“百年康惠保旗舰版”等6款热销款重疾险做为定义对照组。其他重疾险定义，或有优于此，抑或劣于此，本文不再赘述，各位可以自行拿着合同一一比对。</p>
 <p>3、评分标准详见“<a href="https://zhuanlan.zhihu.com/p/52046957">是重疾险还是绝症险？100种重疾的陷阱逐条解析（四）</a>”。</p>
 <p>附——文本所述重大疾病一览表（36~45）：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200616160247-3.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200616160247-3.jpg" alt="img"></p>
 <p><strong>（36）严重溃疡性结肠炎</strong></p>
 <p><strong>属性：重大疾病、约定手术</strong></p>
 <p><strong>陷阱指数：★</strong>★★★★（满级）</p>
@@ -22101,7 +22103,7 @@ Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现�
 <p>2、100种重疾定义和顺序以“支付宝长期住院医疗”为例，并与“百年康惠保旗舰版”等6款热销款重疾险做为定义对照组。其他重疾险定义，或有优于此，抑或劣于此，本文不再赘述，各位可以自行拿着合同一一比对。</p>
 <p>3、评分标准与对照组重疾险全称详见“<a href="https://zhuanlan.zhihu.com/p/52046957">是重疾险还是绝症险？100种重疾的陷阱逐条解析（四）</a>”。</p>
 <p>附——文本所述重大疾病一览表（46~55）：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200616160247-4.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200616160247-4.jpg" alt="img"></p>
 <p><strong>（46）丝虫病所致象皮病</strong></p>
 <p><strong>属性：重大疾病、约定状态</strong></p>
 <p><strong>陷阱指数：★</strong>★★</p>
@@ -22292,7 +22294,7 @@ Maruo 等人在1997年提出基于双光子聚合的微纳制造技术，与现�
 <p>康惠保：-29分，达尔文保：-24分，多啦保：-24分</p>
 <p>瑞盈保：-37分，昆仑保：-28分，随心保：-22分</p>
 <p>附——文本所述重大疾病一览表（56~65）：</p>
-<p><img src="https://gitee.com/zihm/images/raw/master/hexo/20200616160247-5.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/zzhm/zzhm.github.io/images/hexo/20200616160247-5.jpg" alt="img"></p>
 <p><strong>（56）严重肌营养不良症</strong></p>
 <p><strong>属性：重大疾病、约定状态</strong></p>
 <p><strong>陷阱指数：★</strong>★★★</p>
